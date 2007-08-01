@@ -1,0 +1,76 @@
+Asunder 0.1.0
+
+Copyright(C) 2005 Eric Lathrop <eric@ericlathrop.com>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+For more details see the file COPYING
+
+
+What is Asunder?
+================
+Asunder is a graphical CD ripper and encoder.
+
+A "ripper" copies audio data off a CD onto your computer. It typically stores
+the data in WAV format. An "encoder" converts this audio data into a number of
+compressed audio formats (MP3, etc).
+
+
+Features
+========
+* Support for WAV, MP3, Ogg Vorbis, and FLAC audio files
+* Uses CDDB to name and tag each track
+* Can encode to multiple formats in one session
+* Creates M3U playlists
+* Allows for each track to be by a different artist
+* Does not require a specific desktop environment
+
+
+Requirements
+============
+* Linux
+* GTK 2.4 or greater
+  http://gtk.org/
+* Libcddb 0.9.5 or greater
+  http://libcddb.sourceforge.net/
+* Cdparanoia
+  http://www.xiph.org/paranoia/
+* LAME (optional for MP3 support)
+  http://lame.sourceforge.net/
+* Vorbis-Tools (optional for Ogg Vorbis support)
+  http://www.xiph.org/ogg/vorbis/
+* FLAC (optional for FLAC support)
+  http://flac.sourceforge.net/
+
+  
+Installation & Configuration
+============================
+Read the file INSTALL
+
+
+Known Bugs
+==========
+Please bring any suggestions/bugs to my attention.
+You may email me at: eric@ericlathrop.com
+
+
+What's New
+=================
+Read the file CHANGELOG
+
+
+Upcoming features
+=================
+Read the file TODO

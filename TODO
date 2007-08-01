@@ -1,0 +1,20 @@
+
+High Priority
+==================
+* Store local cache of CDDB info (include any changes the user makes)
+* Figure out i18n and .po stuff
+* Need something to idicate "waiting" for CDDB
+* Add option to eject disc when done ripping
+* Memory leak when opening/closing the prefs dialog
+* Convert to libglade-2
+
+
+Low Priority
+==================
+* Submit new CDDB entries
+* Make human-friendly new config file format
+  (hopefully humans won't have to edit it, but just in case)
+* Add compile-time option to support Electra Project (http://elektra.sourceforge.net/)
+* Add disc year to (ID3, etc) tags
+* Find a cleaner way to cancel rips
+
