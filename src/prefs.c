@@ -49,16 +49,38 @@ prefs * new_prefs()
 	return p;
 }
 
+void clear_prefs(prefs * p)
+{
+	if (p->cdrom != NULL) 
+		free(p->cdrom);
+	p->cdrom = NULL;
+
+	if (p->music_dir != NULL) 
+		free(p->music_dir);
+	p->music_dir = NULL;
+
+	if (p->format_music != NULL) 
+		free(p->format_music);
+	p->format_music = NULL;
+
+	if (p->format_playlist != NULL) 
+		free(p->format_playlist);
+	p->format_playlist = NULL;
+
+	if (p->format_albumdir != NULL) 
+		free(p->format_albumdir);
+	p->format_albumdir = NULL;
+
+	if (p->invalid_chars != NULL) 
+		free(p->invalid_chars);
+	p->invalid_chars = NULL;
+}
+
 // free memory allocated for prefs struct
 // also frees any strings pointed to in the struct
 void delete_prefs(prefs * p)
 {
-	if (p->cdrom != NULL) free(p->cdrom);
-	if (p->music_dir != NULL) free(p->music_dir);
-	if (p->format_music != NULL) free(p->format_music);
-	if (p->format_playlist != NULL) free(p->format_playlist);
-	if (p->format_albumdir != NULL) free(p->format_albumdir);
-	if (p->invalid_chars != NULL) free(p->invalid_chars);
+	clear_prefs(p);
 	
 	free(p);
 }
@@ -77,7 +99,7 @@ prefs * get_default_prefs()
 	}
 	strncpy(p->cdrom, "/dev/cdrom", 11);
 	
-	p->music_dir = getenv("HOME");
+	p->music_dir = strdup(getenv("HOME"));
 	p->make_playlist = 1;
 	p->make_albumdir = 1;
 	p->format_music = malloc(sizeof(char) * 8);
@@ -128,22 +150,22 @@ prefs * get_default_prefs()
 // match the given prefs struct
 void set_widgets_from_prefs(prefs * p)
 {
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "cdrom")), p->cdrom);
-		gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(lookup_widget(win_prefs, "music_dir")), prefs_get_music_dir(p));
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_playlist")), p->make_playlist);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_albumdir")), p->make_albumdir);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_music")), p->format_music);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_playlist")), p->format_playlist);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_albumdir")), p->format_albumdir);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_wav")), p->rip_wav);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_mp3")), p->rip_mp3);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_ogg")), p->rip_ogg);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_flac")), p->rip_flac);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "mp3_vbr")), p->mp3_vbr);
-		gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "mp3bitrate")), p->mp3_bitrate);
-		gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "oggquality")), p->ogg_quality);
-		gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "flaccompression")), p->flac_compression);
-		gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "invalid_chars")), p->invalid_chars);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "cdrom")), p->cdrom);
+	gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(lookup_widget(win_prefs, "music_dir")), prefs_get_music_dir(p));
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_playlist")), p->make_playlist);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_albumdir")), p->make_albumdir);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_music")), p->format_music);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_playlist")), p->format_playlist);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_albumdir")), p->format_albumdir);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_wav")), p->rip_wav);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_mp3")), p->rip_mp3);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_ogg")), p->rip_ogg);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_flac")), p->rip_flac);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "mp3_vbr")), p->mp3_vbr);
+	gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "mp3bitrate")), p->mp3_bitrate);
+	gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "oggquality")), p->ogg_quality);
+	gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "flaccompression")), p->flac_compression);
+	gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "invalid_chars")), p->invalid_chars);
 }
 
 // makes a prefs struct from the current state of the widgets
@@ -278,6 +300,8 @@ void load_prefs(prefs * p)
 	char * line;
 	if (fd > -1)
 	{
+		clear_prefs(p);
+		
 		p->cdrom = read_line(fd);
 		p->music_dir = read_line(fd);
 		p->make_playlist = read_line_num(fd);
@@ -294,7 +318,7 @@ void load_prefs(prefs * p)
 		p->ogg_quality = read_line_num(fd);
 		p->flac_compression = read_line_num(fd);
 		p->invalid_chars = read_line(fd);
-	
+		
 		close(fd);
 	} else {
 		fprintf(stderr, "Warning: could not load config file: %s\n", strerror(errno));

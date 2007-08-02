@@ -379,6 +379,7 @@ int main(int argc, char *argv[])
 #endif
 
 	global_prefs = get_default_prefs();
+	//global_prefs = new_prefs();
 	load_prefs(global_prefs);
 	
 	win_main = create_main();
@@ -391,27 +392,32 @@ int main(int argc, char *argv[])
 	renderer = gtk_cell_renderer_toggle_new();
 	g_object_set(renderer, "activatable", TRUE, NULL);
 	g_signal_connect(renderer, "toggled", (GCallback) rip_toggled, NULL);
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, "Rip", renderer, "active", COL_RIPTRACK, NULL);
+	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
+					"Rip", renderer, "active", COL_RIPTRACK, NULL);
 
 	col = gtk_tree_view_column_new();
 	renderer = gtk_cell_renderer_text_new();
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, "Track", renderer, "text", COL_TRACKNUM, NULL);
+	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
+					"Track", renderer, "text", COL_TRACKNUM, NULL);
 
 	col = gtk_tree_view_column_new();
 	renderer = gtk_cell_renderer_text_new();
 	g_object_set(renderer, "editable", TRUE, NULL);
 	g_signal_connect(renderer, "edited", (GCallback) artist_edited, NULL);
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, "Artist", renderer, "text", COL_TRACKARTIST, NULL);
+	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
+					"Artist", renderer, "text", COL_TRACKARTIST, NULL);
 
 	col = gtk_tree_view_column_new();
 	renderer = gtk_cell_renderer_text_new();
 	g_object_set(renderer, "editable", TRUE, NULL);
 	g_signal_connect(renderer, "edited", (GCallback) title_edited, NULL);
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, "Title", renderer, "text", COL_TRACKTITLE, NULL);
+	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
+					"Title", renderer, "text", COL_TRACKTITLE, NULL);
 
 	col = gtk_tree_view_column_new();
 	renderer = gtk_cell_renderer_text_new();
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, "Time", renderer, "text", COL_TRACKTIME, NULL);
+	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
+					"Time", renderer, "text", COL_TRACKTIME, NULL);
 
 	// disable the "rip" button
 	// it will be enabled when check_disc() finds a disc in the drive
@@ -421,7 +427,13 @@ int main(int argc, char *argv[])
 
 	if (!program_exists("cdparanoia"))
 	{
-		GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "\"cdparanoia\" was not found in your path.\n\n"PACKAGE" requires cdparanoia to rip CDs. Please download cdparanoia from http://www.xiph.org/paranoia/ and install it.");
+		GtkWidget * dialog;
+
+		dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
+				GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+				"\"cdparanoia\" was not found in your path.\n\n"
+				PACKAGE" requires cdparanoia to rip CDs. Please download cdparanoia "
+				"from http://www.xiph.org/paranoia/ and install it.");
 		gtk_dialog_run(GTK_DIALOG(dialog));
 		gtk_widget_destroy(dialog);
 		exit(-1);

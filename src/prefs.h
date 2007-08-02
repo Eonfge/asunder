@@ -46,6 +46,8 @@ extern prefs * global_prefs;
 // and make sure everything is set to NULL
 prefs * new_prefs();
 
+void clear_prefs(prefs * p);
+
 // free memory allocated for prefs struct
 // also frees any strings pointed to in the struct
 void delete_prefs(prefs * p);
