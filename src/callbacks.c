@@ -25,6 +25,9 @@ For more details see the file COPYING
 #endif
 
 #include <gtk/gtk.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "callbacks.h"
 #include "interface.h"

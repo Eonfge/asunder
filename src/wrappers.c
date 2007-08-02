@@ -25,6 +25,9 @@ For more details see the file COPYING
 #include <gtk/gtk.h>
 #include <stdio.h>
 #include <signal.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "wrappers.h"
 #include "threads.h"

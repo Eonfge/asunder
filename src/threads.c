@@ -26,6 +26,8 @@ For more details see the file COPYING
 #include <gtk/gtk.h>
 #include <errno.h>
 #include <signal.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "threads.h"
 #include "main.h"

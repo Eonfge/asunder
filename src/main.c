@@ -33,6 +33,8 @@ For more details see the file COPYING
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <linux/cdrom.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 #include "main.h"
 #include "interface.h"
@@ -303,7 +305,7 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
 		trim_chars(track_artist, global_prefs->invalid_chars);
 		trim_whitespace(track_artist);
 		
-		track_title = cddb_track_get_title(track);
+		track_title = cddb_track_get_title(track); //!! this returns const char*
 		trim_chars(track_title, global_prefs->invalid_chars);
 		trim_whitespace(track_title);
 		
@@ -325,8 +327,8 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
 void update_tracklist(cddb_disc_t * disc)
 {
 	GtkTreeModel * model;
-	char * disc_artist = cddb_disc_get_artist(disc);
-	char * disc_title = cddb_disc_get_title(disc);
+	char * disc_artist = cddb_disc_get_artist(disc); //!! this returns const char*
+	char * disc_title = cddb_disc_get_title(disc); //!! this returns const char*
 	cddb_track_t * track;
 	int singleartist;
 

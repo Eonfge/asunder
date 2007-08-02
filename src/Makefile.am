@@ -18,4 +18,3 @@ asunder_SOURCES = \
 	wrappers.c wrappers.h
 
 asunder_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
-
