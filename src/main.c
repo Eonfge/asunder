@@ -379,7 +379,6 @@ int main(int argc, char *argv[])
 #endif
 
 	global_prefs = get_default_prefs();
-	//global_prefs = new_prefs();
 	load_prefs(global_prefs);
 	
 	win_main = create_main();

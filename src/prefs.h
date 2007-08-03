@@ -38,6 +38,8 @@ typedef struct _prefs
 	int ogg_quality;
 	int flac_compression;
 	char * invalid_chars;
+	int main_window_width;
+	int main_window_height;
 } prefs;
 
 extern prefs * global_prefs;
@@ -60,8 +62,7 @@ prefs * get_default_prefs();
 // match the given prefs struct
 void set_widgets_from_prefs(prefs * p);
 
-// makes a prefs struct from the current state of the widgets
-prefs * get_prefs_from_widgets();
+void get_prefs_from_widgets(prefs * p);
 
 // store the given prefs struct to the config file
 void save_prefs(prefs * p);

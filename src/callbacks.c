@@ -91,8 +91,7 @@ on_prefs_response                      (GtkDialog       *dialog,
 
 	if (response_id == GTK_RESPONSE_OK)
 	{
-		delete_prefs(global_prefs);
-		global_prefs = get_prefs_from_widgets();
+		get_prefs_from_widgets(global_prefs);
 		save_prefs(global_prefs);
 	}
 	
@@ -153,7 +152,8 @@ artist_edited                    (GtkCellRendererText *cell,
                                   gchar               *new_text,
                                   gpointer             user_data)
 {
-	GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
+	GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
+					GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
 	GtkTreeIter iter;
 	
 	trim_chars(new_text, global_prefs->invalid_chars);
@@ -170,7 +170,8 @@ title_edited                    (GtkCellRendererText *cell,
                                   gchar               *new_text,
                                   gpointer             user_data)
 {
-	GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
+	GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
+					GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
 	GtkTreeIter iter;
 	
 	trim_chars(new_text, global_prefs->invalid_chars);
@@ -203,7 +204,14 @@ on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
 {
 	if (gtk_toggle_button_get_active(togglebutton) && !program_exists("lame"))
 	{
-		GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "\"lame\" was not found in your path.\n\n"PACKAGE" requires LAME to create MP3 files. All MP3 functionality will be disabled until LAME is installed.\n\nYou can download LAME from http://lame.sourceforge.net/");
+		GtkWidget * dialog;
+		
+		dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, 
+				GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+				"\"lame\" was not found in your path.\n\n"
+				PACKAGE" requires LAME to create MP3 files. All MP3 functionality "
+				"will be disabled until LAME is installed.\n\nYou can download LAME "
+				"from http://lame.sourceforge.net/");
 		gtk_dialog_run(GTK_DIALOG(dialog));
 		gtk_widget_destroy(dialog);
 
@@ -259,7 +267,10 @@ on_about_clicked                       (GtkToolButton   *toolbutton,
 {
 	win_about = create_aboutbox();
 	gtk_window_set_title(GTK_WINDOW(win_about), "About "PACKAGE);
-	gtk_label_set_markup(GTK_LABEL(lookup_widget(win_about, "about_text")), "<b><big>"PACKAGE" "VERSION"</big></b>\n\n"PACKAGE" is a CD ripper and encoder.\n\nhttp://ericlathrop.com/asunder/\n\n<small>(C) 2005 Eric Lathrop</small>");
+	gtk_label_set_markup(GTK_LABEL(lookup_widget(win_about, "about_text")), 
+		"<b><big>"PACKAGE" "VERSION"</big></b>\n\n"
+		PACKAGE" is a CD ripper and encoder.\n\nhttp://ericlathrop.com/asunder/\n\n"
+		"<small>(C) 2005 Eric Lathrop</small>");
 	gtk_widget_show(win_about);
 }
 
@@ -335,4 +346,18 @@ on_aboutbox_response                   (GtkDialog       *dialog,
 	gtk_widget_hide(GTK_WIDGET(dialog));
 	gtk_widget_destroy(GTK_WIDGET(dialog));
 }
+
+void
+on_window_close	                       (GtkWidget       *widget,
+                                        GdkEventFocus   *event,
+                                        gpointer         user_data)
+{
+	gtk_window_get_size(GTK_WINDOW(win_main), 
+			&global_prefs->main_window_width, 
+			&global_prefs->main_window_height);
+	
+	save_prefs(global_prefs);
+
+	gtk_main_quit();
+}	
 

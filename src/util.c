@@ -214,7 +214,10 @@ char * read_line(int fd)
 
 	do
 	{
-		read(fd, &cur, 1);
+		int rc;
+		rc = read(fd, &cur, 1);
+		if (rc != 1)
+			break;
 		pos++;
 	} while (cur != '\n');
 	

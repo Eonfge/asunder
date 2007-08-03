@@ -124,8 +124,12 @@ on_album_title_focus_out_event         (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data);
 
-
 void
 on_aboutbox_response                   (GtkDialog       *dialog,
                                         gint             response_id,
+
+                                        gpointer         user_data);
+void
+on_window_close	                       (GtkWidget       *widget,
+                                        GdkEventFocus   *event,
                                         gpointer         user_data);

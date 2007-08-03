@@ -1,3 +1,10 @@
+Andrew's:
+==================
+- save main window size in config (need a callback to update p->main_window_*)
+- only do save_prefs when quitting
+- make sure all mallocs have checks
+- make sure all translatable strings are so marked
+
 
 High Priority
 ==================
@@ -18,3 +25,6 @@ Low Priority
 * Add disc year to (ID3, etc) tags
 * Find a cleaner way to cancel rips
 
+Tests to run before a release
+=============================
+- try to run with an older config file

@@ -143,6 +143,9 @@ prefs * get_default_prefs()
 	}
 	strncpy(p->invalid_chars, "/", 2);
 	
+	p->main_window_width = 600;
+	p->main_window_height = 450;
+	
 	return p;
 }
 
@@ -168,14 +171,14 @@ void set_widgets_from_prefs(prefs * p)
 	gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "invalid_chars")), p->invalid_chars);
 }
 
-// makes a prefs struct from the current state of the widgets
-prefs * get_prefs_from_widgets()
+// populates a prefs struct from the current state of the widgets
+void get_prefs_from_widgets(prefs * p)
 {
 	gchar * tocopy = NULL;
 	const gchar * tocopyc = NULL;
-
-	prefs * p = new_prefs();
-
+	
+	clear_prefs(p);
+	
 	tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "cdrom")));
 	p->cdrom = malloc(sizeof(char) * (strlen(tocopyc)+1));
 	if (p->cdrom == NULL)
@@ -275,7 +278,9 @@ void save_prefs(prefs * p)
 		fprintf(config, "%d\n", p->ogg_quality);
 		fprintf(config, "%d\n", p->flac_compression);
 		fprintf(config, "%s\n", p->invalid_chars);
-	
+		fprintf(config, "%d\n", p->main_window_width);
+		fprintf(config, "%d\n", p->main_window_height);
+	printf("save %dx%d\n", p->main_window_width, p->main_window_height);
 		fclose(config);
 	} else {
 		fprintf(stderr, "Warning: could not save config file: %s\n", strerror(errno));
@@ -318,7 +323,9 @@ void load_prefs(prefs * p)
 		p->ogg_quality = read_line_num(fd);
 		p->flac_compression = read_line_num(fd);
 		p->invalid_chars = read_line(fd);
-		
+		p->main_window_width = read_line_num(fd);
+		p->main_window_height = read_line_num(fd);
+		printf("load %dx%d\n", p->main_window_width, p->main_window_height);
 		close(fd);
 	} else {
 		fprintf(stderr, "Warning: could not load config file: %s\n", strerror(errno));
@@ -338,7 +345,11 @@ char * prefs_get_music_dir(prefs * p)
 	{
 		home = getenv("HOME");
 		
-		dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "The music directory \"%s\" does not exist.\n\nThe music directory will be reset to \"%s\".", p->music_dir, home);
+		dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, 
+					GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+					"The music directory \"%s\" does not exist.\n\n"
+					"The music directory will be reset to \"%s\".", 
+					p->music_dir, home);
 		gtk_dialog_run(GTK_DIALOG(dialog));
 		gtk_widget_destroy(dialog);
 		
@@ -358,34 +369,34 @@ int int_to_bitrate(int i)
 {
 	switch (i)
 	{
-		case 0:
-			return 32;
-		case 1:
-			return 40;
-		case 2:
-			return 48;
-		case 3:
-			return 56;
-		case 4:
-			return 64;
-		case 5:
-			return 80;
-		case 6:
-			return 96;
-		case 7:
-			return 112;
-		case 8:
-			return 128;
-		case 9:
-			return 160;
-		case 10:
-			return 192;
-		case 11:
-			return 224;
-		case 12:
-			return 256;
-		case 13:
-			return 320;
+	case 0:
+		return 32;
+	case 1:
+		return 40;
+	case 2:
+		return 48;
+	case 3:
+		return 56;
+	case 4:
+		return 64;
+	case 5:
+		return 80;
+	case 6:
+		return 96;
+	case 7:
+		return 112;
+	case 8:
+		return 128;
+	case 9:
+		return 160;
+	case 10:
+		return 192;
+	case 11:
+		return 224;
+	case 12:
+		return 256;
+	case 13:
+		return 320;
 	}
 }
 
