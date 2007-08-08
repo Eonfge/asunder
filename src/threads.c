@@ -337,10 +337,20 @@ gpointer encode(gpointer data)
         
         const char * temp_album_artist = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_artist")));
         album_artist = malloc(sizeof(char) * (strlen(temp_album_artist)+1));
+        if (album_artist == NULL)
+        {
+            fprintf(stderr, "malloc(sizeof(char) * (strlen(temp_album_artist)+1)) failed\n");
+            exit(-1);
+        }
         strncpy(album_artist, temp_album_artist, strlen(temp_album_artist)+1);
         
         const char * temp_album_title = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_title")));
         album_title = malloc(sizeof(char) * (strlen(temp_album_title)+1));
+        if (album_title == NULL)
+        {
+            fprintf(stderr, "malloc(sizeof(char) * (strlen(temp_album_artist)+1)) failed\n");
+            exit(-1);
+        }
         strncpy(album_title, temp_album_title, strlen(temp_album_title)+1);
 
         gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);

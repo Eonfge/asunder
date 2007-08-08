@@ -214,6 +214,11 @@ char * read_line(int fd)
     lseek(fd, -pos, SEEK_CUR);
     
     ret = malloc(sizeof(char) * pos);
+    if (ret == NULL)
+    {
+        fprintf(stderr, "malloc(sizeof(char) * pos) failed\n");
+        exit(-1);
+    }
     read(fd, ret, pos);
     ret[pos-1] = '\0';
     
@@ -244,6 +249,11 @@ int program_exists(char * name)
     
     path = getenv("PATH");
     strings = malloc(sizeof(char) * (strlen(path)+1));
+    if (strings == NULL)
+    {
+        fprintf(stderr, "malloc(sizeof(char) * (strlen(path)+1)) failed\n");
+        exit(-1);
+    }
     strncpy(strings, path, strlen(path)+1);
     
     for (i=0; i<strlen(path); i++)
@@ -254,6 +264,11 @@ int program_exists(char * name)
         }
     }
     paths = malloc(sizeof(char *) * numpaths);
+    if (paths == NULL)
+    {
+        fprintf(stderr, "malloc(sizeof(char *) * numpaths) failed\n");
+        exit(-1);
+    }
     numpaths = 1;
     paths[0] = &strings[0];
     for (i=0; i<strlen(path); i++)

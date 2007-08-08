@@ -239,7 +239,14 @@ void save_prefs(prefs * p)
 {
     char * home = getenv("HOME");
     int homelen = strlen(home);
-    char * file = malloc(sizeof(char) * (homelen + 10));
+    char * file;
+    
+    file = malloc(sizeof(char) * (homelen + 10));
+    if (file == NULL)
+    {
+        fprintf(stderr, "malloc(sizeof(char) * (homelen + 10)) failed\n");
+        exit(-1);
+    }
     strncpy(file, home, homelen);
     strncpy(&file[homelen], "/.asunder", 10);
     
@@ -268,7 +275,7 @@ void save_prefs(prefs * p)
         fprintf(config, "%s\n", p->invalid_chars);
         fprintf(config, "%d\n", p->main_window_width);
         fprintf(config, "%d\n", p->main_window_height);
-        printf("save %dx%d\n", p->main_window_width, p->main_window_height);
+        
         fclose(config);
     } else {
         fprintf(stderr, "Warning: could not save config file: %s\n", strerror(errno));
@@ -281,7 +288,14 @@ void load_prefs(prefs * p)
 {
     char * home = getenv("HOME");
     int homelen = strlen(home);
-    char * file = malloc(sizeof(char) * (homelen + 10));
+    char * file;
+    
+    file = malloc(sizeof(char) * (homelen + 10));
+    if (file == NULL)
+    {
+        fprintf(stderr, "malloc(sizeof(char) * (homelen + 10)) failed\n");
+        exit(-1);
+    }
     strncpy(file, home, homelen);
     strncpy(&file[homelen], "/.asunder", 10);
 
@@ -313,7 +327,7 @@ void load_prefs(prefs * p)
         p->invalid_chars = read_line(fd);
         p->main_window_width = read_line_num(fd);
         p->main_window_height = read_line_num(fd);
-        printf("load %dx%d\n", p->main_window_width, p->main_window_height);
+        
         close(fd);
     } else {
         fprintf(stderr, "Warning: could not load config file: %s\n", strerror(errno));
@@ -343,6 +357,12 @@ char * prefs_get_music_dir(prefs * p)
         
         free(p->music_dir);
         p->music_dir = malloc(sizeof(char) * (strlen(home)+1));
+        if (p->music_dir == NULL)
+        {
+            fprintf(stderr, "malloc(sizeof(char) * (strlen(home)+1)) failed\n");
+            exit(-1);
+        }
+        
         strncpy(p->music_dir, home, strlen(home)+1);
         
         save_prefs(p);
