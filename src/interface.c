@@ -71,10 +71,10 @@ create_main (void)
   gtk_window_set_default_size (GTK_WINDOW (main), global_prefs->main_window_width, global_prefs->main_window_height);
   main_icon_pixbuf = create_pixbuf ("asunder.png");
   if (main_icon_pixbuf)
-    {
-      gtk_window_set_icon (GTK_WINDOW (main), main_icon_pixbuf);
-      gdk_pixbuf_unref (main_icon_pixbuf);
-    }
+  {
+    gtk_window_set_icon (GTK_WINDOW (main), main_icon_pixbuf);
+    gdk_pixbuf_unref (main_icon_pixbuf);
+  }
 
   vbox1 = gtk_vbox_new (FALSE, 0);
   gtk_widget_show (vbox1);
@@ -136,12 +136,14 @@ create_main (void)
   gtk_misc_set_alignment (GTK_MISC (disc), 0, 0.49);
 
   artist_label = gtk_label_new (_("Album Artist:"));
+  gtk_misc_set_alignment (GTK_MISC (artist_label), 0, 0);
   gtk_widget_show (artist_label);
   gtk_table_attach (GTK_TABLE (table2), artist_label, 0, 1, 1, 2,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 3, 0);
 
   title_label = gtk_label_new (_("Album Title:"));
+  gtk_misc_set_alignment (GTK_MISC (title_label), 0, 0);
   gtk_widget_show (title_label);
   gtk_table_attach (GTK_TABLE (table2), title_label, 0, 1, 2, 3,
                     (GtkAttachOptions) (GTK_FILL),
@@ -256,8 +258,6 @@ create_prefs (void)
   GtkWidget *dialog_vbox1;
   GtkWidget *notebook1;
   GtkWidget *vbox5;
-  GtkWidget *frame6;
-  GtkWidget *alignment11;
   GtkWidget *music_dir;
   GtkWidget *label15;
   GtkWidget *make_playlist;
@@ -315,11 +315,11 @@ create_prefs (void)
   tooltips = gtk_tooltips_new ();
 
   prefs = gtk_dialog_new ();
+  gtk_window_set_transient_for (GTK_WINDOW(prefs), GTK_WINDOW(win_main));
   gtk_window_set_title (GTK_WINDOW (prefs), _("Preferences"));
   gtk_window_set_modal (GTK_WINDOW (prefs), TRUE);
-  gtk_window_set_default_size (GTK_WINDOW (prefs), 500, 400);
   gtk_window_set_type_hint (GTK_WINDOW (prefs), GDK_WINDOW_TYPE_HINT_DIALOG);
-
+  
   dialog_vbox1 = GTK_DIALOG (prefs)->vbox;
   gtk_widget_show (dialog_vbox1);
 
@@ -327,32 +327,21 @@ create_prefs (void)
   gtk_widget_show (notebook1);
   gtk_box_pack_start (GTK_BOX (dialog_vbox1), notebook1, TRUE, TRUE, 0);
 
-  vbox5 = gtk_vbox_new (FALSE, 0);
+  vbox5 = gtk_vbox_new (FALSE, 5);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox5), 5);
   gtk_widget_show (vbox5);
   gtk_container_add (GTK_CONTAINER (notebook1), vbox5);
 
-  frame6 = gtk_frame_new (NULL);
-  gtk_widget_show (frame6);
-  gtk_box_pack_start (GTK_BOX (vbox5), frame6, TRUE, TRUE, 8);
-  gtk_frame_set_shadow_type (GTK_FRAME (frame6), GTK_SHADOW_NONE);
-
-  alignment11 = gtk_alignment_new (0.5, 0.5, 1, 1);
-  gtk_widget_show (alignment11);
-  gtk_container_add (GTK_CONTAINER (frame6), alignment11);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 0, 0, 12, 0);
-
-  music_dir = gtk_file_chooser_widget_new (GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
-  gtk_widget_show (music_dir);
-  gtk_container_add (GTK_CONTAINER (alignment11), music_dir);
-  g_object_set (music_dir,
-                "select-multiple", TRUE,
-                NULL);
-
   label15 = gtk_label_new (_("Music Folder"));
+  gtk_misc_set_alignment(GTK_MISC(label15), 0, 0);
   gtk_widget_show (label15);
-  gtk_frame_set_label_widget (GTK_FRAME (frame6), label15);
+  gtk_box_pack_start (GTK_BOX (vbox5), label15, FALSE, FALSE, 0);
   gtk_label_set_use_markup (GTK_LABEL (label15), TRUE);
 
+  music_dir = gtk_file_chooser_button_new(_("Music Folder"), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
+  gtk_widget_show (music_dir);
+  gtk_box_pack_start (GTK_BOX (vbox5), music_dir, FALSE, FALSE, 0);
+  
   make_playlist = gtk_check_button_new_with_mnemonic (_("Create M3U Playlist"));
   gtk_widget_show (make_playlist);
   gtk_box_pack_start (GTK_BOX (vbox5), make_playlist, FALSE, FALSE, 0);
@@ -372,60 +361,60 @@ create_prefs (void)
   cdrom = gtk_entry_new ();
   gtk_widget_show (cdrom);
   gtk_box_pack_start (GTK_BOX (hbox12), cdrom, TRUE, TRUE, 0);
-
+  
+  GtkWidget* hboxFill;
+  hboxFill = gtk_hbox_new (FALSE, 0);
+  gtk_widget_show (hboxFill);
+  gtk_box_pack_start (GTK_BOX (vbox5), hboxFill, TRUE, TRUE, 0);
+  
   label4 = gtk_label_new (_("General"));
   gtk_widget_show (label4);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 0), label4);
 
-  vbox7 = gtk_vbox_new (FALSE, 0);
+  vbox7 = gtk_vbox_new (FALSE, 5);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox7), 5);
   gtk_widget_show (vbox7);
   gtk_container_add (GTK_CONTAINER (notebook1), vbox7);
 
   frame2 = gtk_frame_new (NULL);
   gtk_widget_show (frame2);
   gtk_box_pack_start (GTK_BOX (vbox7), frame2, FALSE, FALSE, 0);
-  gtk_container_set_border_width (GTK_CONTAINER (frame2), 4);
-
-  alignment7 = gtk_alignment_new (0.5, 0.5, 1, 1);
-  gtk_widget_show (alignment7);
-  gtk_container_add (GTK_CONTAINER (frame2), alignment7);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment7), 0, 0, 12, 0);
-
+  
   vbox10 = gtk_vbox_new (FALSE, 0);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox10), 5);
   gtk_widget_show (vbox10);
-  gtk_container_add (GTK_CONTAINER (alignment7), vbox10);
-
+  gtk_container_add (GTK_CONTAINER (frame2), vbox10);
+  
   label14 = gtk_label_new (_("%A - Artist\n%L - Album\n%N - Track Number (2-digit)\n%T - Song Title"));
   gtk_widget_show (label14);
   gtk_box_pack_start (GTK_BOX (vbox10), label14, FALSE, FALSE, 0);
-  gtk_misc_set_alignment (GTK_MISC (label14), 0.1, 0.5);
+  gtk_misc_set_alignment (GTK_MISC (label14), 0, 0);
   gtk_misc_set_padding (GTK_MISC (label14), 0, 7);
 
   table1 = gtk_table_new (3, 2, FALSE);
   gtk_widget_show (table1);
   gtk_box_pack_start (GTK_BOX (vbox10), table1, TRUE, TRUE, 0);
-  gtk_container_set_border_width (GTK_CONTAINER (table1), 10);
-
-  label11 = gtk_label_new (_("Music File"));
+  
+  label11 = gtk_label_new (_("Music File: "));
   gtk_widget_show (label11);
   gtk_table_attach (GTK_TABLE (table1), label11, 0, 1, 0, 1,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (label11), 0, 0.5);
+  gtk_misc_set_alignment (GTK_MISC (label11), 0, 0);
 
-  label12 = gtk_label_new (_("Playlist File"));
+  label12 = gtk_label_new (_("Playlist File: "));
   gtk_widget_show (label12);
   gtk_table_attach (GTK_TABLE (table1), label12, 0, 1, 1, 2,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (label12), 0, 0.5);
+  gtk_misc_set_alignment (GTK_MISC (label12), 0, 0);
 
-  label17 = gtk_label_new (_("Album Directory"));
+  label17 = gtk_label_new (_("Album Directory: "));
   gtk_widget_show (label17);
   gtk_table_attach (GTK_TABLE (table1), label17, 0, 1, 2, 3,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
-  gtk_misc_set_alignment (GTK_MISC (label17), 0, 0.5);
+  gtk_misc_set_alignment (GTK_MISC (label17), 0, 0);
 
   format_music = gtk_entry_new ();
   gtk_widget_show (format_music);
@@ -445,7 +434,7 @@ create_prefs (void)
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
 
-  label20 = gtk_label_new (_("Filename Formats:"));
+  label20 = gtk_label_new (_("Filename Formats"));
   gtk_widget_show (label20);
   gtk_frame_set_label_widget (GTK_FRAME (frame2), label20);
   gtk_label_set_use_markup (GTK_LABEL (label20), TRUE);
@@ -467,7 +456,8 @@ create_prefs (void)
   gtk_widget_show (label19);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 1), label19);
 
-  vbox8 = gtk_vbox_new (FALSE, 0);
+  vbox8 = gtk_vbox_new (FALSE, 5);
+  gtk_container_set_border_width (GTK_CONTAINER (vbox8), 5);
   gtk_widget_show (vbox8);
   gtk_container_add (GTK_CONTAINER (notebook1), vbox8);
 
@@ -608,8 +598,6 @@ create_prefs (void)
   GLADE_HOOKUP_OBJECT_NO_REF (prefs, dialog_vbox1, "dialog_vbox1");
   GLADE_HOOKUP_OBJECT (prefs, notebook1, "notebook1");
   GLADE_HOOKUP_OBJECT (prefs, vbox5, "vbox5");
-  GLADE_HOOKUP_OBJECT (prefs, frame6, "frame6");
-  GLADE_HOOKUP_OBJECT (prefs, alignment11, "alignment11");
   GLADE_HOOKUP_OBJECT (prefs, music_dir, "music_dir");
   GLADE_HOOKUP_OBJECT (prefs, label15, "label15");
   GLADE_HOOKUP_OBJECT (prefs, make_playlist, "make_playlist");
@@ -620,7 +608,6 @@ create_prefs (void)
   GLADE_HOOKUP_OBJECT (prefs, label4, "label4");
   GLADE_HOOKUP_OBJECT (prefs, vbox7, "vbox7");
   GLADE_HOOKUP_OBJECT (prefs, frame2, "frame2");
-  GLADE_HOOKUP_OBJECT (prefs, alignment7, "alignment7");
   GLADE_HOOKUP_OBJECT (prefs, vbox10, "vbox10");
   GLADE_HOOKUP_OBJECT (prefs, label14, "label14");
   GLADE_HOOKUP_OBJECT (prefs, table1, "table1");
