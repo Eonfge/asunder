@@ -1,11 +1,14 @@
-# Language translation of Asunder
-# This file is distributed under the same license as the Asunder package.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-08 00:52-0400\n"
+"POT-Creation-Date: 2007-08-08 01:30-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:385 src/interface.c:187
+#: src/main.c:385 src/interface.c:188
 msgid "Rip"
 msgstr ""
 
@@ -39,146 +42,6 @@ msgid ""
 "CDs."
 msgstr ""
 
-#: src/interface.c:69
-msgid "Asunder"
-msgstr ""
-
-#: src/interface.c:131
-msgid "Disc:"
-msgstr ""
-
-#: src/interface.c:137
-msgid "Album Artist:"
-msgstr ""
-
-#: src/interface.c:143
-msgid "Album Title:"
-msgstr ""
-
-#: src/interface.c:149
-msgid "Single Artist"
-msgstr ""
-
-#: src/interface.c:313
-msgid "Preferences"
-msgstr ""
-
-#: src/interface.c:346
-msgid "Music Folder"
-msgstr ""
-
-#: src/interface.c:351
-msgid "Create M3U Playlist"
-msgstr ""
-
-#: src/interface.c:355
-msgid "Create directory for each album"
-msgstr ""
-
-#: src/interface.c:363
-msgid "CD-ROM Device:"
-msgstr ""
-
-#: src/interface.c:371
-msgid "General"
-msgstr ""
-
-#: src/interface.c:393
-msgid ""
-"%A - Artist\n"
-"%L - Album\n"
-"%N - Track Number (2-digit)\n"
-"%T - Song Title"
-msgstr ""
-
-#: src/interface.c:404
-msgid "Music File"
-msgstr ""
-
-#: src/interface.c:411
-msgid "Playlist File"
-msgstr ""
-
-#: src/interface.c:418
-msgid "Album Directory"
-msgstr ""
-
-#: src/interface.c:443
-msgid "Filename Formats:"
-msgstr ""
-
-#: src/interface.c:452
-msgid "Invalid Characters"
-msgstr ""
-
-#: src/interface.c:459
-msgid "These characters will be removed from all filenames."
-msgstr ""
-
-#: src/interface.c:461
-msgid "Filenames"
-msgstr ""
-
-#: src/interface.c:469
-msgid "WAV (Uncompressed)"
-msgstr ""
-
-#: src/interface.c:486
-msgid "Variable Bit Rate"
-msgstr ""
-
-#: src/interface.c:494
-msgid "Bitrate"
-msgstr ""
-
-#: src/interface.c:504
-msgid "32Kbps"
-msgstr ""
-
-#: src/interface.c:508
-msgid "MP3 (Lossy compression)"
-msgstr ""
-
-#: src/interface.c:525
-msgid "Quality"
-msgstr ""
-
-#: src/interface.c:534
-msgid "OGG Vorbis (Lossy compression)"
-msgstr ""
-
-#: src/interface.c:551
-msgid "Compression Level"
-msgstr ""
-
-#: src/interface.c:560
-msgid "FLAC (Lossless compression)"
-msgstr ""
-
-#: src/interface.c:564
-msgid "Encode"
-msgstr ""
-
-#: src/interface.c:681
-msgid "Ripping..."
-msgstr ""
-
-#: src/interface.c:710
-msgid "Total Progress"
-msgstr ""
-
-#: src/interface.c:717
-msgid "Ripping"
-msgstr ""
-
-#: src/interface.c:724
-msgid "Encoding"
-msgstr ""
-
-#: src/interface.c:772
-msgid "About PACKAGE"
-msgstr ""
-
 #: src/callbacks.c:40
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
@@ -196,4 +59,144 @@ msgstr ""
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
 "s functionality is disabled."
+msgstr ""
+
+#: src/interface.c:69
+msgid "Asunder"
+msgstr ""
+
+#: src/interface.c:132
+msgid "Disc:"
+msgstr ""
+
+#: src/interface.c:138
+msgid "Album Artist:"
+msgstr ""
+
+#: src/interface.c:144
+msgid "Album Title:"
+msgstr ""
+
+#: src/interface.c:150
+msgid "Single Artist"
+msgstr ""
+
+#: src/interface.c:318
+msgid "Preferences"
+msgstr ""
+
+#: src/interface.c:351
+msgid "Music Folder"
+msgstr ""
+
+#: src/interface.c:356
+msgid "Create M3U Playlist"
+msgstr ""
+
+#: src/interface.c:360
+msgid "Create directory for each album"
+msgstr ""
+
+#: src/interface.c:368
+msgid "CD-ROM Device:"
+msgstr ""
+
+#: src/interface.c:376
+msgid "General"
+msgstr ""
+
+#: src/interface.c:398
+msgid ""
+"%A - Artist\n"
+"%L - Album\n"
+"%N - Track Number (2-digit)\n"
+"%T - Song Title"
+msgstr ""
+
+#: src/interface.c:409
+msgid "Music File"
+msgstr ""
+
+#: src/interface.c:416
+msgid "Playlist File"
+msgstr ""
+
+#: src/interface.c:423
+msgid "Album Directory"
+msgstr ""
+
+#: src/interface.c:448
+msgid "Filename Formats:"
+msgstr ""
+
+#: src/interface.c:457
+msgid "Invalid Characters"
+msgstr ""
+
+#: src/interface.c:464
+msgid "These characters will be removed from all filenames."
+msgstr ""
+
+#: src/interface.c:466
+msgid "Filenames"
+msgstr ""
+
+#: src/interface.c:474
+msgid "WAV (Uncompressed)"
+msgstr ""
+
+#: src/interface.c:491
+msgid "Variable Bit Rate"
+msgstr ""
+
+#: src/interface.c:499
+msgid "Bitrate"
+msgstr ""
+
+#: src/interface.c:509
+msgid "32Kbps"
+msgstr ""
+
+#: src/interface.c:513
+msgid "MP3 (Lossy compression)"
+msgstr ""
+
+#: src/interface.c:530
+msgid "Quality"
+msgstr ""
+
+#: src/interface.c:539
+msgid "OGG Vorbis (Lossy compression)"
+msgstr ""
+
+#: src/interface.c:556
+msgid "Compression Level"
+msgstr ""
+
+#: src/interface.c:565
+msgid "FLAC (Lossless compression)"
+msgstr ""
+
+#: src/interface.c:569
+msgid "Encode"
+msgstr ""
+
+#: src/interface.c:686
+msgid "Ripping..."
+msgstr ""
+
+#: src/interface.c:715
+msgid "Total Progress"
+msgstr ""
+
+#: src/interface.c:722
+msgid "Ripping"
+msgstr ""
+
+#: src/interface.c:729
+msgid "Encoding"
+msgstr ""
+
+#: src/threads.c:537 src/threads.c:539 src/threads.c:543
+msgid "Waiting..."
 msgstr ""

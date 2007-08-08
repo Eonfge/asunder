@@ -27,3 +27,4 @@ Low Priority
 Tests to run before a release
 =============================
 - try to run with an older config file
+- update version in about box

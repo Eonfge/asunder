@@ -23,6 +23,7 @@ Foundation; version 2 of the licence.
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 
+#include "main.h"
 #include "prefs.h"
 #include "callbacks.h"
 #include "interface.h"
@@ -47,7 +48,6 @@ create_main (void)
   GtkWidget *preferences;
   GtkWidget *separatortoolitem1;
   GtkWidget *tmp_image;
-  GtkWidget *about;
   GtkWidget *table2;
   GtkWidget *album_artist;
   GtkWidget *album_title;
@@ -101,6 +101,7 @@ create_main (void)
   gtk_container_add (GTK_CONTAINER (toolbar1), separatortoolitem1);
 
 #if GTK_MINOR_VERSION >= 6
+  GtkWidget *about;
   about = (GtkWidget*) gtk_tool_button_new_from_stock ("gtk-about");
   gtk_widget_show (about);
   gtk_container_add (GTK_CONTAINER (toolbar1), about);
@@ -197,9 +198,11 @@ create_main (void)
   g_signal_connect ((gpointer) preferences, "clicked",
                     G_CALLBACK (on_preferences_clicked),
                     NULL);
+#if GTK_MINOR_VERSION >= 6
   g_signal_connect ((gpointer) about, "clicked",
                     G_CALLBACK (on_about_clicked),
                     NULL);
+#endif
   g_signal_connect ((gpointer) album_artist, "focus_out_event",
                     G_CALLBACK (on_album_artist_focus_out_event),
                     NULL);
@@ -223,7 +226,9 @@ create_main (void)
   GLADE_HOOKUP_OBJECT (main, refresh, "refresh");
   GLADE_HOOKUP_OBJECT (main, preferences, "preferences");
   GLADE_HOOKUP_OBJECT (main, separatortoolitem1, "separatortoolitem1");
+#if GTK_MINOR_VERSION >= 6
   GLADE_HOOKUP_OBJECT (main, about, "about");
+#endif
   GLADE_HOOKUP_OBJECT (main, table2, "table2");
   GLADE_HOOKUP_OBJECT (main, album_artist, "album_artist");
   GLADE_HOOKUP_OBJECT (main, album_title, "album_title");
@@ -757,63 +762,59 @@ create_ripping (void)
   return ripping;
 }
 
-GtkWidget*
-create_aboutbox (void)
+#if GTK_MINOR_VERSION >= 6
+static const char* 
+GBLprogramName = "Asunder 0.5";
+
+static const char* 
+GBLauthors[2] = {
+"Many thanks to all the following people:\n"
+"\n"
+"Andrew Smith\n"
+"http://littlesvr.ca/misc/contactandrew.php\n"
+"Summer 2005 - Summer 2007\n"
+"- maintainer\n"
+"\n"
+"Eric Lathrop\n"
+"http://ericlathrop.com/\n"
+"- original author\n"
+"\n"
+,
+NULL};
+
+static const char* 
+GBLtranslators = 
+"\n"
+"- \n"
+"\n";
+
+static const char* 
+GBLcomments = "An application for ripping Audio CDs.";
+
+static const char* 
+GBLcopyright = 
+"Copyright 2005 Eric Lathrop\n"
+"Copyright 2007 Andrew Smith";
+
+static const char* 
+GBLwebsite = "http://littlesvr.ca/asunder/";
+
+static const char* 
+GBLlicense = 
+"Asunder is distributed under the GNU General Public Licence\n"
+"version 2, please see COPYING file for the complete text\n";
+
+void
+show_aboutbox (void)
 {
-  GtkWidget *aboutbox;
-  GtkWidget *about;
-  GtkWidget *hbox14;
-  GtkWidget *image2;
-  GtkWidget *about_text;
-  GtkWidget *dialog_action_area3;
-  GtkWidget *okbutton2;
-
-  aboutbox = gtk_dialog_new ();
-  gtk_window_set_title (GTK_WINDOW (aboutbox), _("About PACKAGE"));
-  gtk_window_set_type_hint (GTK_WINDOW (aboutbox), GDK_WINDOW_TYPE_HINT_DIALOG);
-
-  about = GTK_DIALOG (aboutbox)->vbox;
-  gtk_widget_show (about);
-
-  hbox14 = gtk_hbox_new (FALSE, 0);
-  gtk_widget_show (hbox14);
-  gtk_box_pack_start (GTK_BOX (about), hbox14, FALSE, FALSE, 0);
-
-  image2 = create_pixmap (aboutbox, "asunder.png");
-  gtk_widget_show (image2);
-  gtk_box_pack_start (GTK_BOX (hbox14), image2, FALSE, TRUE, 5);
-  gtk_misc_set_alignment (GTK_MISC (image2), 0.5, 0);
-  gtk_misc_set_padding (GTK_MISC (image2), 5, 5);
-
-  about_text = gtk_label_new ("");
-  gtk_widget_show (about_text);
-  gtk_box_pack_start (GTK_BOX (hbox14), about_text, TRUE, TRUE, 0);
-  gtk_label_set_use_markup (GTK_LABEL (about_text), TRUE);
-  gtk_label_set_line_wrap (GTK_LABEL (about_text), TRUE);
-  gtk_misc_set_padding (GTK_MISC (about_text), 5, 5);
-
-  dialog_action_area3 = GTK_DIALOG (aboutbox)->action_area;
-  gtk_widget_show (dialog_action_area3);
-  gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area3), GTK_BUTTONBOX_END);
-
-  okbutton2 = gtk_button_new_from_stock ("gtk-ok");
-  gtk_widget_show (okbutton2);
-  gtk_dialog_add_action_widget (GTK_DIALOG (aboutbox), okbutton2, GTK_RESPONSE_OK);
-  GTK_WIDGET_SET_FLAGS (okbutton2, GTK_CAN_DEFAULT);
-
-  g_signal_connect ((gpointer) aboutbox, "response",
-                    G_CALLBACK (on_aboutbox_response),
-                    NULL);
-
-  /* Store pointers to all widgets, for use by lookup_widget(). */
-  GLADE_HOOKUP_OBJECT_NO_REF (aboutbox, aboutbox, "aboutbox");
-  GLADE_HOOKUP_OBJECT_NO_REF (aboutbox, about, "about");
-  GLADE_HOOKUP_OBJECT (aboutbox, hbox14, "hbox14");
-  GLADE_HOOKUP_OBJECT (aboutbox, image2, "image2");
-  GLADE_HOOKUP_OBJECT (aboutbox, about_text, "about_text");
-  GLADE_HOOKUP_OBJECT_NO_REF (aboutbox, dialog_action_area3, "dialog_action_area3");
-  GLADE_HOOKUP_OBJECT (aboutbox, okbutton2, "okbutton2");
-
-  return aboutbox;
+    gtk_show_about_dialog(GTK_WINDOW(lookup_widget(win_main, "main")), 
+                          "name", GBLprogramName,
+                          "authors", GBLauthors,
+                          "translator-credits", GBLtranslators,
+                          "comments", GBLcomments,
+                          "copyright", GBLcopyright,
+                          "license", GBLlicense,
+                          "website", GBLwebsite,
+                          NULL);
 }
-
+#endif

@@ -1,4 +1,6 @@
 GtkWidget* create_main (void);
 GtkWidget* create_prefs (void);
 GtkWidget* create_ripping (void);
-GtkWidget* create_aboutbox (void);
+#if GTK_MINOR_VERSION >= 6
+void show_aboutbox (void);
+#endif

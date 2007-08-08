@@ -275,13 +275,7 @@ void
 on_about_clicked                       (GtkToolButton   *toolbutton,
                                         gpointer         user_data)
 {
-    win_about = create_aboutbox();
-    gtk_window_set_title(GTK_WINDOW(win_about), "About "PACKAGE);
-    gtk_label_set_markup(GTK_LABEL(lookup_widget(win_about, "about_text")), 
-        "<b><big>"PACKAGE" "VERSION"</big></b>\n\n"
-        PACKAGE" is a CD ripper and encoder.\n\nhttp://ericlathrop.com/asunder/\n\n"
-        "<small>(C) 2005 Eric Lathrop</small>");
-    gtk_widget_show(win_about);
+    show_aboutbox();
 }
 
 
