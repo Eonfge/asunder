@@ -58,4 +58,4 @@ extern GtkWidget * win_about;
 
 extern GtkWidget * tracklist;
 
-#define DEBUG
+//#define DEBUG

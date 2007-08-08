@@ -66,7 +66,7 @@ create_main (void)
   GtkWidget *label8;
 
   main = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title (GTK_WINDOW (main), _("Asunder"));
+  gtk_window_set_title (GTK_WINDOW (main), "Asunder");
   
   gtk_window_set_default_size (GTK_WINDOW (main), global_prefs->main_window_width, global_prefs->main_window_height);
   main_icon_pixbuf = create_pixbuf ("asunder.png");
@@ -135,21 +135,21 @@ create_main (void)
                     (GtkAttachOptions) (0), 3, 0);
   gtk_misc_set_alignment (GTK_MISC (disc), 0, 0.49);
 
-  artist_label = gtk_label_new (_("Album Artist:"));
+  artist_label = gtk_label_new (_("Album artist:"));
   gtk_misc_set_alignment (GTK_MISC (artist_label), 0, 0);
   gtk_widget_show (artist_label);
   gtk_table_attach (GTK_TABLE (table2), artist_label, 0, 1, 1, 2,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 3, 0);
 
-  title_label = gtk_label_new (_("Album Title:"));
+  title_label = gtk_label_new (_("Album title:"));
   gtk_misc_set_alignment (GTK_MISC (title_label), 0, 0);
   gtk_widget_show (title_label);
   gtk_table_attach (GTK_TABLE (table2), title_label, 0, 1, 2, 3,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 3, 0);
 
-  single_artist = gtk_check_button_new_with_mnemonic (_("Single Artist"));
+  single_artist = gtk_check_button_new_with_mnemonic (_("Single artist"));
   gtk_widget_show (single_artist);
   gtk_table_attach (GTK_TABLE (table2), single_artist, 2, 3, 1, 2,
                     (GtkAttachOptions) (GTK_FILL),
@@ -700,7 +700,7 @@ create_ripping (void)
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
 
-  label25 = gtk_label_new (_("Total Progress"));
+  label25 = gtk_label_new (_("Total progress"));
   gtk_widget_show (label25);
   gtk_table_attach (GTK_TABLE (table3), label25, 0, 1, 0, 1,
                     (GtkAttachOptions) (GTK_FILL),

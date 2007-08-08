@@ -18,8 +18,7 @@ msgstr ""
 "X-Poedit-Country: TAIWAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: src/main.c:385
-#: src/interface.c:190
+#: src/main.c:385 src/interface.c:190
 msgid "Rip"
 msgstr "擷取音軌"
 
@@ -40,23 +39,32 @@ msgid "Time"
 msgstr "歌曲長度"
 
 #: src/main.c:423
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "您指定的路徑內找不到「cdparanoia」。Asunder 需要「cdparanoia」 來擷取音軌。"
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"您指定的路徑內找不到「cdparanoia」。Asunder 需要「cdparanoia」 來擷取音軌。"
 
 #: src/callbacks.c:40
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
 msgstr "尚未選擇 擷取音軌/編碼 方法。請從「偏好設定」選單中啟用其中一種。"
 
 #: src/callbacks.c:75
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
 msgstr "尚未選取要 擷取/編碼 的音軌。請至少選擇一個音軌。"
 
-#: src/callbacks.c:212
-#: src/callbacks.c:233
-#: src/callbacks.c:254
+#: src/callbacks.c:212 src/callbacks.c:233 src/callbacks.c:254
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "在您指定的路徑內找不到 %s。Asunder 需要該檔案來新建 %s 檔。%s 的所有功能都已被停用。"
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"在您指定的路徑內找不到 %s。Asunder 需要該檔案來新建 %s 檔。%s 的所有功能都已"
+"被停用。"
 
 #: src/interface.c:132
 msgid "Disc:"
@@ -78,8 +86,7 @@ msgstr "單一藝人"
 msgid "Preferences"
 msgstr "偏好設定"
 
-#: src/interface.c:335
-#: src/interface.c:341
+#: src/interface.c:335 src/interface.c:341
 msgid "Destination folder"
 msgstr "存至"
 
@@ -179,8 +186,7 @@ msgstr "FLAC（無失真的壓縮）"
 msgid "Encode"
 msgstr "編碼設定"
 
-#: src/interface.c:674
-#: src/interface.c:710
+#: src/interface.c:674 src/interface.c:710
 msgid "Ripping"
 msgstr "正在擷取..."
 
@@ -192,9 +198,6 @@ msgstr "總進度"
 msgid "Encoding"
 msgstr "正在編碼..."
 
-#: src/threads.c:537
-#: src/threads.c:539
-#: src/threads.c:543
+#: src/threads.c:537 src/threads.c:539 src/threads.c:543
 msgid "Waiting..."
 msgstr "請稍待..."
-

@@ -201,4 +201,3 @@ msgstr "Kodning"
 #: src/threads.c:537 src/threads.c:539 src/threads.c:543
 msgid "Waiting..."
 msgstr "Väntar..."
-

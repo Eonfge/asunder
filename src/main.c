@@ -358,7 +358,14 @@ int main(int argc, char *argv[])
     GtkCellRenderer *renderer;
     cddb_disc_t * disc;
     
-    gtk_set_locale();
+#ifdef ENABLE_NLS
+    /* initialize gettext */
+    bindtextdomain("asunder", PACKAGE_LOCALE_DIR);
+    bind_textdomain_codeset("asunder", "UTF-8"); /* so that gettext() returns UTF-8 strings */
+    textdomain("asunder");
+#endif
+    
+    //gtk_set_locale();
     g_thread_init(NULL);
     gdk_threads_init();
     gtk_init(&argc, &argv);

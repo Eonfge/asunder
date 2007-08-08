@@ -2,7 +2,10 @@ Andrew's:
 ==================
 - if there's no disk to begin with auto-refresh doesn't seem to work, need to push button
 - warnings in main.c
-- make sure ripping window is child of main
+- need better icon
+- update INSTALL file
+- update README file
+- why are there two icon files?
 
 
 High Priority
@@ -28,3 +31,6 @@ Tests to run before a release
 =============================
 - try to run with an older config file
 - update version in about box and configure.in
+- update changelog
+- make dist
+- extract, compile, clean install and run

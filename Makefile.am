@@ -2,10 +2,6 @@
 
 SUBDIRS = src po
 
-EXTRA_DIST = config.rpath m4/ChangeLog  \
-	autogen.sh \
-	asunder.xcf
-
 install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d $(srcdir)/pixmaps; then \
