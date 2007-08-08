@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-08 03:57-0400\n"
+"POT-Creation-Date: 2007-08-08 04:55-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,11 +86,11 @@ msgid "Preferences"
 msgstr ""
 
 #: src/interface.c:335 src/interface.c:341
-msgid "Music Folder"
+msgid "Destination folder"
 msgstr ""
 
 #: src/interface.c:345
-msgid "Create M3U Playlist"
+msgid "Create M3U playlist"
 msgstr ""
 
 #: src/interface.c:349
@@ -98,7 +98,7 @@ msgid "Create directory for each album"
 msgstr ""
 
 #: src/interface.c:357
-msgid "CD-ROM Device:"
+msgid "CD-ROM device: "
 msgstr ""
 
 #: src/interface.c:370
@@ -109,28 +109,28 @@ msgstr ""
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
-"%N - Track Number (2-digit)\n"
-"%T - Song Title"
+"%N - Track number (2-digit)\n"
+"%T - Song title"
 msgstr ""
 
 #: src/interface.c:398
-msgid "Music File: "
+msgid "Music file: "
 msgstr ""
 
 #: src/interface.c:405
-msgid "Playlist File: "
+msgid "Playlist file: "
 msgstr ""
 
 #: src/interface.c:412
-msgid "Album Directory: "
+msgid "Album directory: "
 msgstr ""
 
 #: src/interface.c:437
-msgid "Filename Formats"
+msgid "Filename formats"
 msgstr ""
 
 #: src/interface.c:446
-msgid "Invalid Characters"
+msgid "Invalid characters"
 msgstr ""
 
 #: src/interface.c:453
@@ -142,11 +142,11 @@ msgid "Filenames"
 msgstr ""
 
 #: src/interface.c:464
-msgid "WAV (Uncompressed)"
+msgid "WAV (uncompressed)"
 msgstr ""
 
 #: src/interface.c:481
-msgid "Variable Bit Rate"
+msgid "Variable bit rate (VBR)"
 msgstr ""
 
 #: src/interface.c:489
@@ -158,7 +158,7 @@ msgid "32Kbps"
 msgstr ""
 
 #: src/interface.c:503
-msgid "MP3 (Lossy compression)"
+msgid "MP3 (lossy compression)"
 msgstr ""
 
 #: src/interface.c:520
@@ -166,15 +166,15 @@ msgid "Quality"
 msgstr ""
 
 #: src/interface.c:529
-msgid "OGG Vorbis (Lossy compression)"
+msgid "OGG Vorbis (lossy compression)"
 msgstr ""
 
 #: src/interface.c:546
-msgid "Compression Level"
+msgid "Compression level"
 msgstr ""
 
 #: src/interface.c:555
-msgid "FLAC (Lossless compression)"
+msgid "FLAC (lossless compression)"
 msgstr ""
 
 #: src/interface.c:559

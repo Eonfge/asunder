@@ -332,17 +332,17 @@ create_prefs (void)
   gtk_widget_show (vbox5);
   gtk_container_add (GTK_CONTAINER (notebook1), vbox5);
 
-  label15 = gtk_label_new (_("Music Folder"));
+  label15 = gtk_label_new (_("Destination folder"));
   gtk_misc_set_alignment(GTK_MISC(label15), 0, 0);
   gtk_widget_show (label15);
   gtk_box_pack_start (GTK_BOX (vbox5), label15, FALSE, FALSE, 0);
   gtk_label_set_use_markup (GTK_LABEL (label15), TRUE);
 
-  music_dir = gtk_file_chooser_button_new(_("Music Folder"), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
+  music_dir = gtk_file_chooser_button_new(_("Destination folder"), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
   gtk_widget_show (music_dir);
   gtk_box_pack_start (GTK_BOX (vbox5), music_dir, FALSE, FALSE, 0);
   
-  make_playlist = gtk_check_button_new_with_mnemonic (_("Create M3U Playlist"));
+  make_playlist = gtk_check_button_new_with_mnemonic (_("Create M3U playlist"));
   gtk_widget_show (make_playlist);
   gtk_box_pack_start (GTK_BOX (vbox5), make_playlist, FALSE, FALSE, 0);
 
@@ -354,7 +354,7 @@ create_prefs (void)
   gtk_widget_show (hbox12);
   gtk_box_pack_start (GTK_BOX (vbox5), hbox12, FALSE, FALSE, 0);
 
-  label28 = gtk_label_new (_("CD-ROM Device:"));
+  label28 = gtk_label_new (_("CD-ROM device: "));
   gtk_widget_show (label28);
   gtk_box_pack_start (GTK_BOX (hbox12), label28, FALSE, FALSE, 0);
 
@@ -385,7 +385,7 @@ create_prefs (void)
   gtk_widget_show (vbox10);
   gtk_container_add (GTK_CONTAINER (frame2), vbox10);
   
-  label14 = gtk_label_new (_("%A - Artist\n%L - Album\n%N - Track Number (2-digit)\n%T - Song Title"));
+  label14 = gtk_label_new (_("%A - Artist\n%L - Album\n%N - Track number (2-digit)\n%T - Song title"));
   gtk_widget_show (label14);
   gtk_box_pack_start (GTK_BOX (vbox10), label14, FALSE, FALSE, 0);
   gtk_misc_set_alignment (GTK_MISC (label14), 0, 0);
@@ -395,21 +395,21 @@ create_prefs (void)
   gtk_widget_show (table1);
   gtk_box_pack_start (GTK_BOX (vbox10), table1, TRUE, TRUE, 0);
   
-  label11 = gtk_label_new (_("Music File: "));
+  label11 = gtk_label_new (_("Music file: "));
   gtk_widget_show (label11);
   gtk_table_attach (GTK_TABLE (table1), label11, 0, 1, 0, 1,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (label11), 0, 0);
 
-  label12 = gtk_label_new (_("Playlist File: "));
+  label12 = gtk_label_new (_("Playlist file: "));
   gtk_widget_show (label12);
   gtk_table_attach (GTK_TABLE (table1), label12, 0, 1, 1, 2,
                     (GtkAttachOptions) (GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
   gtk_misc_set_alignment (GTK_MISC (label12), 0, 0);
 
-  label17 = gtk_label_new (_("Album Directory: "));
+  label17 = gtk_label_new (_("Album directory: "));
   gtk_widget_show (label17);
   gtk_table_attach (GTK_TABLE (table1), label17, 0, 1, 2, 3,
                     (GtkAttachOptions) (GTK_FILL),
@@ -434,7 +434,7 @@ create_prefs (void)
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
 
-  label20 = gtk_label_new (_("Filename Formats"));
+  label20 = gtk_label_new (_("Filename formats"));
   gtk_widget_show (label20);
   gtk_frame_set_label_widget (GTK_FRAME (frame2), label20);
   gtk_label_set_use_markup (GTK_LABEL (label20), TRUE);
@@ -443,7 +443,7 @@ create_prefs (void)
   gtk_widget_show (hbox13);
   gtk_box_pack_start (GTK_BOX (vbox7), hbox13, FALSE, TRUE, 0);
 
-  label29 = gtk_label_new (_("Invalid Characters"));
+  label29 = gtk_label_new (_("Invalid characters"));
   gtk_widget_show (label29);
   gtk_box_pack_start (GTK_BOX (hbox13), label29, FALSE, FALSE, 0);
 
@@ -461,7 +461,7 @@ create_prefs (void)
   gtk_widget_show (vbox8);
   gtk_container_add (GTK_CONTAINER (notebook1), vbox8);
 
-  rip_wav = gtk_check_button_new_with_mnemonic (_("WAV (Uncompressed)"));
+  rip_wav = gtk_check_button_new_with_mnemonic (_("WAV (uncompressed)"));
   gtk_widget_show (rip_wav);
   gtk_box_pack_start (GTK_BOX (vbox8), rip_wav, FALSE, FALSE, 0);
 
@@ -478,7 +478,7 @@ create_prefs (void)
   gtk_widget_show (vbox9);
   gtk_container_add (GTK_CONTAINER (alignment8), vbox9);
 
-  mp3_vbr = gtk_check_button_new_with_mnemonic (_("Variable Bit Rate"));
+  mp3_vbr = gtk_check_button_new_with_mnemonic (_("Variable bit rate (VBR)"));
   gtk_widget_show (mp3_vbr);
   gtk_box_pack_start (GTK_BOX (vbox9), mp3_vbr, FALSE, FALSE, 0);
 
@@ -500,7 +500,7 @@ create_prefs (void)
   gtk_widget_show (mp3_bitrate);
   gtk_box_pack_start (GTK_BOX (hbox9), mp3_bitrate, FALSE, FALSE, 0);
 
-  rip_mp3 = gtk_check_button_new_with_mnemonic (_("MP3 (Lossy compression)"));
+  rip_mp3 = gtk_check_button_new_with_mnemonic (_("MP3 (lossy compression)"));
   gtk_widget_show (rip_mp3);
   gtk_frame_set_label_widget (GTK_FRAME (frame3), rip_mp3);
 
@@ -526,7 +526,7 @@ create_prefs (void)
   gtk_box_pack_start (GTK_BOX (hbox10), oggquality, TRUE, TRUE, 5);
   gtk_scale_set_digits (GTK_SCALE (oggquality), 0);
 
-  rip_ogg = gtk_check_button_new_with_mnemonic (_("OGG Vorbis (Lossy compression)"));
+  rip_ogg = gtk_check_button_new_with_mnemonic (_("OGG Vorbis (lossy compression)"));
   gtk_widget_show (rip_ogg);
   gtk_frame_set_label_widget (GTK_FRAME (frame4), rip_ogg);
 
@@ -543,7 +543,7 @@ create_prefs (void)
   gtk_widget_show (hbox11);
   gtk_container_add (GTK_CONTAINER (alignment10), hbox11);
 
-  label25 = gtk_label_new (_("Compression Level"));
+  label25 = gtk_label_new (_("Compression level"));
   gtk_widget_show (label25);
   gtk_box_pack_start (GTK_BOX (hbox11), label25, FALSE, FALSE, 0);
 
@@ -552,7 +552,7 @@ create_prefs (void)
   gtk_box_pack_start (GTK_BOX (hbox11), flaccompression, TRUE, TRUE, 5);
   gtk_scale_set_digits (GTK_SCALE (flaccompression), 0);
 
-  rip_flac = gtk_check_button_new_with_mnemonic (_("FLAC (Lossless compression)"));
+  rip_flac = gtk_check_button_new_with_mnemonic (_("FLAC (lossless compression)"));
   gtk_widget_show (rip_flac);
   gtk_frame_set_label_widget (GTK_FRAME (frame5), rip_flac);
 

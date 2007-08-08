@@ -1,6 +1,7 @@
 Andrew's:
 ==================
 - if there's no disk to begin with auto-refresh doesn't seem to work, need to push button
+- warnings in main.c
 
 
 High Priority
