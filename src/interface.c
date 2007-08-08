@@ -23,6 +23,7 @@ Foundation; version 2 of the licence.
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 
+#include "prefs.h"
 #include "callbacks.h"
 #include "interface.h"
 #include "support.h"
@@ -66,7 +67,8 @@ create_main (void)
 
   main = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (main), _("Asunder"));
-  gtk_window_set_default_size (GTK_WINDOW (main), 505, 400);
+  
+  gtk_window_set_default_size (GTK_WINDOW (main), global_prefs->main_window_width, global_prefs->main_window_width);
   main_icon_pixbuf = create_pixbuf ("asunder.png");
   if (main_icon_pixbuf)
     {
@@ -187,7 +189,7 @@ create_main (void)
   gtk_box_pack_start (GTK_BOX (hbox4), label8, FALSE, FALSE, 0);
 
   g_signal_connect ((gpointer) main, "delete_event",
-                    G_CALLBACK (gtk_main_quit),
+                    G_CALLBACK (on_window_close),
                     NULL);
   g_signal_connect ((gpointer) refresh, "clicked",
                     G_CALLBACK (on_refresh_clicked),

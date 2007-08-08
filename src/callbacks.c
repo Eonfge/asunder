@@ -338,7 +338,7 @@ on_aboutbox_response                   (GtkDialog       *dialog,
 }
 
 void
-on_window_close                           (GtkWidget       *widget,
+on_window_close                        (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data)
 {

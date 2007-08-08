@@ -29,7 +29,7 @@ pid_t flac_pid = -1;
 
 int numchildren = 0;
 
-// signal handler to find out when out child has exited
+// signal handler to find out when our child has exited
 void sigchld(int signum)
 {
         int status;

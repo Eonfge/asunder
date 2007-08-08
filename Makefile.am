@@ -4,8 +4,6 @@ SUBDIRS = src po
 
 EXTRA_DIST = \
 	autogen.sh \
-	asunder.glade \
-	asunder.gladep \
 	asunder.xcf
 
 install-data-local:

@@ -232,8 +232,6 @@ void get_prefs_from_widgets(prefs * p)
         exit(-1);
     }
     strncpy(p->invalid_chars, tocopyc, strlen(tocopyc)+1);
-    
-    return p;
 }
 
 // store the given prefs struct to the config file
