@@ -1,7 +1,7 @@
 Andrew's:
 ==================
-- make sure all translatable strings are so marked
 - if there's no disk to begin with auto-refresh doesn't seem to work, need to push button
+- need better preferences window
 - need a better about box
 
 
