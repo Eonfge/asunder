@@ -68,7 +68,7 @@ create_main (void)
   main = gtk_window_new (GTK_WINDOW_TOPLEVEL);
   gtk_window_set_title (GTK_WINDOW (main), _("Asunder"));
   
-  gtk_window_set_default_size (GTK_WINDOW (main), global_prefs->main_window_width, global_prefs->main_window_width);
+  gtk_window_set_default_size (GTK_WINDOW (main), global_prefs->main_window_width, global_prefs->main_window_height);
   main_icon_pixbuf = create_pixbuf ("asunder.png");
   if (main_icon_pixbuf)
     {
