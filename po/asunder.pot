@@ -1,14 +1,11 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Language translation of Asunder
+# This file is distributed under the same license as the Asunder package.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-27 23:23-0500\n"
+"POT-Creation-Date: 2007-08-08 00:52-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,59 +13,77 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/interface.c:60
-msgid "Asunder"
-msgstr ""
-
-#: src/interface.c:95
-msgid "About"
-msgstr ""
-
-#: src/interface.c:121
-msgid "Disc:"
-msgstr ""
-
-#: src/interface.c:127
-msgid "Album Artist:"
-msgstr ""
-
-#: src/interface.c:133
-msgid "Album Title:"
-msgstr ""
-
-#: src/interface.c:139
-msgid "Single Artist"
-msgstr ""
-
-#: src/interface.c:177
+#: src/main.c:385 src/interface.c:187
 msgid "Rip"
 msgstr ""
 
-#: src/interface.c:303
+#: src/main.c:390
+msgid "Track"
+msgstr ""
+
+#: src/main.c:397
+msgid "Artist"
+msgstr ""
+
+#: src/main.c:404
+msgid "Title"
+msgstr ""
+
+#: src/main.c:409
+msgid "Time"
+msgstr ""
+
+#: src/main.c:423
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+
+#: src/interface.c:69
+msgid "Asunder"
+msgstr ""
+
+#: src/interface.c:131
+msgid "Disc:"
+msgstr ""
+
+#: src/interface.c:137
+msgid "Album Artist:"
+msgstr ""
+
+#: src/interface.c:143
+msgid "Album Title:"
+msgstr ""
+
+#: src/interface.c:149
+msgid "Single Artist"
+msgstr ""
+
+#: src/interface.c:313
 msgid "Preferences"
 msgstr ""
 
-#: src/interface.c:336
-msgid "<b>Music Folder</b>"
+#: src/interface.c:346
+msgid "Music Folder"
 msgstr ""
 
-#: src/interface.c:341
+#: src/interface.c:351
 msgid "Create M3U Playlist"
 msgstr ""
 
-#: src/interface.c:345
+#: src/interface.c:355
 msgid "Create directory for each album"
 msgstr ""
 
-#: src/interface.c:353
+#: src/interface.c:363
 msgid "CD-ROM Device:"
 msgstr ""
 
-#: src/interface.c:361
+#: src/interface.c:371
 msgid "General"
 msgstr ""
 
-#: src/interface.c:383
+#: src/interface.c:393
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -76,95 +91,109 @@ msgid ""
 "%T - Song Title"
 msgstr ""
 
-#: src/interface.c:394
+#: src/interface.c:404
 msgid "Music File"
 msgstr ""
 
-#: src/interface.c:401
+#: src/interface.c:411
 msgid "Playlist File"
 msgstr ""
 
-#: src/interface.c:408
+#: src/interface.c:418
 msgid "Album Directory"
 msgstr ""
 
-#: src/interface.c:433
-msgid "<b>Filename Formats:</b>"
+#: src/interface.c:443
+msgid "Filename Formats:"
 msgstr ""
 
-#: src/interface.c:442
+#: src/interface.c:452
 msgid "Invalid Characters"
 msgstr ""
 
-#: src/interface.c:449
+#: src/interface.c:459
 msgid "These characters will be removed from all filenames."
 msgstr ""
 
-#: src/interface.c:451
+#: src/interface.c:461
 msgid "Filenames"
 msgstr ""
 
-#: src/interface.c:459
+#: src/interface.c:469
 msgid "WAV (Uncompressed)"
 msgstr ""
 
-#: src/interface.c:476
+#: src/interface.c:486
 msgid "Variable Bit Rate"
 msgstr ""
 
-#: src/interface.c:484
+#: src/interface.c:494
 msgid "Bitrate"
 msgstr ""
 
-#: src/interface.c:494
+#: src/interface.c:504
 msgid "32Kbps"
 msgstr ""
 
-#: src/interface.c:498
+#: src/interface.c:508
 msgid "MP3 (Lossy compression)"
 msgstr ""
 
-#: src/interface.c:515
+#: src/interface.c:525
 msgid "Quality"
 msgstr ""
 
-#: src/interface.c:524
+#: src/interface.c:534
 msgid "OGG Vorbis (Lossy compression)"
 msgstr ""
 
-#: src/interface.c:541
+#: src/interface.c:551
 msgid "Compression Level"
 msgstr ""
 
-#: src/interface.c:550
+#: src/interface.c:560
 msgid "FLAC (Lossless compression)"
 msgstr ""
 
-#: src/interface.c:554
+#: src/interface.c:564
 msgid "Encode"
 msgstr ""
 
-#: src/interface.c:671
+#: src/interface.c:681
 msgid "Ripping..."
 msgstr ""
 
-#: src/interface.c:700
+#: src/interface.c:710
 msgid "Total Progress"
 msgstr ""
 
-#: src/interface.c:707
+#: src/interface.c:717
 msgid "Ripping"
 msgstr ""
 
-#: src/interface.c:714
+#: src/interface.c:724
 msgid "Encoding"
 msgstr ""
 
-#: src/interface.c:762
+#: src/interface.c:772
 msgid "About PACKAGE"
 msgstr ""
 
-#: src/support.c:90 src/support.c:114
+#: src/callbacks.c:40
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+
+#: src/callbacks.c:75
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+
+#: src/callbacks.c:212 src/callbacks.c:233 src/callbacks.c:254
 #, c-format
-msgid "Couldn't find pixmap file: %s"
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
 msgstr ""

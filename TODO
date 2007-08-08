@@ -1,9 +1,8 @@
 Andrew's:
 ==================
-- save main window size in config (need a callback to update p->main_window_*)
-- only do save_prefs when quitting
-- make sure all mallocs have checks
 - make sure all translatable strings are so marked
+- if there's no disk to begin with auto-refresh doesn't seem to work, need to push button
+- need a better about box
 
 
 High Priority

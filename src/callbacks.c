@@ -34,7 +34,11 @@ on_rip_button_clicked                  (GtkButton       *button,
 {
     if (!global_prefs->rip_wav && !global_prefs->rip_mp3 && !global_prefs->rip_ogg && !global_prefs->rip_flac)
     {
-        GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "No ripping/encoding method selected. Please enable one from the \"preferences\" menu.");
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        _("No ripping/encoding method selected. Please enable one from the "
+                                        "'Preferences' menu."));
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
         return;
@@ -43,7 +47,10 @@ on_rip_button_clicked                  (GtkButton       *button,
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     if (store == NULL)
     {
-        GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "No CD is inserted. Please insert a CD into the CD-ROM drive.");
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        "No CD is inserted. Please insert a CD into the CD-ROM drive.");
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
         return;
@@ -55,14 +62,18 @@ on_rip_button_clicked                  (GtkButton       *button,
     while(rowsleft)
     {
         gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
-            COL_RIPTRACK, &riptrack,
-            -1);
-        if (riptrack) tracks_to_rip++;
+                           COL_RIPTRACK, &riptrack, -1);
+        if (riptrack) 
+            tracks_to_rip++;
         rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
     }
     if (tracks_to_rip == 0)
     {
-        GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "No tracks were selected for ripping/encoding. Please select at least one track.");
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        _("No tracks were selected for ripping/encoding. "
+                                        "Please select at least one track."));
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
         return;
@@ -196,12 +207,11 @@ on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
     {
         GtkWidget * dialog;
         
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, 
-                GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
-                "\"lame\" was not found in your path.\n\n"
-                PACKAGE" requires LAME to create MP3 files. All MP3 functionality "
-                "will be disabled until LAME is installed.\n\nYou can download LAME "
-                "from http://lame.sourceforge.net/");
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        _("%s was not found in your path. Asunder requires it to create %s files. "
+                                        "All %s functionality is disabled."),
+                                        "'lame'", "MP3", "MP3");
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
 
@@ -217,7 +227,12 @@ on_rip_ogg_toggled                     (GtkToggleButton *togglebutton,
 {
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("oggenc"))
     {
-        GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "\"oggenc\" was not found in your path.\n\n"PACKAGE" requires OggEnc to create OGG files. All OGG functionality will be disabled until OggEnc is installed.\n\nYou can download OggEnc from http://www.vorbis.com/");
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        _("%s was not found in your path. Asunder requires it to create %s files. "
+                                        "All %s functionality is disabled."),
+                                        "'oggenc'", "OGG", "OGG");
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
 
@@ -233,7 +248,12 @@ on_rip_flac_toggled                    (GtkToggleButton *togglebutton,
 {
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("flac"))
     {
-        GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "\"flac\" was not found in your path.\n\n"PACKAGE" requires FLAC to create FLAC files. All FLAC functionality will be disabled until FLAC is installed.\n\nYou can download FLAC from http://flac.sourceforge.net/");
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        _("%s was not found in your path. Asunder requires it to create %s files. "
+                                        "All %s functionality is disabled."),
+                                        "'flac'", "FLAC", "FLAC");
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
 

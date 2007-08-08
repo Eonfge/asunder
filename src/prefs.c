@@ -347,11 +347,11 @@ char * prefs_get_music_dir(prefs * p)
     {
         home = getenv("HOME");
         
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, 
-                    GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
-                    "The music directory \"%s\" does not exist.\n\n"
-                    "The music directory will be reset to \"%s\".", 
-                    p->music_dir, home);
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        "The music directory '%s' does not exist.\n\n"
+                                        "The music directory will be reset to '%s'.", 
+                                        p->music_dir, home);
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
         

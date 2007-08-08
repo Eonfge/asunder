@@ -100,13 +100,13 @@ create_main (void)
   gtk_widget_show (separatortoolitem1);
   gtk_container_add (GTK_CONTAINER (toolbar1), separatortoolitem1);
 
-  tmp_image = gtk_image_new_from_stock ("gtk-dialog-info", tmp_toolbar_icon_size);
-  gtk_widget_show (tmp_image);
-  about = (GtkWidget*) gtk_tool_button_new (tmp_image, _("About"));
+#if GTK_MINOR_VERSION >= 6
+  about = (GtkWidget*) gtk_tool_button_new_from_stock ("gtk-about");
   gtk_widget_show (about);
   gtk_container_add (GTK_CONTAINER (toolbar1), about);
   gtk_tool_item_set_is_important (GTK_TOOL_ITEM (about), TRUE);
-
+#endif
+  
   table2 = gtk_table_new (3, 3, FALSE);
   gtk_widget_show (table2);
   gtk_box_pack_start (GTK_BOX (vbox1), table2, FALSE, TRUE, 3);
@@ -343,7 +343,7 @@ create_prefs (void)
                 "select-multiple", TRUE,
                 NULL);
 
-  label15 = gtk_label_new (_("<b>Music Folder</b>"));
+  label15 = gtk_label_new (_("Music Folder"));
   gtk_widget_show (label15);
   gtk_frame_set_label_widget (GTK_FRAME (frame6), label15);
   gtk_label_set_use_markup (GTK_LABEL (label15), TRUE);
@@ -440,7 +440,7 @@ create_prefs (void)
                     (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                     (GtkAttachOptions) (0), 0, 0);
 
-  label20 = gtk_label_new (_("<b>Filename Formats:</b>"));
+  label20 = gtk_label_new (_("Filename Formats:"));
   gtk_widget_show (label20);
   gtk_frame_set_label_widget (GTK_FRAME (frame2), label20);
   gtk_label_set_use_markup (GTK_LABEL (label20), TRUE);

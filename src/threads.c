@@ -24,6 +24,7 @@ Foundation; version 2 of the licence.
 #include "prefs.h"
 #include "util.h"
 #include "wrappers.h"
+#include "support.h"
 
 static GMutex * barrier = NULL;
 static GCond * available = NULL;
@@ -533,13 +534,13 @@ gpointer track(gpointer data)
         GtkProgressBar * progress_encode = GTK_PROGRESS_BAR(lookup_widget(win_ripping, "progress_encode"));
         
         gtk_progress_bar_set_fraction(progress_total, 0.0);
-        gtk_progress_bar_set_text(progress_total, "Waiting...");
+        gtk_progress_bar_set_text(progress_total, _("Waiting..."));
         gtk_progress_bar_set_fraction(progress_rip, 0.0);
-        gtk_progress_bar_set_text(progress_rip, "Waiting...");
+        gtk_progress_bar_set_text(progress_rip, _("Waiting..."));
         if (parts > 1)
         {
             gtk_progress_bar_set_fraction(progress_encode, 0.0);
-            gtk_progress_bar_set_text(progress_encode, "Waiting...");
+            gtk_progress_bar_set_text(progress_encode, _("Waiting..."));
         } else {
             gtk_progress_bar_set_fraction(progress_encode, 1.0);
             gtk_progress_bar_set_text(progress_encode, "100% (0/0)");
