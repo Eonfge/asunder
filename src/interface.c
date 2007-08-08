@@ -670,7 +670,8 @@ create_ripping (void)
   GtkWidget *cancel;
 
   ripping = gtk_dialog_new ();
-  gtk_window_set_title (GTK_WINDOW (ripping), _("Ripping..."));
+  gtk_window_set_transient_for (GTK_WINDOW(ripping), GTK_WINDOW(win_main));
+  gtk_window_set_title (GTK_WINDOW (ripping), _("Ripping"));
   gtk_window_set_modal (GTK_WINDOW (ripping), TRUE);
   gtk_window_set_type_hint (GTK_WINDOW (ripping), GDK_WINDOW_TYPE_HINT_DIALOG);
 
@@ -776,7 +777,9 @@ GBLtranslators =
 "\n";
 
 static const char* 
-GBLcomments = "An application for ripping Audio CDs.";
+GBLcomments = 
+"An application to save tracks from an Audio CD \n"
+"as WAV, MP3, OGG, and/or FLAC.";
 
 static const char* 
 GBLcopyright = 

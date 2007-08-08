@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-08 04:55-0400\n"
+"POT-Creation-Date: 2007-08-08 06:44-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -181,16 +181,12 @@ msgstr ""
 msgid "Encode"
 msgstr ""
 
-#: src/interface.c:673
-msgid "Ripping..."
+#: src/interface.c:673 src/interface.c:709
+msgid "Ripping"
 msgstr ""
 
 #: src/interface.c:702
 msgid "Total Progress"
-msgstr ""
-
-#: src/interface.c:709
-msgid "Ripping"
 msgstr ""
 
 #: src/interface.c:716
