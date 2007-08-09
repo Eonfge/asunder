@@ -2,6 +2,8 @@
 
 SUBDIRS = src po
 
+EXTRA_DIST = asunder.desktop
+
 install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d $(srcdir)/pixmaps; then \
@@ -25,3 +27,7 @@ dist-hook:
 
 
 ACLOCAL_AMFLAGS = -I m4
+
+desktopdir=$(datadir)/applications
+
+desktop_DATA = asunder.desktop

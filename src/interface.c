@@ -752,7 +752,7 @@ create_ripping (void)
 
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 0.5";
+GBLprogramName = "Asunder 0.8";
 
 static const char* 
 GBLauthors[2] = {
@@ -772,9 +772,11 @@ NULL};
 
 static const char* 
 GBLtranslators = 
+"Daniel Nylander\n"
+"- sv (Swedish) translation of Asunder version 0.8\n"
 "\n"
-"- \n"
-"\n";
+"Cheng-Wei Chien\n"
+"- zh_TW (Chineese/Taiwan) translation of Asunder version 0.8\n";
 
 static const char* 
 GBLcomments = 

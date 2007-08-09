@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-08 11:10-0400\n"
+"POT-Creation-Date: 2007-08-08 13:22-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,27 +16,27 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:385 src/interface.c:190
+#: src/main.c:392 src/interface.c:190
 msgid "Rip"
 msgstr ""
 
-#: src/main.c:390
+#: src/main.c:397
 msgid "Track"
 msgstr ""
 
-#: src/main.c:397
+#: src/main.c:404
 msgid "Artist"
 msgstr ""
 
-#: src/main.c:404
+#: src/main.c:411
 msgid "Title"
 msgstr ""
 
-#: src/main.c:409
+#: src/main.c:416
 msgid "Time"
 msgstr ""
 
-#: src/main.c:423
+#: src/main.c:430
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
