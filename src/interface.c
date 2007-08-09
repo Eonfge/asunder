@@ -39,7 +39,7 @@ Foundation; version 2 of the licence.
 GtkWidget*
 create_main (void)
 {
-  GtkWidget *main;
+  GtkWidget *main_win;
   GdkPixbuf *main_icon_pixbuf;
   GtkWidget *vbox1;
   GtkWidget *toolbar1;
@@ -47,7 +47,6 @@ create_main (void)
   GtkWidget *refresh;
   GtkWidget *preferences;
   GtkWidget *separatortoolitem1;
-  GtkWidget *tmp_image;
   GtkWidget *table2;
   GtkWidget *album_artist;
   GtkWidget *album_title;
@@ -65,20 +64,20 @@ create_main (void)
   GtkWidget *image1;
   GtkWidget *label8;
 
-  main = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title (GTK_WINDOW (main), "Asunder");
+  main_win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (main_win), "Asunder");
   
-  gtk_window_set_default_size (GTK_WINDOW (main), global_prefs->main_window_width, global_prefs->main_window_height);
+  gtk_window_set_default_size (GTK_WINDOW (main_win), global_prefs->main_window_width, global_prefs->main_window_height);
   main_icon_pixbuf = create_pixbuf ("asunder.png");
   if (main_icon_pixbuf)
   {
-    gtk_window_set_icon (GTK_WINDOW (main), main_icon_pixbuf);
+    gtk_window_set_icon (GTK_WINDOW (main_win), main_icon_pixbuf);
     gdk_pixbuf_unref (main_icon_pixbuf);
   }
 
   vbox1 = gtk_vbox_new (FALSE, 0);
   gtk_widget_show (vbox1);
-  gtk_container_add (GTK_CONTAINER (main), vbox1);
+  gtk_container_add (GTK_CONTAINER (main_win), vbox1);
 
   toolbar1 = gtk_toolbar_new ();
   gtk_widget_show (toolbar1);
@@ -191,7 +190,7 @@ create_main (void)
   gtk_widget_show (label8);
   gtk_box_pack_start (GTK_BOX (hbox4), label8, FALSE, FALSE, 0);
 
-  g_signal_connect ((gpointer) main, "delete_event",
+  g_signal_connect ((gpointer) main_win, "delete_event",
                     G_CALLBACK (on_window_close),
                     NULL);
   g_signal_connect ((gpointer) refresh, "clicked",
@@ -222,33 +221,33 @@ create_main (void)
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
-  GLADE_HOOKUP_OBJECT_NO_REF (main, main, "main");
-  GLADE_HOOKUP_OBJECT (main, vbox1, "vbox1");
-  GLADE_HOOKUP_OBJECT (main, toolbar1, "toolbar1");
-  GLADE_HOOKUP_OBJECT (main, refresh, "refresh");
-  GLADE_HOOKUP_OBJECT (main, preferences, "preferences");
-  GLADE_HOOKUP_OBJECT (main, separatortoolitem1, "separatortoolitem1");
+  GLADE_HOOKUP_OBJECT_NO_REF (main_win, main_win, "main");
+  GLADE_HOOKUP_OBJECT (main_win, vbox1, "vbox1");
+  GLADE_HOOKUP_OBJECT (main_win, toolbar1, "toolbar1");
+  GLADE_HOOKUP_OBJECT (main_win, refresh, "refresh");
+  GLADE_HOOKUP_OBJECT (main_win, preferences, "preferences");
+  GLADE_HOOKUP_OBJECT (main_win, separatortoolitem1, "separatortoolitem1");
 #if GTK_MINOR_VERSION >= 6
-  GLADE_HOOKUP_OBJECT (main, about, "about");
+  GLADE_HOOKUP_OBJECT (main_win, about, "about");
 #endif
-  GLADE_HOOKUP_OBJECT (main, table2, "table2");
-  GLADE_HOOKUP_OBJECT (main, album_artist, "album_artist");
-  GLADE_HOOKUP_OBJECT (main, album_title, "album_title");
-  GLADE_HOOKUP_OBJECT (main, pick_disc, "pick_disc");
-  GLADE_HOOKUP_OBJECT (main, disc, "disc");
-  GLADE_HOOKUP_OBJECT (main, artist_label, "artist_label");
-  GLADE_HOOKUP_OBJECT (main, title_label, "title_label");
-  GLADE_HOOKUP_OBJECT (main, single_artist, "single_artist");
-  GLADE_HOOKUP_OBJECT (main, scrolledwindow1, "scrolledwindow1");
-  GLADE_HOOKUP_OBJECT (main, tracklist, "tracklist");
-  GLADE_HOOKUP_OBJECT (main, alignment4, "alignment4");
-  GLADE_HOOKUP_OBJECT (main, rip_button, "rip_button");
-  GLADE_HOOKUP_OBJECT (main, alignment3, "alignment3");
-  GLADE_HOOKUP_OBJECT (main, hbox4, "hbox4");
-  GLADE_HOOKUP_OBJECT (main, image1, "image1");
-  GLADE_HOOKUP_OBJECT (main, label8, "label8");
+  GLADE_HOOKUP_OBJECT (main_win, table2, "table2");
+  GLADE_HOOKUP_OBJECT (main_win, album_artist, "album_artist");
+  GLADE_HOOKUP_OBJECT (main_win, album_title, "album_title");
+  GLADE_HOOKUP_OBJECT (main_win, pick_disc, "pick_disc");
+  GLADE_HOOKUP_OBJECT (main_win, disc, "disc");
+  GLADE_HOOKUP_OBJECT (main_win, artist_label, "artist_label");
+  GLADE_HOOKUP_OBJECT (main_win, title_label, "title_label");
+  GLADE_HOOKUP_OBJECT (main_win, single_artist, "single_artist");
+  GLADE_HOOKUP_OBJECT (main_win, scrolledwindow1, "scrolledwindow1");
+  GLADE_HOOKUP_OBJECT (main_win, tracklist, "tracklist");
+  GLADE_HOOKUP_OBJECT (main_win, alignment4, "alignment4");
+  GLADE_HOOKUP_OBJECT (main_win, rip_button, "rip_button");
+  GLADE_HOOKUP_OBJECT (main_win, alignment3, "alignment3");
+  GLADE_HOOKUP_OBJECT (main_win, hbox4, "hbox4");
+  GLADE_HOOKUP_OBJECT (main_win, image1, "image1");
+  GLADE_HOOKUP_OBJECT (main_win, label8, "label8");
 
-  return main;
+  return main_win;
 }
 
 GtkWidget*
@@ -268,7 +267,6 @@ create_prefs (void)
   GtkWidget *label4;
   GtkWidget *vbox7;
   GtkWidget *frame2;
-  GtkWidget *alignment7;
   GtkWidget *vbox10;
   GtkWidget *label14;
   GtkWidget *table1;

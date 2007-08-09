@@ -25,12 +25,14 @@ Foundation; version 2 of the licence.
 #include <linux/cdrom.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "main.h"
 #include "interface.h"
 #include "support.h"
 #include "prefs.h"
 #include "callbacks.h"
+#include "util.h"
 
 
 cddb_disc_t * current_disc = NULL;
@@ -282,7 +284,7 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
     int seconds;
     char time[6];
     const char * track_artist;
-    char * track_title;
+    const char * track_title;
     
     store = gtk_list_store_new(NUM_COLS, G_TYPE_BOOLEAN, G_TYPE_UINT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
     
@@ -317,8 +319,8 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
 void update_tracklist(cddb_disc_t * disc)
 {
     GtkTreeModel * model;
-    char * disc_artist = cddb_disc_get_artist(disc); //!! this returns const char*
-    char * disc_title = cddb_disc_get_title(disc); //!! this returns const char*
+    const char * disc_artist = cddb_disc_get_artist(disc);
+    const char * disc_title = cddb_disc_get_title(disc);
     cddb_track_t * track;
     int singleartist;
 
@@ -356,7 +358,6 @@ int main(int argc, char *argv[])
 {
     GtkTreeViewColumn *col;
     GtkCellRenderer *renderer;
-    cddb_disc_t * disc;
     
 #ifdef ENABLE_NLS
     /* initialize gettext */

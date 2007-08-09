@@ -18,6 +18,7 @@ Foundation; version 2 of the licence.
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/wait.h>
 
 #include "wrappers.h"
 #include "threads.h"
@@ -52,7 +53,7 @@ void sigchld(int signum)
 // p - a place to write the PID of the exec'ed process
 // 
 // returns - a file descriptor that reads whatever the program outputs on "toread"
-int exec_with_output(char ** args, int toread, pid_t * p)
+int exec_with_output(char ** const args, int toread, pid_t * p)
 {
     int pipefd[2];
     
@@ -362,7 +363,6 @@ void flac(int tracknum,
     int pos;
     
     int sector;
-    int end;
 
     char tracknum_text[14];
     char * artist_text;

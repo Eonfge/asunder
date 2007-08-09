@@ -10,10 +10,6 @@ Foundation; version 2 of the licence.
 
 */
 
-#include "prefs.h"
-#include "main.h"
-#include "util.h"
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -21,6 +17,12 @@ Foundation; version 2 of the licence.
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
+
+#include "prefs.h"
+#include "main.h"
+#include "util.h"
+#include "support.h"
 
 prefs * global_prefs = NULL;
 
@@ -304,7 +306,6 @@ void load_prefs(prefs * p)
 #endif
     
     int fd = open(file, O_RDONLY);
-    char * line;
     if (fd > -1)
     {
         int anInt;
@@ -475,5 +476,8 @@ int int_to_bitrate(int i)
     case 13:
         return 320;
     }
+    
+    fprintf(stderr, "int_to_bitrate() called with bad parameter\n");
+    return 32;
 }
 

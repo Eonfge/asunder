@@ -23,6 +23,8 @@ dnl Add the languages which your application supports here.
 ALL_LINGUAS="sv zh_TW"
 AM_GLIB_GNU_GETTEXT
 
+CFLAGS="$CFLAGS -Wall -pedantic -std=gnu99 -Wundef -Wcast-align -W -Wpointer-arith -Wwrite-strings -Wno-unused-parameter"
+
 AC_OUTPUT([
 Makefile
 src/Makefile

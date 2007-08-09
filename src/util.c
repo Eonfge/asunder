@@ -17,6 +17,7 @@ Foundation; version 2 of the licence.
 #include <sys/stat.h>
 #include <unistd.h>
 #include <limits.h>
+#include <ctype.h>
 
 #include "util.h"
 
@@ -31,7 +32,7 @@ Foundation; version 2 of the licence.
 // NOTE: caller must free the returned string!
 char * parse_format(const char * format, int tracknum, const char * artist, const char * album, const char * title)
 {
-    int i = 0;
+    unsigned i = 0;
     int len = 0;
     char * ret = NULL;
     int pos = 0;
@@ -254,10 +255,10 @@ int read_line_num(int fd)
 
 // searches $PATH for the named program
 // returns 1 if found, 0 otherwise
-int program_exists(char * name)
+int program_exists(const char * name)
 {
-    int i;
-    int numpaths = 1;
+    unsigned i;
+    unsigned numpaths = 1;
     char * path;
     char * strings;
     char ** paths;
@@ -357,7 +358,7 @@ void trim_chars(char * str, char * bad)
     int i;
     int pos;
     int len = strlen(str);
-    int b;
+    unsigned b;
     
     for (b=0; b<strlen(bad); b++)
     {

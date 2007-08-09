@@ -53,7 +53,7 @@ int read_line_num(int fd);
 
 // searches $PATH for the named program
 // returns 1 if found, 0 otherwise
-int program_exists(char * name);
+int program_exists(const char * name);
 
 // removes leading and trailing whitespace as defined by isspace()
 //

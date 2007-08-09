@@ -18,6 +18,7 @@ Foundation; version 2 of the licence.
 #include <signal.h>
 #include <stdlib.h>
 #include <string.h>
+#include <libgen.h>
 
 #include "threads.h"
 #include "main.h"
@@ -306,6 +307,8 @@ gpointer rip(gpointer data)
         rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
         gdk_threads_leave();
     }
+    
+    return NULL;
 }
 
 // the thread that handles encoding WAV files to all other formats
@@ -518,6 +521,8 @@ gpointer encode(gpointer data)
     gdk_flush();
     gdk_threads_leave();
     aborted = 1; // so the tracker thread will exit
+    
+    return NULL;
 }
 
 // the thread that calculates the progress of the other threads and updates the progress bars
@@ -585,5 +590,7 @@ gpointer track(gpointer data)
         
         usleep(100000);
     }
+    
+    return NULL;
 }
 
