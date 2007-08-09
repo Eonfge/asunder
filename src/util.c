@@ -16,6 +16,7 @@ Foundation; version 2 of the licence.
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <limits.h>
 
 #include "util.h"
 
@@ -207,11 +208,17 @@ char * read_line(int fd)
         int rc;
         rc = read(fd, &cur, 1);
         if (rc != 1)
+        {
+            // If a read fails before a newline, the file is corrupt
+            // or it's from an old version.
+            pos = 0;
             break;
+        }
         pos++;
     } while (cur != '\n');
     
-    lseek(fd, -pos, SEEK_CUR);
+    if (pos == 0)
+        return NULL;
     
     ret = malloc(sizeof(char) * pos);
     if (ret == NULL)
@@ -219,6 +226,8 @@ char * read_line(int fd)
         fprintf(stderr, "malloc(sizeof(char) * pos) failed\n");
         exit(-1);
     }
+    
+    lseek(fd, -pos, SEEK_CUR);
     read(fd, ret, pos);
     ret[pos-1] = '\0';
     
@@ -228,9 +237,18 @@ char * read_line(int fd)
 // reads an entire line from a file and turns it into a number
 int read_line_num(int fd)
 {
+    int ret = 0;
+    
     char * line = read_line(fd);
-    int ret = strtol(line, NULL, 10);
+    if (line == NULL)
+        return 0;
+    
+    ret = strtol(line, NULL, 10);
+    if (ret == LONG_MIN || ret == LONG_MAX)
+        ret = 0;
+    
     free(line);
+    
     return ret;
 }
 

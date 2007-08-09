@@ -307,26 +307,95 @@ void load_prefs(prefs * p)
     char * line;
     if (fd > -1)
     {
-        clear_prefs(p);
+        int anInt;
+        char* aCharPtr;
         
-        p->cdrom = read_line(fd);
-        p->music_dir = read_line(fd);
+        aCharPtr = read_line(fd);
+        if (aCharPtr != NULL)
+        {
+            if (p->cdrom != NULL)
+                free(p->cdrom);
+            p->cdrom = aCharPtr;
+        }
+        
+        aCharPtr = read_line(fd);
+        if (aCharPtr != NULL)
+        {
+            if (p->music_dir != NULL)
+                free(p->music_dir);
+            p->music_dir = aCharPtr;
+        }
+        
+        // this one can be 0
         p->make_playlist = read_line_num(fd);
+        
+        // this one can be 0
         p->make_albumdir = read_line_num(fd);
-        p->format_music = read_line(fd);
-        p->format_playlist = read_line(fd);
-        p->format_albumdir = read_line(fd);
+        
+        aCharPtr = read_line(fd);
+        if (aCharPtr != NULL)
+        {
+            if (p->format_music != NULL)
+                free(p->format_music);
+            p->format_music = aCharPtr;
+        }
+        
+        aCharPtr = read_line(fd);
+        if (aCharPtr != NULL)
+        {
+            if (p->format_playlist != NULL)
+                free(p->format_playlist);
+            p->format_playlist = aCharPtr;
+        }
+        
+        aCharPtr = read_line(fd);
+        if (aCharPtr != NULL)
+        {
+            if (p->format_albumdir != NULL)
+                free(p->format_albumdir);
+            p->format_albumdir = aCharPtr;
+        }
+        
+        // this one can be 0
         p->rip_wav = read_line_num(fd);
+        
+        // this one can be 0
         p->rip_mp3 = read_line_num(fd);
+        
+        // this one can be 0
         p->rip_ogg = read_line_num(fd);
+        
+        // this one can be 0
         p->rip_flac = read_line_num(fd);
+        
+        // this one can be 0
         p->mp3_vbr = read_line_num(fd);
-        p->mp3_bitrate = read_line_num(fd);
+        
+        anInt = read_line_num(fd);
+        if (anInt != 0)
+            p->mp3_bitrate = anInt;
+        
+        // this one can be 0
         p->ogg_quality = read_line_num(fd);
+        
+        // this one can be 0
         p->flac_compression = read_line_num(fd);
-        p->invalid_chars = read_line(fd);
-        p->main_window_width = read_line_num(fd);
-        p->main_window_height = read_line_num(fd);
+        
+        aCharPtr = read_line(fd);
+        if (aCharPtr != NULL)
+        {
+            if (p->invalid_chars != NULL)
+                free(p->invalid_chars);
+            p->invalid_chars = aCharPtr;
+        }
+        
+        anInt = read_line_num(fd);
+        if (anInt != 0)
+            p->main_window_width = anInt;
+        
+        anInt = read_line_num(fd);
+        if (anInt != 0)
+            p->main_window_height = anInt;
         
         close(fd);
     } else {
