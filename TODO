@@ -3,9 +3,9 @@ Andrew's:
 - if there's no disk to begin with auto-refresh doesn't seem to work, need to push button
 - warnings in main.c
 - need better icon
-- update INSTALL file
-- update README file
 - node need libcddb-dev to build
+- why does it put .gmo files in dist?
+- check all returns from read() and write()
 
 
 High Priority

@@ -1,32 +1,8 @@
-Asunder 0.1.0
+Asunder
+=======
+http://littlesvr.ca/asunder
 
-Copyright(C) 2005 Eric Lathrop <eric@ericlathrop.com>
-
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
-
-For more details see the file COPYING
-
-
-What is Asunder?
-================
-Asunder is a graphical CD ripper and encoder.
-
-A "ripper" copies audio data off a CD onto your computer. It typically stores
-the data in WAV format. An "encoder" converts this audio data into a number of
-compressed audio formats (MP3, etc).
-
+Asunder is a graphical Audio CD ripper and encoder. You can use it to save tracks from an Audio CD as WAV, MP3, OGG, and/or FLAC.
 
 Features
 ========
@@ -37,12 +13,10 @@ Features
 * Allows for each track to be by a different artist
 * Does not require a specific desktop environment
 
-
 Requirements
 ============
 * Linux
 * GTK 2.4 or greater
-  http://gtk.org/
 * Libcddb 0.9.5 or greater
   http://libcddb.sourceforge.net/
 * Cdparanoia
@@ -50,27 +24,55 @@ Requirements
 * LAME (optional for MP3 support)
   http://lame.sourceforge.net/
 * Vorbis-Tools (optional for Ogg Vorbis support)
-  http://www.xiph.org/ogg/vorbis/
+  http://www.vorbis.com/
 * FLAC (optional for FLAC support)
   http://flac.sourceforge.net/
 
-  
-Installation & Configuration
-============================
-Read the file INSTALL
+To compile from source you may need the -dev or -devel versions of GTK, Libcddb, and Cdparanoia.
 
+Compiling
+=========
+First install all the dependencies. LAME, Vorbis-Tools, and FLAC don't have to be installed to compile. They are only needed at runtime if you choose to encode in those formats.
 
-Known Bugs
-==========
-Please bring any suggestions/bugs to my attention.
-You may email me at: eric@ericlathrop.com
+Then run:
 
+./configure
 
-What's New
-=================
-Read the file CHANGELOG
+If you get errors, it's probably a missing dependency. Afterwards, run:
 
+make
 
-Upcoming features
-=================
-Read the file TODO
+There shouldn't be any errors.
+
+Now you can run asunder from the 'src' directory, but you probably want to install it, so:
+
+su
+[enter root password]
+make install
+
+And on something like Ubuntu that won't let you su:
+
+sudo make install
+[enter user's password]
+
+If on any of the steps abovew you get errors, or even warnings, please do send me the output so I can fix them.
+
+Contact
+=======
+I would love to hear from you, to know how you made use of Asunder, or with bug reports, or feature requests. Please use the form at http://littlesvr.ca/misc/contactandrew.php to send me email. Thanks in advance!
+
+Bug Reports
+===========
+Please help me improve Asunder by sending me bug reports. The more of the following you can do, the easier it will be for me to fix:
+- be able to reproduce the bug consistently
+- run Asunder from a terminal window and send me the output (if any) that is printed there
+- if it only happens with one image file, tell me what it is and, if it's freely available, where i can get it
+- it's better to give me too much detail then too little
+
+Credits
+=======
+See the AUTHORS file or click About/Credits in Asnuder for a list of contributors.
+
+License
+=======
+The source code for this version of Asunder is distributed under the GNU General Public Licence version 2.
