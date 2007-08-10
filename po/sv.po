@@ -1,13 +1,13 @@
-# Swedish translation for asunder.
+# Swedish translation for Asunder.
+# This file is distributed under the same license as the Asunder package.
 # Copyright (C) 2007 Free Software Foundation, Inc.
-# This file is distributed under the same license as the asunder package.
 # Daniel Nylander <po@danielnylander.se>, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-08 13:22-0400\n"
+"POT-Creation-Date: 2007-08-10 10:03-0400\n"
 "PO-Revision-Date: 2007-08-08 15:44+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -15,27 +15,27 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:392 src/interface.c:190
+#: src/main.c:394 src/interface.c:189
 msgid "Rip"
 msgstr "Rippa"
 
-#: src/main.c:397
+#: src/main.c:399
 msgid "Track"
 msgstr "Spår"
 
-#: src/main.c:404
+#: src/main.c:406
 msgid "Artist"
 msgstr "Artist"
 
-#: src/main.c:411
+#: src/main.c:413
 msgid "Title"
 msgstr "Titel"
 
-#: src/main.c:416
+#: src/main.c:418
 msgid "Time"
 msgstr "Tid"
 
-#: src/main.c:430
+#: src/main.c:432
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -66,47 +66,47 @@ msgstr ""
 "%s hittades inte i dina sökvägar. Asunder kräver det för att skapa %s-filer. "
 "All %s-funktionalitet har inaktiverats."
 
-#: src/interface.c:132
+#: src/interface.c:131
 msgid "Disc:"
 msgstr "Skiva:"
 
-#: src/interface.c:138
+#: src/interface.c:137
 msgid "Album artist:"
 msgstr "Albumartist:"
 
-#: src/interface.c:145
+#: src/interface.c:144
 msgid "Album title:"
 msgstr "Albumtitel:"
 
-#: src/interface.c:152
+#: src/interface.c:151
 msgid "Single artist"
 msgstr "En artist"
 
-#: src/interface.c:319
+#: src/interface.c:317
 msgid "Preferences"
 msgstr "Inställningar"
 
-#: src/interface.c:335 src/interface.c:341
+#: src/interface.c:333 src/interface.c:339
 msgid "Destination folder"
 msgstr "Målmapp"
 
-#: src/interface.c:345
+#: src/interface.c:343
 msgid "Create M3U playlist"
 msgstr "Skapa M3U-spellista"
 
-#: src/interface.c:349
+#: src/interface.c:347
 msgid "Create directory for each album"
 msgstr "Skapa katalog för varje album"
 
-#: src/interface.c:357
+#: src/interface.c:355
 msgid "CD-ROM device: "
 msgstr "Cd-rom-enhet: "
 
-#: src/interface.c:370
+#: src/interface.c:368
 msgid "General"
 msgstr "Allmänt"
 
-#: src/interface.c:388
+#: src/interface.c:386
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -118,86 +118,86 @@ msgstr ""
 "%N - Spårnummer (2-siffrigt)\n"
 "%T - Låttitel"
 
-#: src/interface.c:398
+#: src/interface.c:396
 msgid "Music file: "
 msgstr "Musikfil: "
 
-#: src/interface.c:405
+#: src/interface.c:403
 msgid "Playlist file: "
 msgstr "Spellistfil: "
 
-#: src/interface.c:412
+#: src/interface.c:410
 msgid "Album directory: "
 msgstr "Albumkatalog: "
 
-#: src/interface.c:437
+#: src/interface.c:435
 msgid "Filename formats"
 msgstr "Filnamnsformat"
 
-#: src/interface.c:446
+#: src/interface.c:444
 msgid "Invalid characters"
 msgstr "Ogiltiga tecken"
 
-#: src/interface.c:453
+#: src/interface.c:451
 msgid "These characters will be removed from all filenames."
 msgstr "Dessa tecken kommer att tas bort från alla filnamn."
 
-#: src/interface.c:455
+#: src/interface.c:453
 msgid "Filenames"
 msgstr "Filnamn"
 
-#: src/interface.c:464
+#: src/interface.c:462
 msgid "WAV (uncompressed)"
 msgstr "WAV (okomprimerad)"
 
-#: src/interface.c:481
+#: src/interface.c:479
 msgid "Variable bit rate (VBR)"
 msgstr "Variabel bitfrekvens (VBR)"
 
-#: src/interface.c:489
+#: src/interface.c:487
 msgid "Bitrate"
 msgstr "Bitfrekvens"
 
-#: src/interface.c:499
+#: src/interface.c:497
 msgid "32Kbps"
 msgstr "32 Kbps"
 
-#: src/interface.c:503
+#: src/interface.c:501
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (förstörande komprimering)"
 
-#: src/interface.c:520
+#: src/interface.c:518
 msgid "Quality"
 msgstr "Kvalitet"
 
-#: src/interface.c:529
+#: src/interface.c:527
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (förstörande komprimering)"
 
-#: src/interface.c:546
+#: src/interface.c:544
 msgid "Compression level"
 msgstr "Komprimeringsnivå"
 
-#: src/interface.c:555
+#: src/interface.c:553
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (icke-förstörande komprimering)"
 
-#: src/interface.c:559
+#: src/interface.c:557
 msgid "Encode"
 msgstr "Kodning"
 
-#: src/interface.c:674 src/interface.c:710
+#: src/interface.c:672 src/interface.c:708
 msgid "Ripping"
 msgstr "Rippa"
 
-#: src/interface.c:703
+#: src/interface.c:701
 msgid "Total progress"
 msgstr "Totalt förlopp"
 
-#: src/interface.c:717
+#: src/interface.c:715
 msgid "Encoding"
 msgstr "Kodning"
 
-#: src/threads.c:537 src/threads.c:539 src/threads.c:543
+#: src/threads.c:542 src/threads.c:544 src/threads.c:548
 msgid "Waiting..."
 msgstr "Väntar..."
