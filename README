@@ -28,7 +28,7 @@ Requirements
 * FLAC (optional for FLAC support)
   http://flac.sourceforge.net/
 
-To compile from source you may need the -dev or -devel versions of GTK, Libcddb, and Cdparanoia.
+To compile from source you may need the -dev or -devel versions of GTK and libcddb. On Ubuntu these packages are called libgtk2.0-dev and libcddb2-dev.
 
 Compiling
 =========
