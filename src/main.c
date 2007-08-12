@@ -59,7 +59,7 @@ GtkWidget * pick_disc;
 void check_disc(char * cdrom, int force)
 {
     static int newdisc = 1;
-
+    
     int fd;
     int status;
     struct cdrom_tochdr th;
@@ -97,10 +97,6 @@ void check_disc(char * cdrom, int force)
                 // see if we can read the disc's table of contents (TOC).
                 if (ioctl(fd, CDROMREADTOCHDR, &th) == 0)
                 {
-#ifdef DEBUG
-                    printf("starting track: %d\n", th.cdth_trk0);
-                    printf("ending track: %d\n", th.cdth_trk1);
-#endif
                     disc = cddb_disc_new();
                     if (disc == NULL)
                     {
@@ -324,7 +320,7 @@ void update_tracklist(cddb_disc_t * disc)
     char * disc_title = (char*)cddb_disc_get_title(disc);
     cddb_track_t * track;
     bool singleartist;
-
+    //printf("update_tracklist()\n");
     if (disc_artist != NULL)
     {
         trim_chars(disc_artist, global_prefs->invalid_chars);
