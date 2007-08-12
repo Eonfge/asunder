@@ -26,6 +26,7 @@ Foundation; version 2 of the licence.
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "main.h"
 #include "interface.h"
@@ -283,8 +284,8 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
     cddb_track_t * track;
     int seconds;
     char time[6];
-    const char * track_artist;
-    const char * track_title;
+    char * track_artist;
+    char * track_title;
     
     store = gtk_list_store_new(NUM_COLS, G_TYPE_BOOLEAN, G_TYPE_UINT, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
     
@@ -293,11 +294,11 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
         seconds = cddb_track_get_length(track);
         snprintf(time, 6, "%02d:%02d", seconds/60, seconds%60);
         
-        track_artist = cddb_track_get_artist(track);
+        track_artist = (char*)cddb_track_get_artist(track);
         trim_chars(track_artist, global_prefs->invalid_chars);
         trim_whitespace(track_artist);
         
-        track_title = cddb_track_get_title(track); //!! this returns const char*
+        track_title = (char*)cddb_track_get_title(track); //!! this returns const char*
         trim_chars(track_title, global_prefs->invalid_chars);
         trim_whitespace(track_title);
         
@@ -319,10 +320,10 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
 void update_tracklist(cddb_disc_t * disc)
 {
     GtkTreeModel * model;
-    const char * disc_artist = cddb_disc_get_artist(disc);
-    const char * disc_title = cddb_disc_get_title(disc);
+    char * disc_artist = (char*)cddb_disc_get_artist(disc);
+    char * disc_title = (char*)cddb_disc_get_title(disc);
     cddb_track_t * track;
-    int singleartist;
+    bool singleartist;
 
     if (disc_artist != NULL)
     {
@@ -330,12 +331,12 @@ void update_tracklist(cddb_disc_t * disc)
         trim_whitespace(disc_artist);
         gtk_entry_set_text(GTK_ENTRY(album_artist), disc_artist);
         
-        singleartist = 1;
+        singleartist = true;
         for (track = cddb_disc_get_track_first(disc); track != NULL; track = cddb_disc_get_track_next(disc))
         {
             if (strcmp(disc_artist, cddb_track_get_artist(track)) != 0)
             {
-                singleartist = 0;
+                singleartist = false;
                 break;
             }
         }

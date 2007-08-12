@@ -37,7 +37,7 @@ void sigchld(int signum);
 // p - a place to write the PID of the exec'ed process
 // 
 // returns - a file descriptor that reads whatever the program outputs on "toread"
-int exec_with_output(char ** const args, int toread, pid_t * p);
+int exec_with_output(const char * args[], int toread, pid_t * p);
 
 // uses cdparanoia to rip a WAV track from a cdrom
 //

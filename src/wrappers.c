@@ -53,7 +53,7 @@ void sigchld(int signum)
 // p - a place to write the PID of the exec'ed process
 // 
 // returns - a file descriptor that reads whatever the program outputs on "toread"
-int exec_with_output(char ** const args, int toread, pid_t * p)
+int exec_with_output(const char * args[], int toread, pid_t * p)
 {
     int pipefd[2];
     
@@ -81,7 +81,7 @@ int exec_with_output(char ** const args, int toread, pid_t * p)
         close(pipefd[1]);
         
         // call execvp
-        execvp(args[0], args);
+        execvp(args[0], (char **)args);
         
         // should never get here
         fprintf(stderr, "error: exec");
@@ -121,7 +121,7 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     
     snprintf(trackstring, 3, "%d", tracknum);
 
-    char * args[] = { "cdparanoia", "-e", "-d", cdrom, trackstring, filename, NULL };
+    const char * args[] = { "cdparanoia", "-e", "-d", cdrom, trackstring, filename, NULL };
 
     fd = exec_with_output(args, STDERR_FILENO, &cdparanoia_pid);
     
@@ -189,7 +189,7 @@ void lame(int tracknum,
 
     char tracknum_text[3];
     char bitrate_text[4];
-    char * args[15];
+    const char * args[15];
 
     snprintf(tracknum_text, 3, "%d", tracknum);
     snprintf(bitrate_text, 4, "%d", bitrate);
@@ -280,7 +280,7 @@ void oggenc(int tracknum,
 
     char tracknum_text[3];
     char quality_level_text[3];
-    char * args[14];
+    const char * args[14];
 
     snprintf(tracknum_text, 3, "%d", tracknum);
     snprintf(quality_level_text, 3, "%d", quality_level);
@@ -369,7 +369,7 @@ void flac(int tracknum,
     char * album_text;
     char * title_text;
     char compression_level_text[3];
-    char * args[14];
+    const char * args[14];
 
     snprintf(tracknum_text, 15, "TRACKNUMBER=%d", tracknum);
 
