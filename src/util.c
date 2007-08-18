@@ -203,10 +203,10 @@ char * read_line(int fd)
     int pos = 0;
     char cur;
     char * ret;
-
+    int rc;
+    
     do
     {
-        int rc;
         rc = read(fd, &cur, 1);
         if (rc != 1)
         {
@@ -229,7 +229,12 @@ char * read_line(int fd)
     }
     
     lseek(fd, -pos, SEEK_CUR);
-    read(fd, ret, pos);
+    rc = read(fd, ret, pos);
+    if (rc != pos)
+    {
+        free(ret);
+        return NULL;
+    }
     ret[pos-1] = '\0';
     
     return ret;

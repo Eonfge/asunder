@@ -2,7 +2,8 @@ Andrew's:
 ==================
 - if there's no disk to begin with auto-refresh doesn't seem to work, need to push button
 - need better icon
-
+- Sound Juicer and Banshee rip to ogg almost twice faster, figure out why.
+- Having the option to create a seperate Artist folder ('Library/Artist/Album/' instead of 'Library/Artist - Album/') would be better, maybe default.
 
 High Priority
 ==================
