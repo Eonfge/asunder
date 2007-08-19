@@ -331,6 +331,10 @@ void oggenc(int tracknum,
         {
             *progress = (double)(sector + (end*0.1))/100;
         }
+        else if (sscanf(buf, "\t[\t%d,%d%%]", &sector, &end) == 2)
+        {
+            *progress = (double)(sector + (end*0.1))/100;
+        }
     } while (size > 0);
     
     close(fd);
