@@ -308,6 +308,12 @@ gpointer rip(gpointer data)
         gdk_threads_leave();
     }
     
+    // no more tracks to rip, safe to eject
+    if (global_prefs->eject_on_done)
+    {
+        eject_disc(global_prefs->cdrom);
+    }
+    
     return NULL;
 }
 
@@ -521,12 +527,6 @@ gpointer encode(gpointer data)
     gdk_flush();
     gdk_threads_leave();
     aborted = 1; // so the tracker thread will exit
-    
-    // no more tracks to rip, safe to eject
-    if (global_prefs->eject_on_done)
-    {
-        eject_disc(global_prefs->cdrom);
-    }
     
     return NULL;
 }

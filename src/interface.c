@@ -361,7 +361,7 @@ create_prefs (void)
   gtk_widget_show (cdrom);
   gtk_box_pack_start (GTK_BOX (hbox12), cdrom, TRUE, TRUE, 0);
   
-  eject_on_done = gtk_check_button_new_with_mnemonic (_("Eject disc when done ripping"));
+  eject_on_done = gtk_check_button_new_with_mnemonic (_("Eject disc when finished"));
   gtk_widget_show (eject_on_done);
   gtk_box_pack_start (GTK_BOX (vbox5), eject_on_done, FALSE, FALSE, 5);
 

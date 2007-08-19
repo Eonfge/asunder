@@ -21,6 +21,7 @@ For more details see the file COPYING
 */
 #include <gtk/gtk.h>
 #include <cddb/cddb.h>
+#include <stdbool.h>
 
 enum
 {
@@ -35,21 +36,30 @@ enum
 // scan the cdrom device for a disc
 // returns True if a disc is present and
 //   is different from the last time this was called
-void check_disc(char * cdrom, int force);
+bool check_disc(char * cdrom);
+
+void clear_widgets();
+
+// creates a tree model that represents the data in the cddb_disc_t
+GtkTreeModel * create_model_from_disc(cddb_disc_t * disc);
 
 // open/close the drive's tray
 void eject_disc(char * cdrom);
 
 // looks up the given cddb_disc_t in the online database, and fills in the values
-void lookup_disc(cddb_disc_t * disc);
+GList * lookup_disc(cddb_disc_t * disc);
 
-// creates a tree model that represents the data in the cddb_disc_t
-GtkTreeModel * create_model_from_disc(cddb_disc_t * disc);
+// reads the TOC of a cdrom into a CDDB struct
+// returns the filled out struct
+// so we can send it over the internet to lookup the disc
+cddb_disc_t * read_disc(char * cdrom);
+
+// the main logic for scanning the discs
+void refresh(char * cdrom, int force);
 
 // updates all the necessary widgets with the data for the given cddb_disc_t
 void update_tracklist(cddb_disc_t * disc);
 
-extern cddb_disc_t * current_disc;
 extern GList * disc_matches;
 
 extern GtkWidget * win_main;

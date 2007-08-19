@@ -266,7 +266,7 @@ on_rip_flac_toggled                    (GtkToggleButton *togglebutton,
 gboolean
 idle(gpointer data)
 {
-    check_disc(global_prefs->cdrom, 0);
+    refresh(global_prefs->cdrom, 0);
     return (data != NULL);
 }
 
@@ -292,7 +292,7 @@ void
 on_refresh_clicked                     (GtkToolButton   *toolbutton,
                                         gpointer         user_data)
 {
-    check_disc(global_prefs->cdrom, 1);
+    refresh(global_prefs->cdrom, 1);
 }
 
 

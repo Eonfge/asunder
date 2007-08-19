@@ -9,10 +9,10 @@ Andrew's:
  - prefs
  - clear_widgets()
  - refresh()
-- does progress update for ogg-only encoding?
 - if i eject the disk while ripping, strange things happen
 - need a 'ripping done' dialog
 - if dong wav-only, encoding bar jums to 100 right away
+- adrian cd crashes
 
 
 High Priority
