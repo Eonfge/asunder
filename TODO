@@ -4,12 +4,20 @@ Andrew's:
 - need better icon
 - Sound Juicer and Banshee rip to ogg almost twice faster, figure out why.
 - Having the option to create a seperate Artist folder ('Library/Artist/Album/' instead of 'Library/Artist - Album/') would be better, maybe default.
+- merge from eric's r4:
+ - eject_disk()
+ - prefs
+ - clear_widgets()
+ - refresh()
+- does progress update for ogg-only encoding?
+- if i eject the disk while ripping, strange things happen
+- need a 'ripping done' dialog
+
 
 High Priority
 ==================
 * Store local cache of CDDB info (include any changes the user makes)
 * Need something to idicate "waiting" for CDDB
-* Add option to eject disc when done ripping
 
 
 Low Priority

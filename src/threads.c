@@ -522,6 +522,12 @@ gpointer encode(gpointer data)
     gdk_threads_leave();
     aborted = 1; // so the tracker thread will exit
     
+    // no more tracks to rip, safe to eject
+    if (global_prefs->eject_on_done)
+    {
+        eject_disc(global_prefs->cdrom);
+    }
+    
     return NULL;
 }
 
@@ -562,7 +568,7 @@ gpointer track(gpointer data)
     while (!aborted)
     {
 #ifdef DEBUG
-        printf("%d: %f    %d: %f %f %f\n", rip_tracks_completed, rip_percent, encode_tracks_completed, mp3_percent, ogg_percent, flac_percent);
+        printf("completed tracks %d, rip %.2f%%; encoded tracks %d, mp3 %.2f%% ogg %.2f%% flac %.2f%%\n", rip_tracks_completed, rip_percent, encode_tracks_completed, mp3_percent, ogg_percent, flac_percent);
 #endif
         prip = (rip_tracks_completed+rip_percent) / tracks_to_rip;
         snprintf(srip, 13, "%d%% (%d/%d)", (int)(prip*100), rip_tracks_completed, tracks_to_rip);

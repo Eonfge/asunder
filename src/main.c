@@ -172,6 +172,30 @@ void check_disc(char * cdrom, int force)
 }
 
 
+// open the drive's tray
+void eject_disc(char * cdrom)
+{
+	int fd;
+	
+	// open the device
+	fd = open(cdrom, O_RDONLY | O_NONBLOCK);
+	if (fd < 0)
+	{
+		fprintf(stderr, "Error: Couldn't open %s\n", cdrom);
+		return;
+	}
+
+/*	if (ioctl(fd, CDROM_DRIVE_STATUS, CDSL_CURRENT) == CDS_TRAY_OPEN)
+	{
+		ioctl(fd, CDROMCLOSETRAY, CDSL_CURRENT);
+	} else {*/
+		ioctl(fd, CDROMEJECT, CDSL_CURRENT);
+	/*}*/
+	
+	close(fd);
+}
+
+
 // looks up the given cddb_disc_t in the online database, and fills in the values
 void lookup_disc(cddb_disc_t * disc)
 {

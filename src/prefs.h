@@ -22,24 +22,26 @@ For more details see the file COPYING
 
 typedef struct _prefs
 {
-	char * cdrom;
-	char * music_dir;
-	int make_playlist;
-	int make_albumdir;
-	char * format_music;
-	char * format_playlist;
-	char * format_albumdir;
-	int rip_wav;
-	int rip_mp3;
-	int rip_ogg;
-	int rip_flac;
-	int mp3_vbr;
-	int mp3_bitrate;
-	int ogg_quality;
-	int flac_compression;
-	char * invalid_chars;
-	int main_window_width;
-	int main_window_height;
+    char * cdrom;
+    char * music_dir;
+    int make_playlist;
+    int make_albumdir;
+    char * format_music;
+    char * format_playlist;
+    char * format_albumdir;
+    int rip_wav;
+    int rip_mp3;
+    int rip_ogg;
+    int rip_flac;
+    int mp3_vbr;
+    int mp3_bitrate;
+    int ogg_quality;
+    int flac_compression;
+    char * invalid_chars;
+    int main_window_width;
+    int main_window_height;
+    int eject_on_done;
+    
 } prefs;
 
 extern prefs * global_prefs;

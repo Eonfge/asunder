@@ -138,6 +138,8 @@ prefs * get_default_prefs()
     p->main_window_width = 600;
     p->main_window_height = 450;
     
+    p->eject_on_done = 0;
+    
     return p;
 }
 
@@ -161,6 +163,7 @@ void set_widgets_from_prefs(prefs * p)
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "oggquality")), p->ogg_quality);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "flaccompression")), p->flac_compression);
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "invalid_chars")), p->invalid_chars);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")), p->eject_on_done);
 }
 
 // populates a prefs struct from the current state of the widgets
@@ -234,6 +237,8 @@ void get_prefs_from_widgets(prefs * p)
         exit(-1);
     }
     strncpy(p->invalid_chars, tocopyc, strlen(tocopyc)+1);
+    
+    p->eject_on_done = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")));
 }
 
 // store the given prefs struct to the config file
@@ -277,6 +282,7 @@ void save_prefs(prefs * p)
         fprintf(config, "%s\n", p->invalid_chars);
         fprintf(config, "%d\n", p->main_window_width);
         fprintf(config, "%d\n", p->main_window_height);
+        fprintf(config, "%d\n", p->eject_on_done);
         
         fclose(config);
     } else {
@@ -397,6 +403,9 @@ void load_prefs(prefs * p)
         anInt = read_line_num(fd);
         if (anInt != 0)
             p->main_window_height = anInt;
+        
+        // this one can be 0
+        p->eject_on_done = read_line_num(fd);
         
         close(fd);
     } else {

@@ -309,7 +309,8 @@ create_prefs (void)
   GtkWidget *cancelbutton1;
   GtkWidget *okbutton1;
   GtkTooltips *tooltips;
-
+  GtkWidget *eject_on_done;
+  
   tooltips = gtk_tooltips_new ();
 
   prefs = gtk_dialog_new ();
@@ -360,6 +361,10 @@ create_prefs (void)
   gtk_widget_show (cdrom);
   gtk_box_pack_start (GTK_BOX (hbox12), cdrom, TRUE, TRUE, 0);
   
+  eject_on_done = gtk_check_button_new_with_mnemonic (_("Eject disc when done ripping"));
+  gtk_widget_show (eject_on_done);
+  gtk_box_pack_start (GTK_BOX (vbox5), eject_on_done, FALSE, FALSE, 5);
+
   GtkWidget* hboxFill;
   hboxFill = gtk_hbox_new (FALSE, 0);
   gtk_widget_show (hboxFill);
@@ -603,6 +608,7 @@ create_prefs (void)
   GLADE_HOOKUP_OBJECT (prefs, hbox12, "hbox12");
   GLADE_HOOKUP_OBJECT (prefs, label28, "label28");
   GLADE_HOOKUP_OBJECT (prefs, cdrom, "cdrom");
+  GLADE_HOOKUP_OBJECT (prefs, eject_on_done, "eject_on_done");
   GLADE_HOOKUP_OBJECT (prefs, label4, "label4");
   GLADE_HOOKUP_OBJECT (prefs, vbox7, "vbox7");
   GLADE_HOOKUP_OBJECT (prefs, frame2, "frame2");

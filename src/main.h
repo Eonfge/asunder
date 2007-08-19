@@ -33,11 +33,12 @@ enum
 };
 
 // scan the cdrom device for a disc
-// if the tray has been opened since last time we were called
-//     then we go to CDDB, and update the widgets
-// if (force == TRUE)
-//     then we updated everything no matter what
+// returns True if a disc is present and
+//   is different from the last time this was called
 void check_disc(char * cdrom, int force);
+
+// open/close the drive's tray
+void eject_disc(char * cdrom);
 
 // looks up the given cddb_disc_t in the online database, and fills in the values
 void lookup_disc(cddb_disc_t * disc);
@@ -58,4 +59,4 @@ extern GtkWidget * win_about;
 
 extern GtkWidget * tracklist;
 
-//#define DEBUG
+#define DEBUG
