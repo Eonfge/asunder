@@ -397,7 +397,7 @@ void update_tracklist(cddb_disc_t * disc)
     char * disc_title = (char*)cddb_disc_get_title(disc);
     cddb_track_t * track;
     bool singleartist;
-    //printf("update_tracklist()\n");
+    
     if (disc_artist != NULL)
     {
         trim_chars(disc_artist, global_prefs->invalid_chars);
@@ -441,7 +441,7 @@ void refresh(char * cdrom, int force)
         disc = read_disc(cdrom);
         if (disc == NULL)
             return;
-
+        
         // show the temporary info
         gtk_entry_set_text(GTK_ENTRY(album_artist), "Unknown Artist");
         gtk_entry_set_text(GTK_ENTRY(album_title), "Unknown Album");
@@ -456,6 +456,9 @@ void refresh(char * cdrom, int force)
         
         disc_matches = lookup_disc(disc);
         cddb_disc_destroy(disc);
+        
+        if (disc_matches == NULL)
+            return;
         
         if (g_list_length(disc_matches) > 1)
         {
@@ -481,7 +484,7 @@ void refresh(char * cdrom, int force)
             gtk_widget_show(lookup_widget(win_main, "disc"));
             gtk_widget_show(lookup_widget(win_main, "pick_disc"));
         }
-
+        
         update_tracklist((cddb_disc_t *)g_list_nth_data(disc_matches, 0));
     }
 }
