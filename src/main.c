@@ -146,11 +146,10 @@ int main(int argc, char *argv[])
 
 bool check_disc(char * cdrom)
 {
-    static bool newdisc = true;
     int fd;
-    int status;
     bool ret = false;
-
+    int status;
+    
     // open the device
     fd = open(cdrom, O_RDONLY | O_NONBLOCK);
     if (fd < 0)
@@ -158,23 +157,49 @@ bool check_disc(char * cdrom)
         fprintf(stderr, "Error: Couldn't open %s\n", cdrom);
         return false;
     }
-
-    // read the drive status info
-    if (ioctl(fd, CDROM_DRIVE_STATUS, CDSL_CURRENT) == CDS_DISC_OK)
-    {
-        if (newdisc)
-        {
-            newdisc = false;
+    
+    /* this was the original (Eric's 0.1 and post 0.0.1) checking code,
+    * but it never worked properly for me. Removed 21 aug 2007. */
+    //~ static bool newdisc = true;
+    //~ // read the drive status info
+    //~ if (ioctl(fd, CDROM_DRIVE_STATUS, CDSL_CURRENT) == CDS_DISC_OK)
+    //~ {
+        //~ if (newdisc)
+        //~ {
+            //~ newdisc = false;
             
-            status = ioctl(fd, CDROM_DISC_STATUS, CDSL_CURRENT);
-            if ((status == CDS_AUDIO) || (status == CDS_MIXED))
-            {
-                ret = true;
-            }
+            //~ status = ioctl(fd, CDROM_DISC_STATUS, CDSL_CURRENT);
+            //~ if ((status == CDS_AUDIO) || (status == CDS_MIXED))
+            //~ {
+                //~ ret = true;
+            //~ }printf("status %d vs %d\n", status, CDS_NO_INFO);
+        //~ }
+    //~ } else {
+        //~ newdisc = true;
+        //~ clear_widgets();
+    //~ }
+    
+    static bool alreadyKnowGood = false; /* check when program just started */
+    static bool alreadyCleared = true; /* no need to clear when program just started */
+    
+    status = ioctl(fd, CDROM_DISC_STATUS, CDSL_CURRENT);
+    if (status == CDS_AUDIO || status == CDS_MIXED)
+    {
+        if (!alreadyKnowGood)
+        {
+            ret = true;
+            alreadyKnowGood = true; /* don't return true again for this disc */
+            alreadyCleared = false; /* clear when disc is removed */
         }
-    } else {
-        newdisc = true;
-        clear_widgets();
+    }
+    else
+    {
+        alreadyKnowGood = false; /* return true when good disc inserted */
+        if (!alreadyCleared)
+        {
+            alreadyCleared = true;
+            clear_widgets();
+        }
     }
 
     close(fd);
@@ -435,7 +460,7 @@ void refresh(char * cdrom, int force)
 
     if (check_disc(cdrom) || force)
     {
-        clear_widgets();
+        //~ clear_widgets();
         gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), TRUE);
         
         disc = read_disc(cdrom);
