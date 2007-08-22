@@ -27,7 +27,6 @@ Foundation; version 2 of the licence.
 #include "threads.h"
 #include "util.h"
 
-
 void
 on_rip_button_clicked                  (GtkButton       *button,
                                         gpointer         user_data)
@@ -82,7 +81,6 @@ on_rip_button_clicked                  (GtkButton       *button,
     dorip();
 }
 
-
 void
 on_prefs_response                      (GtkDialog       *dialog,
                                         gint             response_id,
@@ -100,7 +98,6 @@ on_prefs_response                      (GtkDialog       *dialog,
     
 }
 
-
 void
 on_pick_disc_changed                   (GtkComboBox     *combobox,
                                         gpointer         user_data)
@@ -108,7 +105,6 @@ on_pick_disc_changed                   (GtkComboBox     *combobox,
     cddb_disc_t * disc = g_list_nth_data(disc_matches, gtk_combo_box_get_active(combobox));
     update_tracklist(disc);
 }
-
 
 void
 on_single_artist_toggled               (GtkToggleButton *togglebutton,
@@ -118,7 +114,6 @@ on_single_artist_toggled               (GtkToggleButton *togglebutton,
     gtk_tree_view_column_set_visible(col, !gtk_toggle_button_get_active(togglebutton));
 }
 
-
 void
 on_mp3bitrate_value_changed            (GtkRange        *range,
                                         gpointer         user_data)
@@ -127,7 +122,6 @@ on_mp3bitrate_value_changed            (GtkRange        *range,
     snprintf(bitrate, 8, "%dKbps", int_to_bitrate((int)gtk_range_get_value(range)));
     gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "mp3_bitrate")), bitrate);
 }
-
 
 void
 rip_toggled                       (GtkCellRendererToggle *cell,
@@ -190,14 +184,12 @@ on_prefs_show                          (GtkWidget       *widget,
     set_widgets_from_prefs(global_prefs);
 }
 
-
 void
 on_cancel_clicked                      (GtkButton       *button,
                                         gpointer         user_data)
 {
     abort_threads();
 }
-
 
 void
 on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
@@ -220,7 +212,6 @@ on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
     }
 }
 
-
 void
 on_rip_ogg_toggled                     (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
@@ -240,7 +231,6 @@ on_rip_ogg_toggled                     (GtkToggleButton *togglebutton,
         gtk_toggle_button_set_active(togglebutton, global_prefs->rip_ogg);
     }
 }
-
 
 void
 on_rip_flac_toggled                    (GtkToggleButton *togglebutton,
@@ -270,14 +260,12 @@ idle(gpointer data)
     return (data != NULL);
 }
 
-
 void
 on_about_clicked                       (GtkToolButton   *toolbutton,
                                         gpointer         user_data)
 {
     show_aboutbox();
 }
-
 
 void
 on_preferences_clicked                 (GtkToolButton   *toolbutton,
@@ -287,14 +275,12 @@ on_preferences_clicked                 (GtkToolButton   *toolbutton,
     gtk_widget_show(win_prefs);
 }
 
-
 void
 on_refresh_clicked                     (GtkToolButton   *toolbutton,
                                         gpointer         user_data)
 {
     refresh(global_prefs->cdrom, 1);
 }
-
 
 gboolean
 on_album_artist_focus_out_event        (GtkWidget       *widget,
@@ -318,7 +304,6 @@ on_album_artist_focus_out_event        (GtkWidget       *widget,
     return FALSE;
 }
 
-
 gboolean
 on_album_title_focus_out_event         (GtkWidget       *widget,
                                         GdkEventFocus   *event,
@@ -340,7 +325,6 @@ on_album_title_focus_out_event         (GtkWidget       *widget,
     free(text);
     return FALSE;
 }
-
 
 void
 on_aboutbox_response                   (GtkDialog       *dialog,
@@ -364,4 +348,3 @@ on_window_close                        (GtkWidget       *widget,
 
     gtk_main_quit();
 }    
-

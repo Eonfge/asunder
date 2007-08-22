@@ -220,6 +220,24 @@ create_main (void)
                     G_CALLBACK (on_rip_button_clicked),
                     NULL);
 
+  /* KEYBOARD accelerators */
+  GtkAccelGroup* accelGroup;
+  guint accelKey;
+  GdkModifierType accelModifier;
+  GClosure *closure = NULL;
+  
+  accelGroup = gtk_accel_group_new();
+  gtk_window_add_accel_group(GTK_WINDOW(main_win), accelGroup);
+  
+  gtk_accelerator_parse("<Control>W", &accelKey, &accelModifier);
+  closure = g_cclosure_new(G_CALLBACK(on_window_close), NULL, NULL);
+  gtk_accel_group_connect(accelGroup, accelKey, accelModifier, GTK_ACCEL_VISIBLE, closure);
+  
+  gtk_accelerator_parse("<Control>Q", &accelKey, &accelModifier);
+  closure = g_cclosure_new(G_CALLBACK(on_window_close), NULL, NULL);
+  gtk_accel_group_connect(accelGroup, accelKey, accelModifier, GTK_ACCEL_VISIBLE, closure);
+  /* END KEYBOARD accelerators */
+
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (main_win, main_win, "main");
   GLADE_HOOKUP_OBJECT (main_win, vbox1, "vbox1");

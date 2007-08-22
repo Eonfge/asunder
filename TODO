@@ -7,7 +7,6 @@ Andrew's:
 - need a 'ripping done' dialog, even better a window showing the status of each track's rip/encode
 - if dong wav-only, encoding bar jumps to 100 right away
 - pref for setting cddb server?
-- add ctrl+q/w shortcut
 - log all output from programs so i can debug remotely
 
 
