@@ -4,10 +4,11 @@ Andrew's:
 - Sound Juicer and Banshee rip to ogg almost twice faster, figure out why.
 - Having the option to create a seperate Artist folder ('Library/Artist/Album/' instead of 'Library/Artist - Album/') would be better, maybe default.
 - if i eject the disk while ripping, strange things happen
-- need a 'ripping done' dialog
-- if dong wav-only, encoding bar jums to 100 right away
+- need a 'ripping done' dialog, even better a window showing the status of each track's rip/encode
+- if dong wav-only, encoding bar jumps to 100 right away
 - pref for setting cddb server?
--ejecting the disk doesn't always clear the list
+- add ctrl+q/w shortcut
+- log all output from programs so i can debug remotely
 
 
 High Priority

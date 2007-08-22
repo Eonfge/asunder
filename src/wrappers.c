@@ -23,27 +23,46 @@ Foundation; version 2 of the licence.
 #include "wrappers.h"
 #include "threads.h"
 
-pid_t cdparanoia_pid = -1;
-pid_t lame_pid = -1;
-pid_t oggenc_pid = -1;
-pid_t flac_pid = -1;
+pid_t cdparanoia_pid = 0;
+pid_t lame_pid = 0;
+pid_t oggenc_pid = 0;
+pid_t flac_pid = 0;
+
+bool anyCdparanoiaFailed;
+bool anyLameFailed;
+bool anyOggFailed;
+bool anyFlacFailed;
 
 int numchildren = 0;
 
 // signal handler to find out when our child has exited
 void sigchld(int signum)
 {
-        int status;
-        wait(&status);
-
-        // if there are still children waiting
+    int status;
+    pid_t pid;
+    
+    pid = wait(&status);
+    //~ printf("status %d, pid %d\n", status, pid);
+    if (status != 0)
+    {
+        if (pid == cdparanoia_pid)
+            anyCdparanoiaFailed = true;
+        else if (pid == lame_pid)
+            anyLameFailed = true;
+        else if (pid == oggenc_pid)
+            anyOggFailed = true;
+        else if (pid == flac_pid)
+            anyFlacFailed = true;
+    }
+    
+    // if there are still children waiting
+    // re-install the signal handler
+    numchildren--;
+    if (numchildren > 0)
+    {
         // re-install the signal handler
-        numchildren--;
-        if (numchildren > 0)
-        {
-                // re-install the signal handler
-                signal(SIGCHLD, sigchld);
-        }
+        signal(SIGCHLD, sigchld);
+    }
 }
 
 // fork() and exec() the file listed in "args"
@@ -87,7 +106,7 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
         fprintf(stderr, "error: exec");
         exit(2);
     }
-
+    printf("started pid %d\n", *p);
     // i'm the parent, get ready to wait for children
     numchildren++;
     signal(SIGCHLD, sigchld);
@@ -154,7 +173,7 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     } while (size > 0);
     
     close(fd);
-    cdparanoia_pid = -1;
+    cdparanoia_pid = 0;
 }
 
 // uses LAME to encode a WAV file into a MP3 and tag it
@@ -247,7 +266,7 @@ void lame(int tracknum,
     } while (size > 0);
     
     close(fd);
-    lame_pid = -1;
+    lame_pid = 0;
 }
 
 // uses oggenc to encode a WAV file into a OGG and tag it
@@ -338,7 +357,7 @@ void oggenc(int tracknum,
     } while (size > 0);
     
     close(fd);
-    oggenc_pid = -1;
+    oggenc_pid = 0;
 }
 
 // uses the FLAC reference encoder to encode a WAV file into a FLAC and tag it
@@ -463,5 +482,5 @@ void flac(int tracknum,
     } while (size > 0);
     
     close(fd);
-    flac_pid = -1;
+    flac_pid = 0;
 }

@@ -26,6 +26,7 @@ Foundation; version 2 of the licence.
 #include "util.h"
 #include "wrappers.h"
 #include "support.h"
+#include "interface.h"
 
 static GMutex * barrier = NULL;
 static GCond * available = NULL;
@@ -55,10 +56,14 @@ void abort_threads()
 {
     aborted = 1;
 
-    if (cdparanoia_pid > 0) kill(cdparanoia_pid, SIGKILL);
-    if (lame_pid > 0) kill(lame_pid, SIGKILL);
-    if (oggenc_pid > 0) kill(oggenc_pid, SIGKILL);
-    if (flac_pid > 0) kill(flac_pid, SIGKILL);
+    if (cdparanoia_pid != 0) 
+        kill(cdparanoia_pid, SIGKILL);
+    if (lame_pid != 0) 
+        kill(lame_pid, SIGKILL);
+    if (oggenc_pid != 0) 
+        kill(oggenc_pid, SIGKILL);
+    if (flac_pid != 0) 
+        kill(flac_pid, SIGKILL);
     
     g_cond_signal(available);
     
@@ -78,8 +83,12 @@ void abort_threads()
     printf("Aborting: 4 (All threads joined)\n");
 #endif
     
+    //~ printf("anyCdparanoiaFailed %d anyLameFailed %d anyOggFailed %d anyFlacFailed %d\n", 
+        //~ anyCdparanoiaFailed, anyLameFailed, anyOggFailed, anyFlacFailed);
+    
     gtk_widget_hide(win_ripping);
     gdk_flush();
+    show_completed_dialog(anyCdparanoiaFailed || anyLameFailed || anyOggFailed || anyFlacFailed);
 }
 
 // spawn needed threads and begin ripping
@@ -227,7 +236,12 @@ void dorip()
     free(playlist);
     
     gtk_widget_show(win_ripping);
-
+    
+    anyCdparanoiaFailed = false;
+    anyLameFailed = false;
+    anyOggFailed = false;
+    anyFlacFailed = false;
+    
     ripper = g_thread_create(rip, NULL, TRUE, NULL);
     encoder = g_thread_create(encode, NULL, TRUE, NULL);
     tracker = g_thread_create(track, NULL, TRUE, NULL);
@@ -522,11 +536,16 @@ gpointer encode(gpointer data)
     g_cond_free(available);
     available = NULL;
     
-    gdk_threads_enter();
-    gtk_widget_hide(win_ripping);
-    gdk_flush();
-    gdk_threads_leave();
+    //~ printf("anyCdparanoiaFailed %d anyLameFailed %d anyOggFailed %d anyFlacFailed %d\n", 
+        //~ anyCdparanoiaFailed, anyLameFailed, anyOggFailed, anyFlacFailed);
+    
     aborted = 1; // so the tracker thread will exit
+    
+    gdk_threads_enter();
+        gtk_widget_hide(win_ripping);
+        gdk_flush();
+        show_completed_dialog(anyCdparanoiaFailed || anyLameFailed || anyOggFailed || anyFlacFailed);
+    gdk_threads_leave();
     
     return NULL;
 }
