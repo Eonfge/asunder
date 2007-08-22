@@ -6,10 +6,15 @@ extern pid_t lame_pid;
 extern pid_t oggenc_pid;
 extern pid_t flac_pid;
 
-extern bool anyCdparanoiaFailed;
-extern bool anyLameFailed;
-extern bool anyOggFailed;
-extern bool anyFlacFailed;
+extern int numCdparanoiaFailed;
+extern int numLameFailed;
+extern int numOggFailed;
+extern int numFlacFailed;
+
+extern int numCdparanoiaOk;
+extern int numLameOk;
+extern int numOggOk;
+extern int numFlacOk;
 
 // signal handler to find out when out child has exited
 void sigchld(int signum);

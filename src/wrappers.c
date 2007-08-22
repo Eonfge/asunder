@@ -28,10 +28,15 @@ pid_t lame_pid = 0;
 pid_t oggenc_pid = 0;
 pid_t flac_pid = 0;
 
-bool anyCdparanoiaFailed;
-bool anyLameFailed;
-bool anyOggFailed;
-bool anyFlacFailed;
+int numCdparanoiaFailed;
+int numLameFailed;
+int numOggFailed;
+int numFlacFailed;
+
+int numCdparanoiaOk;
+int numLameOk;
+int numOggOk;
+int numFlacOk;
 
 int numchildren = 0;
 
@@ -46,13 +51,24 @@ void sigchld(int signum)
     if (status != 0)
     {
         if (pid == cdparanoia_pid)
-            anyCdparanoiaFailed = true;
+            numCdparanoiaFailed++;
         else if (pid == lame_pid)
-            anyLameFailed = true;
+            numLameFailed++;
         else if (pid == oggenc_pid)
-            anyOggFailed = true;
+            numOggFailed++;
         else if (pid == flac_pid)
-            anyFlacFailed = true;
+            numFlacFailed++;
+    }
+    else
+    {
+        if (pid == cdparanoia_pid)
+            numCdparanoiaOk++;
+        else if (pid == lame_pid)
+            numLameOk++;
+        else if (pid == oggenc_pid)
+            numOggOk++;
+        else if (pid == flac_pid)
+            numFlacOk++;
     }
     
     // if there are still children waiting
@@ -106,7 +122,7 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
         fprintf(stderr, "error: exec");
         exit(2);
     }
-    printf("started pid %d\n", *p);
+    //~ printf("started pid %d\n", *p);
     // i'm the parent, get ready to wait for children
     numchildren++;
     signal(SIGCHLD, sigchld);

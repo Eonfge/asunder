@@ -833,17 +833,19 @@ show_aboutbox (void)
 }
 #endif
 
-void show_completed_dialog(bool somethingFailed)
+void show_completed_dialog(int numOk, int numFailed)
 {
     GtkWidget* dialog;
     
-    if (somethingFailed)
+    if (numFailed > 0)
     {
         dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
                                       GTK_DIALOG_DESTROY_WITH_PARENT,
                                       GTK_MESSAGE_WARNING,
                                       GTK_BUTTONS_CLOSE,
-                                      "Some or all of the work failed");
+                                      "%d file(s) created successfully\n"
+                                      "There was an error creating %d file(s)",
+                                      numOk, numFailed);
     }
     else
     {
@@ -851,7 +853,8 @@ void show_completed_dialog(bool somethingFailed)
                                       GTK_DIALOG_DESTROY_WITH_PARENT,
                                       GTK_MESSAGE_INFO,
                                       GTK_BUTTONS_CLOSE,
-                                      "Completed successfully");
+                                      "All %d file(s) created successfully",
+                                      numOk);
     }
     
     gtk_dialog_run (GTK_DIALOG (dialog));

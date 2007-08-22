@@ -83,12 +83,10 @@ void abort_threads()
     printf("Aborting: 4 (All threads joined)\n");
 #endif
     
-    //~ printf("anyCdparanoiaFailed %d anyLameFailed %d anyOggFailed %d anyFlacFailed %d\n", 
-        //~ anyCdparanoiaFailed, anyLameFailed, anyOggFailed, anyFlacFailed);
-    
     gtk_widget_hide(win_ripping);
     gdk_flush();
-    show_completed_dialog(anyCdparanoiaFailed || anyLameFailed || anyOggFailed || anyFlacFailed);
+    show_completed_dialog(numCdparanoiaOk + numLameOk + numOggOk + numFlacOk,
+                          numCdparanoiaFailed + numLameFailed + numOggFailed + numFlacFailed);
 }
 
 // spawn needed threads and begin ripping
@@ -237,10 +235,15 @@ void dorip()
     
     gtk_widget_show(win_ripping);
     
-    anyCdparanoiaFailed = false;
-    anyLameFailed = false;
-    anyOggFailed = false;
-    anyFlacFailed = false;
+    numCdparanoiaFailed = 0;
+    numLameFailed = 0;
+    numOggFailed = 0;
+    numFlacFailed = 0;
+    
+    numCdparanoiaOk = 0;
+    numLameOk = 0;
+    numOggOk = 0;
+    numFlacOk = 0;
     
     ripper = g_thread_create(rip, NULL, TRUE, NULL);
     encoder = g_thread_create(encode, NULL, TRUE, NULL);
@@ -544,7 +547,8 @@ gpointer encode(gpointer data)
     gdk_threads_enter();
         gtk_widget_hide(win_ripping);
         gdk_flush();
-        show_completed_dialog(anyCdparanoiaFailed || anyLameFailed || anyOggFailed || anyFlacFailed);
+        show_completed_dialog(numCdparanoiaOk + numLameOk + numOggOk + numFlacOk,
+                              numCdparanoiaFailed + numLameFailed + numOggFailed + numFlacFailed);
     gdk_threads_leave();
     
     return NULL;
