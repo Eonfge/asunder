@@ -22,11 +22,12 @@ Foundation; version 2 of the licence.
 
 #include "wrappers.h"
 #include "threads.h"
+#include "prefs.h"
 
-pid_t cdparanoia_pid = 0;
-pid_t lame_pid = 0;
-pid_t oggenc_pid = 0;
-pid_t flac_pid = 0;
+pid_t cdparanoia_pid;
+pid_t lame_pid;
+pid_t oggenc_pid;
+pid_t flac_pid;
 
 int numCdparanoiaFailed;
 int numLameFailed;
@@ -47,37 +48,54 @@ void sigchld(int signum)
     pid_t pid;
     
     pid = wait(&status);
-    //~ printf("status %d, pid %d\n", status, pid);
+    printf("%d exited with %d\n", pid, status);
     if (status != 0)
     {
         if (pid == cdparanoia_pid)
-            numCdparanoiaFailed++;
+        {
+            cdparanoia_pid = 0;
+            if(global_prefs->rip_wav)
+                numCdparanoiaFailed++;
+        }
         else if (pid == lame_pid)
+        {
+            lame_pid = 0;
             numLameFailed++;
+        }
         else if (pid == oggenc_pid)
+        {
+            oggenc_pid = 0;
             numOggFailed++;
+        }
         else if (pid == flac_pid)
+        {
+            flac_pid = 0;
             numFlacFailed++;
+        }
     }
     else
     {
         if (pid == cdparanoia_pid)
-            numCdparanoiaOk++;
+        {
+            cdparanoia_pid = 0;
+            if(global_prefs->rip_wav)
+                numCdparanoiaOk++;
+        }
         else if (pid == lame_pid)
+        {
+            lame_pid = 0;
             numLameOk++;
+        }
         else if (pid == oggenc_pid)
+        {
+            oggenc_pid = 0;
             numOggOk++;
+        }
         else if (pid == flac_pid)
+        {
+            flac_pid = 0;
             numFlacOk++;
-    }
-    
-    // if there are still children waiting
-    // re-install the signal handler
-    numchildren--;
-    if (numchildren > 0)
-    {
-        // re-install the signal handler
-        signal(SIGCHLD, sigchld);
+        }
     }
 }
 
@@ -122,10 +140,9 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
         fprintf(stderr, "error: exec");
         exit(2);
     }
-    //~ printf("started pid %d\n", *p);
+    printf("started %d\n", *p);
     // i'm the parent, get ready to wait for children
     numchildren++;
-    signal(SIGCHLD, sigchld);
     
     // close the side of the pipe we don't need
     close(pipefd[1]);
@@ -157,7 +174,11 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     snprintf(trackstring, 3, "%d", tracknum);
 
     const char * args[] = { "cdparanoia", "-e", "-d", cdrom, trackstring, filename, NULL };
-
+    
+    /* don't go on until the signal for the previous call is handled */
+    while (cdparanoia_pid != 0)
+        usleep(100000);
+    
     fd = exec_with_output(args, STDERR_FILENO, &cdparanoia_pid);
     
     // to convert the progress number stat cdparanoia spits out
@@ -189,7 +210,6 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     } while (size > 0);
     
     close(fd);
-    cdparanoia_pid = 0;
 }
 
 // uses LAME to encode a WAV file into a MP3 and tag it
@@ -263,6 +283,10 @@ void lame(int tracknum,
     args[pos++] = mp3filename;
     args[pos++] = NULL;
 
+    /* don't go on until the signal for the previous call is handled */
+    while (lame_pid != 0)
+        usleep(100000);
+    
     fd = exec_with_output(args, STDERR_FILENO, &lame_pid);
     
     do
@@ -282,7 +306,6 @@ void lame(int tracknum,
     } while (size > 0);
     
     close(fd);
-    lame_pid = 0;
 }
 
 // uses oggenc to encode a WAV file into a OGG and tag it
@@ -349,7 +372,11 @@ void oggenc(int tracknum,
     args[pos++] = "-o";
     args[pos++] = oggfilename;
     args[pos++] = NULL;
-
+    
+    /* don't go on until the signal for the previous call is handled */
+    while (oggenc_pid != 0)
+        usleep(100000);
+    
     fd = exec_with_output(args, STDERR_FILENO, &oggenc_pid);
     
     do
@@ -373,7 +400,6 @@ void oggenc(int tracknum,
     } while (size > 0);
     
     close(fd);
-    oggenc_pid = 0;
 }
 
 // uses the FLAC reference encoder to encode a WAV file into a FLAC and tag it
@@ -465,7 +491,11 @@ void flac(int tracknum,
     args[pos++] = "-o";
     args[pos++] = flacfilename;
     args[pos++] = NULL;
-
+    
+    /* don't go on until the signal for the previous call is handled */
+    while (flac_pid != 0)
+        usleep(100000);
+    
     fd = exec_with_output(args, STDERR_FILENO, &flac_pid);
     
     free(artist_text);
@@ -498,5 +528,4 @@ void flac(int tracknum,
     } while (size > 0);
     
     close(fd);
-    flac_pid = 0;
 }

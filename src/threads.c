@@ -65,6 +65,10 @@ void abort_threads()
     if (flac_pid != 0) 
         kill(flac_pid, SIGKILL);
     
+    /* wait until all the worker threads are done */
+    while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0)
+        usleep(100000);
+    
     g_cond_signal(available);
     
 #ifdef DEBUG
@@ -488,7 +492,10 @@ gpointer encode(gpointer data)
 #endif
                 if (unlink(wavfilename) != 0)
                 {
-                    GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "Unable to unlink WAV file \"%s\": %s", wavfilename, strerror(errno));
+                    GtkWidget * dialog;
+                    dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        "Unable to delete WAV file \"%s\": %s", wavfilename, strerror(errno));
                     gtk_dialog_run(GTK_DIALOG(dialog));
                     gtk_widget_destroy(dialog);
                 }
@@ -539,8 +546,9 @@ gpointer encode(gpointer data)
     g_cond_free(available);
     available = NULL;
     
-    //~ printf("anyCdparanoiaFailed %d anyLameFailed %d anyOggFailed %d anyFlacFailed %d\n", 
-        //~ anyCdparanoiaFailed, anyLameFailed, anyOggFailed, anyFlacFailed);
+    /* wait until all the worker threads are done */
+    while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0)
+        usleep(100000);
     
     aborted = 1; // so the tracker thread will exit
     

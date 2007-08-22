@@ -8,6 +8,7 @@ Andrew's:
 - if dong wav-only, encoding bar jumps to 100 right away
 - pref for setting cddb server?
 - log all output from programs so i can debug remotely
+- is the ripper started before the encoding is finished? if so, bad idea.
 
 
 High Priority

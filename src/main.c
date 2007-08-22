@@ -27,6 +27,7 @@ Foundation; version 2 of the licence.
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <signal.h>
 
 #include "main.h"
 #include "interface.h"
@@ -34,6 +35,7 @@ Foundation; version 2 of the licence.
 #include "prefs.h"
 #include "callbacks.h"
 #include "util.h"
+#include "wrappers.h"
 
 
 GList * disc_matches = NULL;
@@ -61,6 +63,20 @@ int main(int argc, char *argv[])
     bind_textdomain_codeset("asunder", "UTF-8"); /* so that gettext() returns UTF-8 strings */
     textdomain("asunder");
 #endif
+    
+    /* SET UP signal handler for children */
+    struct sigaction signalHandler;
+    sigset_t blockedSignals;
+    
+    bzero(&signalHandler, sizeof(signalHandler));
+    signalHandler.sa_handler = sigchld;
+    //~ signalHandler.sa_flags = SA_RESETHAND | SA_RESTART;
+    sigemptyset(&blockedSignals);
+    sigaddset(&blockedSignals, SIGCHLD);
+    signalHandler.sa_mask = blockedSignals;
+    
+    sigaction(SIGCHLD, &signalHandler, NULL);
+    /* END SET UP signal handler for children */
     
     //gtk_set_locale();
     g_thread_init(NULL);
