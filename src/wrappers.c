@@ -476,16 +476,16 @@ void flac(int tracknum,
     int pos;
     
     int sector;
-
-    char tracknum_text[14];
+    
+    char tracknum_text[15];
     char * artist_text;
     char * album_text;
     char * title_text;
     char compression_level_text[3];
-    const char * args[14];
-
+    const char * args[15];
+    
     snprintf(tracknum_text, 15, "TRACKNUMBER=%d", tracknum);
-
+    
     artist_text = malloc(sizeof(char) * (strlen(artist)+8));
     if (artist_text == NULL)
     {
@@ -514,6 +514,7 @@ void flac(int tracknum,
     
     pos = 0;
     args[pos++] = "flac";
+    args[pos++] = "-f";
     args[pos++] = compression_level_text;
     if ((tracknum > 0) && (tracknum < 100))
     {
