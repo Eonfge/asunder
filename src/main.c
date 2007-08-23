@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
     
     bzero(&signalHandler, sizeof(signalHandler));
     signalHandler.sa_handler = sigchld;
-    //~ signalHandler.sa_flags = SA_RESETHAND | SA_RESTART;
+    //~ signalHandler.sa_flags = SA_RESTART;
     sigemptyset(&blockedSignals);
     sigaddset(&blockedSignals, SIGCHLD);
     signalHandler.sa_mask = blockedSignals;

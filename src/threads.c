@@ -67,7 +67,12 @@ void abort_threads()
     
     /* wait until all the worker threads are done */
     while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0)
+    {
+#ifdef DEBUG
+        printf("w1");
+#endif
         usleep(100000);
+    }
     
     g_cond_signal(available);
     
@@ -398,13 +403,13 @@ gpointer encode(gpointer data)
         if (aborted) g_thread_exit(NULL);
 
         gdk_threads_enter();
-        gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
-            COL_RIPTRACK, &riptrack,
-            COL_TRACKNUM, &tracknum,
-            COL_TRACKARTIST, &trackartist,
-            COL_TRACKTITLE, &tracktitle,
-            COL_TRACKTIME, &tracktime,
-            -1);
+            gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
+                COL_RIPTRACK, &riptrack,
+                COL_TRACKNUM, &tracknum,
+                COL_TRACKARTIST, &trackartist,
+                COL_TRACKTITLE, &tracktitle,
+                COL_TRACKTIME, &tracktime,
+                -1);
         gdk_threads_leave();
         sscanf(tracktime, "%d:%d", &min, &sec);
         
@@ -421,18 +426,18 @@ gpointer encode(gpointer data)
             }
             musicfilename = parse_format(global_prefs->format_music, tracknum, trackartist, album_title, tracktitle);
             gdk_threads_enter();
-            if (global_prefs->make_albumdir)
-            {
-                wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
-                mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
-                oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");
-                flacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "flac");
-            } else {
-                wavfilename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "wav");
-                mp3filename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "mp3");
-                oggfilename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "ogg");
-                flacfilename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "flac");
-            }
+                if (global_prefs->make_albumdir)
+                {
+                    wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
+                    mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
+                    oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");
+                    flacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "flac");
+                } else {
+                    wavfilename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "wav");
+                    mp3filename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "mp3");
+                    oggfilename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "ogg");
+                    flacfilename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "flac");
+                }
             gdk_threads_leave();
             
             if (global_prefs->rip_mp3)
@@ -475,7 +480,7 @@ gpointer encode(gpointer data)
                 if (aborted) g_thread_exit(NULL);
                 flac(tracknum, trackartist, album_title, tracktitle, wavfilename, flacfilename, global_prefs->flac_compression, &flac_percent);
                 if (aborted) g_thread_exit(NULL);
-
+                
                 if (playlist_flac)
                 {
                     for (i=strlen(flacfilename); ((i>0) && (flacfilename[i] != '/')); i--);
@@ -483,7 +488,6 @@ gpointer encode(gpointer data)
                     fprintf(playlist_flac, "%s\n", basename(flacfilename));
                     fflush(playlist_flac);
                 }
-
             }
             if (!global_prefs->rip_wav)
             {
@@ -521,14 +525,14 @@ gpointer encode(gpointer data)
             flac_percent = 0.0;
             encode_tracks_completed++;
         }
-
+        
         if (aborted) g_thread_exit(NULL);
         
         gdk_threads_enter();
-        rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
+            rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
         gdk_threads_leave();
     }
-
+    
     free(album_artist);
     free(album_title);
     
@@ -548,7 +552,12 @@ gpointer encode(gpointer data)
     
     /* wait until all the worker threads are done */
     while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0)
+    {
+#ifdef DEBUG
+        printf("w2");
+#endif
         usleep(100000);
+    }
     
     aborted = 1; // so the tracker thread will exit
     
@@ -569,7 +578,7 @@ gpointer track(gpointer data)
     if (global_prefs->rip_mp3) parts++;
     if (global_prefs->rip_ogg) parts++;
     if (global_prefs->rip_flac) parts++;
-
+    
     gdk_threads_enter();
         GtkProgressBar * progress_total = GTK_PROGRESS_BAR(lookup_widget(win_ripping, "progress_total"));
         GtkProgressBar * progress_rip = GTK_PROGRESS_BAR(lookup_widget(win_ripping, "progress_rip"));

@@ -43,6 +43,26 @@ int numFlacOk;
 
 int numchildren = 0;
 
+void blockSigChld(void)
+{
+    sigset_t block_chld;
+    
+    sigemptyset(&block_chld);
+    sigaddset(&block_chld, SIGCHLD);
+    
+    sigprocmask(SIG_BLOCK, &block_chld, NULL);
+}
+
+void unblockSigChld(void)
+{
+    sigset_t block_chld;
+    
+    sigemptyset(&block_chld);
+    sigaddset(&block_chld, SIGCHLD);
+    
+    sigprocmask(SIG_UNBLOCK, &block_chld, NULL);
+}
+
 // signal handler to find out when our child has exited
 void sigchld(int signum)
 {
@@ -51,6 +71,8 @@ void sigchld(int signum)
     
     pid = wait(&status);
     
+    if (pid != cdparanoia_pid && pid != lame_pid && pid != oggenc_pid && pid != flac_pid)
+        printf("SIGCHLD for unknown pid, report bug please\n");
 #ifdef DEBUG
     printf("%d exited with %d: ", pid, status);
     if (WIFEXITED(status))
@@ -61,8 +83,9 @@ void sigchld(int signum)
         printf("stopped by signal %d\n", WSTOPSIG(status));
     else if (WIFCONTINUED(status))
         printf("continued\n");
+    fflush(NULL);
 #endif
-    
+
     if (status != 0)
     {
         if (pid == cdparanoia_pid)
@@ -124,6 +147,8 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
 {
     int pipefd[2];
     
+    blockSigChld();
+    
     if (pipe(pipefd) != 0)
     {
         fprintf(stderr, "error: pipe\n");
@@ -134,7 +159,15 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
     {
         // im the child
         // i get to execute the command
-
+        
+        //!! Sleep a little (hopefully enough) to allow the *p to actually get set.
+        //!! For some reason despite the blockSigChld() above
+        //!! sigchld() is called anyway after this thread ends
+        //!! and before the unblockSigChld() below.
+        //!! To reproduce, set to encode in every possible format
+        //!! and try a few times on the 3 song CD.
+        usleep(100000);
+        
         // close the side of the pipe we don't need
         close(pipefd[0]);
 
@@ -163,6 +196,7 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
         printf("%s ", args[count]);
     }
     printf("\n");
+    fflush(NULL);
 #endif
     
     // i'm the parent, get ready to wait for children
@@ -170,6 +204,8 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
     
     // close the side of the pipe we don't need
     close(pipefd[1]);
+    
+    unblockSigChld();
     
     return pipefd[0];
 }
@@ -198,10 +234,6 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     snprintf(trackstring, 3, "%d", tracknum);
 
     const char * args[] = { "cdparanoia", "-e", "-d", cdrom, trackstring, filename, NULL };
-    
-    /* don't go on until the signal for the previous call is handled */
-    while (cdparanoia_pid != 0)
-        usleep(100000);
     
     fd = exec_with_output(args, STDERR_FILENO, &cdparanoia_pid);
     
@@ -242,6 +274,15 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     } while (size > 0);
     
     close(fd);
+    /* don't go on until the signal for the previous call is handled */
+    while (cdparanoia_pid != 0)
+    {
+#ifdef DEBUG
+        printf("w3");
+#endif
+        usleep(100000);
+    }
+    
 }
 
 // uses LAME to encode a WAV file into a MP3 and tag it
@@ -315,10 +356,6 @@ void lame(int tracknum,
     args[pos++] = mp3filename;
     args[pos++] = NULL;
 
-    /* don't go on until the signal for the previous call is handled */
-    while (lame_pid != 0)
-        usleep(100000);
-    
     fd = exec_with_output(args, STDERR_FILENO, &lame_pid);
     
     do
@@ -346,6 +383,15 @@ void lame(int tracknum,
     } while (size > 0);
     
     close(fd);
+    /* don't go on until the signal for the previous call is handled */
+    while (lame_pid != 0)
+    {
+#ifdef DEBUG
+        printf("w4");
+#endif
+        usleep(100000);
+    }
+    
 }
 
 // uses oggenc to encode a WAV file into a OGG and tag it
@@ -413,10 +459,6 @@ void oggenc(int tracknum,
     args[pos++] = oggfilename;
     args[pos++] = NULL;
     
-    /* don't go on until the signal for the previous call is handled */
-    while (oggenc_pid != 0)
-        usleep(100000);
-    
     fd = exec_with_output(args, STDERR_FILENO, &oggenc_pid);
     
     do
@@ -448,6 +490,15 @@ void oggenc(int tracknum,
     } while (size > 0);
     
     close(fd);
+    /* don't go on until the signal for the previous call is handled */
+    while (oggenc_pid != 0)
+    {
+#ifdef DEBUG
+        printf("w5");
+#endif
+        usleep(100000);
+    }
+    
 }
 
 // uses the FLAC reference encoder to encode a WAV file into a FLAC and tag it
@@ -541,10 +592,6 @@ void flac(int tracknum,
     args[pos++] = flacfilename;
     args[pos++] = NULL;
     
-    /* don't go on until the signal for the previous call is handled */
-    while (flac_pid != 0)
-        usleep(100000);
-    
     fd = exec_with_output(args, STDERR_FILENO, &flac_pid);
     
     free(artist_text);
@@ -585,4 +632,13 @@ void flac(int tracknum,
     } while (size > 0);
     
     close(fd);
+    
+    /* don't go on until the signal for the previous call is handled */
+    while (flac_pid != 0)
+    {
+#ifdef DEBUG
+        printf("w6");
+#endif
+        usleep(100000);
+    }
 }
