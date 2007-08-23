@@ -19,7 +19,9 @@ Foundation; version 2 of the licence.
 #include <stdlib.h>
 #include <string.h>
 #include <sys/wait.h>
+#include <errno.h>
 
+#include "main.h"
 #include "wrappers.h"
 #include "threads.h"
 #include "prefs.h"
@@ -48,7 +50,19 @@ void sigchld(int signum)
     pid_t pid;
     
     pid = wait(&status);
-    printf("%d exited with %d\n", pid, status);
+    
+#ifdef DEBUG
+    printf("%d exited with %d: ", pid, status);
+    if (WIFEXITED(status))
+        printf("exited, status=%d\n", WEXITSTATUS(status));
+    else if (WIFSIGNALED(status))
+        printf("killed by signal %d\n", WTERMSIG(status));
+    else if (WIFSTOPPED(status))
+        printf("stopped by signal %d\n", WSTOPSIG(status));
+    else if (WIFCONTINUED(status))
+        printf("continued\n");
+#endif
+    
     if (status != 0)
     {
         if (pid == cdparanoia_pid)
@@ -140,7 +154,17 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
         fprintf(stderr, "error: exec");
         exit(2);
     }
-    printf("started %d\n", *p);
+    
+#ifdef DEBUG
+    int count;
+    printf("%d started: %s ", *p, args[0]);
+    for (count = 1; args[count] != NULL; count++)
+    {
+        printf("%s ", args[count]);
+    }
+    printf("\n");
+#endif
+    
     // i'm the parent, get ready to wait for children
     numchildren++;
     
@@ -191,6 +215,14 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
         {
             pos++;
             size = read(fd, &buf[pos], 1);
+            
+            if (size == -1 && errno == EINTR)
+            /* signal interrupted read(), try again */
+            {
+                pos--;
+                size = 1;
+            }
+            
         } while ((buf[pos] != '\n') && (size > 0));
         buf[pos] = '\0';
 
@@ -296,6 +328,14 @@ void lame(int tracknum,
         {
             pos++;
             size = read(fd, &buf[pos], 1);
+            
+            if (size == -1 && errno == EINTR)
+            /* signal interrupted read(), try again */
+            {
+                pos--;
+                size = 1;
+            }
+            
         } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0));
         buf[pos] = '\0';
         
@@ -386,6 +426,14 @@ void oggenc(int tracknum,
         {
             pos++;
             size = read(fd, &buf[pos], 1);
+            
+            if (size == -1 && errno == EINTR)
+            /* signal interrupted read(), try again */
+            {
+                pos--;
+                size = 1;
+            }
+            
         } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0));
         buf[pos] = '\0';
 
@@ -509,6 +557,14 @@ void flac(int tracknum,
         {
             pos++;
             size = read(fd, &buf[pos], 1);
+            
+            if (size == -1 && errno == EINTR)
+            /* signal interrupted read(), try again */
+            {
+                pos--;
+                size = 1;
+            }
+            
         } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0));
         buf[pos] = '\0';
 
