@@ -28,5 +28,6 @@ Tests to run before a release
 - try to run with an older config file
 - update version in about box and configure.in
 - update changelog
+- cd po && make update-po
 - make dist
 - uninstall, extract, compile, install and run

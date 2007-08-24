@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ISO Master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-08 13:22-0400\n"
+"POT-Creation-Date: 2007-08-24 12:57-0400\n"
 "PO-Revision-Date: 2007-08-10 10:10-0500\n"
 "Last-Translator: Robert Groenning <slimg@iggu.org>\n"
 "Language-Team: Ubuntu Norwegian Translators <oversettelse@ubuntu.no>\n"
@@ -13,88 +13,100 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:392
-#: src/interface.c:190
+#: src/main.c:105 src/interface.c:189
 msgid "Rip"
 msgstr "Hent ut"
 
-#: src/main.c:397
+#: src/main.c:110
 msgid "Track"
 msgstr "Lydspor"
 
-#: src/main.c:404
+#: src/main.c:117
 msgid "Artist"
 msgstr "Artist"
 
-#: src/main.c:411
+#: src/main.c:124
 msgid "Title"
 msgstr "Tittel"
 
-#: src/main.c:416
+#: src/main.c:129
 msgid "Time"
 msgstr "Tid"
 
-#: src/main.c:430
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "'cdparanoia' ble ikke funnet i søkestien din. Asunder trenger cdparanoia for å hente musikk fra CDer."
+#: src/main.c:143
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"'cdparanoia' ble ikke funnet i søkestien din. Asunder trenger cdparanoia for "
+"å hente musikk fra CDer."
 
-#: src/callbacks.c:40
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+#: src/callbacks.c:39
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
 msgstr "Ingen hente/kode metode er valgt. Velg en fra 'Innstillinger' menyen."
 
-#: src/callbacks.c:75
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+#: src/callbacks.c:74
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
 msgstr "Ingen lydspor er valgt til henting/koding. Velg minst et lydspor."
 
-#: src/callbacks.c:212
-#: src/callbacks.c:233
-#: src/callbacks.c:254
+#: src/callbacks.c:204 src/callbacks.c:224 src/callbacks.c:244
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s ble ikke funnet i stien din. Asunder trenger det for å opprette %s filer. Alle %s funksjoner er slått av."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"%s ble ikke funnet i stien din. Asunder trenger det for å opprette %s filer. "
+"Alle %s funksjoner er slått av."
 
-#: src/interface.c:132
+#: src/interface.c:131
 msgid "Disc:"
 msgstr "Disk"
 
-#: src/interface.c:138
+#: src/interface.c:137
 msgid "Album artist:"
 msgstr "Album artist:"
 
-#: src/interface.c:145
+#: src/interface.c:144
 msgid "Album title:"
 msgstr "Album tittel:"
 
-#: src/interface.c:152
+#: src/interface.c:151
 msgid "Single artist"
 msgstr "Singel artist"
 
-#: src/interface.c:319
+#: src/interface.c:336
 msgid "Preferences"
 msgstr "Innstillinger"
 
-#: src/interface.c:335
-#: src/interface.c:341
+#: src/interface.c:352 src/interface.c:358
 msgid "Destination folder"
 msgstr "Målmappe"
 
-#: src/interface.c:345
+#: src/interface.c:362
 msgid "Create M3U playlist"
 msgstr "Opprett M3U spilleliste"
 
-#: src/interface.c:349
+#: src/interface.c:366
 msgid "Create directory for each album"
 msgstr "Opprett en mappe for hvert album"
 
-#: src/interface.c:357
+#: src/interface.c:374
 msgid "CD-ROM device: "
 msgstr "CD-ROM enhet: "
 
-#: src/interface.c:370
+#: src/interface.c:382
+msgid "Eject disc when finished"
+msgstr ""
+
+#: src/interface.c:391
 msgid "General"
 msgstr "Generelt"
 
-#: src/interface.c:388
+#: src/interface.c:409
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -106,90 +118,86 @@ msgstr ""
 "%N - Spornummer (2-tall)\n"
 "%T - Tittel"
 
-#: src/interface.c:398
+#: src/interface.c:419
 msgid "Music file: "
 msgstr "Musikkfil: "
 
-#: src/interface.c:405
+#: src/interface.c:426
 msgid "Playlist file: "
 msgstr "Spillelistefil: "
 
-#: src/interface.c:412
+#: src/interface.c:433
 msgid "Album directory: "
 msgstr "Album mappe: "
 
-#: src/interface.c:437
+#: src/interface.c:458
 msgid "Filename formats"
 msgstr "Filnavn formater"
 
-#: src/interface.c:446
+#: src/interface.c:467
 msgid "Invalid characters"
 msgstr "Ugyldige tegn"
 
-#: src/interface.c:453
+#: src/interface.c:474
 msgid "These characters will be removed from all filenames."
 msgstr "Disse tegnene blir fjernet fra alle filnavn"
 
-#: src/interface.c:455
+#: src/interface.c:476
 msgid "Filenames"
 msgstr "Filnavn"
 
-#: src/interface.c:464
+#: src/interface.c:485
 msgid "WAV (uncompressed)"
 msgstr "WAV (ukomprimert)"
 
-#: src/interface.c:481
+#: src/interface.c:502
 msgid "Variable bit rate (VBR)"
 msgstr "Variabel bitrate (VBR)"
 
-#: src/interface.c:489
+#: src/interface.c:510
 msgid "Bitrate"
 msgstr "Bitrate"
 
-#: src/interface.c:499
+#: src/interface.c:520
 msgid "32Kbps"
 msgstr "32Kbps"
 
-#: src/interface.c:503
+#: src/interface.c:524
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (lossy kompresjon)"
 
-#: src/interface.c:520
+#: src/interface.c:541
 msgid "Quality"
 msgstr "Kvalitet"
 
-#: src/interface.c:529
+#: src/interface.c:550
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (lossy kompresjon)"
 
-#: src/interface.c:546
+#: src/interface.c:567
 msgid "Compression level"
 msgstr "Komprimeringsstyrke"
 
-#: src/interface.c:555
+#: src/interface.c:576
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (lossless kompresjon)"
 
-#: src/interface.c:559
+#: src/interface.c:580
 msgid "Encode"
 msgstr "Kode"
 
-#: src/interface.c:674
-#: src/interface.c:710
+#: src/interface.c:696 src/interface.c:732
 msgid "Ripping"
 msgstr "Henting"
 
-#: src/interface.c:703
+#: src/interface.c:725
 msgid "Total progress"
 msgstr "Total fremgang"
 
-#: src/interface.c:717
+#: src/interface.c:739
 msgid "Encoding"
 msgstr "Koding"
 
-#: src/threads.c:537
-#: src/threads.c:539
-#: src/threads.c:543
+#: src/threads.c:588 src/threads.c:590 src/threads.c:594
 msgid "Waiting..."
 msgstr "Venter..."
-

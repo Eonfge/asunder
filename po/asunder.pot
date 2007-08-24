@@ -1,11 +1,14 @@
-# LANGUAGE translation for Asunder.
-# This file is distributed under the same license as the Asunder package.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-10 10:03-0400\n"
+"POT-Creation-Date: 2007-08-24 12:57-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,45 +16,45 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:394 src/interface.c:189
+#: src/main.c:105 src/interface.c:189
 msgid "Rip"
 msgstr ""
 
-#: src/main.c:399
+#: src/main.c:110
 msgid "Track"
 msgstr ""
 
-#: src/main.c:406
+#: src/main.c:117
 msgid "Artist"
 msgstr ""
 
-#: src/main.c:413
+#: src/main.c:124
 msgid "Title"
 msgstr ""
 
-#: src/main.c:418
+#: src/main.c:129
 msgid "Time"
 msgstr ""
 
-#: src/main.c:432
+#: src/main.c:143
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
 
-#: src/callbacks.c:40
+#: src/callbacks.c:39
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
 
-#: src/callbacks.c:75
+#: src/callbacks.c:74
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr ""
 
-#: src/callbacks.c:212 src/callbacks.c:233 src/callbacks.c:254
+#: src/callbacks.c:204 src/callbacks.c:224 src/callbacks.c:244
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -74,31 +77,35 @@ msgstr ""
 msgid "Single artist"
 msgstr ""
 
-#: src/interface.c:317
+#: src/interface.c:336
 msgid "Preferences"
 msgstr ""
 
-#: src/interface.c:333 src/interface.c:339
+#: src/interface.c:352 src/interface.c:358
 msgid "Destination folder"
 msgstr ""
 
-#: src/interface.c:343
+#: src/interface.c:362
 msgid "Create M3U playlist"
 msgstr ""
 
-#: src/interface.c:347
+#: src/interface.c:366
 msgid "Create directory for each album"
 msgstr ""
 
-#: src/interface.c:355
+#: src/interface.c:374
 msgid "CD-ROM device: "
 msgstr ""
 
-#: src/interface.c:368
+#: src/interface.c:382
+msgid "Eject disc when finished"
+msgstr ""
+
+#: src/interface.c:391
 msgid "General"
 msgstr ""
 
-#: src/interface.c:386
+#: src/interface.c:409
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -106,86 +113,86 @@ msgid ""
 "%T - Song title"
 msgstr ""
 
-#: src/interface.c:396
+#: src/interface.c:419
 msgid "Music file: "
 msgstr ""
 
-#: src/interface.c:403
+#: src/interface.c:426
 msgid "Playlist file: "
 msgstr ""
 
-#: src/interface.c:410
+#: src/interface.c:433
 msgid "Album directory: "
 msgstr ""
 
-#: src/interface.c:435
+#: src/interface.c:458
 msgid "Filename formats"
 msgstr ""
 
-#: src/interface.c:444
+#: src/interface.c:467
 msgid "Invalid characters"
 msgstr ""
 
-#: src/interface.c:451
+#: src/interface.c:474
 msgid "These characters will be removed from all filenames."
 msgstr ""
 
-#: src/interface.c:453
+#: src/interface.c:476
 msgid "Filenames"
 msgstr ""
 
-#: src/interface.c:462
+#: src/interface.c:485
 msgid "WAV (uncompressed)"
 msgstr ""
 
-#: src/interface.c:479
+#: src/interface.c:502
 msgid "Variable bit rate (VBR)"
 msgstr ""
 
-#: src/interface.c:487
+#: src/interface.c:510
 msgid "Bitrate"
 msgstr ""
 
-#: src/interface.c:497
+#: src/interface.c:520
 msgid "32Kbps"
 msgstr ""
 
-#: src/interface.c:501
+#: src/interface.c:524
 msgid "MP3 (lossy compression)"
 msgstr ""
 
-#: src/interface.c:518
+#: src/interface.c:541
 msgid "Quality"
 msgstr ""
 
-#: src/interface.c:527
+#: src/interface.c:550
 msgid "OGG Vorbis (lossy compression)"
 msgstr ""
 
-#: src/interface.c:544
+#: src/interface.c:567
 msgid "Compression level"
 msgstr ""
 
-#: src/interface.c:553
+#: src/interface.c:576
 msgid "FLAC (lossless compression)"
 msgstr ""
 
-#: src/interface.c:557
+#: src/interface.c:580
 msgid "Encode"
 msgstr ""
 
-#: src/interface.c:672 src/interface.c:708
+#: src/interface.c:696 src/interface.c:732
 msgid "Ripping"
 msgstr ""
 
-#: src/interface.c:701
+#: src/interface.c:725
 msgid "Total progress"
 msgstr ""
 
-#: src/interface.c:715
+#: src/interface.c:739
 msgid "Encoding"
 msgstr ""
 
-#: src/threads.c:542 src/threads.c:544 src/threads.c:548
+#: src/threads.c:588 src/threads.c:590 src/threads.c:594
 msgid "Waiting..."
 msgstr ""
