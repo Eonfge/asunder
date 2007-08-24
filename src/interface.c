@@ -788,17 +788,52 @@ GBLauthors[2] = {
 "Eric Lathrop\n"
 "http://ericlathrop.com/\n"
 "- original author\n"
+"- 'eject when finished' feature\n"
+"\n"
+"Packages:\n"
+"\n"
+"Toni Graffy\n"
+"Maintainer of many SuSE packages at PackMan\n"
+"- SuSE packages of Asunder, version 0.1\n"
 "\n"
 ,
 NULL};
 
 static const char* 
 GBLtranslators = 
+"Mike Kranidis\n"
+"- el (Greek) translation of Asunder version 0.8\n"
+"\n"
+"Juan Garcia-Murga Monago\n"
+"- es (Spanish) translation of Asunder version 0.8\n"
+"\n"
+"Eero Salokannel\n"
+"- fi (Finnish) translation of Asunder version 0.8\n"
+"\n"
+"Valerio Guaglianone\n"
+"- it (Italian) translation of Asunder version 0.8\n"
+"\n"
+"Robert Groenning\n"
+"- nb (Norwegian Bokmal) translation of Asunder version 0.8\n"
+"\n"
+"Stephen Brandt\n"
+"- nl (Dutch) translation of Asunder version 0.8\n"
+"\n"
+"Robert Groenning\n"
+"- nn (Norwegian Nynorsk) translation of Asunder version 0.8\n"
+"\n"
+"Alexey Sivakov\n"
+"- ru (Russian) translation of Asunder version 0.8\n"
+"\n"
 "Daniel Nylander\n"
 "- sv (Swedish) translation of Asunder version 0.8\n"
 "\n"
+"Besnik Bleta\n"
+"- sq (Albanian) translation of Asunder version 0.8\n"
+"\n"
 "Cheng-Wei Chien\n"
-"- zh_TW (Chineese/Taiwan) translation of Asunder version 0.8\n";
+"- zh_TW (Chineese/Taiwan) translation of Asunder version 0.8\n"
+"\n";
 
 static const char* 
 GBLcomments = 

@@ -1,3 +1,20 @@
+24 Aug 2007 - 0.8
+=================
+- Added Greek, Spanish, Finnish, Italian, Norwegian Bokmal, Norwegian Nynorsk, Dutch, Russian, Swedish, Albanian, and Chinese (Taiwan) translations.
+- Auto-refresh now works all (not just some of) the time.
+- Added 'eject when done' function.
+- Lots of usabiliy improvements.
+- Added a .desktop file.
+- Now remember the window size between sessions.
+- Added a proper about box.
+- Fixed bug where doing FLAC encoding would cause memory corruption.
+- Fixed bug where the FLAC encoder would fail to overwrite files.
+- Fixed crash following a failed CDDB update.
+- Fixed bug where the OGG encoding progress wouldn't update on a system in the fr locale (and some others).
+- Fixed bug where a corrupt config file would cause Asunder to hang.
+- Fixed a memory leak to do with preferences.
+- Fixed a bunch of compilation warnings.
+
 27 Jan 2005 - 0.1.0
 ===================
 - Initial release by Eric Lathrop
