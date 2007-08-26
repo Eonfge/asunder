@@ -401,7 +401,7 @@ gpointer encode(gpointer data)
         counter--;
         g_mutex_unlock(barrier);
         if (aborted) g_thread_exit(NULL);
-
+        
         gdk_threads_enter();
             gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
                 COL_RIPTRACK, &riptrack,
@@ -417,7 +417,7 @@ gpointer encode(gpointer data)
         {
             trackartist = album_artist;
         }
-
+        
         if (riptrack)
         {
             if (global_prefs->make_albumdir)
@@ -496,12 +496,7 @@ gpointer encode(gpointer data)
 #endif
                 if (unlink(wavfilename) != 0)
                 {
-                    GtkWidget * dialog;
-                    dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
-                                        "Unable to delete WAV file \"%s\": %s", wavfilename, strerror(errno));
-                    gtk_dialog_run(GTK_DIALOG(dialog));
-                    gtk_widget_destroy(dialog);
+                    printf("Unable to delete WAV file \"%s\": %s\n", wavfilename, strerror(errno));
                 }
             } else {
                 if (playlist_wav)
@@ -512,7 +507,7 @@ gpointer encode(gpointer data)
                     fflush(playlist_wav);
                 }
             }
-
+            
             free(albumdir);
             free(musicfilename);
             free(wavfilename);

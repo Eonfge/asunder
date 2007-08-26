@@ -170,12 +170,13 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
         
         // close the side of the pipe we don't need
         close(pipefd[0]);
-
-        // close all standard streams to keep output clean
-        close(STDOUT_FILENO);
-        close(STDIN_FILENO);
-        close(STDERR_FILENO);
-
+        
+        /* this causes a segfault on fedora, and I don't really see why it's needed anyway */
+        //~ // close all standard streams to keep output clean
+        //~ close(STDOUT_FILENO);
+        //~ close(STDIN_FILENO);
+        //~ close(STDERR_FILENO);
+        
         // setup output
         dup2(pipefd[1], toread);
         close(pipefd[1]);
@@ -232,7 +233,7 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     char trackstring[3];
     
     snprintf(trackstring, 3, "%d", tracknum);
-
+    
     const char * args[] = { "cdparanoia", "-e", "-d", cdrom, trackstring, filename, NULL };
     
     fd = exec_with_output(args, STDERR_FILENO, &cdparanoia_pid);
