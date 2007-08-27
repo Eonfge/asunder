@@ -127,7 +127,19 @@ int main(int argc, char *argv[])
     renderer = gtk_cell_renderer_text_new();
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Time"), renderer, "text", COL_TRACKTIME, NULL);
-
+    
+    // set up the columns for the album selecting dropdown box
+    renderer = gtk_cell_renderer_text_new();
+    gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(pick_disc), renderer, TRUE);
+    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(pick_disc), renderer,
+                                                    "text", 0,
+                                                    NULL);
+    renderer = gtk_cell_renderer_text_new();
+    gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(pick_disc), renderer, TRUE);
+    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(pick_disc), renderer,
+                                                    "text", 1,
+                                                    NULL);
+	
     // disable the "rip" button
     // it will be enabled when check_disc() finds a disc in the drive
     gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), FALSE);
