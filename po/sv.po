@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-24 12:57-0400\n"
+"POT-Creation-Date: 2007-08-26 22:11-0400\n"
 "PO-Revision-Date: 2007-08-08 15:44+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -35,7 +35,7 @@ msgstr "Titel"
 msgid "Time"
 msgstr "Tid"
 
-#: src/main.c:143
+#: src/main.c:155
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -202,6 +202,6 @@ msgstr "Totalt förlopp"
 msgid "Encoding"
 msgstr "Kodning"
 
-#: src/threads.c:588 src/threads.c:590 src/threads.c:594
+#: src/threads.c:583 src/threads.c:585 src/threads.c:589
 msgid "Waiting..."
 msgstr "Väntar..."

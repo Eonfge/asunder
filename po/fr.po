@@ -1,58 +1,64 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# French translation for Asunder.
+# This file is distributed under the same license as the Asunder package.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: asunder v0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-08-26 22:11-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2007-08-26 00:30+0100\n"
+"Last-Translator: Christophe <chris.l@free.fr>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: src/main.c:105 src/interface.c:189
 msgid "Rip"
-msgstr ""
+msgstr "Extraire"
 
 #: src/main.c:110
 msgid "Track"
-msgstr ""
+msgstr "Piste"
 
 #: src/main.c:117
 msgid "Artist"
-msgstr ""
+msgstr "Artiste"
 
 #: src/main.c:124
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #: src/main.c:129
 msgid "Time"
-msgstr ""
+msgstr "Durée"
 
 #: src/main.c:155
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
+"'cdparanoia' n'a pas été trouvé. Asunder a besoin de cdparanoia pour "
+"extraire les CDs."
 
 #: src/callbacks.c:39
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
+"Pas de méthode d'extraction/d'encodage sélectionné. S'il vous plaît, activez "
+"en un dans le menu 'Préférences'."
 
 #: src/callbacks.c:74
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr ""
+"Pas de pistes sélectionnées pour l'extraction/l'encodage. S'il vous plaît "
+"sélectionnez au moins une piste."
 
 #: src/callbacks.c:204 src/callbacks.c:224 src/callbacks.c:244
 #, c-format
@@ -60,50 +66,52 @@ msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
 "s functionality is disabled."
 msgstr ""
+"%s n'as pas été trouvé. Asunder en a besoin pour créer les fichiers %s. "
+"Toutes les fonctions %s sont désactivées."
 
 #: src/interface.c:131
 msgid "Disc:"
-msgstr ""
+msgstr "Disque:"
 
 #: src/interface.c:137
 msgid "Album artist:"
-msgstr ""
+msgstr "Artiste de l'album:"
 
 #: src/interface.c:144
 msgid "Album title:"
-msgstr ""
+msgstr "Nom de l'album:"
 
 #: src/interface.c:151
 msgid "Single artist"
-msgstr ""
+msgstr "Un seul artiste"
 
 #: src/interface.c:336
 msgid "Preferences"
-msgstr ""
+msgstr "Préférences"
 
 #: src/interface.c:352 src/interface.c:358
 msgid "Destination folder"
-msgstr ""
+msgstr "Dossier de destination"
 
 #: src/interface.c:362
 msgid "Create M3U playlist"
-msgstr ""
+msgstr "Créer une liste de lecture M3U"
 
 #: src/interface.c:366
 msgid "Create directory for each album"
-msgstr ""
+msgstr "Créer un répertoire pour chaque album"
 
 #: src/interface.c:374
 msgid "CD-ROM device: "
-msgstr ""
+msgstr "Lecteur de CD-ROM:"
 
 #: src/interface.c:382
 msgid "Eject disc when finished"
-msgstr ""
+msgstr "Ejecter le disque à la fin"
 
 #: src/interface.c:391
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 #: src/interface.c:409
 msgid ""
@@ -112,87 +120,93 @@ msgid ""
 "%N - Track number (2-digit)\n"
 "%T - Song title"
 msgstr ""
+"%A - Artiste\n"
+"%L - Album\n"
+"%N - Numéro de piste (2-chiffres)\n"
+"%T - Nom de la piste"
 
 #: src/interface.c:419
 msgid "Music file: "
-msgstr ""
+msgstr "Fichier musique:"
 
 #: src/interface.c:426
 msgid "Playlist file: "
-msgstr ""
+msgstr "Liste de lecture:"
 
 #: src/interface.c:433
 msgid "Album directory: "
-msgstr ""
+msgstr "Répertoire de l'album:"
 
 #: src/interface.c:458
 msgid "Filename formats"
-msgstr ""
+msgstr "Formats du nom de fichier"
 
 #: src/interface.c:467
 msgid "Invalid characters"
-msgstr ""
+msgstr "Caractères invalides"
 
 #: src/interface.c:474
 msgid "These characters will be removed from all filenames."
-msgstr ""
+msgstr "Ces caractères seront supprimés pour tous les noms de fichier"
 
 #: src/interface.c:476
 msgid "Filenames"
-msgstr ""
+msgstr "Noms des fichiers"
 
 #: src/interface.c:485
 msgid "WAV (uncompressed)"
-msgstr ""
+msgstr "WAV (non compressé)"
 
 #: src/interface.c:502
+#, fuzzy
 msgid "Variable bit rate (VBR)"
-msgstr ""
+msgstr "Variable bit rate (VBR)"
 
 #: src/interface.c:510
+#, fuzzy
 msgid "Bitrate"
-msgstr ""
+msgstr "Bitrate"
 
 #: src/interface.c:520
 msgid "32Kbps"
-msgstr ""
+msgstr "32Kbps"
 
 #: src/interface.c:524
 msgid "MP3 (lossy compression)"
-msgstr ""
+msgstr "MP3 (compression avec perte)"
 
 #: src/interface.c:541
 msgid "Quality"
-msgstr ""
+msgstr "Qualité"
 
 #: src/interface.c:550
 msgid "OGG Vorbis (lossy compression)"
-msgstr ""
+msgstr "OGG Vorbis (compression avec perte)"
 
 #: src/interface.c:567
 msgid "Compression level"
-msgstr ""
+msgstr "Niveau de compression"
 
 #: src/interface.c:576
 msgid "FLAC (lossless compression)"
-msgstr ""
+msgstr "FLAC (compression sans perte)"
 
 #: src/interface.c:580
 msgid "Encode"
-msgstr ""
+msgstr "Encodeur"
 
 #: src/interface.c:696 src/interface.c:732
 msgid "Ripping"
-msgstr ""
+msgstr "Extraction"
 
 #: src/interface.c:725
 msgid "Total progress"
-msgstr ""
+msgstr "Progression Totale"
 
 #: src/interface.c:739
 msgid "Encoding"
-msgstr ""
+msgstr "Encode"
 
 #: src/threads.c:583 src/threads.c:585 src/threads.c:589
 msgid "Waiting..."
-msgstr ""
+msgstr "Patientez..."
