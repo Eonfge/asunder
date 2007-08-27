@@ -774,7 +774,7 @@ create_ripping (void)
 
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 0.8";
+GBLprogramName = "Asunder 0.8.1";
 
 static const char* 
 GBLauthors[2] = {
@@ -794,13 +794,27 @@ GBLauthors[2] = {
 "\n"
 "Toni Graffy\n"
 "Maintainer of many SuSE packages at PackMan\n"
-"- SuSE packages of Asunder, version 0.1\n"
+"- SuSE packages of Asunder, versions 0.1 - 0.8\n"
+"\n"
+"Trent Weddington\n"
+"http://rtfm.insomnia.org/~qg/\n"
+"- Debian packages of Asunder, version 0.8\n"
+"\n"
+"vktgz\n"
+"http://www.vktgz.homelinux.net/\n"
+"- Gentoo ebuild for Asunder, version 0.8\n"
 "\n"
 ,
 NULL};
 
 static const char* 
 GBLtranslators = 
+"Schmaki\n"
+"- cs (Czeck) translation of Asunder version 0.8\n"
+"\n"
+"Rene Schmidt\n"
+"- de (German) translation of Asunder version 0.8\n"
+"\n"
 "Mike Kranidis\n"
 "- el (Greek) translation of Asunder version 0.8\n"
 "\n"
@@ -809,6 +823,9 @@ GBLtranslators =
 "\n"
 "Eero Salokannel\n"
 "- fi (Finnish) translation of Asunder version 0.8\n"
+"\n"
+"Christophe Legras\n"
+"- fr (French) translation of Asunder version 0.8\n"
 "\n"
 "Valerio Guaglianone\n"
 "- it (Italian) translation of Asunder version 0.8\n"

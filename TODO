@@ -3,11 +3,20 @@ Andrew's:
 - need better icon
 - Sound Juicer and Banshee rip to ogg almost twice faster, figure out why.
 - Having the option to create a seperate Artist folder ('Library/Artist/Album/' instead of 'Library/Artist - Album/') would be better, maybe default.
+- option for saving different file types in different directories
 - if i eject the disk while ripping, strange things happen
 - maybe a 'finished' window showing the status of each track's rip/encode
 - pref for setting cddb server?
 - log all output from programs so i can debug remotely
 - rename the 'encode' tab to 'output' or something
+- look into proxy support (look at ripoff)
+- look into ID3v1/v2 tags for mp3s
+- add gettext as a dep to readme
+- F2 to rename track
+- when it starts in the suse vm i get 2xunknown child pid
+- add error checking all over the place and make error() + warning() functions that will print the pid
+- make sure error checking is done everywhere
+- find way to get rid of stderr for children without closing file descriptors until the program is dead
 
 
 High Priority
@@ -26,8 +35,10 @@ Low Priority
 Tests to run before a release
 =============================
 - try to run with an older config file
+- comment out #define DEBUG
 - update version in about box and configure.in
 - update changelog
+- update authors, packagers, translators
 - cd po && make update-po
 - make dist
 - uninstall, extract, compile, install and run

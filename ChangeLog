@@ -1,3 +1,10 @@
+27 Aug 2007 - 0.8.1
+===================
+- Added Czech, German, and French translations
+- Fixed bug where the name of the disk (when multiple available) was not displayed
+- Fixed bug where some versions of cdparanoia would crash because of how I call it
+- Fixed bug where a cdparanoia crash would cause Asunder to hang
+
 24 Aug 2007 - 0.8
 =================
 - Added Greek, Spanish, Finnish, Italian, Norwegian Bokmal, Norwegian Nynorsk, Dutch, Russian, Swedish, Albanian, and Chinese (Taiwan) translations.
