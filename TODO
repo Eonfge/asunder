@@ -17,6 +17,8 @@ Andrew's:
 - add error checking all over the place and make error() + warning() functions that will print the pid
 - make sure error checking is done everywhere
 - find way to get rid of stderr for children without closing file descriptors until the program is dead
+- check missing trailing spaces in de.po
+- warnings on fedora
 
 
 High Priority

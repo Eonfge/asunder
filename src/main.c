@@ -488,12 +488,11 @@ void refresh(char * cdrom, int force)
 
     if (check_disc(cdrom) || force)
     {
-        //~ clear_widgets();
-        gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), TRUE);
-        
         disc = read_disc(cdrom);
         if (disc == NULL)
             return;
+        
+        gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), TRUE);
         
         // show the temporary info
         gtk_entry_set_text(GTK_ENTRY(album_artist), "Unknown Artist");
