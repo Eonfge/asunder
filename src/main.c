@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
     g_signal_connect(renderer, "edited", (GCallback) title_edited, NULL);
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Title"), renderer, "text", COL_TRACKTITLE, NULL);
-
+    
     col = gtk_tree_view_column_new();
     renderer = gtk_cell_renderer_text_new();
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 

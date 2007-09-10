@@ -275,6 +275,12 @@ on_preferences_clicked                 (GtkToolButton   *toolbutton,
     gtk_widget_show(win_prefs);
 }
 
+void 
+on_press_f2                       (void)
+{
+    printf("f2\n");
+}
+
 void
 on_refresh_clicked                     (GtkToolButton   *toolbutton,
                                         gpointer         user_data)
