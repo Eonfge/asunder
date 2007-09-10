@@ -326,8 +326,12 @@ create_prefs (void)
   GtkWidget *dialog_action_area1;
   GtkWidget *cancelbutton1;
   GtkWidget *okbutton1;
-  GtkTooltips *tooltips;
   GtkWidget *eject_on_done;
+  GtkTooltips *tooltips;
+  GtkTooltips *tooltips1;
+  GtkTooltips *tooltips2;
+  GtkTooltips *tooltips3;
+  GtkTooltips *tooltips4;
   
   tooltips = gtk_tooltips_new ();
 
@@ -503,6 +507,9 @@ create_prefs (void)
   gtk_widget_show (mp3_vbr);
   gtk_box_pack_start (GTK_BOX (vbox9), mp3_vbr, FALSE, FALSE, 0);
 
+  tooltips4 = gtk_tooltips_new ();
+  gtk_tooltips_set_tip (tooltips4, mp3_vbr, _("Better quality for the same size."), NULL);
+  
   hbox9 = gtk_hbox_new (FALSE, 0);
   gtk_widget_show (hbox9);
   gtk_box_pack_start (GTK_BOX (vbox9), hbox9, TRUE, TRUE, 0);
@@ -516,7 +523,10 @@ create_prefs (void)
   gtk_box_pack_start (GTK_BOX (hbox9), mp3bitrate, TRUE, TRUE, 5);
   gtk_scale_set_draw_value (GTK_SCALE (mp3bitrate), FALSE);
   gtk_scale_set_digits (GTK_SCALE (mp3bitrate), 0);
-
+  
+  tooltips1 = gtk_tooltips_new ();
+  gtk_tooltips_set_tip (tooltips1, mp3bitrate, _("Higher bitrate is better quality but also bigger file. Most people use 192Kbps."), NULL);
+  
   mp3_bitrate = gtk_label_new (_("32Kbps"));
   gtk_widget_show (mp3_bitrate);
   gtk_box_pack_start (GTK_BOX (hbox9), mp3_bitrate, FALSE, FALSE, 0);
@@ -547,6 +557,9 @@ create_prefs (void)
   gtk_box_pack_start (GTK_BOX (hbox10), oggquality, TRUE, TRUE, 5);
   gtk_scale_set_digits (GTK_SCALE (oggquality), 0);
 
+  tooltips2 = gtk_tooltips_new ();
+  gtk_tooltips_set_tip (tooltips2, oggquality, _("Higher quality means bigger file. Default is 6."), NULL);
+  
   rip_ogg = gtk_check_button_new_with_mnemonic (_("OGG Vorbis (lossy compression)"));
   gtk_widget_show (rip_ogg);
   gtk_frame_set_label_widget (GTK_FRAME (frame4), rip_ogg);
@@ -573,6 +586,9 @@ create_prefs (void)
   gtk_box_pack_start (GTK_BOX (hbox11), flaccompression, TRUE, TRUE, 5);
   gtk_scale_set_digits (GTK_SCALE (flaccompression), 0);
 
+  tooltips3 = gtk_tooltips_new ();
+  gtk_tooltips_set_tip (tooltips3, flaccompression, _("This does not affect quality. Higher number means smaller file."), NULL);
+  
   rip_flac = gtk_check_button_new_with_mnemonic (_("FLAC (lossless compression)"));
   gtk_widget_show (rip_flac);
   gtk_frame_set_label_widget (GTK_FRAME (frame5), rip_flac);
@@ -672,7 +688,11 @@ create_prefs (void)
   GLADE_HOOKUP_OBJECT (prefs, cancelbutton1, "cancelbutton1");
   GLADE_HOOKUP_OBJECT (prefs, okbutton1, "okbutton1");
   GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips, "tooltips");
-
+  GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips1, "tooltips1");
+  GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips2, "tooltips2");
+  GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips3, "tooltips3");
+  GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips4, "tooltips3");
+  
   return prefs;
 }
 
