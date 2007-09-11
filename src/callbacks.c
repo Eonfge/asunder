@@ -278,7 +278,21 @@ on_preferences_clicked                 (GtkToolButton   *toolbutton,
 void 
 on_press_f2                       (void)
 {
-    printf("f2\n");
+    GtkWidget* treeView;
+    GtkTreePath* treePath;
+    GtkTreeViewColumn* focusColumn;
+    
+    treeView = lookup_widget(win_main, "tracklist");
+    
+    if (!GTK_WIDGET_HAS_FOCUS(treeView))
+        return;
+    
+    gtk_tree_view_get_cursor(GTK_TREE_VIEW(treeView), &treePath, &focusColumn);
+    
+    if (treePath == NULL || focusColumn == NULL)
+        return;
+    
+    gtk_tree_view_set_cursor(GTK_TREE_VIEW(treeView), treePath, focusColumn, TRUE);
 }
 
 void

@@ -237,9 +237,9 @@ create_main (void)
   closure = g_cclosure_new(G_CALLBACK(on_window_close), NULL, NULL);
   gtk_accel_group_connect(accelGroup, accelKey, accelModifier, GTK_ACCEL_VISIBLE, closure);
   
-  //~ gtk_accelerator_parse("F2", &accelKey, &accelModifier);
-  //~ closure = g_cclosure_new(G_CALLBACK(on_press_f2), NULL, NULL);
-  //~ gtk_accel_group_connect(accelGroup, accelKey, accelModifier, GTK_ACCEL_VISIBLE, closure);
+  gtk_accelerator_parse("F2", &accelKey, &accelModifier);
+  closure = g_cclosure_new(G_CALLBACK(on_press_f2), NULL, NULL);
+  gtk_accel_group_connect(accelGroup, accelKey, accelModifier, GTK_ACCEL_VISIBLE, closure);
   /* END KEYBOARD accelerators */
 
   /* Store pointers to all widgets, for use by lookup_widget(). */

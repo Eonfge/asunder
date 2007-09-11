@@ -12,13 +12,13 @@ Andrew's:
 - look into proxy support (look at ripoff)
 - look into ID3v1/v2 tags for mp3s
 - add gettext as a dep to readme
-- F2 to rename track
 - when it starts in the suse vm i get 2xunknown child pid
 - add error checking all over the place and make error() + warning() functions that will print the pid
 - make sure error checking is done everywhere
 - find way to get rid of stderr for children without closing file descriptors until the program is dead
-- check missing trailing spaces in de.po
+- check missing trailing spaces in de.po, fr.po and others
 - warnings on fedora
+- don't allow blank song names
 
 
 High Priority
