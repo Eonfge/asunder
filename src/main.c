@@ -329,11 +329,9 @@ GList * lookup_disc(cddb_disc_t * disc)
         fprintf(stderr, "out of memory, unable to create connection structure");
         exit(-1);
     }
-
+    
     // query cddb to find similar discs
-    cddb_cache_disable(conn);
     num_matches = cddb_query(conn, disc);
-    cddb_cache_enable(conn);
     
     // make a list of all the matches
     for (i=0; i<num_matches; i++)

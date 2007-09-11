@@ -6,7 +6,6 @@ Andrew's:
 - option for saving different file types in different directories
 - if i eject the disk while ripping, strange things happen
 - maybe a 'finished' window showing the status of each track's rip/encode
-- pref for setting cddb server?
 - log all output from programs so i can debug remotely
 - rename the 'encode' tab to 'output' or something
 - look into proxy support (look at ripoff)
@@ -20,18 +19,14 @@ Andrew's:
 - warnings on fedora
 - don't allow blank song names
 - there's an untranslated dialog somewhere... the finished dialog?
-
-
-High Priority
-==================
-* Store local cache of CDDB info (include any changes the user makes)
-* Need something to idicate "waiting" for CDDB
+- include the genre, year in the tags
+- show cddb progress
+- if cddb album name is too long, the window gets stretched
 
 
 Low Priority
 ==================
 * Submit new CDDB entries
-* Add disc year to (ID3, etc) tags
 * Find a cleaner way to cancel rips
 
 
