@@ -193,6 +193,11 @@ create_main (void)
   g_signal_connect ((gpointer) main_win, "delete_event",
                     G_CALLBACK (on_window_close),
                     NULL);
+
+  g_signal_connect((gpointer) tracklist, "button-press-event", 
+                    G_CALLBACK (on_tracklist_mouse_click), 
+                    NULL);
+  
   g_signal_connect ((gpointer) refresh, "clicked",
                     G_CALLBACK (on_refresh_clicked),
                     NULL);
