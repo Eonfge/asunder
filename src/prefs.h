@@ -19,6 +19,7 @@ typedef struct _prefs
     int main_window_width;
     int main_window_height;
     int eject_on_done;
+    int do_cddb_updates;
     
 } prefs;
 

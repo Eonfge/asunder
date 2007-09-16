@@ -187,7 +187,7 @@ bool check_disc(char * cdrom)
     }
     
     /* this was the original (Eric's 0.1 and post 0.0.1) checking code,
-    * but it never worked properly for me. Removed 21 aug 2007. */
+    * but it never worked properly for me. Replaced 21 aug 2007. */
     //~ static bool newdisc = true;
     //~ // read the drive status info
     //~ if (ioctl(fd, CDROM_DRIVE_STATUS, CDSL_CURRENT) == CDS_DISC_OK)
@@ -321,6 +321,9 @@ GList * lookup_disc(cddb_disc_t * disc)
     int num_matches;
     int i;
     GList * matches = NULL;
+    
+    if (!global_prefs->do_cddb_updates)
+        return NULL;
     
     // set up the connection to the cddb server
     conn = cddb_new();

@@ -8,7 +8,6 @@ Andrew's:
 - maybe a 'finished' window showing the status of each track's rip/encode
 - log all output from programs so i can debug remotely
 - rename the 'encode' tab to 'output' or something
-- look into proxy support (look at ripoff)
 - look into ID3v1/v2 tags for mp3s
 - add gettext as a dep to readme
 - when it starts in the suse vm i get 2xunknown child pid
@@ -22,7 +21,9 @@ Andrew's:
 - include the genre, year in the tags
 - show cddb progress
 - if cddb album name is too long, the window gets stretched
-
+- look into proxy support (look at ripoff)
+- cddb tab:
+ - proxy
 
 Low Priority
 ==================

@@ -356,7 +356,8 @@ create_prefs (void)
     notebook1 = gtk_notebook_new ();
     gtk_widget_show (notebook1);
     gtk_box_pack_start (GTK_BOX (dialog_vbox1), notebook1, TRUE, TRUE, 0);
-
+    
+    /* GENERAL tab */
     vbox5 = gtk_vbox_new (FALSE, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox5), 5);
     gtk_widget_show (vbox5);
@@ -404,7 +405,9 @@ create_prefs (void)
     label4 = gtk_label_new (_("General"));
     gtk_widget_show (label4);
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 0), label4);
-
+    /* END GENERAL tab */
+    
+    /* FILENAMES tab */
     vbox7 = gtk_vbox_new (FALSE, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox7), 5);
     gtk_widget_show (vbox7);
@@ -489,7 +492,9 @@ create_prefs (void)
     label19 = gtk_label_new (_("Filenames"));
     gtk_widget_show (label19);
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 1), label19);
-
+    /* END FILENAMES tab */
+    
+    /* ENCODE tab */
     vbox8 = gtk_vbox_new (FALSE, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox8), 5);
     gtk_widget_show (vbox8);
@@ -605,6 +610,26 @@ create_prefs (void)
     label6 = gtk_label_new (_("Encode"));
     gtk_widget_show (label6);
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 2), label6);
+    /* END ENCODE tab */
+
+    /* CDDB tab */
+    GtkWidget* vbox;
+    GtkWidget* label;
+    GtkWidget* do_cddb_updates;
+    
+    vbox = gtk_vbox_new (FALSE, 5);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
+    gtk_widget_show (vbox);
+    gtk_container_add (GTK_CONTAINER (notebook1), vbox);
+    
+    do_cddb_updates = gtk_check_button_new_with_mnemonic (_("Get disc info from the internet"));
+    gtk_widget_show (do_cddb_updates);
+    gtk_box_pack_start (GTK_BOX (vbox), do_cddb_updates, FALSE, FALSE, 0);
+    
+    label = gtk_label_new ("CDDB");
+    gtk_widget_show (label);
+    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 3), label);
+    /* END CDDB tab */
 
     dialog_action_area1 = GTK_DIALOG (prefs)->action_area;
     gtk_widget_show (dialog_action_area1);
@@ -693,6 +718,7 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, flaccompression, "flaccompression");
     GLADE_HOOKUP_OBJECT (prefs, rip_flac, "rip_flac");
     GLADE_HOOKUP_OBJECT (prefs, label6, "label6");
+    GLADE_HOOKUP_OBJECT (prefs, do_cddb_updates, "do_cddb_updates");
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, dialog_action_area1, "dialog_action_area1");
     GLADE_HOOKUP_OBJECT (prefs, cancelbutton1, "cancelbutton1");
     GLADE_HOOKUP_OBJECT (prefs, okbutton1, "okbutton1");
