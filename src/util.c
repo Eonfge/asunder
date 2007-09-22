@@ -243,7 +243,7 @@ char * read_line(int fd)
 // reads an entire line from a file and turns it into a number
 int read_line_num(int fd)
 {
-    int ret = 0;
+    long ret = 0;
     
     char * line = read_line(fd);
     if (line == NULL)
