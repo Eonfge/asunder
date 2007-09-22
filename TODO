@@ -5,25 +5,17 @@ Andrew's:
 - Having the option to create a seperate Artist folder ('Library/Artist/Album/' instead of 'Library/Artist - Album/') would be better, maybe default.
 - option for saving different file types in different directories
 - if i eject the disk while ripping, strange things happen
-- maybe a 'finished' window showing the status of each track's rip/encode
 - log all output from programs so i can debug remotely
-- rename the 'encode' tab to 'output' or something
 - look into ID3v1/v2 tags for mp3s
-- add gettext as a dep to readme
 - when it starts in the suse vm i get 2xunknown child pid
 - add error checking all over the place and make error() + warning() functions that will print the pid
-- make sure error checking is done everywhere
 - find way to get rid of stderr for children without closing file descriptors until the program is dead
-- check missing trailing spaces in de.po, fr.po and others
 - warnings on fedora
 - don't allow blank song names
-- there's an untranslated dialog somewhere... the finished dialog?
 - include the genre, year in the tags
 - show cddb progress
-- if cddb album name is too long, the window gets stretched
-- look into proxy support (look at ripoff)
-- cddb tab:
- - proxy
+- disable widgets in preferences when parent unchecked
+
 
 Low Priority
 ==================

@@ -88,7 +88,7 @@ msgstr "Einen Ordner je Album anlegen"
 
 #: src/interface.c:374
 msgid "CD-ROM device: "
-msgstr "CD-Laufwerk:"
+msgstr "CD-Laufwerk: "
 
 #: src/interface.c:382
 msgid "Eject disc when finished"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: src/interface.c:419
 msgid "Music file: "
-msgstr "Audio-Datei:"
+msgstr "Audio-Datei: "
 
 #: src/interface.c:426
 msgid "Playlist file: "
@@ -120,7 +120,7 @@ msgstr "Playlist-Datei:"
 
 #: src/interface.c:433
 msgid "Album directory: "
-msgstr "Ordner für Album:"
+msgstr "Ordner für Album :"
 
 #: src/interface.c:458
 msgid "Filename formats"

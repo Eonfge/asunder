@@ -98,7 +98,7 @@ msgstr "Tee kansio jokaiselle levylle"
 
 #: src/interface.c:374
 msgid "CD-ROM device: "
-msgstr "CD-ROM asema:"
+msgstr "CD-ROM asema: "
 
 #: src/interface.c:382
 msgid "Eject disc when finished"
@@ -122,15 +122,15 @@ msgstr ""
 
 #: src/interface.c:419
 msgid "Music file: "
-msgstr "Musiikki tiedosto:"
+msgstr "Musiikki tiedosto: "
 
 #: src/interface.c:426
 msgid "Playlist file: "
-msgstr "Soittolistan tiedosto:"
+msgstr "Soittolistan tiedosto: "
 
 #: src/interface.c:433
 msgid "Album directory: "
-msgstr "Levyn kansio:"
+msgstr "Levyn kansio: "
 
 #: src/interface.c:458
 msgid "Filename formats"

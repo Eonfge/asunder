@@ -100,7 +100,7 @@ msgstr "Crea una directory per ogni album"
 
 #: src/interface.c:374
 msgid "CD-ROM device: "
-msgstr "Periferica CD-ROM:"
+msgstr "Periferica CD-ROM: "
 
 #: src/interface.c:382
 msgid "Eject disc when finished"
@@ -124,15 +124,15 @@ msgstr ""
 
 #: src/interface.c:419
 msgid "Music file: "
-msgstr "File audio:"
+msgstr "File audio: "
 
 #: src/interface.c:426
 msgid "Playlist file: "
-msgstr "File playlist:"
+msgstr "File playlist: "
 
 #: src/interface.c:433
 msgid "Album directory: "
-msgstr "Directory album:"
+msgstr "Directory album: "
 
 #: src/interface.c:458
 msgid "Filename formats"

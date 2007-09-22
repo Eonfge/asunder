@@ -6,14 +6,15 @@ msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-08-26 22:54-0400\n"
-"PO-Revision-Date: 2007-08-17 13:01+0200\n"
+"PO-Revision-Date: 2007-09-22 05:10-0500\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
-"Language-Team: <LL@li.org>\n"
+"Language-Team:  <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:105 src/interface.c:189
+#: src/main.c:105
+#: src/interface.c:189
 msgid "Rip"
 msgstr "Përftoje"
 
@@ -34,37 +35,23 @@ msgid "Time"
 msgstr "Kohë"
 
 #: src/main.c:155
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
-msgstr ""
-"'cdparanoia' nuk u gjet te shtegu juaj. Asunder-i lyp cdparanoia-an për "
-"përftim CD-sh."
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "'cdparanoia' nuk u gjet te shtegu juaj. Asunder-i lyp cdparanoia-an për përftim CD-sh."
 
 #: src/callbacks.c:39
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
-msgstr ""
-"Nuk është përzgjedhur metodë përftimi/kodimi. Ju lutem aktivizoni një të "
-"tillë prej menusë 'Parapëlqime'."
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgstr "Nuk është përzgjedhur metodë përftimi/kodimi. Ju lutem aktivizoni një të tillë prej menusë 'Parapëlqime'."
 
 #: src/callbacks.c:74
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
-msgstr ""
-"Nuk janë përzgjedhur gjurmë për përftim/kodim. Ju lutem përzgjidhni të "
-"paktën një gjurmë."
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgstr "Nuk janë përzgjedhur gjurmë për përftim/kodim. Ju lutem përzgjidhni të paktën një gjurmë."
 
-#: src/callbacks.c:204 src/callbacks.c:224 src/callbacks.c:244
+#: src/callbacks.c:204
+#: src/callbacks.c:224
+#: src/callbacks.c:244
 #, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All %"
-"s functionality is disabled."
-msgstr ""
-"%s nuk u gjet në shtegun tuaj. Asunder-i e ka të nevojshme që të krijojë "
-"kartela %s. Gjithë ana %s është çaktivizuar."
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "%s nuk u gjet në shtegun tuaj. Asunder-i e ka të nevojshme që të krijojë kartela %s. Gjithë ana %s është çaktivizuar."
 
 #: src/interface.c:131
 msgid "Disc:"
@@ -86,7 +73,8 @@ msgstr "Artist pjese"
 msgid "Preferences"
 msgstr "Parapëlqime"
 
-#: src/interface.c:352 src/interface.c:358
+#: src/interface.c:352
+#: src/interface.c:358
 msgid "Destination folder"
 msgstr "Dosje vendmbërritje"
 
@@ -100,7 +88,7 @@ msgstr "Krijo drejtori për çdo album"
 
 #: src/interface.c:374
 msgid "CD-ROM device: "
-msgstr "Paisje CD-ROM:"
+msgstr "Paisje CD-ROM: "
 
 #: src/interface.c:382
 msgid "Eject disc when finished"
@@ -124,15 +112,15 @@ msgstr ""
 
 #: src/interface.c:419
 msgid "Music file: "
-msgstr "Kartelë muzikore:"
+msgstr "Kartelë muzikore: "
 
 #: src/interface.c:426
 msgid "Playlist file: "
-msgstr "Kartelë luajlistë:"
+msgstr "Kartelë luajlistë: "
 
 #: src/interface.c:433
 msgid "Album directory: "
-msgstr "Drejtori albumi:"
+msgstr "Drejtori albumi: "
 
 #: src/interface.c:458
 msgid "Filename formats"
@@ -190,7 +178,8 @@ msgstr "FLAC (Ngjeshje pa humbje)"
 msgid "Encode"
 msgstr "Kodo"
 
-#: src/interface.c:696 src/interface.c:732
+#: src/interface.c:696
+#: src/interface.c:732
 msgid "Ripping"
 msgstr "Përftim"
 
@@ -202,6 +191,9 @@ msgstr "Ecuri gjithsej"
 msgid "Encoding"
 msgstr "Kodim"
 
-#: src/threads.c:583 src/threads.c:585 src/threads.c:589
+#: src/threads.c:583
+#: src/threads.c:585
+#: src/threads.c:589
 msgid "Waiting..."
 msgstr "Po pres..."
+

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "POT-Creation-Date: 2007-08-24 12:57-0400\n"
-"PO-Revision-Date: 2007-08-29 11:03+0100\n"
+"PO-Revision-Date: 2007-09-22 05:07-0500\n"
 "Last-Translator: Peter Polonkai <polesz@nedudu.hu>\n"
 "Language-Team: Nedudu Team <polesz@nedudu.hu>\n"
 "MIME-Version: 1.0\n"
@@ -90,7 +90,7 @@ msgstr "Könyvtár létrehozása mindegyik albumhoz"
 
 #: src/interface.c:374
 msgid "CD-ROM device: "
-msgstr "CD-olvasó eszköz:"
+msgstr "CD-olvasó eszköz: "
 
 #: src/interface.c:382
 msgid "Eject disc when finished"
@@ -114,15 +114,15 @@ msgstr ""
 
 #: src/interface.c:419
 msgid "Music file: "
-msgstr "Zenei fájl:"
+msgstr "Zenei fájl: "
 
 #: src/interface.c:426
 msgid "Playlist file: "
-msgstr "Lejátszólista fájl:"
+msgstr "Lejátszólista fájl: "
 
 #: src/interface.c:433
 msgid "Album directory: "
-msgstr "Album könyvtár:"
+msgstr "Album könyvtár: "
 
 #: src/interface.c:458
 msgid "Filename formats"
