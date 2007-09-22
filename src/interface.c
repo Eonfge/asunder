@@ -999,8 +999,8 @@ void show_completed_dialog(int numOk, int numFailed)
                                         GTK_DIALOG_DESTROY_WITH_PARENT,
                                         GTK_MESSAGE_WARNING,
                                         GTK_BUTTONS_CLOSE,
-                                        "%d file(s) created successfully\n"
-                                        "There was an error creating %d file(s)",
+                                        _("%d file(s) created successfully\n"
+                                        "There was an error creating %d file(s)"),
                                         numOk, numFailed);
     }
     else
@@ -1009,7 +1009,7 @@ void show_completed_dialog(int numOk, int numFailed)
                                         GTK_DIALOG_DESTROY_WITH_PARENT,
                                         GTK_MESSAGE_INFO,
                                         GTK_BUTTONS_CLOSE,
-                                        "All %d file(s) created successfully",
+                                        _("All %d file(s) created successfully"),
                                         numOk);
     }
     
