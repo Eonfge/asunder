@@ -341,6 +341,7 @@ create_prefs (void)
     GtkTooltips *tooltips2;
     GtkTooltips *tooltips3;
     GtkTooltips *tooltips4;
+    GtkWidget* hboxFill;
     
     tooltips = gtk_tooltips_new ();
 
@@ -397,7 +398,6 @@ create_prefs (void)
     gtk_widget_show (eject_on_done);
     gtk_box_pack_start (GTK_BOX (vbox5), eject_on_done, FALSE, FALSE, 5);
 
-    GtkWidget* hboxFill;
     hboxFill = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hboxFill);
     gtk_box_pack_start (GTK_BOX (vbox5), hboxFill, TRUE, TRUE, 0);
@@ -506,7 +506,7 @@ create_prefs (void)
 
     frame3 = gtk_frame_new (NULL);
     gtk_widget_show (frame3);
-    gtk_box_pack_start (GTK_BOX (vbox8), frame3, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox8), frame3, FALSE, FALSE, 0);
 
     alignment8 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment8);
@@ -551,7 +551,7 @@ create_prefs (void)
 
     frame4 = gtk_frame_new (NULL);
     gtk_widget_show (frame4);
-    gtk_box_pack_start (GTK_BOX (vbox8), frame4, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox8), frame4, FALSE, FALSE, 0);
 
     alignment9 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment9);
@@ -580,7 +580,7 @@ create_prefs (void)
 
     frame5 = gtk_frame_new (NULL);
     gtk_widget_show (frame5);
-    gtk_box_pack_start (GTK_BOX (vbox8), frame5, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox8), frame5, FALSE, FALSE, 0);
 
     alignment10 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment10);
@@ -601,7 +601,7 @@ create_prefs (void)
     gtk_scale_set_digits (GTK_SCALE (flaccompression), 0);
 
     tooltips3 = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips3, flaccompression, _("This does not affect quality. Higher number means smaller file."), NULL);
+    gtk_tooltips_set_tip (tooltips3, flaccompression, _("This does not affect the quality. Higher number means smaller file."), NULL);
     
     rip_flac = gtk_check_button_new_with_mnemonic (_("FLAC (lossless compression)"));
     gtk_widget_show (rip_flac);
@@ -616,6 +616,12 @@ create_prefs (void)
     GtkWidget* vbox;
     GtkWidget* label;
     GtkWidget* do_cddb_updates;
+    GtkWidget* frame;
+    GtkWidget* hbox;
+    GtkWidget* useProxy;
+    GtkWidget* serverName;
+    GtkWidget* portNum;
+    GtkWidget* frameVbox;
     
     vbox = gtk_vbox_new (FALSE, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
@@ -625,6 +631,46 @@ create_prefs (void)
     do_cddb_updates = gtk_check_button_new_with_mnemonic (_("Get disc info from the internet"));
     gtk_widget_show (do_cddb_updates);
     gtk_box_pack_start (GTK_BOX (vbox), do_cddb_updates, FALSE, FALSE, 0);
+    
+    frame = gtk_frame_new (NULL);
+    gtk_widget_show (frame);
+    gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
+    
+    useProxy = gtk_check_button_new_with_mnemonic (_("Use HTTP proxy to connect to the internet"));
+    gtk_widget_show (useProxy);
+    gtk_frame_set_label_widget (GTK_FRAME (frame), useProxy);
+    
+    frameVbox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (frameVbox);
+    gtk_container_add (GTK_CONTAINER (frame), frameVbox);
+    
+    hbox = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hbox);
+    gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 0);
+    
+    label = gtk_label_new (_("Server: "));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 5);
+    
+    serverName = gtk_entry_new ();
+    gtk_widget_show (serverName);
+    gtk_box_pack_start (GTK_BOX (hbox), serverName, TRUE, TRUE, 5);
+    
+    hbox = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hbox);
+    gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 0);
+    
+    label = gtk_label_new (_("Port: "));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 5);
+    
+    portNum = gtk_entry_new ();
+    gtk_widget_show (portNum);
+    gtk_box_pack_start (GTK_BOX (hbox), portNum, TRUE, TRUE, 5);
+    
+    hboxFill = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hboxFill);
+    gtk_box_pack_start (GTK_BOX (vbox), hboxFill, TRUE, TRUE, 0);
     
     label = gtk_label_new ("CDDB");
     gtk_widget_show (label);
@@ -722,6 +768,9 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, dialog_action_area1, "dialog_action_area1");
     GLADE_HOOKUP_OBJECT (prefs, cancelbutton1, "cancelbutton1");
     GLADE_HOOKUP_OBJECT (prefs, okbutton1, "okbutton1");
+    GLADE_HOOKUP_OBJECT (prefs, useProxy, "use_proxy");
+    GLADE_HOOKUP_OBJECT (prefs, serverName, "server_name");
+    GLADE_HOOKUP_OBJECT (prefs, portNum, "port_number");
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips, "tooltips");
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips1, "tooltips1");
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips2, "tooltips2");

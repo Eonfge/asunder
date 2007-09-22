@@ -66,6 +66,10 @@ void clear_prefs(prefs * p)
     if (p->invalid_chars != NULL) 
         free(p->invalid_chars);
     p->invalid_chars = NULL;
+    
+    if (p->server_name != NULL) 
+        free(p->server_name);
+    p->server_name = NULL;
 }
 
 // free memory allocated for prefs struct
@@ -142,6 +146,18 @@ prefs * get_default_prefs()
     
     p->do_cddb_updates = 1;
     
+    p->use_proxy = 0;
+    
+    p->server_name = malloc(sizeof(char) * (strlen("10.0.0.1") + 1));
+    if (p->server_name == NULL)
+    {
+        fprintf(stderr, "malloc() failed, out of memory\n");
+        exit(-1);
+    }
+    strcpy(p->server_name, "10.0.0.1");
+    
+    p->port_number = DEFAULT_PROXY_PORT;
+    
     return p;
 }
 
@@ -149,6 +165,8 @@ prefs * get_default_prefs()
 // match the given prefs struct
 void set_widgets_from_prefs(prefs * p)
 {
+    char tempStr[10];
+    
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "cdrom")), p->cdrom);
     gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(lookup_widget(win_prefs, "music_dir")), prefs_get_music_dir(p));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_playlist")), p->make_playlist);
@@ -167,6 +185,10 @@ void set_widgets_from_prefs(prefs * p)
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "invalid_chars")), p->invalid_chars);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")), p->eject_on_done);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_cddb_updates")), p->do_cddb_updates);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "use_proxy")), p->use_proxy);
+    gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "server_name")), p->server_name);
+    snprintf(tempStr, 10, "%d", p->port_number);
+    gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number")), tempStr);
 }
 
 // populates a prefs struct from the current state of the widgets
@@ -174,6 +196,7 @@ void get_prefs_from_widgets(prefs * p)
 {
     gchar * tocopy = NULL;
     const gchar * tocopyc = NULL;
+    int rc;
     
     clear_prefs(p);
     
@@ -244,6 +267,25 @@ void get_prefs_from_widgets(prefs * p)
     p->eject_on_done = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")));
     
     p->do_cddb_updates = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_cddb_updates")));
+    
+    p->use_proxy = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "use_proxy")));
+    
+    tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "server_name")));
+    p->server_name = malloc(sizeof(char) * (strlen(tocopyc) + 1));
+    if (p->server_name == NULL)
+    {
+        fprintf(stderr, "malloc() failed, out of memory\n");
+        exit(-1);
+    }
+    strncpy(p->server_name, tocopyc, strlen(tocopyc) + 1);
+    
+    tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number")));
+    rc = sscanf(tocopyc, "%d", &(p->port_number));
+    if (rc != 1 || !is_valid_port_number(p->port_number))
+    {
+        printf("Bad port number set in prefs, using %d instead\n", DEFAULT_PROXY_PORT);
+        p->port_number = DEFAULT_PROXY_PORT;
+    }
 }
 
 // store the given prefs struct to the config file
@@ -289,6 +331,9 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->main_window_height);
         fprintf(config, "%d\n", p->eject_on_done);
         fprintf(config, "%d\n", p->do_cddb_updates);
+        fprintf(config, "%d\n", p->use_proxy);
+        fprintf(config, "%s\n", p->server_name);
+        fprintf(config, "%d\n", p->port_number);
         
         fclose(config);
     } else {
@@ -416,6 +461,25 @@ void load_prefs(prefs * p)
         // this one can be 0
         p->do_cddb_updates = read_line_num(fd);
         
+        // this one can be 0
+        p->use_proxy = read_line_num(fd);
+        
+        aCharPtr = read_line(fd);
+        if (aCharPtr != NULL)
+        {
+            if (p->server_name != NULL)
+                free(p->server_name);
+            p->server_name = aCharPtr;
+        }
+        
+        // this one can be 0
+        p->port_number = read_line_num(fd);
+        if (!is_valid_port_number(p->port_number))
+        {
+            printf("bad port number read from config file, using %d instead\n", DEFAULT_PROXY_PORT);
+            p->port_number = DEFAULT_PROXY_PORT;
+        }
+        
         close(fd);
     } else {
         fprintf(stderr, "Warning: could not load config file: %s\n", strerror(errno));
@@ -499,3 +563,10 @@ int int_to_bitrate(int i)
     return 32;
 }
 
+int is_valid_port_number(int number)
+{
+    if(number >= 0 && number <= 65535)
+        return 1;
+    else
+        return 0;
+}

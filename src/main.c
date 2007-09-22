@@ -333,6 +333,13 @@ GList * lookup_disc(cddb_disc_t * disc)
         exit(-1);
     }
     
+    if (global_prefs->use_proxy)
+    {
+        cddb_set_http_proxy_server_name(conn, global_prefs->server_name);
+        cddb_set_http_proxy_server_port(conn, global_prefs->port_number);
+        cddb_http_proxy_enable(conn);
+    }
+    
     // query cddb to find similar discs
     num_matches = cddb_query(conn, disc);
     

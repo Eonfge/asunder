@@ -20,8 +20,13 @@ typedef struct _prefs
     int main_window_height;
     int eject_on_done;
     int do_cddb_updates;
+    int use_proxy;
+    char * server_name;
+    int port_number;
     
 } prefs;
+
+#define DEFAULT_PROXY_PORT 8080
 
 extern prefs * global_prefs;
 
@@ -60,3 +65,4 @@ char * prefs_get_music_dir(prefs * p);
 // NOTE: i grabbed these bitrates from the list in the LAME man page
 int int_to_bitrate(int i);
 
+int is_valid_port_number(int number);
