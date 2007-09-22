@@ -9,12 +9,13 @@ Andrew's:
 - look into ID3v1/v2 tags for mp3s
 - when it starts in the suse vm i get 2xunknown child pid
 - add error checking all over the place and make error() + warning() functions that will print the pid
-- find way to get rid of stderr for children without closing file descriptors until the program is dead
+- find way to get rid of stderr for children without closing file descriptors until the program is dead - fixed, just need to test on fedora
 - warnings on fedora
 - don't allow blank song names
 - include the genre, year in the tags
 - show cddb progress
 - disable widgets in preferences when parent unchecked
+- add autoconf/autogen to readme
 
 
 Low Priority

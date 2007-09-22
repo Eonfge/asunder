@@ -177,6 +177,15 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
         //~ close(STDIN_FILENO);
         //~ close(STDERR_FILENO);
         
+        /* instead redirect to /dev/null */
+        if (gbl_null_fd != -1)
+        {
+            dup2(STDOUT_FILENO, gbl_null_fd);
+            close(STDOUT_FILENO);
+            dup2(STDERR_FILENO, gbl_null_fd);
+            close(STDERR_FILENO);
+        }
+        
         // setup output
         dup2(pipefd[1], toread);
         close(pipefd[1]);

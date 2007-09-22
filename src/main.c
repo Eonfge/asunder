@@ -51,6 +51,8 @@ GtkWidget * album_title;
 GtkWidget * tracklist;
 GtkWidget * pick_disc;
 
+int gbl_null_fd;
+
 
 int main(int argc, char *argv[])
 {
@@ -77,6 +79,8 @@ int main(int argc, char *argv[])
     
     sigaction(SIGCHLD, &signalHandler, NULL);
     /* END SET UP signal handler for children */
+    
+    gbl_null_fd = open("/dev/null", O_RDWR);
     
     //gtk_set_locale();
     g_thread_init(NULL);

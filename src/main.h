@@ -48,4 +48,6 @@ extern GtkWidget * win_about;
 
 extern GtkWidget * tracklist;
 
+extern int gbl_null_fd;
+
 //#define DEBUG
