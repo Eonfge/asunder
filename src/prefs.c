@@ -32,10 +32,7 @@ prefs * new_prefs()
 {
     prefs * p = malloc(sizeof(prefs));
     if (p == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(prefs)) failed. Out of memory.");
     memset(p, 0, sizeof(prefs));
     
     return p;
@@ -89,10 +86,7 @@ prefs * get_default_prefs()
     
     p->cdrom = malloc(sizeof(char) * 11);
     if (p->cdrom == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * 11) failed. Out of memory.");
     strncpy(p->cdrom, "/dev/cdrom", 11);
     
     p->music_dir = strdup(getenv("HOME"));
@@ -100,26 +94,17 @@ prefs * get_default_prefs()
     p->make_albumdir = 1;
     p->format_music = malloc(sizeof(char) * 8);
     if (p->format_music == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * 8) failed. Out of memory.");
     strncpy(p->format_music, "%A - %T", 8);
     
     p->format_playlist = malloc(sizeof(char) * 8);
     if (p->format_playlist == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * 8) failed. Out of memory.");
     strncpy(p->format_playlist, "%A - %L", 8);
     
     p->format_albumdir = malloc(sizeof(char) * 8);
     if (p->format_albumdir == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * 8) failed. Out of memory.");
     strncpy(p->format_albumdir, "%A - %L", 8);
     
     p->rip_wav = 0;
@@ -133,10 +118,7 @@ prefs * get_default_prefs()
     
     p->invalid_chars = malloc(sizeof(char) * 2);
     if (p->invalid_chars == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * 2) failed. Out of memory.");
     strncpy(p->invalid_chars, "/", 2);
     
     p->main_window_width = 600;
@@ -150,10 +132,7 @@ prefs * get_default_prefs()
     
     p->server_name = malloc(sizeof(char) * (strlen("10.0.0.1") + 1));
     if (p->server_name == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * (strlen(\"10.0.0.1\") + 1)) failed. Out of memory.");
     strcpy(p->server_name, "10.0.0.1");
     
     p->port_number = DEFAULT_PROXY_PORT;
@@ -201,20 +180,14 @@ void get_prefs_from_widgets(prefs * p)
     clear_prefs(p);
     
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "cdrom")));
-    p->cdrom = malloc(sizeof(char) * (strlen(tocopyc)+1));
+    p->cdrom = malloc(sizeof(char) * (strlen(tocopyc) + 1));
     if (p->cdrom == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->cdrom, tocopyc, strlen(tocopyc)+1);
     
     tocopy = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(lookup_widget(win_prefs, "music_dir")));
-    if ((p->music_dir = malloc(sizeof(char) * (strlen(tocopy)+1))) == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+    if ((p->music_dir = malloc(sizeof(char) * (strlen(tocopy) + 1))) == NULL)
+        fatalError("malloc(sizeof(char) * (strlen(tocopy) + 1)) failed. Out of memory.");
     strncpy(p->music_dir, tocopy, strlen(tocopy)+1);
     g_free(tocopy);
     
@@ -222,29 +195,20 @@ void get_prefs_from_widgets(prefs * p)
     p->make_albumdir = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_albumdir")));
 
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_music")));
-    p->format_music = malloc(sizeof(char) * (strlen(tocopyc)+1));
+    p->format_music = malloc(sizeof(char) * (strlen(tocopyc) + 1));
     if (p->format_music == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->format_music, tocopyc, strlen(tocopyc)+1);
     
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_playlist")));
-    p->format_playlist = malloc(sizeof(char) * (strlen(tocopyc)+1));
+    p->format_playlist = malloc(sizeof(char) * (strlen(tocopyc) + 1));
     if (p->format_playlist == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->format_playlist, tocopyc, strlen(tocopyc)+1);
     
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_albumdir")));
-    if ((p->format_albumdir = malloc(sizeof(char) * (strlen(tocopyc)+1))) == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+    if ((p->format_albumdir = malloc(sizeof(char) * (strlen(tocopyc) + 1))) == NULL)
+        fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->format_albumdir, tocopyc, strlen(tocopyc)+1);
 
     p->rip_wav = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_wav")));
@@ -257,11 +221,8 @@ void get_prefs_from_widgets(prefs * p)
     p->flac_compression = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "flaccompression")));
     
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "invalid_chars")));
-    if ((p->invalid_chars = malloc(sizeof(char) * (strlen(tocopyc)+1))) == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+    if ((p->invalid_chars = malloc(sizeof(char) * (strlen(tocopyc) + 1))) == NULL)
+        fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->invalid_chars, tocopyc, strlen(tocopyc) + 1);
     
     p->eject_on_done = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")));
@@ -273,10 +234,7 @@ void get_prefs_from_widgets(prefs * p)
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "server_name")));
     p->server_name = malloc(sizeof(char) * (strlen(tocopyc) + 1));
     if (p->server_name == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->server_name, tocopyc, strlen(tocopyc) + 1);
     
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number")));
@@ -297,10 +255,7 @@ void save_prefs(prefs * p)
     
     file = malloc(sizeof(char) * (homelen + 10));
     if (file == NULL)
-    {
-        fprintf(stderr, "malloc(sizeof(char) * (homelen + 10)) failed\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * (homelen + 10)) failed. Out of memory.");
     strncpy(file, home, homelen);
     strncpy(&file[homelen], "/.asunder", 10);
     
@@ -351,10 +306,7 @@ void load_prefs(prefs * p)
     
     file = malloc(sizeof(char) * (homelen + 10));
     if (file == NULL)
-    {
-        fprintf(stderr, "malloc(sizeof(char) * (homelen + 10)) failed\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * (homelen + 10)) failed. Out of memory.");
     strncpy(file, home, homelen);
     strncpy(&file[homelen], "/.asunder", 10);
 
@@ -510,10 +462,7 @@ char * prefs_get_music_dir(prefs * p)
         free(p->music_dir);
         p->music_dir = malloc(sizeof(char) * (strlen(home)+1));
         if (p->music_dir == NULL)
-        {
-            fprintf(stderr, "malloc(sizeof(char) * (strlen(home)+1)) failed\n");
-            exit(-1);
-        }
+            fatalError("malloc(sizeof(char) * (strlen(home)+1)) failed. Out of memory.");
         
         strncpy(p->music_dir, home, strlen(home)+1);
         

@@ -80,10 +80,7 @@ on_album_artist_focus_out_event        (GtkWidget       *widget,
     const gchar * ctext = gtk_entry_get_text(GTK_ENTRY(widget));
     gchar * text = malloc(sizeof(gchar) * (strlen(ctext) + 1));
     if (text == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(gchar) * (strlen(ctext) + 1)) failed. Out of memory.");
     strncpy(text, ctext, strlen(ctext)+1);
     
     trim_chars(text, global_prefs->invalid_chars);
@@ -102,10 +99,7 @@ on_album_title_focus_out_event         (GtkWidget       *widget,
     const gchar * ctext = gtk_entry_get_text(GTK_ENTRY(widget));
     gchar * text = malloc(sizeof(gchar) * (strlen(ctext) + 1));
     if (text == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(gchar) * (strlen(ctext) + 1)) failed. Out of memory.");
     strncpy(text, ctext, strlen(ctext)+1);
     
     trim_chars(text, global_prefs->invalid_chars);

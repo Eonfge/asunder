@@ -332,10 +332,7 @@ GList * lookup_disc(cddb_disc_t * disc)
     // set up the connection to the cddb server
     conn = cddb_new();
     if (conn == NULL)
-    {
-        fprintf(stderr, "out of memory, unable to create connection structure");
-        exit(-1);
-    }
+        fatalError("cddb_new() failed. Out of memory?");
     
     if (global_prefs->use_proxy)
     {
@@ -354,7 +351,7 @@ GList * lookup_disc(cddb_disc_t * disc)
         if (!cddb_read(conn, possible_match))
         {
             cddb_error_print(cddb_errno(conn));
-            exit(-1);
+            fatalError("cddb_read() failed.");
         }
         matches = g_list_append(matches, possible_match);
         
@@ -362,10 +359,7 @@ GList * lookup_disc(cddb_disc_t * disc)
         if (i < num_matches-1)
         {
             if (!cddb_query_next(conn, disc))
-            {
-                fprintf(stderr, "query index out of bounds");
-                exit(-1);
-            }
+                fatalError("Query index out of bounds.");
         }
     }
 
@@ -409,10 +403,7 @@ cddb_disc_t * read_disc(char * cdrom)
 #endif
             disc = cddb_disc_new();
             if (disc == NULL)
-            {
-                fprintf(stderr, "out of memory, unable to create disc");
-                exit(-1);
-            }
+                fatalError("cddb_disc_new() failed. Out of memory?");
             
             te.cdte_format = CDROM_LBA;
             for (i=th.cdth_trk0; i<=th.cdth_trk1; i++)
@@ -430,11 +421,8 @@ cddb_disc_t * read_disc(char * cdrom)
 
                     track = cddb_track_new();
                     if (track == NULL)
-                    {
-                        fprintf(stderr, "out of memory, unable to create track");
-                        exit(-1);
-                    }
-                
+                        fatalError("cddb_track_new() failed. Out of memory?");
+                    
                     cddb_track_set_frame_offset(track, te.cdte_addr.lba+SECONDS_TO_FRAMES(2));
                     snprintf(trackname, 9, "Track %d", i);
                     cddb_track_set_title(track, trackname);

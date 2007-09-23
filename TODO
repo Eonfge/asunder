@@ -8,12 +8,11 @@ Andrew's:
 - log all output from programs so i can debug remotely
 - look into ID3v1/v2 tags for mp3s
 - when it starts in the suse vm i get 2xunknown child pid
-- add error checking all over the place and make error() + warning() functions that will print the pid
 - don't allow blank song names
 - include the genre, year in the tags
 - show cddb progress
 - disable widgets in preferences when parent unchecked
-- add autoconf/autogen to readme
+- http://www.softpedia.com/reviews/linux/Asunder-Review-65441.shtml
 
 
 Low Priority

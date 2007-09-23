@@ -21,6 +21,79 @@ Foundation; version 2 of the licence.
 
 #include "util.h"
 
+void fatalError(const char* message)
+{
+    fprintf(stderr, "Fatal error: %s\n", message);
+    exit(-1);
+}
+
+// construct a filename from various parts
+//
+// path - the path the file is placed in (don't include a trailing '/')
+// dir - the parent directory of the file (don't include a trailing '/')
+// file - the filename
+// extension - the suffix of a file (don't include a leading '.')
+//
+// NOTE: caller must free the returned string!
+// NOTE: any of the parameters may be NULL to be omitted
+char * make_filename(const char * path, const char * dir, const char * file, const char * extension)
+{
+    int len = 1;
+    char * ret = NULL;
+    int pos = 0;
+    
+    if (path)
+    {
+        len += strlen(path) + 1;
+    }
+    if (dir)
+    {
+        len += strlen(dir) + 1;
+    }
+    if (file)
+    {
+        len += strlen(file);
+    }
+    if (extension)
+    {
+        len += strlen(extension) + 1;
+    }
+    
+    ret = malloc(sizeof(char) * len);
+    if (ret == NULL)
+        fatalError("malloc(sizeof(char) * len) failed. Out of memory.");
+    
+    if (path)
+    {
+        strncpy(&ret[pos], path, strlen(path));
+        pos += strlen(path);
+        ret[pos] = '/';
+        pos++;
+    }
+    if (dir)
+    {
+        strncpy(&ret[pos], dir, strlen(dir));
+        pos += strlen(dir);
+        ret[pos] = '/';
+        pos++;
+    }
+    if (file)
+    {
+        strncpy(&ret[pos], file, strlen(file));
+        pos += strlen(file);
+    }
+    if (extension)
+    {
+        ret[pos] = '.';
+        pos++;
+        strncpy(&ret[pos], extension, strlen(extension));
+        pos += strlen(extension);
+    }
+    ret[pos] = '\0';
+
+    return ret;
+}
+
 // substitute various items into a formatted string (similar to printf)
 //
 // format - the format of the filename
@@ -68,10 +141,7 @@ char * parse_format(const char * format, int tracknum, const char * artist, cons
     
     ret = malloc(sizeof(char) * (len+1));
     if (ret == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * (len+1)) failed. Out of memory.");
     
     for (i=0; i<strlen(format); i++)
     {
@@ -124,74 +194,62 @@ char * parse_format(const char * format, int tracknum, const char * artist, cons
     return ret;
 }
 
-// construct a filename from various parts
-//
-// path - the path the file is placed in (don't include a trailing '/')
-// dir - the parent directory of the file (don't include a trailing '/')
-// file - the filename
-// extension - the suffix of a file (don't include a leading '.')
-//
-// NOTE: caller must free the returned string!
-// NOTE: any of the parameters may be NULL to be omitted
-char * make_filename(const char * path, const char * dir, const char * file, const char * extension)
+// searches $PATH for the named program
+// returns 1 if found, 0 otherwise
+int program_exists(const char * name)
 {
-    int len = 1;
-    char * ret = NULL;
-    int pos = 0;
+    unsigned i;
+    unsigned numpaths = 1;
+    char * path;
+    char * strings;
+    char ** paths;
+    struct stat s;
+    int ret = 0;
+    char * filename;
     
-    if (path)
+    path = getenv("PATH");
+    strings = malloc(sizeof(char) * (strlen(path)+1));
+    if (strings == NULL)
+        fatalError("malloc(sizeof(char) * (strlen(path)+1)) failed. Out of memory.");
+    strncpy(strings, path, strlen(path)+1);
+    
+    for (i=0; i<strlen(path); i++)
     {
-        len += strlen(path) + 1;
+        if (strings[i] == ':')
+        {
+            numpaths++;
+        }
     }
-    if (dir)
+    paths = malloc(sizeof(char *) * numpaths);
+    if (paths == NULL)
+        fatalError("malloc(sizeof(char *) * numpaths) failed. Out of memory.");
+    numpaths = 1;
+    paths[0] = &strings[0];
+    for (i=0; i<strlen(path); i++)
     {
-        len += strlen(dir) + 1;
-    }
-    if (file)
-    {
-        len += strlen(file);
-    }
-    if (extension)
-    {
-        len += strlen(extension) + 1;
+        if (strings[i] == ':')
+        {
+            strings[i] = '\0';
+            paths[numpaths] = &strings[i+1];
+            numpaths++;
+        }
     }
     
-    ret = malloc(sizeof(char) * len);
-    if (ret == NULL)
+    for (i=0; i<numpaths; i++)
     {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
+        filename = make_filename(paths[i], NULL, name, NULL);
+        if (stat(filename, &s) == 0)
+        {
+            ret = 1;
+            free(filename);
+            break;
+        }
+        free(filename);
     }
     
+    free(strings);
+    free(paths);
     
-    if (path)
-    {
-        strncpy(&ret[pos], path, strlen(path));
-        pos += strlen(path);
-        ret[pos] = '/';
-        pos++;
-    }
-    if (dir)
-    {
-        strncpy(&ret[pos], dir, strlen(dir));
-        pos += strlen(dir);
-        ret[pos] = '/';
-        pos++;
-    }
-    if (file)
-    {
-        strncpy(&ret[pos], file, strlen(file));
-        pos += strlen(file);
-    }
-    if (extension)
-    {
-        ret[pos] = '.';
-        pos++;
-        strncpy(&ret[pos], extension, strlen(extension));
-        pos += strlen(extension);
-    }
-    ret[pos] = '\0';
-
     return ret;
 }
 
@@ -223,10 +281,7 @@ char * read_line(int fd)
     
     ret = malloc(sizeof(char) * pos);
     if (ret == NULL)
-    {
-        fprintf(stderr, "malloc(sizeof(char) * pos) failed\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * pos) failed. Out of memory.");
     
     lseek(fd, -pos, SEEK_CUR);
     rc = read(fd, ret, pos);
@@ -258,69 +313,29 @@ int read_line_num(int fd)
     return ret;
 }
 
-// searches $PATH for the named program
-// returns 1 if found, 0 otherwise
-int program_exists(const char * name)
+// removes all instances of bad characters from the string
+//
+// str - the string to trim
+// bad - the sting containing all the characters to remove
+void trim_chars(char * str, char * bad)
 {
-    unsigned i;
-    unsigned numpaths = 1;
-    char * path;
-    char * strings;
-    char ** paths;
-    struct stat s;
-    int ret = 0;
-    char * filename;
+    int i;
+    int pos;
+    int len = strlen(str);
+    unsigned b;
     
-    path = getenv("PATH");
-    strings = malloc(sizeof(char) * (strlen(path)+1));
-    if (strings == NULL)
+    for (b=0; b<strlen(bad); b++)
     {
-        fprintf(stderr, "malloc(sizeof(char) * (strlen(path)+1)) failed\n");
-        exit(-1);
-    }
-    strncpy(strings, path, strlen(path)+1);
-    
-    for (i=0; i<strlen(path); i++)
-    {
-        if (strings[i] == ':')
+        pos = 0;
+        for (i=0; i<len+1; i++)
         {
-            numpaths++;
+            if (str[i] != bad[b])
+            {
+                str[pos] = str[i];
+                pos++;
+            }
         }
     }
-    paths = malloc(sizeof(char *) * numpaths);
-    if (paths == NULL)
-    {
-        fprintf(stderr, "malloc(sizeof(char *) * numpaths) failed\n");
-        exit(-1);
-    }
-    numpaths = 1;
-    paths[0] = &strings[0];
-    for (i=0; i<strlen(path); i++)
-    {
-        if (strings[i] == ':')
-        {
-            strings[i] = '\0';
-            paths[numpaths] = &strings[i+1];
-            numpaths++;
-        }
-    }
-    
-    for (i=0; i<numpaths; i++)
-    {
-        filename = make_filename(paths[i], NULL, name, NULL);
-        if (stat(filename, &s) == 0)
-        {
-            ret = 1;
-            free(filename);
-            break;
-        }
-        free(filename);
-    }
-    
-    free(strings);
-    free(paths);
-    
-    return ret;
 }
 
 // removes leading and trailing whitespace as defined by isspace()
@@ -353,29 +368,3 @@ void trim_whitespace(char * str)
         str[i] = '\0';
     }
 }
-
-// removes all instances of bad characters from the string
-//
-// str - the string to trim
-// bad - the sting containing all the characters to remove
-void trim_chars(char * str, char * bad)
-{
-    int i;
-    int pos;
-    int len = strlen(str);
-    unsigned b;
-    
-    for (b=0; b<strlen(bad); b++)
-    {
-        pos = 0;
-        for (i=0; i<len+1; i++)
-        {
-            if (str[i] != bad[b])
-            {
-                str[pos] = str[i];
-                pos++;
-            }
-        }
-    }
-}
-

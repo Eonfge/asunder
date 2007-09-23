@@ -150,10 +150,7 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
     blockSigChld();
     
     if (pipe(pipefd) != 0)
-    {
-        fprintf(stderr, "error: pipe\n");
-        exit(1);
-    }
+        fatalError("exec_with_output(): failed to create a pipe");
     
     if ((*p = fork()) == 0)
     {
@@ -194,8 +191,7 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
         execvp(args[0], (char **)args);
         
         // should never get here
-        fprintf(stderr, "error: exec");
-        exit(2);
+        fatalError("exec_with_output(): execvp() failed");
     }
     
 #ifdef DEBUG
@@ -549,26 +545,17 @@ void flac(int tracknum,
     
     artist_text = malloc(sizeof(char) * (strlen(artist)+8));
     if (artist_text == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * (strlen(artist)+8)) failed. Out of memory.");
     snprintf(artist_text, strlen(artist)+8, "ARTIST=%s", artist);
 
     album_text = malloc(sizeof(char) * (strlen(album)+7));
     if (album_text == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * (strlen(album)+7)) failed. Out of memory.");
     snprintf(album_text, strlen(album)+7, "ALBUM=%s", album);
     
     title_text = malloc(sizeof(char) * (strlen(title)+7));
     if (title_text == NULL)
-    {
-        fprintf(stderr, "malloc() failed, out of memory\n");
-        exit(-1);
-    }
+        fatalError("malloc(sizeof(char) * (strlen(title)+7) failed. Out of memory.");
     snprintf(title_text, strlen(title)+7, "TITLE=%s", title);
     
     snprintf(compression_level_text, 3, "-%d", compression_level);
