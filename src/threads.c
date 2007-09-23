@@ -120,7 +120,13 @@ void dorip()
     // make sure there's at least one format to rip to
     if (!global_prefs->rip_wav && !global_prefs->rip_mp3 && !global_prefs->rip_ogg && !global_prefs->rip_flac)
     {
-        GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "No ripping/encoding method selected. Please enable one from the \"preferences\" menu.");
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, 
+                                        GTK_MESSAGE_ERROR, 
+                                        GTK_BUTTONS_OK, 
+                                        _("No ripping/encoding method selected. Please enable one from the "
+                                        "'Preferences' menu."));
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
         return;
@@ -135,14 +141,21 @@ void dorip()
     while(rowsleft)
     {
         gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
-            COL_RIPTRACK, &riptrack,
-            -1);
-        if (riptrack) tracks_to_rip++;
+                           COL_RIPTRACK, &riptrack,
+                           -1);
+        if (riptrack) 
+            tracks_to_rip++;
         rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
     }
     if (tracks_to_rip == 0)
     {
-        GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "No tracks were selected for ripping/encoding. Please select at least one track.");
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, 
+                                        GTK_MESSAGE_ERROR, 
+                                        GTK_BUTTONS_OK, 
+                                        _("No tracks were selected for ripping/encoding. "
+                                        "Please select at least one track."));
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
         return;
@@ -158,7 +171,13 @@ void dorip()
         
         if ((mkdir(dirpath, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
         {
-            GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "Unable to create directory \"%s\": %s", dirpath, strerror(errno));
+            GtkWidget * dialog;
+            dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                            GTK_DIALOG_DESTROY_WITH_PARENT, 
+                                            GTK_MESSAGE_ERROR, 
+                                            GTK_BUTTONS_OK, 
+                                            "Unable to create directory '%s': %s", 
+                                            dirpath, strerror(errno));
             gtk_dialog_run(GTK_DIALOG(dialog));
             gtk_widget_destroy(dialog);
         
@@ -180,7 +199,13 @@ void dorip()
             
             if (playlist_wav == NULL)
             {
-                GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "Unable to create WAV playlist \"%s\": %s", filename, strerror(errno));
+                GtkWidget * dialog;
+                dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                                GTK_DIALOG_DESTROY_WITH_PARENT, 
+                                                GTK_MESSAGE_ERROR, 
+                                                GTK_BUTTONS_OK, 
+                                                "Unable to create WAV playlist \"%s\": %s", 
+                                                filename, strerror(errno));
                 gtk_dialog_run(GTK_DIALOG(dialog));
                 gtk_widget_destroy(dialog);
             } else {
@@ -196,7 +221,13 @@ void dorip()
             
             if (playlist_mp3 == NULL)
             {
-                GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "Unable to create MP3 playlist \"%s\": %s", filename, strerror(errno));
+                GtkWidget * dialog;
+                dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                                GTK_DIALOG_DESTROY_WITH_PARENT, 
+                                                GTK_MESSAGE_ERROR, 
+                                                GTK_BUTTONS_OK, 
+                                                "Unable to create MP3 playlist \"%s\": %s", 
+                                                filename, strerror(errno));
                 gtk_dialog_run(GTK_DIALOG(dialog));
                 gtk_widget_destroy(dialog);
             } else {
@@ -212,7 +243,13 @@ void dorip()
             
             if (playlist_ogg == NULL)
             {
-                GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "Unable to create OGG playlist \"%s\": %s", filename, strerror(errno));
+                GtkWidget * dialog;
+                dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                                GTK_DIALOG_DESTROY_WITH_PARENT, 
+                                                GTK_MESSAGE_ERROR, 
+                                                GTK_BUTTONS_OK, 
+                                                "Unable to create OGG playlist \"%s\": %s", 
+                                                filename, strerror(errno));
                 gtk_dialog_run(GTK_DIALOG(dialog));
                 gtk_widget_destroy(dialog);
             } else {
@@ -228,7 +265,13 @@ void dorip()
             
             if (playlist_flac == NULL)
             {
-                GtkWidget * dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "Unable to create FLAC playlist \"%s\": %s", filename, strerror(errno));
+                GtkWidget * dialog;
+                dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                                GTK_DIALOG_DESTROY_WITH_PARENT, 
+                                                GTK_MESSAGE_ERROR, 
+                                                GTK_BUTTONS_OK, 
+                                                "Unable to create FLAC playlist \"%s\": %s", 
+                                                filename, strerror(errno));
                 gtk_dialog_run(GTK_DIALOG(dialog));
                 gtk_widget_destroy(dialog);
             } else {

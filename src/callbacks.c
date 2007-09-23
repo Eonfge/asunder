@@ -217,55 +217,39 @@ void
 on_refresh_clicked                     (GtkToolButton   *toolbutton,
                                         gpointer         user_data)
 {
+    /* i need to lock myself in refresh()->lookup_disc() */
+    /* another possible solution for this problem:
+    static GThread *main_thread = NULL;
+    
+    void thread_helpers_init (void) {
+       main_thread = g_thread_self ();
+    }
+    gboolean thread_helpers_in_main_thread (void) {
+       return (main_thread == g_thread_self ());
+    }
+    void thread_helpers_lock_gdk (void) {
+       if (!thread_helpers_in_main_thread ())  gdk_threads_enter ();
+    }
+    void thread_helpers_unlock_gdk (void) {
+       if (!thread_helpers_in_main_thread ()) gdk_threads_leave ();
+    }
+    */
+    gdk_threads_leave();
     refresh(global_prefs->cdrom, 1);
+    gdk_threads_enter();
 }
 
 void
 on_rip_button_clicked                  (GtkButton       *button,
                                         gpointer         user_data)
 {
-    if (!global_prefs->rip_wav && !global_prefs->rip_mp3 && !global_prefs->rip_ogg && !global_prefs->rip_flac)
-    {
-        GtkWidget * dialog;
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
-                                        _("No ripping/encoding method selected. Please enable one from the "
-                                        "'Preferences' menu."));
-        gtk_dialog_run(GTK_DIALOG(dialog));
-        gtk_widget_destroy(dialog);
-        return;
-    }
-    
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     if (store == NULL)
     {
         GtkWidget * dialog;
         dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
                                         GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
-                                        "No CD is inserted. Please insert a CD into the CD-ROM drive.");
-        gtk_dialog_run(GTK_DIALOG(dialog));
-        gtk_widget_destroy(dialog);
-        return;
-    }
-    GtkTreeIter iter;
-    gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
-    int tracks_to_rip = 0;
-    int riptrack;
-    while(rowsleft)
-    {
-        gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
-                           COL_RIPTRACK, &riptrack, -1);
-        if (riptrack) 
-            tracks_to_rip++;
-        rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
-    }
-    if (tracks_to_rip == 0)
-    {
-        GtkWidget * dialog;
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
-                                        _("No tracks were selected for ripping/encoding. "
-                                        "Please select at least one track."));
+                                        _("No CD is inserted. Please insert a CD into the CD-ROM drive."));
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
         return;

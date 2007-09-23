@@ -4,7 +4,7 @@ Andrew's:
 - Having the option to create a seperate Artist folder ('Library/Artist/Album/' instead of 'Library/Artist - Album/') would be better, maybe default.
 - look into ID3v1/v2 tags for mp3s
 - include the genre, year in the tags
-- show cddb progress
+- example tooltips in filenames
 - http://www.softpedia.com/reviews/linux/Asunder-Review-65441.shtml
  - get rid of invalid characters
  - add error checking to filename format

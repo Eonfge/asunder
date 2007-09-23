@@ -165,7 +165,7 @@ int main(int argc, char *argv[])
     gtk_widget_show(win_main);
     
     // set up recurring timeout to automatically re-scan the cdrom once every second
-    g_timeout_add(1000, idle, (void *)1);
+    g_timeout_add(500, idle, (void *)1);
     // add an idle event to scan the cdrom drive ASAP
     g_idle_add(idle, NULL);
 
@@ -318,52 +318,91 @@ void eject_disc(char * cdrom)
     close(fd);
 }
 
+static GThread * gbl_cddb_query_thread;
+static cddb_conn_t * gbl_cddb_query_thread_conn;
+static cddb_disc_t * gbl_cddb_query_thread_disc;
+static int gbl_cddb_query_thread_num_matches;
+
+gpointer cddb_query_thread_run(gpointer data)
+{
+    gbl_cddb_query_thread_num_matches = cddb_query(gbl_cddb_query_thread_conn, gbl_cddb_query_thread_disc);
+    
+    gbl_cddb_query_thread = NULL;
+    
+    return NULL;
+}
 
 GList * lookup_disc(cddb_disc_t * disc)
 {
-    cddb_conn_t * conn = NULL;
-    int num_matches;
     int i;
     GList * matches = NULL;
+    GtkWidget* window;
+    GtkWidget* label;
     
     if (!global_prefs->do_cddb_updates)
         return NULL;
     
     // set up the connection to the cddb server
-    conn = cddb_new();
-    if (conn == NULL)
+    gbl_cddb_query_thread_conn = cddb_new();
+    if (gbl_cddb_query_thread_conn == NULL)
         fatalError("cddb_new() failed. Out of memory?");
     
     if (global_prefs->use_proxy)
     {
-        cddb_set_http_proxy_server_name(conn, global_prefs->server_name);
-        cddb_set_http_proxy_server_port(conn, global_prefs->port_number);
-        cddb_http_proxy_enable(conn);
+        cddb_set_http_proxy_server_name(gbl_cddb_query_thread_conn, global_prefs->server_name);
+        cddb_set_http_proxy_server_port(gbl_cddb_query_thread_conn, global_prefs->port_number);
+        cddb_http_proxy_enable(gbl_cddb_query_thread_conn);
     }
     
     // query cddb to find similar discs
-    num_matches = cddb_query(conn, disc);
+    gbl_cddb_query_thread_disc = disc;
+    gbl_cddb_query_thread = g_thread_create(cddb_query_thread_run, NULL, FALSE, NULL);
+    
+    // show cddb update window
+    gdk_threads_enter();
+        window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+        gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(win_main));
+        gtk_window_set_modal(GTK_WINDOW(window), TRUE);
+        gtk_window_set_title(GTK_WINDOW(window), "CDDB");
+        gtk_window_set_decorated(GTK_WINDOW(window), FALSE);
+        
+        label = gtk_label_new(_("<b>Getting disc info from the internet...</b>"));
+        gtk_label_set_use_markup(GTK_LABEL(label), TRUE);
+        gtk_container_add(GTK_CONTAINER(window), label);
+        gtk_widget_show(label);
+        
+        gtk_widget_show(window);
+        
+        while(gbl_cddb_query_thread != NULL)
+        {
+            while (gtk_events_pending())
+                gtk_main_iteration();
+            usleep(100000);
+        }
+        
+        gtk_widget_destroy(window);
+    gdk_threads_leave();
     
     // make a list of all the matches
-    for (i=0; i<num_matches; i++)
+    for (i = 0; i < gbl_cddb_query_thread_num_matches; i++)
     {
         cddb_disc_t * possible_match = cddb_disc_clone(disc);
-        if (!cddb_read(conn, possible_match))
+        if (!cddb_read(gbl_cddb_query_thread_conn, possible_match))
         {
-            cddb_error_print(cddb_errno(conn));
+            cddb_error_print(cddb_errno(gbl_cddb_query_thread_conn));
             fatalError("cddb_read() failed.");
         }
         matches = g_list_append(matches, possible_match);
         
         // move to next match
-        if (i < num_matches-1)
+        if (i < gbl_cddb_query_thread_num_matches - 1)
         {
-            if (!cddb_query_next(conn, disc))
+            if (!cddb_query_next(gbl_cddb_query_thread_conn, disc))
                 fatalError("Query index out of bounds.");
         }
     }
-
-    cddb_destroy(conn);
+    
+    cddb_destroy(gbl_cddb_query_thread_conn);
     
     return matches;
 }
