@@ -1,3 +1,5 @@
+void fatalError(const char* message);
+
 // substitute various items into a formatted string (similar to printf)
 //
 // format - the format of the filename

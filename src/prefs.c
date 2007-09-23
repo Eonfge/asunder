@@ -23,6 +23,7 @@ Foundation; version 2 of the licence.
 #include "main.h"
 #include "util.h"
 #include "support.h"
+#include "interface.h"
 
 prefs * global_prefs = NULL;
 
@@ -168,6 +169,14 @@ void set_widgets_from_prefs(prefs * p)
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "server_name")), p->server_name);
     snprintf(tempStr, 10, "%d", p->port_number);
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number")), tempStr);
+    
+    /* disable widgets if needed */
+    if ( !(p->rip_mp3) )
+        disable_mp3_widgets();
+    if ( !(p->rip_ogg) )
+        disable_ogg_widgets();
+    if ( !(p->rip_flac) )
+        disable_flac_widgets();
 }
 
 // populates a prefs struct from the current state of the widgets

@@ -3,6 +3,12 @@
 GtkWidget* create_main (void);
 GtkWidget* create_prefs (void);
 GtkWidget* create_ripping (void);
+void disable_flac_widgets(void);
+void enable_flac_widgets(void);
+void disable_mp3_widgets(void);
+void enable_mp3_widgets(void);
+void disable_ogg_widgets(void);
+void enable_ogg_widgets(void);
 #if GTK_MINOR_VERSION >= 6
 void show_aboutbox (void);
 #endif

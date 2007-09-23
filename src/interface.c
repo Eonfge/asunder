@@ -315,21 +315,13 @@ create_prefs (void)
     GtkWidget *vbox9;
     GtkWidget *mp3_vbr;
     GtkWidget *hbox9;
-    GtkWidget *label23;
-    GtkWidget *mp3bitrate;
-    GtkWidget *mp3_bitrate;
     GtkWidget *rip_mp3;
     GtkWidget *frame4;
     GtkWidget *alignment9;
     GtkWidget *hbox10;
-    GtkWidget *label24;
-    GtkWidget *oggquality;
-    GtkWidget *rip_ogg;
     GtkWidget *frame5;
     GtkWidget *alignment10;
     GtkWidget *hbox11;
-    GtkWidget *label25;
-    GtkWidget *flaccompression;
     GtkWidget *rip_flac;
     GtkWidget *label6;
     GtkWidget *dialog_action_area1;
@@ -495,6 +487,15 @@ create_prefs (void)
     /* END FILENAMES tab */
     
     /* ENCODE tab */
+    GtkWidget* bitrateLbl;
+    GtkWidget *mp3bitrate;
+    GtkWidget* bitrateLbl2;
+    GtkWidget *oggLbl;
+    GtkWidget *oggquality;
+    GtkWidget *rip_ogg;
+    GtkWidget *flacLbl;
+    GtkWidget *flaccompression;
+    
     vbox8 = gtk_vbox_new (FALSE, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox8), 5);
     gtk_widget_show (vbox8);
@@ -527,11 +528,11 @@ create_prefs (void)
     hbox9 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox9);
     gtk_box_pack_start (GTK_BOX (vbox9), hbox9, TRUE, TRUE, 0);
-
-    label23 = gtk_label_new (_("Bitrate"));
-    gtk_widget_show (label23);
-    gtk_box_pack_start (GTK_BOX (hbox9), label23, FALSE, FALSE, 0);
-
+    
+    bitrateLbl = gtk_label_new (_("Bitrate"));
+    gtk_widget_show (bitrateLbl);
+    gtk_box_pack_start (GTK_BOX (hbox9), bitrateLbl, FALSE, FALSE, 0);
+    
     mp3bitrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 14, 1, 1, 1)));
     gtk_widget_show (mp3bitrate);
     gtk_box_pack_start (GTK_BOX (hbox9), mp3bitrate, TRUE, TRUE, 5);
@@ -541,9 +542,9 @@ create_prefs (void)
     tooltips1 = gtk_tooltips_new ();
     gtk_tooltips_set_tip (tooltips1, mp3bitrate, _("Higher bitrate is better quality but also bigger file. Most people use 192Kbps."), NULL);
     
-    mp3_bitrate = gtk_label_new (_("32Kbps"));
-    gtk_widget_show (mp3_bitrate);
-    gtk_box_pack_start (GTK_BOX (hbox9), mp3_bitrate, FALSE, FALSE, 0);
+    bitrateLbl2 = gtk_label_new (_("32Kbps"));
+    gtk_widget_show (bitrateLbl2);
+    gtk_box_pack_start (GTK_BOX (hbox9), bitrateLbl2, FALSE, FALSE, 0);
 
     rip_mp3 = gtk_check_button_new_with_mnemonic (_("MP3 (lossy compression)"));
     gtk_widget_show (rip_mp3);
@@ -562,9 +563,9 @@ create_prefs (void)
     gtk_widget_show (hbox10);
     gtk_container_add (GTK_CONTAINER (alignment9), hbox10);
 
-    label24 = gtk_label_new (_("Quality"));
-    gtk_widget_show (label24);
-    gtk_box_pack_start (GTK_BOX (hbox10), label24, FALSE, FALSE, 0);
+    oggLbl = gtk_label_new (_("Quality"));
+    gtk_widget_show (oggLbl);
+    gtk_box_pack_start (GTK_BOX (hbox10), oggLbl, FALSE, FALSE, 0);
 
     oggquality = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (6, 0, 11, 1, 1, 1)));
     gtk_widget_show (oggquality);
@@ -591,9 +592,9 @@ create_prefs (void)
     gtk_widget_show (hbox11);
     gtk_container_add (GTK_CONTAINER (alignment10), hbox11);
 
-    label25 = gtk_label_new (_("Compression level"));
-    gtk_widget_show (label25);
-    gtk_box_pack_start (GTK_BOX (hbox11), label25, FALSE, FALSE, 0);
+    flacLbl = gtk_label_new (_("Compression level"));
+    gtk_widget_show (flacLbl);
+    gtk_box_pack_start (GTK_BOX (hbox11), flacLbl, FALSE, FALSE, 0);
 
     flaccompression = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 9, 1, 1, 1)));
     gtk_widget_show (flaccompression);
@@ -612,7 +613,7 @@ create_prefs (void)
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 2), label6);
     /* END ENCODE tab */
 
-    /* CDDB tab */
+    /* ADVANCED tab */
     GtkWidget* vbox;
     GtkWidget* label;
     GtkWidget* do_cddb_updates;
@@ -672,10 +673,10 @@ create_prefs (void)
     gtk_widget_show (hboxFill);
     gtk_box_pack_start (GTK_BOX (vbox), hboxFill, TRUE, TRUE, 0);
     
-    label = gtk_label_new ("CDDB");
+    label = gtk_label_new (_("Advanced"));
     gtk_widget_show (label);
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 3), label);
-    /* END CDDB tab */
+    /* END ADVANCED tab */
 
     dialog_action_area1 = GTK_DIALOG (prefs)->action_area;
     gtk_widget_show (dialog_action_area1);
@@ -747,20 +748,20 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, vbox9, "vbox9");
     GLADE_HOOKUP_OBJECT (prefs, mp3_vbr, "mp3_vbr");
     GLADE_HOOKUP_OBJECT (prefs, hbox9, "hbox9");
-    GLADE_HOOKUP_OBJECT (prefs, label23, "label23");
+    GLADE_HOOKUP_OBJECT (prefs, bitrateLbl, "bitrate_lbl");
     GLADE_HOOKUP_OBJECT (prefs, mp3bitrate, "mp3bitrate");
-    GLADE_HOOKUP_OBJECT (prefs, mp3_bitrate, "mp3_bitrate");
+    GLADE_HOOKUP_OBJECT (prefs, bitrateLbl2, "bitrate_lbl_2");
     GLADE_HOOKUP_OBJECT (prefs, rip_mp3, "rip_mp3");
     GLADE_HOOKUP_OBJECT (prefs, frame4, "frame4");
     GLADE_HOOKUP_OBJECT (prefs, alignment9, "alignment9");
     GLADE_HOOKUP_OBJECT (prefs, hbox10, "hbox10");
-    GLADE_HOOKUP_OBJECT (prefs, label24, "label24");
+    GLADE_HOOKUP_OBJECT (prefs, oggLbl, "ogg_lbl");
     GLADE_HOOKUP_OBJECT (prefs, oggquality, "oggquality");
     GLADE_HOOKUP_OBJECT (prefs, rip_ogg, "rip_ogg");
     GLADE_HOOKUP_OBJECT (prefs, frame5, "frame5");
     GLADE_HOOKUP_OBJECT (prefs, alignment10, "alignment10");
     GLADE_HOOKUP_OBJECT (prefs, hbox11, "hbox11");
-    GLADE_HOOKUP_OBJECT (prefs, label25, "label25");
+    GLADE_HOOKUP_OBJECT (prefs, flacLbl, "flac_lbl");
     GLADE_HOOKUP_OBJECT (prefs, flaccompression, "flaccompression");
     GLADE_HOOKUP_OBJECT (prefs, rip_flac, "rip_flac");
     GLADE_HOOKUP_OBJECT (prefs, label6, "label6");
@@ -874,6 +875,46 @@ create_ripping (void)
     GLADE_HOOKUP_OBJECT (ripping, cancel, "cancel");
 
     return ripping;
+}
+
+void disable_flac_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flac_lbl"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flaccompression"), FALSE);
+}
+
+void enable_flac_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flac_lbl"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flaccompression"), TRUE);
+}
+
+void disable_mp3_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "mp3_vbr"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "bitrate_lbl"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "mp3bitrate"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "bitrate_lbl_2"), FALSE);
+}
+
+void enable_mp3_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "mp3_vbr"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "bitrate_lbl"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "mp3bitrate"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "bitrate_lbl_2"), TRUE);
+}
+
+void disable_ogg_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "ogg_lbl"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "oggquality"), FALSE);
+}
+
+void enable_ogg_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "ogg_lbl"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "oggquality"), TRUE);
 }
 
 #if GTK_MINOR_VERSION >= 6

@@ -1,24 +1,24 @@
 Andrew's:
 ==================
 - need better icon
-- Sound Juicer and Banshee rip to ogg almost twice faster, figure out why.
 - Having the option to create a seperate Artist folder ('Library/Artist/Album/' instead of 'Library/Artist - Album/') would be better, maybe default.
-- option for saving different file types in different directories
-- if i eject the disk while ripping, strange things happen
-- log all output from programs so i can debug remotely
 - look into ID3v1/v2 tags for mp3s
-- when it starts in the suse vm i get 2xunknown child pid
-- don't allow blank song names
 - include the genre, year in the tags
 - show cddb progress
-- disable widgets in preferences when parent unchecked
 - http://www.softpedia.com/reviews/linux/Asunder-Review-65441.shtml
+ - get rid of invalid characters
+ - add error checking to filename format
+  - no slashes, or parse into dirs
+  - blank song names
 
 
 Low Priority
 ==================
-* Submit new CDDB entries
-* Find a cleaner way to cancel rips
+- Sound Juicer and Banshee rip to ogg almost twice faster, figure out why.
+- option for saving different file types in different directories
+- if i eject the disk while ripping, strange things happen
+- log all output from programs so i can debug remotely
+- when it starts in the suse vm i get 2xunknown child pid
 
 
 Tests to run before a release

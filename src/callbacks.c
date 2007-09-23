@@ -150,7 +150,7 @@ on_mp3bitrate_value_changed            (GtkRange        *range,
 {
     char bitrate[8];
     snprintf(bitrate, 8, "%dKbps", int_to_bitrate((int)gtk_range_get_value(range)));
-    gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "mp3_bitrate")), bitrate);
+    gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "bitrate_lbl_2")), bitrate);
 }
 
 void
@@ -293,6 +293,11 @@ on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
         global_prefs->rip_mp3 = 0;
         gtk_toggle_button_set_active(togglebutton, global_prefs->rip_mp3);
     }
+    
+    if (!gtk_toggle_button_get_active(togglebutton))
+        disable_mp3_widgets();
+    else
+        enable_mp3_widgets();
 }
 
 void
@@ -313,7 +318,11 @@ on_rip_flac_toggled                    (GtkToggleButton *togglebutton,
         global_prefs->rip_flac = 0;
         gtk_toggle_button_set_active(togglebutton, global_prefs->rip_flac);
     }
-
+    
+    if (!gtk_toggle_button_get_active(togglebutton))
+        disable_flac_widgets();
+    else
+        enable_flac_widgets();
 }
 
 void
@@ -334,6 +343,11 @@ on_rip_ogg_toggled                     (GtkToggleButton *togglebutton,
         global_prefs->rip_ogg = 0;
         gtk_toggle_button_set_active(togglebutton, global_prefs->rip_ogg);
     }
+    
+    if (!gtk_toggle_button_get_active(togglebutton))
+        disable_ogg_widgets();
+    else
+        enable_ogg_widgets();
 }
 
 void
