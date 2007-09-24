@@ -60,10 +60,6 @@ void clear_prefs(prefs * p)
     if (p->format_albumdir != NULL) 
         free(p->format_albumdir);
     p->format_albumdir = NULL;
-
-    if (p->invalid_chars != NULL) 
-        free(p->invalid_chars);
-    p->invalid_chars = NULL;
     
     if (p->server_name != NULL) 
         free(p->server_name);
@@ -117,11 +113,6 @@ prefs * get_default_prefs()
     p->ogg_quality = 6;
     p->flac_compression = 8;
     
-    p->invalid_chars = malloc(sizeof(char) * 2);
-    if (p->invalid_chars == NULL)
-        fatalError("malloc(sizeof(char) * 2) failed. Out of memory.");
-    strncpy(p->invalid_chars, "/", 2);
-    
     p->main_window_width = 600;
     p->main_window_height = 450;
     
@@ -162,7 +153,6 @@ void set_widgets_from_prefs(prefs * p)
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "mp3bitrate")), p->mp3_bitrate);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "oggquality")), p->ogg_quality);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "flaccompression")), p->flac_compression);
-    gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "invalid_chars")), p->invalid_chars);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")), p->eject_on_done);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_cddb_updates")), p->do_cddb_updates);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "use_proxy")), p->use_proxy);
@@ -229,11 +219,6 @@ void get_prefs_from_widgets(prefs * p)
     p->ogg_quality = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "oggquality")));
     p->flac_compression = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "flaccompression")));
     
-    tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "invalid_chars")));
-    if ((p->invalid_chars = malloc(sizeof(char) * (strlen(tocopyc) + 1))) == NULL)
-        fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
-    strncpy(p->invalid_chars, tocopyc, strlen(tocopyc) + 1);
-    
     p->eject_on_done = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")));
     
     p->do_cddb_updates = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_cddb_updates")));
@@ -290,7 +275,7 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->mp3_bitrate);
         fprintf(config, "%d\n", p->ogg_quality);
         fprintf(config, "%d\n", p->flac_compression);
-        fprintf(config, "%s\n", p->invalid_chars);
+        fprintf(config, "%s\n", "unused"); /* used to be p->invalid_chars */
         fprintf(config, "%d\n", p->main_window_width);
         fprintf(config, "%d\n", p->main_window_height);
         fprintf(config, "%d\n", p->eject_on_done);
@@ -400,13 +385,8 @@ void load_prefs(prefs * p)
         // this one can be 0
         p->flac_compression = read_line_num(fd);
         
-        aCharPtr = read_line(fd);
-        if (aCharPtr != NULL)
-        {
-            if (p->invalid_chars != NULL)
-                free(p->invalid_chars);
-            p->invalid_chars = aCharPtr;
-        }
+        /* used to be p->invalid_chars, but no longer used */
+        read_line(fd);
         
         anInt = read_line_num(fd);
         if (anInt != 0)

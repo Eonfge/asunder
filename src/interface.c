@@ -304,9 +304,6 @@ create_prefs (void)
     GtkWidget *format_albumdir;
     GtkWidget *format_playlist;
     GtkWidget *label20;
-    GtkWidget *hbox13;
-    GtkWidget *label29;
-    GtkWidget *invalid_chars;
     GtkWidget *label19;
     GtkWidget *vbox8;
     GtkWidget *rip_wav;
@@ -467,19 +464,6 @@ create_prefs (void)
     gtk_widget_show (label20);
     gtk_frame_set_label_widget (GTK_FRAME (frame2), label20);
     gtk_label_set_use_markup (GTK_LABEL (label20), TRUE);
-
-    hbox13 = gtk_hbox_new (FALSE, 0);
-    gtk_widget_show (hbox13);
-    gtk_box_pack_start (GTK_BOX (vbox7), hbox13, FALSE, TRUE, 0);
-
-    label29 = gtk_label_new (_("Invalid characters"));
-    gtk_widget_show (label29);
-    gtk_box_pack_start (GTK_BOX (hbox13), label29, FALSE, FALSE, 0);
-
-    invalid_chars = gtk_entry_new ();
-    gtk_widget_show (invalid_chars);
-    gtk_box_pack_start (GTK_BOX (hbox13), invalid_chars, TRUE, TRUE, 3);
-    gtk_tooltips_set_tip (tooltips, invalid_chars, _("These characters will be removed from all filenames."), NULL);
 
     label19 = gtk_label_new (_("Filenames"));
     gtk_widget_show (label19);
@@ -737,9 +721,6 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, format_albumdir, "format_albumdir");
     GLADE_HOOKUP_OBJECT (prefs, format_playlist, "format_playlist");
     GLADE_HOOKUP_OBJECT (prefs, label20, "label20");
-    GLADE_HOOKUP_OBJECT (prefs, hbox13, "hbox13");
-    GLADE_HOOKUP_OBJECT (prefs, label29, "label29");
-    GLADE_HOOKUP_OBJECT (prefs, invalid_chars, "invalid_chars");
     GLADE_HOOKUP_OBJECT (prefs, label19, "label19");
     GLADE_HOOKUP_OBJECT (prefs, vbox8, "vbox8");
     GLADE_HOOKUP_OBJECT (prefs, rip_wav, "rip_wav");

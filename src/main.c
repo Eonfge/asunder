@@ -275,11 +275,11 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
         snprintf(time, 6, "%02d:%02d", seconds/60, seconds%60);
         
         track_artist = (char*)cddb_track_get_artist(track);
-        trim_chars(track_artist, global_prefs->invalid_chars);
+        //~ trim_chars(track_artist, global_prefs->invalid_chars);
         trim_whitespace(track_artist);
         
         track_title = (char*)cddb_track_get_title(track); //!! this returns const char*
-        trim_chars(track_title, global_prefs->invalid_chars);
+        //~ trim_chars(track_title, global_prefs->invalid_chars);
         trim_whitespace(track_title);
         
         gtk_list_store_append(store, &iter);
@@ -492,7 +492,7 @@ void update_tracklist(cddb_disc_t * disc)
     
     if (disc_artist != NULL)
     {
-        trim_chars(disc_artist, global_prefs->invalid_chars);
+        //~ trim_chars(disc_artist, global_prefs->invalid_chars);
         trim_whitespace(disc_artist);
         gtk_entry_set_text(GTK_ENTRY(album_artist), disc_artist);
         
@@ -509,7 +509,7 @@ void update_tracklist(cddb_disc_t * disc)
     }
     if (disc_title != NULL)
     {
-        trim_chars(disc_title, global_prefs->invalid_chars);
+        //~ trim_chars(disc_title, global_prefs->invalid_chars);
         trim_whitespace(disc_title);
         gtk_entry_set_text(GTK_ENTRY(album_title), disc_title);
     }
