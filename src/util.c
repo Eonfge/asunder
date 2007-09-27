@@ -18,6 +18,7 @@ Foundation; version 2 of the licence.
 #include <unistd.h>
 #include <limits.h>
 #include <ctype.h>
+#include <errno.h>
 
 #include "util.h"
 
@@ -311,6 +312,61 @@ int read_line_num(int fd)
     free(line);
     
     return ret;
+}
+
+// Uses mkdir() for every component of the path
+// and returns if any of those fails with anything other than EEXIST.
+int recursive_mkdir(char* pathAndName, mode_t mode)
+{
+    int count;
+    int pathAndNameLen = strlen(pathAndName);
+    int rc;
+    char charReplaced;
+    
+    for(count = 0; count < pathAndNameLen; count++)
+    {
+        if(pathAndName[count] == '/')
+        {
+            charReplaced = pathAndName[count + 1];
+            pathAndName[count + 1] = '\0';
+            
+            rc = mkdir(pathAndName, mode);
+            
+            pathAndName[count + 1] = charReplaced;
+            
+            if(rc != 0 && errno != EEXIST)
+                return rc;
+        }
+    }
+    
+    // in case the path doesn't have a trailing slash:
+    return mkdir(pathAndName, mode);
+}
+
+// Uses mkdir() for every component of the path except the last one,
+// and returns if any of those fails with anything other than EEXIST.
+int recursive_parent_mkdir(char* pathAndName, mode_t mode)
+{
+    int count;
+    bool haveComponent = false;
+    char charReplaced;
+    int rc = 1; // guaranteed fail unless mkdir is called
+    
+    // find the last component and cut it off
+    for(count = strlen(pathAndName) - 1; count >= 0; count--)
+    {
+        if(pathAndName[count] != '/')
+            haveComponent = true;
+        
+        if(pathAndName[count] == '/' && haveComponent)
+        {
+            pathAndName[count] = 0;
+            rc = mkdir(pathAndName, mode);
+            pathAndName[count] = '/';
+        }
+    }
+    
+    return rc;
 }
 
 // removes all instances of bad characters from the string

@@ -1,3 +1,5 @@
+#include <stdbool.h>
+
 void fatalError(const char* message);
 
 // substitute various items into a formatted string (similar to printf)
@@ -22,7 +24,6 @@ char * parse_format(const char * format, int tracknum, const char * artist, cons
 // NOTE: any of the parameters may be NULL to be omitted
 char * make_filename(const char * path, const char * dir, const char * file, const char * extension);
 
-
 // reads an entire line from a file and returns it
 //
 // NOTE: caller must free the returned string!
@@ -30,6 +31,10 @@ char * read_line(int fd);
 
 // reads an entire line from a file and turns it into a number
 int read_line_num(int fd);
+
+int recursive_mkdir(char* pathAndName, mode_t mode);
+
+int recursive_parent_mkdir(char* pathAndName, mode_t mode);
 
 // searches $PATH for the named program
 // returns 1 if found, 0 otherwise

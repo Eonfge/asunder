@@ -363,7 +363,7 @@ GList * lookup_disc(cddb_disc_t * disc)
         window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
         gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(win_main));
         gtk_window_set_modal(GTK_WINDOW(window), TRUE);
-        gtk_window_set_title(GTK_WINDOW(window), "CDDB");
+        gtk_window_set_title(GTK_WINDOW(window), "Asunder - CDDB");
         gtk_window_set_decorated(GTK_WINDOW(window), FALSE);
         
         label = gtk_label_new(_("<b>Getting disc info from the internet...</b>"));

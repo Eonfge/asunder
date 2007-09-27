@@ -25,6 +25,7 @@ Foundation; version 2 of the licence.
 #include "wrappers.h"
 #include "threads.h"
 #include "prefs.h"
+#include "util.h"
 
 pid_t cdparanoia_pid;
 pid_t lame_pid;

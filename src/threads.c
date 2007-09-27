@@ -129,6 +129,8 @@ void dorip()
                                         "'Preferences' menu."));
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
+        free(albumdir);
+        free(playlist);
         return;
     }
     
@@ -158,18 +160,20 @@ void dorip()
                                         "Please select at least one track."));
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
+        free(albumdir);
+        free(playlist);
         return;
     }
     
-    
     if (global_prefs->make_albumdir)
     {
-#ifdef DEBUG
-        printf("Making album directory\n");
-#endif
         char * dirpath = make_filename(prefs_get_music_dir(global_prefs), albumdir, NULL, NULL);
+#ifdef DEBUG
+        printf("Making album directory '%s'\n", dirpath);
+#endif
         
-        if ((mkdir(dirpath, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH) != 0) && (errno != EEXIST))
+        if ( recursive_mkdir(dirpath, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH) != 0 && 
+             errno != EEXIST )
         {
             GtkWidget * dialog;
             dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
@@ -180,8 +184,9 @@ void dorip()
                                             dirpath, strerror(errno));
             gtk_dialog_run(GTK_DIALOG(dialog));
             gtk_widget_destroy(dialog);
-        
             free(dirpath);
+            free(albumdir);
+            free(playlist);
             return;
         }
         
@@ -195,6 +200,8 @@ void dorip()
         if (global_prefs->rip_wav)
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "wav.m3u");
+            // don't need the following because playlists are only allowed in the album dir
+            //recursive_parent_mkdir(filename, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH);
             playlist_wav = fopen(filename, "w");
             
             if (playlist_wav == NULL)
@@ -217,6 +224,8 @@ void dorip()
         if (global_prefs->rip_mp3)
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "mp3.m3u");
+            // don't need the following because playlists are only allowed in the album dir
+            //recursive_parent_mkdir(filename, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH);
             playlist_mp3 = fopen(filename, "w");
             
             if (playlist_mp3 == NULL)
@@ -239,6 +248,8 @@ void dorip()
         if (global_prefs->rip_ogg)
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "ogg.m3u");
+            // don't need the following because playlists are only allowed in the album dir
+            //recursive_parent_mkdir(filename, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH);
             playlist_ogg = fopen(filename, "w");
             
             if (playlist_ogg == NULL)
@@ -261,6 +272,8 @@ void dorip()
         if (global_prefs->rip_flac)
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "flac.m3u");
+            // don't need the following because playlists are only allowed in the album dir
+            //recursive_parent_mkdir(filename, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH);
             playlist_flac = fopen(filename, "w");
             
             if (playlist_flac == NULL)
@@ -339,7 +352,7 @@ gpointer rip(gpointer data)
         {
             trackartist = albumartist;
         }
-
+        
         if (riptrack)
         {
             if (global_prefs->make_albumdir)
@@ -347,14 +360,13 @@ gpointer rip(gpointer data)
                 albumdir = parse_format(global_prefs->format_albumdir, 0, albumartist, albumtitle, NULL);
             }
             musicfilename = parse_format(global_prefs->format_music, tracknum, trackartist, albumtitle, tracktitle);
-            gdk_threads_enter();
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
-            gdk_threads_leave();
-
+            
 #ifdef DEBUG
             printf("Ripping track %d to \"%s\"\n", tracknum, wavfilename);
 #endif
             if (aborted) g_thread_exit(NULL);
+            
             cdparanoia(global_prefs->cdrom, tracknum, wavfilename, &rip_percent);
 
             free(albumdir);
