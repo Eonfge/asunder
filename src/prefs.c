@@ -175,8 +175,7 @@ void get_prefs_from_widgets(prefs * p)
 {
     gchar * tocopy = NULL;
     const gchar * tocopyc = NULL;
-    int rc;
-    
+
     clear_prefs(p);
     
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "cdrom")));
@@ -233,12 +232,6 @@ void get_prefs_from_widgets(prefs * p)
     strncpy(p->server_name, tocopyc, strlen(tocopyc) + 1);
     
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number")));
-    rc = sscanf(tocopyc, "%d", &(p->port_number));
-    if (rc != 1 || !is_valid_port_number(p->port_number))
-    {
-        printf("Bad port number set in prefs, using %d instead\n", DEFAULT_PROXY_PORT);
-        p->port_number = DEFAULT_PROXY_PORT;
-    }
 }
 
 // store the given prefs struct to the config file
@@ -508,4 +501,76 @@ int is_valid_port_number(int number)
         return 1;
     else
         return 0;
+}
+
+bool prefs_are_valid(void)
+{
+    GtkWidget * warningDialog;
+    bool somethingWrong = false;
+    
+    // playlistfile
+    if(string_has_slashes(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_playlist")))))
+    {
+        warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
+                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                               _("Invalid characters in the '%s' field"),
+                                               _("Playlist file"));
+        gtk_dialog_run(GTK_DIALOG(warningDialog));
+        gtk_widget_destroy(warningDialog);
+        somethingWrong = true;
+    }
+    
+    // musicfile
+    if(string_has_slashes(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_music")))))
+    {
+        warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
+                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                               _("Invalid characters in the '%s' field"),
+                                               _("Music file"));
+        gtk_dialog_run(GTK_DIALOG(warningDialog));
+        gtk_widget_destroy(warningDialog);
+        somethingWrong = true;
+    }
+    if(strlen(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_music")))) == 0)
+    {
+        warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
+                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                               _("'%s' cannot be empty"),
+                                               _("Music file"));
+        gtk_dialog_run(GTK_DIALOG(warningDialog));
+        gtk_widget_destroy(warningDialog);
+        somethingWrong = true;
+    }
+    
+    // proxy port
+    int rc;
+    int port_number;
+    rc = sscanf(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number"))), "%d", &port_number);
+    if (rc != 1 || !is_valid_port_number(port_number))
+    {
+        warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
+                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                               _("Invalid proxy port number"));
+        gtk_dialog_run(GTK_DIALOG(warningDialog));
+        gtk_widget_destroy(warningDialog);
+        somethingWrong = true;
+    }
+    
+    if(somethingWrong)
+        return false;
+    else
+        return true;
+}
+
+bool string_has_slashes(const char* string)
+{
+    int count;
+    
+    for(count = strlen(string) - 1; count >= 0; count--)
+    {
+        if(string[count] == '/')
+            return true;
+    }
+    
+    return false;
 }

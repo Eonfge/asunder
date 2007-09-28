@@ -1,11 +1,6 @@
 - need better icon
-- media files and playlists only into album dir - add error checking and message box (use the same message box for the cddb port)
 - look into ID3v1/v2 tags for mp3s
 - include the genre, year in the tags
-- http://www.softpedia.com/reviews/linux/Asunder-Review-65441.shtml
- - add error checking to filename format (where trim_chars used to be?)
-  - no slashes, or parse into dirs
-  - blank song names
 - need tooltip for 'create dir for each album' or get rid of the option
 
 

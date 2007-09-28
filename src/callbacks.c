@@ -174,16 +174,18 @@ on_prefs_response                      (GtkDialog       *dialog,
                                         gint             response_id,
                                         gpointer         user_data)
 {
-    gtk_widget_hide(GTK_WIDGET(dialog));
-
+    //gtk_widget_hide(GTK_WIDGET(dialog));
+    
     if (response_id == GTK_RESPONSE_OK)
     {
+        if (!prefs_are_valid())
+            return;
+        
         get_prefs_from_widgets(global_prefs);
         save_prefs(global_prefs);
     }
     
-    gtk_widget_destroy(GTK_WIDGET(dialog));
-    
+    gtk_widget_destroy(GTK_WIDGET(dialog));    
 }
 
 void

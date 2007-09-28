@@ -456,6 +456,7 @@ create_prefs (void)
     
     tooltips5 = gtk_tooltips_new ();
     gtk_tooltips_set_tip (tooltips5, format_albumdir, _("This is relative to the destination folder (from the General tab).\n"
+                                                        "Can be blank.\n"
                                                         "Default: %A - %L\n"
                                                         "Other example: %A/%L"), NULL);
     
@@ -467,6 +468,7 @@ create_prefs (void)
 
     tooltips7 = gtk_tooltips_new ();
     gtk_tooltips_set_tip (tooltips7, format_playlist, _("This will be stored in the album directory.\n"
+                                                        "Can be blank.\n"
                                                         "Default: %A - %L"), NULL);
     
     format_music = gtk_entry_new ();
@@ -477,8 +479,9 @@ create_prefs (void)
 
     tooltips6 = gtk_tooltips_new ();
     gtk_tooltips_set_tip (tooltips6, format_music, _("This will be stored in the album directory.\n"
-                                                        "Default: %A - %T\n"
-                                                        "Other example: %N - %T"), NULL);
+                                                     "Cannot be blank.\n"
+                                                     "Default: %A - %T\n"
+                                                     "Other example: %N - %T"), NULL);
     
     label20 = gtk_label_new (_("Filename formats"));
     gtk_widget_show (label20);

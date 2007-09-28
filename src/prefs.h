@@ -1,3 +1,5 @@
+#include <stdbool.h>
+
 typedef struct _prefs
 {
     char * cdrom;
@@ -66,3 +68,7 @@ char * prefs_get_music_dir(prefs * p);
 int int_to_bitrate(int i);
 
 int is_valid_port_number(int number);
+
+bool prefs_are_valid(void);
+
+bool string_has_slashes(const char* string);
