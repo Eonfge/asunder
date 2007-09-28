@@ -43,6 +43,7 @@ int numOggOk;
 int numFlacOk;
 
 int numchildren = 0;
+static bool waitBeforeSigchld;
 
 void blockSigChld(void)
 {
@@ -52,6 +53,9 @@ void blockSigChld(void)
     sigaddset(&block_chld, SIGCHLD);
     
     sigprocmask(SIG_BLOCK, &block_chld, NULL);
+    
+    /*!! for some reason the blocking above doesn't work, so do this for now */
+    waitBeforeSigchld = true;
 }
 
 void unblockSigChld(void)
@@ -62,6 +66,8 @@ void unblockSigChld(void)
     sigaddset(&block_chld, SIGCHLD);
     
     sigprocmask(SIG_UNBLOCK, &block_chld, NULL);
+    
+    waitBeforeSigchld = false;
 }
 
 // signal handler to find out when our child has exited
@@ -71,6 +77,15 @@ void sigchld(int signum)
     pid_t pid;
     
     pid = wait(&status);
+    
+    /* this is because i can't seem to be able to block sigchld: */
+    while(waitBeforeSigchld)
+    {
+#ifdef DEBUG
+        printf("waiting in sigchld()\n");
+#endif
+        usleep(100);
+    }
     
     if (pid != cdparanoia_pid && pid != lame_pid && pid != oggenc_pid && pid != flac_pid)
         printf("SIGCHLD for unknown pid, report bug please\n");
@@ -157,14 +172,6 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
     {
         // im the child
         // i get to execute the command
-        
-        //!! Sleep a little (hopefully enough) to allow the *p to actually get set.
-        //!! For some reason despite the blockSigChld() above
-        //!! sigchld() is called anyway after this thread ends
-        //!! and before the unblockSigChld() below.
-        //!! To reproduce, set to encode in every possible format
-        //!! and try a few times on the 3 song CD.
-        usleep(100000);
         
         // close the side of the pipe we don't need
         close(pipefd[0]);
