@@ -513,7 +513,7 @@ bool prefs_are_valid(void)
         warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
                                                GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
                                                _("Invalid characters in the '%s' field"),
-                                               _("Playlist file"));
+                                               _("Playlist file: "));
         gtk_dialog_run(GTK_DIALOG(warningDialog));
         gtk_widget_destroy(warningDialog);
         somethingWrong = true;
@@ -525,7 +525,7 @@ bool prefs_are_valid(void)
         warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
                                                GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
                                                _("Invalid characters in the '%s' field"),
-                                               _("Music file"));
+                                               _("Music file: "));
         gtk_dialog_run(GTK_DIALOG(warningDialog));
         gtk_widget_destroy(warningDialog);
         somethingWrong = true;
@@ -535,7 +535,7 @@ bool prefs_are_valid(void)
         warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
                                                GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
                                                _("'%s' cannot be empty"),
-                                               _("Music file"));
+                                               _("Music file: "));
         gtk_dialog_run(GTK_DIALOG(warningDialog));
         gtk_widget_destroy(warningDialog);
         somethingWrong = true;

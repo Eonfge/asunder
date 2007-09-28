@@ -6,14 +6,15 @@ msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-09-28 11:39-0400\n"
-"PO-Revision-Date: 2007-09-22 05:03-0500\n"
+"PO-Revision-Date: 2007-09-28 23:53+0200\n"
 "Last-Translator: Mike Kranidis <mikek@openforall.com>\n"
 "Language-Team:  <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:109 src/interface.c:189
+#: src/main.c:109
+#: src/interface.c:189
 msgid "Rip"
 msgstr "Αποσπώ (Rip)"
 
@@ -34,37 +35,31 @@ msgid "Time"
 msgstr "Ωρα"
 
 #: src/main.c:159
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
-msgstr ""
-"Το 'cdparanoia' δε βρέθηκε στη διαδρομή του συστηματος σας. Το Asunder "
-"χρειάζεται το cdparanoia για να κάνει απόσπαση (Rip) των CDs."
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "Το 'cdparanoia' δε βρέθηκε στη διαδρομή του συστηματος σας. Το Asunder χρειάζεται το cdparanoia για να κάνει απόσπαση (Rip) των CDs."
 
 #: src/main.c:369
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr ""
+msgstr "<b>Παραλαμβάνω πληροφορίες του δίσκου από το  internet...</b>"
 
 #: src/callbacks.c:254
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr ""
+msgstr "Δεν υπάρχει CD. Παρακαλώ εισάγετε ένα CD στον οδηγό του CD-ROM"
 
-#: src/callbacks.c:273 src/callbacks.c:298 src/callbacks.c:323
+#: src/callbacks.c:273
+#: src/callbacks.c:298
+#: src/callbacks.c:323
 #, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All %"
-"s functionality is disabled."
-msgstr ""
-"Το %s δε βρέθηκε στη διαδρομή του συστηματός σας. Το Asunder το χρειάζεται "
-"αυτό για να δημιουργεί τα %s αρχεία. Η %s  λειτουργία είναι ανενεργή."
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "Το %s δε βρέθηκε στη διαδρομή του συστηματός σας. Το Asunder το χρειάζεται αυτό για να δημιουργεί τα %s αρχεία. Η %s  λειτουργία είναι ανενεργή."
 
 #: src/callbacks.c:405
 msgid "Select all for ripping"
-msgstr ""
+msgstr "Επιλογή όλων για (απόσπαση) ripping"
 
 #: src/callbacks.c:411
 msgid "Deselect all for ripping"
-msgstr ""
+msgstr "Αναίρεση επιλογής όλων για (απόσπαση) ripping"
 
 #: src/interface.c:131
 msgid "Disc:"
@@ -86,7 +81,8 @@ msgstr "Μοναδικός Καλλιτέχνης"
 msgid "Preferences"
 msgstr "Προτίμησεις"
 
-#: src/interface.c:356 src/interface.c:362
+#: src/interface.c:356
+#: src/interface.c:362
 msgid "Destination folder"
 msgstr "Φάκελος προορισμού"
 
@@ -104,10 +100,13 @@ msgid ""
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
+"Προεπιλογή: /dev/cdrom\n"
+"Άλλη πιθανή επιλογή: /dev/hdc\n"
+"Άλλη πιθανή επιλογή: /dev/sr0"
 
 #: src/interface.c:387
 msgid "Eject disc when finished"
-msgstr ""
+msgstr "Εξαγωγή του δίσκου μόλις τελειώσει"
 
 #: src/interface.c:395
 msgid "General"
@@ -129,11 +128,14 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Κατάλογος άλμπουμ: "
 
-#: src/interface.c:432 src/prefs.c:516
+#: src/interface.c:432
+#: src/prefs.c:516
 msgid "Playlist file: "
 msgstr "Αρχείο Playlist: "
 
-#: src/interface.c:439 src/prefs.c:528 src/prefs.c:538
+#: src/interface.c:439
+#: src/prefs.c:528
+#: src/prefs.c:538
 msgid "Music file: "
 msgstr "Αρχείο Μουσικής: "
 
@@ -144,6 +146,10 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
+"Αυτό είναι σχετικό με το φάκελο προορισμού (Από το Γενικό tab).\n"
+"Μπορεί να είναι κενό.\n"
+"Προεπιλογή: %A - %L\n"
+"Άλλο παράδειγμα: %A/%L"
 
 #: src/interface.c:465
 msgid ""
@@ -151,6 +157,9 @@ msgid ""
 "Can be blank.\n"
 "Default: %A - %L"
 msgstr ""
+"Αυτό θα αποθηκευτεί στο φάκελο του άλμπουμ.\n"
+"Μπορεί να είναι κενό.\n"
+"Προεπιλογή: %A - %L"
 
 #: src/interface.c:476
 msgid ""
@@ -159,6 +168,10 @@ msgid ""
 "Default: %A - %T\n"
 "Other example: %N - %T"
 msgstr ""
+"Αυτό θα αποθηκευτεί στο φάκελο του άλμπουμ.\n"
+"Δε μπορεί να είναι κενό.\n"
+"Προεπιλογή: %A - %T\n"
+"Άλλο παράδειγμα: %N - %T"
 
 #: src/interface.c:481
 msgid "Filename formats"
@@ -178,17 +191,15 @@ msgstr "Μεταβλητού ρυθμού δεδομένων (VBR)"
 
 #: src/interface.c:528
 msgid "Better quality for the same size."
-msgstr ""
+msgstr "Καλύτερη ποιότητα στο ίδιο μέγεθος (αρχείου)"
 
 #: src/interface.c:534
 msgid "Bitrate"
 msgstr "Ρυθμός δεδομένων"
 
 #: src/interface.c:545
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"192Kbps."
-msgstr ""
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "Υψηλότερος ρυθμός δεδομένων αλλά με μεγαλύτερο μέγεθος αρχείου. Οι περισσότεροι χρησιμοποιούν 192Kbps."
 
 #: src/interface.c:547
 msgid "32Kbps"
@@ -204,7 +215,7 @@ msgstr "Ποιότητα"
 
 #: src/interface.c:578
 msgid "Higher quality means bigger file. Default is 6."
-msgstr ""
+msgstr "Υψηλότερη ποιότητα σημαίνει μεγαλύτερο αρχείο. Προεπιλογή είναι το 6. "
 
 #: src/interface.c:580
 msgid "OGG Vorbis (lossy compression)"
@@ -216,7 +227,7 @@ msgstr "Επίπεδο (βαθμός) συμπίεσης"
 
 #: src/interface.c:607
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
+msgstr "Αυτό δεν επιδρά στη ποιότητα. Υψηλότερα νούμερα σημαίνουν μικρότερα αρχεία."
 
 #: src/interface.c:609
 msgid "FLAC (lossless compression)"
@@ -228,25 +239,26 @@ msgstr "Kωδικοποίηση"
 
 #: src/interface.c:634
 msgid "Get disc info from the internet"
-msgstr ""
+msgstr "Πάρε πληροφορίες του δίσκου από το  internet"
 
 #: src/interface.c:642
 msgid "Use HTTP proxy to connect to the internet"
-msgstr ""
+msgstr "Με τη χρήση HTTP proxy για τη σύνδεση στο internet"
 
 #: src/interface.c:654
 msgid "Server: "
-msgstr ""
+msgstr "Εξυπηρετητής:"
 
 #: src/interface.c:666
 msgid "Port: "
-msgstr ""
+msgstr "Πόρτα:"
 
 #: src/interface.c:678
 msgid "Advanced"
-msgstr ""
+msgstr "Προχωρημένα"
 
-#: src/interface.c:802 src/interface.c:838
+#: src/interface.c:802
+#: src/interface.c:838
 msgid "Ripping"
 msgstr "Απόσπαση (Ripping)"
 
@@ -264,43 +276,40 @@ msgid ""
 "%d file(s) created successfully\n"
 "There was an error creating %d file(s)"
 msgstr ""
+"%d αρχείο(α) δημιουργήθηκαν επιτυχώς\n"
+"Υπήρξε ένα λάθος στη δημιουργία %d αρχείο(α)"
 
 #: src/interface.c:1054
 #, c-format
 msgid "All %d file(s) created successfully"
-msgstr ""
+msgstr "Ολο(α) το(α) %d αρχείο(α) δημιουργήθηκαν με επιτυχία"
 
-#: src/prefs.c:515 src/prefs.c:527
+#: src/prefs.c:515
+#: src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
-msgstr ""
+msgstr "Μη κανονικοί χαρακτήρες στο '%s' πεδίο"
 
 #: src/prefs.c:537
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr ""
+msgstr "'%s' δε μπορεί να αδειάσει"
 
 #: src/prefs.c:552
 msgid "Invalid proxy port number"
-msgstr ""
+msgstr "Μη κανονικός αριθμός πόρτας του proxy"
 
 #: src/threads.c:128
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
-msgstr ""
-"Καμία μέθοδος απόσπασης/κωδικοποίησης δεν έχει επιλέχτει. Παρακαλώ "
-"ενεργοποιήστε μια από το μενού των 'προτιμήσεων'."
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgstr "Καμία μέθοδος απόσπασης/κωδικοποίησης δεν έχει επιλέχτει. Παρακαλώ ενεργοποιήστε μια από το μενού των 'προτιμήσεων'."
 
 #: src/threads.c:159
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
-msgstr ""
-"Κανένα ίχνος (track) δεν επιλέχτηκε για απόσπαση/κωδικοποίηση. Παρακαλώ "
-"επιλέξτε τουλάχιστον ένα."
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgstr "Κανένα ίχνος (track) δεν επιλέχτηκε για απόσπαση/κωδικοποίηση. Παρακαλώ επιλέξτε τουλάχιστον ένα."
 
-#: src/threads.c:616 src/threads.c:618 src/threads.c:622
+#: src/threads.c:616
+#: src/threads.c:618
+#: src/threads.c:622
 msgid "Waiting..."
 msgstr "Αναμονή..."
 
@@ -311,9 +320,8 @@ msgstr "Αναμονή..."
 #, fuzzy
 #~ msgid "Music file"
 #~ msgstr "Αρχείο Μουσικής: "
-
 #~ msgid "Create directory for each album"
 #~ msgstr "Δημιουργία φακέλου για κάθε άλμπουμ"
-
 #~ msgid "These characters will be removed from all filenames."
 #~ msgstr "Αυτοι οι χαρακτήρες θα αφαιρεθούν απο όλα τα ονόματα αρχείων."
+
