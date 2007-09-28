@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-26 22:54-0400\n"
+"POT-Creation-Date: 2007-09-28 11:39-0400\n"
 "PO-Revision-Date: 2007-09-22 05:09-0500\n"
 "Last-Translator: Goodvin aka Alexey Sivakov <asivakov@gmail.com>\n"
 "Language-Team: 11 <1>\n"
@@ -17,45 +17,58 @@ msgstr ""
 "X-Poedit-Country: 1\n"
 "X-Poedit-SourceCharset: 1\n"
 
-#: src/main.c:105
-#: src/interface.c:189
+#: src/main.c:109 src/interface.c:189
 msgid "Rip"
 msgstr "Сграбить"
 
-#: src/main.c:110
+#: src/main.c:114
 msgid "Track"
 msgstr "Дорожка"
 
-#: src/main.c:117
+#: src/main.c:121
 msgid "Artist"
 msgstr "Исполнитель"
 
-#: src/main.c:124
+#: src/main.c:128
 msgid "Title"
 msgstr "Заголовок"
 
-#: src/main.c:129
+#: src/main.c:133
 msgid "Time"
 msgstr "Время"
 
-#: src/main.c:155
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "'cdparanoia' не найдена по указанному пути. Asunder требует наличия cdparanoia для извлечения дорожек с CD."
+#: src/main.c:159
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"'cdparanoia' не найдена по указанному пути. Asunder требует наличия "
+"cdparanoia для извлечения дорожек с CD."
 
-#: src/callbacks.c:39
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "Не выбран метод извлечения/кодирования дорожек. Выберите один из указанных в меню 'Preferences'."
+#: src/main.c:369
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr ""
 
-#: src/callbacks.c:74
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "Не выбраны дорожки для извлечения/кодирования. Пожалуйста, выберите как минимум одну дорожку."
+#: src/callbacks.c:254
+msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
+msgstr ""
 
-#: src/callbacks.c:204
-#: src/callbacks.c:224
-#: src/callbacks.c:244
+#: src/callbacks.c:273 src/callbacks.c:298 src/callbacks.c:323
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "Не найден %s. Это необходимо программе Asunder для создания %s-файлов. Функции %s не могут быть использованы."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"Не найден %s. Это необходимо программе Asunder для создания %s-файлов. "
+"Функции %s не могут быть использованы."
+
+#: src/callbacks.c:405
+msgid "Select all for ripping"
+msgstr ""
+
+#: src/callbacks.c:411
+msgid "Deselect all for ripping"
+msgstr ""
 
 #: src/interface.c:131
 msgid "Disc:"
@@ -73,36 +86,38 @@ msgstr "Название альбома:"
 msgid "Single artist"
 msgstr "Один исполнитель"
 
-#: src/interface.c:336
+#: src/interface.c:339
 msgid "Preferences"
 msgstr "Настройки"
 
-#: src/interface.c:352
-#: src/interface.c:358
+#: src/interface.c:356 src/interface.c:362
 msgid "Destination folder"
 msgstr "Каталог назначения"
 
-#: src/interface.c:362
+#: src/interface.c:366
 msgid "Create M3U playlist"
 msgstr "Создать плейлист в формате M3U "
-
-#: src/interface.c:366
-msgid "Create directory for each album"
-msgstr "Создавать отдельный каталог для каждого альбома"
 
 #: src/interface.c:374
 msgid "CD-ROM device: "
 msgstr "Устройство CD-ROM: "
 
-#: src/interface.c:382
+#: src/interface.c:383
+msgid ""
+"Default: /dev/cdrom\n"
+"Other example: /dev/hdc\n"
+"Other example: /dev/sr0"
+msgstr ""
+
+#: src/interface.c:387
 msgid "Eject disc when finished"
 msgstr ""
 
-#: src/interface.c:391
+#: src/interface.c:395
 msgid "General"
 msgstr "Общие"
 
-#: src/interface.c:409
+#: src/interface.c:415
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -114,90 +129,195 @@ msgstr ""
 "%N - Номер дорожкиr (2-значный)\n"
 "%T - Название песни"
 
-#: src/interface.c:419
-msgid "Music file: "
-msgstr "Музыкальный файл: "
-
-#: src/interface.c:426
-msgid "Playlist file: "
-msgstr "Файл плейлиста: "
-
-#: src/interface.c:433
+#: src/interface.c:425
 msgid "Album directory: "
 msgstr "Каталог альбома: "
 
-#: src/interface.c:458
+#: src/interface.c:432 src/prefs.c:516
+msgid "Playlist file: "
+msgstr "Файл плейлиста: "
+
+#: src/interface.c:439 src/prefs.c:528 src/prefs.c:538
+msgid "Music file: "
+msgstr "Музыкальный файл: "
+
+#: src/interface.c:453
+msgid ""
+"This is relative to the destination folder (from the General tab).\n"
+"Can be blank.\n"
+"Default: %A - %L\n"
+"Other example: %A/%L"
+msgstr ""
+
+#: src/interface.c:465
+msgid ""
+"This will be stored in the album directory.\n"
+"Can be blank.\n"
+"Default: %A - %L"
+msgstr ""
+
+#: src/interface.c:476
+msgid ""
+"This will be stored in the album directory.\n"
+"Cannot be blank.\n"
+"Default: %A - %T\n"
+"Other example: %N - %T"
+msgstr ""
+
+#: src/interface.c:481
 msgid "Filename formats"
 msgstr "Форматы имён файлов"
 
-#: src/interface.c:467
-msgid "Invalid characters"
-msgstr "Некорректные символы"
-
-#: src/interface.c:474
-msgid "These characters will be removed from all filenames."
-msgstr "Эти символы будут удалены из всем имён файлов"
-
-#: src/interface.c:476
+#: src/interface.c:486
 msgid "Filenames"
 msgstr "Имена файлов"
 
-#: src/interface.c:485
+#: src/interface.c:506
 msgid "WAV (uncompressed)"
 msgstr "WAV (несжатый)"
 
-#: src/interface.c:502
+#: src/interface.c:523
 msgid "Variable bit rate (VBR)"
 msgstr "Переменный битрейт (VBR)"
 
-#: src/interface.c:510
+#: src/interface.c:528
+msgid "Better quality for the same size."
+msgstr ""
+
+#: src/interface.c:534
 msgid "Bitrate"
 msgstr "Битрейт"
 
-#: src/interface.c:520
+#: src/interface.c:545
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+
+#: src/interface.c:547
 msgid "32Kbps"
 msgstr "32Kbps"
 
-#: src/interface.c:524
+#: src/interface.c:551
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (сжатие с потерями)"
 
-#: src/interface.c:541
+#: src/interface.c:568
 msgid "Quality"
 msgstr "Качество"
 
-#: src/interface.c:550
+#: src/interface.c:578
+msgid "Higher quality means bigger file. Default is 6."
+msgstr ""
+
+#: src/interface.c:580
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (сжатие с потерями)"
 
-#: src/interface.c:567
+#: src/interface.c:597
 msgid "Compression level"
 msgstr "Степень сжатия"
 
-#: src/interface.c:576
+#: src/interface.c:607
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr ""
+
+#: src/interface.c:609
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (сжатие без потерь)"
 
-#: src/interface.c:580
+#: src/interface.c:613
 msgid "Encode"
 msgstr "Кодировать"
 
-#: src/interface.c:696
-#: src/interface.c:732
+#: src/interface.c:634
+msgid "Get disc info from the internet"
+msgstr ""
+
+#: src/interface.c:642
+msgid "Use HTTP proxy to connect to the internet"
+msgstr ""
+
+#: src/interface.c:654
+msgid "Server: "
+msgstr ""
+
+#: src/interface.c:666
+msgid "Port: "
+msgstr ""
+
+#: src/interface.c:678
+msgid "Advanced"
+msgstr ""
+
+#: src/interface.c:802 src/interface.c:838
 msgid "Ripping"
 msgstr "Извлечение"
 
-#: src/interface.c:725
+#: src/interface.c:831
 msgid "Total progress"
 msgstr "Всего выполнено"
 
-#: src/interface.c:739
+#: src/interface.c:845
 msgid "Encoding"
 msgstr "Кодирование"
 
-#: src/threads.c:583
-#: src/threads.c:585
-#: src/threads.c:589
+#: src/interface.c:1044
+#, c-format
+msgid ""
+"%d file(s) created successfully\n"
+"There was an error creating %d file(s)"
+msgstr ""
+
+#: src/interface.c:1054
+#, c-format
+msgid "All %d file(s) created successfully"
+msgstr ""
+
+#: src/prefs.c:515 src/prefs.c:527
+#, c-format
+msgid "Invalid characters in the '%s' field"
+msgstr ""
+
+#: src/prefs.c:537
+#, c-format
+msgid "'%s' cannot be empty"
+msgstr ""
+
+#: src/prefs.c:552
+msgid "Invalid proxy port number"
+msgstr ""
+
+#: src/threads.c:128
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"Не выбран метод извлечения/кодирования дорожек. Выберите один из указанных в "
+"меню 'Preferences'."
+
+#: src/threads.c:159
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"Не выбраны дорожки для извлечения/кодирования. Пожалуйста, выберите как "
+"минимум одну дорожку."
+
+#: src/threads.c:616 src/threads.c:618 src/threads.c:622
 msgid "Waiting..."
 msgstr "Ожидайте ..."
 
+#, fuzzy
+#~ msgid "Playlist file"
+#~ msgstr "Файл плейлиста: "
+
+#, fuzzy
+#~ msgid "Music file"
+#~ msgstr "Музыкальный файл: "
+
+#~ msgid "Create directory for each album"
+#~ msgstr "Создавать отдельный каталог для каждого альбома"
+
+#~ msgid "These characters will be removed from all filenames."
+#~ msgstr "Эти символы будут удалены из всем имён файлов"

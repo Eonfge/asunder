@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ISO Master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-26 22:54-0400\n"
+"POT-Creation-Date: 2007-09-28 11:39-0400\n"
 "PO-Revision-Date: 2007-08-10 10:10-0500\n"
 "Last-Translator: Robert Groenning <slimg@iggu.org>\n"
 "Language-Team: Ubuntu Norwegian Translators <oversettelse@ubuntu.no>\n"
@@ -13,27 +13,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:105 src/interface.c:189
+#: src/main.c:109 src/interface.c:189
 msgid "Rip"
 msgstr "Hent ut"
 
-#: src/main.c:110
+#: src/main.c:114
 msgid "Track"
 msgstr "Lydspor"
 
-#: src/main.c:117
+#: src/main.c:121
 msgid "Artist"
 msgstr "Artist"
 
-#: src/main.c:124
+#: src/main.c:128
 msgid "Title"
 msgstr "Tittel"
 
-#: src/main.c:129
+#: src/main.c:133
 msgid "Time"
 msgstr "Tid"
 
-#: src/main.c:155
+#: src/main.c:159
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -41,19 +41,15 @@ msgstr ""
 "'cdparanoia' ble ikke funnet i søkestien din. Asunder trenger cdparanoia for "
 "å hente musikk fra CDer."
 
-#: src/callbacks.c:39
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
-msgstr "Ingen hente/kode metode er valgt. Velg en fra 'Innstillinger' menyen."
+#: src/main.c:369
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr ""
 
-#: src/callbacks.c:74
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
-msgstr "Ingen lydspor er valgt til henting/koding. Velg minst et lydspor."
+#: src/callbacks.c:254
+msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
+msgstr ""
 
-#: src/callbacks.c:204 src/callbacks.c:224 src/callbacks.c:244
+#: src/callbacks.c:273 src/callbacks.c:298 src/callbacks.c:323
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -61,6 +57,14 @@ msgid ""
 msgstr ""
 "%s ble ikke funnet i stien din. Asunder trenger det for å opprette %s filer. "
 "Alle %s funksjoner er slått av."
+
+#: src/callbacks.c:405
+msgid "Select all for ripping"
+msgstr ""
+
+#: src/callbacks.c:411
+msgid "Deselect all for ripping"
+msgstr ""
 
 #: src/interface.c:131
 msgid "Disc:"
@@ -78,35 +82,38 @@ msgstr "Album tittel:"
 msgid "Single artist"
 msgstr "Singel artist"
 
-#: src/interface.c:336
+#: src/interface.c:339
 msgid "Preferences"
 msgstr "Innstillinger"
 
-#: src/interface.c:352 src/interface.c:358
+#: src/interface.c:356 src/interface.c:362
 msgid "Destination folder"
 msgstr "Målmappe"
 
-#: src/interface.c:362
+#: src/interface.c:366
 msgid "Create M3U playlist"
 msgstr "Opprett M3U spilleliste"
-
-#: src/interface.c:366
-msgid "Create directory for each album"
-msgstr "Opprett en mappe for hvert album"
 
 #: src/interface.c:374
 msgid "CD-ROM device: "
 msgstr "CD-ROM enhet: "
 
-#: src/interface.c:382
+#: src/interface.c:383
+msgid ""
+"Default: /dev/cdrom\n"
+"Other example: /dev/hdc\n"
+"Other example: /dev/sr0"
+msgstr ""
+
+#: src/interface.c:387
 msgid "Eject disc when finished"
 msgstr ""
 
-#: src/interface.c:391
+#: src/interface.c:395
 msgid "General"
 msgstr "Generelt"
 
-#: src/interface.c:409
+#: src/interface.c:415
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -118,86 +125,191 @@ msgstr ""
 "%N - Spornummer (2-tall)\n"
 "%T - Tittel"
 
-#: src/interface.c:419
-msgid "Music file: "
-msgstr "Musikkfil: "
-
-#: src/interface.c:426
-msgid "Playlist file: "
-msgstr "Spillelistefil: "
-
-#: src/interface.c:433
+#: src/interface.c:425
 msgid "Album directory: "
 msgstr "Album mappe: "
 
-#: src/interface.c:458
+#: src/interface.c:432 src/prefs.c:516
+msgid "Playlist file: "
+msgstr "Spillelistefil: "
+
+#: src/interface.c:439 src/prefs.c:528 src/prefs.c:538
+msgid "Music file: "
+msgstr "Musikkfil: "
+
+#: src/interface.c:453
+msgid ""
+"This is relative to the destination folder (from the General tab).\n"
+"Can be blank.\n"
+"Default: %A - %L\n"
+"Other example: %A/%L"
+msgstr ""
+
+#: src/interface.c:465
+msgid ""
+"This will be stored in the album directory.\n"
+"Can be blank.\n"
+"Default: %A - %L"
+msgstr ""
+
+#: src/interface.c:476
+msgid ""
+"This will be stored in the album directory.\n"
+"Cannot be blank.\n"
+"Default: %A - %T\n"
+"Other example: %N - %T"
+msgstr ""
+
+#: src/interface.c:481
 msgid "Filename formats"
 msgstr "Filnavn formater"
 
-#: src/interface.c:467
-msgid "Invalid characters"
-msgstr "Ugyldige tegn"
-
-#: src/interface.c:474
-msgid "These characters will be removed from all filenames."
-msgstr "Disse tegnene blir fjernet fra alle filnavn"
-
-#: src/interface.c:476
+#: src/interface.c:486
 msgid "Filenames"
 msgstr "Filnavn"
 
-#: src/interface.c:485
+#: src/interface.c:506
 msgid "WAV (uncompressed)"
 msgstr "WAV (ukomprimert)"
 
-#: src/interface.c:502
+#: src/interface.c:523
 msgid "Variable bit rate (VBR)"
 msgstr "Variabel bitrate (VBR)"
 
-#: src/interface.c:510
+#: src/interface.c:528
+msgid "Better quality for the same size."
+msgstr ""
+
+#: src/interface.c:534
 msgid "Bitrate"
 msgstr "Bitrate"
 
-#: src/interface.c:520
+#: src/interface.c:545
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+
+#: src/interface.c:547
 msgid "32Kbps"
 msgstr "32Kbps"
 
-#: src/interface.c:524
+#: src/interface.c:551
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (lossy kompresjon)"
 
-#: src/interface.c:541
+#: src/interface.c:568
 msgid "Quality"
 msgstr "Kvalitet"
 
-#: src/interface.c:550
+#: src/interface.c:578
+msgid "Higher quality means bigger file. Default is 6."
+msgstr ""
+
+#: src/interface.c:580
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (lossy kompresjon)"
 
-#: src/interface.c:567
+#: src/interface.c:597
 msgid "Compression level"
 msgstr "Komprimeringsstyrke"
 
-#: src/interface.c:576
+#: src/interface.c:607
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr ""
+
+#: src/interface.c:609
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (lossless kompresjon)"
 
-#: src/interface.c:580
+#: src/interface.c:613
 msgid "Encode"
 msgstr "Kode"
 
-#: src/interface.c:696 src/interface.c:732
+#: src/interface.c:634
+msgid "Get disc info from the internet"
+msgstr ""
+
+#: src/interface.c:642
+msgid "Use HTTP proxy to connect to the internet"
+msgstr ""
+
+#: src/interface.c:654
+msgid "Server: "
+msgstr ""
+
+#: src/interface.c:666
+msgid "Port: "
+msgstr ""
+
+#: src/interface.c:678
+msgid "Advanced"
+msgstr ""
+
+#: src/interface.c:802 src/interface.c:838
 msgid "Ripping"
 msgstr "Henting"
 
-#: src/interface.c:725
+#: src/interface.c:831
 msgid "Total progress"
 msgstr "Total fremgang"
 
-#: src/interface.c:739
+#: src/interface.c:845
 msgid "Encoding"
 msgstr "Koding"
 
-#: src/threads.c:583 src/threads.c:585 src/threads.c:589
+#: src/interface.c:1044
+#, c-format
+msgid ""
+"%d file(s) created successfully\n"
+"There was an error creating %d file(s)"
+msgstr ""
+
+#: src/interface.c:1054
+#, c-format
+msgid "All %d file(s) created successfully"
+msgstr ""
+
+#: src/prefs.c:515 src/prefs.c:527
+#, c-format
+msgid "Invalid characters in the '%s' field"
+msgstr ""
+
+#: src/prefs.c:537
+#, c-format
+msgid "'%s' cannot be empty"
+msgstr ""
+
+#: src/prefs.c:552
+msgid "Invalid proxy port number"
+msgstr ""
+
+#: src/threads.c:128
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr "Ingen hente/kode metode er valgt. Velg en fra 'Innstillinger' menyen."
+
+#: src/threads.c:159
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr "Ingen lydspor er valgt til henting/koding. Velg minst et lydspor."
+
+#: src/threads.c:616 src/threads.c:618 src/threads.c:622
 msgid "Waiting..."
 msgstr "Venter..."
+
+#, fuzzy
+#~ msgid "Playlist file"
+#~ msgstr "Spillelistefil: "
+
+#, fuzzy
+#~ msgid "Music file"
+#~ msgstr "Musikkfil: "
+
+#~ msgid "Create directory for each album"
+#~ msgstr "Opprett en mappe for hvert album"
+
+#~ msgid "These characters will be removed from all filenames."
+#~ msgstr "Disse tegnene blir fjernet fra alle filnavn"
