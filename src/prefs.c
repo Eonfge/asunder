@@ -89,6 +89,7 @@ prefs * get_default_prefs()
     p->music_dir = strdup(getenv("HOME"));
     p->make_playlist = 1;
     p->make_albumdir = 1;
+    
     p->format_music = malloc(sizeof(char) * 8);
     if (p->format_music == NULL)
         fatalError("malloc(sizeof(char) * 8) failed. Out of memory.");

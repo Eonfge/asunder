@@ -325,15 +325,16 @@ create_prefs (void)
     GtkWidget *cancelbutton1;
     GtkWidget *okbutton1;
     GtkWidget *eject_on_done;
-    GtkTooltips *tooltips;
     GtkTooltips *tooltips1;
     GtkTooltips *tooltips2;
     GtkTooltips *tooltips3;
     GtkTooltips *tooltips4;
+    GtkTooltips *tooltips5;
+    GtkTooltips *tooltips6;
+    GtkTooltips *tooltips7;
+    GtkTooltips *tooltips8;
     GtkWidget* hboxFill;
     
-    tooltips = gtk_tooltips_new ();
-
     prefs = gtk_dialog_new ();
     gtk_window_set_transient_for (GTK_WINDOW(prefs), GTK_WINDOW(win_main));
     gtk_window_set_title (GTK_WINDOW (prefs), _("Preferences"));
@@ -378,10 +379,15 @@ create_prefs (void)
     label28 = gtk_label_new (_("CD-ROM device: "));
     gtk_widget_show (label28);
     gtk_box_pack_start (GTK_BOX (hbox12), label28, FALSE, FALSE, 0);
-
+    
     cdrom = gtk_entry_new ();
     gtk_widget_show (cdrom);
     gtk_box_pack_start (GTK_BOX (hbox12), cdrom, TRUE, TRUE, 0);
+    
+    tooltips8 = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips8, cdrom, _("Default: /dev/cdrom\n"
+                                              "Other example: /dev/hdc\n"
+                                              "Other example: /dev/sr0"), NULL);
     
     eject_on_done = gtk_check_button_new_with_mnemonic (_("Eject disc when finished"));
     gtk_widget_show (eject_on_done);
@@ -421,12 +427,12 @@ create_prefs (void)
     gtk_widget_show (table1);
     gtk_box_pack_start (GTK_BOX (vbox10), table1, TRUE, TRUE, 0);
     
-    label11 = gtk_label_new (_("Music file: "));
-    gtk_widget_show (label11);
-    gtk_table_attach (GTK_TABLE (table1), label11, 0, 1, 0, 1,
+    label17 = gtk_label_new (_("Album directory: "));
+    gtk_widget_show (label17);
+    gtk_table_attach (GTK_TABLE (table1), label17, 0, 1, 0, 1,
                                         (GtkAttachOptions) (GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
-    gtk_misc_set_alignment (GTK_MISC (label11), 0, 0);
+    gtk_misc_set_alignment (GTK_MISC (label17), 0, 0);
 
     label12 = gtk_label_new (_("Playlist file: "));
     gtk_widget_show (label12);
@@ -434,32 +440,46 @@ create_prefs (void)
                                         (GtkAttachOptions) (GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
     gtk_misc_set_alignment (GTK_MISC (label12), 0, 0);
-
-    label17 = gtk_label_new (_("Album directory: "));
-    gtk_widget_show (label17);
-    gtk_table_attach (GTK_TABLE (table1), label17, 0, 1, 2, 3,
+    
+    label11 = gtk_label_new (_("Music file: "));
+    gtk_widget_show (label11);
+    gtk_table_attach (GTK_TABLE (table1), label11, 0, 1, 2, 3,
                                         (GtkAttachOptions) (GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
-    gtk_misc_set_alignment (GTK_MISC (label17), 0, 0);
-
-    format_music = gtk_entry_new ();
-    gtk_widget_show (format_music);
-    gtk_table_attach (GTK_TABLE (table1), format_music, 1, 2, 0, 1,
-                                        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                                        (GtkAttachOptions) (0), 0, 0);
+    gtk_misc_set_alignment (GTK_MISC (label11), 0, 0);
 
     format_albumdir = gtk_entry_new ();
     gtk_widget_show (format_albumdir);
-    gtk_table_attach (GTK_TABLE (table1), format_albumdir, 1, 2, 2, 3,
+    gtk_table_attach (GTK_TABLE (table1), format_albumdir, 1, 2, 0, 1,
                                         (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
-
+    
+    tooltips5 = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips5, format_albumdir, _("This is relative to the destination folder (from the General tab).\n"
+                                                        "Default: %A - %L\n"
+                                                        "Other example: %A/%L"), NULL);
+    
     format_playlist = gtk_entry_new ();
     gtk_widget_show (format_playlist);
     gtk_table_attach (GTK_TABLE (table1), format_playlist, 1, 2, 1, 2,
                                         (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
 
+    tooltips7 = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips7, format_playlist, _("This will be stored in the album directory.\n"
+                                                        "Default: %A - %L"), NULL);
+    
+    format_music = gtk_entry_new ();
+    gtk_widget_show (format_music);
+    gtk_table_attach (GTK_TABLE (table1), format_music, 1, 2, 2, 3,
+                                        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
+                                        (GtkAttachOptions) (0), 0, 0);
+
+    tooltips6 = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips6, format_music, _("This will be stored in the album directory.\n"
+                                                        "Default: %A - %T\n"
+                                                        "Other example: %N - %T"), NULL);
+    
     label20 = gtk_label_new (_("Filename formats"));
     gtk_widget_show (label20);
     gtk_frame_set_label_widget (GTK_FRAME (frame2), label20);
@@ -753,11 +773,14 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, useProxy, "use_proxy");
     GLADE_HOOKUP_OBJECT (prefs, serverName, "server_name");
     GLADE_HOOKUP_OBJECT (prefs, portNum, "port_number");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips, "tooltips");
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips1, "tooltips1");
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips2, "tooltips2");
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips3, "tooltips3");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips4, "tooltips3");
+    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips4, "tooltips4");
+    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips5, "tooltips5");
+    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips6, "tooltips6");
+    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips7, "tooltips7");
+    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips8, "tooltips8");
     
     return prefs;
 }

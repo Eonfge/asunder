@@ -1,19 +1,16 @@
-Andrew's:
-==================
 - need better icon
-- Having the option to create a seperate Artist folder ('Library/Artist/Album/' instead of 'Library/Artist - Album/') would be better, maybe default.
+- media files and playlists only into album dir - add error checking and message box (use the same message box for the cddb port)
 - look into ID3v1/v2 tags for mp3s
 - include the genre, year in the tags
-- example tooltips in filenames
 - http://www.softpedia.com/reviews/linux/Asunder-Review-65441.shtml
- - get rid of invalid characters
- - add error checking to filename format
+ - add error checking to filename format (where trim_chars used to be?)
   - no slashes, or parse into dirs
   - blank song names
+- need tooltip for 'create dir for each album' or get rid of the option
 
 
 Low Priority
-==================
+============
 - Sound Juicer and Banshee rip to ogg almost twice faster, figure out why.
 - option for saving different file types in different directories
 - if i eject the disk while ripping, strange things happen
