@@ -165,33 +165,33 @@ void dorip()
         return;
     }
     
-    if (global_prefs->make_albumdir)
-    {
-        char * dirpath = make_filename(prefs_get_music_dir(global_prefs), albumdir, NULL, NULL);
+    /* CREATE the album directory */
+    char * dirpath = make_filename(prefs_get_music_dir(global_prefs), albumdir, NULL, NULL);
 #ifdef DEBUG
-        printf("Making album directory '%s'\n", dirpath);
+    printf("Making album directory '%s'\n", dirpath);
 #endif
-        
-        if ( recursive_mkdir(dirpath, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH) != 0 && 
-             errno != EEXIST )
-        {
-            GtkWidget * dialog;
-            dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                            GTK_DIALOG_DESTROY_WITH_PARENT, 
-                                            GTK_MESSAGE_ERROR, 
-                                            GTK_BUTTONS_OK, 
-                                            "Unable to create directory '%s': %s", 
-                                            dirpath, strerror(errno));
-            gtk_dialog_run(GTK_DIALOG(dialog));
-            gtk_widget_destroy(dialog);
-            free(dirpath);
-            free(albumdir);
-            free(playlist);
-            return;
-        }
-        
+    
+    if ( recursive_mkdir(dirpath, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH) != 0 && 
+         errno != EEXIST )
+    {
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, 
+                                        GTK_MESSAGE_ERROR, 
+                                        GTK_BUTTONS_OK, 
+                                        "Unable to create directory '%s': %s", 
+                                        dirpath, strerror(errno));
+        gtk_dialog_run(GTK_DIALOG(dialog));
+        gtk_widget_destroy(dialog);
         free(dirpath);
+        free(albumdir);
+        free(playlist);
+        return;
     }
+    
+    free(dirpath);
+    /* END CREATE the album directory */
+    
     if (global_prefs->make_playlist)
     {
 #ifdef DEBUG
@@ -355,10 +355,7 @@ gpointer rip(gpointer data)
         
         if (riptrack)
         {
-            if (global_prefs->make_albumdir)
-            {
-                albumdir = parse_format(global_prefs->format_albumdir, 0, albumartist, albumtitle, NULL);
-            }
+            albumdir = parse_format(global_prefs->format_albumdir, 0, albumartist, albumtitle, NULL);
             musicfilename = parse_format(global_prefs->format_music, tracknum, trackartist, albumtitle, tracktitle);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             
@@ -469,26 +466,13 @@ gpointer encode(gpointer data)
         
         if (riptrack)
         {
-            if (global_prefs->make_albumdir)
-            {
-                albumdir = parse_format(global_prefs->format_albumdir, 0, album_artist, album_title, NULL);
-            }
+            albumdir = parse_format(global_prefs->format_albumdir, 0, album_artist, album_title, NULL);
             musicfilename = parse_format(global_prefs->format_music, tracknum, trackartist, album_title, tracktitle);
-            gdk_threads_enter();
-                if (global_prefs->make_albumdir)
-                {
-                    wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
-                    mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
-                    oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");
-                    flacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "flac");
-                } else {
-                    wavfilename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "wav");
-                    mp3filename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "mp3");
-                    oggfilename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "ogg");
-                    flacfilename = make_filename(prefs_get_music_dir(global_prefs), NULL, musicfilename, "flac");
-                }
-            gdk_threads_leave();
-            
+            wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
+            mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
+            oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");
+            flacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "flac");
+        
             if (global_prefs->rip_mp3)
             {
 #ifdef DEBUG

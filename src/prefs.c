@@ -142,7 +142,6 @@ void set_widgets_from_prefs(prefs * p)
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "cdrom")), p->cdrom);
     gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(lookup_widget(win_prefs, "music_dir")), prefs_get_music_dir(p));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_playlist")), p->make_playlist);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_albumdir")), p->make_albumdir);
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_music")), p->format_music);
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_playlist")), p->format_playlist);
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_albumdir")), p->format_albumdir);
@@ -191,8 +190,7 @@ void get_prefs_from_widgets(prefs * p)
     g_free(tocopy);
     
     p->make_playlist = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_playlist")));
-    p->make_albumdir = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_albumdir")));
-
+    
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_music")));
     p->format_music = malloc(sizeof(char) * (strlen(tocopyc) + 1));
     if (p->format_music == NULL)
@@ -257,7 +255,7 @@ void save_prefs(prefs * p)
         fprintf(config, "%s\n", p->cdrom);
         fprintf(config, "%s\n", p->music_dir);
         fprintf(config, "%d\n", p->make_playlist);
-        fprintf(config, "%d\n", p->make_albumdir);
+        fprintf(config, "%d\n", 1); /* used to be p->make_albumdir */
         fprintf(config, "%s\n", p->format_music);
         fprintf(config, "%s\n", p->format_playlist);
         fprintf(config, "%s\n", p->format_albumdir);
@@ -327,8 +325,9 @@ void load_prefs(prefs * p)
         // this one can be 0
         p->make_playlist = read_line_num(fd);
         
-        // this one can be 0
-        p->make_albumdir = read_line_num(fd);
+        // used to be p->make_albumdir, but no longer used
+        p->make_albumdir = 1;
+        read_line_num(fd);
         
         aCharPtr = read_line(fd);
         if (aCharPtr != NULL)

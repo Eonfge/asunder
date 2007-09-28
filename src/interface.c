@@ -287,7 +287,6 @@ create_prefs (void)
     GtkWidget *music_dir;
     GtkWidget *label15;
     GtkWidget *make_playlist;
-    GtkWidget *make_albumdir;
     GtkWidget *hbox12;
     GtkWidget *label28;
     GtkWidget *cdrom;
@@ -367,10 +366,6 @@ create_prefs (void)
     make_playlist = gtk_check_button_new_with_mnemonic (_("Create M3U playlist"));
     gtk_widget_show (make_playlist);
     gtk_box_pack_start (GTK_BOX (vbox5), make_playlist, FALSE, FALSE, 0);
-
-    make_albumdir = gtk_check_button_new_with_mnemonic (_("Create directory for each album"));
-    gtk_widget_show (make_albumdir);
-    gtk_box_pack_start (GTK_BOX (vbox5), make_albumdir, FALSE, FALSE, 0);
 
     hbox12 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox12);
@@ -726,7 +721,6 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, music_dir, "music_dir");
     GLADE_HOOKUP_OBJECT (prefs, label15, "label15");
     GLADE_HOOKUP_OBJECT (prefs, make_playlist, "make_playlist");
-    GLADE_HOOKUP_OBJECT (prefs, make_albumdir, "make_albumdir");
     GLADE_HOOKUP_OBJECT (prefs, hbox12, "hbox12");
     GLADE_HOOKUP_OBJECT (prefs, label28, "label28");
     GLADE_HOOKUP_OBJECT (prefs, cdrom, "cdrom");

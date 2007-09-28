@@ -5,7 +5,7 @@ typedef struct _prefs
     char * cdrom;
     char * music_dir;
     int make_playlist;
-    int make_albumdir;
+    int make_albumdir; /* no longer used */
     char * format_music;
     char * format_playlist;
     char * format_albumdir;
@@ -17,7 +17,7 @@ typedef struct _prefs
     int mp3_bitrate;
     int ogg_quality;
     int flac_compression;
-    char * invalid_chars;
+    char * invalid_chars; /* no longer used */
     int main_window_width;
     int main_window_height;
     int eject_on_done;
