@@ -6,14 +6,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-09-28 11:39-0400\n"
-"PO-Revision-Date: 2007-08-18 07:07+0200\n"
+"PO-Revision-Date: 2007-09-29 03:54+0200\n"
 "Last-Translator: Eero Salokannel <eero.salokannel@gmail.com>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:109 src/interface.c:189
+#: src/main.c:109
+#: src/interface.c:189
 msgid "Rip"
 msgstr "Rippaa"
 
@@ -34,37 +35,31 @@ msgid "Time"
 msgstr "Aika"
 
 #: src/main.c:159
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
-msgstr ""
-"'cdparanoia':a ei löytynyt. Asunder tarvitsee cdparanoia:n CD levyjen "
-"rippaamiseen."
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "'cdparanoia':a ei löytynyt. Asunder tarvitsee cdparanoia:n CD levyjen rippaamiseen."
 
 #: src/main.c:369
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr ""
+msgstr "<b>Haetaan levyn tietoja internetistä...</b>"
 
 #: src/callbacks.c:254
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr ""
+msgstr "Ei CD-levyä asemassa. Aseta levy asemaan."
 
-#: src/callbacks.c:273 src/callbacks.c:298 src/callbacks.c:323
+#: src/callbacks.c:273
+#: src/callbacks.c:298
+#: src/callbacks.c:323
 #, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All %"
-"s functionality is disabled."
-msgstr ""
-"%s ei löytynyt. Asunder tarvitsee sen tehdäkseen %s tiedostoja. Kaikki %s "
-"toiminnot on poistettu käytöstä."
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "%s ei löytynyt. Asunder tarvitsee sen tehdäkseen %s tiedostoja. Kaikki %s toiminnot on poistettu käytöstä."
 
 #: src/callbacks.c:405
 msgid "Select all for ripping"
-msgstr ""
+msgstr "Valitse kaikki ripattavaksi"
 
 #: src/callbacks.c:411
 msgid "Deselect all for ripping"
-msgstr ""
+msgstr "Poista kaikki valinnat ripattavaksi"
 
 #: src/interface.c:131
 msgid "Disc:"
@@ -86,7 +81,8 @@ msgstr "Yksi artisti"
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: src/interface.c:356 src/interface.c:362
+#: src/interface.c:356
+#: src/interface.c:362
 msgid "Destination folder"
 msgstr "Kohde hakemisto"
 
@@ -104,10 +100,13 @@ msgid ""
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
+"Oletus: /dev/cdrom\n"
+"Toinen esimerkki: /dev/hdc\n"
+"Toinen esimerkki: /dev/sr0"
 
 #: src/interface.c:387
 msgid "Eject disc when finished"
-msgstr ""
+msgstr "Poista levy asemasta kun valmis"
 
 #: src/interface.c:395
 msgid "General"
@@ -129,11 +128,14 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Levyn kansio: "
 
-#: src/interface.c:432 src/prefs.c:516
+#: src/interface.c:432
+#: src/prefs.c:516
 msgid "Playlist file: "
 msgstr "Soittolistan tiedosto: "
 
-#: src/interface.c:439 src/prefs.c:528 src/prefs.c:538
+#: src/interface.c:439
+#: src/prefs.c:528
+#: src/prefs.c:538
 msgid "Music file: "
 msgstr "Musiikki tiedosto: "
 
@@ -144,6 +146,10 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
+"Tämä riippuu kohde kansiosta (Yleistä-välilehdellä).\n"
+"Voi olla tyhjä.\n"
+"Oletus: %A - %L\n"
+"Toinen esimerkki: %A/%L"
 
 #: src/interface.c:465
 msgid ""
@@ -151,6 +157,9 @@ msgid ""
 "Can be blank.\n"
 "Default: %A - %L"
 msgstr ""
+"Tämä tallennetaan albumin kansioon.\n"
+"Voi olla tyhjä.\n"
+"Oletus: %A - %L"
 
 #: src/interface.c:476
 msgid ""
@@ -159,6 +168,10 @@ msgid ""
 "Default: %A - %T\n"
 "Other example: %N - %T"
 msgstr ""
+"Tämä tallennetaan albumin kansioon.\n"
+"Ei voi olla tyhjä.\n"
+"Oletus: %A - %T\n"
+"Toinen esimerkki: %N - %T"
 
 #: src/interface.c:481
 msgid "Filename formats"
@@ -178,17 +191,15 @@ msgstr "Muuttuva bittivirta (VBR)"
 
 #: src/interface.c:528
 msgid "Better quality for the same size."
-msgstr ""
+msgstr "Parempi laatu samalla tilan viennillä."
 
 #: src/interface.c:534
 msgid "Bitrate"
 msgstr "Bittinopeus"
 
 #: src/interface.c:545
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"192Kbps."
-msgstr ""
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "Korkeampi bittivirta on parempi laatu, mutta myös isompi tiedosto. Useiten käytetty on 192Kbps."
 
 #: src/interface.c:547
 msgid "32Kbps"
@@ -204,7 +215,7 @@ msgstr "Laatu"
 
 #: src/interface.c:578
 msgid "Higher quality means bigger file. Default is 6."
-msgstr ""
+msgstr "Korkeampi laatu tarkoittaa isompaa tiedostoa. Oletus on 6."
 
 #: src/interface.c:580
 msgid "OGG Vorbis (lossy compression)"
@@ -216,7 +227,7 @@ msgstr "Pakkaustaso"
 
 #: src/interface.c:607
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
+msgstr "Tämä ei vaikuta laatuun. Korkeampi luku tarkoittaa pienempää tiedostoa."
 
 #: src/interface.c:609
 msgid "FLAC (lossless compression)"
@@ -228,25 +239,27 @@ msgstr "Koodaus"
 
 #: src/interface.c:634
 msgid "Get disc info from the internet"
-msgstr ""
+msgstr "Hae levyn tiedot internetistä"
 
 #: src/interface.c:642
 msgid "Use HTTP proxy to connect to the internet"
-msgstr ""
+msgstr "Käytä HTTP välityspalvelinta internet yhteyteen"
 
 #: src/interface.c:654
 msgid "Server: "
-msgstr ""
+msgstr "Palvelin:"
 
 #: src/interface.c:666
 msgid "Port: "
-msgstr ""
+msgstr "Portti:"
 
 #: src/interface.c:678
+#, fuzzy
 msgid "Advanced"
-msgstr ""
+msgstr "Kehittyneet"
 
-#: src/interface.c:802 src/interface.c:838
+#: src/interface.c:802
+#: src/interface.c:838
 msgid "Ripping"
 msgstr "Rippaa"
 
@@ -264,41 +277,40 @@ msgid ""
 "%d file(s) created successfully\n"
 "There was an error creating %d file(s)"
 msgstr ""
+"%d tiedosto(t) luotu onnistuneesti\n"
+"Esiintyi virhe luotaessa tiedosto(j)a %d"
 
 #: src/interface.c:1054
 #, c-format
 msgid "All %d file(s) created successfully"
-msgstr ""
+msgstr "Kaikki %d tiedosto(t) luotu onnistuneesti"
 
-#: src/prefs.c:515 src/prefs.c:527
+#: src/prefs.c:515
+#: src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
-msgstr ""
+msgstr "Virheellisiä merkkejä kentässä '%s'"
 
 #: src/prefs.c:537
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr ""
+msgstr "'%s' ei voi olla tyhjä"
 
 #: src/prefs.c:552
 msgid "Invalid proxy port number"
-msgstr ""
+msgstr "Virheellinen välityspalvelimen portin numero"
 
 #: src/threads.c:128
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
 msgstr "Rippaus/koodaus tapaa ei valittu. Ole hyvä ja valitse "
 
 #: src/threads.c:159
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
-msgstr ""
-"Yhtään raitaa ei valittu ripattavaksi/koodattavaksi. Valitse vähintään yksi "
-"raita."
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgstr "Yhtään raitaa ei valittu ripattavaksi/koodattavaksi. Valitse vähintään yksi raita."
 
-#: src/threads.c:616 src/threads.c:618 src/threads.c:622
+#: src/threads.c:616
+#: src/threads.c:618
+#: src/threads.c:622
 msgid "Waiting..."
 msgstr "Odottaa..."
 
@@ -309,9 +321,8 @@ msgstr "Odottaa..."
 #, fuzzy
 #~ msgid "Music file"
 #~ msgstr "Musiikki tiedosto: "
-
 #~ msgid "Create directory for each album"
 #~ msgstr "Tee kansio jokaiselle levylle"
-
 #~ msgid "These characters will be removed from all filenames."
 #~ msgstr "Nämä merkit poistetaan kaikista tiedostonimistä."
+
