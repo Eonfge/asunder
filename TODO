@@ -4,6 +4,8 @@
 - include the genre, year in the tags
 - make sure can't edit artist or title to ''
 - make sure artist + song name is unique
+- need a cancel button in the cddb update
+- Johnny Halliday - 'a la vie, a la mort' shows truncated filenames with libcddb 1.3.0 and LANG=fr_FR.UTF-8
 
 
 Low Priority
