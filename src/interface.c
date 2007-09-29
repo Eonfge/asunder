@@ -1035,24 +1035,21 @@ void show_completed_dialog(int numOk, int numFailed)
 {
     GtkWidget* dialog;
     
+    dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                    GTK_DIALOG_DESTROY_WITH_PARENT,
+                                    GTK_MESSAGE_INFO,
+                                    GTK_BUTTONS_CLOSE,
+                                    ngettext("%d file created successfully", "%d files created successfully", numOk),
+                                    numOk);
+    
     if (numFailed > 0)
     {
         dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
                                         GTK_DIALOG_DESTROY_WITH_PARENT,
                                         GTK_MESSAGE_WARNING,
                                         GTK_BUTTONS_CLOSE,
-                                        _("%d file(s) created successfully\n"
-                                        "There was an error creating %d file(s)"),
-                                        numOk, numFailed);
-    }
-    else
-    {
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
-                                        GTK_DIALOG_DESTROY_WITH_PARENT,
-                                        GTK_MESSAGE_INFO,
-                                        GTK_BUTTONS_CLOSE,
-                                        _("All %d file(s) created successfully"),
-                                        numOk);
+                                        ngettext("There was an error creating %d file", "There was an error creating %d files", numFailed),
+                                        numFailed);
     }
     
     gtk_dialog_run (GTK_DIALOG (dialog));

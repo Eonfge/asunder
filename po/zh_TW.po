@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-28 11:39-0400\n"
+"POT-Creation-Date: 2007-09-29 06:50-0400\n"
 "PO-Revision-Date: 2007-09-22 05:12-0500\n"
 "Last-Translator: Chien Cheng Wei <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
@@ -260,17 +260,19 @@ msgstr "總進度"
 msgid "Encoding"
 msgstr "正在編碼..."
 
-#: src/interface.c:1044
+#: src/interface.c:1042
 #, c-format
-msgid ""
-"%d file(s) created successfully\n"
-"There was an error creating %d file(s)"
-msgstr ""
+msgid "%d file created successfully"
+msgid_plural "%d files created successfully"
+msgstr[0] ""
+msgstr[1] ""
 
-#: src/interface.c:1054
+#: src/interface.c:1051
 #, c-format
-msgid "All %d file(s) created successfully"
-msgstr ""
+msgid "There was an error creating %d file"
+msgid_plural "There was an error creating %d files"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/prefs.c:515 src/prefs.c:527
 #, c-format

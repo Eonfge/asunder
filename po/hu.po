@@ -5,19 +5,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-28 11:39-0400\n"
+"POT-Creation-Date: 2007-09-29 06:50-0400\n"
 "PO-Revision-Date: 2007-09-28 21:20+0100\n"
 "Last-Translator: Peter Polonkai <polesz@nedudu.hu>\n"
 "Language-Team: Nedudu Team <polesz@nedudu.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural= n!=1;\n"
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: src/main.c:109
-#: src/interface.c:189
+#: src/main.c:109 src/interface.c:189
 msgid "Rip"
 msgstr "Rip"
 
@@ -38,8 +38,12 @@ msgid "Time"
 msgstr "Idő"
 
 #: src/main.c:159
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "'cdparanoia' program nem található. Asunder futtatásához szükséges a cdparanoia program."
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"'cdparanoia' program nem található. Asunder futtatásához szükséges a "
+"cdparanoia program."
 
 #: src/main.c:369
 msgid "<b>Getting disc info from the internet...</b>"
@@ -49,12 +53,14 @@ msgstr "<b>Lemezinformáció lekérése az internetről...</b>"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Nincs CD behelyezve. Kérlek helyezz be egy CD-t a CD-ROM meghajtóba."
 
-#: src/callbacks.c:273
-#: src/callbacks.c:298
-#: src/callbacks.c:323
+#: src/callbacks.c:273 src/callbacks.c:298 src/callbacks.c:323
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s nem található. Asunderhez szükséges %s fájlok készítéséhez. A %s funkcionalitás le lesz tiltva."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"%s nem található. Asunderhez szükséges %s fájlok készítéséhez. A %s "
+"funkcionalitás le lesz tiltva."
 
 #: src/callbacks.c:405
 msgid "Select all for ripping"
@@ -84,8 +90,7 @@ msgstr "Egyedi előadó"
 msgid "Preferences"
 msgstr "Tulajdonságok"
 
-#: src/interface.c:356
-#: src/interface.c:362
+#: src/interface.c:356 src/interface.c:362
 msgid "Destination folder"
 msgstr "Cél könyvtár"
 
@@ -131,14 +136,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Album könyvtár: "
 
-#: src/interface.c:432
-#: src/prefs.c:516
+#: src/interface.c:432 src/prefs.c:516
 msgid "Playlist file: "
 msgstr "Lejátszólista fájl: "
 
-#: src/interface.c:439
-#: src/prefs.c:528
-#: src/prefs.c:538
+#: src/interface.c:439 src/prefs.c:528 src/prefs.c:538
 msgid "Music file: "
 msgstr "Zenei fájl: "
 
@@ -201,8 +203,12 @@ msgid "Bitrate"
 msgstr "Bitarány"
 
 #: src/interface.c:545
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "A magasabb bitráta jobb minőségű de nagyobb fájlt eredményez. Ajánlott a 192Kbps."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"A magasabb bitráta jobb minőségű de nagyobb fájlt eredményez. Ajánlott a "
+"192Kbps."
 
 #: src/interface.c:547
 msgid "32Kbps"
@@ -230,7 +236,8 @@ msgstr "Tömörítő szint"
 
 #: src/interface.c:607
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr "Ez nincs hatással a minőségre. A magasabb szám jelenti a kisebb fájlméretet."
+msgstr ""
+"Ez nincs hatással a minőségre. A magasabb szám jelenti a kisebb fájlméretet."
 
 #: src/interface.c:609
 msgid "FLAC (lossless compression)"
@@ -260,8 +267,7 @@ msgstr "Port:"
 msgid "Advanced"
 msgstr "Haladó"
 
-#: src/interface.c:802
-#: src/interface.c:838
+#: src/interface.c:802 src/interface.c:838
 msgid "Ripping"
 msgstr "Rippelés"
 
@@ -273,22 +279,25 @@ msgstr "Teljes folyamat"
 msgid "Encoding"
 msgstr "Kódolás"
 
-#: src/interface.c:1044
-#, c-format
-msgid ""
-"%d file(s) created successfully\n"
-"There was an error creating %d file(s)"
-msgstr ""
+#: src/interface.c:1042
+#, fuzzy, c-format
+msgid "%d file created successfully"
+msgid_plural "%d files created successfully"
+msgstr[0] "Mind a(z) %d fájl sikeresen elkészült"
+msgstr[1] "Mind a(z) %d fájl sikeresen elkészült"
+
+#: src/interface.c:1051
+#, fuzzy, c-format
+msgid "There was an error creating %d file"
+msgid_plural "There was an error creating %d files"
+msgstr[0] ""
+"%d fájl sikeresen elkészült\n"
+"Hiba lépett fel készítéskor %d fájlban"
+msgstr[1] ""
 "%d fájl sikeresen elkészült\n"
 "Hiba lépett fel készítéskor %d fájlban"
 
-#: src/interface.c:1054
-#, c-format
-msgid "All %d file(s) created successfully"
-msgstr "Mind a(z) %d fájl sikeresen elkészült"
-
-#: src/prefs.c:515
-#: src/prefs.c:527
+#: src/prefs.c:515 src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Érvénytelen karakter a(z) '%s' mezőben"
@@ -303,16 +312,21 @@ msgid "Invalid proxy port number"
 msgstr "Érvénytelen proxy port szám"
 
 #: src/threads.c:128
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "Nincs rippelő/kódoló kiválasztva. A 'Tulajdonságok' menüben engedélyezz legalább egyet."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"Nincs rippelő/kódoló kiválasztva. A 'Tulajdonságok' menüben engedélyezz "
+"legalább egyet."
 
 #: src/threads.c:159
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "Nincs sáv kiválasztva rippeléshez/kódoláshoz. Legalább egy sávot válassz."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"Nincs sáv kiválasztva rippeléshez/kódoláshoz. Legalább egy sávot válassz."
 
-#: src/threads.c:616
-#: src/threads.c:618
-#: src/threads.c:622
+#: src/threads.c:616 src/threads.c:618 src/threads.c:622
 msgid "Waiting..."
 msgstr "Várakozás..."
 
@@ -323,8 +337,9 @@ msgstr "Várakozás..."
 #, fuzzy
 #~ msgid "Music file"
 #~ msgstr "Zenei fájl: "
+
 #~ msgid "Create directory for each album"
 #~ msgstr "Könyvtár létrehozása mindegyik albumhoz"
+
 #~ msgid "These characters will be removed from all filenames."
 #~ msgstr "Ezek a karakterek el lesznek távolítva minden fájlnévből."
-
