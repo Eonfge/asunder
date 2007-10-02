@@ -6,9 +6,9 @@ msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-09-29 06:50-0400\n"
-"PO-Revision-Date: 2007-08-20 10:01+0100\n"
-"Last-Translator: Valerio Guaglianone aka Valpenguin <valpenguin@gmail.com>\n"
-"Language-Team: <LL@li.org>\n"
+"PO-Revision-Date: 2007-10-02 00:07-0500\n"
+"Last-Translator: \n"
+"Language-Team:  <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,11 +44,11 @@ msgstr ""
 
 #: src/main.c:369
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr ""
+msgstr "<b>Scarica informazioni sul disco da internet...</b>"
 
 #: src/callbacks.c:254
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr ""
+msgstr "Nessun CD inserito. Per favore inserisci un CD nel drive."
 
 #: src/callbacks.c:273 src/callbacks.c:298 src/callbacks.c:323
 #, c-format
@@ -61,11 +61,11 @@ msgstr ""
 
 #: src/callbacks.c:405
 msgid "Select all for ripping"
-msgstr ""
+msgstr "Seleziona tutto per il ripping"
 
 #: src/callbacks.c:411
 msgid "Deselect all for ripping"
-msgstr ""
+msgstr "Deseleziona tutto per ripping"
 
 #: src/interface.c:131
 msgid "Disc:"
@@ -105,14 +105,17 @@ msgid ""
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
+"Default: /dev/cdrom\n"
+"Altro esempio: /dev/hdc\n"
+"Altro esempio: /dev/sr0"
 
 #: src/interface.c:387
 msgid "Eject disc when finished"
-msgstr ""
+msgstr "Espelli disco quando termina l'operazione"
 
 #: src/interface.c:395
 msgid "General"
-msgstr "Generale"
+msgstr "Generali"
 
 #: src/interface.c:415
 msgid ""
@@ -145,6 +148,11 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
+"Questo valore è relativo alla cartella di destinazione (vedi il tab "
+"'Generali').\n"
+"Non può essere vuoto.\n"
+"Default: %A - %L\n"
+"Altro esempio: %A/%L"
 
 #: src/interface.c:465
 msgid ""
@@ -152,6 +160,9 @@ msgid ""
 "Can be blank.\n"
 "Default: %A - %L"
 msgstr ""
+"Verrà salvato nella directory album.\n"
+"Non può essere vuoto.\n"
+"Default: %A - %L"
 
 #: src/interface.c:476
 msgid ""
@@ -160,6 +171,10 @@ msgid ""
 "Default: %A - %T\n"
 "Other example: %N - %T"
 msgstr ""
+"Verrà salvato nella directory album.\n"
+"Non può essere vuoto.\n"
+"Default: %A - %T\n"
+"Altro esempio: %N - %T"
 
 #: src/interface.c:481
 msgid "Filename formats"
@@ -179,7 +194,7 @@ msgstr "Bit Rate Variabile (VBR)"
 
 #: src/interface.c:528
 msgid "Better quality for the same size."
-msgstr ""
+msgstr "Migliore qualità per la stessa dimensione."
 
 #: src/interface.c:534
 msgid "Bitrate"
@@ -190,10 +205,12 @@ msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
 msgstr ""
+"Un bitrate alto migliora la qualità, ma genera file più grandi. Di solito si "
+"usa 192Kbps."
 
 #: src/interface.c:547
 msgid "32Kbps"
-msgstr "32 Kbps"
+msgstr "32Kbps"
 
 #: src/interface.c:551
 msgid "MP3 (lossy compression)"
@@ -205,7 +222,7 @@ msgstr "Qualità"
 
 #: src/interface.c:578
 msgid "Higher quality means bigger file. Default is 6."
-msgstr ""
+msgstr "L'alta qualità genera grandi file. Il valore di default è 6."
 
 #: src/interface.c:580
 msgid "OGG Vorbis (lossy compression)"
@@ -218,6 +235,8 @@ msgstr "Livello compressione"
 #: src/interface.c:607
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr ""
+"Questo non ha effetto sulla qualità. Un numero alto indica un file più "
+"piccolo."
 
 #: src/interface.c:609
 msgid "FLAC (lossless compression)"
@@ -229,23 +248,23 @@ msgstr "Codifica"
 
 #: src/interface.c:634
 msgid "Get disc info from the internet"
-msgstr ""
+msgstr "Scarica informazioni sul disco da internet"
 
 #: src/interface.c:642
 msgid "Use HTTP proxy to connect to the internet"
-msgstr ""
+msgstr "Usa server proxy per connetterti ad internet"
 
 #: src/interface.c:654
 msgid "Server: "
-msgstr ""
+msgstr "Server:"
 
 #: src/interface.c:666
 msgid "Port: "
-msgstr ""
+msgstr "Porta:"
 
 #: src/interface.c:678
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzate"
 
 #: src/interface.c:802 src/interface.c:838
 msgid "Ripping"
@@ -263,29 +282,29 @@ msgstr "Codifica"
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d file creati con successo"
+msgstr[1] "%d files creati con successo"
 
 #: src/interface.c:1051
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Errori nella creazione di %d file"
+msgstr[1] "Errori nella creazione di %d files"
 
 #: src/prefs.c:515 src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
-msgstr ""
+msgstr "Caratteri non validi nel campo '%s'"
 
 #: src/prefs.c:537
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr ""
+msgstr "'%s' non può essere vuota"
 
 #: src/prefs.c:552
 msgid "Invalid proxy port number"
-msgstr ""
+msgstr "Porta del proxy non valida"
 
 #: src/threads.c:128
 msgid ""

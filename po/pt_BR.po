@@ -1,0 +1,319 @@
+# Portuguese (Brazil) translation for Asunder.
+# This file is distributed under the same license as the Asunder package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Asunder-0.8.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-09-29 06:50-0400\n"
+"PO-Revision-Date: 2007-09-30 17:32-0000\n"
+"Last-Translator: felipe augusto <flipeicl@gmail.com>\n"
+"Language-Team: Pt-Br <flipeicl@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural= n!=1;\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: src/main.c:109
+#: src/interface.c:189
+msgid "Rip"
+msgstr "Ripar"
+
+#: src/main.c:114
+msgid "Track"
+msgstr "Faixa"
+
+#: src/main.c:121
+msgid "Artist"
+msgstr "Artista"
+
+#: src/main.c:128
+msgid "Title"
+msgstr "Título"
+
+#: src/main.c:133
+msgid "Time"
+msgstr "Tempo"
+
+#: src/main.c:159
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "'cdparanoia' não foi encontrado no seu sistema. O Asunder requer o cdparanoia para ripar CDs."
+
+#: src/main.c:369
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr "<b>Pegando info do disco da internet...</b>"
+
+#: src/callbacks.c:254
+msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
+msgstr "Nenhum CD foi inserido. Por favor insira um CD dendtro o drive de CD-ROM."
+
+#: src/callbacks.c:273
+#: src/callbacks.c:298
+#: src/callbacks.c:323
+#, c-format
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "%s não foi encontrado no seu sistema. O Asunder o requer para criar arquivos %s. Todos funcionalidades %s estão disabilitadas."
+
+#: src/callbacks.c:405
+msgid "Select all for ripping"
+msgstr "Selecionar tudo para ripar"
+
+#: src/callbacks.c:411
+msgid "Deselect all for ripping"
+msgstr "Deselecionar tudo para ripar"
+
+#: src/interface.c:131
+msgid "Disc:"
+msgstr "Disco:"
+
+#: src/interface.c:137
+msgid "Album artist:"
+msgstr "Álbum do artista:"
+
+#: src/interface.c:144
+msgid "Album title:"
+msgstr "Título do álbum:"
+
+#: src/interface.c:151
+msgid "Single artist"
+msgstr "Artista único"
+
+#: src/interface.c:339
+msgid "Preferences"
+msgstr "Preferências"
+
+#: src/interface.c:356
+#: src/interface.c:362
+msgid "Destination folder"
+msgstr "Diretório de destino"
+
+#: src/interface.c:366
+msgid "Create M3U playlist"
+msgstr "Criar lista M3U"
+
+#: src/interface.c:374
+msgid "CD-ROM device: "
+msgstr "Dispositivo CD-ROM:"
+
+#: src/interface.c:383
+msgid ""
+"Default: /dev/cdrom\n"
+"Other example: /dev/hdc\n"
+"Other example: /dev/sr0"
+msgstr ""
+"Padrão: /dev/cdrom\n"
+"Outro exemplo: /dev/hdc\n"
+"Outro exemplo: /dev/sr0"
+
+#: src/interface.c:387
+msgid "Eject disc when finished"
+msgstr "Ejetar disco quando finalizar"
+
+#: src/interface.c:395
+msgid "General"
+msgstr "Geral"
+
+#: src/interface.c:415
+msgid ""
+"%A - Artist\n"
+"%L - Album\n"
+"%N - Track number (2-digit)\n"
+"%T - Song title"
+msgstr ""
+"%A - Artista\n"
+"%L - Álbum\n"
+"%N - Número da faixa (2-digitos)\n"
+"%T - Título da música"
+
+#: src/interface.c:425
+msgid "Album directory: "
+msgstr "Diretório do álbum:"
+
+#: src/interface.c:432
+#: src/prefs.c:516
+msgid "Playlist file: "
+msgstr "Arquivo de lista:"
+
+#: src/interface.c:439
+#: src/prefs.c:528
+#: src/prefs.c:538
+msgid "Music file: "
+msgstr "Arquivo de música:"
+
+#: src/interface.c:453
+msgid ""
+"This is relative to the destination folder (from the General tab).\n"
+"Can be blank.\n"
+"Default: %A - %L\n"
+"Other example: %A/%L"
+msgstr ""
+"Isto é relativo para o diretório de destino (da aba Geral).\n"
+"Pode ser vazio.\n"
+"Padrão: %A - %L\n"
+"Outro exemplo: %A/%L"
+
+#: src/interface.c:465
+msgid ""
+"This will be stored in the album directory.\n"
+"Can be blank.\n"
+"Default: %A - %L"
+msgstr ""
+"Isto pode ser colocado no diretório de álbum.\n"
+"Pode ser vazio.\n"
+"Padrão: %A - %L"
+
+#: src/interface.c:476
+msgid ""
+"This will be stored in the album directory.\n"
+"Cannot be blank.\n"
+"Default: %A - %T\n"
+"Other example: %N - %T"
+msgstr ""
+"Isto pode ser colocado no diretório de álbum.\n"
+"Não pode ser vazio.\n"
+"Padrão: %A - %T\n"
+"Outro exemplo: %N - %T"
+
+#: src/interface.c:481
+msgid "Filename formats"
+msgstr "Formatos de nome de arquivo"
+
+#: src/interface.c:486
+msgid "Filenames"
+msgstr "nomes de arquivos"
+
+#: src/interface.c:506
+msgid "WAV (uncompressed)"
+msgstr "WAV (descompressado)"
+
+#: src/interface.c:523
+msgid "Variable bit rate (VBR)"
+msgstr "Taxa de bit váriavel (VBR)"
+
+#: src/interface.c:528
+msgid "Better quality for the same size."
+msgstr "Melhor qualidade para o mesmo tamanho."
+
+#: src/interface.c:534
+msgid "Bitrate"
+msgstr "Taxa de bit"
+
+#: src/interface.c:545
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "Taxa de bit maior tem melhor qualidade mas também um arquivo maior. A maioria das pessoas usam 192Kbps."
+
+#: src/interface.c:547
+msgid "32Kbps"
+msgstr "32Kbps"
+
+#: src/interface.c:551
+msgid "MP3 (lossy compression)"
+msgstr "MP3 (compressão com perda)"
+
+#: src/interface.c:568
+msgid "Quality"
+msgstr "Qualidade"
+
+#: src/interface.c:578
+msgid "Higher quality means bigger file. Default is 6."
+msgstr "Qualidade maior significa arquivo maior. O padrão é 6."
+
+#: src/interface.c:580
+msgid "OGG Vorbis (lossy compression)"
+msgstr "OGG Vorbis (compressão com perda)"
+
+#: src/interface.c:597
+msgid "Compression level"
+msgstr "Nível de compressão"
+
+#: src/interface.c:607
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr "Isto não afeta a qualidade. Maior número significa arquivo menor."
+
+#: src/interface.c:609
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (compressão sem perda)"
+
+#: src/interface.c:613
+msgid "Encode"
+msgstr "Codificar"
+
+#: src/interface.c:634
+msgid "Get disc info from the internet"
+msgstr "Pegar info do disco pela internet"
+
+#: src/interface.c:642
+msgid "Use HTTP proxy to connect to the internet"
+msgstr "Usar proxy HTTP para conectar-se a internet"
+
+#: src/interface.c:654
+msgid "Server: "
+msgstr "Servidor:"
+
+#: src/interface.c:666
+msgid "Port: "
+msgstr "Porta:"
+
+#: src/interface.c:678
+msgid "Advanced"
+msgstr "Avançado"
+
+#: src/interface.c:802
+#: src/interface.c:838
+msgid "Ripping"
+msgstr "Ripando"
+
+#: src/interface.c:831
+msgid "Total progress"
+msgstr "Progresso total"
+
+#: src/interface.c:845
+msgid "Encoding"
+msgstr "Decodificar"
+
+#: src/interface.c:1042
+#, c-format
+msgid "%d file created successfully"
+msgid_plural "%d files created successfully"
+msgstr[0] "O Arquivo %d foi criado com sucesso"
+msgstr[1] "Os arquivos %d foram criados com sucesso"
+
+#: src/interface.c:1051
+#, c-format
+msgid "There was an error creating %d file"
+msgid_plural "There was an error creating %d files"
+msgstr[0] "Houve erro ao criar o arquivo %d"
+msgstr[1] "Houve erro ao criar os arquivos %d"
+
+#: src/prefs.c:515
+#: src/prefs.c:527
+#, c-format
+msgid "Invalid characters in the '%s' field"
+msgstr "Caracteres inválidos no campo '%s'"
+
+#: src/prefs.c:537
+#, c-format
+msgid "'%s' cannot be empty"
+msgstr "'%s' não pode estar vazio"
+
+#: src/prefs.c:552
+msgid "Invalid proxy port number"
+msgstr "Número da porta do proxy inválido"
+
+#: src/threads.c:128
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgstr "Método de ripar/descodificar não selecionado. Por favor habilite uma no menu \"Preferências\"."
+
+#: src/threads.c:159
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgstr "Nenhuma faixa foi selecionada para ripar/descodificar. Por favor selecione ao menos uma faixa."
+
+#: src/threads.c:616
+#: src/threads.c:618
+#: src/threads.c:622
+msgid "Waiting..."
+msgstr "Aguardando..."
+

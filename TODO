@@ -6,6 +6,8 @@
 - make sure artist + song name is unique
 - need a cancel button in the cddb update
 - Johnny Halliday - 'a la vie, a la mort' shows truncated filenames with libcddb 1.3.0 and LANG=fr_FR.UTF-8
+- 'No CD is inserted. Please insert a CD into the specified CD-ROM drive or
+revise the corresponding preferences.'
 
 
 Low Priority

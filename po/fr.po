@@ -3,10 +3,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: asunder v0.8\n"
+"Project-Id-Version: asunder v0.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-09-29 06:50-0400\n"
-"PO-Revision-Date: 2007-09-28 21:17+0100\n"
+"PO-Revision-Date: 2007-09-29 15:08+0100\n"
 "Last-Translator: Christophe <chris.l@free.fr>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -282,22 +282,18 @@ msgid "Encoding"
 msgstr "Encodage"
 
 #: src/interface.c:1042
-#, fuzzy, c-format
+#, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] "Le(s) %d fichier(s) ont été créé(s) avec succès"
-msgstr[1] "Le(s) %d fichier(s) ont été créé(s) avec succès"
+msgstr[0] "%d fichier a été créé avec succès"
+msgstr[1] "%d fichiers ont été créés avec succès"
 
 #: src/interface.c:1051
-#, fuzzy, c-format
+#, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] ""
-"%d fichier(s) créé(s) avec succès\n"
-"Il y a eu une erreur pendant la création de %d fichier(s)"
-msgstr[1] ""
-"%d fichier(s) créé(s) avec succès\n"
-"Il y a eu une erreur pendant la création de %d fichier(s)"
+msgstr[0] "Il y a eu une erreur pendant la création de %d fichier"
+msgstr[1] "Il y a eu une erreur pendant la création de %d fichiers"
 
 #: src/prefs.c:515 src/prefs.c:527
 #, c-format

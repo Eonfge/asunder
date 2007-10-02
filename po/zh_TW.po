@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-09-29 06:50-0400\n"
-"PO-Revision-Date: 2007-09-22 05:12-0500\n"
+"PO-Revision-Date: 2007-09-30 22:48+0800\n"
 "Last-Translator: Chien Cheng Wei <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,7 @@ msgstr ""
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: TAIWAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/main.c:109 src/interface.c:189
 msgid "Rip"
@@ -45,11 +46,11 @@ msgstr ""
 
 #: src/main.c:369
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr ""
+msgstr "<b>正在從網路取得光碟資訊...</b>"
 
 #: src/callbacks.c:254
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr ""
+msgstr "尚未放入光碟。請將光碟放入光碟機中。"
 
 #: src/callbacks.c:273 src/callbacks.c:298 src/callbacks.c:323
 #, c-format
@@ -62,11 +63,11 @@ msgstr ""
 
 #: src/callbacks.c:405
 msgid "Select all for ripping"
-msgstr ""
+msgstr "擷取全部音軌"
 
 #: src/callbacks.c:411
 msgid "Deselect all for ripping"
-msgstr ""
+msgstr "全部取消擷取"
 
 #: src/interface.c:131
 msgid "Disc:"
@@ -106,10 +107,13 @@ msgid ""
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
+"預設值：/dev/cdrom\n"
+"或是設為這種形式：/dev/hdc\n"
+"或這種形式: /dev/sr0"
 
 #: src/interface.c:387
 msgid "Eject disc when finished"
-msgstr ""
+msgstr "完成時退出光碟"
 
 #: src/interface.c:395
 msgid "General"
@@ -146,6 +150,10 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
+"這用以指定輸出檔目錄名稱（ 從「一般設定」的分頁裡設定）\n"
+"可以不指定（空白）。\n"
+"預設值：%A - %L\n"
+"或是設為這種形式：%A/%L"
 
 #: src/interface.c:465
 msgid ""
@@ -153,6 +161,9 @@ msgid ""
 "Can be blank.\n"
 "Default: %A - %L"
 msgstr ""
+"這將會存放於專輯目錄裡。\n"
+"可以不指定（空白）。\n"
+"預設值：%A - %L"
 
 #: src/interface.c:476
 msgid ""
@@ -161,6 +172,10 @@ msgid ""
 "Default: %A - %T\n"
 "Other example: %N - %T"
 msgstr ""
+"這將會存放於專輯目錄裡。\n"
+"可以不指定（空白）。\n"
+"預設值：%A - %T\n"
+"或是設為這種形式：%N - %T"
 
 #: src/interface.c:481
 msgid "Filename formats"
@@ -180,7 +195,7 @@ msgstr "變動位元率（VBR）"
 
 #: src/interface.c:528
 msgid "Better quality for the same size."
-msgstr ""
+msgstr "提高音質但保持相同檔案大小。"
 
 #: src/interface.c:534
 msgid "Bitrate"
@@ -190,7 +205,7 @@ msgstr "位元率"
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
-msgstr ""
+msgstr "位元率越高，雖然音質越好，但檔案也會越大。大多數人都指定192Kbps。"
 
 #: src/interface.c:547
 msgid "32Kbps"
@@ -206,7 +221,7 @@ msgstr "音質"
 
 #: src/interface.c:578
 msgid "Higher quality means bigger file. Default is 6."
-msgstr ""
+msgstr "音質越好，檔案越大。預設值為6。"
 
 #: src/interface.c:580
 msgid "OGG Vorbis (lossy compression)"
@@ -218,7 +233,7 @@ msgstr "壓縮等級"
 
 #: src/interface.c:607
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
+msgstr "這並不會影響音質。數字越大，檔案越小。"
 
 #: src/interface.c:609
 msgid "FLAC (lossless compression)"
@@ -230,23 +245,23 @@ msgstr "編碼設定"
 
 #: src/interface.c:634
 msgid "Get disc info from the internet"
-msgstr ""
+msgstr "從網路取得光碟資訊"
 
 #: src/interface.c:642
 msgid "Use HTTP proxy to connect to the internet"
-msgstr ""
+msgstr "透過HTTP連線伺服器來連上網路"
 
 #: src/interface.c:654
 msgid "Server: "
-msgstr ""
+msgstr "伺服器位址："
 
 #: src/interface.c:666
 msgid "Port: "
-msgstr ""
+msgstr "連接埠："
 
 #: src/interface.c:678
 msgid "Advanced"
-msgstr ""
+msgstr "進階設定"
 
 #: src/interface.c:802 src/interface.c:838
 msgid "Ripping"
@@ -264,29 +279,27 @@ msgstr "正在編碼..."
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "成功地新建了%d個檔案"
 
 #: src/interface.c:1051
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "新建%d個檔案時發生錯誤"
 
 #: src/prefs.c:515 src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
-msgstr ""
+msgstr "'%s'欄位中有無效的字元"
 
 #: src/prefs.c:537
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr ""
+msgstr "'%s' 不能為空白"
 
 #: src/prefs.c:552
 msgid "Invalid proxy port number"
-msgstr ""
+msgstr "無效的連線伺服器埠號"
 
 #: src/threads.c:128
 msgid ""
