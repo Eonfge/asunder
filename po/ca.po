@@ -7,11 +7,12 @@
 #
 # Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>, 2007
 #
+#: src/main.c:375
 msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-29 06:50-0400\n"
+"POT-Creation-Date: 2007-10-02 02:20-0400\n"
 "PO-Revision-Date: 2007-09-28 22:15+0100\n"
 "Last-Translator: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
 "Language-Team: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
@@ -48,10 +49,6 @@ msgid ""
 msgstr ""
 "No s'ha trobat «cdparanoia» al vostre camí. L'Asunder necessita el "
 "cdparanoia per capturar CDs."
-
-#: src/main.c:369
-msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>Obtenint la informació del disc des d'Internet...</b>"
 
 #: src/callbacks.c:254
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
@@ -335,3 +332,6 @@ msgstr ""
 #: src/threads.c:616 src/threads.c:618 src/threads.c:622
 msgid "Waiting..."
 msgstr "S'està esperant..."
+
+#~ msgid "<b>Getting disc info from the internet...</b>"
+#~ msgstr "<b>Obtenint la informació del disc des d'Internet...</b>"

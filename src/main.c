@@ -336,8 +336,6 @@ GList * lookup_disc(cddb_disc_t * disc)
 {
     int i;
     GList * matches = NULL;
-    GtkWidget* window;
-    GtkWidget* label;
     
     if (!global_prefs->do_cddb_updates)
         return NULL;
@@ -356,22 +354,48 @@ GList * lookup_disc(cddb_disc_t * disc)
     
     // query cddb to find similar discs
     gbl_cddb_query_thread_disc = disc;
-    gbl_cddb_query_thread = g_thread_create(cddb_query_thread_run, NULL, FALSE, NULL);
+    gbl_cddb_query_thread = g_thread_create(cddb_query_thread_run, NULL, TRUE, NULL);
     
     // show cddb update window
     gdk_threads_enter();
+        GtkWidget* window;
+        GtkWidget* box;
+        GtkWidget* label;
+        
         window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
         gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(win_main));
         gtk_window_set_modal(GTK_WINDOW(window), TRUE);
         gtk_window_set_title(GTK_WINDOW(window), "Asunder - CDDB");
         gtk_window_set_decorated(GTK_WINDOW(window), FALSE);
+        g_signal_connect((gpointer)window, "delete-event",
+                          G_CALLBACK (on_cddb_update_closed), &window);
+        
+        box = gtk_vbox_new (FALSE, 5);
+        gtk_widget_show (box);
+        gtk_container_add (GTK_CONTAINER(window), box);
         
         label = gtk_label_new(_("<b>Getting disc info from the internet...</b>"));
         gtk_label_set_use_markup(GTK_LABEL(label), TRUE);
-        gtk_container_add(GTK_CONTAINER(window), label);
+        gtk_box_pack_start(GTK_BOX (box), label, FALSE, FALSE, 0);
         gtk_widget_show(label);
         
+        //~ GtkWidget* button;
+        //~ button = gtk_button_new_from_stock ("gtk-close");
+        //~ gtk_widget_show (button);
+        //~ gtk_box_pack_start(GTK_BOX(box), button, FALSE, FALSE, 0);
+        //~ g_signal_connect((gpointer)button, "clicked",
+                          //~ G_CALLBACK (on_cddb_update_close_clicked), &window);
+        
         gtk_widget_show(window);
+        
+        //~ GtkWidget* dialog;
+        //~ dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        //~ GTK_DIALOG_DESTROY_WITH_PARENT,
+                                        //~ GTK_MESSAGE_ERROR,
+                                        //~ GTK_BUTTONS_CLOSE,
+                                        //~ _("<b>Getting disc info from the internet...</b>"));
+        //~ gtk_window_set_modal(GTK_WINDOW(dialog), TRUE);
+        //~ gtk_dialog_run(GTK_DIALOG(dialog));
         
         while(gbl_cddb_query_thread != NULL)
         {
@@ -380,7 +404,9 @@ GList * lookup_disc(cddb_disc_t * disc)
             usleep(100000);
         }
         
-        gtk_widget_destroy(window);
+        if(window != NULL) /* could have been closed otherwise */
+            gtk_widget_destroy(window);
+        //~ gtk_widget_destroy(dialog);
     gdk_threads_leave();
     
     // make a list of all the matches

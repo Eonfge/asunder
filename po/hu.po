@@ -1,11 +1,12 @@
 # Hungarian translation for Asunder.
 # This file is distributed under the same license as the Asunder package.
 #
+#: src/main.c:375
 msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-29 06:50-0400\n"
+"POT-Creation-Date: 2007-10-02 02:20-0400\n"
 "PO-Revision-Date: 2007-09-29 13:59+0100\n"
 "Last-Translator: Peter Polonkai <polesz@nedudu.hu>\n"
 "Language-Team: Nedudu Team <polesz@nedudu.hu>\n"
@@ -44,10 +45,6 @@ msgid ""
 msgstr ""
 "'cdparanoia' program nem található. Asunder futtatásához szükséges a "
 "cdparanoia program."
-
-#: src/main.c:369
-msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>Lemezinformáció lekérése az internetről...</b>"
 
 #: src/callbacks.c:254
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
@@ -325,6 +322,9 @@ msgstr ""
 #: src/threads.c:616 src/threads.c:618 src/threads.c:622
 msgid "Waiting..."
 msgstr "Várakozás..."
+
+#~ msgid "<b>Getting disc info from the internet...</b>"
+#~ msgstr "<b>Lemezinformáció lekérése az internetről...</b>"
 
 #, fuzzy
 #~ msgid "Playlist file"

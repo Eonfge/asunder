@@ -1,11 +1,12 @@
 # Spanish translation for Asunder.
 # This file is distributed under the same license as the Asunder package.
 #
+#: src/main.c:375
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-29 06:50-0400\n"
+"POT-Creation-Date: 2007-10-02 02:20-0400\n"
 "PO-Revision-Date: 2007-09-22 05:04-0500\n"
 "Last-Translator: Juan García-Murga Monago <marakaid@gmail.com>\n"
 "Language-Team: \n"
@@ -43,10 +44,6 @@ msgid ""
 msgstr ""
 "'cdparanoia' no ha sido encontrado en tu sistema. Es un requisito para que "
 "Asunder pueda extraer CDs."
-
-#: src/main.c:369
-msgid "<b>Getting disc info from the internet...</b>"
-msgstr ""
 
 #: src/callbacks.c:254
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."

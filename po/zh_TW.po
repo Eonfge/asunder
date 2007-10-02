@@ -1,11 +1,12 @@
 # Chinese (Taiwan) translation for Asunder.
 # This file is distributed under the same license as the Asunder package.
 #
+#: src/main.c:375
 msgid ""
 msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-29 06:50-0400\n"
+"POT-Creation-Date: 2007-10-02 02:20-0400\n"
 "PO-Revision-Date: 2007-09-30 22:48+0800\n"
 "Last-Translator: Chien Cheng Wei <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
@@ -43,10 +44,6 @@ msgid ""
 "CDs."
 msgstr ""
 "您指定的路徑內找不到「cdparanoia」。Asunder 需要「cdparanoia」 來擷取音軌。"
-
-#: src/main.c:369
-msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>正在從網路取得光碟資訊...</b>"
 
 #: src/callbacks.c:254
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
@@ -316,6 +313,9 @@ msgstr "尚未選取要 擷取/編碼 的音軌。請至少選擇一個音軌。
 #: src/threads.c:616 src/threads.c:618 src/threads.c:622
 msgid "Waiting..."
 msgstr "請稍待..."
+
+#~ msgid "<b>Getting disc info from the internet...</b>"
+#~ msgstr "<b>正在從網路取得光碟資訊...</b>"
 
 #, fuzzy
 #~ msgid "Playlist file"

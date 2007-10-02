@@ -2,11 +2,12 @@
 # This file is distributed under the same license as the Asunder package.
 #
 # Schmaki <smallsmaky@seznam.cz>, 2007.
+#: src/main.c:375
 msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-29 06:50-0400\n"
+"POT-Creation-Date: 2007-10-02 02:20-0400\n"
 "PO-Revision-Date: 2007-09-30 11:25+0200\n"
 "Last-Translator: Schmaki <smallsmaky@seznam.cz>\n"
 "Language-Team:  <cs@li.org>\n"
@@ -43,10 +44,6 @@ msgid ""
 msgstr ""
 "'cdparanoia' nebyl nalezen v proměnné $PATH. Asunder potřebuje program "
 "cdparanoia, aby mohl ripovat CD."
-
-#: src/main.c:369
-msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>Získávání informací o disku z internetu</b>"
 
 #: src/callbacks.c:254
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
@@ -328,3 +325,6 @@ msgstr ""
 #: src/threads.c:616 src/threads.c:618 src/threads.c:622
 msgid "Waiting..."
 msgstr "Čekám..."
+
+#~ msgid "<b>Getting disc info from the internet...</b>"
+#~ msgstr "<b>Získávání informací o disku z internetu</b>"

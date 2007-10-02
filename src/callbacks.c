@@ -119,7 +119,7 @@ on_artist_edited                    (GtkCellRendererText *cell,
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
-    printf("edited artist to '%s'\n", new_text);
+    //~ printf("edited artist to '%s'\n", new_text);
     //~ trim_chars(new_text, global_prefs->invalid_chars);
     trim_whitespace(new_text);
     gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
@@ -133,6 +133,24 @@ on_cancel_clicked                      (GtkButton       *button,
                                         gpointer         user_data)
 {
     abort_threads();
+}
+
+//~ void
+//~ on_cddb_update_close_clicked          (GtkButton       *button,
+                                       //~ GtkWidget**      update_window)
+//~ {
+    //~ gtk_widget_destroy(*update_window);
+    //~ *update_window = NULL;
+//~ }
+
+gboolean
+on_cddb_update_closed         (GtkWidget *widget,
+                               GdkEvent  *event,
+                               GtkWidget**      update_window)
+{
+    *update_window = NULL;
+    
+    return FALSE;
 }
 
 void
@@ -380,7 +398,7 @@ on_title_edited                    (GtkCellRendererText *cell,
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
-    printf("edited title to '%s'\n", new_text);
+    //~ printf("edited title to '%s'\n", new_text);
     //~ trim_chars(new_text, global_prefs->invalid_chars);
     trim_whitespace(new_text);
     gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
