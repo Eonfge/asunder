@@ -1,12 +1,11 @@
 # Portuguese (Brazil) translation for Asunder.
 # This file is distributed under the same license as the Asunder package.
 #
-#: src/main.c:375
 msgid ""
 msgstr ""
 "Project-Id-Version: Asunder-0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-02 02:20-0400\n"
+"POT-Creation-Date: 2007-10-05 08:31-0400\n"
 "PO-Revision-Date: 2007-09-30 17:32-0000\n"
 "Last-Translator: felipe augusto <flipeicl@gmail.com>\n"
 "Language-Team: Pt-Br <flipeicl@gmail.com>\n"
@@ -46,12 +45,16 @@ msgstr ""
 "'cdparanoia' não foi encontrado no seu sistema. O Asunder requer o "
 "cdparanoia para ripar CDs."
 
-#: src/callbacks.c:254
+#: src/main.c:377
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr "<b>Pegando info do disco da internet...</b>"
+
+#: src/callbacks.c:272
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr ""
 "Nenhum CD foi inserido. Por favor insira um CD dendtro o drive de CD-ROM."
 
-#: src/callbacks.c:273 src/callbacks.c:298 src/callbacks.c:323
+#: src/callbacks.c:291 src/callbacks.c:316 src/callbacks.c:341
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -60,11 +63,11 @@ msgstr ""
 "%s não foi encontrado no seu sistema. O Asunder o requer para criar arquivos "
 "%s. Todos funcionalidades %s estão disabilitadas."
 
-#: src/callbacks.c:405
+#: src/callbacks.c:423
 msgid "Select all for ripping"
 msgstr "Selecionar tudo para ripar"
 
-#: src/callbacks.c:411
+#: src/callbacks.c:429
 msgid "Deselect all for ripping"
 msgstr "Deselecionar tudo para ripar"
 
@@ -276,14 +279,14 @@ msgstr "Progresso total"
 msgid "Encoding"
 msgstr "Decodificar"
 
-#: src/interface.c:1042
+#: src/interface.c:1067
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "O Arquivo %d foi criado com sucesso"
 msgstr[1] "Os arquivos %d foram criados com sucesso"
 
-#: src/interface.c:1051
+#: src/interface.c:1076
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -323,6 +326,3 @@ msgstr ""
 #: src/threads.c:616 src/threads.c:618 src/threads.c:622
 msgid "Waiting..."
 msgstr "Aguardando..."
-
-#~ msgid "<b>Getting disc info from the internet...</b>"
-#~ msgstr "<b>Pegando info do disco da internet...</b>"

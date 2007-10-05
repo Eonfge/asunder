@@ -3,12 +3,11 @@
 # Copyright (C) 2007 Free Software Foundation, Inc.
 # Daniel Nylander <po@danielnylander.se>, 2007.
 #
-#: src/main.c:375
 msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-02 02:20-0400\n"
+"POT-Creation-Date: 2007-10-05 08:31-0400\n"
 "PO-Revision-Date: 2007-09-29 19:25+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -45,11 +44,15 @@ msgstr ""
 "\"cdparanoia\" hittades inte i dina sökvägar. Asunder kräver cdparanoia för "
 "att rippa cd-skivor."
 
-#: src/callbacks.c:254
+#: src/main.c:377
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr "<b>Hämtar skivinformation från Internet...</b>"
+
+#: src/callbacks.c:272
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Ingen skiva är inmatad. Mata in en skiva i cd-rom-enheten."
 
-#: src/callbacks.c:273 src/callbacks.c:298 src/callbacks.c:323
+#: src/callbacks.c:291 src/callbacks.c:316 src/callbacks.c:341
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -58,11 +61,11 @@ msgstr ""
 "%s hittades inte i dina sökvägar. Asunder kräver det för att skapa %s-filer. "
 "All %s-funktionalitet har inaktiverats."
 
-#: src/callbacks.c:405
+#: src/callbacks.c:423
 msgid "Select all for ripping"
 msgstr "Markera alla för rippning"
 
-#: src/callbacks.c:411
+#: src/callbacks.c:429
 msgid "Deselect all for ripping"
 msgstr "Avmarkera alla för rippning"
 
@@ -274,14 +277,14 @@ msgstr "Totalt förlopp"
 msgid "Encoding"
 msgstr "Kodning"
 
-#: src/interface.c:1042
+#: src/interface.c:1067
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fil skapades"
 msgstr[1] "%d filer skapades"
 
-#: src/interface.c:1051
+#: src/interface.c:1076
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -319,9 +322,6 @@ msgstr "Inga spår har markerats för rippning/kodning. Välj minst ett spår."
 #: src/threads.c:616 src/threads.c:618 src/threads.c:622
 msgid "Waiting..."
 msgstr "Väntar..."
-
-#~ msgid "<b>Getting disc info from the internet...</b>"
-#~ msgstr "<b>Hämtar skivinformation från Internet...</b>"
 
 #, fuzzy
 #~ msgid "Playlist file"

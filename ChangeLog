@@ -1,9 +1,27 @@
+05 Oct 2007 - 0.9
+=================
+- Added Hungarian, Catalan, Portuguese (Brazil) translations.
+- Fixed bug where the rip button became active even though there was no disc.
+- Added a lot of tooltips in the preferences to explain what they mean.
+- Presing F2 on a track now renames it.
+- Added select/deselect all right-click menu items.
+- CDDB updates now optional (set in the preferences window).
+- Added proxy support.
+- Output from child programs no longer visible in the terminal.
+- Some widgets in the preferences window are now disabled when formats unchecked.
+- Added a message to show that a CDDB update is happening.
+- Got rid of the 'Invalid characters' field.
+- It's now possible to have the album dir more than one level below the dest dir.
+- Fixed a memory leak that happend when calling programs failed.
+- Added some error checking to preferences.
+- Got rid of the 'Create album directory' option.
+
 27 Aug 2007 - 0.8.1
 ===================
-- Added Czech, German, and French translations
-- Fixed bug where the name of the disk (when multiple available) was not displayed
-- Fixed bug where some versions of cdparanoia would crash because of how I call it
-- Fixed bug where a cdparanoia crash would cause Asunder to hang
+- Added Czech, German, and French translations.
+- Fixed bug where the name of the disk (when multiple available) was not displayed.
+- Fixed bug where some versions of cdparanoia would crash because of how I call it.
+- Fixed bug where a cdparanoia crash would cause Asunder to hang.
 
 24 Aug 2007 - 0.8
 =================

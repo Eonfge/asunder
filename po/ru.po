@@ -1,12 +1,11 @@
 # Russian translation for Asunder.
 # This file is distributed under the same license as the Asunder package.
 #
-#: src/main.c:375
 msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-02 02:20-0400\n"
+"POT-Creation-Date: 2007-10-05 08:31-0400\n"
 "PO-Revision-Date: 2007-09-22 05:09-0500\n"
 "Last-Translator: Goodvin aka Alexey Sivakov <asivakov@gmail.com>\n"
 "Language-Team: 11 <1>\n"
@@ -46,11 +45,15 @@ msgstr ""
 "'cdparanoia' не найдена по указанному пути. Asunder требует наличия "
 "cdparanoia для извлечения дорожек с CD."
 
-#: src/callbacks.c:254
+#: src/main.c:377
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr ""
+
+#: src/callbacks.c:272
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr ""
 
-#: src/callbacks.c:273 src/callbacks.c:298 src/callbacks.c:323
+#: src/callbacks.c:291 src/callbacks.c:316 src/callbacks.c:341
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -59,11 +62,11 @@ msgstr ""
 "Не найден %s. Это необходимо программе Asunder для создания %s-файлов. "
 "Функции %s не могут быть использованы."
 
-#: src/callbacks.c:405
+#: src/callbacks.c:423
 msgid "Select all for ripping"
 msgstr ""
 
-#: src/callbacks.c:411
+#: src/callbacks.c:429
 msgid "Deselect all for ripping"
 msgstr ""
 
@@ -259,14 +262,14 @@ msgstr "Всего выполнено"
 msgid "Encoding"
 msgstr "Кодирование"
 
-#: src/interface.c:1042
+#: src/interface.c:1067
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/interface.c:1051
+#: src/interface.c:1076
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

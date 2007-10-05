@@ -7,12 +7,11 @@
 #
 # Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>, 2007
 #
-#: src/main.c:375
 msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-02 02:20-0400\n"
+"POT-Creation-Date: 2007-10-05 08:31-0400\n"
 "PO-Revision-Date: 2007-09-28 22:15+0100\n"
 "Last-Translator: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
 "Language-Team: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
@@ -50,11 +49,15 @@ msgstr ""
 "No s'ha trobat «cdparanoia» al vostre camí. L'Asunder necessita el "
 "cdparanoia per capturar CDs."
 
-#: src/callbacks.c:254
+#: src/main.c:377
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr "<b>Obtenint la informació del disc des d'Internet...</b>"
+
+#: src/callbacks.c:272
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "No heu introduït cap CD. Introduïu un disc al lector de CD-Rom."
 
-#: src/callbacks.c:273 src/callbacks.c:298 src/callbacks.c:323
+#: src/callbacks.c:291 src/callbacks.c:316 src/callbacks.c:341
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -63,11 +66,11 @@ msgstr ""
 "No s'ha trobat %s al vostre camí. L'Asunder ho necessita per a crear fitxers "
 "%s. Tota la funcionalitat de %s està deshabilitada."
 
-#: src/callbacks.c:405
+#: src/callbacks.c:423
 msgid "Select all for ripping"
 msgstr "Selecciona tots per a capturar"
 
-#: src/callbacks.c:411
+#: src/callbacks.c:429
 msgid "Deselect all for ripping"
 msgstr "Desselecciona tots a capturar"
 
@@ -281,14 +284,14 @@ msgstr "Progrés total"
 msgid "Encoding"
 msgstr "S'està codificant..."
 
-#: src/interface.c:1042
+#: src/interface.c:1067
 #, fuzzy, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "S'han creat amb èxit els %d arxius."
 msgstr[1] "S'han creat amb èxit els %d arxius."
 
-#: src/interface.c:1051
+#: src/interface.c:1076
 #, fuzzy, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -332,6 +335,3 @@ msgstr ""
 #: src/threads.c:616 src/threads.c:618 src/threads.c:622
 msgid "Waiting..."
 msgstr "S'està esperant..."
-
-#~ msgid "<b>Getting disc info from the internet...</b>"
-#~ msgstr "<b>Obtenint la informació del disc des d'Internet...</b>"
