@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-05 08:31-0400\n"
+"POT-Creation-Date: 2007-09-29 06:50-0400\n"
 "PO-Revision-Date: 2007-10-02 16:16+0100\n"
 "Last-Translator: René Schmidt <schmidt_r ÆT gmx-topmail PUNKT de>\n"
 "Language-Team: \n"
@@ -14,7 +14,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:109 src/interface.c:189
+#: src/main.c:109
+#: src/interface.c:189
 msgid "Rip"
 msgstr "Importieren"
 
@@ -35,43 +36,38 @@ msgid "Time"
 msgstr "Dauer"
 
 #: src/main.c:159
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
 msgstr ""
-"'cdparanoia' wurde nicht gefunden. Asunder benötigt diese Applikation jedoch "
-"zum Lesen von CDs.\n"
+"'cdparanoia' wurde nicht gefunden. Asunder benötigt diese Applikation jedoch zum Lesen von CDs.\n"
 "\n"
 "Das Importieren von CDs ist daher nicht möglich."
 
-#: src/main.c:377
+#: src/main.c:369
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>CD-Info aus dem Internet abrufen...</b>"
 
-#: src/callbacks.c:272
+#: src/callbacks.c:254
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr ""
 "Das gewählte Gerät scheint keine CD zu enthalten.\n"
 "\n"
-"Legen Sie bitte eine CD ein und prüfen Sie gegebenenfalls die Einstellungen "
-"hinsichtlich der Gerätedatei des CD-Laufwerks."
+"Legen Sie bitte eine CD ein und prüfen Sie gegebenenfalls die Einstellungen hinsichtlich der Gerätedatei des CD-Laufwerks."
 
-#: src/callbacks.c:291 src/callbacks.c:316 src/callbacks.c:341
+#: src/callbacks.c:273
+#: src/callbacks.c:298
+#: src/callbacks.c:323
 #, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All %"
-"s functionality is disabled."
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
 msgstr ""
-"%s wurde nicht gefunden. Asunder benötigt diese Applikation jedoch zum "
-"Erstellen von %s-Dateien.\n"
+"%s wurde nicht gefunden. Asunder benötigt diese Applikation jedoch zum Erstellen von %s-Dateien.\n"
 "\n"
 "Das Erstellen von %s-Dateien ist daher nicht möglich."
 
-#: src/callbacks.c:423
+#: src/callbacks.c:405
 msgid "Select all for ripping"
 msgstr "Alle wählen"
 
-#: src/callbacks.c:429
+#: src/callbacks.c:411
 msgid "Deselect all for ripping"
 msgstr "Alle abwählen"
 
@@ -95,7 +91,8 @@ msgstr "trifft auf alle Titel zu"
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: src/interface.c:356 src/interface.c:362
+#: src/interface.c:356
+#: src/interface.c:362
 msgid "Destination folder"
 msgstr "Ziel-Ordner"
 
@@ -113,8 +110,7 @@ msgid ""
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
-"Tragen Sie bitte hier den absoluten Pfad zur Gerätedatei des CD-Laufwerks "
-"ein, welches Sie zum Importieren verwenden wollen.\n"
+"Tragen Sie bitte hier den absoluten Pfad zur Gerätedatei des CD-Laufwerks ein, welches Sie zum Importieren verwenden wollen.\n"
 "\n"
 "Vorgabe: /dev/cdrom\n"
 "Weiteres Beispiel: /dev/hdc\n"
@@ -144,11 +140,14 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Ordner für Alben: "
 
-#: src/interface.c:432 src/prefs.c:516
+#: src/interface.c:432
+#: src/prefs.c:516
 msgid "Playlist file: "
 msgstr "Playlisten-Dateien: "
 
-#: src/interface.c:439 src/prefs.c:528 src/prefs.c:538
+#: src/interface.c:439
+#: src/prefs.c:528
+#: src/prefs.c:538
 msgid "Music file: "
 msgstr "Audio-Dateien: "
 
@@ -159,8 +158,7 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
-"Die Ordner für die Alben werden in dem unter 'Allgemein' gewählten Ziel-"
-"Ordner angelegt.\n"
+"Die Ordner für die Alben werden in dem unter 'Allgemein' gewählten Ziel-Ordner angelegt.\n"
 "\n"
 "Dieses Feld darf leer sein.\n"
 "\n"
@@ -212,22 +210,18 @@ msgstr "Variable Bitrate (VBR)"
 #: src/interface.c:528
 msgid "Better quality for the same size."
 msgstr ""
-"Eine variable Bitrate bewirkt bessere Qualität bei gleichem Platzbedarf der "
-"Audio-Daten.\n"
+"Eine variable Bitrate bewirkt bessere Qualität bei gleichem Platzbedarf der Audio-Daten.\n"
 "\n"
-"Manch älteres Gerät unterstützt diese möglicherweise nicht."
+"Manch älteres Gerät unterstützt die Wiedergabe möglicherweise nicht."
 
 #: src/interface.c:534
 msgid "Bitrate"
 msgstr "Bitrate"
 
 #: src/interface.c:545
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"192Kbps."
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
 msgstr ""
-"Eine höhere Bitrate bewirkt bessere Qualität bei höherem Platzbedarf der "
-"Audio-Daten.\n"
+"Eine höhere Bitrate bewirkt bessere Qualität bei höherem Platzbedarf der Audio-Daten.\n"
 "\n"
 "Vorgabe: 192kbps"
 
@@ -246,8 +240,7 @@ msgstr "Qualität"
 #: src/interface.c:578
 msgid "Higher quality means bigger file. Default is 6."
 msgstr ""
-"Eine höhere Stufe bewirkt bessere Qualität bei höherem Platzbedarf der Audio-"
-"Daten.\n"
+"Eine höhere Stufe bewirkt bessere Qualität bei höherem Platzbedarf der Audio-Daten.\n"
 "\n"
 "Vorgabe: 6"
 
@@ -262,8 +255,7 @@ msgstr "Komprimierung"
 #: src/interface.c:607
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr ""
-"Eine höhere Stufe bewirkt stärkere Komprimierung und damit einen geringeren "
-"Platzbedarf der Audio-Daten.\n"
+"Eine höhere Stufe bewirkt stärkere Komprimierung und damit einen geringeren Platzbedarf der Audio-Daten.\n"
 "\n"
 "Dies hat keinen Einfluss auf die Qualität."
 
@@ -295,7 +287,8 @@ msgstr "Port-Nr.: "
 msgid "Advanced"
 msgstr "Erweitert"
 
-#: src/interface.c:802 src/interface.c:838
+#: src/interface.c:802
+#: src/interface.c:838
 msgid "Ripping"
 msgstr "Importieren"
 
@@ -307,21 +300,22 @@ msgstr "Gesamt"
 msgid "Encoding"
 msgstr "Komprimieren"
 
-#: src/interface.c:1067
+#: src/interface.c:1042
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d Datei erfolgreich erstellt."
 msgstr[1] "%d Dateien erfolgreich erstellt."
 
-#: src/interface.c:1076
+#: src/interface.c:1051
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Fehler beim Erstellen von %d Datei."
 msgstr[1] "Fehler beim Erstellen von %d Dateien."
 
-#: src/prefs.c:515 src/prefs.c:527
+#: src/prefs.c:515
+#: src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr ""
@@ -345,24 +339,22 @@ msgstr ""
 "Prüfen Sie bitte die entsprechenden Einstellungen."
 
 #: src/threads.c:128
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
 msgstr ""
 "Keine Import-Methode spezifiziert.\n"
 "\n"
-"Wählen Sie bitte in den Einstellungen, ob und auf welche Weise die Audio-"
-"Daten komprimiert werden sollen."
+"Wählen Sie bitte in den Einstellungen, ob und auf welche Weise die Audio-Daten komprimiert werden sollen."
 
 #: src/threads.c:159
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
 msgstr ""
 "Kein Titel zum Importieren gewählt.\n"
 "\n"
 "Markieren Sie bitte mindestens einen Titel."
 
-#: src/threads.c:616 src/threads.c:618 src/threads.c:622
+#: src/threads.c:616
+#: src/threads.c:618
+#: src/threads.c:622
 msgid "Waiting..."
 msgstr "Warten..."
+

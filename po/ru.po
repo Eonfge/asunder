@@ -1,12 +1,13 @@
 # Russian translation for Asunder.
 # This file is distributed under the same license as the Asunder package.
+# Updated for 0.9 by Evgenii Terechkov
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-05 08:31-0400\n"
-"PO-Revision-Date: 2007-09-22 05:09-0500\n"
+"PO-Revision-Date: 2007-10-28 01:49+0800\n"
 "Last-Translator: Goodvin aka Alexey Sivakov <asivakov@gmail.com>\n"
 "Language-Team: 11 <1>\n"
 "MIME-Version: 1.0\n"
@@ -47,11 +48,11 @@ msgstr ""
 
 #: src/main.c:377
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr ""
+msgstr "<b>Получение информаций о диске из сети...</b>"
 
 #: src/callbacks.c:272
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr ""
+msgstr "Не вставлен диск. Пожалуйста, вставьте диск в привод."
 
 #: src/callbacks.c:291 src/callbacks.c:316 src/callbacks.c:341
 #, c-format
@@ -64,11 +65,11 @@ msgstr ""
 
 #: src/callbacks.c:423
 msgid "Select all for ripping"
-msgstr ""
+msgstr "Выбрать для кодирования всё"
 
 #: src/callbacks.c:429
 msgid "Deselect all for ripping"
-msgstr ""
+msgstr "Снять выделение"
 
 #: src/interface.c:131
 msgid "Disc:"
@@ -108,10 +109,13 @@ msgid ""
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
+"По умолчанию: /dev/cdrom\n"
+"Или:          /dev/hdc\n"
+"Или:          /dev/sr0"
 
 #: src/interface.c:387
 msgid "Eject disc when finished"
-msgstr ""
+msgstr "Вынуть диск по завершений"
 
 #: src/interface.c:395
 msgid "General"
@@ -126,7 +130,7 @@ msgid ""
 msgstr ""
 "%A - Исполнитель\n"
 "%L - Альбом\n"
-"%N - Номер дорожкиr (2-значный)\n"
+"%N - Номер дорожки (2-значный)\n"
 "%T - Название песни"
 
 #: src/interface.c:425
@@ -148,6 +152,10 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
+"Относительно каталога назначения (во вкладке \"Общие\").\n"
+"Может быть пустым.\n"
+"По умолчанию: %A -%L\n"
+"Или:          %A/%L"
 
 #: src/interface.c:465
 msgid ""
@@ -155,6 +163,9 @@ msgid ""
 "Can be blank.\n"
 "Default: %A - %L"
 msgstr ""
+"Будет сохранён в каталоге альбома.\n"
+"Может быть пустым.\n"
+"По умолчанию:   %A - %L"
 
 #: src/interface.c:476
 msgid ""
@@ -163,6 +174,10 @@ msgid ""
 "Default: %A - %T\n"
 "Other example: %N - %T"
 msgstr ""
+"Будет сохранёт в каталоге с альбомом.\n"
+"Не может быть пустым.\n"
+"По умолчанию: %A -  %T\n"
+"Или:          %N - %T"
 
 #: src/interface.c:481
 msgid "Filename formats"
@@ -182,7 +197,7 @@ msgstr "Переменный битрейт (VBR)"
 
 #: src/interface.c:528
 msgid "Better quality for the same size."
-msgstr ""
+msgstr "Лучшее качество при том же размере"
 
 #: src/interface.c:534
 msgid "Bitrate"
@@ -192,7 +207,7 @@ msgstr "Битрейт"
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
-msgstr ""
+msgstr "Более высокий битрейт означает больший размер файла. Большинство используют 192Kbps."
 
 #: src/interface.c:547
 msgid "32Kbps"
@@ -208,7 +223,7 @@ msgstr "Качество"
 
 #: src/interface.c:578
 msgid "Higher quality means bigger file. Default is 6."
-msgstr ""
+msgstr "Высокое качество означает файл большего размера. По умолчанию 6."
 
 #: src/interface.c:580
 msgid "OGG Vorbis (lossy compression)"
@@ -220,7 +235,7 @@ msgstr "Степень сжатия"
 
 #: src/interface.c:607
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
+msgstr "Это не влияет на качество. Большая цифра означает меньший файл."
 
 #: src/interface.c:609
 msgid "FLAC (lossless compression)"
@@ -232,23 +247,23 @@ msgstr "Кодировать"
 
 #: src/interface.c:634
 msgid "Get disc info from the internet"
-msgstr ""
+msgstr "Получить информацию о диске из сети"
 
 #: src/interface.c:642
 msgid "Use HTTP proxy to connect to the internet"
-msgstr ""
+msgstr "Использовать HTTP-прокси для выхода в Интернет"
 
 #: src/interface.c:654
 msgid "Server: "
-msgstr ""
+msgstr "Сервер: "
 
 #: src/interface.c:666
 msgid "Port: "
-msgstr ""
+msgstr "Порт: "
 
 #: src/interface.c:678
 msgid "Advanced"
-msgstr ""
+msgstr "Расширенные"
 
 #: src/interface.c:802 src/interface.c:838
 msgid "Ripping"
@@ -266,29 +281,29 @@ msgstr "Кодирование"
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d файл созданн успешно"
+msgstr[1] "%d файлов созданно успешно"
 
 #: src/interface.c:1076
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ошибка создания %d файла"
+msgstr[1] "Ошибка создания %d файлов"
 
 #: src/prefs.c:515 src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
-msgstr ""
+msgstr "Неверный символ в поле '%s'"
 
 #: src/prefs.c:537
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr ""
+msgstr "'%s' не может быть пустым"
 
 #: src/prefs.c:552
 msgid "Invalid proxy port number"
-msgstr ""
+msgstr "Неверный номер порта прокси"
 
 #: src/threads.c:128
 msgid ""

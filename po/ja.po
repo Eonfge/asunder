@@ -1,102 +1,102 @@
-# Dutch translation for Asunder.
-# This file is distributed under the same license as the Asunder package.
+# translation of asunder.po to Japanese
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
+# UTUMI Hirosi <utuhiro78@yahoo.co.jp>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: Asunder\n"
+"Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-29 06:50-0400\n"
-"PO-Revision-Date: 2007-10-14 15:10+0100\n"
-"Last-Translator: Stephen Brandt <stephen@stephenbrandt.com>\n"
-"Language-Team:  <LL@li.org>\n"
+"POT-Creation-Date: 2007-10-05 08:31-0400\n"
+"PO-Revision-Date: 2007-12-02 20:53+0900\n"
+"Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
+"Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural= n!=1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: src/main.c:109
 #: src/interface.c:189
 msgid "Rip"
-msgstr "Rip"
+msgstr "吸い出す"
 
 #: src/main.c:114
 msgid "Track"
-msgstr "Track"
+msgstr "トラック"
 
 #: src/main.c:121
 msgid "Artist"
-msgstr "Artiest"
+msgstr "アーティスト"
 
 #: src/main.c:128
 msgid "Title"
-msgstr "Titel"
+msgstr "タイトル"
 
 #: src/main.c:133
 msgid "Time"
-msgstr "Tijd"
+msgstr "時間"
 
 #: src/main.c:159
 msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "'cdparanoia' kon niet worden gevonden in het opgegeven pad. Asunder heeft cdparanoia nodig om cd's te rippen."
+msgstr "cdparanoia が見つかりません。CD を吸い出すには Asunder が必要です"
 
-#: src/main.c:369
+#: src/main.c:377
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>Bezig met het verkrijgen van schijfinformatie van het internet...</b>"
+msgstr "<b>ディスクの情報をインターネットから取得</b>"
 
-#: src/callbacks.c:254
+#: src/callbacks.c:272
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr "Geen cd geplaatst. Plaats een cd in de cd-romspeler."
+msgstr "CD が挿入されていません。CD を CD ドライブに入れてください。"
 
-#: src/callbacks.c:273
-#: src/callbacks.c:298
-#: src/callbacks.c:323
+#: src/callbacks.c:291
+#: src/callbacks.c:316
+#: src/callbacks.c:341
 #, c-format
 msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s kon niet worden gevonden in het opgegeven pad. Asunder heeft dit nodig om %s bestanden aan te maken. Alle %s functionaliteit is uitgeschakeld."
+msgstr "%s が見つかりません。%s を作成するのに必要です。%s の機能を全て無効にします。"
 
-#: src/callbacks.c:405
+#: src/callbacks.c:423
 msgid "Select all for ripping"
-msgstr "Selecteer alles om te rippen"
+msgstr "全てを選択する"
 
-#: src/callbacks.c:411
+#: src/callbacks.c:429
 msgid "Deselect all for ripping"
-msgstr "Deselecteer alles om te rippen"
+msgstr "全ての選択を解除"
 
 #: src/interface.c:131
 msgid "Disc:"
-msgstr "Schijf:"
+msgstr "ディスク:"
 
-#
 #: src/interface.c:137
 msgid "Album artist:"
-msgstr "Albumartiest:"
+msgstr "アーティスト:"
 
-#
 #: src/interface.c:144
 msgid "Album title:"
-msgstr "Albumtitel:"
+msgstr "アルバムタイトル:"
 
-#
 #: src/interface.c:151
 msgid "Single artist"
-msgstr "Enkele artiest"
+msgstr "同一のアーティスト"
 
 #: src/interface.c:339
 msgid "Preferences"
-msgstr "Voorkeuren"
+msgstr "設定"
 
 #: src/interface.c:356
 #: src/interface.c:362
 msgid "Destination folder"
-msgstr "Bestemmingsmap"
+msgstr "保存先フォルダ"
 
 #: src/interface.c:366
 msgid "Create M3U playlist"
-msgstr "Maak M3U-afspeellijst aan"
+msgstr "M3U プレイリストを作る"
 
 #: src/interface.c:374
 msgid "CD-ROM device: "
-msgstr "Cd-rom apparaat: "
+msgstr "CD-ROM デバイス:"
 
 #: src/interface.c:383
 msgid ""
@@ -104,17 +104,17 @@ msgid ""
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
-"Standaardwaarde: /dev/cdrom\n"
-"Ander voorbeeld: /dev/hdc\n"
-"Ander voorbeeld: /dev/sr0"
+"デフォルト: /dev/cdrom\n"
+"例1: /dev/hdc\n"
+"例2: /dev/sr0"
 
 #: src/interface.c:387
 msgid "Eject disc when finished"
-msgstr "Schijf uitwerpen wanneer gereed"
+msgstr "完了したらディスクをイジェクト"
 
 #: src/interface.c:395
 msgid "General"
-msgstr "Algemeen"
+msgstr "全般"
 
 #: src/interface.c:415
 msgid ""
@@ -123,25 +123,25 @@ msgid ""
 "%N - Track number (2-digit)\n"
 "%T - Song title"
 msgstr ""
-"%A - Artiest\n"
-"%L - Album\n"
-"%N - Tracknummer (2-cijferig)\n"
-"%T - Songtitel"
+"%A - アーティスト\n"
+"%L - アルバム\n"
+"%N - トラック番号 (2桁)\n"
+"%T - 歌のタイトル"
 
 #: src/interface.c:425
 msgid "Album directory: "
-msgstr "Albummap: "
+msgstr "アルバムのディレクトリ:"
 
 #: src/interface.c:432
 #: src/prefs.c:516
 msgid "Playlist file: "
-msgstr "Afspeellijstbestand: "
+msgstr "プレイリストファイル:"
 
 #: src/interface.c:439
 #: src/prefs.c:528
 #: src/prefs.c:538
 msgid "Music file: "
-msgstr "Muziekbestand: "
+msgstr "音楽ファイル:"
 
 #: src/interface.c:453
 msgid ""
@@ -150,10 +150,10 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
-"Dit is relatief ten opzichte van de bestemmingsmap (zie het tabblad 'Algemeen').\n"
-"Mag leeg worden gelaten.\n"
-"Standaardwaarde: %A - %L\n"
-"Ander voorbeeld: %A/%L"
+"保存先フォルダ (全般タブで場所を指定) に関する設定。\n"
+"空白にもできます。\n"
+"デフォルト: %A - %L\n"
+"他の例: %A/%L"
 
 #: src/interface.c:465
 msgid ""
@@ -161,9 +161,9 @@ msgid ""
 "Can be blank.\n"
 "Default: %A - %L"
 msgstr ""
-"Dit zal opgeslagen worden in de albummap.\n"
-"Mag leeg worden gelaten.\n"
-"Standaardwaarde: %A - %L"
+"アルバムディレクトリに保存されます。\n"
+"空白にもできます。\n"
+"デフォルト: %A - %L"
 
 #: src/interface.c:476
 msgid ""
@@ -172,38 +172,38 @@ msgid ""
 "Default: %A - %T\n"
 "Other example: %N - %T"
 msgstr ""
-"Dit zal opgeslagen worden in de albummap.\n"
-"Mag niet leeg worden gelaten.\n"
-"Standaardwaarde: %A - %T\n"
-"Ander voorbeeld: %N - %T"
+"アルバムディレクトリに保存されます。\n"
+"空白にもできます。\n"
+"デフォルト: %A - %L\n"
+"他の例: %N - %T"
 
 #: src/interface.c:481
 msgid "Filename formats"
-msgstr "Bestandsnaamgeving"
+msgstr "ファイル名の形式"
 
 #: src/interface.c:486
 msgid "Filenames"
-msgstr "Bestandsnamen"
+msgstr "ファイル名"
 
 #: src/interface.c:506
 msgid "WAV (uncompressed)"
-msgstr "WAV (ongecomprimeerd)"
+msgstr "WAV (圧縮なし)"
 
 #: src/interface.c:523
 msgid "Variable bit rate (VBR)"
-msgstr "Variabele bitrate (VBR)"
+msgstr "可変ビットレート (VBR)"
 
 #: src/interface.c:528
 msgid "Better quality for the same size."
-msgstr "Betere kwaliteit voor dezelfde grootte."
+msgstr "同じサイズでもより良い品質になる"
 
 #: src/interface.c:534
 msgid "Bitrate"
-msgstr "Bitrate"
+msgstr "ビットレート"
 
 #: src/interface.c:545
 msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "Hogere bitrate geeft een betere kwaliteit, maar zorgt ook voor een groter bestand. Meest gangbaar is 192Kbps."
+msgstr "ビットレートを高くすると音質は良くなるがサイズが大きくなる。多くのユーザは 192Kbps にしている"
 
 #: src/interface.c:547
 msgid "32Kbps"
@@ -211,124 +211,107 @@ msgstr "32Kbps"
 
 #: src/interface.c:551
 msgid "MP3 (lossy compression)"
-msgstr "MP3 (met kwaliteitsverlies)"
+msgstr "MP3 (ロスあり圧縮)"
 
 #: src/interface.c:568
 msgid "Quality"
-msgstr "Kwaliteit"
+msgstr "クオリティ"
 
 #: src/interface.c:578
 msgid "Higher quality means bigger file. Default is 6."
-msgstr "Een hogere kwaliteit resulteert in een groter bestand. Standaardwaarde is 6."
+msgstr "クオリティを上げるとサイズが大きくなる。デフォルトは 6"
 
 #: src/interface.c:580
 msgid "OGG Vorbis (lossy compression)"
-msgstr "OGG Vorbis (met kwaliteitsverlies)"
+msgstr "OGG Vorbis (ロスあり圧縮)"
 
 #: src/interface.c:597
 msgid "Compression level"
-msgstr "Compressieniveau"
+msgstr "圧縮レベル"
 
 #: src/interface.c:607
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr "Dit heeft geen invloed op de kwaliteit. Een hoger getal zorgt voor een kleiner bestand."
+msgstr "これは品質に影響しない。高い数字にすると小さいファイルになる"
 
 #: src/interface.c:609
 msgid "FLAC (lossless compression)"
-msgstr "FLAC (zonder kwaliteitsverlies)"
+msgstr "FLAC (ロスなし圧縮)"
 
 #: src/interface.c:613
 msgid "Encode"
-msgstr "Encodering"
+msgstr "エンコード"
 
 #: src/interface.c:634
 msgid "Get disc info from the internet"
-msgstr "Verkrijg schijfinformatie van het internet"
+msgstr "ディスクの情報をインターネットから取得"
 
 #: src/interface.c:642
 msgid "Use HTTP proxy to connect to the internet"
-msgstr "Maak gebruik van HTTP-proxy om te verbinden met het internet"
+msgstr "インターネット接続に HTTP プロクシを使う"
 
 #: src/interface.c:654
 msgid "Server: "
-msgstr "Server: "
+msgstr "サーバ:"
 
 #: src/interface.c:666
 msgid "Port: "
-msgstr "Poort: "
+msgstr "ポート:"
 
 #: src/interface.c:678
 msgid "Advanced"
-msgstr "Geavanceerd"
+msgstr "詳細"
 
 #: src/interface.c:802
 #: src/interface.c:838
 msgid "Ripping"
-msgstr "Rippen"
+msgstr "吸い出し"
 
-#
 #: src/interface.c:831
 msgid "Total progress"
-msgstr "Totale voortgang"
+msgstr "全体の進行"
 
 #: src/interface.c:845
 msgid "Encoding"
-msgstr "Encoderen"
+msgstr "エンコーディング"
 
-#: src/interface.c:1042
+#: src/interface.c:1067
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] "%d bestand succesvol aangemaakt"
-msgstr[1] "%d bestanden succesvol aangemaakt"
+msgstr[0] "%d 個のファイルを作成しました"
 
-#: src/interface.c:1051
+#: src/interface.c:1076
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] "Er is een fout opgestreden bij het aanmaken van %d bestand"
-msgstr[1] "Er is een fout opgestreden bij het aanmaken van %d bestanden"
+msgstr[0] "%d 個のファイルを作成中にエラー"
 
 #: src/prefs.c:515
 #: src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
-msgstr "Ongeldige tekens in het '%s'-veld"
+msgstr "'%s' の欄に不正な文字があります"
 
 #: src/prefs.c:537
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr "'%s' mag niet leeg zijn"
+msgstr "'%s' は空にできません"
 
 #: src/prefs.c:552
 msgid "Invalid proxy port number"
-msgstr "Ongeldig proxypoortnummer"
+msgstr "不正なプロキシポート番号"
 
 #: src/threads.c:128
 msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "Er is geen methode geselecteerd voor het rippen/encoderen. Selecteer een methode via het menu 'Voorkeuren'."
+msgstr "吸い出す/エンコーディングする方法を選んでいません。設定メニューで選んでください"
 
 #: src/threads.c:159
 msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "Er zijn geen tracks geselecteerd om te rippen/encoderen. Selecteer minimaal één track."
+msgstr "吸い出す/エンコーディングするトラックを選んでいません。最低１つは選んでください"
 
 #: src/threads.c:616
 #: src/threads.c:618
 #: src/threads.c:622
 msgid "Waiting..."
-msgstr "Aan het wachten..."
-
-#, fuzzy
-#~ msgid "Playlist file"
-#~ msgstr "Afspeellijstbestand: "
-
-#, fuzzy
-#~ msgid "Music file"
-#~ msgstr "Muziekbestand: "
-#~ msgid "Create directory for each album"
-#~ msgstr "Creëer een map voor elk album"
-#~ msgid "These characters will be removed from all filenames."
-#~ msgstr "Deze tekens zullen worden verwijderd uit alle bestandsnamen."
-#~ msgid "Asunder"
-#~ msgstr "Asunder"
+msgstr "待機中..."
 
