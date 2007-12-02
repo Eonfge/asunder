@@ -20,7 +20,7 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
 dnl Add the languages which your application supports here.
-ALL_LINGUAS="ca cs de el es fi fr hu it nb nl nn pt_BR ru sq sv zh_TW"
+ALL_LINGUAS="ca cs de el es fi fr hu it ja nb nl nn pl pt_BR ru sq sv zh_TW"
 AM_GLIB_GNU_GETTEXT
 
 CFLAGS="$CFLAGS -Wall -pedantic -std=gnu99 -Wundef -Wcast-align -W -Wpointer-arith -Wwrite-strings -Wno-unused-parameter"
