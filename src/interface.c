@@ -57,13 +57,15 @@ create_main (void)
     GtkWidget *single_artist;
     GtkWidget *scrolledwindow1;
     GtkWidget *tracklist;
-    GtkWidget *alignment4;
     GtkWidget *rip_button;
     GtkWidget *alignment3;
     GtkWidget *hbox4;
     GtkWidget *image1;
     GtkWidget *label8;
-
+    GtkWidget* hbox5;
+    GtkWidget* fillerBox;
+    GtkWidget* statusLbl;
+    
     main_win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title (GTK_WINDOW (main_win), "Asunder");
     
@@ -164,16 +166,25 @@ create_main (void)
     gtk_container_add (GTK_CONTAINER (scrolledwindow1), tracklist);
     gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (tracklist), TRUE);
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (tracklist), FALSE);
-
-    alignment4 = gtk_alignment_new (1, 0.5, 0, 1);
-    gtk_widget_show (alignment4);
-    gtk_box_pack_start (GTK_BOX (vbox1), alignment4, FALSE, FALSE, 0);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment4), 5, 5, 5, 5);
-
+    
+    hbox5 = gtk_hbox_new(FALSE, 5);
+    gtk_box_pack_start(GTK_BOX (vbox1), hbox5, FALSE, TRUE, 5);
+    gtk_widget_show(hbox5);
+    
+    statusLbl = gtk_label_new("");
+    gtk_label_set_use_markup(GTK_LABEL(statusLbl), TRUE);
+    gtk_misc_set_alignment(GTK_MISC(statusLbl), 0, 0.5);
+    gtk_box_pack_start(GTK_BOX (hbox5), statusLbl, TRUE, TRUE, 0);
+    gtk_widget_show(statusLbl);
+    
+    fillerBox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX (hbox5), fillerBox, TRUE, TRUE, 0);
+    gtk_widget_show(hbox5);
+    
     rip_button = gtk_button_new ();
-    gtk_widget_show (rip_button);
-    gtk_container_add (GTK_CONTAINER (alignment4), rip_button);
-
+    gtk_widget_show(rip_button);
+    gtk_box_pack_start(GTK_BOX (hbox5), rip_button, FALSE, FALSE, 5);
+    
     alignment3 = gtk_alignment_new (0.5, 0.5, 0, 0);
     gtk_widget_show (alignment3);
     gtk_container_add (GTK_CONTAINER (rip_button), alignment3);
@@ -181,7 +192,7 @@ create_main (void)
     hbox4 = gtk_hbox_new (FALSE, 2);
     gtk_widget_show (hbox4);
     gtk_container_add (GTK_CONTAINER (alignment3), hbox4);
-
+    
     image1 = gtk_image_new_from_stock ("gtk-cdrom", GTK_ICON_SIZE_BUTTON);
     gtk_widget_show (image1);
     gtk_box_pack_start (GTK_BOX (hbox4), image1, FALSE, FALSE, 0);
@@ -267,13 +278,13 @@ create_main (void)
     GLADE_HOOKUP_OBJECT (main_win, single_artist, "single_artist");
     GLADE_HOOKUP_OBJECT (main_win, scrolledwindow1, "scrolledwindow1");
     GLADE_HOOKUP_OBJECT (main_win, tracklist, "tracklist");
-    GLADE_HOOKUP_OBJECT (main_win, alignment4, "alignment4");
     GLADE_HOOKUP_OBJECT (main_win, rip_button, "rip_button");
     GLADE_HOOKUP_OBJECT (main_win, alignment3, "alignment3");
     GLADE_HOOKUP_OBJECT (main_win, hbox4, "hbox4");
     GLADE_HOOKUP_OBJECT (main_win, image1, "image1");
     GLADE_HOOKUP_OBJECT (main_win, label8, "label8");
-
+    GLADE_HOOKUP_OBJECT (main_win, statusLbl, "statusLbl");
+    
     return main_win;
 }
 
@@ -876,6 +887,36 @@ create_ripping (void)
     GLADE_HOOKUP_OBJECT (ripping, cancel, "cancel");
 
     return ripping;
+}
+
+void disable_all_main_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_main, "refresh"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "preferences"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "about"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "disc"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "album_artist"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "artist_label"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "title_label"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "album_title"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "single_artist"), FALSE);
+    gtk_widget_set_sensitive(tracklist, FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), FALSE);
+}
+
+void enable_all_main_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_main, "refresh"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "preferences"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "about"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "disc"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "album_artist"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "artist_label"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "title_label"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "album_title"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "single_artist"), TRUE);
+    gtk_widget_set_sensitive(tracklist, TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), TRUE);
 }
 
 void disable_flac_widgets(void)

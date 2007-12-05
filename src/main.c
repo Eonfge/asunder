@@ -383,26 +383,26 @@ GList * lookup_disc(cddb_disc_t * disc)
     
     // show cddb update window
     gdk_threads_enter();
-        GtkWidget* window;
-        GtkWidget* box;
-        GtkWidget* label;
+        //~ GtkWidget* window;
+        //~ GtkWidget* box;
+        //~ GtkWidget* label;
         
-        window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-        gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(win_main));
-        gtk_window_set_modal(GTK_WINDOW(window), TRUE);
-        gtk_window_set_title(GTK_WINDOW(window), "Asunder - CDDB");
-        gtk_window_set_decorated(GTK_WINDOW(window), FALSE);
-        g_signal_connect((gpointer)window, "delete-event",
-                          G_CALLBACK (on_cddb_update_closed), &window);
+        //~ window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+        //~ gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(win_main));
+        //~ gtk_window_set_modal(GTK_WINDOW(window), TRUE);
+        //~ gtk_window_set_title(GTK_WINDOW(window), "Asunder - CDDB");
+        //~ gtk_window_set_decorated(GTK_WINDOW(window), FALSE);
+        //~ g_signal_connect((gpointer)window, "delete-event",
+                          //~ G_CALLBACK (on_cddb_update_closed), &window);
         
-        box = gtk_vbox_new (FALSE, 5);
-        gtk_widget_show (box);
-        gtk_container_add (GTK_CONTAINER(window), box);
+        //~ box = gtk_vbox_new (FALSE, 5);
+        //~ gtk_widget_show (box);
+        //~ gtk_container_add (GTK_CONTAINER(window), box);
         
-        label = gtk_label_new(_("<b>Getting disc info from the internet...</b>"));
-        gtk_label_set_use_markup(GTK_LABEL(label), TRUE);
-        gtk_box_pack_start(GTK_BOX (box), label, FALSE, FALSE, 0);
-        gtk_widget_show(label);
+        //~ label = gtk_label_new(_("<b>Getting disc info from the internet...</b>"));
+        //~ gtk_label_set_use_markup(GTK_LABEL(label), TRUE);
+        //~ gtk_box_pack_start(GTK_BOX (box), label, FALSE, FALSE, 0);
+        //~ gtk_widget_show(label);
         
         //~ GtkWidget* button;
         //~ button = gtk_button_new_from_stock ("gtk-close");
@@ -411,7 +411,7 @@ GList * lookup_disc(cddb_disc_t * disc)
         //~ g_signal_connect((gpointer)button, "clicked",
                           //~ G_CALLBACK (on_cddb_update_close_clicked), &window);
         
-        gtk_widget_show(window);
+        //~ gtk_widget_show(window);
         
         //~ GtkWidget* dialog;
         //~ dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
@@ -422,6 +422,12 @@ GList * lookup_disc(cddb_disc_t * disc)
         //~ gtk_window_set_modal(GTK_WINDOW(dialog), TRUE);
         //~ gtk_dialog_run(GTK_DIALOG(dialog));
         
+        disable_all_main_widgets();
+        
+        GtkWidget* statusLbl = lookup_widget(win_main, "statusLbl");
+        gtk_label_set_text(GTK_LABEL(statusLbl), _("<b>Getting disc info from the internet...</b>"));
+        gtk_label_set_use_markup(GTK_LABEL(statusLbl), TRUE);
+        
         while(gbl_cddb_query_thread != NULL)
         {
             while (gtk_events_pending())
@@ -429,9 +435,13 @@ GList * lookup_disc(cddb_disc_t * disc)
             usleep(100000);
         }
         
-        if(window != NULL) /* could have been closed otherwise */
-            gtk_widget_destroy(window);
+        //~ if(window != NULL) /* could have been closed otherwise */
+            //~ gtk_widget_destroy(window);
         //~ gtk_widget_destroy(dialog);
+        
+        gtk_label_set_text(GTK_LABEL(statusLbl), "");
+        
+        enable_all_main_widgets();
     gdk_threads_leave();
     
     // make a list of all the matches
