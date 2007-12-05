@@ -22,12 +22,17 @@ Foundation; version 2 of the licence.
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
-#include <linux/cdrom.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <signal.h>
+
+#ifdef BSD
+    #include <sys/cdio.h>
+#else
+    #include <linux/cdrom.h>
+#endif
 
 #include "main.h"
 #include "interface.h"
@@ -182,6 +187,11 @@ bool check_disc(char * cdrom)
     bool ret = false;
     int status;
     
+#ifdef BSD
+    struct ioc_read_subchannel cdsc;
+    struct cd_sub_channel_info data;
+#endif
+    
     // open the device
     fd = open(cdrom, O_RDONLY | O_NONBLOCK);
     if (fd < 0)
@@ -214,8 +224,18 @@ bool check_disc(char * cdrom)
     static bool alreadyKnowGood = false; /* check when program just started */
     static bool alreadyCleared = true; /* no need to clear when program just started */
     
+#ifdef BSD
+    bzero(&cdsc, sizeof(cdsc));
+    cdsc.data = &data;
+    cdsc.data_len = sizeof(data);
+    cdsc.data_format = CD_CURRENT_POSITION;
+    cdsc.address_format = CD_MSF_FORMAT;
+    status = ioctl(fd, CDIOCREADSUBCHANNEL, (char*)&cdsc);
+    if (status >= 0)
+#else
     status = ioctl(fd, CDROM_DISC_STATUS, CDSL_CURRENT);
     if (status == CDS_AUDIO || status == CDS_MIXED)
+#endif
     {
         if (!alreadyKnowGood)
         {
@@ -312,7 +332,12 @@ void eject_disc(char * cdrom)
     //~ {
         //~ ioctl(fd, CDROMCLOSETRAY, CDSL_CURRENT);
     //~ } else {
+#ifdef BSD
+            ioctl(fd, CDIOCALLOW);
+            ioctl(fd, CDIOCEJECT);
+#else
             ioctl(fd, CDROMEJECT, CDSL_CURRENT);
+#endif
     //~ }
     
     close(fd);
@@ -438,9 +463,16 @@ cddb_disc_t * read_disc(char * cdrom)
 {
     int fd;
     int status;
+    int i;
+#ifdef BSD
+    struct ioc_toc_header th;
+    struct ioc_read_toc_single_entry te;
+    struct ioc_read_subchannel cdsc;
+    struct cd_sub_channel_info data;
+#else
     struct cdrom_tochdr th;
     struct cdrom_tocentry te;
-    int i;
+#endif
     
     cddb_disc_t * disc = NULL;
     cddb_track_t * track = NULL;
@@ -454,7 +486,61 @@ cddb_disc_t * read_disc(char * cdrom)
         fprintf(stderr, "Error: Couldn't open %s\n", cdrom);
         return NULL;
     }
+    
+#ifdef BSD
+    // read disc status info
+    bzero(&cdsc,sizeof(cdsc));
+    cdsc.data = &data;
+    cdsc.data_len = sizeof(data);
+    cdsc.data_format = CD_CURRENT_POSITION;
+    cdsc.address_format = CD_MSF_FORMAT;
+    status = ioctl(fd, CDIOCREADSUBCHANNEL, (char *)&cdsc);
+    if (status >= 0)
+    {
+        // see if we can read the disc's table of contents (TOC).
+        if (ioctl(fd, CDIOREADTOCHEADER, &th) == 0)
+        {
+#ifdef DEBUG
+            printf("starting track: %d\n", th.starting_track);
+            printf("ending track: %d\n", th.ending_track);
+#endif
+            disc = cddb_disc_new();
+            if (disc == NULL)
+                fatalError("cddb_disc_new() failed. Out of memory?");
+            
+            te.address_format = CD_LBA_FORMAT;
+            for (i=th.starting_track; i<=th.ending_track; i++)
+            {
+                te.track = i;
+                if (ioctl(fd, CDIOREADTOCENTRY, &te) == 0)
+                {
+                    if (te.entry.control & 0x04)
+                    {
+                        // track is a DATA track. make sure its "rip" box is not checked by default
+                        track_format[i] = FALSE;
+                    } else {
+                        track_format[i] = TRUE;
+                    }
 
+                    track = cddb_track_new();
+                    if (track == NULL)
+                        fatalError("cddb_track_new() failed. Out of memory?");
+                    
+                    cddb_track_set_frame_offset(track, te.cdte_addr.lba+SECONDS_TO_FRAMES(2));
+                    snprintf(trackname, 9, "Track %d", i);
+                    cddb_track_set_title(track, trackname);
+                    cddb_track_set_artist(track, "Unknown Artist");
+                    cddb_disc_add_track(disc, track);
+                }
+            }
+            te.cdte_track = CDROM_LEADOUT;
+            if (ioctl(fd, CDROMREADTOCENTRY, &te) == 0)
+            {
+                cddb_disc_set_length(disc, (te.cdte_addr.lba+SECONDS_TO_FRAMES(2))/SECONDS_TO_FRAMES(1));
+            }
+        }
+    }
+#else
     // read disc status info
     status = ioctl(fd, CDROM_DISC_STATUS, CDSL_CURRENT);
     if ((status == CDS_AUDIO) || (status == CDS_MIXED))
@@ -487,14 +573,15 @@ cddb_disc_t * read_disc(char * cdrom)
                     track = cddb_track_new();
                     if (track == NULL)
                         fatalError("cddb_track_new() failed. Out of memory?");
-                    
-                    cddb_track_set_frame_offset(track, te.cdte_addr.lba+SECONDS_TO_FRAMES(2));
+
+                    cddb_track_set_frame_offset(track, te.cdte_addr.lba + SECONDS_TO_FRAMES(2));
                     snprintf(trackname, 9, "Track %d", i);
                     cddb_track_set_title(track, trackname);
                     cddb_track_set_artist(track, "Unknown Artist");
                     cddb_disc_add_track(disc, track);
                 }
             }
+            
             te.cdte_track = CDROM_LEADOUT;
             if (ioctl(fd, CDROMREADTOCENTRY, &te) == 0)
             {
@@ -502,6 +589,7 @@ cddb_disc_t * read_disc(char * cdrom)
             }
         }
     }
+#endif
     close(fd);
 
     return disc;
