@@ -113,12 +113,12 @@ void dorip()
     flac_percent = 0.0;
     rip_tracks_completed = 0;
     encode_tracks_completed = 0;
-
+    
     const char * albumartist = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_artist")));
     const char * albumtitle = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_title")));
     char * albumdir = parse_format(global_prefs->format_albumdir, 0, albumartist, albumtitle, NULL);
     char * playlist = parse_format(global_prefs->format_playlist, 0, albumartist, albumtitle, NULL);
-
+    
     // make sure there's at least one format to rip to
     if (!global_prefs->rip_wav && !global_prefs->rip_mp3 && !global_prefs->rip_ogg && !global_prefs->rip_flac)
     {

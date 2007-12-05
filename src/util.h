@@ -49,4 +49,4 @@ void trim_whitespace(char * str);
 //
 // str - the string to trim
 // bad - the sting containing all the characters to remove
-void trim_chars(char * str, char * bad);
+void trim_chars(char * str, const char * bad);

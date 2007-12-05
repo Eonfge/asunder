@@ -349,7 +349,6 @@ int recursive_parent_mkdir(char* pathAndName, mode_t mode)
 {
     int count;
     bool haveComponent = false;
-    char charReplaced;
     int rc = 1; // guaranteed fail unless mkdir is called
     
     // find the last component and cut it off
@@ -373,7 +372,7 @@ int recursive_parent_mkdir(char* pathAndName, mode_t mode)
 //
 // str - the string to trim
 // bad - the sting containing all the characters to remove
-void trim_chars(char * str, char * bad)
+void trim_chars(char * str, const char * bad)
 {
     int i;
     int pos;
