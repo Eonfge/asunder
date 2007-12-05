@@ -102,7 +102,7 @@ void
 on_press_f2                       (void);
 
 void
-on_refresh_clicked                     (GtkToolButton   *toolbutton,
+on_lookup_clicked                     (GtkToolButton   *toolbutton,
                                         gpointer         user_data);
 
 void

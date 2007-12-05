@@ -44,7 +44,7 @@ create_main (void)
     GtkWidget *vbox1;
     GtkWidget *toolbar1;
     gint tmp_toolbar_icon_size;
-    GtkWidget *refresh;
+    GtkWidget *lookup;
     GtkWidget *preferences;
     GtkWidget *separatortoolitem1;
     GtkWidget *table2;
@@ -86,11 +86,14 @@ create_main (void)
     gtk_box_pack_start (GTK_BOX (vbox1), toolbar1, FALSE, FALSE, 0);
     gtk_toolbar_set_style (GTK_TOOLBAR (toolbar1), GTK_TOOLBAR_BOTH_HORIZ);
     tmp_toolbar_icon_size = gtk_toolbar_get_icon_size (GTK_TOOLBAR (toolbar1));
-
-    refresh = (GtkWidget*) gtk_tool_button_new_from_stock ("gtk-refresh");
-    gtk_widget_show (refresh);
-    gtk_container_add (GTK_CONTAINER (toolbar1), refresh);
-    gtk_tool_item_set_is_important (GTK_TOOL_ITEM (refresh), TRUE);
+    
+    GtkWidget* icon;
+    icon = gtk_image_new_from_stock(GTK_STOCK_REFRESH, gtk_toolbar_get_icon_size(GTK_TOOLBAR(toolbar1)));
+    gtk_widget_show (icon);
+    lookup = (GtkWidget*)gtk_tool_button_new(icon, _("CDDB Lookup"));
+    gtk_widget_show (lookup);
+    gtk_container_add (GTK_CONTAINER (toolbar1), lookup);
+    gtk_tool_item_set_is_important (GTK_TOOL_ITEM (lookup), TRUE);
 
     preferences = (GtkWidget*) gtk_tool_button_new_from_stock ("gtk-preferences");
     gtk_widget_show (preferences);
@@ -209,8 +212,8 @@ create_main (void)
                                         G_CALLBACK (on_tracklist_mouse_click), 
                                         NULL);
     
-    g_signal_connect ((gpointer) refresh, "clicked",
-                                        G_CALLBACK (on_refresh_clicked),
+    g_signal_connect ((gpointer) lookup, "clicked",
+                                        G_CALLBACK (on_lookup_clicked),
                                         NULL);
     g_signal_connect ((gpointer) preferences, "clicked",
                                         G_CALLBACK (on_preferences_clicked),
@@ -262,7 +265,7 @@ create_main (void)
     GLADE_HOOKUP_OBJECT_NO_REF (main_win, main_win, "main");
     GLADE_HOOKUP_OBJECT (main_win, vbox1, "vbox1");
     GLADE_HOOKUP_OBJECT (main_win, toolbar1, "toolbar1");
-    GLADE_HOOKUP_OBJECT (main_win, refresh, "refresh");
+    GLADE_HOOKUP_OBJECT (main_win, lookup, "lookup");
     GLADE_HOOKUP_OBJECT (main_win, preferences, "preferences");
     GLADE_HOOKUP_OBJECT (main_win, separatortoolitem1, "separatortoolitem1");
 #if GTK_MINOR_VERSION >= 6
@@ -642,7 +645,7 @@ create_prefs (void)
     gtk_widget_show (vbox);
     gtk_container_add (GTK_CONTAINER (notebook1), vbox);
     
-    do_cddb_updates = gtk_check_button_new_with_mnemonic (_("Get disc info from the internet"));
+    do_cddb_updates = gtk_check_button_new_with_mnemonic (_("Get disc info from the internet automatically"));
     gtk_widget_show (do_cddb_updates);
     gtk_box_pack_start (GTK_BOX (vbox), do_cddb_updates, FALSE, FALSE, 0);
     
@@ -891,7 +894,7 @@ create_ripping (void)
 
 void disable_all_main_widgets(void)
 {
-    gtk_widget_set_sensitive(lookup_widget(win_main, "refresh"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "lookup"), FALSE);
     gtk_widget_set_sensitive(lookup_widget(win_main, "preferences"), FALSE);
     gtk_widget_set_sensitive(lookup_widget(win_main, "about"), FALSE);
     gtk_widget_set_sensitive(lookup_widget(win_main, "disc"), FALSE);
@@ -906,7 +909,7 @@ void disable_all_main_widgets(void)
 
 void enable_all_main_widgets(void)
 {
-    gtk_widget_set_sensitive(lookup_widget(win_main, "refresh"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "lookup"), TRUE);
     gtk_widget_set_sensitive(lookup_widget(win_main, "preferences"), TRUE);
     gtk_widget_set_sensitive(lookup_widget(win_main, "about"), TRUE);
     gtk_widget_set_sensitive(lookup_widget(win_main, "disc"), TRUE);

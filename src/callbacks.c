@@ -234,8 +234,8 @@ on_press_f2                       (void)
 }
 
 void
-on_refresh_clicked                     (GtkToolButton   *toolbutton,
-                                        gpointer         user_data)
+on_lookup_clicked                     (GtkToolButton   *toolbutton,
+                                       gpointer         user_data)
 {
     /* i need to lock myself in refresh()->lookup_disc() */
     /* another possible solution for this problem:

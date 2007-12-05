@@ -362,9 +362,6 @@ GList * lookup_disc(cddb_disc_t * disc)
     int i;
     GList * matches = NULL;
     
-    if (!global_prefs->do_cddb_updates)
-        return NULL;
-    
     // set up the connection to the cddb server
     gbl_cddb_query_thread_conn = cddb_new();
     if (gbl_cddb_query_thread_conn == NULL)
@@ -648,7 +645,7 @@ void refresh(char * cdrom, int force)
 {
     cddb_disc_t * disc;
     GList * curr;
-
+    
     if (check_disc(cdrom) || force)
     {
         disc = read_disc(cdrom);
@@ -661,13 +658,16 @@ void refresh(char * cdrom, int force)
         gtk_entry_set_text(GTK_ENTRY(album_artist), "Unknown Artist");
         gtk_entry_set_text(GTK_ENTRY(album_title), "Unknown Album");
         update_tracklist(disc);
-
+        
         // clear out the previous list of matches
         for (curr = g_list_first(disc_matches); curr != NULL; curr = g_list_next(curr))
         {
             cddb_disc_destroy((cddb_disc_t *)curr->data);
         }
         g_list_free(disc_matches);
+        
+        if (!global_prefs->do_cddb_updates && !force)
+            return;
         
         disc_matches = lookup_disc(disc);
         cddb_disc_destroy(disc);
