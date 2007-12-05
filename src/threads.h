@@ -1,4 +1,7 @@
-extern int aborted;
+#include <stdbool.h>
+
+extern bool working;
+extern bool aborted;
 
 // aborts ripping- stops all the threads and return to normal execution
 void abort_threads();

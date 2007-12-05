@@ -37,7 +37,11 @@ static FILE * playlist_mp3 = NULL;
 static FILE * playlist_ogg = NULL;
 static FILE * playlist_flac = NULL;
 
-int aborted;
+/* ripping or encoding, so that can know not to clear the tracklist on eject */
+bool working;
+/* for canceling */
+bool aborted;
+/* for stopping the tracking thread */
 bool allDone;
 
 static GThread * ripper;
@@ -55,7 +59,7 @@ static int encode_tracks_completed;
 // aborts ripping- stops all the threads and return to normal execution
 void abort_threads()
 {
-    aborted = 1;
+    aborted = true;
 
     if (cdparanoia_pid != 0) 
         kill(cdparanoia_pid, SIGKILL);
@@ -95,6 +99,7 @@ void abort_threads()
     
     gtk_widget_hide(win_ripping);
     gdk_flush();
+    working = false;
     show_completed_dialog(numCdparanoiaOk + numLameOk + numOggOk + numFlacOk,
                           numCdparanoiaFailed + numLameFailed + numOggFailed + numFlacFailed);
 }
@@ -102,7 +107,8 @@ void abort_threads()
 // spawn needed threads and begin ripping
 void dorip()
 {
-    aborted = 0;
+    working = true;
+    aborted = false;
     allDone = false;
     counter = 0;
     barrier = g_mutex_new();
@@ -597,6 +603,7 @@ gpointer encode(gpointer data)
     }
     
     allDone = true; // so the tracker thread will exit
+    working = false;
     
     gdk_threads_enter();
         gtk_widget_hide(win_ripping);

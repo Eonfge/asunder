@@ -41,7 +41,7 @@ Foundation; version 2 of the licence.
 #include "callbacks.h"
 #include "util.h"
 #include "wrappers.h"
-
+#include "threads.h"
 
 GList * disc_matches = NULL;
 gboolean track_format[100];
@@ -57,7 +57,6 @@ GtkWidget * tracklist;
 GtkWidget * pick_disc;
 
 int gbl_null_fd;
-
 
 int main(int argc, char *argv[])
 {
@@ -645,6 +644,10 @@ void refresh(char * cdrom, int force)
 {
     cddb_disc_t * disc;
     GList * curr;
+    
+    if(working)
+    /* don't do nothing */
+        return;
     
     if (check_disc(cdrom) || force)
     {
