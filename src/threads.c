@@ -37,7 +37,8 @@ static FILE * playlist_mp3 = NULL;
 static FILE * playlist_ogg = NULL;
 static FILE * playlist_flac = NULL;
 
-int aborted = 0;
+int aborted;
+bool allDone;
 
 static GThread * ripper;
 static GThread * encoder;
@@ -102,6 +103,7 @@ void abort_threads()
 void dorip()
 {
     aborted = 0;
+    allDone = false;
     counter = 0;
     barrier = g_mutex_new();
     available = g_cond_new();
@@ -379,7 +381,14 @@ gpointer rip(gpointer data)
         g_mutex_unlock(barrier);
         g_cond_signal(available);
         
-        if (aborted) g_thread_exit(NULL);
+        if (aborted)
+        {
+            if (global_prefs->eject_on_done)
+            {
+                eject_disc(global_prefs->cdrom);
+            }
+            g_thread_exit(NULL);
+        }
         
         gdk_threads_enter();
         rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
@@ -587,7 +596,7 @@ gpointer encode(gpointer data)
         usleep(100000);
     }
     
-    aborted = 1; // so the tracker thread will exit
+    allDone = true; // so the tracker thread will exit
     
     gdk_threads_enter();
         gtk_widget_hide(win_ripping);
@@ -633,7 +642,7 @@ gpointer track(gpointer data)
     double ptotal;
     char stotal[5];
 
-    while (!aborted)
+    while (!aborted && !allDone)
     {
 #ifdef DEBUG
         printf("completed tracks %d, rip %.2f%%; encoded tracks %d, mp3 %.2f%% ogg %.2f%% flac %.2f%%\n", rip_tracks_completed, rip_percent, encode_tracks_completed, mp3_percent, ogg_percent, flac_percent);
