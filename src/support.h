@@ -31,6 +31,8 @@
  * Public Functions.
  */
 
+bool confirmOverwrite(const char* pathAndName);
+
 /*
  * This function returns a widget in a component created by Glade.
  * Call it with the toplevel widget in the component (i.e. a window/dialog),

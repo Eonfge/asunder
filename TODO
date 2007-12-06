@@ -1,10 +1,9 @@
 - need better icon
-- find some way to deal with overwriting music and playlist files
 - look into ID3v1/v2 tags for mp3s
 - include the genre, year in the tags
 - make sure artist + song name is unique
 - make uninstall doesn't remove icon
-- the sliders in the preferences are all weird on suse
+- figure out what's up with the libcddb error (seems easily reproducible in the suse vm), fix it and maybe add a graphical warning to complain
 - other codecs:
  - wavpack (flac-like)
  - faac (mp3-like, apple)
@@ -27,5 +26,5 @@ Tests to run before a release
 - update authors, packagers, translators
 - update AUTHORS
 - cd po && make update-po
-- make dist
+- make dist-bzip2
 - uninstall, extract, compile, install and run

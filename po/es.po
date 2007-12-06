@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-05 08:31-0400\n"
+"POT-Creation-Date: 2007-12-06 03:16-0500\n"
 "PO-Revision-Date: 2007-10-02 16:15-0000\n"
 "Last-Translator: Juan García-Murga Monago <marakaid@gmail.com>\n"
 "Language-Team: \n"
@@ -15,27 +15,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 "X-Poedit-Country: SPAIN\n"
 
-#: src/main.c:109 src/interface.c:189
+#: src/main.c:113 src/interface.c:203
 msgid "Rip"
 msgstr "Extraer"
 
-#: src/main.c:114
+#: src/main.c:118
 msgid "Track"
 msgstr "Pista"
 
-#: src/main.c:121
+#: src/main.c:125
 msgid "Artist"
 msgstr "Artista"
 
-#: src/main.c:128
+#: src/main.c:132
 msgid "Title"
 msgstr "Título"
 
-#: src/main.c:133
+#: src/main.c:137
 msgid "Time"
 msgstr "Tiempo"
 
-#: src/main.c:159
+#: src/main.c:163
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -43,15 +43,15 @@ msgstr ""
 "'cdparanoia' no ha sido encontrado en tu sistema. Es un requisito para que "
 "Asunder pueda extraer CDs."
 
-#: src/main.c:377
+#: src/main.c:424
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Obteniendo información sobre el disco desde Internet..."
 
-#: src/callbacks.c:272
+#: src/callbacks.c:283
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Ningún CD insertado. Por favor introduce un CD en el lector."
 
-#: src/callbacks.c:291 src/callbacks.c:316 src/callbacks.c:341
+#: src/callbacks.c:302 src/callbacks.c:327 src/callbacks.c:352
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -60,47 +60,51 @@ msgstr ""
 "%s no ha sido encontrado en tu sistema. Es un requisito de Asunder para "
 "crear archivos %s. Toda la funcionalidad de %s está desactivada."
 
-#: src/callbacks.c:423
+#: src/callbacks.c:439
 msgid "Select all for ripping"
 msgstr "Seleccionar todas para extracción"
 
-#: src/callbacks.c:429
+#: src/callbacks.c:445
 msgid "Deselect all for ripping"
 msgstr "Desseleccionar todas para la extracción"
 
-#: src/interface.c:131
+#: src/interface.c:93
+msgid "CDDB Lookup"
+msgstr ""
+
+#: src/interface.c:136
 msgid "Disc:"
 msgstr "Disco:"
 
-#: src/interface.c:137
+#: src/interface.c:142
 msgid "Album artist:"
 msgstr "Artista del álbum"
 
-#: src/interface.c:144
+#: src/interface.c:149
 msgid "Album title:"
 msgstr "Título del álbum:"
 
-#: src/interface.c:151
+#: src/interface.c:156
 msgid "Single artist"
 msgstr "Artista de la canción"
 
-#: src/interface.c:339
+#: src/interface.c:353
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: src/interface.c:356 src/interface.c:362
+#: src/interface.c:370 src/interface.c:376
 msgid "Destination folder"
 msgstr "Carpeta destino"
 
-#: src/interface.c:366
+#: src/interface.c:380
 msgid "Create M3U playlist"
 msgstr "Crear lista de reproducción M3U"
 
-#: src/interface.c:374
+#: src/interface.c:388
 msgid "CD-ROM device: "
 msgstr "Dispositivo CD-ROM: "
 
-#: src/interface.c:383
+#: src/interface.c:397
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
@@ -110,15 +114,15 @@ msgstr ""
 "Por ejemplo: /dev/hdc\n"
 "Otro ejemplo: /dev/sr0"
 
-#: src/interface.c:387
+#: src/interface.c:401
 msgid "Eject disc when finished"
 msgstr "Expulsar disco al terminar"
 
-#: src/interface.c:395
+#: src/interface.c:409
 msgid "General"
 msgstr "General"
 
-#: src/interface.c:415
+#: src/interface.c:429
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -130,19 +134,19 @@ msgstr ""
 "%N - Número de pista (2 dígitos)\n"
 "%T - Título de la canción"
 
-#: src/interface.c:425
+#: src/interface.c:439
 msgid "Album directory: "
 msgstr "Directorio del álbum: "
 
-#: src/interface.c:432 src/prefs.c:516
+#: src/interface.c:446 src/prefs.c:516
 msgid "Playlist file: "
 msgstr "Archivo de lista de reproducción: "
 
-#: src/interface.c:439 src/prefs.c:528 src/prefs.c:538
+#: src/interface.c:453 src/prefs.c:528 src/prefs.c:538
 msgid "Music file: "
 msgstr "Archivo de música: "
 
-#: src/interface.c:453
+#: src/interface.c:467
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -154,7 +158,7 @@ msgstr ""
 "Por defecto: %A - %L\n"
 "Otro ejemplo: %A/%L"
 
-#: src/interface.c:465
+#: src/interface.c:479
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -164,7 +168,7 @@ msgstr ""
 "Puede estar en blanco.\n"
 "Por defecto: %A - %L"
 
-#: src/interface.c:476
+#: src/interface.c:490
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -176,31 +180,31 @@ msgstr ""
 "Por defecto: %A -%T\n"
 "Otro ejemplo: %N - %T"
 
-#: src/interface.c:481
+#: src/interface.c:495
 msgid "Filename formats"
 msgstr "Formatos de nombre de archivo"
 
-#: src/interface.c:486
+#: src/interface.c:500
 msgid "Filenames"
 msgstr "Nombres de archivos"
 
-#: src/interface.c:506
+#: src/interface.c:520
 msgid "WAV (uncompressed)"
 msgstr "WAV (sin comprimir)"
 
-#: src/interface.c:523
+#: src/interface.c:537
 msgid "Variable bit rate (VBR)"
 msgstr "Ratio de bits variable (RBV)"
 
-#: src/interface.c:528
+#: src/interface.c:542
 msgid "Better quality for the same size."
 msgstr "Mejor calidad en el mismo tamaño."
 
-#: src/interface.c:534
+#: src/interface.c:548
 msgid "Bitrate"
 msgstr "Ratio de bits"
 
-#: src/interface.c:545
+#: src/interface.c:559
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
@@ -208,84 +212,85 @@ msgstr ""
 "Mayor tasa de bits por segundo supone mayor calidad pero también un archivo "
 "de mayor tamaño. La mayoría de la gente suele usar 192Kbps."
 
-#: src/interface.c:547
+#: src/interface.c:561
 msgid "32Kbps"
 msgstr "32Kbps"
 
-#: src/interface.c:551
+#: src/interface.c:565
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (compresión con pérdida)"
 
-#: src/interface.c:568
+#: src/interface.c:582
 msgid "Quality"
 msgstr "Calidad"
 
-#: src/interface.c:578
+#: src/interface.c:592
 msgid "Higher quality means bigger file. Default is 6."
 msgstr "Una calidad más alta supone un archivo más grande. Por defecto es 6."
 
-#: src/interface.c:580
+#: src/interface.c:594
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (compresión con pérdida)"
 
-#: src/interface.c:597
+#: src/interface.c:611
 msgid "Compression level"
 msgstr "Nivel de compresión"
 
-#: src/interface.c:607
+#: src/interface.c:621
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr ""
 "Esto no afecta a la calidad. Un número mayor significa un archivo más "
 "pequeño."
 
-#: src/interface.c:609
+#: src/interface.c:623
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (compresión sin pérdida)"
 
-#: src/interface.c:613
+#: src/interface.c:627
 msgid "Encode"
 msgstr "Codificar"
 
-#: src/interface.c:634
-msgid "Get disc info from the internet"
+#: src/interface.c:648
+#, fuzzy
+msgid "Get disc info from the internet automatically"
 msgstr "Obtener información sobre el disco desde Internet"
 
-#: src/interface.c:642
+#: src/interface.c:656
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "Usar proxy HTTP para conectarse a Internet"
 
-#: src/interface.c:654
+#: src/interface.c:668
 msgid "Server: "
 msgstr "Servidor:"
 
-#: src/interface.c:666
+#: src/interface.c:680
 msgid "Port: "
 msgstr "Puerto:"
 
-#: src/interface.c:678
+#: src/interface.c:692
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: src/interface.c:802 src/interface.c:838
+#: src/interface.c:816 src/interface.c:852
 msgid "Ripping"
 msgstr "Extrayendo"
 
-#: src/interface.c:831
+#: src/interface.c:845
 msgid "Total progress"
 msgstr "Progreso total"
 
-#: src/interface.c:845
+#: src/interface.c:859
 msgid "Encoding"
 msgstr "Codificando"
 
-#: src/interface.c:1067
+#: src/interface.c:1111
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Archivo %d creado con éxito"
 msgstr[1] "Archivos %d creados con éxito"
 
-#: src/interface.c:1076
+#: src/interface.c:1120
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -306,7 +311,7 @@ msgstr "'%s' no puede estar vacío"
 msgid "Invalid proxy port number"
 msgstr "Número de puerto del proxy no válido"
 
-#: src/threads.c:128
+#: src/threads.c:136
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -314,7 +319,7 @@ msgstr ""
 "No has seleccionado ningún método de extracción/codificación. Por favor "
 "activa uno en el menú 'Preferencias'."
 
-#: src/threads.c:159
+#: src/threads.c:167
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -322,7 +327,7 @@ msgstr ""
 "Ninguna pista fue seleccionada para extraer/codificar. Por favor selecciona "
 "al menos una pista."
 
-#: src/threads.c:616 src/threads.c:618 src/threads.c:622
+#: src/threads.c:632 src/threads.c:634 src/threads.c:638
 msgid "Waiting..."
 msgstr "Esperando..."
 

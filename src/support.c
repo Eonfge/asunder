@@ -19,10 +19,71 @@ Foundation; version 2 of the licence.
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 #include <gtk/gtk.h>
 
 #include "support.h"
+#include "main.h"
+
+/* set in doRip() first */
+bool overwriteAll;
+bool overwriteNone;
+
+bool confirmOverwrite(const char* pathAndName)
+{
+    GtkWidget* dialog;
+    GtkWidget* label;
+    GtkWidget* checkbox;
+    char* lastSlash;
+    int rc;
+    char msgStr[1024];
+    
+    if(overwriteAll)
+        return true;
+    if(overwriteNone)
+        return false;
+    
+    dialog = gtk_dialog_new_with_buttons(_("Overwrite?"),
+                                         GTK_WINDOW(win_main),
+                                         GTK_DIALOG_DESTROY_WITH_PARENT,
+                                         GTK_STOCK_YES,
+                                         GTK_RESPONSE_ACCEPT,
+                                         GTK_STOCK_NO,
+                                         GTK_RESPONSE_REJECT,
+                                         NULL);
+    gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_REJECT);
+    
+    lastSlash = strrchr(pathAndName, '/');
+    lastSlash++;
+    
+    snprintf(msgStr, 1024, _("The file '%s' already exists. Do you want to overwrite it?\n"), lastSlash);
+    
+    label = gtk_label_new(msgStr);
+    gtk_widget_show(label);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), label, TRUE, TRUE, 0);
+    
+    checkbox = gtk_check_button_new_with_mnemonic(_("Remember the answer for _all the files made from this CD"));
+    gtk_widget_show(checkbox);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), checkbox, TRUE, TRUE, 0);
+    
+    rc = gtk_dialog_run(GTK_DIALOG(dialog));
+    
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(checkbox)))
+    {
+        if(rc == GTK_RESPONSE_ACCEPT)
+            overwriteAll = true;
+        else
+            overwriteNone = true;
+    }
+    
+    gtk_widget_destroy(dialog);
+    
+    if(rc == GTK_RESPONSE_ACCEPT)
+        return true;
+    else
+        return false;
+}
 
 GtkWidget*
 lookup_widget                          (GtkWidget       *widget,
