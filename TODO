@@ -2,15 +2,12 @@
 - find some way to deal with overwriting music and playlist files
 - look into ID3v1/v2 tags for mp3s
 - include the genre, year in the tags
-- make sure can't edit artist or title to ''
 - make sure artist + song name is unique
-- 'No CD is inserted. Please insert a CD into the specified CD-ROM drive or
-revise the corresponding preferences.'
-- look into adding faac support
-- look into adding wavpack support
 - make uninstall doesn't remove icon
 - the sliders in the preferences are all weird on suse
-
+- other codecs:
+ - wavpack (flac-like)
+ - faac (mp3-like, apple)
 
 Low Priority
 ============

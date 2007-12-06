@@ -85,7 +85,11 @@ on_album_artist_focus_out_event        (GtkWidget       *widget,
     
     trim_chars(text, "/");
     trim_whitespace(text);
-    gtk_entry_set_text(GTK_ENTRY(widget), text);
+    
+    if(text[0] == '\0')
+        gtk_entry_set_text(GTK_ENTRY(widget), "unknown");
+    else
+        gtk_entry_set_text(GTK_ENTRY(widget), text);
     
     free(text);
     return FALSE;
@@ -104,7 +108,11 @@ on_album_title_focus_out_event         (GtkWidget       *widget,
     
     trim_chars(text, "/");
     trim_whitespace(text);
-    gtk_entry_set_text(GTK_ENTRY(widget), text);
+    
+    if(text[0] == '\0')
+        gtk_entry_set_text(GTK_ENTRY(widget), "unknown");
+    else
+        gtk_entry_set_text(GTK_ENTRY(widget), text);
     
     free(text);
     return FALSE;
@@ -119,13 +127,16 @@ on_artist_edited                    (GtkCellRendererText *cell,
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
-    //~ printf("edited artist to '%s'\n", new_text);
+    
     trim_chars(new_text, "/");
     trim_whitespace(new_text);
+    
     gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
-    gtk_list_store_set(store, &iter,
-            COL_TRACKARTIST, new_text,
-            -1);
+    
+    if(new_text[0] == '\0')
+        gtk_list_store_set(store, &iter, COL_TRACKARTIST, "unknown", -1);
+    else
+        gtk_list_store_set(store, &iter, COL_TRACKARTIST, new_text, -1);
 }
 
 void
@@ -398,13 +409,18 @@ on_title_edited                    (GtkCellRendererText *cell,
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
-    //~ printf("edited title to '%s'\n", new_text);
+    
     trim_chars(new_text, "/");
     trim_whitespace(new_text);
+    
     gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
-    gtk_list_store_set(store, &iter,
-            COL_TRACKTITLE, new_text,
-            -1);
+    
+    if(new_text[0] == '\0')
+        gtk_list_store_set(store, &iter, COL_TRACKTITLE, "unknown", -1);
+    else
+        gtk_list_store_set(store, &iter, COL_TRACKTITLE, new_text, -1);
+    
+    
 }
 
 gboolean
