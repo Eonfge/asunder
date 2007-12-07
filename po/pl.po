@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-06 03:16-0500\n"
+"POT-Creation-Date: 2007-12-07 00:14-0500\n"
 "PO-Revision-Date: 2007-10-05 08:31-0400\n"
 "Last-Translator: Marcin Gasiorowski <marcin_g@epf.pl>\n"
 "Language-Team: \n"
@@ -42,7 +42,7 @@ msgstr ""
 "Brak programu 'cdparanoia'. Asunder potrzebuje programu cdparanoia do "
 "zgrywania dysków CD."
 
-#: src/main.c:424
+#: src/main.c:434
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Pobieranie informacji o dysku z internetu...</b>"
 
@@ -308,14 +308,27 @@ msgstr "Pole '%s' nie może być puste"
 msgid "Invalid proxy port number"
 msgstr "Zły numer portu serwera proxy"
 
-#: src/threads.c:136
+#: src/support.c:47
+msgid "Overwrite?"
+msgstr ""
+
+#: src/support.c:60
+#, c-format
+msgid "The file '%s' already exists. Do you want to overwrite it?\n"
+msgstr ""
+
+#: src/support.c:66
+msgid "Remember the answer for _all the files made from this CD"
+msgstr ""
+
+#: src/threads.c:142
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
 "Nie wybrano metody zgrywania/kodowania. Wybierz jedną zmenu 'Preferencje'."
 
-#: src/threads.c:167
+#: src/threads.c:173
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -323,6 +336,6 @@ msgstr ""
 "Nie wybrano żadnej ścieżki do zgrywania/kodowania. Wybierz przynajmniej "
 "jedną ścieżkę."
 
-#: src/threads.c:632 src/threads.c:634 src/threads.c:638
+#: src/threads.c:793 src/threads.c:795 src/threads.c:799
 msgid "Waiting..."
 msgstr "Oczekiwanie..."

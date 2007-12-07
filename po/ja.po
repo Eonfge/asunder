@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-06 03:16-0500\n"
+"POT-Creation-Date: 2007-12-07 00:14-0500\n"
 "PO-Revision-Date: 2007-12-02 20:53+0900\n"
 "Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
@@ -43,7 +43,7 @@ msgid ""
 "CDs."
 msgstr "cdparanoia が見つかりません。CD を吸い出すには Asunder が必要です"
 
-#: src/main.c:424
+#: src/main.c:434
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>ディスクの情報をインターネットから取得</b>"
 
@@ -306,7 +306,20 @@ msgstr "'%s' は空にできません"
 msgid "Invalid proxy port number"
 msgstr "不正なプロキシポート番号"
 
-#: src/threads.c:136
+#: src/support.c:47
+msgid "Overwrite?"
+msgstr ""
+
+#: src/support.c:60
+#, c-format
+msgid "The file '%s' already exists. Do you want to overwrite it?\n"
+msgstr ""
+
+#: src/support.c:66
+msgid "Remember the answer for _all the files made from this CD"
+msgstr ""
+
+#: src/threads.c:142
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -314,7 +327,7 @@ msgstr ""
 "吸い出す/エンコーディングする方法を選んでいません。設定メニューで選んでくださ"
 "い"
 
-#: src/threads.c:167
+#: src/threads.c:173
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -322,6 +335,6 @@ msgstr ""
 "吸い出す/エンコーディングするトラックを選んでいません。最低１つは選んでくださ"
 "い"
 
-#: src/threads.c:632 src/threads.c:634 src/threads.c:638
+#: src/threads.c:793 src/threads.c:795 src/threads.c:799
 msgid "Waiting..."
 msgstr "待機中..."

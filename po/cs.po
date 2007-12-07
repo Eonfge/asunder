@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-06 03:16-0500\n"
+"POT-Creation-Date: 2007-12-07 00:14-0500\n"
 "PO-Revision-Date: 2007-09-30 11:25+0200\n"
 "Last-Translator: Schmaki <smallsmaky@seznam.cz>\n"
 "Language-Team:  <cs@li.org>\n"
@@ -44,7 +44,7 @@ msgstr ""
 "'cdparanoia' nebyl nalezen v proměnné $PATH. Asunder potřebuje program "
 "cdparanoia, aby mohl ripovat CD."
 
-#: src/main.c:424
+#: src/main.c:434
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Získávání informací o disku z internetu</b>"
 
@@ -314,7 +314,20 @@ msgstr "'%s' nesmí být prázdné"
 msgid "Invalid proxy port number"
 msgstr "Neplatné číslo portu proxy"
 
-#: src/threads.c:136
+#: src/support.c:47
+msgid "Overwrite?"
+msgstr ""
+
+#: src/support.c:60
+#, c-format
+msgid "The file '%s' already exists. Do you want to overwrite it?\n"
+msgstr ""
+
+#: src/support.c:66
+msgid "Remember the answer for _all the files made from this CD"
+msgstr ""
+
+#: src/threads.c:142
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -322,7 +335,7 @@ msgstr ""
 "Nebyla zvolena metoda ripování/kódování. Prosím, povolte jednu v menu "
 "'Nastavení'."
 
-#: src/threads.c:167
+#: src/threads.c:173
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -330,6 +343,6 @@ msgstr ""
 "Žádná stopa nebyla vybrána pro ripování/kódování. Prosím, vyberte alespoň "
 "jednu stopu."
 
-#: src/threads.c:632 src/threads.c:634 src/threads.c:638
+#: src/threads.c:793 src/threads.c:795 src/threads.c:799
 msgid "Waiting..."
 msgstr "Čekám..."

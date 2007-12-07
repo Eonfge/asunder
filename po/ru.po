@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-06 03:16-0500\n"
+"POT-Creation-Date: 2007-12-07 00:14-0500\n"
 "PO-Revision-Date: 2007-10-28 01:49+0800\n"
 "Last-Translator: Goodvin aka Alexey Sivakov <asivakov@gmail.com>\n"
 "Language-Team: 11 <1>\n"
@@ -46,7 +46,7 @@ msgstr ""
 "'cdparanoia' не найдена по указанному пути. Asunder требует наличия "
 "cdparanoia для извлечения дорожек с CD."
 
-#: src/main.c:424
+#: src/main.c:434
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Получение информаций о диске из сети...</b>"
 
@@ -312,7 +312,20 @@ msgstr "'%s' не может быть пустым"
 msgid "Invalid proxy port number"
 msgstr "Неверный номер порта прокси"
 
-#: src/threads.c:136
+#: src/support.c:47
+msgid "Overwrite?"
+msgstr ""
+
+#: src/support.c:60
+#, c-format
+msgid "The file '%s' already exists. Do you want to overwrite it?\n"
+msgstr ""
+
+#: src/support.c:66
+msgid "Remember the answer for _all the files made from this CD"
+msgstr ""
+
+#: src/threads.c:142
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -320,7 +333,7 @@ msgstr ""
 "Не выбран метод извлечения/кодирования дорожек. Выберите один из указанных в "
 "меню 'Preferences'."
 
-#: src/threads.c:167
+#: src/threads.c:173
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -328,7 +341,7 @@ msgstr ""
 "Не выбраны дорожки для извлечения/кодирования. Пожалуйста, выберите как "
 "минимум одну дорожку."
 
-#: src/threads.c:632 src/threads.c:634 src/threads.c:638
+#: src/threads.c:793 src/threads.c:795 src/threads.c:799
 msgid "Waiting..."
 msgstr "Ожидайте ..."
 

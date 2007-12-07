@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-06 03:16-0500\n"
+"POT-Creation-Date: 2007-12-07 00:14-0500\n"
 "PO-Revision-Date: 2007-10-14 15:10+0100\n"
 "Last-Translator: Stephen Brandt <stephen@stephenbrandt.com>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 "'cdparanoia' kon niet worden gevonden in het opgegeven pad. Asunder heeft "
 "cdparanoia nodig om cd's te rippen."
 
-#: src/main.c:424
+#: src/main.c:434
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr ""
 "<b>Bezig met het verkrijgen van schijfinformatie van het internet...</b>"
@@ -317,7 +317,20 @@ msgstr "'%s' mag niet leeg zijn"
 msgid "Invalid proxy port number"
 msgstr "Ongeldig proxypoortnummer"
 
-#: src/threads.c:136
+#: src/support.c:47
+msgid "Overwrite?"
+msgstr ""
+
+#: src/support.c:60
+#, c-format
+msgid "The file '%s' already exists. Do you want to overwrite it?\n"
+msgstr ""
+
+#: src/support.c:66
+msgid "Remember the answer for _all the files made from this CD"
+msgstr ""
+
+#: src/threads.c:142
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -325,7 +338,7 @@ msgstr ""
 "Er is geen methode geselecteerd voor het rippen/encoderen. Selecteer een "
 "methode via het menu 'Voorkeuren'."
 
-#: src/threads.c:167
+#: src/threads.c:173
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -333,7 +346,7 @@ msgstr ""
 "Er zijn geen tracks geselecteerd om te rippen/encoderen. Selecteer minimaal "
 "één track."
 
-#: src/threads.c:632 src/threads.c:634 src/threads.c:638
+#: src/threads.c:793 src/threads.c:795 src/threads.c:799
 msgid "Waiting..."
 msgstr "Aan het wachten..."
 
