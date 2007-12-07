@@ -48,14 +48,16 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress);
 // bitrate - the bitrate to encode at (or maximum bitrate if using VBR)
 // progress - the percent done
 void lame(int tracknum,
-		char * artist,
-		char * album,
-		char * title,
-		char * wavfilename,
-		char * mp3filename,
-		int vbr,
-		int bitrate,
-		double * progress);
+          char * artist,
+          char * album,
+          char * title,
+          char * genre,
+          char * year,
+          char * wavfilename,
+          char * mp3filename,
+          int vbr,
+          int bitrate,
+          double * progress);
 
 // uses oggenc to encode a WAV file into a OGG and tag it
 //
@@ -68,13 +70,14 @@ void lame(int tracknum,
 // quality_level - how hard to compress the file (0-10)
 // progress - the percent done
 void oggenc(int tracknum,
-		char * artist,
-		char * album,
-		char * title,
-		char * wavfilename,
-		char * oggfilename,
-		int quality_level,
-		double * progress);
+            char * artist,
+            char * album,
+            char * title,
+            char * genre,
+            char * wavfilename,
+            char * oggfilename,
+            int quality_level,
+            double * progress);
 
 // uses the FLAC reference encoder to encode a WAV file into a FLAC and tag it
 //
@@ -87,10 +90,12 @@ void oggenc(int tracknum,
 // compression_level - how hard to compress the file (0-8) see flac man page
 // progress - the percent done
 void flac(int tracknum,
-		char * artist,
-		char * album,
-		char * title,
-		char * wavfilename,
-		char * flacfilename,
-		int compression_level,
-		double * progress);
+          char * artist,
+          char * album,
+          char * title,
+          char * genre,
+          char * year,
+          char * wavfilename,
+          char * flacfilename,
+          int compression_level,
+          double * progress);

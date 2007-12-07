@@ -4,12 +4,14 @@
 
 enum
 {
-	COL_RIPTRACK,
-	COL_TRACKNUM,
-	COL_TRACKARTIST,
-	COL_TRACKTITLE,
-	COL_TRACKTIME,
-	NUM_COLS
+    COL_RIPTRACK,
+    COL_TRACKNUM,
+    COL_TRACKARTIST,
+    COL_TRACKTITLE,
+    COL_TRACKTIME,
+    COL_GENRE,
+    COL_YEAR,
+    NUM_COLS
 };
 
 // scan the cdrom device for a disc

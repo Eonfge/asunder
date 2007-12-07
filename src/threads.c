@@ -128,6 +128,9 @@ void dorip()
     char * albumdir = parse_format(global_prefs->format_albumdir, 0, albumartist, albumtitle, NULL);
     char * playlist = parse_format(global_prefs->format_playlist, 0, albumartist, albumtitle, NULL);
     
+    overwriteAll = false;
+    overwriteNone = false;
+    
     // make sure there's at least one format to rip to
     if (!global_prefs->rip_wav && !global_prefs->rip_mp3 && !global_prefs->rip_ogg && !global_prefs->rip_flac)
     {
@@ -392,9 +395,6 @@ void dorip()
     numOggOk = 0;
     numFlacOk = 0;
     
-    overwriteAll = false;
-    overwriteNone = false;
-    
     ripper = g_thread_create(rip, NULL, TRUE, NULL);
     encoder = g_thread_create(encode, NULL, TRUE, NULL);
     tracker = g_thread_create(track, NULL, TRUE, NULL);
@@ -515,9 +515,14 @@ gpointer encode(gpointer data)
     char * trackartist = NULL;
     char * tracktitle = NULL;
     char * tracktime = NULL;
+    char * genre = NULL;
+    unsigned year;
+    char yearStr[5];
+    char * yearStrPtr;
     int min;
     int sec;
     int i;
+    int rc;
     
     char * album_artist = NULL;
     char * album_title = NULL;
@@ -529,7 +534,6 @@ gpointer encode(gpointer data)
     char * oggfilename = NULL;
     char * flacfilename = NULL;
     struct stat statStruct;
-    int rc;
     bool doEncode;
     
     gdk_threads_enter();
@@ -568,9 +572,17 @@ gpointer encode(gpointer data)
                 COL_TRACKARTIST, &trackartist,
                 COL_TRACKTITLE, &tracktitle,
                 COL_TRACKTIME, &tracktime,
+                COL_GENRE, &genre,
+                COL_YEAR, &year,
                 -1);
         gdk_threads_leave();
         sscanf(tracktime, "%d:%d", &min, &sec);
+        
+        snprintf(yearStr, 5, "%d", year);
+        if(year == 0)
+            yearStrPtr = NULL;
+        else
+            yearStrPtr = yearStr;
         
         if (single_artist)
         {
@@ -607,7 +619,8 @@ gpointer encode(gpointer data)
                     doEncode = true;
                 
                 if(doEncode)
-                    lame(tracknum, trackartist, album_title, tracktitle, wavfilename, mp3filename, global_prefs->mp3_vbr, int_to_bitrate(global_prefs->mp3_bitrate), &mp3_percent);
+                    lame(tracknum, trackartist, album_title, tracktitle, genre, yearStrPtr, wavfilename, mp3filename, 
+                         global_prefs->mp3_vbr, int_to_bitrate(global_prefs->mp3_bitrate), &mp3_percent);
                 
                 if (aborted) g_thread_exit(NULL);
 
@@ -639,7 +652,8 @@ gpointer encode(gpointer data)
                     doEncode = true;
                 
                 if(doEncode)
-                    oggenc(tracknum, trackartist, album_title, tracktitle, wavfilename, oggfilename, global_prefs->ogg_quality, &ogg_percent);
+                    oggenc(tracknum, trackartist, album_title, tracktitle, genre, wavfilename, 
+                           oggfilename, global_prefs->ogg_quality, &ogg_percent);
                 
                 if (aborted) g_thread_exit(NULL);
 
@@ -671,7 +685,8 @@ gpointer encode(gpointer data)
                     doEncode = true;
                 
                 if(doEncode)
-                    flac(tracknum, trackartist, album_title, tracktitle, wavfilename, flacfilename, global_prefs->flac_compression, &flac_percent);
+                    flac(tracknum, trackartist, album_title, tracktitle, genre, yearStrPtr, wavfilename, 
+                         flacfilename, global_prefs->flac_compression, &flac_percent);
                 
                 if (aborted) g_thread_exit(NULL);
                 

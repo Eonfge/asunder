@@ -311,27 +311,29 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
 // bitrate - the bitrate to encode at (or maximum bitrate if using VBR)
 // progress - the percent done
 void lame(int tracknum,
-        char * artist,
-        char * album,
-        char * title,
-        char * wavfilename,
-        char * mp3filename,
-        int vbr,
-        int bitrate,
-        double * progress)
+          char * artist,
+          char * album,
+          char * title,
+          char * genre,
+          char * year,
+          char * wavfilename,
+          char * mp3filename,
+          int vbr,
+          int bitrate,
+          double * progress)
 {
     int fd;
-
+    
     char buf[256];
     int size;
     int pos;
     
     int sector;
     int end;
-
+    
     char tracknum_text[3];
     char bitrate_text[4];
-    const char * args[15];
+    const char * args[19];
 
     snprintf(tracknum_text, 3, "%d", tracknum);
     snprintf(bitrate_text, 4, "%d", bitrate);
@@ -365,6 +367,16 @@ void lame(int tracknum,
     {
         args[pos++] = "--tt";
         args[pos++] = title;
+    }
+    if ((genre != NULL) && (strlen(genre) > 0))
+    {
+        args[pos++] = "--tg";
+        args[pos++] = genre;
+    }
+    if ((year != NULL) && (strlen(year) > 0))
+    {
+        args[pos++] = "--ty";
+        args[pos++] = year;
     }
     args[pos++] = wavfilename;
     args[pos++] = mp3filename;
@@ -419,13 +431,14 @@ void lame(int tracknum,
 // quality_level - how hard to compress the file (0-10)
 // progress - the percent done
 void oggenc(int tracknum,
-        char * artist,
-        char * album,
-        char * title,
-        char * wavfilename,
-        char * oggfilename,
-        int quality_level,
-        double * progress)
+            char * artist,
+            char * album,
+            char * title,
+            char * genre,
+            char * wavfilename,
+            char * oggfilename,
+            int quality_level,
+            double * progress)
 {
     int fd;
 
@@ -438,7 +451,7 @@ void oggenc(int tracknum,
 
     char tracknum_text[3];
     char quality_level_text[3];
-    const char * args[14];
+    const char * args[17];
 
     snprintf(tracknum_text, 3, "%d", tracknum);
     snprintf(quality_level_text, 3, "%d", quality_level);
@@ -467,6 +480,11 @@ void oggenc(int tracknum,
     {
         args[pos++] = "-t";
         args[pos++] = title;
+    }
+    if ((genre != NULL) && (strlen(genre) > 0))
+    {
+        args[pos++] = "-G";
+        args[pos++] = genre;
     }
     args[pos++] = wavfilename;
     args[pos++] = "-o";
@@ -526,13 +544,15 @@ void oggenc(int tracknum,
 // compression_level - how hard to compress the file (0-8) see flac man page
 // progress - the percent done
 void flac(int tracknum,
-        char * artist,
-        char * album,
-        char * title,
-        char * wavfilename,
-        char * flacfilename,
-        int compression_level,
-        double * progress)
+          char * artist,
+          char * album,
+          char * title,
+          char * genre,
+          char * year,
+          char * wavfilename,
+          char * flacfilename,
+          int compression_level,
+          double * progress)
 {
     int fd;
 
@@ -542,29 +562,56 @@ void flac(int tracknum,
     
     int sector;
     
-    char tracknum_text[15];
-    char * artist_text;
-    char * album_text;
-    char * title_text;
+    char tracknum_text[19];
+    char * artist_text = NULL;
+    char * album_text = NULL;
+    char * title_text = NULL;
+    char * genre_text = NULL;
+    char * year_text = NULL;
     char compression_level_text[3];
-    const char * args[15];
+    const char * args[19];
     
     snprintf(tracknum_text, 15, "TRACKNUMBER=%d", tracknum);
     
-    artist_text = malloc(sizeof(char) * (strlen(artist)+8));
-    if (artist_text == NULL)
-        fatalError("malloc(sizeof(char) * (strlen(artist)+8)) failed. Out of memory.");
-    snprintf(artist_text, strlen(artist)+8, "ARTIST=%s", artist);
-
-    album_text = malloc(sizeof(char) * (strlen(album)+7));
-    if (album_text == NULL)
-        fatalError("malloc(sizeof(char) * (strlen(album)+7)) failed. Out of memory.");
-    snprintf(album_text, strlen(album)+7, "ALBUM=%s", album);
+    if(artist != NULL)
+    {
+        artist_text = malloc(strlen(artist) + 8);
+        if (artist_text == NULL)
+            fatalError("malloc(sizeof(char) * (strlen(artist)+8)) failed. Out of memory.");
+        snprintf(artist_text, strlen(artist) + 8, "ARTIST=%s", artist);
+    }
     
-    title_text = malloc(sizeof(char) * (strlen(title)+7));
-    if (title_text == NULL)
-        fatalError("malloc(sizeof(char) * (strlen(title)+7) failed. Out of memory.");
-    snprintf(title_text, strlen(title)+7, "TITLE=%s", title);
+    if(album != NULL)
+    {
+        album_text = malloc(strlen(album) + 7);
+        if (album_text == NULL)
+            fatalError("malloc(sizeof(char) * (strlen(album)+7)) failed. Out of memory.");
+        snprintf(album_text, strlen(album) + 7, "ALBUM=%s", album);
+    }
+    
+    if(title != NULL)
+    {
+        title_text = malloc(strlen(title) + 7);
+        if (title_text == NULL)
+            fatalError("malloc(sizeof(char) * (strlen(title)+7) failed. Out of memory.");
+        snprintf(title_text, strlen(title) + 7, "TITLE=%s", title);
+    }
+    
+    if(genre != NULL)
+    {
+        genre_text = malloc(strlen(genre) + 7);
+        if (genre_text == NULL)
+            fatalError("malloc(sizeof(char) * (strlen(genre)+7) failed. Out of memory.");
+        snprintf(genre_text, strlen(genre) + 7, "GENRE=%s", genre);
+    }
+    
+    if(year != NULL)
+    {
+        year_text = malloc(strlen(year) + 6);
+        if (year_text == NULL)
+            fatalError("malloc(sizeof(char) * (strlen(year)+6) failed. Out of memory.");
+        snprintf(year_text, strlen(year) + 6, "DATE=%s", year);
+    }
     
     snprintf(compression_level_text, 3, "-%d", compression_level);
     
@@ -591,6 +638,16 @@ void flac(int tracknum,
     {
         args[pos++] = "-T";
         args[pos++] = title_text;
+    }
+    if ((genre != NULL) && (strlen(genre) > 0))
+    {
+        args[pos++] = "-T";
+        args[pos++] = genre_text;
+    }
+    if ((year != NULL) && (strlen(year) > 0))
+    {
+        args[pos++] = "-T";
+        args[pos++] = year_text;
     }
     args[pos++] = wavfilename;
     args[pos++] = "-o";

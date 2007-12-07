@@ -1,12 +1,10 @@
 - need better icon
 - look into ID3v1/v2 tags for mp3s
-- include the genre, year in the tags
 - make sure artist + song name is unique
-- make uninstall doesn't remove icon
-- figure out what's up with the libcddb error (seems easily reproducible in the suse vm), fix it and maybe add a graphical warning to complain
 - other codecs:
  - wavpack (flac-like)
  - faac (mp3-like, apple)
+
 
 Low Priority
 ============
@@ -14,7 +12,7 @@ Low Priority
 - option for saving different file types in different directories
 - if i eject the disk while ripping, strange things happen
 - log all output from programs so i can debug remotely
-- when it starts in the suse vm i get 2xunknown child pid
+- make uninstall doesn't remove icon
 
 
 Tests to run before a release
