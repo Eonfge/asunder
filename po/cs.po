@@ -1,13 +1,14 @@
+# translation of cs.po_[XwND8b].po to
 # Czech translation for Asunder.
 # This file is distributed under the same license as the Asunder package.
 #
 # Schmaki <smallsmaky@seznam.cz>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: cs\n"
+"Project-Id-Version: cs.po_[XwND8b]\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-12-07 00:14-0500\n"
-"PO-Revision-Date: 2007-09-30 11:25+0200\n"
+"PO-Revision-Date: 2007-12-08 09:14+0100\n"
 "Last-Translator: Schmaki <smallsmaky@seznam.cz>\n"
 "Language-Team:  <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -71,7 +72,7 @@ msgstr "Zrušit výběr všeho pro ripování"
 
 #: src/interface.c:93
 msgid "CDDB Lookup"
-msgstr ""
+msgstr "Vyhledat v databázi CD"
 
 #: src/interface.c:136
 msgid "Disc:"
@@ -250,9 +251,8 @@ msgid "Encode"
 msgstr "Překódovat"
 
 #: src/interface.c:648
-#, fuzzy
 msgid "Get disc info from the internet automatically"
-msgstr "Získat informaci o disku z internetu"
+msgstr "Získat informaci o disku z internetu automaticky"
 
 #: src/interface.c:656
 msgid "Use HTTP proxy to connect to the internet"
@@ -283,22 +283,18 @@ msgid "Encoding"
 msgstr "Kódování"
 
 #: src/interface.c:1111
-#, fuzzy, c-format
+#, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] "Všech %d souborů vytvořeno"
-msgstr[1] "Všech %d souborů vytvořeno"
+msgstr[0] "%d soubor úspěšně vytvořen"
+msgstr[1] "%d soubory úspěšně vytvořeny"
 
 #: src/interface.c:1120
-#, fuzzy, c-format
+#, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] ""
-"%d soubor(y) vytvořeny\n"
-"Stala se chyba při vytváření %d souborů"
-msgstr[1] ""
-"%d soubor(y) vytvořeny\n"
-"Stala se chyba při vytváření %d souborů"
+msgstr[0] "Chyba při vytváření %d souboru"
+msgstr[1] "Chyba při vytváření %d souborů"
 
 #: src/prefs.c:515 src/prefs.c:527
 #, c-format
@@ -316,16 +312,16 @@ msgstr "Neplatné číslo portu proxy"
 
 #: src/support.c:47
 msgid "Overwrite?"
-msgstr ""
+msgstr "Přepsat?"
 
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr ""
+msgstr "Soubor '%s' již existuje. Přejete si ho přepsat?\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
-msgstr ""
+msgstr "Zapamatovat si odpověď pro _všechny soubory vytvořené z tohoto CD"
 
 #: src/threads.c:142
 msgid ""
@@ -346,3 +342,4 @@ msgstr ""
 #: src/threads.c:793 src/threads.c:795 src/threads.c:799
 msgid "Waiting..."
 msgstr "Čekám..."
+

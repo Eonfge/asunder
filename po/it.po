@@ -69,7 +69,7 @@ msgstr "Deseleziona tutto per ripping"
 
 #: src/interface.c:93
 msgid "CDDB Lookup"
-msgstr ""
+msgstr "ricerca CDDB"
 
 #: src/interface.c:136
 msgid "Disc:"
@@ -313,16 +313,16 @@ msgstr "Porta del proxy non valida"
 
 #: src/support.c:47
 msgid "Overwrite?"
-msgstr ""
+msgstr "Sovrascrivo?"
 
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr ""
+msgstr "Il file '%s' esiste già. Vuoi sovrascriverlo?\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
-msgstr ""
+msgstr "Ricorda la risposta per _tutti i file creati da questo CD"
 
 #: src/threads.c:142
 msgid ""

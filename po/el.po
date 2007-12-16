@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-12-07 00:14-0500\n"
-"PO-Revision-Date: 2007-10-01 18:52+0200\n"
+"PO-Revision-Date: 2007-12-08 01:09+0200\n"
 "Last-Translator: Mike Kranidis <mikek@openforall.com>\n"
 "Language-Team:  <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:113
+#: src/interface.c:203
 msgid "Rip"
 msgstr "Αποσπώ (Rip)"
 
@@ -35,29 +36,23 @@ msgid "Time"
 msgstr "Ώρα"
 
 #: src/main.c:163
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
-msgstr ""
-"Το 'cdparanoia' δε βρέθηκε στη διαδρομή του συστήματος σας. Το Asunder "
-"χρειάζεται το cdparanoia για να κάνει απόσπαση (Rip) των CDs."
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "Το 'cdparanoia' δε βρέθηκε στη διαδρομή του συστήματος σας. Το Asunder χρειάζεται το cdparanoia για να κάνει απόσπαση (Rip) των CDs."
 
 #: src/main.c:434
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>Παραλαμβάνω πληροφορίες του δίσκου από το  internet...</b>"
+msgstr "<b>Παραλαμβάνω πληροφορίες του δίσκου από το  διαδίκτυο...</b>"
 
 #: src/callbacks.c:283
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Δεν υπάρχει CD. Παρακαλώ εισάγετε ένα CD στον οδηγό του CD-ROM"
 
-#: src/callbacks.c:302 src/callbacks.c:327 src/callbacks.c:352
+#: src/callbacks.c:302
+#: src/callbacks.c:327
+#: src/callbacks.c:352
 #, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All %"
-"s functionality is disabled."
-msgstr ""
-"Το %s δε βρέθηκε στη διαδρομή του συστήματος σας. Το Asunder το χρειάζεται "
-"αυτό για να δημιουργεί τα %s αρχεία. Η %s  λειτουργία είναι ανενεργή."
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "Το %s δε βρέθηκε στη διαδρομή του συστήματος σας. Το Asunder το χρειάζεται αυτό για να δημιουργεί τα %s αρχεία. Η %s  λειτουργία είναι ανενεργή."
 
 #: src/callbacks.c:439
 msgid "Select all for ripping"
@@ -69,7 +64,7 @@ msgstr "Αναίρεση επιλογής όλων για (απόσπαση) rip
 
 #: src/interface.c:93
 msgid "CDDB Lookup"
-msgstr ""
+msgstr "Συμβούλευση CDDB"
 
 #: src/interface.c:136
 msgid "Disc:"
@@ -91,7 +86,8 @@ msgstr "Μόνο ένας Καλλιτέχνης"
 msgid "Preferences"
 msgstr "Προτιμήσεις"
 
-#: src/interface.c:370 src/interface.c:376
+#: src/interface.c:370
+#: src/interface.c:376
 msgid "Destination folder"
 msgstr "Φάκελος προορισμού"
 
@@ -137,11 +133,14 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Κατάλογος άλμπουμ: "
 
-#: src/interface.c:446 src/prefs.c:516
+#: src/interface.c:446
+#: src/prefs.c:516
 msgid "Playlist file: "
 msgstr "Αρχείο Playlist: "
 
-#: src/interface.c:453 src/prefs.c:528 src/prefs.c:538
+#: src/interface.c:453
+#: src/prefs.c:528
+#: src/prefs.c:538
 msgid "Music file: "
 msgstr "Αρχείο Μουσικής: "
 
@@ -197,19 +196,15 @@ msgstr "Μεταβλητού ρυθμού δεδομένων (VBR)"
 
 #: src/interface.c:542
 msgid "Better quality for the same size."
-msgstr "Καλύτερη ποιότητα στο ίδιο μέγεθος (αρχείου)"
+msgstr "Καλύτερης ποιότητας στο ίδιο μέγεθος (αρχείου)"
 
 #: src/interface.c:548
 msgid "Bitrate"
 msgstr "Ρυθμός δεδομένων"
 
 #: src/interface.c:559
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"192Kbps."
-msgstr ""
-"Υψηλότερος ρυθμός δεδομένων αλλά με μεγαλύτερο μέγεθος αρχείου. Οι "
-"περισσότεροι χρησιμοποιούν 192Kbps."
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "Ο Υψηλότερος ρυθμός δεδομένων δίνει καλύτερη ποιότητα αλλά με μεγαλύτερο μέγεθος αρχείου. Οι περισσότεροι χρησιμοποιούν 192Kbps."
 
 #: src/interface.c:561
 msgid "32Kbps"
@@ -237,8 +232,7 @@ msgstr "Επίπεδο (βαθμός) συμπίεσης"
 
 #: src/interface.c:621
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
-"Αυτό δεν επιδρά στη ποιότητα. Υψηλότερα νούμερα σημαίνουν μικρότερα αρχεία."
+msgstr "Αυτό δεν επιδρά στη ποιότητα. Υψηλότερα νούμερα σημαίνουν μικρότερα αρχεία."
 
 #: src/interface.c:623
 msgid "FLAC (lossless compression)"
@@ -249,9 +243,8 @@ msgid "Encode"
 msgstr "Κωδικοποίηση"
 
 #: src/interface.c:648
-#, fuzzy
 msgid "Get disc info from the internet automatically"
-msgstr "Πάρε πληροφορίες του δίσκου από το  internet"
+msgstr "Πάρτε τις πληροφορίες δίσκων από το Διαδίκτυο αυτόματα"
 
 #: src/interface.c:656
 msgid "Use HTTP proxy to connect to the internet"
@@ -269,7 +262,8 @@ msgstr "Πόρτα:"
 msgid "Advanced"
 msgstr "Προχωρημένα"
 
-#: src/interface.c:816 src/interface.c:852
+#: src/interface.c:816
+#: src/interface.c:852
 msgid "Ripping"
 msgstr "Απόσπαση (Ripping)"
 
@@ -295,15 +289,16 @@ msgid_plural "There was an error creating %d files"
 msgstr[0] "Υπήρξε ένα λάθος στη δημιουργία του αρχείου %d"
 msgstr[1] "Υπήρξε ένα λάθος στη δημιουργία των αρχείων %d"
 
-#: src/prefs.c:515 src/prefs.c:527
+#: src/prefs.c:515
+#: src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
-msgstr "Μη κανονικοί χαρακτήρες στο '%s' πεδίο"
+msgstr "Άκυροι χαρακτήρες στο '%s' πεδίο"
 
 #: src/prefs.c:537
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr "'%s' δε μπορεί να αδειάσει"
+msgstr "'%s' δε μπορεί να είναι κενό"
 
 #: src/prefs.c:552
 msgid "Invalid proxy port number"
@@ -311,34 +306,28 @@ msgstr "Μη κανονικός αριθμός πόρτας του proxy"
 
 #: src/support.c:47
 msgid "Overwrite?"
-msgstr ""
+msgstr "Επικάλυψη;"
 
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr ""
+msgstr "Το αρχείο '%s' υπάρχει. Θέλετε να το επικαλύψετε;\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
-msgstr ""
+msgstr "Θυμηθείτε την απάντηση για _όλα τα αρχεία που γίνονται από αυτό το CD"
 
 #: src/threads.c:142
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
-msgstr ""
-"Καμία μέθοδος απόσπασης/κωδικοποίησης δεν έχει επιλεχθεί. Παρακαλώ "
-"ενεργοποιήστε μια από το μενού των 'προτιμήσεων'."
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgstr "Καμία μέθοδος απόσπασης/κωδικοποίησης δεν έχει επιλεχθεί. Παρακαλώ ενεργοποιήστε μια από το μενού των 'προτιμήσεων'."
 
 #: src/threads.c:173
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
-msgstr ""
-"Κανένα ίχνος (track) δεν επιλέχτηκε για απόσπαση/κωδικοποίηση. Παρακαλώ "
-"επιλέξτε τουλάχιστον ένα."
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgstr "Κανένα ίχνος (track) δεν επιλέχτηκε για απόσπαση/κωδικοποίηση. Παρακαλώ επιλέξτε τουλάχιστον ένα."
 
-#: src/threads.c:793 src/threads.c:795 src/threads.c:799
+#: src/threads.c:793
+#: src/threads.c:795
+#: src/threads.c:799
 msgid "Waiting..."
 msgstr "Αναμονή..."
 
@@ -349,9 +338,8 @@ msgstr "Αναμονή..."
 #, fuzzy
 #~ msgid "Music file"
 #~ msgstr "Αρχείο Μουσικής: "
-
 #~ msgid "Create directory for each album"
 #~ msgstr "Δημιουργία φακέλου για κάθε άλμπουμ"
-
 #~ msgid "These characters will be removed from all filenames."
 #~ msgstr "Αυτοι οι χαρακτήρες θα αφαιρεθούν απο όλα τα ονόματα αρχείων."
+

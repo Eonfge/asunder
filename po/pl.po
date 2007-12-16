@@ -69,7 +69,7 @@ msgstr "Odznacz wszystkie"
 
 #: src/interface.c:93
 msgid "CDDB Lookup"
-msgstr ""
+msgstr "Wyszukiwanie w bazie CDDB"
 
 #: src/interface.c:136
 msgid "Disc:"
@@ -248,7 +248,6 @@ msgid "Encode"
 msgstr "Koduj"
 
 #: src/interface.c:648
-#, fuzzy
 msgid "Get disc info from the internet automatically"
 msgstr "Pobierz informacje o dysku z internetu"
 
@@ -310,16 +309,16 @@ msgstr "Zły numer portu serwera proxy"
 
 #: src/support.c:47
 msgid "Overwrite?"
-msgstr ""
+msgstr "Nadpisać?"
 
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr ""
+msgstr "Plik '%s' już istnieje. Chcesz go nadpisać?\n" 
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
-msgstr ""
+msgstr "Pamiętaj odpowiedź dl_a wszystkich plików zgrywanych z tego dysku"
 
 #: src/threads.c:142
 msgid ""

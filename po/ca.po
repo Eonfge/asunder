@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-12-07 00:14-0500\n"
-"PO-Revision-Date: 2007-09-28 22:15+0100\n"
+"PO-Revision-Date: 2007-12-07 10:51+0100\n"
 "Last-Translator: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
 "Language-Team: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 "X-Poedit-Language: Catalan\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:113
+#: src/interface.c:203
 msgid "Rip"
 msgstr "Codifica"
 
@@ -42,12 +43,8 @@ msgid "Time"
 msgstr "Durada"
 
 #: src/main.c:163
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
-msgstr ""
-"No s'ha trobat «cdparanoia» al vostre camí. L'Asunder necessita el "
-"cdparanoia per capturar CDs."
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "No s'ha trobat «cdparanoia» al vostre camí. L'Asunder necessita el cdparanoia per capturar CDs."
 
 #: src/main.c:434
 msgid "<b>Getting disc info from the internet...</b>"
@@ -57,14 +54,12 @@ msgstr "<b>Obtenint la informació del disc des d'Internet...</b>"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "No heu introduït cap CD. Introduïu un disc al lector de CD-Rom."
 
-#: src/callbacks.c:302 src/callbacks.c:327 src/callbacks.c:352
+#: src/callbacks.c:302
+#: src/callbacks.c:327
+#: src/callbacks.c:352
 #, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All %"
-"s functionality is disabled."
-msgstr ""
-"No s'ha trobat %s al vostre camí. L'Asunder ho necessita per a crear fitxers "
-"%s. Tota la funcionalitat de %s està deshabilitada."
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "No s'ha trobat %s al vostre camí. L'Asunder ho necessita per a crear fitxers %s. Tota la funcionalitat de %s està deshabilitada."
 
 #: src/callbacks.c:439
 msgid "Select all for ripping"
@@ -76,7 +71,7 @@ msgstr "Desselecciona tots a capturar"
 
 #: src/interface.c:93
 msgid "CDDB Lookup"
-msgstr ""
+msgstr "Consulta CDDB"
 
 #: src/interface.c:136
 msgid "Disc:"
@@ -92,13 +87,14 @@ msgstr "Títol de l'àlbum:"
 
 #: src/interface.c:156
 msgid "Single artist"
-msgstr ""
+msgstr "Un sol artista"
 
 #: src/interface.c:353
 msgid "Preferences"
 msgstr "Preferències"
 
-#: src/interface.c:370 src/interface.c:376
+#: src/interface.c:370
+#: src/interface.c:376
 msgid "Destination folder"
 msgstr "Carpeta de destí"
 
@@ -144,11 +140,14 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Directori d'un àlbum:"
 
-#: src/interface.c:446 src/prefs.c:516
+#: src/interface.c:446
+#: src/prefs.c:516
 msgid "Playlist file: "
 msgstr "Fitxer de llista de reproducció:"
 
-#: src/interface.c:453 src/prefs.c:528 src/prefs.c:538
+#: src/interface.c:453
+#: src/prefs.c:528
+#: src/prefs.c:538
 msgid "Music file: "
 msgstr "Fitxer d'àudio:"
 
@@ -211,12 +210,8 @@ msgid "Bitrate"
 msgstr "Taxa de bits"
 
 #: src/interface.c:559
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"192Kbps."
-msgstr ""
-"Una taxa de bits més elevada resulta en més qualitat però també en un fitxer "
-"més gran. Molta gent utilitza 192Kbps."
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "Una taxa de bits més elevada resulta en més qualitat però també en un fitxer més gran. Molta gent utilitza 192Kbps."
 
 #: src/interface.c:561
 msgid "32Kbps"
@@ -244,9 +239,7 @@ msgstr "Nivell de compressió"
 
 #: src/interface.c:621
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
-"Això no afecta la qualitat. Com més elevat sigui el nombre, més petit serà "
-"l'arxiu."
+msgstr "Això no afecta la qualitat. Com més elevat sigui el nombre, més petit serà l'arxiu."
 
 #: src/interface.c:623
 msgid "FLAC (lossless compression)"
@@ -257,9 +250,8 @@ msgid "Encode"
 msgstr "Codificació"
 
 #: src/interface.c:648
-#, fuzzy
 msgid "Get disc info from the internet automatically"
-msgstr "Aconsegueix la informació del disc des d'Internet"
+msgstr "Aconseguiu informació sobre el disc des d'Internet"
 
 #: src/interface.c:656
 msgid "Use HTTP proxy to connect to the internet"
@@ -277,7 +269,8 @@ msgstr "Port:"
 msgid "Advanced"
 msgstr "Avançat"
 
-#: src/interface.c:816 src/interface.c:852
+#: src/interface.c:816
+#: src/interface.c:852
 msgid "Ripping"
 msgstr "Capturant"
 
@@ -290,24 +283,21 @@ msgid "Encoding"
 msgstr "S'està codificant..."
 
 #: src/interface.c:1111
-#, fuzzy, c-format
+#, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] "S'han creat amb èxit els %d arxius."
-msgstr[1] "S'han creat amb èxit els %d arxius."
+msgstr[0] "L'arxiu ha sigut creat amb èxit."
+msgstr[1] "S'han creat %d arxius correctament"
 
 #: src/interface.c:1120
-#, fuzzy, c-format
+#, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] ""
-"S'han creat %d arxius correctament\n"
-"Hi ha hagut un error al crear-ne els %d restants"
-msgstr[1] ""
-"S'han creat %d arxius correctament\n"
-"Hi ha hagut un error al crear-ne els %d restants"
+msgstr[0] "Hi ha hagut un error al crear un arxiu"
+msgstr[1] "Hi ha hagut un error al crear %d arxius"
 
-#: src/prefs.c:515 src/prefs.c:527
+#: src/prefs.c:515
+#: src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Caràcter invàlid al camp «%s»"
@@ -323,33 +313,28 @@ msgstr "El port del servidor intermediari és incorrecte"
 
 #: src/support.c:47
 msgid "Overwrite?"
-msgstr ""
+msgstr "Sobreescriure?"
 
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr ""
+msgstr "L'arxiu «%s» ja existeix. Voleu sobreescriure'l?\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
-msgstr ""
+msgstr "Recorda la resposta per a _tots els arxius generats a partir d'aquest CD"
 
 #: src/threads.c:142
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
-msgstr ""
-"No heu seleccionat cap mètode de captura/codificació. Heu de triar-ne un des "
-"del menú «Preferències»."
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgstr "No heu seleccionat cap mètode de captura/codificació. Heu de triar-ne un des del menú «Preferències»."
 
 #: src/threads.c:173
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
-msgstr ""
-"No heu seleccionat cap pista per a capturar/codificar. Heu de triar-ne com a "
-"mínim una."
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgstr "No heu seleccionat cap pista per a capturar/codificar. Heu de triar-ne com a mínim una."
 
-#: src/threads.c:793 src/threads.c:795 src/threads.c:799
+#: src/threads.c:793
+#: src/threads.c:795
+#: src/threads.c:799
 msgid "Waiting..."
 msgstr "S'està esperant..."
+

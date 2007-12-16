@@ -3,6 +3,7 @@
 - other codecs:
  - wavpack (flac-like)
  - faac (mp3-like, apple)
+- consider adding %Y to the filename formats
 
 
 Low Priority
