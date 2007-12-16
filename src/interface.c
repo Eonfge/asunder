@@ -964,7 +964,7 @@ void enable_ogg_widgets(void)
 
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 0.9";
+GBLprogramName = "Asunder 1.0";
 
 static const char* 
 GBLauthors[2] = {
