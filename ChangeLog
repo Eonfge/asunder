@@ -1,3 +1,14 @@
+17 Dec 2007 - 1.0
+=================
+- Added Polish and Japanese translations.
+- Added BSD support.
+- Replaced the CDDB update window with a message in the status bar.
+- Now removing slashes from CDDB identifiers that may be used in a filename.
+- Fixed bug where ejecting the CD would cause encoding to stop working.
+- Artist/Album/Track names can no longer be edited to an empty string.
+- Added a dialog for confirming overwriting files.
+- Genre and year now added to the tags for mp3/ogg/flac files.
+
 05 Oct 2007 - 0.9
 =================
 - Added Hungarian, Catalan, Portuguese (Brazil) translations.

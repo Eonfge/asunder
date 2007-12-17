@@ -2,7 +2,7 @@ Many thanks to all the following people:
 
 Andrew Smith
 http://littlesvr.ca/misc/contactandrew.php
-Summer 2005 - Summer 2007
+Summer 2005 - 2008
 - maintainer
 
 Eric Lathrop
@@ -10,85 +10,104 @@ http://ericlathrop.com/
 - original author
 - 'eject when finished' feature
 
+Fraser Tweedale
+- FreeBSD port
+
 Packages:
 
 Toni Graffy
 Maintainer of many SuSE packages at PackMan
-- SuSE packages of Asunder, versions 0.1 - 0.8.1
+- SuSE packages of Asunder, versions 0.1 - 0.9
 
 Trent Weddington
 http://rtfm.insomnia.org/~qg/
-- Debian packages of Asunder, versions 0.8 - 0.8.1
+- Debian packages of Asunder, versions 0.8 - 0.9
 
 Marcin Zajaczkowski (Szpak)
 http://timeoff.wsisiz.edu.pl/rpms.html
-- Fedora package of Asunder, version 0.8.1
+- Fedora package of Asunder, versions 0.8.1 - 0.9
+
+Adam Williamson
+http://www.happyassassin.net/
+- Mandriva package of Asunder, version 0.9
 
 Tom Nardi
-- Slackware package of Asunder, version 0.8.1
+- Slackware package of Asunder, versions 0.8.1 - 0.9
 
 vktgz
 http://www.vktgz.homelinux.net/
 - Gentoo ebuild for Asunder, versions 0.8 - 0.8.1
 
 Sebastien Piccand
-- Arch package of Asunder, version 0.8.1
+- Arch package of Asunder, versions 0.8.1 - 0.9
+
+Alexey Rusakov
+- ALT package of Asunder, versions 0.8.1 - 0.9
+
+Fraser Tweedale
+- FreeBSD port of Asunder, versions 0.8.1 - 0.9
 
 Philip Muller
 - Paldo package of Asunder, version 0.8.1
 
-Alexey Rusakov
-- ALT package of Asunder, version 0.8.1
-
 Translations:
 
 Siegfried-Angel Gevatter Pujals
-- ca (Catalan) translation of Asunder version 0.8.1
+- ca (Catalan) translation of Asunder versions 0.8.1 - 1.0
 
 Schmaki
-- cs (Czeck) translation of Asunder versions 0.8 - 0.8.1
+- cs (Czeck) translation of Asunder versions 0.8 - 1.0
 
 Rene Schmidt
-- de (German) translation of Asunder versions 0.8 - 0.8.1
+- de (German) translation of Asunder versions 0.8 - 1.0
 
 Mike Kranidis
-- el (Greek) translation of Asunder versions 0.8 - 0.8.1
+- el (Greek) translation of Asunder versions 0.8 - 1.0
 
 Juan Garcia-Murga Monago
 - es (Spanish) translation of Asunder versions 0.8 - 0.8.1
 
 Eero Salokannel
-- fi (Finnish) translation of Asunder versions 0.8 - 0.8.1
+- fi (Finnish) translation of Asunder versions 0.8 - 1.0
 
 Christophe Legras
-- fr (French) translation of Asunder versions 0.8 - 0.8.1
+- fr (French) translation of Asunder versions 0.8 - 1.0
 
 Peter Polonkai
-- it (Hungarian) translation of Asunder versions 0.8 - 0.8.1
+- hu (Hungarian) translation of Asunder versions 0.8 - 1.0
 
 Valerio Guaglianone
 - it (Italian) translation of Asunder versions 0.8 - 0.8.1
+
+Fabio Vergnani
+- it (Italian) translation of Asunder version 1.0
+
+UTUMI Hirosi
+- ja (Japanese) translation of Asunder version 1.0
 
 Robert Groenning
 - nb (Norwegian Bokmal) translation of Asunder version 0.8
 
 Stephen Brandt
-- nl (Dutch) translation of Asunder version 0.8
+- nl (Dutch) translation of Asunder versions 0.8 - 1.0
 
 Robert Groenning
 - nn (Norwegian Nynorsk) translation of Asunder version 0.8
+
+Marcin Gasiorowski
+- pl (Polish) translation of Asunder version 1.0
 
 Felipe Augusto
 - pt_BR (Portuguese/Brazil) translation of Asunder version 0.8.1
 
 Alexey Sivakov
-- ru (Russian) translation of Asunder version 0.8
+- ru (Russian) translation of Asunder versions 0.8 - 1.0
 
 Daniel Nylander
-- sv (Swedish) translation of Asunder version 0.8 - 0.8.1
+- sv (Swedish) translation of Asunder versions 0.8 - 0.8.1
 
 Besnik Bleta
-- sq (Albanian) translation of Asunder version 0.8 - 0.8.1
+- sq (Albanian) translation of Asunder versions 0.8 - 1.0
 
 Cheng-Wei Chien
-- zh_TW (Chineese/Taiwan) translation of Asunder version 0.8 - 0.8.1
+- zh_TW (Chineese/Taiwan) translation of Asunder version 0.8 - 1.0

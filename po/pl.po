@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-07 00:14-0500\n"
+"POT-Creation-Date: 2007-12-16 23:30-0500\n"
 "PO-Revision-Date: 2007-10-05 08:31-0400\n"
 "Last-Translator: Marcin Gasiorowski <marcin_g@epf.pl>\n"
 "Language-Team: \n"
@@ -279,14 +279,14 @@ msgstr "Całkowity postęp"
 msgid "Encoding"
 msgstr "Kodowanie"
 
-#: src/interface.c:1111
+#: src/interface.c:1130
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d plik został utworzony pomyślnie"
 msgstr[1] "%d plików zostało utworzonych pomyślnie"
 
-#: src/interface.c:1120
+#: src/interface.c:1139
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -314,7 +314,7 @@ msgstr "Nadpisać?"
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr "Plik '%s' już istnieje. Chcesz go nadpisać?\n" 
+msgstr "Plik '%s' już istnieje. Chcesz go nadpisać?\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"

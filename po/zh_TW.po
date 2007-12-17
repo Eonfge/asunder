@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-07 00:14-0500\n"
+"POT-Creation-Date: 2007-12-16 23:30-0500\n"
 "PO-Revision-Date: 2007-12-10 18:13+0800\n"
 "Last-Translator: Chien Cheng Wei <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
@@ -17,8 +17,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: src/main.c:113
-#: src/interface.c:203
+#: src/main.c:113 src/interface.c:203
 msgid "Rip"
 msgstr "擷取音軌"
 
@@ -39,8 +38,11 @@ msgid "Time"
 msgstr "歌曲長度"
 
 #: src/main.c:163
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "您指定的路徑內找不到「cdparanoia」。Asunder 需要「cdparanoia」 來擷取音軌。"
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"您指定的路徑內找不到「cdparanoia」。Asunder 需要「cdparanoia」 來擷取音軌。"
 
 #: src/main.c:434
 msgid "<b>Getting disc info from the internet...</b>"
@@ -50,12 +52,14 @@ msgstr "<b>正在從網路取得光碟資訊...</b>"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "尚未放入光碟。請將光碟放入光碟機中。"
 
-#: src/callbacks.c:302
-#: src/callbacks.c:327
-#: src/callbacks.c:352
+#: src/callbacks.c:302 src/callbacks.c:327 src/callbacks.c:352
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "在您指定的路徑內找不到 %s。Asunder 需要該檔案來新建 %s 檔。%s 的所有功能都已被停用。"
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"在您指定的路徑內找不到 %s。Asunder 需要該檔案來新建 %s 檔。%s 的所有功能都已"
+"被停用。"
 
 #: src/callbacks.c:439
 msgid "Select all for ripping"
@@ -89,8 +93,7 @@ msgstr "單一藝人"
 msgid "Preferences"
 msgstr "偏好設定"
 
-#: src/interface.c:370
-#: src/interface.c:376
+#: src/interface.c:370 src/interface.c:376
 msgid "Destination folder"
 msgstr "存至"
 
@@ -136,14 +139,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "專輯目錄： "
 
-#: src/interface.c:446
-#: src/prefs.c:516
+#: src/interface.c:446 src/prefs.c:516
 msgid "Playlist file: "
 msgstr "播放清單： "
 
-#: src/interface.c:453
-#: src/prefs.c:528
-#: src/prefs.c:538
+#: src/interface.c:453 src/prefs.c:528 src/prefs.c:538
 msgid "Music file: "
 msgstr "音樂檔： "
 
@@ -206,7 +206,9 @@ msgid "Bitrate"
 msgstr "位元率"
 
 #: src/interface.c:559
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
 msgstr "位元率越高，雖然音質越好，但檔案也會越大。大多數人都指定192Kbps。"
 
 #: src/interface.c:561
@@ -265,8 +267,7 @@ msgstr "連接埠："
 msgid "Advanced"
 msgstr "進階設定"
 
-#: src/interface.c:816
-#: src/interface.c:852
+#: src/interface.c:816 src/interface.c:852
 msgid "Ripping"
 msgstr "正在擷取..."
 
@@ -278,20 +279,19 @@ msgstr "總進度"
 msgid "Encoding"
 msgstr "正在編碼..."
 
-#: src/interface.c:1111
+#: src/interface.c:1130
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "成功地新建了%d個檔案"
 
-#: src/interface.c:1120
+#: src/interface.c:1139
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "新建%d個檔案時發生錯誤"
 
-#: src/prefs.c:515
-#: src/prefs.c:527
+#: src/prefs.c:515 src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "'%s'欄位中有無效的字元"
@@ -319,16 +319,18 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "記住設定值，供所有用此CD做出的檔案使用"
 
 #: src/threads.c:142
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
 msgstr "尚未選擇 擷取音軌/編碼 方法。請從「偏好設定」選單中啟用其中一種。"
 
 #: src/threads.c:173
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
 msgstr "尚未選取要 擷取/編碼 的音軌。請至少選擇一個音軌。"
 
-#: src/threads.c:793
-#: src/threads.c:795
-#: src/threads.c:799
+#: src/threads.c:793 src/threads.c:795 src/threads.c:799
 msgid "Waiting..."
 msgstr "請稍待..."
 
@@ -339,8 +341,9 @@ msgstr "請稍待..."
 #, fuzzy
 #~ msgid "Music file"
 #~ msgstr "音樂檔： "
+
 #~ msgid "Create directory for each album"
 #~ msgstr "每張專輯都建立個別的目錄"
+
 #~ msgid "These characters will be removed from all filenames."
 #~ msgstr "這些字元將會從所有檔名中刪除。"
-

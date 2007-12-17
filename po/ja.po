@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-07 00:14-0500\n"
+"POT-Creation-Date: 2007-12-16 23:30-0500\n"
 "PO-Revision-Date: 2007-12-07 17:09+0900\n"
 "Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
@@ -17,8 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: src/main.c:113
-#: src/interface.c:203
+#: src/main.c:113 src/interface.c:203
 msgid "Rip"
 msgstr "吸い出す"
 
@@ -39,7 +38,9 @@ msgid "Time"
 msgstr "時間"
 
 #: src/main.c:163
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
 msgstr "cdparanoia が見つかりません。CD を吸い出すには Asunder が必要です"
 
 #: src/main.c:434
@@ -50,12 +51,13 @@ msgstr "<b>ディスクの情報をインターネットから取得</b>"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "CD が挿入されていません。CD を CD ドライブに入れてください。"
 
-#: src/callbacks.c:302
-#: src/callbacks.c:327
-#: src/callbacks.c:352
+#: src/callbacks.c:302 src/callbacks.c:327 src/callbacks.c:352
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s が見つかりません。%s を作成するのに必要です。%s の機能を全て無効にします。"
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"%s が見つかりません。%s を作成するのに必要です。%s の機能を全て無効にします。"
 
 #: src/callbacks.c:439
 msgid "Select all for ripping"
@@ -89,8 +91,7 @@ msgstr "同一のアーティスト"
 msgid "Preferences"
 msgstr "設定"
 
-#: src/interface.c:370
-#: src/interface.c:376
+#: src/interface.c:370 src/interface.c:376
 msgid "Destination folder"
 msgstr "保存先フォルダ"
 
@@ -136,14 +137,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "アルバムのディレクトリ:"
 
-#: src/interface.c:446
-#: src/prefs.c:516
+#: src/interface.c:446 src/prefs.c:516
 msgid "Playlist file: "
 msgstr "プレイリストファイル:"
 
-#: src/interface.c:453
-#: src/prefs.c:528
-#: src/prefs.c:538
+#: src/interface.c:453 src/prefs.c:528 src/prefs.c:538
 msgid "Music file: "
 msgstr "音楽ファイル:"
 
@@ -206,8 +204,12 @@ msgid "Bitrate"
 msgstr "ビットレート"
 
 #: src/interface.c:559
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "ビットレートを高くすると音質は良くなるがサイズが大きくなる。多くのユーザは 192Kbps にしている"
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"ビットレートを高くすると音質は良くなるがサイズが大きくなる。多くのユーザは "
+"192Kbps にしている"
 
 #: src/interface.c:561
 msgid "32Kbps"
@@ -265,8 +267,7 @@ msgstr "ポート:"
 msgid "Advanced"
 msgstr "詳細"
 
-#: src/interface.c:816
-#: src/interface.c:852
+#: src/interface.c:816 src/interface.c:852
 msgid "Ripping"
 msgstr "吸い出し"
 
@@ -278,20 +279,19 @@ msgstr "全体の進行"
 msgid "Encoding"
 msgstr "エンコーディング"
 
-#: src/interface.c:1111
+#: src/interface.c:1130
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d 個のファイルを作成しました"
 
-#: src/interface.c:1120
+#: src/interface.c:1139
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "%d 個のファイルを作成中にエラー"
 
-#: src/prefs.c:515
-#: src/prefs.c:527
+#: src/prefs.c:515 src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "'%s' の欄に不正な文字があります"
@@ -319,16 +319,21 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "この CD から作った全てのファイル用に答えを覚えておく(_a)"
 
 #: src/threads.c:142
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "吸い出す/エンコーディングする方法を選んでいません。設定メニューで選んでください"
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"吸い出す/エンコーディングする方法を選んでいません。設定メニューで選んでくださ"
+"い"
 
 #: src/threads.c:173
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "吸い出す/エンコーディングするトラックを選んでいません。最低１つは選んでください"
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"吸い出す/エンコーディングするトラックを選んでいません。最低１つは選んでくださ"
+"い"
 
-#: src/threads.c:793
-#: src/threads.c:795
-#: src/threads.c:799
+#: src/threads.c:793 src/threads.c:795 src/threads.c:799
 msgid "Waiting..."
 msgstr "待機中..."
-

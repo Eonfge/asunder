@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-07 00:14-0500\n"
+"POT-Creation-Date: 2007-12-16 23:30-0500\n"
 "PO-Revision-Date: 2007-12-08 08:37+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -14,8 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:113
-#: src/interface.c:203
+#: src/main.c:113 src/interface.c:203
 msgid "Rip"
 msgstr "Përftoje"
 
@@ -36,8 +35,12 @@ msgid "Time"
 msgstr "Kohë"
 
 #: src/main.c:163
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "'cdparanoia' nuk u gjet te shtegu juaj. Asunder-i lyp cdparanoia-an për përftim CD-sh."
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"'cdparanoia' nuk u gjet te shtegu juaj. Asunder-i lyp cdparanoia-an për "
+"përftim CD-sh."
 
 #: src/main.c:434
 msgid "<b>Getting disc info from the internet...</b>"
@@ -47,12 +50,14 @@ msgstr "<b>Po marr të dhëna disku prej interneti...</b>"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Nuk është futur CD. Ju lutem fusni një CD te pajisja CD-ROM."
 
-#: src/callbacks.c:302
-#: src/callbacks.c:327
-#: src/callbacks.c:352
+#: src/callbacks.c:302 src/callbacks.c:327 src/callbacks.c:352
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s nuk u gjet në shtegun tuaj. Asunder-i e ka të nevojshme që të krijojë kartela %s. Gjithë ana %s është çaktivizuar."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"%s nuk u gjet në shtegun tuaj. Asunder-i e ka të nevojshme që të krijojë "
+"kartela %s. Gjithë ana %s është çaktivizuar."
 
 #: src/callbacks.c:439
 msgid "Select all for ripping"
@@ -86,8 +91,7 @@ msgstr "Artist pjese"
 msgid "Preferences"
 msgstr "Parapëlqime"
 
-#: src/interface.c:370
-#: src/interface.c:376
+#: src/interface.c:370 src/interface.c:376
 msgid "Destination folder"
 msgstr "Dosje vendmbërritje"
 
@@ -133,14 +137,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Drejtori albumi: "
 
-#: src/interface.c:446
-#: src/prefs.c:516
+#: src/interface.c:446 src/prefs.c:516
 msgid "Playlist file: "
 msgstr "Kartelë luajlistë: "
 
-#: src/interface.c:453
-#: src/prefs.c:528
-#: src/prefs.c:538
+#: src/interface.c:453 src/prefs.c:528 src/prefs.c:538
 msgid "Music file: "
 msgstr "Kartelë muzikore: "
 
@@ -203,8 +204,12 @@ msgid "Bitrate"
 msgstr "Bitrate"
 
 #: src/interface.c:559
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "Bitrate më i lartë do të thotë cilësi më e mirë por gjithashtu një kartelë më e madhe. Shumica e njerëzve përdorin 192Kbps."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"Bitrate më i lartë do të thotë cilësi më e mirë por gjithashtu një kartelë "
+"më e madhe. Shumica e njerëzve përdorin 192Kbps."
 
 #: src/interface.c:561
 msgid "32Kbps"
@@ -220,7 +225,8 @@ msgstr "Cilësi"
 
 #: src/interface.c:592
 msgid "Higher quality means bigger file. Default is 6."
-msgstr "Cilësi më e lartë do të thotë kartelë më e madhe. Parazgjedhja është 6."
+msgstr ""
+"Cilësi më e lartë do të thotë kartelë më e madhe. Parazgjedhja është 6."
 
 #: src/interface.c:594
 msgid "OGG Vorbis (lossy compression)"
@@ -262,8 +268,7 @@ msgstr "Portë:"
 msgid "Advanced"
 msgstr "Të mëtejshme"
 
-#: src/interface.c:816
-#: src/interface.c:852
+#: src/interface.c:816 src/interface.c:852
 msgid "Ripping"
 msgstr "Përftim"
 
@@ -275,22 +280,21 @@ msgstr "Ecuri gjithsej"
 msgid "Encoding"
 msgstr "Kodim"
 
-#: src/interface.c:1111
+#: src/interface.c:1130
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "u krijua me sukses %d kartelë "
 msgstr[1] "u krijuan me sukses %d kartela"
 
-#: src/interface.c:1120
+#: src/interface.c:1139
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Pati gabim gjatë krijimit të %d kartele"
 msgstr[1] "Pati gabim gjatë krijimit të %d kartelave"
 
-#: src/prefs.c:515
-#: src/prefs.c:527
+#: src/prefs.c:515 src/prefs.c:527
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Shenja të pavlefshme te fusha '%s'"
@@ -318,16 +322,22 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "Mbaje mend përgjigjen për _tërë kartelat e krijuara prej këtij CD-je"
 
 #: src/threads.c:142
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "Nuk është përzgjedhur metodë përftimi/kodimi. Ju lutem aktivizoni një të tillë prej menusë 'Parapëlqime'."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"Nuk është përzgjedhur metodë përftimi/kodimi. Ju lutem aktivizoni një të "
+"tillë prej menusë 'Parapëlqime'."
 
 #: src/threads.c:173
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "Nuk janë përzgjedhur gjurmë për përftim/kodim. Ju lutem përzgjidhni të paktën një gjurmë."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"Nuk janë përzgjedhur gjurmë për përftim/kodim. Ju lutem përzgjidhni të "
+"paktën një gjurmë."
 
-#: src/threads.c:793
-#: src/threads.c:795
-#: src/threads.c:799
+#: src/threads.c:793 src/threads.c:795 src/threads.c:799
 msgid "Waiting..."
 msgstr "Po pres..."
 
@@ -338,9 +348,9 @@ msgstr "Po pres..."
 #, fuzzy
 #~ msgid "Music file"
 #~ msgstr "Kartelë muzikore: "
+
 #~ msgid "Create directory for each album"
 #~ msgstr "Krijo drejtori për çdo album"
+
 #~ msgid "These characters will be removed from all filenames."
 #~ msgstr "Këto shenja do të hiqen prej tërë emrave të kartelave."
-
-
