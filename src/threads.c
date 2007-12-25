@@ -774,9 +774,12 @@ gpointer encode(gpointer data)
 gpointer track(gpointer data)
 {
     int parts = 1;
-    if (global_prefs->rip_mp3) parts++;
-    if (global_prefs->rip_ogg) parts++;
-    if (global_prefs->rip_flac) parts++;
+    if(global_prefs->rip_mp3) 
+        parts++;
+    if(global_prefs->rip_ogg) 
+        parts++;
+    if(global_prefs->rip_flac) 
+        parts++;
     
     gdk_threads_enter();
         GtkProgressBar * progress_total = GTK_PROGRESS_BAR(lookup_widget(win_ripping, "progress_total"));
@@ -803,6 +806,7 @@ gpointer track(gpointer data)
     char sencode[13];
     double ptotal;
     char stotal[5];
+    char windowTitle[15]; /* "Asunder - 100%" */
 
     while (!aborted && !allDone)
     {
@@ -821,6 +825,9 @@ gpointer track(gpointer data)
         }
         snprintf(stotal, 5, "%d%%", (int)(ptotal*100));
         
+        strcpy(windowTitle, "Asunder - ");
+        strcat(windowTitle, stotal);
+        
         gdk_threads_enter();
             gtk_progress_bar_set_fraction(progress_rip, prip);
             gtk_progress_bar_set_text(progress_rip, srip);
@@ -829,12 +836,17 @@ gpointer track(gpointer data)
                 gtk_progress_bar_set_fraction(progress_encode, pencode);
                 gtk_progress_bar_set_text(progress_encode, sencode);
             }
+            
             gtk_progress_bar_set_fraction(progress_total, ptotal);
             gtk_progress_bar_set_text(progress_total, stotal);
+            
+            gtk_window_set_title(GTK_WINDOW(win_main), windowTitle);
         gdk_threads_leave();
         
         usleep(100000);
     }
+    
+    gtk_window_set_title(GTK_WINDOW(win_main), "Asunder");
     
     return NULL;
 }
