@@ -483,16 +483,10 @@ gpointer rip(gpointer data)
         g_cond_signal(available);
         
         if (aborted)
-        {
-            if (global_prefs->eject_on_done)
-            {
-                eject_disc(global_prefs->cdrom);
-            }
             g_thread_exit(NULL);
-        }
         
         gdk_threads_enter();
-        rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
+            rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
         gdk_threads_leave();
     }
     
