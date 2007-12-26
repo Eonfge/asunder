@@ -720,13 +720,16 @@ create_prefs (void)
     g_signal_connect ((gpointer) rip_mp3, "toggled",
                                         G_CALLBACK (on_rip_mp3_toggled),
                                         NULL);
+    g_signal_connect ((gpointer) mp3_vbr, "toggled",
+                                        G_CALLBACK (on_vbr_toggled),
+                                        NULL);
     g_signal_connect ((gpointer) rip_ogg, "toggled",
                                         G_CALLBACK (on_rip_ogg_toggled),
                                         NULL);
     g_signal_connect ((gpointer) rip_flac, "toggled",
                                         G_CALLBACK (on_rip_flac_toggled),
                                         NULL);
-
+    
     /* Store pointers to all widgets, for use by lookup_widget(). */
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, prefs, "prefs");
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, dialog_vbox1, "dialog_vbox1");

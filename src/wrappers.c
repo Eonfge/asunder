@@ -333,19 +333,19 @@ void lame(int tracknum,
     
     char tracknum_text[3];
     char bitrate_text[4];
-    const char * args[19];
+    const char * args[18];
 
     snprintf(tracknum_text, 3, "%d", tracknum);
-    snprintf(bitrate_text, 4, "%d", bitrate);
     
     pos = 0;
     args[pos++] = "lame";
     if (vbr)
     {
-        args[pos++] = "-v";
-        args[pos++] = "-B";
+        args[pos++] = "-V";
+        snprintf(bitrate_text, 4, "%d", int_to_vbr_int(bitrate));
     } else {
         args[pos++] = "-b";
+        snprintf(bitrate_text, 4, "%d", int_to_bitrate(bitrate, vbr));
     }
     args[pos++] = bitrate_text;
     if ((tracknum > 0) && (tracknum < 100))

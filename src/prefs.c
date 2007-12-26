@@ -453,47 +453,6 @@ char * prefs_get_music_dir(prefs * p)
     return p->music_dir;
 }
 
-// converts a gtk slider's integer range to a meaningful bitrate
-//
-// NOTE: i grabbed these bitrates from the list in the LAME man page
-int int_to_bitrate(int i)
-{
-    switch (i)
-    {
-    case 0:
-        return 32;
-    case 1:
-        return 40;
-    case 2:
-        return 48;
-    case 3:
-        return 56;
-    case 4:
-        return 64;
-    case 5:
-        return 80;
-    case 6:
-        return 96;
-    case 7:
-        return 112;
-    case 8:
-        return 128;
-    case 9:
-        return 160;
-    case 10:
-        return 192;
-    case 11:
-        return 224;
-    case 12:
-        return 256;
-    case 13:
-        return 320;
-    }
-    
-    fprintf(stderr, "int_to_bitrate() called with bad parameter\n");
-    return 32;
-}
-
 int is_valid_port_number(int number)
 {
     if(number >= 0 && number <= 65535)

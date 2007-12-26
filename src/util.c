@@ -28,6 +28,125 @@ void fatalError(const char* message)
     exit(-1);
 }
 
+int int_to_vbr_int(int i)
+{
+    switch(i)
+    {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+        return 9;
+    case 5:
+        return 8;
+    case 6:
+        return 7;
+    case 7:
+        return 6;
+    case 8:
+        return 5;
+    case 9:
+        return 4;
+    case 10:
+        return 3;
+    case 11:
+        return 2;
+    case 12:
+        return 1;
+    case 13:
+    case 14:
+        return 0;
+    }
+    
+    fprintf(stderr, "int_to_vbr_int() called with bad parameter\n");
+    return 4;
+}
+
+// converts a gtk slider's integer range to a meaningful bitrate
+//
+// NOTE: i grabbed these bitrates from the list in the LAME man page
+// and from http://wiki.hydrogenaudio.org/index.php?title=LAME#VBR_.28variable_bitrate.29_settings
+int int_to_bitrate(int i, bool vbr)
+{
+    switch (i)
+    {
+    case 0:
+        if(vbr)
+            return 65;
+        else
+            return 32;
+    case 1:
+        if(vbr)
+            return 65;
+        else
+            return 40;
+    case 2:
+        if(vbr)
+            return 65;
+        else
+            return 48;
+    case 3:
+        if(vbr)
+            return 65;
+        else
+            return 56;
+    case 4:
+        if(vbr)
+            return 65;
+        else
+            return 64;
+    case 5:
+        if(vbr)
+            return 85;
+        else
+            return 80;
+    case 6:
+        if(vbr)
+            return 100;
+        else
+            return 96;
+    case 7:
+        if(vbr)
+            return 115;
+        else
+            return 112;
+    case 8:
+        if(vbr)
+            return 130;
+        else
+            return 128;
+    case 9:
+        if(vbr)
+            return 175;
+        else
+            return 160;
+    case 10:
+        if(vbr)
+            return 190;
+        else
+            return 192;
+    case 11:
+        if(vbr)
+            return 225;
+        else
+            return 224;
+    case 12:
+        if(vbr)
+            return 245;
+        else
+            return 256;
+    case 13:
+        if(vbr)
+            return 245;
+        else
+            return 320;
+    }
+    
+    fprintf(stderr, "int_to_bitrate() called with bad parameter\n");
+    return 32;
+}
+
 // construct a filename from various parts
 //
 // path - the path the file is placed in (don't include a trailing '/')

@@ -2,6 +2,9 @@
 
 void fatalError(const char* message);
 
+int int_to_vbr_int(int i);
+int int_to_bitrate(int i, bool vbr);
+
 // substitute various items into a formatted string (similar to printf)
 //
 // format - the format of the filename

@@ -68,6 +68,9 @@ void
 on_matches_response                    (GtkDialog       *dialog,
                                         gint             response_id,
                                         gpointer         user_data);
+void
+on_vbr_toggled                         (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
 
 void
 on_mp3_bitrate_value_changed           (GtkRange        *range,

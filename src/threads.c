@@ -614,7 +614,7 @@ gpointer encode(gpointer data)
                 
                 if(doEncode)
                     lame(tracknum, trackartist, album_title, tracktitle, genre, yearStrPtr, wavfilename, mp3filename, 
-                         global_prefs->mp3_vbr, int_to_bitrate(global_prefs->mp3_bitrate), &mp3_percent);
+                         global_prefs->mp3_vbr, global_prefs->mp3_bitrate, &mp3_percent);
                 
                 if (aborted) g_thread_exit(NULL);
 

@@ -62,11 +62,6 @@ void load_prefs(prefs * p);
 // it will make sure it always points to a nice directory
 char * prefs_get_music_dir(prefs * p);
 
-// converts a gtk slider's integer range to a meaningful bitrate
-//
-// NOTE: i grabbed these bitrates from the list in the LAME man page
-int int_to_bitrate(int i);
-
 int is_valid_port_number(int number);
 
 bool prefs_are_valid(void);

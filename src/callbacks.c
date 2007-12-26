@@ -146,14 +146,6 @@ on_cancel_clicked                      (GtkButton       *button,
     abort_threads();
 }
 
-//~ void
-//~ on_cddb_update_close_clicked          (GtkButton       *button,
-                                       //~ GtkWidget**      update_window)
-//~ {
-    //~ gtk_widget_destroy(*update_window);
-    //~ *update_window = NULL;
-//~ }
-
 gboolean
 on_cddb_update_closed         (GtkWidget *widget,
                                GdkEvent  *event,
@@ -173,12 +165,31 @@ on_deselect_all_click                  (GtkMenuItem *menuitem,
     gtk_tree_model_foreach(model, for_each_row_deselect, NULL);
 }
 
+
+void
+on_vbr_toggled                         (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+    char bitrate[8];
+    GtkRange* range;
+    bool vbr;
+    
+    /* update the displayed vbr, as it's different for vbr and non-vbr */
+    vbr = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton));
+    range = GTK_RANGE(lookup_widget(win_prefs, "mp3bitrate"));
+    snprintf(bitrate, 8, "%dKbps", int_to_bitrate((int)gtk_range_get_value(range), vbr));
+    gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "bitrate_lbl_2")), bitrate);
+}
+
 void
 on_mp3bitrate_value_changed            (GtkRange        *range,
                                         gpointer         user_data)
 {
     char bitrate[8];
-    snprintf(bitrate, 8, "%dKbps", int_to_bitrate((int)gtk_range_get_value(range)));
+    bool vbr;
+    
+    vbr = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "mp3_vbr")));
+    snprintf(bitrate, 8, "%dKbps", int_to_bitrate((int)gtk_range_get_value(range), vbr));
     gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "bitrate_lbl_2")), bitrate);
 }
 
