@@ -112,7 +112,7 @@ prefs * get_default_prefs()
     p->mp3_vbr = 1;
     p->mp3_bitrate = 10;
     p->ogg_quality = 6;
-    p->flac_compression = 8;
+    p->flac_compression = 5;
     
     p->main_window_width = 600;
     p->main_window_height = 450;
