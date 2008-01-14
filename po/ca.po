@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-16 23:30-0500\n"
+"POT-Creation-Date: 2007-12-29 21:48-0500\n"
 "PO-Revision-Date: 2007-12-07 10:51+0100\n"
 "Last-Translator: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
 "Language-Team: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
@@ -53,11 +53,11 @@ msgstr ""
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Obtenint la informació del disc des d'Internet...</b>"
 
-#: src/callbacks.c:283
+#: src/callbacks.c:294
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "No heu introduït cap CD. Introduïu un disc al lector de CD-Rom."
 
-#: src/callbacks.c:302 src/callbacks.c:327 src/callbacks.c:352
+#: src/callbacks.c:313 src/callbacks.c:338 src/callbacks.c:363
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -66,11 +66,11 @@ msgstr ""
 "No s'ha trobat %s al vostre camí. L'Asunder ho necessita per a crear fitxers "
 "%s. Tota la funcionalitat de %s està deshabilitada."
 
-#: src/callbacks.c:439
+#: src/callbacks.c:450
 msgid "Select all for ripping"
 msgstr "Selecciona tots per a capturar"
 
-#: src/callbacks.c:445
+#: src/callbacks.c:456
 msgid "Deselect all for ripping"
 msgstr "Desselecciona tots a capturar"
 
@@ -144,11 +144,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Directori d'un àlbum:"
 
-#: src/interface.c:446 src/prefs.c:516
+#: src/interface.c:446 src/prefs.c:475
 msgid "Playlist file: "
 msgstr "Fitxer de llista de reproducció:"
 
-#: src/interface.c:453 src/prefs.c:528 src/prefs.c:538
+#: src/interface.c:453 src/prefs.c:487 src/prefs.c:497
 msgid "Music file: "
 msgstr "Fitxer d'àudio:"
 
@@ -276,43 +276,43 @@ msgstr "Port:"
 msgid "Advanced"
 msgstr "Avançat"
 
-#: src/interface.c:816 src/interface.c:852
+#: src/interface.c:819 src/interface.c:855
 msgid "Ripping"
 msgstr "Capturant"
 
-#: src/interface.c:845
+#: src/interface.c:848
 msgid "Total progress"
 msgstr "Progrés total"
 
-#: src/interface.c:859
+#: src/interface.c:862
 msgid "Encoding"
 msgstr "S'està codificant..."
 
-#: src/interface.c:1130
+#: src/interface.c:1133
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "L'arxiu ha sigut creat amb èxit."
 msgstr[1] "S'han creat %d arxius correctament"
 
-#: src/interface.c:1139
+#: src/interface.c:1142
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Hi ha hagut un error al crear un arxiu"
 msgstr[1] "Hi ha hagut un error al crear %d arxius"
 
-#: src/prefs.c:515 src/prefs.c:527
+#: src/prefs.c:474 src/prefs.c:486
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Caràcter invàlid al camp «%s»"
 
-#: src/prefs.c:537
+#: src/prefs.c:496
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "«%s» no pot estar buit"
 
-#: src/prefs.c:552
+#: src/prefs.c:511
 msgid "Invalid proxy port number"
 msgstr "El port del servidor intermediari és incorrecte"
 
@@ -346,6 +346,6 @@ msgstr ""
 "No heu seleccionat cap pista per a capturar/codificar. Heu de triar-ne com a "
 "mínim una."
 
-#: src/threads.c:793 src/threads.c:795 src/threads.c:799
+#: src/threads.c:790 src/threads.c:792 src/threads.c:796
 msgid "Waiting..."
 msgstr "S'està esperant..."

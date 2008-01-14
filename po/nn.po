@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ISO Master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-16 23:30-0500\n"
+"POT-Creation-Date: 2007-12-29 21:48-0500\n"
 "PO-Revision-Date: 2007-08-10 10:10-0500\n"
 "Last-Translator: Robert Groenning <slimg@iggu.org>\n"
 "Language-Team: Ubuntu Norwegian Translators <oversettelse@ubuntu.no>\n"
@@ -46,11 +46,11 @@ msgstr ""
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr ""
 
-#: src/callbacks.c:283
+#: src/callbacks.c:294
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr ""
 
-#: src/callbacks.c:302 src/callbacks.c:327 src/callbacks.c:352
+#: src/callbacks.c:313 src/callbacks.c:338 src/callbacks.c:363
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -59,11 +59,11 @@ msgstr ""
 "%s vart ikkje funne i stien din. Asunder treng det for å oppretta %s filer. "
 "Alle %s funksjonar er slått av."
 
-#: src/callbacks.c:439
+#: src/callbacks.c:450
 msgid "Select all for ripping"
 msgstr ""
 
-#: src/callbacks.c:445
+#: src/callbacks.c:456
 msgid "Deselect all for ripping"
 msgstr ""
 
@@ -134,11 +134,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Album mappe: "
 
-#: src/interface.c:446 src/prefs.c:516
+#: src/interface.c:446 src/prefs.c:475
 msgid "Playlist file: "
 msgstr "Spelelistefil: "
 
-#: src/interface.c:453 src/prefs.c:528 src/prefs.c:538
+#: src/interface.c:453 src/prefs.c:487 src/prefs.c:497
 msgid "Music file: "
 msgstr "Musikkfil: "
 
@@ -251,43 +251,43 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: src/interface.c:816 src/interface.c:852
+#: src/interface.c:819 src/interface.c:855
 msgid "Ripping"
 msgstr "Henting"
 
-#: src/interface.c:845
+#: src/interface.c:848
 msgid "Total progress"
 msgstr "Total framgang"
 
-#: src/interface.c:859
+#: src/interface.c:862
 msgid "Encoding"
 msgstr "Koding"
 
-#: src/interface.c:1130
+#: src/interface.c:1133
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/interface.c:1139
+#: src/interface.c:1142
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/prefs.c:515 src/prefs.c:527
+#: src/prefs.c:474 src/prefs.c:486
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr ""
 
-#: src/prefs.c:537
+#: src/prefs.c:496
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr ""
 
-#: src/prefs.c:552
+#: src/prefs.c:511
 msgid "Invalid proxy port number"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgid ""
 "track."
 msgstr "Ingen lydspor er valt til henting/koding. Vel minst eit lydspor."
 
-#: src/threads.c:793 src/threads.c:795 src/threads.c:799
+#: src/threads.c:790 src/threads.c:792 src/threads.c:796
 msgid "Waiting..."
 msgstr "Ventar..."
 

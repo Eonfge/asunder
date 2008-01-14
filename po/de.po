@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-16 23:30-0500\n"
+"POT-Creation-Date: 2007-12-29 21:48-0500\n"
 "PO-Revision-Date: 2007-12-15 15:50+0100\n"
 "Last-Translator: René Schmidt <schmidt_r ÆT gmx-topmail PUNKT de>\n"
 "Language-Team: \n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>CD-Info aus dem Internet abrufen...</b>"
 
-#: src/callbacks.c:283
+#: src/callbacks.c:294
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr ""
 "Das gewählte Gerät scheint keine CD zu enthalten.\n"
@@ -56,7 +56,7 @@ msgstr ""
 "Legen Sie bitte eine CD ein und prüfen Sie gegebenenfalls die Einstellungen "
 "hinsichtlich der Gerätedatei des CD-Laufwerks."
 
-#: src/callbacks.c:302 src/callbacks.c:327 src/callbacks.c:352
+#: src/callbacks.c:313 src/callbacks.c:338 src/callbacks.c:363
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -67,11 +67,11 @@ msgstr ""
 "\n"
 "Das Erstellen von %s-Dateien ist daher nicht möglich."
 
-#: src/callbacks.c:439
+#: src/callbacks.c:450
 msgid "Select all for ripping"
 msgstr "Alle wählen"
 
-#: src/callbacks.c:445
+#: src/callbacks.c:456
 msgid "Deselect all for ripping"
 msgstr "Alle abwählen"
 
@@ -148,11 +148,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Ordner für Alben: "
 
-#: src/interface.c:446 src/prefs.c:516
+#: src/interface.c:446 src/prefs.c:475
 msgid "Playlist file: "
 msgstr "Playlisten-Dateien: "
 
-#: src/interface.c:453 src/prefs.c:528 src/prefs.c:538
+#: src/interface.c:453 src/prefs.c:487 src/prefs.c:497
 msgid "Music file: "
 msgstr "Audio-Dateien: "
 
@@ -299,33 +299,33 @@ msgstr "Port-Nr.: "
 msgid "Advanced"
 msgstr "Erweitert"
 
-#: src/interface.c:816 src/interface.c:852
+#: src/interface.c:819 src/interface.c:855
 msgid "Ripping"
 msgstr "Importieren"
 
-#: src/interface.c:845
+#: src/interface.c:848
 msgid "Total progress"
 msgstr "Gesamt"
 
-#: src/interface.c:859
+#: src/interface.c:862
 msgid "Encoding"
 msgstr "Komprimieren"
 
-#: src/interface.c:1130
+#: src/interface.c:1133
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d Datei erfolgreich erstellt."
 msgstr[1] "%d Dateien erfolgreich erstellt."
 
-#: src/interface.c:1139
+#: src/interface.c:1142
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Fehler beim Erstellen von %d Datei."
 msgstr[1] "Fehler beim Erstellen von %d Dateien."
 
-#: src/prefs.c:515 src/prefs.c:527
+#: src/prefs.c:474 src/prefs.c:486
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr ""
@@ -333,7 +333,7 @@ msgstr ""
 "\n"
 "Korrigieren Sie bitte dessen Inhalt entsprechend der Legende."
 
-#: src/prefs.c:537
+#: src/prefs.c:496
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr ""
@@ -341,7 +341,7 @@ msgstr ""
 "\n"
 "Ergänzen Sie bitte dessen Inhalt entsprechend der Legende."
 
-#: src/prefs.c:552
+#: src/prefs.c:511
 msgid "Invalid proxy port number"
 msgstr ""
 "Die angegebene Port-Nr. des HTTP-Proxy-Servers scheint ungültig zu sein.\n"
@@ -381,6 +381,6 @@ msgstr ""
 "\n"
 "Markieren Sie bitte mindestens einen Titel."
 
-#: src/threads.c:793 src/threads.c:795 src/threads.c:799
+#: src/threads.c:790 src/threads.c:792 src/threads.c:796
 msgid "Waiting..."
 msgstr "Warten..."

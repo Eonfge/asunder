@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-16 23:30-0500\n"
+"POT-Creation-Date: 2007-12-29 21:48-0500\n"
 "PO-Revision-Date: 2007-12-10 18:13+0800\n"
 "Last-Translator: Chien Cheng Wei <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
@@ -48,11 +48,11 @@ msgstr ""
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>正在從網路取得光碟資訊...</b>"
 
-#: src/callbacks.c:283
+#: src/callbacks.c:294
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "尚未放入光碟。請將光碟放入光碟機中。"
 
-#: src/callbacks.c:302 src/callbacks.c:327 src/callbacks.c:352
+#: src/callbacks.c:313 src/callbacks.c:338 src/callbacks.c:363
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -61,11 +61,11 @@ msgstr ""
 "在您指定的路徑內找不到 %s。Asunder 需要該檔案來新建 %s 檔。%s 的所有功能都已"
 "被停用。"
 
-#: src/callbacks.c:439
+#: src/callbacks.c:450
 msgid "Select all for ripping"
 msgstr "擷取全部音軌"
 
-#: src/callbacks.c:445
+#: src/callbacks.c:456
 msgid "Deselect all for ripping"
 msgstr "全部取消擷取"
 
@@ -139,11 +139,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "專輯目錄： "
 
-#: src/interface.c:446 src/prefs.c:516
+#: src/interface.c:446 src/prefs.c:475
 msgid "Playlist file: "
 msgstr "播放清單： "
 
-#: src/interface.c:453 src/prefs.c:528 src/prefs.c:538
+#: src/interface.c:453 src/prefs.c:487 src/prefs.c:497
 msgid "Music file: "
 msgstr "音樂檔： "
 
@@ -267,41 +267,41 @@ msgstr "連接埠："
 msgid "Advanced"
 msgstr "進階設定"
 
-#: src/interface.c:816 src/interface.c:852
+#: src/interface.c:819 src/interface.c:855
 msgid "Ripping"
 msgstr "正在擷取..."
 
-#: src/interface.c:845
+#: src/interface.c:848
 msgid "Total progress"
 msgstr "總進度"
 
-#: src/interface.c:859
+#: src/interface.c:862
 msgid "Encoding"
 msgstr "正在編碼..."
 
-#: src/interface.c:1130
+#: src/interface.c:1133
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "成功地新建了%d個檔案"
 
-#: src/interface.c:1139
+#: src/interface.c:1142
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "新建%d個檔案時發生錯誤"
 
-#: src/prefs.c:515 src/prefs.c:527
+#: src/prefs.c:474 src/prefs.c:486
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "'%s'欄位中有無效的字元"
 
-#: src/prefs.c:537
+#: src/prefs.c:496
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' 不能為空白"
 
-#: src/prefs.c:552
+#: src/prefs.c:511
 msgid "Invalid proxy port number"
 msgstr "無效的連線伺服器埠號"
 
@@ -330,7 +330,7 @@ msgid ""
 "track."
 msgstr "尚未選取要 擷取/編碼 的音軌。請至少選擇一個音軌。"
 
-#: src/threads.c:793 src/threads.c:795 src/threads.c:799
+#: src/threads.c:790 src/threads.c:792 src/threads.c:796
 msgid "Waiting..."
 msgstr "請稍待..."
 
