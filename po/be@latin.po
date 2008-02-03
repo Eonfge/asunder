@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-06 01:30+0200\n"
+"POT-Creation-Date: 2008-02-03 14:22-0500\n"
 "PO-Revision-Date: 2008-01-06 01:33+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: i18n@mova.org <i18n@mova.org>\n"
@@ -50,11 +50,11 @@ msgstr ""
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Atrymańnie źviestak ab dysku ź sieciva...</b>"
 
-#: src/callbacks.c:283
+#: src/callbacks.c:294
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Dysk nia ŭstaŭleny. Kali łaska, ustaŭ dysk u pryładu CD-ROM."
 
-#: src/callbacks.c:302 src/callbacks.c:327 src/callbacks.c:352
+#: src/callbacks.c:313 src/callbacks.c:338 src/callbacks.c:363
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -63,11 +63,11 @@ msgstr ""
 "%s nia znojdzienaja ŭ ściežcy. Asunder vymahaje jaje, kab stvarać fajły %s. "
 "Usie funkcyi %s vyklučanyja."
 
-#: src/callbacks.c:439
+#: src/callbacks.c:450
 msgid "Select all for ripping"
 msgstr "Zaznač usio, kab ździerci"
 
-#: src/callbacks.c:445
+#: src/callbacks.c:456
 msgid "Deselect all for ripping"
 msgstr "Anuluj zaznačeńnie ździranaha"
 
@@ -141,11 +141,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Kataloh albomu: "
 
-#: src/interface.c:446 src/prefs.c:516
+#: src/interface.c:446 src/prefs.c:475
 msgid "Playlist file: "
 msgstr "Fajł śpisu: "
 
-#: src/interface.c:453 src/prefs.c:528 src/prefs.c:538
+#: src/interface.c:453 src/prefs.c:487 src/prefs.c:497
 msgid "Music file: "
 msgstr "Muzyčny fajł: "
 
@@ -212,8 +212,8 @@ msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
 msgstr ""
-"Vyšejšaja častata bitaŭ aznačaje lepšuju jakaść, ale i bolšy pamier. "
-"Bolšaść ludziej vykarystoŭvaje 192Kbps."
+"Vyšejšaja častata bitaŭ aznačaje lepšuju jakaść, ale i bolšy pamier. Bolšaść "
+"ludziej vykarystoŭvaje 192Kbps."
 
 #: src/interface.c:561
 msgid "32Kbps"
@@ -271,19 +271,19 @@ msgstr "Port: "
 msgid "Advanced"
 msgstr "Prasunutyja"
 
-#: src/interface.c:816 src/interface.c:852
+#: src/interface.c:819 src/interface.c:855
 msgid "Ripping"
 msgstr "Ździrańnie"
 
-#: src/interface.c:845
+#: src/interface.c:848
 msgid "Total progress"
 msgstr "Ahulny prahres"
 
-#: src/interface.c:859
+#: src/interface.c:862
 msgid "Encoding"
 msgstr "Kadavańnie"
 
-#: src/interface.c:1130
+#: src/interface.c:1142
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -291,7 +291,7 @@ msgstr[0] "%d fajł paśpiachova stvorany"
 msgstr[1] "%d fajły paśpiachova stvoranyja"
 msgstr[2] "%d fajłaŭ paśpiachova stvoranyja"
 
-#: src/interface.c:1139
+#: src/interface.c:1151
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -299,17 +299,17 @@ msgstr[0] "Pamyłka pry stvareńni %d fajłu"
 msgstr[1] "Pamyłka pry stvareńni %d fajłaŭ"
 msgstr[2] "Pamyłka pry stvareńni %d fajłaŭ"
 
-#: src/prefs.c:515 src/prefs.c:527
+#: src/prefs.c:474 src/prefs.c:486
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Niapravilnyja znaki ŭ poli \"%s\""
 
-#: src/prefs.c:537
+#: src/prefs.c:496
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "\"%s\" nia moža być pustym"
 
-#: src/prefs.c:552
+#: src/prefs.c:511
 msgid "Invalid proxy port number"
 msgstr "Niapravilny numar portu proxy"
 
@@ -331,17 +331,17 @@ msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
-"Metad ździrańnia/kadavańnia nia vybrany. Kali łaska, uklučy "
-"adzin ź ich u menu \"Nałady\"."
+"Metad ździrańnia/kadavańnia nia vybrany. Kali łaska, uklučy adzin ź ich u "
+"menu \"Nałady\"."
 
 #: src/threads.c:173
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr ""
-"Dla ździrańnia/kadavańnia nie zaznačana pieśniaŭ. Kali łaska, zaznač "
-"chacia b adnu ź pieśniaŭ."
+"Dla ździrańnia/kadavańnia nie zaznačana pieśniaŭ. Kali łaska, zaznač chacia "
+"b adnu ź pieśniaŭ."
 
-#: src/threads.c:793 src/threads.c:795 src/threads.c:799
+#: src/threads.c:790 src/threads.c:792 src/threads.c:796
 msgid "Waiting..."
 msgstr "Čakańnie..."

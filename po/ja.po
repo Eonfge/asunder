@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-29 21:48-0500\n"
+"POT-Creation-Date: 2008-02-03 14:22-0500\n"
 "PO-Revision-Date: 2007-12-07 17:09+0900\n"
 "Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
@@ -279,13 +279,13 @@ msgstr "全体の進行"
 msgid "Encoding"
 msgstr "エンコーディング"
 
-#: src/interface.c:1133
+#: src/interface.c:1142
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d 個のファイルを作成しました"
 
-#: src/interface.c:1142
+#: src/interface.c:1151
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

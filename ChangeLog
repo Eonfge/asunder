@@ -1,3 +1,11 @@
+03 Feb 2008 - 1.0.2
+===================
+- Added Belarusian, Serbian, and Serbian Latin translations.
+- No longer ejecting the disc if ripping canceled.
+- Progress percentage now displayed in the window title.
+- MP3 bitrate slider now works properly when VBR selected.
+- Changed default FLAC quality to 5.
+
 17 Dec 2007 - 1.0
 =================
 - Added Polish and Japanese translations.

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder-0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-29 21:48-0500\n"
+"POT-Creation-Date: 2008-02-03 14:22-0500\n"
 "PO-Revision-Date: 2007-09-30 17:32-0000\n"
 "Last-Translator: felipe augusto <flipeicl@gmail.com>\n"
 "Language-Team: Pt-Br <flipeicl@gmail.com>\n"
@@ -284,14 +284,14 @@ msgstr "Progresso total"
 msgid "Encoding"
 msgstr "Decodificar"
 
-#: src/interface.c:1133
+#: src/interface.c:1142
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "O Arquivo %d foi criado com sucesso"
 msgstr[1] "Os arquivos %d foram criados com sucesso"
 
-#: src/interface.c:1142
+#: src/interface.c:1151
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

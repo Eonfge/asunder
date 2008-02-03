@@ -967,7 +967,7 @@ void enable_ogg_widgets(void)
 
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 1.0.1";
+GBLprogramName = "Asunder 1.0.2";
 
 static const char* 
 GBLauthors[2] = {
@@ -990,29 +990,29 @@ GBLauthors[2] = {
 "\n"
 "Toni Graffy\n"
 "Maintainer of many SuSE packages at PackMan\n"
-"- SuSE packages of Asunder, versions 0.1 - 0.9\n"
+"- SuSE packages of Asunder, versions 0.1 - 1.0\n"
 "\n"
 "Trent Weddington\n"
 "http://rtfm.insomnia.org/~qg/\n"
-"- Debian packages of Asunder, versions 0.8 - 0.9\n"
+"- Debian packages of Asunder, versions 0.8 - 1.0\n"
 "\n"
 "Marcin Zajaczkowski (Szpak)\n"
 "http://timeoff.wsisiz.edu.pl/rpms.html\n"
-"- Fedora package of Asunder, versions 0.8.1 - 0.9\n"
+"- Fedora package of Asunder, versions 0.8.1 - 1.0\n"
 "\n"
 "Adam Williamson\n"
 "http://www.happyassassin.net/\n"
-"- Mandriva package of Asunder, version 0.9\n"
+"- Mandriva package of Asunder, versions 0.9 - 1.0\n"
 "\n"
 "Tom Nardi\n"
-"- Slackware package of Asunder, versions 0.8.1 - 0.9\n"
+"- Slackware package of Asunder, versions 0.8.1 - 1.0\n"
 "\n"
 "vktgz\n"
 "http://www.vktgz.homelinux.net/\n"
 "- Gentoo ebuild for Asunder, versions 0.8 - 0.8.1\n"
 "\n"
 "Sebastien Piccand\n"
-"- Arch package of Asunder, versions 0.8.1 - 0.9\n"
+"- Arch package of Asunder, versions 0.8.1 - 1.0\n"
 "\n"
 "Alexey Rusakov\n"
 "- ALT package of Asunder, versions 0.8.1 - 0.9\n"
@@ -1028,6 +1028,9 @@ NULL};
 
 static const char* 
 GBLtranslators = 
+"Ihar Hrachyshka\n"
+"- be (Belarusian) translation of Asunder version 1.0\n"
+"\n"
 "Siegfried-Angel Gevatter Pujals\n"
 "- ca (Catalan) translation of Asunder versions 0.8.1 - 1.0\n"
 "\n"
@@ -1078,6 +1081,12 @@ GBLtranslators =
 "\n"
 "Alexey Sivakov\n"
 "- ru (Russian) translation of Asunder versions 0.8 - 1.0\n"
+"\n"
+"Milan Puzic\n"
+"- sr (Serbian) translation of Asunder version 1.0\n"
+"\n"
+"Milan Puzic\n"
+"- sr@latin (Serbian/latin) translation of Asunder version 1.0\n"
 "\n"
 "Daniel Nylander\n"
 "- sv (Swedish) translation of Asunder versions 0.8 - 0.8.1\n"

@@ -93,7 +93,7 @@ prefs * get_default_prefs()
     p->format_music = malloc(sizeof(char) * 8);
     if (p->format_music == NULL)
         fatalError("malloc(sizeof(char) * 8) failed. Out of memory.");
-    strncpy(p->format_music, "%A - %T", 8);
+    strncpy(p->format_music, "%N - %A - %T", 8);
     
     p->format_playlist = malloc(sizeof(char) * 8);
     if (p->format_playlist == NULL)
