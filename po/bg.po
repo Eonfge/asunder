@@ -1,0 +1,335 @@
+# Bulgarian translation for Asunder.
+# This file is distributed under the same license as the Asunder package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: asunder-1.0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-12-16 23:30-0500\n"
+"PO-Revision-Date: 2008-03-13 19:49+0200\n"
+"Last-Translator: Emil Krumov <emil_dk@yahoo.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: src/main.c:113
+#: src/interface.c:203
+msgid "Rip"
+msgstr "Рипване"
+
+#: src/main.c:118
+msgid "Track"
+msgstr "Песен"
+
+#: src/main.c:125
+msgid "Artist"
+msgstr "Изпълнител"
+
+#: src/main.c:132
+msgid "Title"
+msgstr "Заглавие"
+
+#: src/main.c:137
+msgid "Time"
+msgstr "Времетраене"
+
+#: src/main.c:163
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "'cdparanoia' не беше намерен в указания път. Asunder изисква cdparanoia, за да може да рипва CD-та."
+
+#: src/main.c:434
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr "<b>Получаване на инфо за диска от Интернет...</b>"
+
+#: src/callbacks.c:283
+msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
+msgstr "Няма зареден диск. Моля, заредете CD в CD-ROM устройството."
+
+#: src/callbacks.c:302
+#: src/callbacks.c:327
+#: src/callbacks.c:352
+#, c-format
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "%s не беше намерен в указания път. Asunder го изисква, за да създаде %s файлове. Цялата %s функционалност е изключена."
+
+#: src/callbacks.c:439
+msgid "Select all for ripping"
+msgstr "Избиране на всички за рипване"
+
+#: src/callbacks.c:445
+msgid "Deselect all for ripping"
+msgstr "Отхвърляне на всички за рипване"
+
+#: src/interface.c:93
+msgid "CDDB Lookup"
+msgstr "Претърсване на CDDB"
+
+#: src/interface.c:136
+msgid "Disc:"
+msgstr "Диск:"
+
+#: src/interface.c:142
+msgid "Album artist:"
+msgstr "Изпълнител на албум:"
+
+#: src/interface.c:149
+msgid "Album title:"
+msgstr "Заглавие на албум:"
+
+#: src/interface.c:156
+msgid "Single artist"
+msgstr ""
+
+#: src/interface.c:353
+msgid "Preferences"
+msgstr "Предпочитания"
+
+#: src/interface.c:370
+#: src/interface.c:376
+msgid "Destination folder"
+msgstr "Работна папка"
+
+#: src/interface.c:380
+msgid "Create M3U playlist"
+msgstr "Създаване на M3U списък с песни"
+
+#: src/interface.c:388
+msgid "CD-ROM device: "
+msgstr "CD-ROM устройство"
+
+#: src/interface.c:397
+msgid ""
+"Default: /dev/cdrom\n"
+"Other example: /dev/hdc\n"
+"Other example: /dev/sr0"
+msgstr ""
+"По подразбиране: /dev/cdrom\n"
+"Друг пример: /dev/hdc\n"
+"Друг пример: /dev/sr0"
+
+#: src/interface.c:401
+msgid "Eject disc when finished"
+msgstr "Изваждане на диска след завършване"
+
+#: src/interface.c:409
+msgid "General"
+msgstr "Общи"
+
+#: src/interface.c:429
+msgid ""
+"%A - Artist\n"
+"%L - Album\n"
+"%N - Track number (2-digit)\n"
+"%T - Song title"
+msgstr ""
+"%A - Изпълнител\n"
+"%L - Албум\n"
+"%N - Номер на песен (двуцифрен)\n"
+"%T - Име на песен"
+
+#: src/interface.c:439
+msgid "Album directory: "
+msgstr "Директория на албум:"
+
+#: src/interface.c:446
+#: src/prefs.c:516
+msgid "Playlist file: "
+msgstr "Файл на списък с песни:"
+
+#: src/interface.c:453
+#: src/prefs.c:528
+#: src/prefs.c:538
+msgid "Music file: "
+msgstr "Музикален файл:"
+
+#: src/interface.c:467
+msgid ""
+"This is relative to the destination folder (from the General tab).\n"
+"Can be blank.\n"
+"Default: %A - %L\n"
+"Other example: %A/%L"
+msgstr ""
+"Това се отнася за работната папка (от табулатора Общи).\n"
+"Може да е празно.\n"
+"По подразбиране: %A - %L\n"
+"Друг пример: %A /%L"
+
+#: src/interface.c:479
+msgid ""
+"This will be stored in the album directory.\n"
+"Can be blank.\n"
+"Default: %A - %L"
+msgstr ""
+"Ще бъде запазено в директорията на албума.\n"
+"Може да е празно.\n"
+"По подразбиране: %A - %L"
+
+#: src/interface.c:490
+msgid ""
+"This will be stored in the album directory.\n"
+"Cannot be blank.\n"
+"Default: %A - %T\n"
+"Other example: %N - %T"
+msgstr ""
+"Ще бъде запазено в директорията на албума.\n"
+"Не може да е празно.\n"
+"По подразбиране: %A - %T\n"
+"Друг пример: %N - %T"
+
+#: src/interface.c:495
+msgid "Filename formats"
+msgstr "Формати на файлови имена"
+
+#: src/interface.c:500
+msgid "Filenames"
+msgstr "Файлови имена"
+
+#: src/interface.c:520
+msgid "WAV (uncompressed)"
+msgstr "WAV (не компресиран)"
+
+#: src/interface.c:537
+msgid "Variable bit rate (VBR)"
+msgstr "Променлива скорост на дискретизация (VBR)"
+
+#: src/interface.c:542
+msgid "Better quality for the same size."
+msgstr "По-добро качество за същият размер"
+
+#: src/interface.c:548
+msgid "Bitrate"
+msgstr "Bitrate"
+
+#: src/interface.c:559
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "По-висок bitrate означава по-добро качество, но и по-голям файл. Повечето хора използват 192Kbps."
+
+#: src/interface.c:561
+msgid "32Kbps"
+msgstr "32Kbps"
+
+#: src/interface.c:565
+msgid "MP3 (lossy compression)"
+msgstr "MP3 (компресия със загуби)"
+
+#: src/interface.c:582
+msgid "Quality"
+msgstr "Качество"
+
+#: src/interface.c:592
+msgid "Higher quality means bigger file. Default is 6."
+msgstr "По-високо качество означава по-голям файл. По подразбиране е 6."
+
+#: src/interface.c:594
+msgid "OGG Vorbis (lossy compression)"
+msgstr "OGG Vorbis (компресия със загуби)"
+
+#: src/interface.c:611
+msgid "Compression level"
+msgstr "Степен на компресия"
+
+#: src/interface.c:621
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr "Не влияе на качеството. По-голямо число означава по-малък файл."
+
+#: src/interface.c:623
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (компресия без загуби)"
+
+#: src/interface.c:627
+msgid "Encode"
+msgstr "Кодиране"
+
+#: src/interface.c:648
+msgid "Get disc info from the internet automatically"
+msgstr "Получаване на инфо за диска директно от Интернет"
+
+#: src/interface.c:656
+msgid "Use HTTP proxy to connect to the internet"
+msgstr "Използване на HTTP proxy за връзка с Интернет"
+
+#: src/interface.c:668
+msgid "Server: "
+msgstr "Сървър:"
+
+#: src/interface.c:680
+msgid "Port: "
+msgstr "Порт:"
+
+#: src/interface.c:692
+msgid "Advanced"
+msgstr "Разширено"
+
+#: src/interface.c:816
+#: src/interface.c:852
+msgid "Ripping"
+msgstr "Рипване"
+
+#: src/interface.c:845
+msgid "Total progress"
+msgstr "Общ напредък"
+
+#: src/interface.c:859
+msgid "Encoding"
+msgstr "Кодиране"
+
+#: src/interface.c:1130
+#, c-format
+msgid "%d file created successfully"
+msgid_plural "%d files created successfully"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/interface.c:1139
+#, c-format
+msgid "There was an error creating %d file"
+msgid_plural "There was an error creating %d files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/prefs.c:515
+#: src/prefs.c:527
+#, c-format
+msgid "Invalid characters in the '%s' field"
+msgstr "Невалиден символ в полето '%s'"
+
+#: src/prefs.c:537
+#, c-format
+msgid "'%s' cannot be empty"
+msgstr ""
+
+#: src/prefs.c:552
+msgid "Invalid proxy port number"
+msgstr "Невалиден proxy порт"
+
+#: src/support.c:47
+msgid "Overwrite?"
+msgstr "Презаписване?"
+
+#: src/support.c:60
+#, c-format
+msgid "The file '%s' already exists. Do you want to overwrite it?\n"
+msgstr "Файлът '%s' вече съществува. Да бъде ли презаписан?\n"
+
+#: src/support.c:66
+msgid "Remember the answer for _all the files made from this CD"
+msgstr ""
+
+#: src/threads.c:142
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgstr "Не е избран метод за рипване/кодиране. Моля изберете някой от меню 'Предпочитания'."
+
+#: src/threads.c:173
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgstr "Няма избрани песни за рипване/кодиране. Моля, изберете поне една песен."
+
+#: src/threads.c:793
+#: src/threads.c:795
+#: src/threads.c:799
+msgid "Waiting..."
+msgstr "Изчакване..."
+
