@@ -6,9 +6,9 @@ GenericName[de]=Ein graphischer CD-Ripper und Encoder
 Comment=An application to save tracks from an Audio CD as WAV, MP3, OGG, and/or FLAC.
 Comment[de]=Oberfläche zur Erstellung von Audio-Dateien
 Exec=asunder
-Encoding=UTF-8
 Terminal=false
 StartupNotify=true
 Type=Application
 Categories=AudioVideo;Audio;
-Icon=asunder.png
+Icon=asunder
+
