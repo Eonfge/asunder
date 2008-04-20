@@ -1,10 +1,8 @@
 - need better icon
 - make sure artist + song name is unique
 - other codecs:
- - wavpack (flac-like)
  - aac (mp3-like, apple)
  - monkey audio (flac-like)
-- consider adding %Y to the filename formats
 - everything gets checked when clicking refresh cddb
 
 

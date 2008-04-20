@@ -285,7 +285,7 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
                 size = 1;
             }
             
-        } while ((buf[pos] != '\n') && (size > 0));
+        } while ((buf[pos] != '\n') && (size > 0) && (pos < 256));
         buf[pos] = '\0';
 
         if ((buf[0] == 'R') && (buf[1] == 'i'))
@@ -415,7 +415,7 @@ void lame(int tracknum,
                 size = 1;
             }
             
-        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0));
+        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 256));
         buf[pos] = '\0';
         
         if (sscanf(buf, "%d/%d", &sector, &end) == 2)
@@ -524,7 +524,7 @@ void oggenc(int tracknum,
                 size = 1;
             }
             
-        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0));
+        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 256));
         buf[pos] = '\0';
 
         if (sscanf(buf, "\t[\t%d.%d%%]", &sector, &end) == 2)
@@ -691,7 +691,7 @@ void flac(int tracknum,
                 size = 1;
             }
             
-        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0));
+        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 256));
         buf[pos] = '\0';
 
         for (; pos>0; pos--)
@@ -774,7 +774,7 @@ void wavpack(int tracknum,
                 pos--;
                 size = 1;
             }
-        } while ((buf[pos] != '\b') && (size > 0));
+        } while ((buf[pos] != '\b') && (size > 0) && (pos < 256));
         
         buf[pos] = '\0';
         
