@@ -509,7 +509,7 @@ create_prefs (void)
     alignment8 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment8);
     gtk_container_add (GTK_CONTAINER (frame3), alignment8);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8), 0, 0, 12, 0);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8), 2, 2, 12, 2);
     
     vbox2 = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (vbox2);
@@ -567,7 +567,7 @@ create_prefs (void)
     alignment9 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment9);
     gtk_container_add (GTK_CONTAINER (frame4), alignment9);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment9), 0, 0, 12, 0);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment9), 2, 2, 12, 2);
 
     hbox10 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox10);
@@ -602,7 +602,7 @@ create_prefs (void)
     alignment10 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment10);
     gtk_container_add (GTK_CONTAINER (frame5), alignment10);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment10), 0, 0, 12, 0);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment10), 2, 2, 12, 2);
 
     hbox11 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox11);
@@ -652,7 +652,7 @@ create_prefs (void)
     alignment11 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment11);
     gtk_container_add (GTK_CONTAINER (frame6), alignment11);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 0, 0, 12, 0);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
     
     vbox = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (vbox);
@@ -690,7 +690,7 @@ create_prefs (void)
                                         NULL);
     
     tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, hybridwavpack, _("If the bitrate is low enough the format is lossy but a correction file is created for restoring the lossless original."), NULL);
+    gtk_tooltips_set_tip (tooltips, hybridwavpack, _("The format is lossy but a correction file is created for restoring the lossless original."), NULL);
     
     hbox9 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox9);
@@ -698,7 +698,7 @@ create_prefs (void)
     
     label = gtk_label_new (_("Bitrate"));
     gtk_widget_show (label);
-    gtk_box_pack_start (GTK_BOX (hbox9), label, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (hbox9), label, FALSE, FALSE, 2);
     GLADE_HOOKUP_OBJECT (prefs, label, "wavpack_bitrate_lbl");
     
     wavpackbitrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 6, 1, 1, 1)));
@@ -757,7 +757,7 @@ create_prefs (void)
     
     hbox = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox);
-    gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 1);
     
     label = gtk_label_new (_("Server: "));
     gtk_widget_show (label);
@@ -769,7 +769,7 @@ create_prefs (void)
     
     hbox = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox);
-    gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 1);
     
     label = gtk_label_new (_("Port: "));
     gtk_widget_show (label);
