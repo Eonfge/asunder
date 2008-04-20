@@ -5,16 +5,19 @@ extern pid_t cdparanoia_pid;
 extern pid_t lame_pid;
 extern pid_t oggenc_pid;
 extern pid_t flac_pid;
+extern pid_t wavpack_pid;
 
 extern int numCdparanoiaFailed;
 extern int numLameFailed;
 extern int numOggFailed;
 extern int numFlacFailed;
+extern int numWavpackFailed;
 
 extern int numCdparanoiaOk;
 extern int numLameOk;
 extern int numOggOk;
 extern int numFlacOk;
+extern int numWavpackOk;
 
 // signal handler to find out when out child has exited
 void sigchld(int signum);
@@ -99,3 +102,10 @@ void flac(int tracknum,
           char * flacfilename,
           int compression_level,
           double * progress);
+
+void wavpack(int tracknum,
+             char * wavfilename,
+             int compression,
+             bool hybrid,
+             int bitrate,
+             double * progress);

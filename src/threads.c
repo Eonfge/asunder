@@ -36,6 +36,7 @@ static FILE * playlist_wav = NULL;
 static FILE * playlist_mp3 = NULL;
 static FILE * playlist_ogg = NULL;
 static FILE * playlist_flac = NULL;
+static FILE * playlist_wavpack = NULL;
 
 /* ripping or encoding, so that can know not to clear the tracklist on eject */
 bool working;
@@ -53,6 +54,7 @@ static double rip_percent;
 static double mp3_percent;
 static double ogg_percent;
 static double flac_percent;
+static double wavpack_percent;
 static int rip_tracks_completed;
 static int encode_tracks_completed;
 
@@ -120,6 +122,7 @@ void dorip()
     mp3_percent = 0.0;
     ogg_percent = 0.0;
     flac_percent = 0.0;
+    wavpack_percent = 0.0;
     rip_tracks_completed = 0;
     encode_tracks_completed = 0;
     
@@ -132,7 +135,8 @@ void dorip()
     overwriteNone = false;
     
     // make sure there's at least one format to rip to
-    if (!global_prefs->rip_wav && !global_prefs->rip_mp3 && !global_prefs->rip_ogg && !global_prefs->rip_flac)
+    if (!global_prefs->rip_wav && !global_prefs->rip_mp3 && !global_prefs->rip_ogg && 
+        !global_prefs->rip_flac && !global_prefs->rip_wavpack)
     {
         GtkWidget * dialog;
         dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
@@ -208,178 +212,52 @@ void dorip()
     
     if (global_prefs->make_playlist)
     {
-        bool makePlaylist;
-        int rc;
-        struct stat statStruct;
+        
 #ifdef DEBUG
         printf("Creating playlists\n");
 #endif
         if (global_prefs->rip_wav)
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "wav.m3u");
-            // don't need the following because playlists are only allowed in the album dir
-            //recursive_parent_mkdir(filename, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH);
             
-            rc = stat(filename, &statStruct);
-            if(rc == 0)
-            {
-                if(confirmOverwrite(filename))
-                    makePlaylist = true;
-                else
-                    makePlaylist = false;
-            }
-            else
-                makePlaylist = true;
+            make_playlist(filename, &playlist_wav);
             
-            if(makePlaylist)
-            {
-                playlist_wav = fopen(filename, "w");
-                
-                if (playlist_wav == NULL)
-                {
-                    GtkWidget * dialog;
-                    dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                                    GTK_DIALOG_DESTROY_WITH_PARENT, 
-                                                    GTK_MESSAGE_ERROR, 
-                                                    GTK_BUTTONS_OK, 
-                                                    "Unable to create WAV playlist \"%s\": %s", 
-                                                    filename, strerror(errno));
-                    gtk_dialog_run(GTK_DIALOG(dialog));
-                    gtk_widget_destroy(dialog);
-                } else {
-                    fprintf(playlist_wav, "#EXTM3U\n");
-                }
-            }
-            else
-                playlist_wav = NULL;
-
             free(filename);
         }
         if (global_prefs->rip_mp3)
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "mp3.m3u");
-            // don't need the following because playlists are only allowed in the album dir
-            //recursive_parent_mkdir(filename, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH);
             
-            rc = stat(filename, &statStruct);
-            if(rc == 0)
-            {
-                if(confirmOverwrite(filename))
-                    makePlaylist = true;
-                else
-                    makePlaylist = false;
-            }
-            else
-                makePlaylist = true;
+            make_playlist(filename, &playlist_mp3);
             
-            if(makePlaylist)
-            {
-                playlist_mp3 = fopen(filename, "w");
-                
-                if (playlist_mp3 == NULL)
-                {
-                    GtkWidget * dialog;
-                    dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                                    GTK_DIALOG_DESTROY_WITH_PARENT, 
-                                                    GTK_MESSAGE_ERROR, 
-                                                    GTK_BUTTONS_OK, 
-                                                    "Unable to create MP3 playlist \"%s\": %s", 
-                                                    filename, strerror(errno));
-                    gtk_dialog_run(GTK_DIALOG(dialog));
-                    gtk_widget_destroy(dialog);
-                } else {
-                    fprintf(playlist_mp3, "#EXTM3U\n");
-                }
-            }
-            else
-                playlist_mp3 = NULL;
-
             free(filename);
         }
         if (global_prefs->rip_ogg)
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "ogg.m3u");
-            // don't need the following because playlists are only allowed in the album dir
-            //recursive_parent_mkdir(filename, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH);
             
-            rc = stat(filename, &statStruct);
-            if(rc == 0)
-            {
-                if(confirmOverwrite(filename))
-                    makePlaylist = true;
-                else
-                    makePlaylist = false;
-            }
-            else
-                makePlaylist = true;
+            make_playlist(filename, &playlist_ogg);
             
-            if(makePlaylist)
-            {
-                playlist_ogg = fopen(filename, "w");
-                
-                if (playlist_ogg == NULL)
-                {
-                    GtkWidget * dialog;
-                    dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                                    GTK_DIALOG_DESTROY_WITH_PARENT, 
-                                                    GTK_MESSAGE_ERROR, 
-                                                    GTK_BUTTONS_OK, 
-                                                    "Unable to create OGG playlist \"%s\": %s", 
-                                                    filename, strerror(errno));
-                    gtk_dialog_run(GTK_DIALOG(dialog));
-                    gtk_widget_destroy(dialog);
-                } else {
-                    fprintf(playlist_ogg, "#EXTM3U\n");
-                }
-            }
-            else
-                playlist_ogg = NULL;
-
             free(filename);
         }
         if (global_prefs->rip_flac)
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "flac.m3u");
-            // don't need the following because playlists are only allowed in the album dir
-            //recursive_parent_mkdir(filename, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH);
             
-            rc = stat(filename, &statStruct);
-            if(rc == 0)
-            {
-                if(confirmOverwrite(filename))
-                    makePlaylist = true;
-                else
-                    makePlaylist = false;
-            }
-            else
-                makePlaylist = true;
+            make_playlist(filename, &playlist_flac);
             
-            if(makePlaylist)
-            {
-                playlist_flac = fopen(filename, "w");
-                
-                if (playlist_flac == NULL)
-                {
-                    GtkWidget * dialog;
-                    dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                                    GTK_DIALOG_DESTROY_WITH_PARENT, 
-                                                    GTK_MESSAGE_ERROR, 
-                                                    GTK_BUTTONS_OK, 
-                                                    "Unable to create FLAC playlist \"%s\": %s", 
-                                                    filename, strerror(errno));
-                    gtk_dialog_run(GTK_DIALOG(dialog));
-                    gtk_widget_destroy(dialog);
-                } else {
-                    fprintf(playlist_flac, "#EXTM3U\n");
-                }
-            }
-            else
-                playlist_flac = NULL;
-
+            free(filename);
+        }
+        if (global_prefs->rip_wavpack)
+        {
+            char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "wv.m3u");
+            
+            make_playlist(filename, &playlist_wavpack);
+            
             free(filename);
         }
     }
-
+    
     free(albumdir);
     free(playlist);
     
@@ -389,11 +267,13 @@ void dorip()
     numLameFailed = 0;
     numOggFailed = 0;
     numFlacFailed = 0;
+    numWavpackFailed = 0;
     
     numCdparanoiaOk = 0;
     numLameOk = 0;
     numOggOk = 0;
     numFlacOk = 0;
+    numWavpackOk = 0;
     
     ripper = g_thread_create(rip, NULL, TRUE, NULL);
     encoder = g_thread_create(encode, NULL, TRUE, NULL);
@@ -527,6 +407,8 @@ gpointer encode(gpointer data)
     char * mp3filename = NULL;
     char * oggfilename = NULL;
     char * flacfilename = NULL;
+    char * wavpackfilename = NULL;
+    char * wavpackfilename2 = NULL;
     struct stat statStruct;
     bool doEncode;
     
@@ -591,7 +473,9 @@ gpointer encode(gpointer data)
             mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
             oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");
             flacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "flac");
-        
+            wavpackfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wv");
+            wavpackfilename2 = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wvc");
+            
             if (global_prefs->rip_mp3)
             {
 #ifdef DEBUG
@@ -692,6 +576,44 @@ gpointer encode(gpointer data)
                     fflush(playlist_flac);
                 }
             }
+            if (global_prefs->rip_wavpack)
+            {
+#ifdef DEBUG
+                printf("Encoding track %d to \"%s\"\n", tracknum, wavpackfilename);
+#endif
+                if (aborted) g_thread_exit(NULL);
+                
+                rc = stat(wavpackfilename, &statStruct);
+                int rc2 = stat(wavpackfilename2, &statStruct);
+                if(rc == 0 || rc2 == 0)
+                {
+                    gdk_threads_enter();
+                        if(confirmOverwrite(wavpackfilename))
+                            doEncode = true;
+                        else
+                            doEncode = false;
+                    gdk_threads_leave();
+                }
+                else
+                    doEncode = true;
+                
+                if(doEncode)
+                {
+                    wavpack(tracknum, wavfilename, 
+                            global_prefs->wavpack_compression - 1, global_prefs->wavpack_hibrid, 
+                            int_to_wavpack_bitrate(global_prefs->wavpack_bitrate), &wavpack_percent);
+                }
+                
+                if (aborted) g_thread_exit(NULL);
+                
+                if (playlist_wavpack)
+                {
+                    for (i=strlen(flacfilename); ((i>0) && (wavpackfilename[i] != '/')); i--);
+                    fprintf(playlist_wavpack, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
+                    fprintf(playlist_wavpack, "%s\n", basename(wavpackfilename));
+                    fflush(playlist_wavpack);
+                }
+            }
             if (!global_prefs->rip_wav)
             {
 #ifdef DEBUG
@@ -717,10 +639,12 @@ gpointer encode(gpointer data)
             free(mp3filename);
             free(oggfilename);
             free(flacfilename);
+            free(wavpackfilename);
             
             mp3_percent = 0.0;
             ogg_percent = 0.0;
             flac_percent = 0.0;
+            wavpack_percent = 0.0;
             encode_tracks_completed++;
         }
         
@@ -749,7 +673,7 @@ gpointer encode(gpointer data)
     available = NULL;
     
     /* wait until all the worker threads are done */
-    while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0)
+    while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0 || wavpack_pid != 0)
     {
 #ifdef DEBUG
         printf("w2");
@@ -763,8 +687,8 @@ gpointer encode(gpointer data)
     gdk_threads_enter();
         gtk_widget_hide(win_ripping);
         gdk_flush();
-        show_completed_dialog(numCdparanoiaOk + numLameOk + numOggOk + numFlacOk,
-                              numCdparanoiaFailed + numLameFailed + numOggFailed + numFlacFailed);
+        show_completed_dialog(numCdparanoiaOk + numLameOk + numOggOk + numFlacOk + numWavpackOk,
+                              numCdparanoiaFailed + numLameFailed + numOggFailed + numFlacFailed + numWavpackFailed);
     gdk_threads_leave();
     
     return NULL;
@@ -779,6 +703,8 @@ gpointer track(gpointer data)
     if(global_prefs->rip_ogg) 
         parts++;
     if(global_prefs->rip_flac) 
+        parts++;
+    if(global_prefs->rip_wavpack) 
         parts++;
     
     gdk_threads_enter();
@@ -811,13 +737,13 @@ gpointer track(gpointer data)
     while (!aborted && !allDone)
     {
 #ifdef DEBUG
-        printf("completed tracks %d, rip %.2f%%; encoded tracks %d, mp3 %.2f%% ogg %.2f%% flac %.2f%%\n", rip_tracks_completed, rip_percent, encode_tracks_completed, mp3_percent, ogg_percent, flac_percent);
+        printf("completed tracks %d, rip %.2f%%; encoded tracks %d, mp3 %.2f%% ogg %.2f%% flac %.2f%% wavpack %.2lf%%\n", rip_tracks_completed, rip_percent, encode_tracks_completed, mp3_percent, ogg_percent, flac_percent, wavpack_percent);
 #endif
         prip = (rip_tracks_completed+rip_percent) / tracks_to_rip;
         snprintf(srip, 13, "%d%% (%d/%d)", (int)(prip*100), rip_tracks_completed, tracks_to_rip);
         if (parts > 1)
         {
-            pencode = ((double)encode_tracks_completed/(double)tracks_to_rip) + ((mp3_percent+ogg_percent+flac_percent)/(parts-1)/tracks_to_rip);
+            pencode = ((double)encode_tracks_completed/(double)tracks_to_rip) + ((mp3_percent+ogg_percent+flac_percent+wavpack_percent)/(parts-1)/tracks_to_rip);
             snprintf(sencode, 13, "%d%% (%d/%d)", (int)(pencode*100), encode_tracks_completed, tracks_to_rip);
             ptotal = prip/parts + pencode*(parts-1)/parts;
         } else {

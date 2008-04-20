@@ -31,16 +31,19 @@ pid_t cdparanoia_pid;
 pid_t lame_pid;
 pid_t oggenc_pid;
 pid_t flac_pid;
+pid_t wavpack_pid;
 
 int numCdparanoiaFailed;
 int numLameFailed;
 int numOggFailed;
 int numFlacFailed;
+int numWavpackFailed;
 
 int numCdparanoiaOk;
 int numLameOk;
 int numOggOk;
 int numFlacOk;
+int numWavpackOk;
 
 int numchildren = 0;
 static bool waitBeforeSigchld;
@@ -87,8 +90,11 @@ void sigchld(int signum)
         usleep(100);
     }
     
-    if (pid != cdparanoia_pid && pid != lame_pid && pid != oggenc_pid && pid != flac_pid)
+    if (pid != cdparanoia_pid && pid != lame_pid && pid != oggenc_pid && 
+        pid != flac_pid && pid != wavpack_pid)
+    {
         printf("SIGCHLD for unknown pid, report bug please\n");
+    }
 #ifdef DEBUG
     printf("%d exited with %d: ", pid, status);
     if (WIFEXITED(status))
@@ -125,6 +131,11 @@ void sigchld(int signum)
             flac_pid = 0;
             numFlacFailed++;
         }
+        else if (pid == wavpack_pid)
+        {
+            wavpack_pid = 0;
+            numWavpackFailed++;
+        }
     }
     else
     {
@@ -148,6 +159,11 @@ void sigchld(int signum)
         {
             flac_pid = 0;
             numFlacOk++;
+        }
+        else if (pid == wavpack_pid)
+        {
+            wavpack_pid = 0;
+            numWavpackOk++;
         }
     }
 }
@@ -703,4 +719,89 @@ void flac(int tracknum,
 #endif
         usleep(100000);
     }
+}
+
+void wavpack(int tracknum,
+             char * wavfilename,
+             int compression,
+             bool hybrid,
+             int bitrate,
+             double * progress)
+{
+    const char * args[7];
+    int fd;
+    int pos;
+    int size;
+    char buf[256];
+    
+    pos = 0;
+    args[pos++] = "wavpack";
+    
+    if(hybrid)
+    {
+        char bitrateTxt[7];
+        snprintf(bitrateTxt, 7, "-b%d", bitrate);
+        args[pos++] = bitrateTxt;
+        
+        args[pos++] = "-c";
+    }
+    
+    args[pos++] = "-y";
+    
+    if(compression == 0)
+        args[pos++] = "-f";
+    else if(compression == 1)
+        args[pos++] = "-h";
+    else
+        args[pos++] = "-hh";
+    
+    args[pos++] = wavfilename;
+    args[pos++] = NULL;
+    
+    fd = exec_with_output(args, STDERR_FILENO, &wavpack_pid);
+    
+    do
+    {
+        pos = -1;
+        do
+        {
+            pos++;
+            size = read(fd, &buf[pos], 1);
+            
+            if (size == -1 && errno == EINTR)
+            /* signal interrupted read(), try again */
+            {
+                pos--;
+                size = 1;
+            }
+        } while ((buf[pos] != '\b') && (size > 0));
+        
+        buf[pos] = '\0';
+        
+        for (; pos>0; pos--)
+        {
+            if (buf[pos] == ',')
+            {
+                pos++;
+                break;
+            }
+        }
+        
+        int percent;
+        if (sscanf(&buf[pos], "%d%%", &percent) == 1)
+        {
+            *progress = (double)percent/100;
+        }
+    } while (size > 0);
+    
+    close(fd);
+    /* don't go on until the signal for the previous call is handled */
+    while (wavpack_pid != 0)
+    {
+#ifdef DEBUG
+        printf("w7\n");
+#endif
+        usleep(100000);
+    }
+    
 }

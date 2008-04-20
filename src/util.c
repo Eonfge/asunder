@@ -19,8 +19,11 @@ Foundation; version 2 of the licence.
 #include <limits.h>
 #include <ctype.h>
 #include <errno.h>
+#include <gtk/gtk.h>
 
 #include "util.h"
+#include "main.h"
+#include "support.h"
 
 void fatalError(const char* message)
 {
@@ -143,8 +146,32 @@ int int_to_bitrate(int i, bool vbr)
             return 320;
     }
     
-    fprintf(stderr, "int_to_bitrate() called with bad parameter\n");
+    fprintf(stderr, "int_to_bitrate() called with bad parameter (%d)\n", i);
     return 32;
+}
+
+int int_to_wavpack_bitrate(int i)
+{
+    switch (i)
+    {
+    case 0:
+        return 196;
+    case 1:
+        return 256;
+    case 2:
+        return 320;
+    case 3:
+        return 384;
+    case 4:
+        return 448;
+    case 5:
+        return 512;
+    case 6: // some format_wavpack_bitrate() weirdness
+        return 512;
+    }
+    
+    fprintf(stderr, "int_to_wavpack_bitrate() called with bad parameter (%d)\n", i);
+    return 192;
 }
 
 // construct a filename from various parts
@@ -212,6 +239,46 @@ char * make_filename(const char * path, const char * dir, const char * file, con
     ret[pos] = '\0';
 
     return ret;
+}
+
+void make_playlist(const char* filename, FILE** file)
+{
+    bool makePlaylist;
+    int rc;
+    struct stat statStruct;
+    
+    rc = stat(filename, &statStruct);
+    if(rc == 0)
+    {
+        if(confirmOverwrite(filename))
+            makePlaylist = true;
+        else
+            makePlaylist = false;
+    }
+    else
+        makePlaylist = true;
+    
+    if(makePlaylist)
+    {
+        *file = fopen(filename, "w");
+        
+        if (*file == NULL)
+        {
+            GtkWidget * dialog;
+            dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                            GTK_DIALOG_DESTROY_WITH_PARENT, 
+                                            GTK_MESSAGE_ERROR, 
+                                            GTK_BUTTONS_OK, 
+                                            "Unable to create WAV playlist \"%s\": %s", 
+                                            filename, strerror(errno));
+            gtk_dialog_run(GTK_DIALOG(dialog));
+            gtk_widget_destroy(dialog);
+        } else {
+            fprintf(*file, "#EXTM3U\n");
+        }
+    }
+    else
+        *file = NULL;
 }
 
 // substitute various items into a formatted string (similar to printf)

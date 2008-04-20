@@ -49,6 +49,14 @@ for_each_row_select                    (GtkTreeModel *model,
     return FALSE;
 }
 
+gchar*
+format_wavpack_bitrate                 (GtkScale *scale,
+                                        gdouble   arg1,
+                                        gpointer  user_data)
+{
+    return g_strdup_printf ("%dKbps", int_to_wavpack_bitrate((int)arg1));
+}
+
 gboolean
 idle(gpointer data)
 {
@@ -165,7 +173,6 @@ on_deselect_all_click                  (GtkMenuItem *menuitem,
     gtk_tree_model_foreach(model, for_each_row_deselect, NULL);
 }
 
-
 void
 on_vbr_toggled                         (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
@@ -179,6 +186,22 @@ on_vbr_toggled                         (GtkToggleButton *togglebutton,
     range = GTK_RANGE(lookup_widget(win_prefs, "mp3bitrate"));
     snprintf(bitrate, 8, "%dKbps", int_to_bitrate((int)gtk_range_get_value(range), vbr));
     gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "bitrate_lbl_2")), bitrate);
+}
+
+void
+on_hibrid_toggled                      (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hibrid"))))
+    {
+        gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_lbl"), TRUE);
+        gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_slider"), TRUE);
+    }
+    else
+    {
+        gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_lbl"), FALSE);
+        gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_slider"), FALSE);
+    }
 }
 
 void
@@ -374,6 +397,31 @@ on_rip_ogg_toggled                     (GtkToggleButton *togglebutton,
         disable_ogg_widgets();
     else
         enable_ogg_widgets();
+}
+
+void
+on_rip_wavpack_toggled                 (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+    if (gtk_toggle_button_get_active(togglebutton) && !program_exists("wavpack"))
+    {
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        _("%s was not found in your path. Asunder requires it to create %s files. "
+                                        "All %s functionality is disabled."),
+                                        "'wavpack'", "WV", "wavpack");
+        gtk_dialog_run(GTK_DIALOG(dialog));
+        gtk_widget_destroy(dialog);
+
+        global_prefs->rip_wavpack = 0;
+        gtk_toggle_button_set_active(togglebutton, global_prefs->rip_wavpack);
+    }
+    
+    if (!gtk_toggle_button_get_active(togglebutton))
+        disable_wavpack_widgets();
+    else
+        enable_wavpack_widgets();
 }
 
 void

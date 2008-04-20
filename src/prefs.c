@@ -88,7 +88,6 @@ prefs * get_default_prefs()
     
     p->music_dir = strdup(getenv("HOME"));
     p->make_playlist = 1;
-    p->make_albumdir = 1;
     
     p->format_music = malloc(sizeof(char) * 8);
     if (p->format_music == NULL)
@@ -109,10 +108,14 @@ prefs * get_default_prefs()
     p->rip_mp3 = 0;
     p->rip_ogg = 1;
     p->rip_flac = 0;
+    p->rip_wavpack = 0;
     p->mp3_vbr = 1;
     p->mp3_bitrate = 10;
     p->ogg_quality = 6;
     p->flac_compression = 5;
+    p->wavpack_compression = 1;
+    p->wavpack_hibrid = 1;
+    p->wavpack_bitrate = 3;
     
     p->main_window_width = 600;
     p->main_window_height = 450;
@@ -149,10 +152,14 @@ void set_widgets_from_prefs(prefs * p)
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_mp3")), p->rip_mp3);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_ogg")), p->rip_ogg);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_flac")), p->rip_flac);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_wavpack")), p->rip_wavpack);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "mp3_vbr")), p->mp3_vbr);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "mp3bitrate")), p->mp3_bitrate);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "oggquality")), p->ogg_quality);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "flaccompression")), p->flac_compression);
+    gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_compression")), p->wavpack_compression);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hibrid")), p->wavpack_hibrid);
+    gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_bitrate_slider")), p->wavpack_bitrate);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")), p->eject_on_done);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_cddb_updates")), p->do_cddb_updates);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "use_proxy")), p->use_proxy);
@@ -167,6 +174,10 @@ void set_widgets_from_prefs(prefs * p)
         disable_ogg_widgets();
     if ( !(p->rip_flac) )
         disable_flac_widgets();
+    if ( !(p->rip_wavpack) )
+        disable_wavpack_widgets();
+    else
+        enable_wavpack_widgets(); /* need this to potentially disable hibrid widgets */
 }
 
 // populates a prefs struct from the current state of the widgets
@@ -212,10 +223,14 @@ void get_prefs_from_widgets(prefs * p)
     p->rip_mp3 = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_mp3")));
     p->rip_ogg = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_ogg")));
     p->rip_flac = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_flac")));
+    p->rip_wavpack = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_wavpack")));
     p->mp3_vbr = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "mp3_vbr")));
     p->mp3_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "mp3bitrate")));
     p->ogg_quality = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "oggquality")));
     p->flac_compression = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "flaccompression")));
+    p->wavpack_compression = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_compression")));
+    p->wavpack_hibrid = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hibrid")));
+    p->wavpack_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_bitrate_slider")));
     
     p->eject_on_done = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")));
     
@@ -275,6 +290,10 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->use_proxy);
         fprintf(config, "%s\n", p->server_name);
         fprintf(config, "%d\n", p->port_number);
+        fprintf(config, "%d\n", p->rip_wavpack);
+        fprintf(config, "%d\n", p->wavpack_compression);
+        fprintf(config, "%d\n", p->wavpack_hibrid);
+        fprintf(config, "%d\n", p->wavpack_bitrate);
         
         fclose(config);
     } else {
@@ -413,6 +432,19 @@ void load_prefs(prefs * p)
             printf("bad port number read from config file, using %d instead\n", DEFAULT_PROXY_PORT);
             p->port_number = DEFAULT_PROXY_PORT;
         }
+        
+        // this one can be 0
+        p->rip_wavpack = read_line_num(fd);
+        
+        p->wavpack_compression = read_line_num(fd);
+        if (p->wavpack_compression < 1 || p->wavpack_compression > 3)
+            p->wavpack_compression = 1;
+        
+        // this one can be 0
+        p->wavpack_hibrid = read_line_num(fd);
+        
+        // this one can be 0
+        p->wavpack_bitrate = read_line_num(fd);
         
         close(fd);
     } else {

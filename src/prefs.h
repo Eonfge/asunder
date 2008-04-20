@@ -25,6 +25,10 @@ typedef struct _prefs
     int use_proxy;
     char * server_name;
     int port_number;
+    int rip_wavpack;
+    int wavpack_compression;
+    int wavpack_hibrid;
+    int wavpack_bitrate;
     
 } prefs;
 

@@ -4,6 +4,7 @@ void fatalError(const char* message);
 
 int int_to_vbr_int(int i);
 int int_to_bitrate(int i, bool vbr);
+int int_to_wavpack_bitrate(int i);
 
 // substitute various items into a formatted string (similar to printf)
 //
@@ -26,6 +27,8 @@ char * parse_format(const char * format, int tracknum, const char * artist, cons
 // NOTE: caller must free the returned string!
 // NOTE: any of the parameters may be NULL to be omitted
 char * make_filename(const char * path, const char * dir, const char * file, const char * extension);
+
+void make_playlist(const char* pathAndName, FILE** file);
 
 // reads an entire line from a file and returns it
 //

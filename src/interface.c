@@ -294,35 +294,23 @@ create_main (void)
 GtkWidget*
 create_prefs (void)
 {
+    GtkWidget *label;
     GtkWidget *prefs;
-    GtkWidget *dialog_vbox1;
     GtkWidget *notebook1;
-    GtkWidget *vbox5;
+    GtkWidget *vbox;
+    GtkWidget *vbox2;
     GtkWidget *music_dir;
-    GtkWidget *label15;
     GtkWidget *make_playlist;
     GtkWidget *hbox12;
-    GtkWidget *label28;
     GtkWidget *cdrom;
-    GtkWidget *label4;
-    GtkWidget *vbox7;
     GtkWidget *frame2;
-    GtkWidget *vbox10;
-    GtkWidget *label14;
     GtkWidget *table1;
-    GtkWidget *label11;
-    GtkWidget *label12;
-    GtkWidget *label17;
     GtkWidget *format_music;
     GtkWidget *format_albumdir;
     GtkWidget *format_playlist;
-    GtkWidget *label20;
-    GtkWidget *label19;
-    GtkWidget *vbox8;
     GtkWidget *rip_wav;
     GtkWidget *frame3;
     GtkWidget *alignment8;
-    GtkWidget *vbox9;
     GtkWidget *mp3_vbr;
     GtkWidget *hbox9;
     GtkWidget *rip_mp3;
@@ -333,19 +321,11 @@ create_prefs (void)
     GtkWidget *alignment10;
     GtkWidget *hbox11;
     GtkWidget *rip_flac;
-    GtkWidget *label6;
     GtkWidget *dialog_action_area1;
     GtkWidget *cancelbutton1;
     GtkWidget *okbutton1;
     GtkWidget *eject_on_done;
-    GtkTooltips *tooltips1;
-    GtkTooltips *tooltips2;
-    GtkTooltips *tooltips3;
-    GtkTooltips *tooltips4;
-    GtkTooltips *tooltips5;
-    GtkTooltips *tooltips6;
-    GtkTooltips *tooltips7;
-    GtkTooltips *tooltips8;
+    GtkTooltips *tooltips;
     GtkWidget* hboxFill;
     
     prefs = gtk_dialog_new ();
@@ -354,108 +334,108 @@ create_prefs (void)
     gtk_window_set_modal (GTK_WINDOW (prefs), TRUE);
     gtk_window_set_type_hint (GTK_WINDOW (prefs), GDK_WINDOW_TYPE_HINT_DIALOG);
     
-    dialog_vbox1 = GTK_DIALOG (prefs)->vbox;
-    gtk_widget_show (dialog_vbox1);
+    vbox = GTK_DIALOG (prefs)->vbox;
+    gtk_widget_show (vbox);
 
     notebook1 = gtk_notebook_new ();
     gtk_widget_show (notebook1);
-    gtk_box_pack_start (GTK_BOX (dialog_vbox1), notebook1, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), notebook1, TRUE, TRUE, 0);
     
     /* GENERAL tab */
-    vbox5 = gtk_vbox_new (FALSE, 5);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox5), 5);
-    gtk_widget_show (vbox5);
-    gtk_container_add (GTK_CONTAINER (notebook1), vbox5);
+    vbox = gtk_vbox_new (FALSE, 5);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
+    gtk_widget_show (vbox);
+    gtk_container_add (GTK_CONTAINER (notebook1), vbox);
 
-    label15 = gtk_label_new (_("Destination folder"));
-    gtk_misc_set_alignment(GTK_MISC(label15), 0, 0);
-    gtk_widget_show (label15);
-    gtk_box_pack_start (GTK_BOX (vbox5), label15, FALSE, FALSE, 0);
-    gtk_label_set_use_markup (GTK_LABEL (label15), TRUE);
+    label = gtk_label_new (_("Destination folder"));
+    gtk_misc_set_alignment(GTK_MISC(label), 0, 0);
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
+    gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
 
     music_dir = gtk_file_chooser_button_new(_("Destination folder"), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
     gtk_widget_show (music_dir);
-    gtk_box_pack_start (GTK_BOX (vbox5), music_dir, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), music_dir, FALSE, FALSE, 0);
     
     make_playlist = gtk_check_button_new_with_mnemonic (_("Create M3U playlist"));
     gtk_widget_show (make_playlist);
-    gtk_box_pack_start (GTK_BOX (vbox5), make_playlist, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), make_playlist, FALSE, FALSE, 0);
 
     hbox12 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox12);
-    gtk_box_pack_start (GTK_BOX (vbox5), hbox12, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox12, FALSE, FALSE, 0);
 
-    label28 = gtk_label_new (_("CD-ROM device: "));
-    gtk_widget_show (label28);
-    gtk_box_pack_start (GTK_BOX (hbox12), label28, FALSE, FALSE, 0);
+    label = gtk_label_new (_("CD-ROM device: "));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox12), label, FALSE, FALSE, 0);
     
     cdrom = gtk_entry_new ();
     gtk_widget_show (cdrom);
     gtk_box_pack_start (GTK_BOX (hbox12), cdrom, TRUE, TRUE, 0);
     
-    tooltips8 = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips8, cdrom, _("Default: /dev/cdrom\n"
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, cdrom, _("Default: /dev/cdrom\n"
                                               "Other example: /dev/hdc\n"
                                               "Other example: /dev/sr0"), NULL);
     
     eject_on_done = gtk_check_button_new_with_mnemonic (_("Eject disc when finished"));
     gtk_widget_show (eject_on_done);
-    gtk_box_pack_start (GTK_BOX (vbox5), eject_on_done, FALSE, FALSE, 5);
+    gtk_box_pack_start (GTK_BOX (vbox), eject_on_done, FALSE, FALSE, 5);
 
     hboxFill = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hboxFill);
-    gtk_box_pack_start (GTK_BOX (vbox5), hboxFill, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), hboxFill, TRUE, TRUE, 0);
     
-    label4 = gtk_label_new (_("General"));
-    gtk_widget_show (label4);
-    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 0), label4);
+    label = gtk_label_new (_("General"));
+    gtk_widget_show (label);
+    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 0), label);
     /* END GENERAL tab */
     
     /* FILENAMES tab */
-    vbox7 = gtk_vbox_new (FALSE, 5);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox7), 5);
-    gtk_widget_show (vbox7);
-    gtk_container_add (GTK_CONTAINER (notebook1), vbox7);
+    vbox = gtk_vbox_new (FALSE, 5);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
+    gtk_widget_show (vbox);
+    gtk_container_add (GTK_CONTAINER (notebook1), vbox);
 
     frame2 = gtk_frame_new (NULL);
     gtk_widget_show (frame2);
-    gtk_box_pack_start (GTK_BOX (vbox7), frame2, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), frame2, FALSE, FALSE, 0);
     
-    vbox10 = gtk_vbox_new (FALSE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox10), 5);
-    gtk_widget_show (vbox10);
-    gtk_container_add (GTK_CONTAINER (frame2), vbox10);
+    vbox = gtk_vbox_new (FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
+    gtk_widget_show (vbox);
+    gtk_container_add (GTK_CONTAINER (frame2), vbox);
     
-    label14 = gtk_label_new (_("%A - Artist\n%L - Album\n%N - Track number (2-digit)\n%T - Song title"));
-    gtk_widget_show (label14);
-    gtk_box_pack_start (GTK_BOX (vbox10), label14, FALSE, FALSE, 0);
-    gtk_misc_set_alignment (GTK_MISC (label14), 0, 0);
-    gtk_misc_set_padding (GTK_MISC (label14), 0, 7);
+    label = gtk_label_new (_("%A - Artist\n%L - Album\n%N - Track number (2-digit)\n%T - Song title"));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
+    gtk_misc_set_padding (GTK_MISC (label), 0, 7);
 
     table1 = gtk_table_new (3, 2, FALSE);
     gtk_widget_show (table1);
-    gtk_box_pack_start (GTK_BOX (vbox10), table1, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), table1, TRUE, TRUE, 0);
     
-    label17 = gtk_label_new (_("Album directory: "));
-    gtk_widget_show (label17);
-    gtk_table_attach (GTK_TABLE (table1), label17, 0, 1, 0, 1,
+    label = gtk_label_new (_("Album directory: "));
+    gtk_widget_show (label);
+    gtk_table_attach (GTK_TABLE (table1), label, 0, 1, 0, 1,
                                         (GtkAttachOptions) (GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
-    gtk_misc_set_alignment (GTK_MISC (label17), 0, 0);
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
 
-    label12 = gtk_label_new (_("Playlist file: "));
-    gtk_widget_show (label12);
-    gtk_table_attach (GTK_TABLE (table1), label12, 0, 1, 1, 2,
+    label = gtk_label_new (_("Playlist file: "));
+    gtk_widget_show (label);
+    gtk_table_attach (GTK_TABLE (table1), label, 0, 1, 1, 2,
                                         (GtkAttachOptions) (GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
-    gtk_misc_set_alignment (GTK_MISC (label12), 0, 0);
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
     
-    label11 = gtk_label_new (_("Music file: "));
-    gtk_widget_show (label11);
-    gtk_table_attach (GTK_TABLE (table1), label11, 0, 1, 2, 3,
+    label = gtk_label_new (_("Music file: "));
+    gtk_widget_show (label);
+    gtk_table_attach (GTK_TABLE (table1), label, 0, 1, 2, 3,
                                         (GtkAttachOptions) (GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
-    gtk_misc_set_alignment (GTK_MISC (label11), 0, 0);
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
 
     format_albumdir = gtk_entry_new ();
     gtk_widget_show (format_albumdir);
@@ -463,8 +443,8 @@ create_prefs (void)
                                         (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
     
-    tooltips5 = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips5, format_albumdir, _("This is relative to the destination folder (from the General tab).\n"
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, format_albumdir, _("This is relative to the destination folder (from the General tab).\n"
                                                         "Can be blank.\n"
                                                         "Default: %A - %L\n"
                                                         "Other example: %A/%L"), NULL);
@@ -475,8 +455,8 @@ create_prefs (void)
                                         (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
 
-    tooltips7 = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips7, format_playlist, _("This will be stored in the album directory.\n"
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, format_playlist, _("This will be stored in the album directory.\n"
                                                         "Can be blank.\n"
                                                         "Default: %A - %L"), NULL);
     
@@ -486,89 +466,103 @@ create_prefs (void)
                                         (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
 
-    tooltips6 = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips6, format_music, _("This will be stored in the album directory.\n"
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, format_music, _("This will be stored in the album directory.\n"
                                                      "Cannot be blank.\n"
                                                      "Default: %A - %T\n"
                                                      "Other example: %N - %T"), NULL);
     
-    label20 = gtk_label_new (_("Filename formats"));
-    gtk_widget_show (label20);
-    gtk_frame_set_label_widget (GTK_FRAME (frame2), label20);
-    gtk_label_set_use_markup (GTK_LABEL (label20), TRUE);
+    label = gtk_label_new (_("Filename formats"));
+    gtk_widget_show (label);
+    gtk_frame_set_label_widget (GTK_FRAME (frame2), label);
+    gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
 
-    label19 = gtk_label_new (_("Filenames"));
-    gtk_widget_show (label19);
-    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 1), label19);
+    label = gtk_label_new (_("Filenames"));
+    gtk_widget_show (label);
+    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 1), label);
     /* END FILENAMES tab */
     
     /* ENCODE tab */
-    GtkWidget* bitrateLbl;
     GtkWidget *mp3bitrate;
-    GtkWidget* bitrateLbl2;
     GtkWidget *oggLbl;
     GtkWidget *oggquality;
     GtkWidget *rip_ogg;
     GtkWidget *flacLbl;
     GtkWidget *flaccompression;
     
-    vbox8 = gtk_vbox_new (FALSE, 5);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox8), 5);
-    gtk_widget_show (vbox8);
-    gtk_container_add (GTK_CONTAINER (notebook1), vbox8);
-
+    vbox = gtk_vbox_new (FALSE, 5);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
+    gtk_widget_show (vbox);
+    gtk_container_add (GTK_CONTAINER (notebook1), vbox);
+    
+    /* WAV */
     rip_wav = gtk_check_button_new_with_mnemonic (_("WAV (uncompressed)"));
     gtk_widget_show (rip_wav);
-    gtk_box_pack_start (GTK_BOX (vbox8), rip_wav, FALSE, FALSE, 0);
-
+    gtk_box_pack_start (GTK_BOX (vbox), rip_wav, FALSE, FALSE, 0);
+    /* END WAV */
+    
+    /* MP3 */
     frame3 = gtk_frame_new (NULL);
     gtk_widget_show (frame3);
-    gtk_box_pack_start (GTK_BOX (vbox8), frame3, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), frame3, FALSE, FALSE, 0);
 
     alignment8 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment8);
     gtk_container_add (GTK_CONTAINER (frame3), alignment8);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8), 0, 0, 12, 0);
-
-    vbox9 = gtk_vbox_new (FALSE, 0);
-    gtk_widget_show (vbox9);
-    gtk_container_add (GTK_CONTAINER (alignment8), vbox9);
-
+    
+    vbox2 = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (vbox2);
+    gtk_container_add (GTK_CONTAINER (alignment8), vbox2);
+    
     mp3_vbr = gtk_check_button_new_with_mnemonic (_("Variable bit rate (VBR)"));
     gtk_widget_show (mp3_vbr);
-    gtk_box_pack_start (GTK_BOX (vbox9), mp3_vbr, FALSE, FALSE, 0);
-
-    tooltips4 = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips4, mp3_vbr, _("Better quality for the same size."), NULL);
+    gtk_box_pack_start (GTK_BOX (vbox2), mp3_vbr, FALSE, FALSE, 0);
+    g_signal_connect ((gpointer) mp3_vbr, "toggled",
+                                        G_CALLBACK (on_vbr_toggled),
+                                        NULL);
+    
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, mp3_vbr, _("Better quality for the same size."), NULL);
     
     hbox9 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox9);
-    gtk_box_pack_start (GTK_BOX (vbox9), hbox9, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox2), hbox9, TRUE, TRUE, 0);
     
-    bitrateLbl = gtk_label_new (_("Bitrate"));
-    gtk_widget_show (bitrateLbl);
-    gtk_box_pack_start (GTK_BOX (hbox9), bitrateLbl, FALSE, FALSE, 0);
+    label = gtk_label_new (_("Bitrate"));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox9), label, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, label, "bitrate_lbl");
     
     mp3bitrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 14, 1, 1, 1)));
     gtk_widget_show (mp3bitrate);
     gtk_box_pack_start (GTK_BOX (hbox9), mp3bitrate, TRUE, TRUE, 5);
     gtk_scale_set_draw_value (GTK_SCALE (mp3bitrate), FALSE);
     gtk_scale_set_digits (GTK_SCALE (mp3bitrate), 0);
+    g_signal_connect ((gpointer) mp3bitrate, "value_changed",
+                                        G_CALLBACK (on_mp3bitrate_value_changed),
+                                        NULL);
     
-    tooltips1 = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips1, mp3bitrate, _("Higher bitrate is better quality but also bigger file. Most people use 192Kbps."), NULL);
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, mp3bitrate, _("Higher bitrate is better quality but also bigger file. Most people use 192Kbps."), NULL);
     
-    bitrateLbl2 = gtk_label_new (_("32Kbps"));
-    gtk_widget_show (bitrateLbl2);
-    gtk_box_pack_start (GTK_BOX (hbox9), bitrateLbl2, FALSE, FALSE, 0);
-
+    label = gtk_label_new (_("32Kbps"));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox9), label, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, label, "bitrate_lbl_2");
+    
     rip_mp3 = gtk_check_button_new_with_mnemonic (_("MP3 (lossy compression)"));
     gtk_widget_show (rip_mp3);
     gtk_frame_set_label_widget (GTK_FRAME (frame3), rip_mp3);
-
+    g_signal_connect ((gpointer) rip_mp3, "toggled",
+                                        G_CALLBACK (on_rip_mp3_toggled),
+                                        NULL);
+    /* END MP3 */
+    
+    /* OGG */
     frame4 = gtk_frame_new (NULL);
     gtk_widget_show (frame4);
-    gtk_box_pack_start (GTK_BOX (vbox8), frame4, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), frame4, FALSE, FALSE, 0);
 
     alignment9 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment9);
@@ -586,18 +580,24 @@ create_prefs (void)
     oggquality = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (6, 0, 11, 1, 1, 1)));
     gtk_widget_show (oggquality);
     gtk_box_pack_start (GTK_BOX (hbox10), oggquality, TRUE, TRUE, 5);
+    gtk_scale_set_value_pos (GTK_SCALE (oggquality), GTK_POS_RIGHT);
     gtk_scale_set_digits (GTK_SCALE (oggquality), 0);
-
-    tooltips2 = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips2, oggquality, _("Higher quality means bigger file. Default is 6."), NULL);
+    
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, oggquality, _("Higher quality means bigger file. Default is 6."), NULL);
     
     rip_ogg = gtk_check_button_new_with_mnemonic (_("OGG Vorbis (lossy compression)"));
     gtk_widget_show (rip_ogg);
     gtk_frame_set_label_widget (GTK_FRAME (frame4), rip_ogg);
-
+    g_signal_connect ((gpointer) rip_ogg, "toggled",
+                                        G_CALLBACK (on_rip_ogg_toggled),
+                                        NULL);
+    /* END OGG */
+    
+    /* FLAC */
     frame5 = gtk_frame_new (NULL);
     gtk_widget_show (frame5);
-    gtk_box_pack_start (GTK_BOX (vbox8), frame5, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), frame5, FALSE, FALSE, 0);
 
     alignment10 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment10);
@@ -611,27 +611,121 @@ create_prefs (void)
     flacLbl = gtk_label_new (_("Compression level"));
     gtk_widget_show (flacLbl);
     gtk_box_pack_start (GTK_BOX (hbox11), flacLbl, FALSE, FALSE, 0);
-
+    
     flaccompression = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 9, 1, 1, 1)));
     gtk_widget_show (flaccompression);
     gtk_box_pack_start (GTK_BOX (hbox11), flaccompression, TRUE, TRUE, 5);
+    gtk_scale_set_value_pos (GTK_SCALE (flaccompression), GTK_POS_RIGHT);
     gtk_scale_set_digits (GTK_SCALE (flaccompression), 0);
 
-    tooltips3 = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips3, flaccompression, _("This does not affect the quality. Higher number means smaller file."), NULL);
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, flaccompression, _("This does not affect the quality. Higher number means smaller file."), NULL);
     
     rip_flac = gtk_check_button_new_with_mnemonic (_("FLAC (lossless compression)"));
     gtk_widget_show (rip_flac);
     gtk_frame_set_label_widget (GTK_FRAME (frame5), rip_flac);
+    g_signal_connect ((gpointer) rip_flac, "toggled",
+                                        G_CALLBACK (on_rip_flac_toggled),
+                                        NULL);
+    /* END FLAC */
+    
+    GtkWidget* expander;
+    GtkWidget* frame6;
+    GtkWidget* frame7;
+    GtkWidget* alignment11;
+    GtkWidget* hbox13;
+    GtkWidget* rip_wavpack;
+    GtkWidget* wavpackcompression;
+    GtkWidget* hybridwavpack;
+    GtkWidget* wavpackbitrate;
+    
+    expander = gtk_expander_new(_("More formats"));
+    gtk_widget_show (expander);
+    gtk_box_pack_start (GTK_BOX (vbox), expander, FALSE, FALSE, 0);
+    gtk_expander_set_expanded (GTK_EXPANDER(expander), TRUE);
+    
+    /* WAVPACK */
+    frame6 = gtk_frame_new (NULL);
+    gtk_widget_show (frame6);
+    gtk_container_add (GTK_CONTAINER (expander), frame6);
+    
+    alignment11 = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_show (alignment11);
+    gtk_container_add (GTK_CONTAINER (frame6), alignment11);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 0, 0, 12, 0);
+    
+    vbox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (vbox);
+    gtk_container_add (GTK_CONTAINER (alignment11), vbox);
+    
+    hbox13 = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hbox13);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox13, FALSE, FALSE, 0);
 
-    label6 = gtk_label_new (_("Encode"));
-    gtk_widget_show (label6);
-    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 2), label6);
+    label = gtk_label_new (_("Compression level"));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox13), label, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, label, "wavpack_compression_lbl");
+    
+    wavpackcompression = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (1, 1, 4, 1, 1, 1)));
+    gtk_widget_show (wavpackcompression);
+    gtk_box_pack_start (GTK_BOX (hbox13), wavpackcompression, TRUE, TRUE, 5);
+    gtk_scale_set_digits (GTK_SCALE (wavpackcompression), 0);
+    gtk_scale_set_value_pos (GTK_SCALE (wavpackcompression), GTK_POS_RIGHT);
+    GLADE_HOOKUP_OBJECT (prefs, wavpackcompression, "wavpack_compression");
+    
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, wavpackcompression, _("This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."), NULL);
+    
+    frame7 = gtk_frame_new (NULL);
+    gtk_widget_show (frame7);
+    gtk_box_pack_start (GTK_BOX (vbox), frame7, FALSE, FALSE, 0);
+    
+    hybridwavpack = gtk_check_button_new_with_mnemonic (_("Hibrid compression"));
+    gtk_widget_show (hybridwavpack);
+    gtk_frame_set_label_widget (GTK_FRAME (frame7), hybridwavpack);
+    GLADE_HOOKUP_OBJECT (prefs, hybridwavpack, "wavpack_hibrid");
+    g_signal_connect ((gpointer) hybridwavpack, "toggled",
+                                        G_CALLBACK (on_hibrid_toggled),
+                                        NULL);
+    
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, hybridwavpack, _("If the bitrate is low enough the format is lossy but a correction file is created for restoring the lossless original."), NULL);
+    
+    hbox9 = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hbox9);
+    gtk_container_add (GTK_CONTAINER (frame7), hbox9);
+    
+    label = gtk_label_new (_("Bitrate"));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox9), label, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, label, "wavpack_bitrate_lbl");
+    
+    wavpackbitrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 6, 1, 1, 1)));
+    gtk_widget_show (wavpackbitrate);
+    gtk_box_pack_start (GTK_BOX (hbox9), wavpackbitrate, TRUE, TRUE, 5);
+    gtk_scale_set_digits (GTK_SCALE (wavpackbitrate), 0);
+    gtk_scale_set_value_pos (GTK_SCALE (wavpackbitrate), GTK_POS_RIGHT);
+    GLADE_HOOKUP_OBJECT (prefs, wavpackbitrate, "wavpack_bitrate_slider");
+    g_signal_connect ((gpointer)wavpackbitrate, "format-value",
+                                        G_CALLBACK (format_wavpack_bitrate),
+                                        NULL);
+    
+    rip_wavpack = gtk_check_button_new_with_mnemonic ("WavPack");
+    gtk_widget_show (rip_wavpack);
+    gtk_frame_set_label_widget (GTK_FRAME (frame6), rip_wavpack);
+    g_signal_connect ((gpointer) rip_wavpack, "toggled",
+                                        G_CALLBACK (on_rip_wavpack_toggled),
+                                        NULL);
+    GLADE_HOOKUP_OBJECT (prefs, rip_wavpack, "rip_wavpack");
+    /* END WAVPACK */
+    
+    label = gtk_label_new (_("Encode"));
+    gtk_widget_show (label);
+    gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 2), label);
     /* END ENCODE tab */
 
     /* ADVANCED tab */
-    GtkWidget* vbox;
-    GtkWidget* label;
     GtkWidget* do_cddb_updates;
     GtkWidget* frame;
     GtkWidget* hbox;
@@ -714,72 +808,27 @@ create_prefs (void)
     g_signal_connect ((gpointer) prefs, "show",
                                         G_CALLBACK (on_prefs_show),
                                         NULL);
-    g_signal_connect ((gpointer) mp3bitrate, "value_changed",
-                                        G_CALLBACK (on_mp3bitrate_value_changed),
-                                        NULL);
-    g_signal_connect ((gpointer) rip_mp3, "toggled",
-                                        G_CALLBACK (on_rip_mp3_toggled),
-                                        NULL);
-    g_signal_connect ((gpointer) mp3_vbr, "toggled",
-                                        G_CALLBACK (on_vbr_toggled),
-                                        NULL);
-    g_signal_connect ((gpointer) rip_ogg, "toggled",
-                                        G_CALLBACK (on_rip_ogg_toggled),
-                                        NULL);
-    g_signal_connect ((gpointer) rip_flac, "toggled",
-                                        G_CALLBACK (on_rip_flac_toggled),
-                                        NULL);
     
     /* Store pointers to all widgets, for use by lookup_widget(). */
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, prefs, "prefs");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, dialog_vbox1, "dialog_vbox1");
     GLADE_HOOKUP_OBJECT (prefs, notebook1, "notebook1");
-    GLADE_HOOKUP_OBJECT (prefs, vbox5, "vbox5");
     GLADE_HOOKUP_OBJECT (prefs, music_dir, "music_dir");
-    GLADE_HOOKUP_OBJECT (prefs, label15, "label15");
     GLADE_HOOKUP_OBJECT (prefs, make_playlist, "make_playlist");
-    GLADE_HOOKUP_OBJECT (prefs, hbox12, "hbox12");
-    GLADE_HOOKUP_OBJECT (prefs, label28, "label28");
     GLADE_HOOKUP_OBJECT (prefs, cdrom, "cdrom");
     GLADE_HOOKUP_OBJECT (prefs, eject_on_done, "eject_on_done");
-    GLADE_HOOKUP_OBJECT (prefs, label4, "label4");
-    GLADE_HOOKUP_OBJECT (prefs, vbox7, "vbox7");
-    GLADE_HOOKUP_OBJECT (prefs, frame2, "frame2");
-    GLADE_HOOKUP_OBJECT (prefs, vbox10, "vbox10");
-    GLADE_HOOKUP_OBJECT (prefs, label14, "label14");
-    GLADE_HOOKUP_OBJECT (prefs, table1, "table1");
-    GLADE_HOOKUP_OBJECT (prefs, label11, "label11");
-    GLADE_HOOKUP_OBJECT (prefs, label12, "label12");
-    GLADE_HOOKUP_OBJECT (prefs, label17, "label17");
     GLADE_HOOKUP_OBJECT (prefs, format_music, "format_music");
     GLADE_HOOKUP_OBJECT (prefs, format_albumdir, "format_albumdir");
     GLADE_HOOKUP_OBJECT (prefs, format_playlist, "format_playlist");
-    GLADE_HOOKUP_OBJECT (prefs, label20, "label20");
-    GLADE_HOOKUP_OBJECT (prefs, label19, "label19");
-    GLADE_HOOKUP_OBJECT (prefs, vbox8, "vbox8");
     GLADE_HOOKUP_OBJECT (prefs, rip_wav, "rip_wav");
-    GLADE_HOOKUP_OBJECT (prefs, frame3, "frame3");
-    GLADE_HOOKUP_OBJECT (prefs, alignment8, "alignment8");
-    GLADE_HOOKUP_OBJECT (prefs, vbox9, "vbox9");
     GLADE_HOOKUP_OBJECT (prefs, mp3_vbr, "mp3_vbr");
-    GLADE_HOOKUP_OBJECT (prefs, hbox9, "hbox9");
-    GLADE_HOOKUP_OBJECT (prefs, bitrateLbl, "bitrate_lbl");
     GLADE_HOOKUP_OBJECT (prefs, mp3bitrate, "mp3bitrate");
-    GLADE_HOOKUP_OBJECT (prefs, bitrateLbl2, "bitrate_lbl_2");
     GLADE_HOOKUP_OBJECT (prefs, rip_mp3, "rip_mp3");
-    GLADE_HOOKUP_OBJECT (prefs, frame4, "frame4");
-    GLADE_HOOKUP_OBJECT (prefs, alignment9, "alignment9");
-    GLADE_HOOKUP_OBJECT (prefs, hbox10, "hbox10");
     GLADE_HOOKUP_OBJECT (prefs, oggLbl, "ogg_lbl");
     GLADE_HOOKUP_OBJECT (prefs, oggquality, "oggquality");
     GLADE_HOOKUP_OBJECT (prefs, rip_ogg, "rip_ogg");
-    GLADE_HOOKUP_OBJECT (prefs, frame5, "frame5");
-    GLADE_HOOKUP_OBJECT (prefs, alignment10, "alignment10");
-    GLADE_HOOKUP_OBJECT (prefs, hbox11, "hbox11");
     GLADE_HOOKUP_OBJECT (prefs, flacLbl, "flac_lbl");
     GLADE_HOOKUP_OBJECT (prefs, flaccompression, "flaccompression");
     GLADE_HOOKUP_OBJECT (prefs, rip_flac, "rip_flac");
-    GLADE_HOOKUP_OBJECT (prefs, label6, "label6");
     GLADE_HOOKUP_OBJECT (prefs, do_cddb_updates, "do_cddb_updates");
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, dialog_action_area1, "dialog_action_area1");
     GLADE_HOOKUP_OBJECT (prefs, cancelbutton1, "cancelbutton1");
@@ -787,14 +836,6 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, useProxy, "use_proxy");
     GLADE_HOOKUP_OBJECT (prefs, serverName, "server_name");
     GLADE_HOOKUP_OBJECT (prefs, portNum, "port_number");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips1, "tooltips1");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips2, "tooltips2");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips3, "tooltips3");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips4, "tooltips4");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips5, "tooltips5");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips6, "tooltips6");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips7, "tooltips7");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, tooltips8, "tooltips8");
     
     return prefs;
 }
@@ -925,18 +966,6 @@ void enable_all_main_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), TRUE);
 }
 
-void disable_flac_widgets(void)
-{
-    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flac_lbl"), FALSE);
-    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flaccompression"), FALSE);
-}
-
-void enable_flac_widgets(void)
-{
-    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flac_lbl"), TRUE);
-    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flaccompression"), TRUE);
-}
-
 void disable_mp3_widgets(void)
 {
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "mp3_vbr"), FALSE);
@@ -963,6 +992,44 @@ void enable_ogg_widgets(void)
 {
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "ogg_lbl"), TRUE);
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "oggquality"), TRUE);
+}
+
+void disable_flac_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flac_lbl"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flaccompression"), FALSE);
+}
+
+void enable_flac_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flac_lbl"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "flaccompression"), TRUE);
+}
+
+void disable_wavpack_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_compression_lbl"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_compression"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_hibrid"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_lbl"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_slider"), FALSE);
+}
+
+void enable_wavpack_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_compression_lbl"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_compression"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_hibrid"), TRUE);
+    if (global_prefs->wavpack_hibrid)
+    {
+        gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_lbl"), TRUE);
+        gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_slider"), TRUE);
+    }
+    else
+    {
+        gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_lbl"), FALSE);
+        gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_slider"), FALSE);
+    }
 }
 
 #if GTK_MINOR_VERSION >= 6
@@ -1121,6 +1188,9 @@ show_aboutbox (void)
 {
     gtk_show_about_dialog(GTK_WINDOW(lookup_widget(win_main, "main")), 
                           "name", GBLprogramName,
+#if GTK_MINOR_VERSION >= 12
+                          "program-name", GBLprogramName,
+#endif
                           "authors", GBLauthors,
                           "translator-credits", GBLtranslators,
                           "comments", GBLcomments,

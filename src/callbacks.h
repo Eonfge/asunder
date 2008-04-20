@@ -13,6 +13,10 @@ for_each_row_select                    (GtkTreeModel *model,
                                         GtkTreeIter *iter,
                                         gpointer data);
 
+gchar*
+format_wavpack_bitrate                 (GtkScale *scale,
+                                        gdouble   arg1,
+                                        gpointer  user_data);
 
 gboolean
 idle(gpointer data);
@@ -71,6 +75,9 @@ on_matches_response                    (GtkDialog       *dialog,
 void
 on_vbr_toggled                         (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
+void
+on_hibrid_toggled                      (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
 
 void
 on_mp3_bitrate_value_changed           (GtkRange        *range,
@@ -78,6 +85,9 @@ on_mp3_bitrate_value_changed           (GtkRange        *range,
 
 void
 on_mp3bitrate_value_changed            (GtkRange        *range,
+                                        gpointer         user_data);
+void
+on_wavpackcompression_value_changed    (GtkRange        *range,
                                         gpointer         user_data);
 
 void
@@ -126,6 +136,10 @@ on_rip_flac_toggled                    (GtkToggleButton *togglebutton,
 
 void
 on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+                                        
+void
+on_rip_wavpack_toggled                 (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
 
 void
