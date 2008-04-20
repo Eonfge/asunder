@@ -52,4 +52,4 @@ extern GtkWidget * tracklist;
 
 extern int gbl_null_fd;
 
-#define DEBUG
+//#define DEBUG
