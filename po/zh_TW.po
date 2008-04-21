@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-03 14:22-0500\n"
+"POT-Creation-Date: 2008-04-21 02:01-0400\n"
 "PO-Revision-Date: 2007-12-10 18:13+0800\n"
 "Last-Translator: Chien Cheng Wei <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
@@ -44,15 +44,16 @@ msgid ""
 msgstr ""
 "您指定的路徑內找不到「cdparanoia」。Asunder 需要「cdparanoia」 來擷取音軌。"
 
-#: src/main.c:434
+#: src/main.c:395
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>正在從網路取得光碟資訊...</b>"
 
-#: src/callbacks.c:294
+#: src/callbacks.c:317
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "尚未放入光碟。請將光碟放入光碟機中。"
 
-#: src/callbacks.c:313 src/callbacks.c:338 src/callbacks.c:363
+#: src/callbacks.c:336 src/callbacks.c:361 src/callbacks.c:386
+#: src/callbacks.c:411
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -61,11 +62,11 @@ msgstr ""
 "在您指定的路徑內找不到 %s。Asunder 需要該檔案來新建 %s 檔。%s 的所有功能都已"
 "被停用。"
 
-#: src/callbacks.c:450
+#: src/callbacks.c:498
 msgid "Select all for ripping"
 msgstr "擷取全部音軌"
 
-#: src/callbacks.c:456
+#: src/callbacks.c:504
 msgid "Deselect all for ripping"
 msgstr "全部取消擷取"
 
@@ -89,23 +90,23 @@ msgstr "專輯名稱："
 msgid "Single artist"
 msgstr "單一藝人"
 
-#: src/interface.c:353
+#: src/interface.c:333
 msgid "Preferences"
 msgstr "偏好設定"
 
-#: src/interface.c:370 src/interface.c:376
+#: src/interface.c:350 src/interface.c:356
 msgid "Destination folder"
 msgstr "存至"
 
-#: src/interface.c:380
+#: src/interface.c:360
 msgid "Create M3U playlist"
 msgstr "新建 M3U 播放清單"
 
-#: src/interface.c:388
+#: src/interface.c:368
 msgid "CD-ROM device: "
 msgstr "光碟機裝置： "
 
-#: src/interface.c:397
+#: src/interface.c:377
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
@@ -115,15 +116,15 @@ msgstr ""
 "或是設為這種形式：/dev/hdc\n"
 "或這種形式: /dev/sr0"
 
-#: src/interface.c:401
+#: src/interface.c:381
 msgid "Eject disc when finished"
 msgstr "完成時退出光碟"
 
-#: src/interface.c:409
+#: src/interface.c:389
 msgid "General"
 msgstr "一般設定"
 
-#: src/interface.c:429
+#: src/interface.c:409
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -135,19 +136,19 @@ msgstr ""
 "%N - 音軌編號（2位數）\n"
 "%T - 歌曲名稱"
 
-#: src/interface.c:439
+#: src/interface.c:419
 msgid "Album directory: "
 msgstr "專輯目錄： "
 
-#: src/interface.c:446 src/prefs.c:475
+#: src/interface.c:426 src/prefs.c:507
 msgid "Playlist file: "
 msgstr "播放清單： "
 
-#: src/interface.c:453 src/prefs.c:487 src/prefs.c:497
+#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
 msgid "Music file: "
 msgstr "音樂檔： "
 
-#: src/interface.c:467
+#: src/interface.c:447
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -159,7 +160,7 @@ msgstr ""
 "預設值：%A - %L\n"
 "或是設為這種形式：%A/%L"
 
-#: src/interface.c:479
+#: src/interface.c:459
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -169,7 +170,7 @@ msgstr ""
 "可以不指定（空白）。\n"
 "預設值：%A - %L"
 
-#: src/interface.c:490
+#: src/interface.c:470
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -181,127 +182,151 @@ msgstr ""
 "預設值：%A - %T\n"
 "或是設為這種形式：%N - %T"
 
-#: src/interface.c:495
+#: src/interface.c:475
 msgid "Filename formats"
 msgstr "檔名格式設定"
 
-#: src/interface.c:500
+#: src/interface.c:480
 msgid "Filenames"
 msgstr "檔名設定"
 
-#: src/interface.c:520
+#. WAV
+#: src/interface.c:499
 msgid "WAV (uncompressed)"
 msgstr "WAV（未壓縮）"
 
-#: src/interface.c:537
+#: src/interface.c:518
 msgid "Variable bit rate (VBR)"
 msgstr "變動位元率（VBR）"
 
-#: src/interface.c:542
+#: src/interface.c:526
 msgid "Better quality for the same size."
 msgstr "提高音質但保持相同檔案大小。"
 
-#: src/interface.c:548
+#: src/interface.c:532 src/interface.c:699
 msgid "Bitrate"
 msgstr "位元率"
 
-#: src/interface.c:559
+#: src/interface.c:547
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
 msgstr "位元率越高，雖然音質越好，但檔案也會越大。大多數人都指定192Kbps。"
 
-#: src/interface.c:561
+#: src/interface.c:549
 msgid "32Kbps"
 msgstr "32Kbps"
 
-#: src/interface.c:565
+#: src/interface.c:554
 msgid "MP3 (lossy compression)"
 msgstr "MP3（有失真的壓縮）"
 
-#: src/interface.c:582
+#: src/interface.c:576
 msgid "Quality"
 msgstr "音質"
 
-#: src/interface.c:592
+#: src/interface.c:587
 msgid "Higher quality means bigger file. Default is 6."
 msgstr "音質越好，檔案越大。預設值為6。"
 
-#: src/interface.c:594
+#: src/interface.c:589
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis（無失真的壓縮）"
 
-#: src/interface.c:611
+#: src/interface.c:611 src/interface.c:665
 msgid "Compression level"
 msgstr "壓縮等級"
 
-#: src/interface.c:621
+#: src/interface.c:622
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "這並不會影響音質。數字越大，檔案越小。"
 
-#: src/interface.c:623
+#: src/interface.c:624
 msgid "FLAC (lossless compression)"
 msgstr "FLAC（無失真的壓縮）"
 
-#: src/interface.c:627
+#: src/interface.c:642
+#, fuzzy
+msgid "More formats"
+msgstr "檔名格式設定"
+
+#: src/interface.c:678
+#, fuzzy
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr "這並不會影響音質。數字越大，檔案越小。"
+
+#: src/interface.c:684
+msgid "Hibrid compression"
+msgstr ""
+
+#: src/interface.c:693
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+
+#. END WAVPACK
+#: src/interface.c:723
 msgid "Encode"
 msgstr "編碼設定"
 
-#: src/interface.c:648
+#: src/interface.c:742
 msgid "Get disc info from the internet automatically"
 msgstr "自動從網路取得光碟資訊"
 
-#: src/interface.c:656
+#: src/interface.c:750
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "透過HTTP連線伺服器來連上網路"
 
-#: src/interface.c:668
+#: src/interface.c:762
 msgid "Server: "
 msgstr "伺服器位址："
 
-#: src/interface.c:680
+#: src/interface.c:774
 msgid "Port: "
 msgstr "連接埠："
 
-#: src/interface.c:692
+#: src/interface.c:786
 msgid "Advanced"
 msgstr "進階設定"
 
-#: src/interface.c:819 src/interface.c:855
+#: src/interface.c:860 src/interface.c:896
 msgid "Ripping"
 msgstr "正在擷取..."
 
-#: src/interface.c:848
+#: src/interface.c:889
 msgid "Total progress"
 msgstr "總進度"
 
-#: src/interface.c:862
+#: src/interface.c:903
 msgid "Encoding"
 msgstr "正在編碼..."
 
-#: src/interface.c:1142
+#: src/interface.c:1212
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "成功地新建了%d個檔案"
 
-#: src/interface.c:1151
+#: src/interface.c:1221
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "新建%d個檔案時發生錯誤"
 
-#: src/prefs.c:474 src/prefs.c:486
+#: src/prefs.c:506 src/prefs.c:518
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "'%s'欄位中有無效的字元"
 
-#: src/prefs.c:496
+#: src/prefs.c:528
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' 不能為空白"
 
-#: src/prefs.c:511
+#: src/prefs.c:543
 msgid "Invalid proxy port number"
 msgstr "無效的連線伺服器埠號"
 
@@ -318,19 +343,19 @@ msgstr "檔案 '%s' 已經存在。您是否要覆寫？\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "記住設定值，供所有用此CD做出的檔案使用"
 
-#: src/threads.c:142
+#: src/threads.c:146
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr "尚未選擇 擷取音軌/編碼 方法。請從「偏好設定」選單中啟用其中一種。"
 
-#: src/threads.c:173
+#: src/threads.c:177
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "尚未選取要 擷取/編碼 的音軌。請至少選擇一個音軌。"
 
-#: src/threads.c:790 src/threads.c:792 src/threads.c:796
+#: src/threads.c:716 src/threads.c:718 src/threads.c:722
 msgid "Waiting..."
 msgstr "請稍待..."
 

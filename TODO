@@ -1,9 +1,10 @@
 - need better icon
+- everything gets checked when clicking refresh cddb
 - make sure artist + song name is unique
 - other codecs:
  - aac (mp3-like, apple)
+ - musepack
  - monkey audio (flac-like)
-- everything gets checked when clicking refresh cddb
 
 
 Low Priority

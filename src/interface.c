@@ -642,7 +642,7 @@ create_prefs (void)
     expander = gtk_expander_new(_("More formats"));
     gtk_widget_show (expander);
     gtk_box_pack_start (GTK_BOX (vbox), expander, FALSE, FALSE, 0);
-    gtk_expander_set_expanded (GTK_EXPANDER(expander), TRUE);
+    //~ gtk_expander_set_expanded (GTK_EXPANDER(expander), TRUE);
     
     /* WAVPACK */
     frame6 = gtk_frame_new (NULL);

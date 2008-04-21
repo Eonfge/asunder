@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-03 14:22-0500\n"
+"POT-Creation-Date: 2008-04-21 02:01-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,26 +43,27 @@ msgid ""
 "CDs."
 msgstr ""
 
-#: src/main.c:434
+#: src/main.c:395
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr ""
 
-#: src/callbacks.c:294
+#: src/callbacks.c:317
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr ""
 
-#: src/callbacks.c:313 src/callbacks.c:338 src/callbacks.c:363
+#: src/callbacks.c:336 src/callbacks.c:361 src/callbacks.c:386
+#: src/callbacks.c:411
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
 "s functionality is disabled."
 msgstr ""
 
-#: src/callbacks.c:450
+#: src/callbacks.c:498
 msgid "Select all for ripping"
 msgstr ""
 
-#: src/callbacks.c:456
+#: src/callbacks.c:504
 msgid "Deselect all for ripping"
 msgstr ""
 
@@ -86,38 +87,38 @@ msgstr ""
 msgid "Single artist"
 msgstr ""
 
-#: src/interface.c:353
+#: src/interface.c:333
 msgid "Preferences"
 msgstr ""
 
-#: src/interface.c:370 src/interface.c:376
+#: src/interface.c:350 src/interface.c:356
 msgid "Destination folder"
 msgstr ""
 
-#: src/interface.c:380
+#: src/interface.c:360
 msgid "Create M3U playlist"
 msgstr ""
 
-#: src/interface.c:388
+#: src/interface.c:368
 msgid "CD-ROM device: "
 msgstr ""
 
-#: src/interface.c:397
+#: src/interface.c:377
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
 
-#: src/interface.c:401
+#: src/interface.c:381
 msgid "Eject disc when finished"
 msgstr ""
 
-#: src/interface.c:409
+#: src/interface.c:389
 msgid "General"
 msgstr ""
 
-#: src/interface.c:429
+#: src/interface.c:409
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -125,19 +126,19 @@ msgid ""
 "%T - Song title"
 msgstr ""
 
-#: src/interface.c:439
+#: src/interface.c:419
 msgid "Album directory: "
 msgstr ""
 
-#: src/interface.c:446 src/prefs.c:475
+#: src/interface.c:426 src/prefs.c:507
 msgid "Playlist file: "
 msgstr ""
 
-#: src/interface.c:453 src/prefs.c:487 src/prefs.c:497
+#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
 msgid "Music file: "
 msgstr ""
 
-#: src/interface.c:467
+#: src/interface.c:447
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -145,14 +146,14 @@ msgid ""
 "Other example: %A/%L"
 msgstr ""
 
-#: src/interface.c:479
+#: src/interface.c:459
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
 "Default: %A - %L"
 msgstr ""
 
-#: src/interface.c:490
+#: src/interface.c:470
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -160,129 +161,151 @@ msgid ""
 "Other example: %N - %T"
 msgstr ""
 
-#: src/interface.c:495
+#: src/interface.c:475
 msgid "Filename formats"
 msgstr ""
 
-#: src/interface.c:500
+#: src/interface.c:480
 msgid "Filenames"
 msgstr ""
 
-#: src/interface.c:520
+#. WAV
+#: src/interface.c:499
 msgid "WAV (uncompressed)"
 msgstr ""
 
-#: src/interface.c:537
+#: src/interface.c:518
 msgid "Variable bit rate (VBR)"
 msgstr ""
 
-#: src/interface.c:542
+#: src/interface.c:526
 msgid "Better quality for the same size."
 msgstr ""
 
-#: src/interface.c:548
+#: src/interface.c:532 src/interface.c:699
 msgid "Bitrate"
 msgstr ""
 
-#: src/interface.c:559
+#: src/interface.c:547
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
 msgstr ""
 
-#: src/interface.c:561
+#: src/interface.c:549
 msgid "32Kbps"
 msgstr ""
 
-#: src/interface.c:565
+#: src/interface.c:554
 msgid "MP3 (lossy compression)"
 msgstr ""
 
-#: src/interface.c:582
+#: src/interface.c:576
 msgid "Quality"
 msgstr ""
 
-#: src/interface.c:592
+#: src/interface.c:587
 msgid "Higher quality means bigger file. Default is 6."
 msgstr ""
 
-#: src/interface.c:594
+#: src/interface.c:589
 msgid "OGG Vorbis (lossy compression)"
 msgstr ""
 
-#: src/interface.c:611
+#: src/interface.c:611 src/interface.c:665
 msgid "Compression level"
 msgstr ""
 
-#: src/interface.c:621
+#: src/interface.c:622
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr ""
 
-#: src/interface.c:623
+#: src/interface.c:624
 msgid "FLAC (lossless compression)"
 msgstr ""
 
-#: src/interface.c:627
+#: src/interface.c:642
+msgid "More formats"
+msgstr ""
+
+#: src/interface.c:678
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+
+#: src/interface.c:684
+msgid "Hibrid compression"
+msgstr ""
+
+#: src/interface.c:693
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+
+#. END WAVPACK
+#: src/interface.c:723
 msgid "Encode"
 msgstr ""
 
-#: src/interface.c:648
+#: src/interface.c:742
 msgid "Get disc info from the internet automatically"
 msgstr ""
 
-#: src/interface.c:656
+#: src/interface.c:750
 msgid "Use HTTP proxy to connect to the internet"
 msgstr ""
 
-#: src/interface.c:668
+#: src/interface.c:762
 msgid "Server: "
 msgstr ""
 
-#: src/interface.c:680
+#: src/interface.c:774
 msgid "Port: "
 msgstr ""
 
-#: src/interface.c:692
+#: src/interface.c:786
 msgid "Advanced"
 msgstr ""
 
-#: src/interface.c:819 src/interface.c:855
+#: src/interface.c:860 src/interface.c:896
 msgid "Ripping"
 msgstr ""
 
-#: src/interface.c:848
+#: src/interface.c:889
 msgid "Total progress"
 msgstr ""
 
-#: src/interface.c:862
+#: src/interface.c:903
 msgid "Encoding"
 msgstr ""
 
-#: src/interface.c:1142
+#: src/interface.c:1212
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/interface.c:1151
+#: src/interface.c:1221
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/prefs.c:474 src/prefs.c:486
+#: src/prefs.c:506 src/prefs.c:518
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr ""
 
-#: src/prefs.c:496
+#: src/prefs.c:528
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr ""
 
-#: src/prefs.c:511
+#: src/prefs.c:543
 msgid "Invalid proxy port number"
 msgstr ""
 
@@ -299,18 +322,18 @@ msgstr ""
 msgid "Remember the answer for _all the files made from this CD"
 msgstr ""
 
-#: src/threads.c:142
+#: src/threads.c:146
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
 
-#: src/threads.c:173
+#: src/threads.c:177
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr ""
 
-#: src/threads.c:790 src/threads.c:792 src/threads.c:796
+#: src/threads.c:716 src/threads.c:718 src/threads.c:722
 msgid "Waiting..."
 msgstr ""
