@@ -29,6 +29,7 @@ typedef struct _prefs
     int wavpack_compression;
     int wavpack_hibrid;
     int wavpack_bitrate;
+    int do_log;
     
 } prefs;
 

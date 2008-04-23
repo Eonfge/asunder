@@ -91,13 +91,11 @@ int main(int argc, char *argv[])
     gdk_threads_init();
     gtk_init(&argc, &argv);
     
-    add_pixmap_directory(PACKAGE_DATA_DIR "/pixmaps");
-#ifdef DEBUG
-    printf("Pixmap dir: " PACKAGE_DATA_DIR "/pixmaps\n");
-#endif
-    
     global_prefs = get_default_prefs();
     load_prefs(global_prefs);
+    
+    add_pixmap_directory(PACKAGE_DATA_DIR "/pixmaps");
+    debugLog("Pixmap dir: " PACKAGE_DATA_DIR "/pixmaps\n");
     
     win_main = create_main();
     album_artist = lookup_widget(win_main, "album_artist");
@@ -473,10 +471,9 @@ cddb_disc_t * read_disc(char * cdrom)
         // see if we can read the disc's table of contents (TOC).
         if (ioctl(fd, CDIOREADTOCHEADER, &th) == 0)
         {
-#ifdef DEBUG
-            printf("starting track: %d\n", th.starting_track);
-            printf("ending track: %d\n", th.ending_track);
-#endif
+            debugLog("starting track: %d\n", th.starting_track);
+            debugLog("ending track: %d\n", th.ending_track);
+            
             disc = cddb_disc_new();
             if (disc == NULL)
                 fatalError("cddb_disc_new() failed. Out of memory?");
@@ -521,10 +518,9 @@ cddb_disc_t * read_disc(char * cdrom)
         // see if we can read the disc's table of contents (TOC).
         if (ioctl(fd, CDROMREADTOCHDR, &th) == 0)
         {
-#ifdef DEBUG
-            printf("starting track: %d\n", th.cdth_trk0);
-            printf("ending track: %d\n", th.cdth_trk1);
-#endif
+            debugLog("starting track: %d\n", th.cdth_trk0);
+            debugLog("ending track: %d\n", th.cdth_trk1);
+            
             disc = cddb_disc_new();
             if (disc == NULL)
                 fatalError("cddb_disc_new() failed. Out of memory?");

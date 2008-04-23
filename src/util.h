@@ -1,5 +1,7 @@
 #include <stdbool.h>
 
+void debugLog(const char* format, ...);
+
 void fatalError(const char* message);
 
 int int_to_vbr_int(int i);

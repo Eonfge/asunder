@@ -84,9 +84,7 @@ void sigchld(int signum)
     /* this is because i can't seem to be able to block sigchld: */
     while(waitBeforeSigchld)
     {
-#ifdef DEBUG
-        printf("waiting in sigchld()\n");
-#endif
+        debugLog("waiting in sigchld()\n");
         usleep(100);
     }
     
@@ -95,18 +93,16 @@ void sigchld(int signum)
     {
         printf("SIGCHLD for unknown pid, report bug please\n");
     }
-#ifdef DEBUG
-    printf("%d exited with %d: ", pid, status);
+    
+    debugLog("%d exited with %d: ", pid, status);
     if (WIFEXITED(status))
-        printf("exited, status=%d\n", WEXITSTATUS(status));
+        debugLog("exited, status=%d\n", WEXITSTATUS(status));
     else if (WIFSIGNALED(status))
-        printf("killed by signal %d\n", WTERMSIG(status));
+        debugLog("killed by signal %d\n", WTERMSIG(status));
     else if (WIFSTOPPED(status))
-        printf("stopped by signal %d\n", WSTOPSIG(status));
+        debugLog("stopped by signal %d\n", WSTOPSIG(status));
     else if (WIFCONTINUED(status))
-        printf("continued\n");
-    fflush(NULL);
-#endif
+        debugLog("continued\n");
 
     if (status != 0)
     {
@@ -218,16 +214,11 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
         fatalError("exec_with_output(): execvp() failed");
     }
     
-#ifdef DEBUG
     int count;
-    printf("%d started: %s ", *p, args[0]);
+    debugLog("%d started: %s ", *p, args[0]);
     for (count = 1; args[count] != NULL; count++)
-    {
-        printf("%s ", args[count]);
-    }
-    printf("\n");
-    fflush(NULL);
-#endif
+        debugLog("%s ", args[count]);
+    debugLog("\n");
     
     // i'm the parent, get ready to wait for children
     numchildren++;
@@ -307,9 +298,7 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     /* don't go on until the signal for the previous call is handled */
     while (cdparanoia_pid != 0)
     {
-#ifdef DEBUG
-        printf("w3");
-#endif
+        debugLog("w3\n");
         usleep(100000);
     }
     
@@ -428,9 +417,7 @@ void lame(int tracknum,
     /* don't go on until the signal for the previous call is handled */
     while (lame_pid != 0)
     {
-#ifdef DEBUG
-        printf("w4");
-#endif
+        debugLog("w4\n");
         usleep(100000);
     }
     
@@ -541,9 +528,7 @@ void oggenc(int tracknum,
     /* don't go on until the signal for the previous call is handled */
     while (oggenc_pid != 0)
     {
-#ifdef DEBUG
-        printf("w5");
-#endif
+        debugLog("w6\n");
         usleep(100000);
     }
     
@@ -714,9 +699,7 @@ void flac(int tracknum,
     /* don't go on until the signal for the previous call is handled */
     while (flac_pid != 0)
     {
-#ifdef DEBUG
-        printf("w6");
-#endif
+        debugLog("w7\n");
         usleep(100000);
     }
 }
@@ -750,10 +733,11 @@ void wavpack(int tracknum,
     
     if(compression == 0)
         args[pos++] = "-f";
-    else if(compression == 1)
+    else if(compression == 2)
         args[pos++] = "-h";
-    else
+    else if(compression == 3)
         args[pos++] = "-hh";
+    // default is no parameter (normal compression)
     
     args[pos++] = wavfilename;
     args[pos++] = NULL;
@@ -798,9 +782,7 @@ void wavpack(int tracknum,
     /* don't go on until the signal for the previous call is handled */
     while (wavpack_pid != 0)
     {
-#ifdef DEBUG
-        printf("w7\n");
-#endif
+        debugLog("w8\n");
         usleep(100000);
     }
     

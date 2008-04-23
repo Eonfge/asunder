@@ -78,29 +78,19 @@ void abort_threads()
     /* wait until all the worker threads are done */
     while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0)
     {
-#ifdef DEBUG
-        printf("w1");
-#endif
+        debugLog("w1");
         usleep(100000);
     }
     
     g_cond_signal(available);
     
-#ifdef DEBUG
-    printf("Aborting: 1\n");
-#endif
+    debugLog("Aborting: 1\n");
     g_thread_join(ripper);
-#ifdef DEBUG
-    printf("Aborting: 2\n");
-#endif
+    debugLog("Aborting: 2\n");
     g_thread_join(encoder);
-#ifdef DEBUG
-    printf("Aborting: 3\n");
-#endif
+    debugLog("Aborting: 3\n");
     g_thread_join(tracker);
-#ifdef DEBUG
-    printf("Aborting: 4 (All threads joined)\n");
-#endif
+    debugLog("Aborting: 4 (All threads joined)\n");
     
     gtk_widget_hide(win_ripping);
     gdk_flush();
@@ -185,9 +175,7 @@ void dorip()
     
     /* CREATE the album directory */
     char * dirpath = make_filename(prefs_get_music_dir(global_prefs), albumdir, NULL, NULL);
-#ifdef DEBUG
-    printf("Making album directory '%s'\n", dirpath);
-#endif
+    debugLog("Making album directory '%s'\n", dirpath);
     
     if ( recursive_mkdir(dirpath, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH) != 0 && 
          errno != EEXIST )
@@ -212,10 +200,8 @@ void dorip()
     
     if (global_prefs->make_playlist)
     {
+        debugLog("Creating playlists\n");
         
-#ifdef DEBUG
-        printf("Creating playlists\n");
-#endif
         if (global_prefs->rip_wav)
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "wav.m3u");
@@ -324,9 +310,8 @@ gpointer rip(gpointer data)
             musicfilename = parse_format(global_prefs->format_music, tracknum, trackartist, albumtitle, tracktitle);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             
-#ifdef DEBUG
-            printf("Ripping track %d to \"%s\"\n", tracknum, wavfilename);
-#endif
+            debugLog("Ripping track %d to \"%s\"\n", tracknum, wavfilename);
+            
             if (aborted) g_thread_exit(NULL);
             
             struct stat statStruct;
@@ -478,9 +463,8 @@ gpointer encode(gpointer data)
             
             if (global_prefs->rip_mp3)
             {
-#ifdef DEBUG
-                printf("Encoding track %d to \"%s\"\n", tracknum, mp3filename);
-#endif
+                debugLog("Encoding track %d to \"%s\"\n", tracknum, mp3filename);
+                
                 if (aborted) g_thread_exit(NULL);
                 
                 rc = stat(mp3filename, &statStruct);
@@ -511,9 +495,8 @@ gpointer encode(gpointer data)
             }
             if (global_prefs->rip_ogg)
             {
-#ifdef DEBUG
-                printf("Encoding track %d to \"%s\"\n", tracknum, oggfilename);
-#endif
+                debugLog("Encoding track %d to \"%s\"\n", tracknum, oggfilename);
+                
                 if (aborted) g_thread_exit(NULL);
                 
                 rc = stat(oggfilename, &statStruct);
@@ -544,9 +527,8 @@ gpointer encode(gpointer data)
             }
             if (global_prefs->rip_flac)
             {
-#ifdef DEBUG
-                printf("Encoding track %d to \"%s\"\n", tracknum, flacfilename);
-#endif
+                debugLog("Encoding track %d to \"%s\"\n", tracknum, flacfilename);
+                
                 if (aborted) g_thread_exit(NULL);
                 
                 rc = stat(flacfilename, &statStruct);
@@ -578,9 +560,8 @@ gpointer encode(gpointer data)
             }
             if (global_prefs->rip_wavpack)
             {
-#ifdef DEBUG
-                printf("Encoding track %d to \"%s\"\n", tracknum, wavpackfilename);
-#endif
+                debugLog("Encoding track %d to \"%s\"\n", tracknum, wavpackfilename);
+                
                 if (aborted) g_thread_exit(NULL);
                 
                 rc = stat(wavpackfilename, &statStruct);
@@ -616,9 +597,8 @@ gpointer encode(gpointer data)
             }
             if (!global_prefs->rip_wav)
             {
-#ifdef DEBUG
-                printf("Removing track %d WAV file\n", tracknum);
-#endif
+                debugLog("Removing track %d WAV file\n", tracknum);
+                
                 if (unlink(wavfilename) != 0)
                 {
                     printf("Unable to delete WAV file \"%s\": %s\n", wavfilename, strerror(errno));
@@ -675,9 +655,7 @@ gpointer encode(gpointer data)
     /* wait until all the worker threads are done */
     while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0 || wavpack_pid != 0)
     {
-#ifdef DEBUG
-        printf("w2");
-#endif
+        debugLog("w2");
         usleep(100000);
     }
     
@@ -736,9 +714,11 @@ gpointer track(gpointer data)
 
     while (!aborted && !allDone)
     {
-#ifdef DEBUG
-        printf("completed tracks %d, rip %.2f%%; encoded tracks %d, mp3 %.2f%% ogg %.2f%% flac %.2f%% wavpack %.2lf%%\n", rip_tracks_completed, rip_percent, encode_tracks_completed, mp3_percent, ogg_percent, flac_percent, wavpack_percent);
-#endif
+        debugLog("completed tracks %d, rip %.2lf%%; encoded tracks %d, "
+                 "mp3 %.2lf%% ogg %.2lf%% flac %.2lf%% wavpack %.2lf%%\n", 
+                 rip_tracks_completed, rip_percent, encode_tracks_completed, 
+                 mp3_percent, ogg_percent, flac_percent, wavpack_percent);
+        
         prip = (rip_tracks_completed+rip_percent) / tracks_to_rip;
         snprintf(srip, 13, "%d%% (%d/%d)", (int)(prip*100), rip_tracks_completed, tracks_to_rip);
         if (parts > 1)

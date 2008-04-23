@@ -2,6 +2,8 @@
 #include <cddb/cddb.h>
 #include <stdbool.h>
 
+#define LOG_FILE "/tmp/asunder.log"
+
 enum
 {
     COL_RIPTRACK,

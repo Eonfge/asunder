@@ -667,7 +667,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox13), label, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, label, "wavpack_compression_lbl");
     
-    wavpackcompression = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (1, 1, 4, 1, 1, 1)));
+    wavpackcompression = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (1, 0, 4, 1, 1, 1)));
     gtk_widget_show (wavpackcompression);
     gtk_box_pack_start (GTK_BOX (hbox13), wavpackcompression, TRUE, TRUE, 5);
     gtk_scale_set_digits (GTK_SCALE (wavpackcompression), 0);
@@ -733,6 +733,7 @@ create_prefs (void)
     GtkWidget* serverName;
     GtkWidget* portNum;
     GtkWidget* frameVbox;
+    GtkWidget* do_log;
     
     vbox = gtk_vbox_new (FALSE, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
@@ -750,6 +751,7 @@ create_prefs (void)
     useProxy = gtk_check_button_new_with_mnemonic (_("Use HTTP proxy to connect to the internet"));
     gtk_widget_show (useProxy);
     gtk_frame_set_label_widget (GTK_FRAME (frame), useProxy);
+    GLADE_HOOKUP_OBJECT (prefs, useProxy, "use_proxy");
     
     frameVbox = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (frameVbox);
@@ -766,6 +768,7 @@ create_prefs (void)
     serverName = gtk_entry_new ();
     gtk_widget_show (serverName);
     gtk_box_pack_start (GTK_BOX (hbox), serverName, TRUE, TRUE, 5);
+    GLADE_HOOKUP_OBJECT (prefs, serverName, "server_name");
     
     hbox = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox);
@@ -778,6 +781,12 @@ create_prefs (void)
     portNum = gtk_entry_new ();
     gtk_widget_show (portNum);
     gtk_box_pack_start (GTK_BOX (hbox), portNum, TRUE, TRUE, 5);
+    GLADE_HOOKUP_OBJECT (prefs, portNum, "port_number");
+    
+    do_log = gtk_check_button_new_with_label ("Log to "LOG_FILE);
+    gtk_widget_show (do_log);
+    gtk_box_pack_start (GTK_BOX (vbox), do_log, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, do_log, "do_log");
     
     hboxFill = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hboxFill);
@@ -833,9 +842,6 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT_NO_REF (prefs, dialog_action_area1, "dialog_action_area1");
     GLADE_HOOKUP_OBJECT (prefs, cancelbutton1, "cancelbutton1");
     GLADE_HOOKUP_OBJECT (prefs, okbutton1, "okbutton1");
-    GLADE_HOOKUP_OBJECT (prefs, useProxy, "use_proxy");
-    GLADE_HOOKUP_OBJECT (prefs, serverName, "server_name");
-    GLADE_HOOKUP_OBJECT (prefs, portNum, "port_number");
     
     return prefs;
 }

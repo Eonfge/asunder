@@ -126,6 +126,8 @@ prefs * get_default_prefs()
     
     p->use_proxy = 0;
     
+    p->do_log = 0;
+    
     p->server_name = malloc(sizeof(char) * (strlen("10.0.0.1") + 1));
     if (p->server_name == NULL)
         fatalError("malloc(sizeof(char) * (strlen(\"10.0.0.1\") + 1)) failed. Out of memory.");
@@ -166,6 +168,7 @@ void set_widgets_from_prefs(prefs * p)
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "server_name")), p->server_name);
     snprintf(tempStr, 10, "%d", p->port_number);
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number")), tempStr);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_log")), p->do_log);
     
     /* disable widgets if needed */
     if ( !(p->rip_mp3) )
@@ -245,6 +248,8 @@ void get_prefs_from_widgets(prefs * p)
     strncpy(p->server_name, tocopyc, strlen(tocopyc) + 1);
     
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number")));
+    
+    p->do_log = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_log")));
 }
 
 // store the given prefs struct to the config file
@@ -259,10 +264,8 @@ void save_prefs(prefs * p)
         fatalError("malloc(sizeof(char) * (homelen + 10)) failed. Out of memory.");
     strncpy(file, home, homelen);
     strncpy(&file[homelen], "/.asunder", 10);
-    
-#ifdef DEBUG
-    printf("Saving configuration\n");
-#endif
+        
+    debugLog("Saving configuration\n");
     
     FILE * config = fopen(file, "w");
     if (config != NULL)
@@ -294,6 +297,7 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->wavpack_compression);
         fprintf(config, "%d\n", p->wavpack_hibrid);
         fprintf(config, "%d\n", p->wavpack_bitrate);
+        fprintf(config, "%d\n", p->do_log);
         
         fclose(config);
     } else {
@@ -314,10 +318,8 @@ void load_prefs(prefs * p)
         fatalError("malloc(sizeof(char) * (homelen + 10)) failed. Out of memory.");
     strncpy(file, home, homelen);
     strncpy(&file[homelen], "/.asunder", 10);
-
-#ifdef DEBUG
-    printf("Loading configuration\n");
-#endif
+    
+    debugLog("Loading configuration\n");
     
     int fd = open(file, O_RDONLY);
     if (fd > -1)
@@ -436,15 +438,17 @@ void load_prefs(prefs * p)
         // this one can be 0
         p->rip_wavpack = read_line_num(fd);
         
+        // this one can be 0
         p->wavpack_compression = read_line_num(fd);
-        if (p->wavpack_compression < 1 || p->wavpack_compression > 3)
-            p->wavpack_compression = 1;
         
         // this one can be 0
         p->wavpack_hibrid = read_line_num(fd);
         
         // this one can be 0
         p->wavpack_bitrate = read_line_num(fd);
+        
+        // this one can be 0
+        p->do_log = read_line_num(fd);
         
         close(fd);
     } else {
