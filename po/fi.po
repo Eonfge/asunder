@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
+"POT-Creation-Date: 2008-04-26 19:58-0400\n"
 "PO-Revision-Date: 2007-12-16 19:07+0200\n"
 "Last-Translator: Eero Salokannel <eero.salokannel@gmail.com>\n"
 "Language-Team: Finnish\n"
@@ -14,27 +14,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Rippaa"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
 msgstr "Raita"
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "Esittäjä"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "Kappale"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "Aika"
 
-#: src/main.c:163
+#: src/main.c:161
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -42,7 +42,7 @@ msgstr ""
 "'cdparanoia':a ei löytynyt. Asunder tarvitsee cdparanoia:n CD levyjen "
 "rippaamiseen."
 
-#: src/main.c:395
+#: src/main.c:393
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Haetaan levyn tietoja internetistä...</b>"
 
@@ -138,11 +138,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Levyn kansio: "
 
-#: src/interface.c:426 src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Soittolistan tiedosto: "
 
-#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "Musiikki tiedosto: "
 
@@ -274,63 +274,63 @@ msgstr ""
 msgid "Encode"
 msgstr "Koodaus"
 
-#: src/interface.c:742
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
 msgstr "Hae levyn tiedot internetistä automaattisesti"
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "Käytä HTTP välityspalvelinta internet yhteyteen"
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr "Palvelin:"
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr "Portti:"
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr "Lisäasetukset"
 
-#: src/interface.c:860 src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
 msgstr "Rippaa"
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "Edistyminen"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "Koodaa"
 
-#: src/interface.c:1212
+#: src/interface.c:1233
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d tiedosto luotu onnistuneesti"
 msgstr[1] "%d tiedostoa luotu onnistuneesti"
 
-#: src/interface.c:1221
+#: src/interface.c:1242
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Esiintyi virhe luotaessa tiedostoa %d"
 msgstr[1] "Esiintyi virhe luotaessa tiedostoja %d"
 
-#: src/prefs.c:506 src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Virheellisiä merkkejä kentässä '%s'"
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' ei voi olla tyhjä"
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr "Virheellinen välityspalvelimen portin numero"
 
@@ -347,13 +347,13 @@ msgstr "Tiedosto '%s' on jo olemassa. Haluatko korvata sen?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Muista vastaus k_aikille tiedostoille tältä CD-levyltä"
 
-#: src/threads.c:146
+#: src/threads.c:136
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr "Rippaus/koodaus tapaa ei valittu. Ole hyvä ja valitse "
 
-#: src/threads.c:177
+#: src/threads.c:167
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -361,7 +361,7 @@ msgstr ""
 "Yhtään raitaa ei valittu ripattavaksi/koodattavaksi. Valitse vähintään yksi "
 "raita."
 
-#: src/threads.c:716 src/threads.c:718 src/threads.c:722
+#: src/threads.c:694 src/threads.c:696 src/threads.c:700
 msgid "Waiting..."
 msgstr "Odottaa..."
 

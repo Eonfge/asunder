@@ -17,58 +17,70 @@ Packages:
 
 Toni Graffy
 Maintainer of many SuSE packages at PackMan
-- SuSE packages of Asunder, versions 0.1 - 0.9
+- SuSE packages of Asunder, versions 0.1 - 1.0.2
 
 Trent Weddington
 http://rtfm.insomnia.org/~qg/
-- Debian packages of Asunder, versions 0.8 - 0.9
+- Debian packages of Asunder, versions 0.8 - 1.0.1
 
 Marcin Zajaczkowski (Szpak)
 http://timeoff.wsisiz.edu.pl/rpms.html
-- Fedora package of Asunder, versions 0.8.1 - 0.9
+- Fedora packages of Asunder, versions 0.8.1 - 1.0.2
 
 Adam Williamson
 http://www.happyassassin.net/
-- Mandriva package of Asunder, version 0.9
+- Mandriva packages of Asunder, versions 0.9 - 1.0.2
 
 Tom Nardi
-- Slackware package of Asunder, versions 0.8.1 - 0.9
+- Slackware packages of Asunder, versions 0.8.1 - 1.0.2
 
 vktgz
 http://www.vktgz.homelinux.net/
-- Gentoo ebuild for Asunder, versions 0.8 - 0.8.1
+- Gentoo ebuilds for Asunder, versions 0.8 - 0.8.1
 
 Sebastien Piccand
-- Arch package of Asunder, versions 0.8.1 - 0.9
+- Arch packages of Asunder, versions 0.8.1 - 1.0.2
 
 Alexey Rusakov
-- ALT package of Asunder, versions 0.8.1 - 0.9
+- ALT packages of Asunder, versions 0.8.1 - 1.0.2
 
 Fraser Tweedale
-- FreeBSD port of Asunder, versions 0.8.1 - 0.9
+- FreeBSD ports of Asunder, versions 0.8.1 - 0.9
 
 Philip Muller
 - Paldo package of Asunder, version 0.8.1
 
+Joao Pinto
+- 64bit Debian packages of Asunder, versions 1.0.1 - 1.0.2
+
+Christophe Lincoln
+- Slitaz package of Asunder, version 1.0.2
+
 Translations:
 
 Ihar Hrachyshka
-- be (Belarusian) translation of Asunder version 1.0
+- be (Belarusian) translation of Asunder versions 1.0.2 - 1.5
+
+Emil Krumov
+- bg (Bulgarian) translation of Asunder versions 1.0.2 - 1.5
 
 Siegfried-Angel Gevatter Pujals
-- ca (Catalan) translation of Asunder versions 0.8.1 - 1.0
+- ca (Catalan) translation of Asunder versions 0.8.1 - 1.5
 
 Schmaki
 - cs (Czeck) translation of Asunder versions 0.8 - 1.0
 
 Rene Schmidt
-- de (German) translation of Asunder versions 0.8 - 1.0
+- de (German) translation of Asunder versions 0.8 - 1.5
 
 Mike Kranidis
 - el (Greek) translation of Asunder versions 0.8 - 1.0
 
+George Vlahavas
+- el (Greek) translation of Asunder versio 1.5
+
 Juan Garcia-Murga Monago
-- es (Spanish) translation of Asunder versions 0.8 - 0.8.1
+- es (Spanish) translation of Asunder versions 0.8 - 1.5
 
 Eero Salokannel
 - fi (Finnish) translation of Asunder versions 0.8 - 1.0
@@ -77,7 +89,7 @@ Christophe Legras
 - fr (French) translation of Asunder versions 0.8 - 1.0
 
 Peter Polonkai
-- hu (Hungarian) translation of Asunder versions 0.8 - 1.0
+- hu (Hungarian) translation of Asunder versions 0.8 - 1.5
 
 Valerio Guaglianone
 - it (Italian) translation of Asunder versions 0.8 - 0.8.1
@@ -86,7 +98,7 @@ Fabio Vergnani
 - it (Italian) translation of Asunder version 1.0
 
 UTUMI Hirosi
-- ja (Japanese) translation of Asunder version 1.0
+- ja (Japanese) translation of Asunder versions 1.0 - 1.5
 
 Robert Groenning
 - nb (Norwegian Bokmal) translation of Asunder version 0.8
@@ -94,17 +106,23 @@ Robert Groenning
 Stephen Brandt
 - nl (Dutch) translation of Asunder versions 0.8 - 1.0
 
+Kristof Bal
+- nl (Dutch) translation of Asunder versions 1.0.2 - 1.5
+
 Robert Groenning
 - nn (Norwegian Nynorsk) translation of Asunder version 0.8
 
 Marcin Gasiorowski
-- pl (Polish) translation of Asunder version 1.0
+- pl (Polish) translation of Asunder versions 1.0 - 1.5
 
 Felipe Augusto
-- pt_BR (Portuguese/Brazil) translation of Asunder version 0.8.1
+- pt_BR (Portuguese/Brazil) translation of Asunder versions 0.8.1 - 1.5
 
 Alexey Sivakov
-- ru (Russian) translation of Asunder versions 0.8 - 1.0
+- ru (Russian) translation of Asunder versions 0.8 - 1.5
+
+Besnik Bleta
+- sq (Albanian) translation of Asunder versions 0.8 - 1.5
 
 Milan Puzic
 - sr (Serbian) translation of Asunder version 1.0
@@ -113,10 +131,7 @@ Milan Puzic
 - sr@latin (Serbian/latin) translation of Asunder version 1.0
 
 Daniel Nylander
-- sv (Swedish) translation of Asunder versions 0.8 - 0.8.1
-
-Besnik Bleta
-- sq (Albanian) translation of Asunder versions 0.8 - 1.0
+- sv (Swedish) translation of Asunder versions 0.8 - 1.5
 
 Cheng-Wei Chien
-- zh_TW (Chineese/Taiwan) translation of Asunder version 0.8 - 1.0
+- zh_TW (Chineese/Taiwan) translation of Asunder version 0.8 - 1.5

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder v0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
+"POT-Creation-Date: 2008-04-26 19:58-0400\n"
 "PO-Revision-Date: 2007-12-09 19:00+0100\n"
 "Last-Translator: Christophe <chris.l@free.fr>\n"
 "Language-Team: \n"
@@ -17,27 +17,27 @@ msgstr ""
 "X-Poedit-Country: FRANCE\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Extraire"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
 msgstr "Piste"
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "Artiste"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "Titre"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "Durée"
 
-#: src/main.c:163
+#: src/main.c:161
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -45,7 +45,7 @@ msgstr ""
 "'cdparanoia' n'a pas été trouvé. Asunder a besoin de cdparanoia pour "
 "extraire les CDs."
 
-#: src/main.c:395
+#: src/main.c:393
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Obtention des informations du disque à partir d'internet...</b>"
 
@@ -142,11 +142,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Répertoire de l'album: "
 
-#: src/interface.c:426 src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Liste de lecture: "
 
-#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "Fichier musique: "
 
@@ -280,63 +280,63 @@ msgstr ""
 msgid "Encode"
 msgstr "Encodeur"
 
-#: src/interface.c:742
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
 msgstr "Obtenir les informations du disque à partir d'internet automatiquement"
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "Utiliser un proxy HTTP pour se connecter à internet"
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr "Serveur:"
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr "Port: "
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr "Avancé"
 
-#: src/interface.c:860 src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
 msgstr "Extraction"
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "Progression Totale"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "Encodage"
 
-#: src/interface.c:1212
+#: src/interface.c:1233
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fichier a été créé avec succès"
 msgstr[1] "%d fichiers ont été créés avec succès"
 
-#: src/interface.c:1221
+#: src/interface.c:1242
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Il y a eu une erreur pendant la création de %d fichier"
 msgstr[1] "Il y a eu une erreur pendant la création de %d fichiers"
 
-#: src/prefs.c:506 src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Caractères invalides dans le champ '%s'"
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' ne peut être vide"
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr "Numéro de port du proxy invalide"
 
@@ -354,7 +354,7 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr ""
 "Se rappeler de la réponse pour tous les fichiers créés à partir de ce CD"
 
-#: src/threads.c:146
+#: src/threads.c:136
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -362,7 +362,7 @@ msgstr ""
 "Pas de méthode d'extraction/d'encodage sélectionnée. S'il vous plaît, "
 "activez en une dans le menu 'Préférences'."
 
-#: src/threads.c:177
+#: src/threads.c:167
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -370,7 +370,7 @@ msgstr ""
 "Pas de pistes sélectionnées pour l'extraction/l'encodage. S'il vous plaît "
 "sélectionnez au moins une piste."
 
-#: src/threads.c:716 src/threads.c:718 src/threads.c:722
+#: src/threads.c:694 src/threads.c:696 src/threads.c:700
 msgid "Waiting..."
 msgstr "Patientez..."
 

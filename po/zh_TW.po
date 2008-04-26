@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
-"PO-Revision-Date: 2007-12-10 18:13+0800\n"
+"POT-Creation-Date: 2008-04-26 19:58-0400\n"
+"PO-Revision-Date: 2008-04-21 18:08+0800\n"
 "Last-Translator: Chien Cheng Wei <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -17,34 +17,34 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "擷取音軌"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
 msgstr "音軌"
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "藝人"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "歌名"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "歌曲長度"
 
-#: src/main.c:163
+#: src/main.c:161
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
 "您指定的路徑內找不到「cdparanoia」。Asunder 需要「cdparanoia」 來擷取音軌。"
 
-#: src/main.c:395
+#: src/main.c:393
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>正在從網路取得光碟資訊...</b>"
 
@@ -140,11 +140,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "專輯目錄： "
 
-#: src/interface.c:426 src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "播放清單： "
 
-#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "音樂檔： "
 
@@ -246,87 +246,85 @@ msgid "FLAC (lossless compression)"
 msgstr "FLAC（無失真的壓縮）"
 
 #: src/interface.c:642
-#, fuzzy
 msgid "More formats"
-msgstr "檔名格式設定"
+msgstr "其他格式"
 
 #: src/interface.c:678
-#, fuzzy
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
-msgstr "這並不會影響音質。數字越大，檔案越小。"
+msgstr "這並不會影響音質。數字越大，檔案越小。預設值為 1（建議使用）。"
 
 #: src/interface.c:684
 msgid "Hibrid compression"
-msgstr ""
+msgstr "Hibrid 壓縮法"
 
 #: src/interface.c:693
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
-msgstr ""
+msgstr "這種格式雖有損音質，但已創建一修正檔以供還原至原音質之用。"
 
 #. END WAVPACK
 #: src/interface.c:723
 msgid "Encode"
 msgstr "編碼設定"
 
-#: src/interface.c:742
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
 msgstr "自動從網路取得光碟資訊"
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "透過HTTP連線伺服器來連上網路"
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr "伺服器位址："
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr "連接埠："
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr "進階設定"
 
-#: src/interface.c:860 src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
 msgstr "正在擷取..."
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "總進度"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "正在編碼..."
 
-#: src/interface.c:1212
+#: src/interface.c:1233
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "成功地新建了%d個檔案"
 
-#: src/interface.c:1221
+#: src/interface.c:1242
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "新建%d個檔案時發生錯誤"
 
-#: src/prefs.c:506 src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "'%s'欄位中有無效的字元"
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' 不能為空白"
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr "無效的連線伺服器埠號"
 
@@ -343,19 +341,19 @@ msgstr "檔案 '%s' 已經存在。您是否要覆寫？\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "記住設定值，供所有用此CD做出的檔案使用"
 
-#: src/threads.c:146
+#: src/threads.c:136
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr "尚未選擇 擷取音軌/編碼 方法。請從「偏好設定」選單中啟用其中一種。"
 
-#: src/threads.c:177
+#: src/threads.c:167
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "尚未選取要 擷取/編碼 的音軌。請至少選擇一個音軌。"
 
-#: src/threads.c:716 src/threads.c:718 src/threads.c:722
+#: src/threads.c:694 src/threads.c:696 src/threads.c:700
 msgid "Waiting..."
 msgstr "請稍待..."
 

@@ -5,9 +5,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
-"PO-Revision-Date: 2007-10-02 16:15-0000\n"
-"Last-Translator: Juan García-Murga Monago <marakaid@gmail.com>\n"
+"POT-Creation-Date: 2008-04-26 19:58-0400\n"
+"PO-Revision-Date: 2008-04-21 12:58+0100\n"
+"Last-Translator: Juan García-Murga Monago <jgmmonago@telefonica.net>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -15,27 +15,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 "X-Poedit-Country: SPAIN\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Extraer"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
 msgstr "Pista"
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "Artista"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "Título"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "Tiempo"
 
-#: src/main.c:163
+#: src/main.c:161
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -43,7 +43,7 @@ msgstr ""
 "'cdparanoia' no ha sido encontrado en tu sistema. Es un requisito para que "
 "Asunder pueda extraer CDs."
 
-#: src/main.c:395
+#: src/main.c:393
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Obteniendo información sobre el disco desde Internet..."
 
@@ -71,7 +71,7 @@ msgstr "Desseleccionar todas para la extracción"
 
 #: src/interface.c:93
 msgid "CDDB Lookup"
-msgstr ""
+msgstr "Búsqueda CDDB"
 
 #: src/interface.c:136
 msgid "Disc:"
@@ -139,11 +139,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Directorio del álbum: "
 
-#: src/interface.c:426 src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Archivo de lista de reproducción: "
 
-#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "Archivo de música: "
 
@@ -249,109 +249,109 @@ msgid "FLAC (lossless compression)"
 msgstr "FLAC (compresión sin pérdida)"
 
 #: src/interface.c:642
-#, fuzzy
 msgid "More formats"
-msgstr "Formatos de nombre de archivo"
+msgstr "Más formatos"
 
 #: src/interface.c:678
-#, fuzzy
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
 msgstr ""
 "Esto no afecta a la calidad. Un número mayor significa un archivo más "
-"pequeño."
+"pequeño. Por defecto es 1 (recomendado)"
 
 #: src/interface.c:684
 msgid "Hibrid compression"
-msgstr ""
+msgstr "Compresión híbrida"
 
 #: src/interface.c:693
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
 msgstr ""
+"El formato es con pérdida de calidad pero se crea un archivo de corrección "
+"para restaurar el original sin pérdida de calidad."
 
 #. END WAVPACK
 #: src/interface.c:723
 msgid "Encode"
 msgstr "Codificar"
 
-#: src/interface.c:742
-#, fuzzy
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
-msgstr "Obtener información sobre el disco desde Internet"
+msgstr "Obtener información sobre el disco desde Internet automáticamente"
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "Usar proxy HTTP para conectarse a Internet"
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr "Servidor:"
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr "Puerto:"
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: src/interface.c:860 src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
 msgstr "Extrayendo"
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "Progreso total"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "Codificando"
 
-#: src/interface.c:1212
+#: src/interface.c:1233
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Archivo %d creado con éxito"
 msgstr[1] "Archivos %d creados con éxito"
 
-#: src/interface.c:1221
+#: src/interface.c:1242
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Hubo un error creando el archivo %d"
 msgstr[1] "Hubo un error creando los archivos %d"
 
-#: src/prefs.c:506 src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Caracteres no válidos en el campo '%s'"
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' no puede estar vacío"
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr "Número de puerto del proxy no válido"
 
 #: src/support.c:47
 msgid "Overwrite?"
-msgstr ""
+msgstr "¿Sobreescribir?"
 
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr ""
+msgstr "El archivo '%s' ya existe. ¿Quieres sobreescribirlo?\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
 msgstr ""
+"Recordar la respuesta para _todos los archivos hechos a partir de este CD"
 
-#: src/threads.c:146
+#: src/threads.c:136
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -359,7 +359,7 @@ msgstr ""
 "No has seleccionado ningún método de extracción/codificación. Por favor "
 "activa uno en el menú 'Preferencias'."
 
-#: src/threads.c:177
+#: src/threads.c:167
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -367,7 +367,7 @@ msgstr ""
 "Ninguna pista fue seleccionada para extraer/codificar. Por favor selecciona "
 "al menos una pista."
 
-#: src/threads.c:716 src/threads.c:718 src/threads.c:722
+#: src/threads.c:694 src/threads.c:696 src/threads.c:700
 msgid "Waiting..."
 msgstr "Esperando..."
 

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ISO Master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
+"POT-Creation-Date: 2008-04-26 19:58-0400\n"
 "PO-Revision-Date: 2007-08-10 10:10-0500\n"
 "Last-Translator: Robert Groenning <slimg@iggu.org>\n"
 "Language-Team: Ubuntu Norwegian Translators <oversettelse@ubuntu.no>\n"
@@ -14,27 +14,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Hent ut"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
 msgstr "Lydspor"
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "Artist"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "Tittel"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "Tid"
 
-#: src/main.c:163
+#: src/main.c:161
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -42,7 +42,7 @@ msgstr ""
 "'cdparanoia' ble ikke funnet i søkestien din. Asunder trenger cdparanoia for "
 "å hente musikk fra CDer."
 
-#: src/main.c:395
+#: src/main.c:393
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr ""
 
@@ -135,11 +135,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Album mappe: "
 
-#: src/interface.c:426 src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Spillelistefil: "
 
-#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "Musikkfil: "
 
@@ -255,63 +255,63 @@ msgstr ""
 msgid "Encode"
 msgstr "Kode"
 
-#: src/interface.c:742
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
 msgstr ""
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr ""
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr ""
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr ""
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr ""
 
-#: src/interface.c:860 src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
 msgstr "Henting"
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "Total fremgang"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "Koding"
 
-#: src/interface.c:1212
+#: src/interface.c:1233
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/interface.c:1221
+#: src/interface.c:1242
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/prefs.c:506 src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr ""
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr ""
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr ""
 
@@ -328,19 +328,19 @@ msgstr ""
 msgid "Remember the answer for _all the files made from this CD"
 msgstr ""
 
-#: src/threads.c:146
+#: src/threads.c:136
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr "Ingen hente/kode metode er valgt. Velg en fra 'Innstillinger' menyen."
 
-#: src/threads.c:177
+#: src/threads.c:167
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "Ingen lydspor er valgt til henting/koding. Velg minst et lydspor."
 
-#: src/threads.c:716 src/threads.c:718 src/threads.c:722
+#: src/threads.c:694 src/threads.c:696 src/threads.c:700
 msgid "Waiting..."
 msgstr "Venter..."
 

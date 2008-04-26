@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
-"PO-Revision-Date: 2007-12-08 08:37+0200\n"
+"POT-Creation-Date: 2008-04-26 19:58-0400\n"
+"PO-Revision-Date: 2008-04-22 00:16+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team:  <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -14,27 +14,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Përftoje"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
 msgstr "Gjurmë"
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "Artist"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "Titull"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "Kohë"
 
-#: src/main.c:163
+#: src/main.c:161
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -42,7 +42,7 @@ msgstr ""
 "'cdparanoia' nuk u gjet te shtegu juaj. Asunder-i lyp cdparanoia-an për "
 "përftim CD-sh."
 
-#: src/main.c:395
+#: src/main.c:393
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Po marr të dhëna disku prej interneti...</b>"
 
@@ -138,11 +138,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Drejtori albumi: "
 
-#: src/interface.c:426 src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Kartelë luajlistë: "
 
-#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "Kartelë muzikore: "
 
@@ -247,89 +247,91 @@ msgid "FLAC (lossless compression)"
 msgstr "FLAC (Ngjeshje pa humbje)"
 
 #: src/interface.c:642
-#, fuzzy
 msgid "More formats"
-msgstr "Formate emrash kartelash:"
+msgstr "Më tepër formate"
 
 #: src/interface.c:678
-#, fuzzy
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
-msgstr "Kjo nuk prek cilësinë. Numër më i madh do të thotë kartelë më e vogël."
+msgstr ""
+"Kjo nuk prek cilësinë. Numër më i madh do të thotë kartelë më e vogël. "
+"Parazgjedhja është 1 (e këshillueshme)."
 
 #: src/interface.c:684
 msgid "Hibrid compression"
-msgstr ""
+msgstr "Ngjeshje hibride"
 
 #: src/interface.c:693
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
 msgstr ""
+"Formati është me humbje por u krijua një kartelë ndreqëse për rikthim pa "
+"humbje të origjinalit."
 
 #. END WAVPACK
 #: src/interface.c:723
 msgid "Encode"
 msgstr "Kodo"
 
-#: src/interface.c:742
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
 msgstr "Merr vetvetiu të dhëna disku prej internetit"
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "Përdor ndërmjetës HTTP për lidhje në internet"
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr "Shërbyes"
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr "Portë:"
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr "Të mëtejshme"
 
-#: src/interface.c:860 src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
 msgstr "Përftim"
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "Ecuri gjithsej"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "Kodim"
 
-#: src/interface.c:1212
+#: src/interface.c:1233
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "u krijua me sukses %d kartelë "
 msgstr[1] "u krijuan me sukses %d kartela"
 
-#: src/interface.c:1221
+#: src/interface.c:1242
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Pati gabim gjatë krijimit të %d kartele"
 msgstr[1] "Pati gabim gjatë krijimit të %d kartelave"
 
-#: src/prefs.c:506 src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Shenja të pavlefshme te fusha '%s'"
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' nuk mund të jetë bosh"
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr "Numër i pavlefshëm porte ndërmjetësi"
 
@@ -346,7 +348,7 @@ msgstr "Ka tashmë një kartelë '%s'. Dni të mbishkruhet ajo?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Mbaje mend përgjigjen për _tërë kartelat e krijuara prej këtij CD-je"
 
-#: src/threads.c:146
+#: src/threads.c:136
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -354,7 +356,7 @@ msgstr ""
 "Nuk është përzgjedhur metodë përftimi/kodimi. Ju lutem aktivizoni një të "
 "tillë prej menusë 'Parapëlqime'."
 
-#: src/threads.c:177
+#: src/threads.c:167
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -362,7 +364,7 @@ msgstr ""
 "Nuk janë përzgjedhur gjurmë për përftim/kodim. Ju lutem përzgjidhni të "
 "paktën një gjurmë."
 
-#: src/threads.c:716 src/threads.c:718 src/threads.c:722
+#: src/threads.c:694 src/threads.c:696 src/threads.c:700
 msgid "Waiting..."
 msgstr "Po pres..."
 

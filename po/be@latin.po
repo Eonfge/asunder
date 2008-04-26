@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
+"POT-Creation-Date: 2008-04-26 19:58-0400\n"
 "PO-Revision-Date: 2008-01-06 01:33+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: i18n@mova.org <i18n@mova.org>\n"
@@ -18,27 +18,27 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Ździary"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
 msgstr "Numar pieśni"
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "Vykanaŭca"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "Nazva"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "Čas"
 
-#: src/main.c:163
+#: src/main.c:161
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -46,7 +46,7 @@ msgstr ""
 "\"cdparanoia\" nia znojdzienaja ŭ ściežcy. Asunder vymahaje \"cdparanoia\", "
 "kab ździrać huk z dyskaŭ."
 
-#: src/main.c:395
+#: src/main.c:393
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Atrymańnie źviestak ab dysku ź sieciva...</b>"
 
@@ -142,11 +142,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Kataloh albomu: "
 
-#: src/interface.c:426 src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Fajł śpisu: "
 
-#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "Muzyčny fajł: "
 
@@ -250,65 +250,67 @@ msgid "FLAC (lossless compression)"
 msgstr "FLAC (biasstratnaja kampresija)"
 
 #: src/interface.c:642
-#, fuzzy
 msgid "More formats"
-msgstr "Farmaty nazvaŭ fajłaŭ"
+msgstr "Bolej farmataŭ"
 
 #: src/interface.c:678
-#, fuzzy
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
-msgstr "Heta nie ŭpłyvaje na jakaść. Bolšaja vartaść aznačaje mienšy fajł."
+msgstr ""
+"Heta nie ŭpłyvaje na jakaść. Bolšaja vartaść aznačaje mienšy fajł. "
+"Zmoŭčanaja vartaść 1 (rekamendavanaja)."
 
 #: src/interface.c:684
 msgid "Hibrid compression"
-msgstr ""
+msgstr "Hibrydnaja kampresija"
 
 #: src/interface.c:693
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
 msgstr ""
+"Farmat niastratny, ale dla ŭznaŭleńnia byłoj jakaści stvarajecca asobny fajł "
+"vypraŭleńniaŭ."
 
 #. END WAVPACK
 #: src/interface.c:723
 msgid "Encode"
 msgstr "Zakaduj"
 
-#: src/interface.c:742
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
 msgstr "Atrymlivaj źviestki ab dysku ź sievica aŭtamatyčna"
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "Užyj proxy HTTP, kab spałučycca ź siecivam"
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr "Server: "
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr "Port: "
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr "Prasunutyja"
 
-#: src/interface.c:860 src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
 msgstr "Ździrańnie"
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "Ahulny prahres"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "Kadavańnie"
 
-#: src/interface.c:1212
+#: src/interface.c:1233
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -316,7 +318,7 @@ msgstr[0] "%d fajł paśpiachova stvorany"
 msgstr[1] "%d fajły paśpiachova stvoranyja"
 msgstr[2] "%d fajłaŭ paśpiachova stvoranyja"
 
-#: src/interface.c:1221
+#: src/interface.c:1242
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -324,17 +326,17 @@ msgstr[0] "Pamyłka pry stvareńni %d fajłu"
 msgstr[1] "Pamyłka pry stvareńni %d fajłaŭ"
 msgstr[2] "Pamyłka pry stvareńni %d fajłaŭ"
 
-#: src/prefs.c:506 src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Niapravilnyja znaki ŭ poli \"%s\""
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "\"%s\" nia moža być pustym"
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr "Niapravilny numar portu proxy"
 
@@ -351,7 +353,7 @@ msgstr "Fajł \"%s\" užo isnuje. Chočaš nadpisać?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Zapomni adkaz dla _ŭsich fajłaŭ, zroblenych z hetaha dysku"
 
-#: src/threads.c:146
+#: src/threads.c:136
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -359,7 +361,7 @@ msgstr ""
 "Metad ździrańnia/kadavańnia nia vybrany. Kali łaska, uklučy adzin ź ich u "
 "menu \"Nałady\"."
 
-#: src/threads.c:177
+#: src/threads.c:167
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -367,6 +369,6 @@ msgstr ""
 "Dla ździrańnia/kadavańnia nie zaznačana pieśniaŭ. Kali łaska, zaznač chacia "
 "b adnu ź pieśniaŭ."
 
-#: src/threads.c:716 src/threads.c:718 src/threads.c:722
+#: src/threads.c:694 src/threads.c:696 src/threads.c:700
 msgid "Waiting..."
 msgstr "Čakańnie..."

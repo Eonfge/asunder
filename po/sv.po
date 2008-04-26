@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
-"PO-Revision-Date: 2007-09-29 19:25+0100\n"
+"POT-Creation-Date: 2008-04-26 19:58-0400\n"
+"PO-Revision-Date: 2008-04-21 10:50+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -16,35 +16,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
-msgstr "Rippa"
+msgstr "Extrahera"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
 msgstr "Spår"
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "Artist"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "Titel"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "Tid"
 
-#: src/main.c:163
+#: src/main.c:161
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
 "\"cdparanoia\" hittades inte i dina sökvägar. Asunder kräver cdparanoia för "
-"att rippa cd-skivor."
+"att extrahera cd-skivor."
 
-#: src/main.c:395
+#: src/main.c:393
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Hämtar skivinformation från Internet...</b>"
 
@@ -64,15 +64,15 @@ msgstr ""
 
 #: src/callbacks.c:498
 msgid "Select all for ripping"
-msgstr "Markera alla för rippning"
+msgstr "Markera alla för extrahering"
 
 #: src/callbacks.c:504
 msgid "Deselect all for ripping"
-msgstr "Avmarkera alla för rippning"
+msgstr "Avmarkera alla för extrahering"
 
 #: src/interface.c:93
 msgid "CDDB Lookup"
-msgstr ""
+msgstr "CDDB-uppslag"
 
 #: src/interface.c:136
 msgid "Disc:"
@@ -140,11 +140,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Albumkatalog: "
 
-#: src/interface.c:426 src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Spellistfil: "
 
-#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "Musikfil: "
 
@@ -245,124 +245,125 @@ msgstr "Det här påverkar inte kvaliteten. Högre tal betyder mindre fil."
 
 #: src/interface.c:624
 msgid "FLAC (lossless compression)"
-msgstr "FLAC (icke-förstörande komprimering)"
+msgstr "FLAC (förlustfri komprimering)"
 
 #: src/interface.c:642
-#, fuzzy
 msgid "More formats"
-msgstr "Filnamnsformat"
+msgstr "Fler format"
 
 #: src/interface.c:678
-#, fuzzy
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
-msgstr "Det här påverkar inte kvaliteten. Högre tal betyder mindre fil."
+msgstr ""
+"Det här påverkar inte kvaliteten. Högre tal betyder mindre fil. Standard är "
+"1 (rekommenderat)."
 
 #: src/interface.c:684
 msgid "Hibrid compression"
-msgstr ""
+msgstr "Hibrid-komprimering"
 
 #: src/interface.c:693
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
 msgstr ""
+"Formatet är förstörande men en korrigeringsfil skapas för att återskapa det "
+"förlustfria originalet."
 
 #. END WAVPACK
 #: src/interface.c:723
 msgid "Encode"
 msgstr "Kodning"
 
-#: src/interface.c:742
-#, fuzzy
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
-msgstr "Hämta skivinformation från Internet"
+msgstr "Hämta skivinformation automatiskt från Internet"
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "Använd HTTP-proxy för att ansluta till Internet"
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr "Server: "
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr "Port: "
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr "Avancerat"
 
-#: src/interface.c:860 src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
-msgstr "Rippa"
+msgstr "Extrahering"
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "Totalt förlopp"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "Kodning"
 
-#: src/interface.c:1212
+#: src/interface.c:1233
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fil skapades"
 msgstr[1] "%d filer skapades"
 
-#: src/interface.c:1221
+#: src/interface.c:1242
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Det uppstod ett fel vid skapandet av %d fil"
 msgstr[1] "Det uppstod ett fel vid skapandet av %d filer"
 
-#: src/prefs.c:506 src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Ogiltiga tecken i fältet \"%s\""
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "\"%s\" får inte vara tom"
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr "Ogiltigt portnummer för proxy"
 
 #: src/support.c:47
 msgid "Overwrite?"
-msgstr ""
+msgstr "Skriv över?"
 
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr ""
+msgstr "Filen \"%s\" finns redan. Vill du skriva över den?\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
-msgstr ""
+msgstr "Kom ihåg svaret för _alla filer skapade från denna skiva"
 
-#: src/threads.c:146
+#: src/threads.c:136
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
-"Ingen metod för rippning/kodning har valts. Aktivera en från menyn "
+"Ingen metod för extrahering/kodning har valts. Aktivera en från menyn "
 "\"Inställningar\"."
 
-#: src/threads.c:177
+#: src/threads.c:167
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
-msgstr "Inga spår har markerats för rippning/kodning. Välj minst ett spår."
+msgstr "Inga spår har markerats för extrahering/kodning. Välj minst ett spår."
 
-#: src/threads.c:716 src/threads.c:718 src/threads.c:722
+#: src/threads.c:694 src/threads.c:696 src/threads.c:700
 msgid "Waiting..."
 msgstr "Väntar..."
 

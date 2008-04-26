@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
+"POT-Creation-Date: 2008-04-26 19:58-0400\n"
 "PO-Revision-Date: 2007-12-08 01:09+0200\n"
 "Last-Translator: Mike Kranidis <mikek@openforall.com>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -14,27 +14,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Αποσπώ (Rip)"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
-msgstr "Ίχνος (Track)"
+msgstr "Κομμάτι"
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "Καλλιτέχνης"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "Τίτλος"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "Ώρα"
 
-#: src/main.c:163
+#: src/main.c:161
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -42,7 +42,7 @@ msgstr ""
 "Το 'cdparanoia' δε βρέθηκε στη διαδρομή του συστήματος σας. Το Asunder "
 "χρειάζεται το cdparanoia για να κάνει απόσπαση (Rip) των CDs."
 
-#: src/main.c:395
+#: src/main.c:393
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Παραλαμβάνω πληροφορίες του δίσκου από το  διαδίκτυο...</b>"
 
@@ -62,11 +62,11 @@ msgstr ""
 
 #: src/callbacks.c:498
 msgid "Select all for ripping"
-msgstr "Επιλογή όλων για (απόσπαση) ripping"
+msgstr "Επιλογή όλων για απόσπαση (ripping)"
 
 #: src/callbacks.c:504
 msgid "Deselect all for ripping"
-msgstr "Αναίρεση επιλογής όλων για (απόσπαση) ripping"
+msgstr "Αναίρεση επιλογής όλων για απόσπαση (ripping)"
 
 #: src/interface.c:93
 msgid "CDDB Lookup"
@@ -131,18 +131,18 @@ msgid ""
 msgstr ""
 "%A - Καλλιτέχνης\n"
 "%L - Άλμπουμ\n"
-"%N - Αριθμός ίχνους (2-ψηφία)\n"
+"%N - Αριθμός τραγουδιού (2-ψηφία)\n"
 "%T - Τίτλος τραγουδιού"
 
 #: src/interface.c:419
 msgid "Album directory: "
 msgstr "Κατάλογος άλμπουμ: "
 
-#: src/interface.c:426 src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Αρχείο Playlist: "
 
-#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "Αρχείο Μουσικής: "
 
@@ -247,12 +247,10 @@ msgid "FLAC (lossless compression)"
 msgstr "FLAC (συμπίεση χωρίς απώλειες)"
 
 #: src/interface.c:642
-#, fuzzy
 msgid "More formats"
-msgstr "Τύποι ονομάτων αρχείου"
+msgstr "Περισσότεροι τύποι αρχείων"
 
 #: src/interface.c:678
-#, fuzzy
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
@@ -260,77 +258,80 @@ msgstr ""
 "Αυτό δεν επιδρά στη ποιότητα. Υψηλότερα νούμερα σημαίνουν μικρότερα αρχεία."
 
 #: src/interface.c:684
+#, fuzzy
 msgid "Hibrid compression"
-msgstr ""
+msgstr "Υβριδική κωδικοποίηση"
 
 #: src/interface.c:693
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
 msgstr ""
+"Η κωδικοποίηση είναι απωλεστική αλλά ένα αρχείο διορθώσεων δημιουργείται για "
+"την επαναφορά της μη-απωλεστικής πληροφορίας"
 
 #. END WAVPACK
 #: src/interface.c:723
 msgid "Encode"
 msgstr "Κωδικοποίηση"
 
-#: src/interface.c:742
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
 msgstr "Πάρτε τις πληροφορίες δίσκων από το Διαδίκτυο αυτόματα"
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "Με τη χρήση HTTP proxy για τη σύνδεση στο internet"
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr "Εξυπηρετητής:"
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr "Πόρτα:"
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr "Προχωρημένα"
 
-#: src/interface.c:860 src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
 msgstr "Απόσπαση (Ripping)"
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "Συνολική πρόοδος"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "Κωδικοποίηση"
 
-#: src/interface.c:1212
+#: src/interface.c:1233
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Το αρχείο %d δημιουργήθηκε με επιτυχία"
 msgstr[1] "Όλα τα αρχεία %d δημιουργήθηκαν με επιτυχία"
 
-#: src/interface.c:1221
+#: src/interface.c:1242
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Υπήρξε ένα λάθος στη δημιουργία του αρχείου %d"
 msgstr[1] "Υπήρξε ένα λάθος στη δημιουργία των αρχείων %d"
 
-#: src/prefs.c:506 src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Άκυροι χαρακτήρες στο '%s' πεδίο"
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' δε μπορεί να είναι κενό"
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr "Μη κανονικός αριθμός πόρτας του proxy"
 
@@ -347,7 +348,7 @@ msgstr "Το αρχείο '%s' υπάρχει. Θέλετε να το επικα
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Θυμηθείτε την απάντηση για _όλα τα αρχεία που γίνονται από αυτό το CD"
 
-#: src/threads.c:146
+#: src/threads.c:136
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -355,15 +356,15 @@ msgstr ""
 "Καμία μέθοδος απόσπασης/κωδικοποίησης δεν έχει επιλεχθεί. Παρακαλώ "
 "ενεργοποιήστε μια από το μενού των 'προτιμήσεων'."
 
-#: src/threads.c:177
+#: src/threads.c:167
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr ""
-"Κανένα ίχνος (track) δεν επιλέχτηκε για απόσπαση/κωδικοποίηση. Παρακαλώ "
-"επιλέξτε τουλάχιστον ένα."
+"Κανένα κομμάτι δεν επιλέχτηκε για απόσπαση/κωδικοποίηση. Παρακαλώ επιλέξτε "
+"τουλάχιστον ένα."
 
-#: src/threads.c:716 src/threads.c:718 src/threads.c:722
+#: src/threads.c:694 src/threads.c:696 src/threads.c:700
 msgid "Waiting..."
 msgstr "Αναμονή..."
 

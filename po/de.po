@@ -5,36 +5,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
-"PO-Revision-Date: 2007-12-15 15:50+0100\n"
-"Last-Translator: René Schmidt <schmidt_r ÆT gmx-topmail PUNKT de>\n"
+"POT-Creation-Date: 2008-04-26 19:58-0400\n"
+"PO-Revision-Date: 2008-04-24 12:31+0100\n"
+"Last-Translator: René Schmidt <schmidt_r@gmx-topmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Importieren"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
 msgstr "Nr."
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "Interpret"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "Titel"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "Dauer"
 
-#: src/main.c:163
+#: src/main.c:161
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -44,7 +44,7 @@ msgstr ""
 "\n"
 "Das Importieren von CDs ist daher nicht möglich."
 
-#: src/main.c:395
+#: src/main.c:393
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>CD-Info aus dem Internet abrufen...</b>"
 
@@ -149,11 +149,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Ordner für Alben: "
 
-#: src/interface.c:426 src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Playlisten-Dateien: "
 
-#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "Audio-Dateien: "
 
@@ -278,12 +278,10 @@ msgid "FLAC (lossless compression)"
 msgstr "FLAC (verlustfreie Komprimierung)"
 
 #: src/interface.c:642
-#, fuzzy
 msgid "More formats"
-msgstr "Nomenklatur der Datei- und Ordner-Namen"
+msgstr "Mehr Formate"
 
 #: src/interface.c:678
-#, fuzzy
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
@@ -291,70 +289,80 @@ msgstr ""
 "Eine höhere Stufe bewirkt stärkere Komprimierung und damit einen geringeren "
 "Platzbedarf der Audio-Daten.\n"
 "\n"
-"Dies hat keinen Einfluss auf die Qualität."
+"Dies hat keinen Einfluss auf die Qualität.\n"
+"\n"
+"Vorgabe: 1 (empfohlen)"
 
 #: src/interface.c:684
 msgid "Hibrid compression"
-msgstr ""
+msgstr "WavPack-Hybridmodus"
 
 #: src/interface.c:693
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
 msgstr ""
+"Der WavPack-Hybridmodus kombiniert verlustbehaftete mit verlustfreier "
+"Komprimierung.\n"
+"\n"
+"Es wird zur verlustbehaftet komprimierten Datei eine weitere erstellt, "
+"welche Korrektur-Informationen enthält, die eine vollständig verlustfreie "
+"Rekonstruktion des Originals erlauben.\n"
+"\n"
+"Info: http://de.wikipedia.org/wiki/WavPack"
 
 #. END WAVPACK
 #: src/interface.c:723
 msgid "Encode"
 msgstr "Import"
 
-#: src/interface.c:742
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
 msgstr "CD-Info automatisch aus dem Internet abrufen"
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "Über einen HTTP-Proxy mit dem Internet verbinden"
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr "Server: "
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr "Port-Nr.: "
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr "Erweitert"
 
-#: src/interface.c:860 src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
 msgstr "Importieren"
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "Gesamt"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "Komprimieren"
 
-#: src/interface.c:1212
+#: src/interface.c:1233
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d Datei erfolgreich erstellt."
 msgstr[1] "%d Dateien erfolgreich erstellt."
 
-#: src/interface.c:1221
+#: src/interface.c:1242
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Fehler beim Erstellen von %d Datei."
 msgstr[1] "Fehler beim Erstellen von %d Dateien."
 
-#: src/prefs.c:506 src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr ""
@@ -362,7 +370,7 @@ msgstr ""
 "\n"
 "Korrigieren Sie bitte dessen Inhalt entsprechend der Legende."
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr ""
@@ -370,7 +378,7 @@ msgstr ""
 "\n"
 "Ergänzen Sie bitte dessen Inhalt entsprechend der Legende."
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr ""
 "Die angegebene Port-Nr. des HTTP-Proxy-Servers scheint ungültig zu sein.\n"
@@ -391,7 +399,7 @@ msgstr ""
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Antwort für _alle von dieser CD importierten Dateien merken"
 
-#: src/threads.c:146
+#: src/threads.c:136
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -401,7 +409,7 @@ msgstr ""
 "Wählen Sie bitte in den Einstellungen, ob und auf welche Weise die Audio-"
 "Daten komprimiert werden sollen."
 
-#: src/threads.c:177
+#: src/threads.c:167
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -410,6 +418,6 @@ msgstr ""
 "\n"
 "Markieren Sie bitte mindestens einen Titel."
 
-#: src/threads.c:716 src/threads.c:718 src/threads.c:722
+#: src/threads.c:694 src/threads.c:696 src/threads.c:700
 msgid "Waiting..."
 msgstr "Warten..."

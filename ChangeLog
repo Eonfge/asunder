@@ -1,3 +1,12 @@
+ - 1.5
+======
+- Added Bulgarian translation.
+- Added wavpack support.
+- Added optional logging to /tmp/asunder.log
+- Fixed possible segmentation fault if programs return unexpectedly long strings.
+- Changed the default music filename format.
+- About dialog shows the name and version properly again for newer GTK versions.
+
 03 Feb 2008 - 1.0.2
 ===================
 - Added Belarusian, Serbian, and Serbian Latin translations.

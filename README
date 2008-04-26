@@ -2,11 +2,11 @@ Asunder
 =======
 http://littlesvr.ca/asunder
 
-Asunder is a graphical Audio CD ripper and encoder. You can use it to save tracks from an Audio CD as WAV, MP3, OGG, and/or FLAC.
+Asunder is a graphical Audio CD ripper and encoder. You can use it to save tracks from an Audio CD as WAV, MP3, OGG, FLAC, and/or Wavpack.
 
 Features
 ========
-* Support for WAV, MP3, Ogg Vorbis, and FLAC audio files
+* Supports WAV, MP3, Ogg Vorbis, FLAC, and Wavpack audio files
 * Uses CDDB to name and tag each track
 * Can encode to multiple formats in one session
 * Creates M3U playlists
@@ -27,12 +27,14 @@ Requirements
   http://www.vorbis.com/
 * FLAC (optional for FLAC support)
   http://flac.sourceforge.net/
+* Wavpack (optional for wavpack support)
+  http://www.wavpack.com/
 
 To compile from source you may need the -dev or -devel versions of GTK and libcddb. On Ubuntu these packages are called libgtk2.0-dev and libcddb2-dev.
 
 Compiling
 =========
-First install all the dependencies. LAME, Vorbis-Tools, and FLAC don't have to be installed to compile. They are only needed at runtime if you choose to encode in those formats.
+First install all the dependencies. LAME, Vorbis-Tools, FLAC, and Wavpack don't have to be installed to compile. They are only needed at runtime if you choose to encode in those formats.
 
 Then run:
 
@@ -55,7 +57,7 @@ And on something like Ubuntu that won't let you su:
 sudo make install
 [enter user's password]
 
-If on any of the steps abovew you get errors, or even warnings, please do send me the output so I can fix them.
+If on any of the steps above you get errors, or even warnings, please do send me the output so I can fix them.
 
 Contact
 =======
@@ -65,8 +67,8 @@ Bug Reports
 ===========
 Please help me improve Asunder by sending me bug reports. The more of the following you can do, the easier it will be for me to fix:
 - be able to reproduce the bug consistently
-- run Asunder from a terminal window and send me the output (if any) that is printed there
-- if it only happens with one image file, tell me what it is and, if it's freely available, where i can get it
+- select "Log to /tmp/asunder.log" in the advanced preferences and send me the asunder.log file
+- if it only happens with one CD, tell me what it is and, if it's freely available, where I can get it
 - it's better to give me too much detail then too little
 
 Credits
