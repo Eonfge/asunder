@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-26 19:58-0400\n"
+"POT-Creation-Date: 2008-04-26 23:39-0400\n"
 "PO-Revision-Date: 2008-04-22 00:16+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -307,14 +307,14 @@ msgstr "Ecuri gjithsej"
 msgid "Encoding"
 msgstr "Kodim"
 
-#: src/interface.c:1233
+#: src/interface.c:1236
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "u krijua me sukses %d kartelë "
 msgstr[1] "u krijuan me sukses %d kartela"
 
-#: src/interface.c:1242
+#: src/interface.c:1245
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

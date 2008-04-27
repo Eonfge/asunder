@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-26 19:58-0400\n"
+"POT-Creation-Date: 2008-04-26 23:39-0400\n"
 "PO-Revision-Date: 2008-01-19 13:36+0100\n"
 "Last-Translator: Milan Pužić <milanpuzic@gmail.com>\n"
 "Language-Team: \n"
@@ -306,14 +306,14 @@ msgstr "Ukupan napredak"
 msgid "Encoding"
 msgstr "Kodiranje"
 
-#: src/interface.c:1233
+#: src/interface.c:1236
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Datoteka %d je uspešno kreirana"
 msgstr[1] "Datoteke %d su uspešno kreirane"
 
-#: src/interface.c:1242
+#: src/interface.c:1245
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
