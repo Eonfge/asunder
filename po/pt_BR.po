@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder-0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-26 23:39-0400\n"
+"POT-Creation-Date: 2008-04-27 13:03-0400\n"
 "PO-Revision-Date: 2008-04-22 11:42-0300\n"
 "Last-Translator: felipe augusto <flipeicl@gmail.com>\n"
 "Language-Team: Pt-Br <flipeicl@gmail.com>\n"
@@ -262,7 +262,7 @@ msgstr ""
 "(recomendado)."
 
 #: src/interface.c:684
-msgid "Hibrid compression"
+msgid "Hybrid compression"
 msgstr "Compressão Híbrida"
 
 #: src/interface.c:693

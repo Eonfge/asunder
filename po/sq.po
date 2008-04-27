@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-26 23:39-0400\n"
+"POT-Creation-Date: 2008-04-27 13:03-0400\n"
 "PO-Revision-Date: 2008-04-22 00:16+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -259,7 +259,7 @@ msgstr ""
 "Parazgjedhja është 1 (e këshillueshme)."
 
 #: src/interface.c:684
-msgid "Hibrid compression"
+msgid "Hybrid compression"
 msgstr "Ngjeshje hibride"
 
 #: src/interface.c:693

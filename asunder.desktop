@@ -1,9 +1,11 @@
 [Desktop Entry]
-Name=Asunder
+Name=Asunder CD Ripper
 Name[de]=Asunder
+Name[fr]=Asunder
 Name[sv]=Asunder
 GenericName=Audio CD Ripper
 GenericName[de]=Ein graphischer CD-Ripper und Encoder
+GenericName[fr]=Extracteur de CD
 Comment=An application to save tracks from an Audio CD as WAV, MP3, OGG, FLAC, and/or Wavpack.
 Comment[de]=OberflÃ¤che zur Erstellung von Audio-Dateien
 Comment[sv]=Ett program för att spara spår från en ljudskiva som WAV, MP3, OGG, Flac och/eller Wavpack.

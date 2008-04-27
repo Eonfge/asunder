@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ISO Master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-26 23:39-0400\n"
+"POT-Creation-Date: 2008-04-27 13:03-0400\n"
 "PO-Revision-Date: 2007-08-10 10:10-0500\n"
 "Last-Translator: Robert Groenning <slimg@iggu.org>\n"
 "Language-Team: Ubuntu Norwegian Translators <oversettelse@ubuntu.no>\n"
@@ -241,7 +241,7 @@ msgid ""
 msgstr ""
 
 #: src/interface.c:684
-msgid "Hibrid compression"
+msgid "Hybrid compression"
 msgstr ""
 
 #: src/interface.c:693

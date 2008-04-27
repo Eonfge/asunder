@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-26 23:39-0400\n"
+"POT-Creation-Date: 2008-04-27 13:03-0400\n"
 "PO-Revision-Date: 2008-04-21 21:43+0800\n"
 "Last-Translator: Evgenii Terechkov <evg_krsk@inbox.ru>\n"
 "Language-Team: 11 <1>\n"
@@ -262,7 +262,7 @@ msgstr ""
 "1 (рекомендуется)."
 
 #: src/interface.c:684
-msgid "Hibrid compression"
+msgid "Hybrid compression"
 msgstr "Смешанное сжатие"
 
 #: src/interface.c:693

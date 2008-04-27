@@ -681,12 +681,12 @@ create_prefs (void)
     gtk_widget_show (frame7);
     gtk_box_pack_start (GTK_BOX (vbox), frame7, FALSE, FALSE, 0);
     
-    hybridwavpack = gtk_check_button_new_with_mnemonic (_("Hibrid compression"));
+    hybridwavpack = gtk_check_button_new_with_mnemonic (_("Hybrid compression"));
     gtk_widget_show (hybridwavpack);
     gtk_frame_set_label_widget (GTK_FRAME (frame7), hybridwavpack);
-    GLADE_HOOKUP_OBJECT (prefs, hybridwavpack, "wavpack_hibrid");
+    GLADE_HOOKUP_OBJECT (prefs, hybridwavpack, "wavpack_hybrid");
     g_signal_connect ((gpointer) hybridwavpack, "toggled",
-                                        G_CALLBACK (on_hibrid_toggled),
+                                        G_CALLBACK (on_hybrid_toggled),
                                         NULL);
     
     tooltips = gtk_tooltips_new ();
@@ -1016,7 +1016,7 @@ void disable_wavpack_widgets(void)
 {
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_compression_lbl"), FALSE);
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_compression"), FALSE);
-    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_hibrid"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_hybrid"), FALSE);
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_lbl"), FALSE);
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_slider"), FALSE);
 }
@@ -1025,8 +1025,8 @@ void enable_wavpack_widgets(void)
 {
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_compression_lbl"), TRUE);
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_compression"), TRUE);
-    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_hibrid"), TRUE);
-    if (global_prefs->wavpack_hibrid)
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_hybrid"), TRUE);
+    if (global_prefs->wavpack_hybrid)
     {
         gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_lbl"), TRUE);
         gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_slider"), TRUE);

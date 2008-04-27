@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-26 23:39-0400\n"
+"POT-Creation-Date: 2008-04-27 13:03-0400\n"
 "PO-Revision-Date: 2008-01-19 13:36+0100\n"
 "Last-Translator: Milan Pužić <milanpuzic@gmail.com>\n"
 "Language-Team: \n"
@@ -260,7 +260,7 @@ msgid ""
 msgstr "Ово не утиче на квалитет. Виша вредност указује на мању датотеку."
 
 #: src/interface.c:684
-msgid "Hibrid compression"
+msgid "Hybrid compression"
 msgstr ""
 
 #: src/interface.c:693

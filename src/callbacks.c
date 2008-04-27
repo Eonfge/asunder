@@ -189,10 +189,10 @@ on_vbr_toggled                         (GtkToggleButton *togglebutton,
 }
 
 void
-on_hibrid_toggled                      (GtkToggleButton *togglebutton,
+on_hybrid_toggled                      (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hibrid"))))
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hybrid"))))
     {
         gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_lbl"), TRUE);
         gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_slider"), TRUE);

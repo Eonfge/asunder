@@ -27,7 +27,7 @@ typedef struct _prefs
     int port_number;
     int rip_wavpack;
     int wavpack_compression;
-    int wavpack_hibrid;
+    int wavpack_hybrid;
     int wavpack_bitrate;
     int do_log;
     

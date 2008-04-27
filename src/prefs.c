@@ -114,7 +114,7 @@ prefs * get_default_prefs()
     p->ogg_quality = 6;
     p->flac_compression = 5;
     p->wavpack_compression = 1;
-    p->wavpack_hibrid = 1;
+    p->wavpack_hybrid = 1;
     p->wavpack_bitrate = 3;
     
     p->main_window_width = 600;
@@ -160,7 +160,7 @@ void set_widgets_from_prefs(prefs * p)
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "oggquality")), p->ogg_quality);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "flaccompression")), p->flac_compression);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_compression")), p->wavpack_compression);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hibrid")), p->wavpack_hibrid);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hybrid")), p->wavpack_hybrid);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_bitrate_slider")), p->wavpack_bitrate);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")), p->eject_on_done);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_cddb_updates")), p->do_cddb_updates);
@@ -180,7 +180,7 @@ void set_widgets_from_prefs(prefs * p)
     if ( !(p->rip_wavpack) )
         disable_wavpack_widgets();
     else
-        enable_wavpack_widgets(); /* need this to potentially disable hibrid widgets */
+        enable_wavpack_widgets(); /* need this to potentially disable hybrid widgets */
 }
 
 // populates a prefs struct from the current state of the widgets
@@ -232,7 +232,7 @@ void get_prefs_from_widgets(prefs * p)
     p->ogg_quality = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "oggquality")));
     p->flac_compression = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "flaccompression")));
     p->wavpack_compression = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_compression")));
-    p->wavpack_hibrid = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hibrid")));
+    p->wavpack_hybrid = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hybrid")));
     p->wavpack_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_bitrate_slider")));
     
     p->eject_on_done = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")));
@@ -295,7 +295,7 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->port_number);
         fprintf(config, "%d\n", p->rip_wavpack);
         fprintf(config, "%d\n", p->wavpack_compression);
-        fprintf(config, "%d\n", p->wavpack_hibrid);
+        fprintf(config, "%d\n", p->wavpack_hybrid);
         fprintf(config, "%d\n", p->wavpack_bitrate);
         fprintf(config, "%d\n", p->do_log);
         
@@ -442,7 +442,7 @@ void load_prefs(prefs * p)
         p->wavpack_compression = read_line_num(fd);
         
         // this one can be 0
-        p->wavpack_hibrid = read_line_num(fd);
+        p->wavpack_hybrid = read_line_num(fd);
         
         // this one can be 0
         p->wavpack_bitrate = read_line_num(fd);

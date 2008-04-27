@@ -5,9 +5,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-26 23:39-0400\n"
+"POT-Creation-Date: 2008-04-27 13:03-0400\n"
 "PO-Revision-Date: 2007-12-08 01:09+0200\n"
-"Last-Translator: Mike Kranidis <mikek@openforall.com>\n"
+"Last-Translator: George Vlahavas <vlahavas@gmail.com>\n"
 "Language-Team:  <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/main.c:111 src/interface.c:203
 msgid "Rip"
-msgstr "Αποσπώ (Rip)"
+msgstr "Εξαγωγή"
 
 #: src/main.c:116
 msgid "Track"
@@ -32,7 +32,7 @@ msgstr "Τίτλος"
 
 #: src/main.c:135
 msgid "Time"
-msgstr "Ώρα"
+msgstr "Διάρκεια"
 
 #: src/main.c:161
 msgid ""
@@ -40,7 +40,7 @@ msgid ""
 "CDs."
 msgstr ""
 "Το 'cdparanoia' δε βρέθηκε στη διαδρομή του συστήματος σας. Το Asunder "
-"χρειάζεται το cdparanoia για να κάνει απόσπαση (Rip) των CDs."
+"χρειάζεται το cdparanoia για να κάνει εξαγωγή των CDs."
 
 #: src/main.c:393
 msgid "<b>Getting disc info from the internet...</b>"
@@ -58,15 +58,15 @@ msgid ""
 "s functionality is disabled."
 msgstr ""
 "Το %s δε βρέθηκε στη διαδρομή του συστήματος σας. Το Asunder το χρειάζεται "
-"αυτό για να δημιουργεί τα %s αρχεία. Η %s  λειτουργία είναι ανενεργή."
+"για να δημιουργεί τα %s αρχεία. Η %s  λειτουργία είναι ανενεργή."
 
 #: src/callbacks.c:498
 msgid "Select all for ripping"
-msgstr "Επιλογή όλων για απόσπαση (ripping)"
+msgstr "Επιλογή όλων για εξαγωγή"
 
 #: src/callbacks.c:504
 msgid "Deselect all for ripping"
-msgstr "Αναίρεση επιλογής όλων για απόσπαση (ripping)"
+msgstr "Αναίρεση επιλογής όλων για εξαγωγή"
 
 #: src/interface.c:93
 msgid "CDDB Lookup"
@@ -239,8 +239,7 @@ msgstr "Επίπεδο (βαθμός) συμπίεσης"
 
 #: src/interface.c:622
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
-"Αυτό δεν επιδρά στη ποιότητα. Υψηλότερα νούμερα σημαίνουν μικρότερα αρχεία."
+msgstr "Δεν επιδρά στη ποιότητα. Υψηλότερα νούμερα σημαίνουν μικρότερα αρχεία."
 
 #: src/interface.c:624
 msgid "FLAC (lossless compression)"
@@ -259,7 +258,7 @@ msgstr ""
 
 #: src/interface.c:684
 #, fuzzy
-msgid "Hibrid compression"
+msgid "Hybrid compression"
 msgstr "Υβριδική κωδικοποίηση"
 
 #: src/interface.c:693
@@ -297,7 +296,7 @@ msgstr "Προχωρημένα"
 
 #: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
-msgstr "Απόσπαση (Ripping)"
+msgstr "Εξαγωγή"
 
 #: src/interface.c:895
 msgid "Total progress"

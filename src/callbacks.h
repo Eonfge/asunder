@@ -76,7 +76,7 @@ void
 on_vbr_toggled                         (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
 void
-on_hibrid_toggled                      (GtkToggleButton *togglebutton,
+on_hybrid_toggled                      (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
 
 void
