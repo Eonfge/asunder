@@ -752,7 +752,9 @@ gpointer track(gpointer data)
         usleep(100000);
     }
     
-    gtk_window_set_title(GTK_WINDOW(win_main), "Asunder");
+    gdk_threads_enter();
+        gtk_window_set_title(GTK_WINDOW(win_main), "Asunder");
+    gdk_threads_leave();
     
     return NULL;
 }
