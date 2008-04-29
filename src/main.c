@@ -358,6 +358,8 @@ static int gbl_cddb_query_thread_num_matches;
 gpointer cddb_query_thread_run(gpointer data)
 {
     gbl_cddb_query_thread_num_matches = cddb_query(gbl_cddb_query_thread_conn, gbl_cddb_query_thread_disc);
+    if(gbl_cddb_query_thread_num_matches == -1)
+        gbl_cddb_query_thread_num_matches = 0;
     
     gbl_cddb_query_thread = NULL;
     
