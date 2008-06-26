@@ -351,6 +351,7 @@ void eject_disc(char * cdrom)
 }
 
 static GThread * gbl_cddb_query_thread;
+static int gbl_cddb_query_thread_running;
 static cddb_conn_t * gbl_cddb_query_thread_conn;
 static cddb_disc_t * gbl_cddb_query_thread_disc;
 static int gbl_cddb_query_thread_num_matches;
@@ -361,7 +362,7 @@ gpointer cddb_query_thread_run(gpointer data)
     if(gbl_cddb_query_thread_num_matches == -1)
         gbl_cddb_query_thread_num_matches = 0;
     
-    gbl_cddb_query_thread = NULL;
+    g_atomic_int_set(&gbl_cddb_query_thread_running, 0);
     
     return NULL;
 }
@@ -384,6 +385,7 @@ GList * lookup_disc(cddb_disc_t * disc)
     }
     
     // query cddb to find similar discs
+    g_atomic_int_set(&gbl_cddb_query_thread_running, 1);
     gbl_cddb_query_thread_disc = disc;
     gbl_cddb_query_thread = g_thread_create(cddb_query_thread_run, NULL, TRUE, NULL);
     
@@ -395,7 +397,7 @@ GList * lookup_disc(cddb_disc_t * disc)
         gtk_label_set_text(GTK_LABEL(statusLbl), _("<b>Getting disc info from the internet...</b>"));
         gtk_label_set_use_markup(GTK_LABEL(statusLbl), TRUE);
         
-        while(gbl_cddb_query_thread != NULL)
+        while(g_atomic_int_get(&gbl_cddb_query_thread_running) != 0)
         {
             while (gtk_events_pending())
                 gtk_main_iteration();
