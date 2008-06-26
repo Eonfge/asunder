@@ -738,6 +738,8 @@ gpointer track(gpointer data)
         strcpy(windowTitle, "Asunder - ");
         strcat(windowTitle, stotal);
         
+        if (aborted) g_thread_exit(NULL);
+        
         gdk_threads_enter();
             gtk_progress_bar_set_fraction(progress_rip, prip);
             gtk_progress_bar_set_text(progress_rip, srip);
