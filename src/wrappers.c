@@ -373,7 +373,8 @@ void lame(int tracknum,
         args[pos++] = "--tt";
         args[pos++] = title;
     }
-    if ((genre != NULL) && (strlen(genre) > 0))
+    // lame refuses to accept somegenres that come from cddb, and users get upset
+    if (false && (genre != NULL) && (strlen(genre) > 0))
     {
         args[pos++] = "--tg";
         args[pos++] = genre;
