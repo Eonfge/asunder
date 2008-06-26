@@ -731,7 +731,6 @@ void wavpack(int tracknum,
     }
     
     args[pos++] = "-y";
-    
     if(compression == 0)
         args[pos++] = "-f";
     else if(compression == 2)

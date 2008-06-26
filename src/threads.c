@@ -581,7 +581,7 @@ gpointer encode(gpointer data)
                 if(doEncode)
                 {
                     wavpack(tracknum, wavfilename, 
-                            global_prefs->wavpack_compression - 1, global_prefs->wavpack_hybrid, 
+                            global_prefs->wavpack_compression, global_prefs->wavpack_hybrid, 
                             int_to_wavpack_bitrate(global_prefs->wavpack_bitrate), &wavpack_percent);
                 }
                 
