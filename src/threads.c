@@ -76,7 +76,7 @@ void abort_threads()
         kill(flac_pid, SIGKILL);
     
     /* wait until all the worker threads are done */
-    while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0)
+    while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0 || wavpack_pid != 0)
     {
         debugLog("w1");
         usleep(100000);
