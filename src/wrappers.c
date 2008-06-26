@@ -712,7 +712,7 @@ void wavpack(int tracknum,
              int bitrate,
              double * progress)
 {
-    const char * args[7];
+    const char * args[10];
     int fd;
     int pos;
     int size;
@@ -738,6 +738,8 @@ void wavpack(int tracknum,
     else if(compression == 3)
         args[pos++] = "-hh";
     // default is no parameter (normal compression)
+    
+    args[pos++] = "-x3";
     
     args[pos++] = wavfilename;
     args[pos++] = NULL;
