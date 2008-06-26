@@ -1192,7 +1192,7 @@ GBLtranslators =
 static const char* 
 GBLcomments = 
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, and/or FLAC.";
+"as WAV, MP3, OGG, FLAC, and/or Wavpack.";
 
 static const char* 
 GBLcopyright = 
