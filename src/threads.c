@@ -92,6 +92,8 @@ void abort_threads()
     g_thread_join(tracker);
     debugLog("Aborting: 4 (All threads joined)\n");
     
+    gtk_window_set_title(GTK_WINDOW(win_main), "Asunder");
+    
     gtk_widget_hide(win_ripping);
     gdk_flush();
     working = false;
@@ -711,9 +713,11 @@ gpointer track(gpointer data)
     double ptotal;
     char stotal[5];
     char windowTitle[15]; /* "Asunder - 100%" */
-
-    while (!aborted && !allDone)
+    
+    while (!allDone)
     {
+        if (aborted) g_thread_exit(NULL);
+        
         debugLog("completed tracks %d, rip %.2lf%%; encoded tracks %d, "
                  "mp3 %.2lf%% ogg %.2lf%% flac %.2lf%% wavpack %.2lf%%\n", 
                  rip_tracks_completed, rip_percent, encode_tracks_completed, 
@@ -758,4 +762,3 @@ gpointer track(gpointer data)
     
     return NULL;
 }
-
