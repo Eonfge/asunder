@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 13:03-0400\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
 "PO-Revision-Date: 2007-12-08 01:09+0200\n"
 "Last-Translator: George Vlahavas <vlahavas@gmail.com>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Το 'cdparanoia' δε βρέθηκε στη διαδρομή του συστήματος σας. Το Asunder "
 "χρειάζεται το cdparanoia για να κάνει εξαγωγή των CDs."
 
-#: src/main.c:393
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Παραλαμβάνω πληροφορίες του δίσκου από το  διαδίκτυο...</b>"
 
@@ -306,14 +306,14 @@ msgstr "Συνολική πρόοδος"
 msgid "Encoding"
 msgstr "Κωδικοποίηση"
 
-#: src/interface.c:1236
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Το αρχείο %d δημιουργήθηκε με επιτυχία"
 msgstr[1] "Όλα τα αρχεία %d δημιουργήθηκαν με επιτυχία"
 
-#: src/interface.c:1245
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -347,7 +347,7 @@ msgstr "Το αρχείο '%s' υπάρχει. Θέλετε να το επικα
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Θυμηθείτε την απάντηση για _όλα τα αρχεία που γίνονται από αυτό το CD"
 
-#: src/threads.c:136
+#: src/threads.c:138
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -355,7 +355,7 @@ msgstr ""
 "Καμία μέθοδος απόσπασης/κωδικοποίησης δεν έχει επιλεχθεί. Παρακαλώ "
 "ενεργοποιήστε μια από το μενού των 'προτιμήσεων'."
 
-#: src/threads.c:167
+#: src/threads.c:169
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -363,7 +363,7 @@ msgstr ""
 "Κανένα κομμάτι δεν επιλέχτηκε για απόσπαση/κωδικοποίηση. Παρακαλώ επιλέξτε "
 "τουλάχιστον ένα."
 
-#: src/threads.c:694 src/threads.c:696 src/threads.c:700
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "Αναμονή..."
 

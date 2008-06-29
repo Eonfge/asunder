@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
 "PO-Revision-Date: 2008-01-19 13:36+0100\n"
 "Last-Translator: Milan Pužić <m@gmail.com>\n"
 "Language-Team: \n"
@@ -16,27 +16,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 "X-Poedit-Language: Serbian\n"
 
-#: src/main.c:113 src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Екстрактуј CD"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
 msgstr "Нумера"
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "Извођач"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "Назив"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "Трајање"
 
-#: src/main.c:163
+#: src/main.c:161
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -44,7 +44,7 @@ msgstr ""
 "'cdparanoia' није пронађена у вашој путањи. Ово је потребно за екстрактовање "
 "CD-ова."
 
-#: src/main.c:395
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Преузимам информације о диску са интернета...</b>"
 
@@ -140,11 +140,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Фасцикла албума: "
 
-#: src/interface.c:426 src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Датотека листе нумера: "
 
-#: src/interface.c:433 src/prefs.c:519 src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "Музичка датотека: "
 
@@ -255,82 +255,85 @@ msgstr "Додатни формати"
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
-msgstr "Ово не утиче на квалитет. Виша вредност указује на мању датотеку. "
-"Уобичајено је 1 (препоручено)."
+msgstr ""
+"Ово не утиче на квалитет. Виша вредност указује на мању датотеку. Уобичајено "
+"је 1 (препоручено)."
 
 #: src/interface.c:684
-msgid "Hibrid compression"
+#, fuzzy
+msgid "Hybrid compression"
 msgstr "Хибридна компресија"
 
 #: src/interface.c:693
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
-msgstr "Формат је са губитком у квалитети, али корекциони фајл је креиран "
-"због обнове оригинала без губитка."
+msgstr ""
+"Формат је са губитком у квалитети, али корекциони фајл је креиран због "
+"обнове оригинала без губитка."
 
 #. END WAVPACK
 #: src/interface.c:723
 msgid "Encode"
 msgstr "Кодирај"
 
-#: src/interface.c:742
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
 msgstr "Аутоматски преузми информације о диску са интернета"
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "Користи HTTP proxy за прикључивање на интернет"
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr "Сервер:"
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr "Порт:"
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr "Додатна подешавања"
 
-#: src/interface.c:860 src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
 msgstr "Екстракција"
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "Укупан напредак"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "кодирање"
 
-#: src/interface.c:1212
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Датотека %d је успешно креирана"
 msgstr[1] "Датотеке %d су успешно креиране"
 
-#: src/interface.c:1221
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Дошло је до грешке при креирању датотеке %d"
 msgstr[1] "Дошло је до грешке при креирању датотека %d"
 
-#: src/prefs.c:506 src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Неважећи знаци у пољу '%s'"
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' не сме бити празно"
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr "Неважећи број proxy порта"
 
@@ -347,7 +350,7 @@ msgstr "Датотека '%s' већ постоји. Желите ли да је
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Запамти одговор за _све датотеке креиране са овог CD-а"
 
-#: src/threads.c:146
+#: src/threads.c:138
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -355,7 +358,7 @@ msgstr ""
 "Није изабран метод за екстрактовање/кодирање. Молим изаберите један од "
 "метода из менија \"Подешавања\"."
 
-#: src/threads.c:177
+#: src/threads.c:169
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -363,6 +366,6 @@ msgstr ""
 "Није изабрана ни једна нумера за екстрактовање/кодирање. Молим изаберите "
 "барем једну нумеру."
 
-#: src/threads.c:716 src/threads.c:718 src/threads.c:722
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "Чекам..."

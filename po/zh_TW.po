@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 13:03-0400\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
 "PO-Revision-Date: 2008-04-21 18:08+0800\n"
 "Last-Translator: Chien Cheng Wei <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
@@ -44,7 +44,7 @@ msgid ""
 msgstr ""
 "您指定的路徑內找不到「cdparanoia」。Asunder 需要「cdparanoia」 來擷取音軌。"
 
-#: src/main.c:393
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>正在從網路取得光碟資訊...</b>"
 
@@ -302,13 +302,13 @@ msgstr "總進度"
 msgid "Encoding"
 msgstr "正在編碼..."
 
-#: src/interface.c:1236
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "成功地新建了%d個檔案"
 
-#: src/interface.c:1245
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -341,19 +341,19 @@ msgstr "檔案 '%s' 已經存在。您是否要覆寫？\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "記住設定值，供所有用此CD做出的檔案使用"
 
-#: src/threads.c:136
+#: src/threads.c:138
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr "尚未選擇 擷取音軌/編碼 方法。請從「偏好設定」選單中啟用其中一種。"
 
-#: src/threads.c:167
+#: src/threads.c:169
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "尚未選取要 擷取/編碼 的音軌。請至少選擇一個音軌。"
 
-#: src/threads.c:694 src/threads.c:696 src/threads.c:700
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "請稍待..."
 

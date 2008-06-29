@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 13:03-0400\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
 "PO-Revision-Date: 2007-10-05 08:31-0400\n"
 "Last-Translator: Marcin Gasiorowski <marcin_g@epf.pl>\n"
 "Language-Team: \n"
@@ -42,7 +42,7 @@ msgstr ""
 "Brak programu 'cdparanoia'. Asunder potrzebuje programu cdparanoia do "
 "zgrywania dysków CD."
 
-#: src/main.c:393
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Pobieranie informacji z internetu...</b>"
 
@@ -306,14 +306,14 @@ msgstr "Całkowity postęp"
 msgid "Encoding"
 msgstr "Kodowanie"
 
-#: src/interface.c:1236
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d plik został utworzony pomyślnie"
 msgstr[1] "%d plików zostało utworzonych pomyślnie"
 
-#: src/interface.c:1245
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -347,14 +347,14 @@ msgstr "Plik '%s' już istnieje. Chcesz go nadpisać?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Pamiętaj odpowiedź dl_a wszystkich plików zgrywanych z tego dysku"
 
-#: src/threads.c:136
+#: src/threads.c:138
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
 "Nie wybrano metody zgrywania/kodowania. Wybierz jedną z menu 'Preferencje'."
 
-#: src/threads.c:167
+#: src/threads.c:169
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -362,6 +362,6 @@ msgstr ""
 "Nie wybrano żadnej ścieżki do zgrywania/kodowania. Wybierz przynajmniej "
 "jedną ścieżkę."
 
-#: src/threads.c:694 src/threads.c:696 src/threads.c:700
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "Oczekiwanie..."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 13:03-0400\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
 "PO-Revision-Date: 2008-04-22 20:16+0100\n"
 "Last-Translator: Kristof Bal <kristof.bal@telenet.be>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 "'cdparanoia' kon niet worden gevonden in het opgegeven pad. Asunder heeft "
 "cdparanoia nodig om cd's te rippen."
 
-#: src/main.c:393
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr ""
 "<b>Bezig met het verkrijgen van schijfinformatie van het internet...</b>"
@@ -315,14 +315,14 @@ msgstr "Totale voortgang"
 msgid "Encoding"
 msgstr "Encoderen"
 
-#: src/interface.c:1236
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d bestand succesvol aangemaakt"
 msgstr[1] "%d bestanden succesvol aangemaakt"
 
-#: src/interface.c:1245
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -356,7 +356,7 @@ msgstr "Het bestand '%s' bestaat al. Wilt u het overschrijven?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Antwoord voor _alle bestanden van deze CD onthouden"
 
-#: src/threads.c:136
+#: src/threads.c:138
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -364,7 +364,7 @@ msgstr ""
 "Er is geen methode geselecteerd voor het rippen/encoderen. Selecteer een "
 "methode via het menu 'Voorkeuren'."
 
-#: src/threads.c:167
+#: src/threads.c:169
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -372,7 +372,7 @@ msgstr ""
 "Er zijn geen tracks geselecteerd om te rippen/encoderen. Selecteer minimaal "
 "één track."
 
-#: src/threads.c:694 src/threads.c:696 src/threads.c:700
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "Aan het wachten..."
 

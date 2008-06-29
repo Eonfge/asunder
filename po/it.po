@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 13:03-0400\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
 "PO-Revision-Date: 2007-10-02 00:07-0500\n"
 "Last-Translator: \n"
 "Language-Team:  <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 "'cdparanoia' non è stato trovato nel tuo path. Asunder richiede cdparanoia "
 "per estrarre tracce da CD."
 
-#: src/main.c:393
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Sto scaricando le informazioni sul disco da internet...</b>"
 
@@ -310,14 +310,14 @@ msgstr "Progresso totale"
 msgid "Encoding"
 msgstr "Codifica"
 
-#: src/interface.c:1236
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "% d file creato con successo"
 msgstr[1] "%d files creati con successo"
 
-#: src/interface.c:1245
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -351,7 +351,7 @@ msgstr "Il file '%s' esiste già. Vuoi sovrascriverlo?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Ricorda la risposta per _tutti i file creati da questo CD"
 
-#: src/threads.c:136
+#: src/threads.c:138
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -359,7 +359,7 @@ msgstr ""
 "Nessun metodo di estrazione/codifica selezionato. Per favore scegline uno "
 "dal menu 'Preferenze'."
 
-#: src/threads.c:167
+#: src/threads.c:169
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -367,7 +367,7 @@ msgstr ""
 "Nessuna traccia selezionata per l'estrazione/codifica. Per favore scegline "
 "almeno una."
 
-#: src/threads.c:694 src/threads.c:696 src/threads.c:700
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "Attendi..."
 

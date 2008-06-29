@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 13:03-0400\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
 "PO-Revision-Date: 2008-04-24 12:31+0100\n"
 "Last-Translator: René Schmidt <schmidt_r@gmx-topmail.de>\n"
 "Language-Team: \n"
@@ -44,7 +44,7 @@ msgstr ""
 "\n"
 "Das Importieren von CDs ist daher nicht möglich."
 
-#: src/main.c:393
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>CD-Info aus dem Internet abrufen...</b>"
 
@@ -348,14 +348,14 @@ msgstr "Gesamt"
 msgid "Encoding"
 msgstr "Komprimieren"
 
-#: src/interface.c:1236
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d Datei erfolgreich erstellt."
 msgstr[1] "%d Dateien erfolgreich erstellt."
 
-#: src/interface.c:1245
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -399,7 +399,7 @@ msgstr ""
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Antwort für _alle von dieser CD importierten Dateien merken"
 
-#: src/threads.c:136
+#: src/threads.c:138
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -409,7 +409,7 @@ msgstr ""
 "Wählen Sie bitte in den Einstellungen, ob und auf welche Weise die Audio-"
 "Daten komprimiert werden sollen."
 
-#: src/threads.c:167
+#: src/threads.c:169
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -418,6 +418,6 @@ msgstr ""
 "\n"
 "Markieren Sie bitte mindestens einen Titel."
 
-#: src/threads.c:694 src/threads.c:696 src/threads.c:700
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "Warten..."

@@ -1040,7 +1040,7 @@ void enable_wavpack_widgets(void)
 
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 1.5";
+GBLprogramName = "Asunder 1.6";
 
 static const char* 
 GBLauthors[2] = {
@@ -1063,7 +1063,7 @@ GBLauthors[2] = {
 "\n"
 "Toni Graffy\n"
 "Maintainer of many SuSE packages at PackMan\n"
-"- SuSE packages of Asunder, versions 0.1 - 1.0.2\n"
+"- SuSE packages of Asunder, versions 0.1 - 1.6\n"
 "\n"
 "Trent Weddington\n"
 "http://rtfm.insomnia.org/~qg/\n"
@@ -1071,14 +1071,14 @@ GBLauthors[2] = {
 "\n"
 "Marcin Zajaczkowski (Szpak)\n"
 "http://timeoff.wsisiz.edu.pl/rpms.html\n"
-"- Fedora packages of Asunder, versions 0.8.1 - 1.0.2\n"
+"- Fedora packages of Asunder, versions 0.8.1 - 1.6\n"
 "\n"
 "Adam Williamson\n"
 "http://www.happyassassin.net/\n"
-"- Mandriva packages of Asunder, versions 0.9 - 1.0.2\n"
+"- Mandriva packages of Asunder, versions 0.9 - 1.6\n"
 "\n"
 "Tom Nardi\n"
-"- Slackware packages of Asunder, versions 0.8.1 - 1.0.2\n"
+"- Slackware packages of Asunder, versions 0.8.1 - 1.6\n"
 "\n"
 "vktgz\n"
 "http://www.vktgz.homelinux.net/\n"
@@ -1088,7 +1088,7 @@ GBLauthors[2] = {
 "- Arch packages of Asunder, versions 0.8.1 - 1.0.2\n"
 "\n"
 "Alexey Rusakov\n"
-"- ALT packages of Asunder, versions 0.8.1 - 1.0.2\n"
+"- ALT packages of Asunder, versions 0.8.1 - 1.5\n"
 "\n"
 "Fraser Tweedale\n"
 "- FreeBSD ports of Asunder, versions 0.8.1 - 0.9\n"
@@ -1101,6 +1101,9 @@ GBLauthors[2] = {
 "\n"
 "Christophe Lincoln\n"
 "- Slitaz package of Asunder, version 1.0.2\n"
+"\n"
+"Ronald van Haren\n"
+"- Arch package of Asunder, version 1.5\n"
 "\n"
 ,
 NULL};
@@ -1132,10 +1135,10 @@ GBLtranslators =
 "- es (Spanish) translation of Asunder versions 0.8 - 1.5\n"
 "\n"
 "Eero Salokannel\n"
-"- fi (Finnish) translation of Asunder versions 0.8 - 1.0\n"
+"- fi (Finnish) translation of Asunder versions 0.8 - 1.5\n"
 "\n"
 "Christophe Legras\n"
-"- fr (French) translation of Asunder versions 0.8 - 1.0\n"
+"- fr (French) translation of Asunder versions 0.8 - 1.5\n"
 "\n"
 "Peter Polonkai\n"
 "- hu (Hungarian) translation of Asunder versions 0.8 - 1.5\n"

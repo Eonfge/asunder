@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 13:03-0400\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
 "PO-Revision-Date: 2008-04-21 21:43+0800\n"
 "Last-Translator: Evgenii Terechkov <evg_krsk@inbox.ru>\n"
 "Language-Team: 11 <1>\n"
@@ -46,7 +46,7 @@ msgstr ""
 "'cdparanoia' не найдена по указанному пути. Asunder требует наличия "
 "cdparanoia для извлечения дорожек с CD."
 
-#: src/main.c:393
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Получение информаций о диске из сети...</b>"
 
@@ -310,14 +310,14 @@ msgstr "Всего выполнено"
 msgid "Encoding"
 msgstr "Кодирование"
 
-#: src/interface.c:1236
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d файл созданн успешно"
 msgstr[1] "%d файлов созданно успешно"
 
-#: src/interface.c:1245
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -351,7 +351,7 @@ msgstr "Файл '%s' уже существует. Хотите перезапи
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Запомнить ответ для _всех файлов из этого CD"
 
-#: src/threads.c:136
+#: src/threads.c:138
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -359,7 +359,7 @@ msgstr ""
 "Не выбран метод извлечения/кодирования дорожек. Выберите один из указанных в "
 "меню 'Preferences'."
 
-#: src/threads.c:167
+#: src/threads.c:169
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -367,6 +367,6 @@ msgstr ""
 "Не выбраны дорожки для извлечения/кодирования. Пожалуйста, выберите как "
 "минимум одну дорожку."
 
-#: src/threads.c:694 src/threads.c:696 src/threads.c:700
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "Ожидайте ..."

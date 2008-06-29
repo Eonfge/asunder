@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder-0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 13:03-0400\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
 "PO-Revision-Date: 2008-04-22 11:42-0300\n"
 "Last-Translator: felipe augusto <flipeicl@gmail.com>\n"
 "Language-Team: Pt-Br <flipeicl@gmail.com>\n"
@@ -45,7 +45,7 @@ msgstr ""
 "'cdparanoia' não foi encontrado no seu sistema. O Asunder requer o "
 "cdparanoia para ripar CDs."
 
-#: src/main.c:393
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Pegando info do disco da internet...</b>"
 
@@ -310,14 +310,14 @@ msgstr "Progresso total"
 msgid "Encoding"
 msgstr "Decodificar"
 
-#: src/interface.c:1236
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "O Arquivo %d foi criado com sucesso"
 msgstr[1] "Os arquivos %d foram criados com sucesso"
 
-#: src/interface.c:1245
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -351,7 +351,7 @@ msgstr "O arquivo '%s' já existe. Você deseja sobrescrevê-lo?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Lembrar a pergunta para _todos os arquivos feitos deste CD"
 
-#: src/threads.c:136
+#: src/threads.c:138
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -359,7 +359,7 @@ msgstr ""
 "Método de ripar/descodificar não selecionado. Por favor habilite uma no menu "
 "\"Preferências\"."
 
-#: src/threads.c:167
+#: src/threads.c:169
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -367,6 +367,6 @@ msgstr ""
 "Nenhuma faixa foi selecionada para ripar/descodificar. Por favor selecione "
 "ao menos uma faixa."
 
-#: src/threads.c:694 src/threads.c:696 src/threads.c:700
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "Aguardando..."

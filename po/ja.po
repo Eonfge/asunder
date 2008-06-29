@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 13:03-0400\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
 "PO-Revision-Date: 2008-04-21 23:46+0900\n"
 "Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
@@ -42,7 +42,7 @@ msgid ""
 "CDs."
 msgstr "cdparanoia が見つかりません。CD を吸い出すには Asunder が必要です。"
 
-#: src/main.c:393
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>ディスクの情報をインターネットから取得...</b>"
 
@@ -305,13 +305,13 @@ msgstr "全体の進行"
 msgid "Encoding"
 msgstr "エンコーディング"
 
-#: src/interface.c:1236
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d 個のファイルを作成しました"
 
-#: src/interface.c:1245
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -344,7 +344,7 @@ msgstr "ファイル '%s' は既にあります。上書きしますか？\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "この CD から作った全てのファイル用に答えを覚えておく(_a)"
 
-#: src/threads.c:136
+#: src/threads.c:138
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -352,7 +352,7 @@ msgstr ""
 "吸い出す/エンコーディングする方法を選んでいません。設定メニューで選んでくださ"
 "い。"
 
-#: src/threads.c:167
+#: src/threads.c:169
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -360,6 +360,6 @@ msgstr ""
 "吸い出す/エンコーディングするトラックを選んでいません。最低１つは選んでくださ"
 "い。"
 
-#: src/threads.c:694 src/threads.c:696 src/threads.c:700
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "待機中..."

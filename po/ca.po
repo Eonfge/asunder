@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-27 13:03-0400\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
 "PO-Revision-Date: 2008-04-26 23:54+0100\n"
 "Last-Translator: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
 "Language-Team: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "No s'ha trobat «cdparanoia». L'Asunder necessita el cdparanoia per a "
 "capturar CD."
 
-#: src/main.c:393
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Obtenint la informació del disc des d'Internet...</b>"
 
@@ -315,14 +315,14 @@ msgstr "Progrés total"
 msgid "Encoding"
 msgstr "S'està codificant..."
 
-#: src/interface.c:1236
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "L'arxiu ha sigut creat amb èxit."
 msgstr[1] "S'han creat %d arxius correctament"
 
-#: src/interface.c:1245
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -357,7 +357,7 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr ""
 "Recorda la resposta per a _tots els arxius generats a partir d'aquest CD"
 
-#: src/threads.c:136
+#: src/threads.c:138
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -365,7 +365,7 @@ msgstr ""
 "No heu seleccionat cap mètode de captura/codificació. Heu de triar-ne un des "
 "del menú «Preferències»."
 
-#: src/threads.c:167
+#: src/threads.c:169
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -373,6 +373,6 @@ msgstr ""
 "No heu seleccionat cap pista per a capturar/codificar. Heu de triar-ne com a "
 "mínim una."
 
-#: src/threads.c:694 src/threads.c:696 src/threads.c:700
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "S'està esperant..."

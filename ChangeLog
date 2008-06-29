@@ -1,3 +1,13 @@
+28 Jun 2008 - 1.6
+=================
+- Updated French, Finnish, Serbian translations.
+- Fixed possible crash if CDDB query fails.
+- Fixed bug where a genre unknown to lame would cause ripping to fail.
+- Fixed the wavpack compression slider.
+- Fixed possible memory corruption when encoding to Wavpack.
+- Fixed bug that would cause a CDDB query to take very long and sometimes fail.
+- Cancelling a rip doesn't hanf the interface any more.
+
 26 Apr 2008 - 1.5
 =================
 - Added Bulgarian translation.
