@@ -1144,7 +1144,7 @@ GBLtranslators =
 "- hu (Hungarian) translation of Asunder versions 0.8 - 1.5\n"
 "\n"
 "Valerio Guaglianone\n"
-"- it (Italian) translation of Asunder versions 0.8 - 0.8.1\n"
+"- it (Italian) translation of Asunder versions 0.8 - 0.8.1, 1.6\n"
 "\n"
 "Fabio Vergnani\n"
 "- it (Italian) translation of Asunder version 1.0\n"
