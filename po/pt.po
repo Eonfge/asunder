@@ -301,12 +301,16 @@ msgstr "A codificar"
 #: src/interface.c:1212
 #, c-format
 msgid "%d file created successfully"
-msgstr "ficheiro %d criado com sucesso"
+msgid_plural "%d files created successfully"
+msgstr[0] "ficheiro %d criado com sucesso"
+msgstr[1] "ficheiro %d criado com sucesso"
 
 #: src/interface.c:1221
 #, c-format
 msgid "There was an error creating %d file"
-msgstr "Houve um erro ao criar o ficheiro %d"
+msgid_plural "There was an error creating %d files"
+msgstr[0] "Houve um erro ao criar o ficheiro %d"
+msgstr[1] "Houve um erro ao criar o ficheiro %d"
 
 #: src/prefs.c:506
 #: src/prefs.c:518
@@ -342,7 +346,7 @@ msgstr "Método ripar/codificar não seleccionado. Por favor habilite uma a part
 
 #: src/threads.c:177
 msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr ""Nenhuma faixa foi seleccionada para ripar/descodificar. Por favor selecione ao menos uma faixa."
+msgstr "Nenhuma faixa foi seleccionada para ripar/descodificar. Por favor selecione ao menos uma faixa."
 
 #: src/threads.c:716
 #: src/threads.c:718
