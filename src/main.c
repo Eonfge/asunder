@@ -43,7 +43,7 @@ Foundation; version 2 of the licence.
 #include "wrappers.h"
 #include "threads.h"
 
-GList * disc_matches = NULL;
+GList * gbl_disc_matches = NULL;
 gboolean track_format[100];
 
 GtkWidget * win_main = NULL;
@@ -610,7 +610,7 @@ void update_tracklist(cddb_disc_t * disc)
 void refresh(char * cdrom, int force)
 {
     cddb_disc_t * disc;
-    GList * curr;
+    //GList * curr;
     
     if(working)
     /* don't do nothing */
@@ -630,22 +630,31 @@ void refresh(char * cdrom, int force)
         update_tracklist(disc);
         
         // clear out the previous list of matches
-        for (curr = g_list_first(disc_matches); curr != NULL; curr = g_list_next(curr))
+        /* this causes a segfault in the following scenario:
+        - disable auto cddb lookup
+        - insert cd that has a record in cddb
+        - click 'cddb lookup'
+        - wait for lookup to finish successfully and eject the disk
+        - reinsert the disk
+        - click 'cddb lookup'
+        - it crashes in the following loop (legrand-sw 14 sep 2008)
+        for (curr = g_list_first(gbl_disc_matches); curr != NULL; curr = g_list_next(curr))
         {
             cddb_disc_destroy((cddb_disc_t *)curr->data);
         }
-        g_list_free(disc_matches);
+        g_list_free(gbl_disc_matches);
+        */
         
         if (!global_prefs->do_cddb_updates && !force)
             return;
         
-        disc_matches = lookup_disc(disc);
+        gbl_disc_matches = lookup_disc(disc);
         cddb_disc_destroy(disc);
         
-        if (disc_matches == NULL)
+        if (gbl_disc_matches == NULL)
             return;
         
-        if (g_list_length(disc_matches) > 1)
+        if (g_list_length(gbl_disc_matches) > 1)
         {
             // fill in and show the album drop-down box
             GtkListStore * store = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
@@ -653,7 +662,7 @@ void refresh(char * cdrom, int force)
             GList * curr;
             cddb_disc_t * tempdisc;
             
-            for (curr = g_list_first(disc_matches); curr != NULL; curr = g_list_next(curr))
+            for (curr = g_list_first(gbl_disc_matches); curr != NULL; curr = g_list_next(curr))
             {
                 tempdisc = (cddb_disc_t *)curr->data;
                 gtk_list_store_append(store, &iter);
@@ -670,6 +679,6 @@ void refresh(char * cdrom, int force)
             gtk_widget_show(lookup_widget(win_main, "pick_disc"));
         }
         
-        update_tracklist((cddb_disc_t *)g_list_nth_data(disc_matches, 0));
+        update_tracklist((cddb_disc_t *)g_list_nth_data(gbl_disc_matches, 0));
     }
 }

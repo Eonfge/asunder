@@ -220,7 +220,7 @@ void
 on_pick_disc_changed                   (GtkComboBox     *combobox,
                                         gpointer         user_data)
 {
-    cddb_disc_t * disc = g_list_nth_data(disc_matches, gtk_combo_box_get_active(combobox));
+    cddb_disc_t * disc = g_list_nth_data(gbl_disc_matches, gtk_combo_box_get_active(combobox));
     update_tracklist(disc);
 }
 
