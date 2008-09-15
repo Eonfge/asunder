@@ -708,7 +708,7 @@ gpointer track(gpointer data)
     
     double prip;
     char srip[13];
-    double pencode;
+    double pencode = 0;
     char sencode[13];
     double ptotal;
     char stotal[5];
