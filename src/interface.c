@@ -1040,7 +1040,7 @@ void enable_wavpack_widgets(void)
 
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 1.6";
+GBLprogramName = "Asunder 1.6.1";
 
 static const char* 
 GBLauthors[2] = {
@@ -1065,6 +1065,9 @@ GBLauthors[2] = {
 "Maintainer of many SuSE packages at PackMan\n"
 "- SuSE packages of Asunder, versions 0.1 - 1.6\n"
 "\n"
+"Joao Pinto\n"
+"- 64bit Debian packages of Asunder, versions 1.0.1 - 1.0.2, 1.6\n"
+"\n"
 "Trent Weddington\n"
 "http://rtfm.insomnia.org/~qg/\n"
 "- Debian packages of Asunder, versions 0.8 - 1.0.1\n"
@@ -1082,7 +1085,10 @@ GBLauthors[2] = {
 "\n"
 "vktgz\n"
 "http://www.vktgz.homelinux.net/\n"
-"- Gentoo ebuilds for Asunder, versions 0.8 - 0.8.1\n"
+"- Gentoo ebuilds for Asunder, versions 0.8 - 0.8.1, 1.6\n"
+"\n"
+"Ronald van Haren\n"
+"- Arch package of Asunder, versions 1.5 - 1.6\n"
 "\n"
 "Sebastien Piccand\n"
 "- Arch packages of Asunder, versions 0.8.1 - 1.0.2\n"
@@ -1096,14 +1102,8 @@ GBLauthors[2] = {
 "Philip Muller\n"
 "- Paldo package of Asunder, version 0.8.1\n"
 "\n"
-"Joao Pinto\n"
-"- 64bit Debian packages of Asunder, versions 1.0.1 - 1.0.2\n"
-"\n"
 "Christophe Lincoln\n"
 "- Slitaz package of Asunder, version 1.0.2\n"
-"\n"
-"Ronald van Haren\n"
-"- Arch package of Asunder, version 1.5\n"
 "\n"
 ,
 NULL};

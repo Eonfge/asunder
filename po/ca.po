@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-28 20:29-0400\n"
+"POT-Creation-Date: 2008-09-14 20:51-0400\n"
 "PO-Revision-Date: 2008-04-26 23:54+0100\n"
 "Last-Translator: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
 "Language-Team: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
@@ -46,8 +46,8 @@ msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
-"No s'ha trobat «cdparanoia». L'Asunder necessita el cdparanoia per a "
-"capturar CD."
+"No s'ha trobat «cdparanoia». L'Asunder necessita el cdparanoia per a capturar "
+"CD."
 
 #: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
@@ -315,14 +315,14 @@ msgstr "Progrés total"
 msgid "Encoding"
 msgstr "S'està codificant..."
 
-#: src/interface.c:1239
+#: src/interface.c:1242
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "L'arxiu ha sigut creat amb èxit."
 msgstr[1] "S'han creat %d arxius correctament"
 
-#: src/interface.c:1248
+#: src/interface.c:1251
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

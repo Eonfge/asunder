@@ -1,3 +1,9 @@
+14 Sep 2008 - 1.6.1
+===================
+- Updated Italian translation.
+- Added Portuguese translation.
+- Fixed bug that would cause a crash when quering CDDB a second time.
+
 28 Jun 2008 - 1.6
 =================
 - Updated French, Finnish, Serbian translations.
