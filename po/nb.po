@@ -5,16 +5,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ISO Master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-14 20:51-0400\n"
-"PO-Revision-Date: 2007-08-10 10:10-0500\n"
-"Last-Translator: Robert Groenning <slimg@iggu.org>\n"
+"POT-Creation-Date: 2008-06-28 20:29-0400\n"
+"PO-Revision-Date: 2008-10-14 18:53-0500\n"
+"Last-Translator: \n"
 "Language-Team: Ubuntu Norwegian Translators <oversettelse@ubuntu.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:111 src/interface.c:203
+#: src/main.c:111
+#: src/interface.c:203
 msgid "Rip"
 msgstr "Hent ut"
 
@@ -35,42 +36,36 @@ msgid "Time"
 msgstr "Tid"
 
 #: src/main.c:161
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
-msgstr ""
-"'cdparanoia' ble ikke funnet i søkestien din. Asunder trenger cdparanoia for "
-"å hente musikk fra CDer."
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "'cdparanoia' ble ikke funnet i søkestien din. Asunder trenger cdparanoia for å hente musikk fra CDer."
 
 #: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr ""
+msgstr "<b>Henter plate informasjon fra internett...</b>"
 
 #: src/callbacks.c:317
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr ""
+msgstr "Ingen CD funnet. Vær snill å legg en CD i CD-ROM stasjonen."
 
-#: src/callbacks.c:336 src/callbacks.c:361 src/callbacks.c:386
+#: src/callbacks.c:336
+#: src/callbacks.c:361
+#: src/callbacks.c:386
 #: src/callbacks.c:411
 #, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All %"
-"s functionality is disabled."
-msgstr ""
-"%s ble ikke funnet i stien din. Asunder trenger det for å opprette %s filer. "
-"Alle %s funksjoner er slått av."
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "%s ble ikke funnet i stien din. Asunder trenger det for å opprette %s filer. Alle %s funksjoner er slått av."
 
 #: src/callbacks.c:498
 msgid "Select all for ripping"
-msgstr ""
+msgstr "Velg alle"
 
 #: src/callbacks.c:504
 msgid "Deselect all for ripping"
-msgstr ""
+msgstr "Velg bort alle"
 
 #: src/interface.c:93
 msgid "CDDB Lookup"
-msgstr ""
+msgstr "CDDB søk"
 
 #: src/interface.c:136
 msgid "Disc:"
@@ -92,7 +87,8 @@ msgstr "Singel artist"
 msgid "Preferences"
 msgstr "Innstillinger"
 
-#: src/interface.c:350 src/interface.c:356
+#: src/interface.c:350
+#: src/interface.c:356
 msgid "Destination folder"
 msgstr "Målmappe"
 
@@ -110,10 +106,13 @@ msgid ""
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
+"Standard: /dev/cdrom\n"
+"Annet eksempel: /dev/hdc\n"
+"Annet eksempel: /dev/sr0"
 
 #: src/interface.c:381
 msgid "Eject disc when finished"
-msgstr ""
+msgstr "Løs ut plate ved slutt"
 
 #: src/interface.c:389
 msgid "General"
@@ -135,11 +134,14 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Album mappe: "
 
-#: src/interface.c:426 src/prefs.c:511
+#: src/interface.c:426
+#: src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Spillelistefil: "
 
-#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
+#: src/interface.c:433
+#: src/prefs.c:523
+#: src/prefs.c:533
 msgid "Music file: "
 msgstr "Musikkfil: "
 
@@ -150,6 +152,11 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
+"Dette er relativt til destinasjons mappen (fra Generelt fanen).\n"
+"Kan være tom.\n"
+".Standard: %A - %L\n"
+"Annet eksempel: %A/%LKan være blank.\n"
+"."
 
 #: src/interface.c:459
 msgid ""
@@ -157,6 +164,9 @@ msgid ""
 "Can be blank.\n"
 "Default: %A - %L"
 msgstr ""
+"Dette vil bli lagret i album mappen.\n"
+"Kan være tom.\n"
+"Standard: %A - %L"
 
 #: src/interface.c:470
 msgid ""
@@ -165,6 +175,10 @@ msgid ""
 "Default: %A - %T\n"
 "Other example: %N - %T"
 msgstr ""
+"Dette vil bli lagret i album mappen.\n"
+"Kan ikke være tom.\n"
+"Standard:  %A - %T\n"
+"Annet eksemple:  %N - %T"
 
 #: src/interface.c:475
 msgid "Filename formats"
@@ -185,17 +199,16 @@ msgstr "Variabel bitrate (VBR)"
 
 #: src/interface.c:526
 msgid "Better quality for the same size."
-msgstr ""
+msgstr "Bedere kvalitet med for samme størrelse"
 
-#: src/interface.c:532 src/interface.c:699
+#: src/interface.c:532
+#: src/interface.c:699
 msgid "Bitrate"
 msgstr "Bitrate"
 
 #: src/interface.c:547
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"192Kbps."
-msgstr ""
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "Høyere bitrate gir bedre kvalitet, men også større filer. De fleste bruker 192Kbps"
 
 #: src/interface.c:549
 msgid "32Kbps"
@@ -211,44 +224,40 @@ msgstr "Kvalitet"
 
 #: src/interface.c:587
 msgid "Higher quality means bigger file. Default is 6."
-msgstr ""
+msgstr "Høyere kvalitet gir større filer. Standard er 6."
 
 #: src/interface.c:589
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (lossy kompresjon)"
 
-#: src/interface.c:611 src/interface.c:665
+#: src/interface.c:611
+#: src/interface.c:665
 msgid "Compression level"
 msgstr "Komprimeringsstyrke"
 
 #: src/interface.c:622
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
+msgstr "Dette affekterer ikke kvaliteten. Høyere nummer gir mindre fil."
 
 #: src/interface.c:624
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (lossless kompresjon)"
 
 #: src/interface.c:642
-#, fuzzy
 msgid "More formats"
-msgstr "Filnavn formater"
+msgstr "Flere formater"
 
 #: src/interface.c:678
-msgid ""
-"This does not affect the quality. Higher number means smaller file. Default "
-"is 1 (recommended)."
-msgstr ""
+msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
+msgstr "Dette affekterer ikke kvaliteten. Høyere nummer gir mindre fil. Standard er 1 (anbefalt)."
 
 #: src/interface.c:684
 msgid "Hybrid compression"
-msgstr ""
+msgstr "Hybrid kompresjon"
 
 #: src/interface.c:693
-msgid ""
-"The format is lossy but a correction file is created for restoring the "
-"lossless original."
-msgstr ""
+msgid "The format is lossy but a correction file is created for restoring the lossless original."
+msgstr "Formatet er lossy, men en rettefil vil bli laget for gjenoppretting av orginalen."
 
 #. END WAVPACK
 #: src/interface.c:723
@@ -257,25 +266,26 @@ msgstr "Kode"
 
 #: src/interface.c:743
 msgid "Get disc info from the internet automatically"
-msgstr ""
+msgstr "Hent album informasjon automatisk fra internett"
 
 #: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
-msgstr ""
+msgstr "Bruk en HTTP proxy for tilkobling til internett"
 
 #: src/interface.c:764
 msgid "Server: "
-msgstr ""
+msgstr "Server: "
 
 #: src/interface.c:777
 msgid "Port: "
-msgstr ""
+msgstr "Port: "
 
 #: src/interface.c:795
 msgid "Advanced"
-msgstr ""
+msgstr "Avansert"
 
-#: src/interface.c:866 src/interface.c:902
+#: src/interface.c:866
+#: src/interface.c:902
 msgid "Ripping"
 msgstr "Henting"
 
@@ -287,60 +297,59 @@ msgstr "Total fremgang"
 msgid "Encoding"
 msgstr "Koding"
 
-#: src/interface.c:1242
+#: src/interface.c:1239
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d filen ble laget suksessfullt"
+msgstr[1] "%d filene ble laget suksessfullt"
 
-#: src/interface.c:1251
+#: src/interface.c:1248
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Det oppstod en feil med å lage %d filen"
+msgstr[1] "Det oppstod en feil med å lage %d filene"
 
-#: src/prefs.c:510 src/prefs.c:522
+#: src/prefs.c:510
+#: src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
-msgstr ""
+msgstr "Ugyldig tegn i '%s' feltet"
 
 #: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr ""
+msgstr "'%s' kan ikke være tom"
 
 #: src/prefs.c:547
 msgid "Invalid proxy port number"
-msgstr ""
+msgstr "Ugyldig proxy port nummer"
 
 #: src/support.c:47
 msgid "Overwrite?"
-msgstr ""
+msgstr "Overskrive?"
 
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr ""
+msgstr "Filen '%s' finnes allerede. Vil du overskrive den?\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
-msgstr ""
+msgstr "Husk svaret for _alle filene laget til denne CD platen"
 
 #: src/threads.c:138
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
 msgstr "Ingen hente/kode metode er valgt. Velg en fra 'Innstillinger' menyen."
 
 #: src/threads.c:169
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
 msgstr "Ingen lydspor er valgt til henting/koding. Velg minst et lydspor."
 
-#: src/threads.c:696 src/threads.c:698 src/threads.c:702
+#: src/threads.c:696
+#: src/threads.c:698
+#: src/threads.c:702
 msgid "Waiting..."
 msgstr "Venter..."
 
@@ -351,9 +360,8 @@ msgstr "Venter..."
 #, fuzzy
 #~ msgid "Music file"
 #~ msgstr "Musikkfil: "
-
 #~ msgid "Create directory for each album"
 #~ msgstr "Opprett en mappe for hvert album"
-
 #~ msgid "These characters will be removed from all filenames."
 #~ msgstr "Disse tegnene blir fjernet fra alle filnavn"
+
