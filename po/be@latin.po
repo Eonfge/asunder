@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-14 20:51-0400\n"
+"POT-Creation-Date: 2008-11-29 09:57-0500\n"
 "PO-Revision-Date: 2008-01-06 01:33+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: i18n@mova.org <i18n@mova.org>\n"
@@ -310,7 +310,7 @@ msgstr "Ahulny prahres"
 msgid "Encoding"
 msgstr "Kadavańnie"
 
-#: src/interface.c:1242
+#: src/interface.c:1248
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -318,7 +318,7 @@ msgstr[0] "%d fajł paśpiachova stvorany"
 msgstr[1] "%d fajły paśpiachova stvoranyja"
 msgstr[2] "%d fajłaŭ paśpiachova stvoranyja"
 
-#: src/interface.c:1251
+#: src/interface.c:1257
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

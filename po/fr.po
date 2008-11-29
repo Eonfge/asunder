@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder v0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-14 20:51-0400\n"
+"POT-Creation-Date: 2008-11-29 09:57-0500\n"
 "PO-Revision-Date: 2008-04-27 23:42+0100\n"
 "Last-Translator: Christophe <chris.l@free.fr>\n"
 "Language-Team: \n"
@@ -51,8 +51,7 @@ msgstr "<b>Obtention des informations du disque à partir d'internet...</b>"
 
 #: src/callbacks.c:317
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr ""
-"Pas de CD inséré. Veuillez insérer un CD dans le lecteur de CD-ROM."
+msgstr "Pas de CD inséré. Veuillez insérer un CD dans le lecteur de CD-ROM."
 
 #: src/callbacks.c:336 src/callbacks.c:361 src/callbacks.c:386
 #: src/callbacks.c:411
@@ -214,8 +213,8 @@ msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
 msgstr ""
-"Un débit supérieur permet une meilleure qualité mais aussi un plus "
-"gros fichier. La plupart des gens utilisent 192Kbps."
+"Un débit supérieur permet une meilleure qualité mais aussi un plus gros "
+"fichier. La plupart des gens utilisent 192Kbps."
 
 #: src/interface.c:549
 msgid "32Kbps"
@@ -312,14 +311,14 @@ msgstr "Progression totale"
 msgid "Encoding"
 msgstr "Encodage"
 
-#: src/interface.c:1242
+#: src/interface.c:1248
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fichier a été créé avec succès"
 msgstr[1] "%d fichiers ont été créés avec succès"
 
-#: src/interface.c:1251
+#: src/interface.c:1257
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -359,8 +358,8 @@ msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
-"Pas de méthode d'extraction/d'encodage sélectionnée. Veuillez en "
-"activer une dans le menu 'Préférences'."
+"Pas de méthode d'extraction/d'encodage sélectionnée. Veuillez en activer une "
+"dans le menu 'Préférences'."
 
 #: src/threads.c:169
 msgid ""

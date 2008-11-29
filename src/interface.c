@@ -1040,7 +1040,7 @@ void enable_wavpack_widgets(void)
 
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 1.6.1";
+GBLprogramName = "Asunder 1.6.2";
 
 static const char* 
 GBLauthors[2] = {

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-14 20:51-0400\n"
+"POT-Creation-Date: 2008-11-29 09:57-0500\n"
 "PO-Revision-Date: 2008-04-21 21:43+0800\n"
 "Last-Translator: Evgenii Terechkov <evg_krsk@inbox.ru>\n"
 "Language-Team: 11 <1>\n"
@@ -310,14 +310,14 @@ msgstr "Всего выполнено"
 msgid "Encoding"
 msgstr "Кодирование"
 
-#: src/interface.c:1242
+#: src/interface.c:1248
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d файл созданн успешно"
 msgstr[1] "%d файлов созданно успешно"
 
-#: src/interface.c:1251
+#: src/interface.c:1257
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
