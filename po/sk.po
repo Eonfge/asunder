@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-21 02:01-0400\n"
-"PO-Revision-Date: 2009-02-14 21:10+0100\n"
+"PO-Revision-Date: 2009-02-26 12:59+0100\n"
 "Last-Translator: Tomáš Vadina <kyberdev@gmail.com>\n"
 "Language-Team: Tomáš Vadina <kyberdev@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -265,7 +265,7 @@ msgstr "Tento formát je stratový, ale je vytvorený opravný súbor pre obnove
 #. END WAVPACK
 #: src/interface.c:723
 msgid "Encode"
-msgstr "Zakódovať"
+msgstr "Zakódovanie"
 
 #: src/interface.c:742
 msgid "Get disc info from the internet automatically"
