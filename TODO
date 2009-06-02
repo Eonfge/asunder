@@ -8,7 +8,7 @@
  - monkey audio (flac-like)
 - make .desktop file translations
 - A slider for WavPack looks strange when moved (see attachment).
-
+- if cdrecord dies (e.g. add some junk after -d) asunder freezes, waiting in sigchild
 
 Low Priority
 ============

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-29 09:57-0500\n"
+"POT-Creation-Date: 2009-04-30 05:12-0400\n"
 "PO-Revision-Date: 2008-04-26 23:54+0100\n"
 "Last-Translator: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
 "Language-Team: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
@@ -315,14 +315,14 @@ msgstr "Progrés total"
 msgid "Encoding"
 msgstr "S'està codificant..."
 
-#: src/interface.c:1248
+#: src/interface.c:1254
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "L'arxiu ha sigut creat amb èxit."
 msgstr[1] "S'han creat %d arxius correctament"
 
-#: src/interface.c:1257
+#: src/interface.c:1263
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

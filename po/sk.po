@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-21 02:01-0400\n"
+"POT-Creation-Date: 2009-04-30 05:12-0400\n"
 "PO-Revision-Date: 2009-02-26 12:59+0100\n"
 "Last-Translator: Tomáš Vadina <kyberdev@gmail.com>\n"
 "Language-Team: Tomáš Vadina <kyberdev@gmail.com>\n"
@@ -18,32 +18,35 @@ msgstr ""
 "X-Poedit-Language: Slovak\n"
 "X-Poedit-Country: SLOVAKIA\n"
 
-#: src/main.c:113
-#: src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Ripovať"
 
-#: src/main.c:118
+#: src/main.c:116
 msgid "Track"
 msgstr "Stopa"
 
-#: src/main.c:125
+#: src/main.c:123
 msgid "Artist"
 msgstr "Umelec"
 
-#: src/main.c:132
+#: src/main.c:130
 msgid "Title"
 msgstr "Názov"
 
-#: src/main.c:137
+#: src/main.c:135
 msgid "Time"
 msgstr "Čas"
 
-#: src/main.c:163
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "'cdparanoia' nebol nájdený v ceste $PATH. Asunder potrebuje program cdparanoia, aby mohol ripovať CD."
+#: src/main.c:161
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"'cdparanoia' nebol nájdený v ceste $PATH. Asunder potrebuje program "
+"cdparanoia, aby mohol ripovať CD."
 
-#: src/main.c:395
+#: src/main.c:397
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Získavanie informácií o disku z internetu</b>"
 
@@ -51,13 +54,15 @@ msgstr "<b>Získavanie informácií o disku z internetu</b>"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Nie je vložené CD. Prosím vložte CD do CD-ROM mechaniky."
 
-#: src/callbacks.c:336
-#: src/callbacks.c:361
-#: src/callbacks.c:386
+#: src/callbacks.c:336 src/callbacks.c:361 src/callbacks.c:386
 #: src/callbacks.c:411
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s nebol nájdený v ceste $PATH. Asunder ho potrebuje pre vytvorenie súborov %s. Všetka funkcionalita %s je zakázaná."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"%s nebol nájdený v ceste $PATH. Asunder ho potrebuje pre vytvorenie súborov %"
+"s. Všetka funkcionalita %s je zakázaná."
 
 #: src/callbacks.c:498
 msgid "Select all for ripping"
@@ -91,8 +96,7 @@ msgstr "Jeden umelec"
 msgid "Preferences"
 msgstr "Nastavenia"
 
-#: src/interface.c:350
-#: src/interface.c:356
+#: src/interface.c:350 src/interface.c:356
 msgid "Destination folder"
 msgstr "Cieľový adresár"
 
@@ -138,14 +142,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Adresár albumu: "
 
-#: src/interface.c:426
-#: src/prefs.c:507
+#: src/interface.c:426 src/prefs.c:511
 msgid "Playlist file: "
 msgstr "Súbor zoznamu skladieb: "
 
-#: src/interface.c:433
-#: src/prefs.c:519
-#: src/prefs.c:529
+#: src/interface.c:433 src/prefs.c:523 src/prefs.c:533
 msgid "Music file: "
 msgstr "Hudobný súbor: "
 
@@ -204,14 +205,17 @@ msgstr "Variabilný dátový tok (VBR)"
 msgid "Better quality for the same size."
 msgstr "Lepšia kvalita pri rovnakej veľkosti."
 
-#: src/interface.c:532
-#: src/interface.c:699
+#: src/interface.c:532 src/interface.c:699
 msgid "Bitrate"
 msgstr "Dátový tok"
 
 #: src/interface.c:547
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "Vyšší dátový tok znamená lepšiu kvalitu, ale veľkosť súboru sa zväčší. Väčšina ľudí používa 192Kbps."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"Vyšší dátový tok znamená lepšiu kvalitu, ale veľkosť súboru sa zväčší. "
+"Väčšina ľudí používa 192Kbps."
 
 #: src/interface.c:549
 msgid "32Kbps"
@@ -233,8 +237,7 @@ msgstr "Vyššia kvalita znamená väčší súbor. Predvolené je 6."
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (stratová kompresia)"
 
-#: src/interface.c:611
-#: src/interface.c:665
+#: src/interface.c:611 src/interface.c:665
 msgid "Compression level"
 msgstr "Stupeň kompresie"
 
@@ -251,81 +254,88 @@ msgid "More formats"
 msgstr "Viac formátov"
 
 #: src/interface.c:678
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
-msgstr "Toto nemá vplyv na kvalitu. Väčšie čísla znamenajú menší súbor. Predvolené je 1 (odporúčané)."
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"Toto nemá vplyv na kvalitu. Väčšie čísla znamenajú menší súbor. Predvolené "
+"je 1 (odporúčané)."
 
 #: src/interface.c:684
-msgid "Hibrid compression"
+#, fuzzy
+msgid "Hybrid compression"
 msgstr "Hybridná kompresia"
 
 #: src/interface.c:693
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
-msgstr "Tento formát je stratový, ale je vytvorený opravný súbor pre obnovenie pôvodného bezstratového originálu."
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+"Tento formát je stratový, ale je vytvorený opravný súbor pre obnovenie "
+"pôvodného bezstratového originálu."
 
 #. END WAVPACK
 #: src/interface.c:723
 msgid "Encode"
 msgstr "Zakódovanie"
 
-#: src/interface.c:742
+#: src/interface.c:743
 msgid "Get disc info from the internet automatically"
 msgstr "Získať informáciu o disku z internetu automaticky"
 
-#: src/interface.c:750
+#: src/interface.c:751
 msgid "Use HTTP proxy to connect to the internet"
 msgstr "Použiť HTTP proxy pre pripojenie k internetu"
 
-#: src/interface.c:762
+#: src/interface.c:764
 msgid "Server: "
 msgstr "Server: "
 
-#: src/interface.c:774
+#: src/interface.c:777
 msgid "Port: "
 msgstr "Port: "
 
-#: src/interface.c:786
+#: src/interface.c:795
 msgid "Advanced"
 msgstr "Pokročilé"
 
-#: src/interface.c:860
-#: src/interface.c:896
+#: src/interface.c:866 src/interface.c:902
 msgid "Ripping"
 msgstr "Ripovanie"
 
-#: src/interface.c:889
+#: src/interface.c:895
 msgid "Total progress"
 msgstr "Celkový priebeh"
 
-#: src/interface.c:903
+#: src/interface.c:909
 msgid "Encoding"
 msgstr "Zakódovanie"
 
-#: src/interface.c:1212
+#: src/interface.c:1254
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d súbor úspešne vytvorený"
 msgstr[1] "%d súbory úspešne vytvorené"
 
-#: src/interface.c:1221
+#: src/interface.c:1263
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Chyba pri vytváraní %d súboru"
 msgstr[1] "Chyba pri vytváraní %d súborov"
 
-#: src/prefs.c:506
-#: src/prefs.c:518
+#: src/prefs.c:510 src/prefs.c:522
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Neplatné znaky v poli '%s'"
 
-#: src/prefs.c:528
+#: src/prefs.c:532
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' nesmie byť prázdne"
 
-#: src/prefs.c:543
+#: src/prefs.c:547
 msgid "Invalid proxy port number"
 msgstr "Neplatné číslo portu proxy"
 
@@ -342,17 +352,22 @@ msgstr "Súbor '%s' už existuje. Prajete si ho prepísať?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Zapamätať si odpoveď pre _všetky súbory vytvorené z tohto CD"
 
-#: src/threads.c:146
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "Nebola zvolená metóda ripovania/zakódovania. Prosím, povoľte jednu v menu 'Nastavenia'."
+#: src/threads.c:138
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"Nebola zvolená metóda ripovania/zakódovania. Prosím, povoľte jednu v menu "
+"'Nastavenia'."
 
-#: src/threads.c:177
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "Žiadna stopa nebola vybraná pre ripovanie/zakódovanie. Prosím, vyberte aspoň jednu stopu."
+#: src/threads.c:169
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"Žiadna stopa nebola vybraná pre ripovanie/zakódovanie. Prosím, vyberte aspoň "
+"jednu stopu."
 
-#: src/threads.c:716
-#: src/threads.c:718
-#: src/threads.c:722
+#: src/threads.c:696 src/threads.c:698 src/threads.c:702
 msgid "Waiting..."
 msgstr "Čakám..."
-
