@@ -215,24 +215,25 @@ int int_to_vbr_int(int i)
     case 1:
     case 2:
     case 3:
-    case 4:
         return 9;
-    case 5:
+    case 4:
         return 8;
-    case 6:
+    case 5:
         return 7;
-    case 7:
+    case 6:
         return 6;
-    case 8:
+    case 7:
         return 5;
-    case 9:
+    case 8:
         return 4;
-    case 10:
+    case 9:
         return 3;
-    case 11:
+    case 10:
         return 2;
-    case 12:
+    case 11:
         return 1;
+    case 12:
+        return 0;
     case 13:
     case 14:
         return 0;
@@ -272,27 +273,27 @@ int int_to_bitrate(int i, bool vbr)
             return 56;
     case 4:
         if(vbr)
-            return 65;
+            return 85;
         else
             return 64;
     case 5:
         if(vbr)
-            return 85;
+            return 100;
         else
             return 80;
     case 6:
         if(vbr)
-            return 100;
+            return 115;
         else
             return 96;
     case 7:
         if(vbr)
-            return 115;
+            return 130;
         else
             return 112;
     case 8:
         if(vbr)
-            return 130;
+            return 165;
         else
             return 128;
     case 9:
