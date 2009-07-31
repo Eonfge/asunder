@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-30 05:12-0400\n"
+"POT-Creation-Date: 2009-07-02 22:09-0400\n"
 "PO-Revision-Date: 2008-04-21 10:50+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -308,14 +308,14 @@ msgstr "Totalt förlopp"
 msgid "Encoding"
 msgstr "Kodning"
 
-#: src/interface.c:1254
+#: src/interface.c:1257
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fil skapades"
 msgstr[1] "%d filer skapades"
 
-#: src/interface.c:1263
+#: src/interface.c:1266
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

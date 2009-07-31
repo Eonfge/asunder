@@ -13,45 +13,55 @@ http://ericlathrop.com/
 Fraser Tweedale
 - FreeBSD port
 
+Radu Potop
+http://wooptoo.com/
+- The new Asunder icon
+
 Packages:
 
 Toni Graffy
 Maintainer of many SuSE packages at PackMan
-- SuSE packages of Asunder, versions 0.1 - 1.0.2
+- SuSE packages of Asunder, versions 0.1 - 1.6
+
+Joao Pinto
+- 64bit Debian and Ubuntu packages of Asunder, versions 1.0.1 - 1.0.2, 1.6
 
 Trent Weddington
 http://rtfm.insomnia.org/~qg/
 - Debian packages of Asunder, versions 0.8 - 1.0.1
 
+Daniel Baumann
+- Debian maintainer for Asunder, version 1.6.2
+
 Marcin Zajaczkowski (Szpak)
 http://timeoff.wsisiz.edu.pl/rpms.html
-- Fedora packages of Asunder, versions 0.8.1 - 1.0.2
+- Fedora packages of Asunder, versions 0.8.1 - 1.6
 
 Adam Williamson
 http://www.happyassassin.net/
-- Mandriva packages of Asunder, versions 0.9 - 1.0.2
+- Mandriva packages of Asunder, versions 0.9 - 1.6
 
 Tom Nardi
-- Slackware packages of Asunder, versions 0.8.1 - 1.0.2
+- Slackware packages of Asunder, versions 0.8.1 - 1.6
 
 vktgz
 http://www.vktgz.homelinux.net/
-- Gentoo ebuilds for Asunder, versions 0.8 - 0.8.1
+- Gentoo ebuilds for Asunder, versions 0.8 - 0.8.1, 1.6
+
+Ronald van Haren
+- Arch package of Asunder, versions 1.5 - 1.6
 
 Sebastien Piccand
 - Arch packages of Asunder, versions 0.8.1 - 1.0.2
 
 Alexey Rusakov
-- ALT packages of Asunder, versions 0.8.1 - 1.0.2
+- ALT packages of Asunder, versions 0.8.1 - 1.5
 
 Fraser Tweedale
 - FreeBSD ports of Asunder, versions 0.8.1 - 0.9
 
 Philip Muller
 - Paldo package of Asunder, version 0.8.1
-
-Joao Pinto
-- 64bit Debian packages of Asunder, versions 1.0.1 - 1.0.2
 
 Christophe Lincoln
 - Slitaz package of Asunder, version 1.0.2
@@ -88,6 +98,9 @@ Eero Salokannel
 Christophe Legras
 - fr (French) translation of Asunder versions 0.8 - 1.5
 
+Fabrice Le Goff
+- fr (French) translation of Asunder version 1.6
+
 Peter Polonkai
 - hu (Hungarian) translation of Asunder versions 0.8 - 1.5
 
@@ -100,8 +113,14 @@ Fabio Vergnani
 UTUMI Hirosi
 - ja (Japanese) translation of Asunder versions 1.0 - 1.5
 
+Kristaps Kulis
+- lv (Latvian) translation of Asunder version 1.6
+
 Robert Groenning
 - nb (Norwegian Bokmal) translation of Asunder version 0.8
+
+Wolven
+- nb (Norwegian Bokmal) translation of Asunder version 1.6
 
 Stephen Brandt
 - nl (Dutch) translation of Asunder versions 0.8 - 1.0
@@ -116,7 +135,7 @@ Marcin Gasiorowski
 - pl (Polish) translation of Asunder versions 1.0 - 1.5
 
 Antonio Sousa
-- pt (Portuguese) translation of Asunder versions 1.5 - 1.6
+- pt (Portuguese) translation of Asunder version 1.5
 
 Felipe Augusto
 - pt_BR (Portuguese/Brazil) translation of Asunder versions 0.8.1 - 1.5
@@ -126,6 +145,9 @@ Alexey Sivakov
 
 Evgenii Terechkov
 - ru (Russian) translation of Asunder versions 1.0.2 - 1.5
+
+Tomas Vadina
+- sk (Slovak) translation of Asunder version 1.6.3
 
 Besnik Bleta
 - sq (Albanian) translation of Asunder versions 0.8 - 1.5
