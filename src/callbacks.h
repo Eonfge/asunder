@@ -80,12 +80,13 @@ on_hybrid_toggled                      (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
 
 void
-on_mp3_bitrate_value_changed           (GtkRange        *range,
+on_mp3bitrate_value_changed            (GtkRange        *range,
                                         gpointer         user_data);
 
 void
-on_mp3bitrate_value_changed            (GtkRange        *range,
-                                        gpointer         user_data);
+on_musepackbitrate_value_changed            (GtkRange        *range,
+                                             gpointer         user_data);
+
 void
 on_wavpackcompression_value_changed    (GtkRange        *range,
                                         gpointer         user_data);
@@ -141,7 +142,15 @@ on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
 void
 on_rip_wavpack_toggled                 (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
-
+void
+on_rip_monkey_toggled                  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+void
+on_rip_aac_toggled                  (GtkToggleButton *togglebutton,
+                                     gpointer         user_data);
+void
+on_rip_musepack_toggled                  (GtkToggleButton *togglebutton,
+                                          gpointer         user_data);
 void
 on_rip_toggled                       (GtkCellRendererToggle *cell,
                                       gchar                 *path_string,

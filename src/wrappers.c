@@ -32,18 +32,27 @@ pid_t lame_pid;
 pid_t oggenc_pid;
 pid_t flac_pid;
 pid_t wavpack_pid;
+pid_t monkey_pid;
+pid_t musepack_pid;
+pid_t aac_pid;
 
 int numCdparanoiaFailed;
 int numLameFailed;
 int numOggFailed;
 int numFlacFailed;
 int numWavpackFailed;
+int numMonkeyFailed;
+int numMusepackFailed;
+int numAacFailed;
 
 int numCdparanoiaOk;
 int numLameOk;
 int numOggOk;
 int numFlacOk;
 int numWavpackOk;
+int numMonkeyOk;
+int numMusepackOk;
+int numAacOk;
 
 int numchildren = 0;
 static bool waitBeforeSigchld;
@@ -73,6 +82,15 @@ void unblockSigChld(void)
     waitBeforeSigchld = false;
 }
 
+extern pid_t cdparanoia_pid;
+extern pid_t lame_pid;
+extern pid_t oggenc_pid;
+extern pid_t flac_pid;
+extern pid_t wavpack_pid;
+extern pid_t monkey_pid;
+extern pid_t musepack_pid;
+extern pid_t aac_pid;
+
 // signal handler to find out when our child has exited
 void sigchld(int signum)
 {
@@ -80,6 +98,11 @@ void sigchld(int signum)
     pid_t pid;
     
     pid = wait(&status);
+    
+    debugLog("sigchld for %d (know about wav %d, mp3 %d, ogg %d, flac %d, "
+             "wv %d, ape %d, mpc %d, m4a %d\n",
+             pid, cdparanoia_pid, lame_pid, oggenc_pid, flac_pid, 
+             wavpack_pid, monkey_pid, musepack_pid, aac_pid);
     
     /* this is because i can't seem to be able to block sigchld: */
     while(waitBeforeSigchld)
@@ -89,9 +112,10 @@ void sigchld(int signum)
     }
     
     if (pid != cdparanoia_pid && pid != lame_pid && pid != oggenc_pid && 
-        pid != flac_pid && pid != wavpack_pid)
+        pid != flac_pid && pid != wavpack_pid && pid != monkey_pid &&
+        pid != musepack_pid && pid != aac_pid)
     {
-        printf("SIGCHLD for unknown pid, report bug please\n");
+        printf("SIGCHLD for unknown pid, report bug please");
     }
     
     debugLog("%d exited with %d: ", pid, status);
@@ -132,6 +156,21 @@ void sigchld(int signum)
             wavpack_pid = 0;
             numWavpackFailed++;
         }
+        else if (pid == monkey_pid)
+        {
+            monkey_pid = 0;
+            numMonkeyFailed++;
+        }
+        else if (pid == musepack_pid)
+        {
+            musepack_pid = 0;
+            numMusepackFailed++;
+        }
+        else if (pid == aac_pid)
+        {
+            aac_pid = 0;
+            numAacFailed++;
+        }
     }
     else
     {
@@ -161,7 +200,24 @@ void sigchld(int signum)
             wavpack_pid = 0;
             numWavpackOk++;
         }
+        else if (pid == monkey_pid)
+        {
+            monkey_pid = 0;
+            numMonkeyOk++;
+        }
+        else if (pid == musepack_pid)
+        {
+            musepack_pid = 0;
+            numMusepackOk++;
+        }
+        else if (pid == aac_pid)
+        {
+            aac_pid = 0;
+            numAacOk++;
+        }
     }
+    
+    debugLog("sigchld completed\n");
 }
 
 // fork() and exec() the file listed in "args"
@@ -532,7 +588,6 @@ void oggenc(int tracknum,
         debugLog("w6\n");
         usleep(100000);
     }
-    
 }
 
 // uses the FLAC reference encoder to encode a WAV file into a FLAC and tag it
@@ -706,13 +761,13 @@ void flac(int tracknum,
 }
 
 void wavpack(int tracknum,
-             char * wavfilename,
+             char* wavfilename,
              int compression,
              bool hybrid,
              int bitrate,
-             double * progress)
+             double* progress)
 {
-    const char * args[10];
+    const char* args[8];
     int fd;
     int pos;
     int size;
@@ -774,9 +829,14 @@ void wavpack(int tracknum,
         }
         
         int percent;
-        if (sscanf(&buf[pos], "%d%%", &percent) == 1)
+        /* That extra first condition is because wavpack ends encoding with a
+        * line like this:
+        * created 01 - Unknown Artist - Track 1.wv (+.wvc) in 50.22 secs (lossless, 73.91%)
+        */
+        if (buf[strlen(buf) - 1] != ')' && sscanf(&buf[pos], "%d%%", &percent) == 1)
         {
             *progress = (double)percent/100;
+            fprintf(stderr, "line '%s' percent %.2lf\n", &buf[pos], *progress);
         }
     } while (size > 0);
     
@@ -787,5 +847,170 @@ void wavpack(int tracknum,
         debugLog("w8\n");
         usleep(100000);
     }
+}
+
+void mac(char* wavfilename,
+         char* monkeyfilename,
+         int compression,
+         double* progress)
+{
+    const char* args[5];
+    int fd;
+    int pos;
     
+    pos = 0;
+    args[pos++] = "mac";
+    args[pos++] = wavfilename;
+    args[pos++] = monkeyfilename;
+    
+    char compressParam[10];
+    snprintf(compressParam, 10, "-c%d", compression);
+    args[pos++] = compressParam;
+    
+    args[pos++] = NULL;
+    
+    fd = exec_with_output(args, STDERR_FILENO, &monkey_pid);
+    
+    int size;
+    char buf[256];
+    do
+    {
+        pos = -1;
+        do
+        {
+            pos++;
+            size = read(fd, &buf[pos], 1);
+            
+            if (size == -1 && errno == EINTR)
+            /* signal interrupted read(), try again */
+            {
+                pos--;
+                size = 1;
+            }
+            
+        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 256));
+        buf[pos] = '\0';
+        
+        double percent;
+        if (sscanf(buf, "Progress: %lf", &percent) == 1)
+        {
+            *progress = percent / 100;
+        }
+    } while (size > 0);
+    
+    close(fd);
+    /* don't go on until the signal for the previous call is handled */
+    while (monkey_pid != 0)
+    {
+        debugLog("w9 (%d)\n", monkey_pid);
+        usleep(100000);
+    }
+}
+
+void musepack(char* wavfilename,
+              char* musepackfilename,
+              int quality,
+              double* progress)
+{
+    const char* args[7];
+    int fd;
+    int pos;
+    
+    pos = 0;
+    args[pos++] = "mpcenc";
+    args[pos++] = "--overwrite";
+    
+    args[pos++] = "--quality";
+    char qualityParam[5];
+    snprintf(qualityParam, 5, "%d.00", quality);
+    args[pos++] = qualityParam;
+    
+    args[pos++] = wavfilename;
+    args[pos++] = musepackfilename;
+    args[pos++] = NULL;
+    
+    fd = exec_with_output(args, STDERR_FILENO, &musepack_pid);
+    
+    int size;
+    char buf[256];
+    do
+    {
+        pos = -1;
+        do
+        {
+            pos++;
+            size = read(fd, &buf[pos], 1);
+            
+            if (size == -1 && errno == EINTR)
+            /* signal interrupted read(), try again */
+            {
+                pos--;
+                size = 1;
+            }
+            
+        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 256));
+        buf[pos] = '\0';
+        
+        double percent;
+        if (sscanf(buf, " %lf", &percent) == 1)
+        {
+            *progress = percent / 100;
+        }
+    } while (size > 0);
+    
+    close(fd);
+    /* don't go on until the signal for the previous call is handled */
+    while (musepack_pid != 0)
+    {
+        debugLog("w10 (%d)\n", musepack_pid);
+        usleep(100000);
+    }
+}
+
+void aac(char* wavfilename,
+         char* aacfilename,
+         int quality,
+         double* progress)
+{
+    const char* args[8];
+    int fd;
+    int pos;
+    
+    pos = 0;
+    args[pos++] = "neroAacEnc";
+    
+    args[pos++] = "-q";
+    char qualityParam[5];
+    snprintf(qualityParam, 5, "%.2lf", (double)quality / 100);
+    args[pos++] = qualityParam;
+    
+    args[pos++] = "-if";
+    args[pos++] = wavfilename;
+    args[pos++] = "-of";
+    args[pos++] = aacfilename;
+    args[pos++] = NULL;
+    
+    fd = exec_with_output(args, STDERR_FILENO, &aac_pid);
+    
+    int size;
+    char buf[256];
+    do
+    {
+        /* The Nero encoder doesn't give me an estimate for completion
+        * or any way to estimate it myself, just the number of seconds
+        * done. So just sit in here until the program exits */
+        size = read(fd, &buf[0], 256);
+        
+        if (size == -1 && errno == EINTR)
+        /* signal interrupted read(), try again */
+            size = 1;
+    } while (size > 0);
+    
+    close(fd);
+    /* don't go on until the signal for the previous call is handled */
+    while (aac_pid != 0)
+    {
+        debugLog("w11 (%d)\n", aac_pid);
+        usleep(100000);
+    }
 }

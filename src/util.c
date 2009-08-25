@@ -207,6 +207,26 @@ void fatalError(const char* message)
     exit(-1);
 }
 
+int int_to_monkey_int(int i)
+{
+    switch(i)
+    {
+    case 0:
+        return 1000;
+    case 1:
+        return 2000;
+    case 2:
+        return 3000;
+    case 3:
+        return 4000;
+    case 4:
+        return 5000;
+    }
+    
+    fprintf(stderr, "int_to_monkey_int() called with bad parameter\n");
+    return 3000;
+}
+
 int int_to_vbr_int(int i)
 {
     switch(i)
@@ -241,6 +261,26 @@ int int_to_vbr_int(int i)
     
     fprintf(stderr, "int_to_vbr_int() called with bad parameter\n");
     return 4;
+}
+
+int int_to_musepack_int(int i)
+{
+    switch(i)
+    {
+    case 0:
+        return 3;
+    case 1:
+        return 4;
+    case 2:
+        return 5;
+    case 3:
+        return 6;
+    case 4:
+        return 7;
+    }
+    
+    fprintf(stderr, "int_to_musepack_int() called with bad parameter\n");
+    return 5;
 }
 
 // converts a gtk slider's integer range to a meaningful bitrate
@@ -349,6 +389,26 @@ int int_to_wavpack_bitrate(int i)
     
     fprintf(stderr, "int_to_wavpack_bitrate() called with bad parameter (%d)\n", i);
     return 192;
+}
+
+int int_to_musepack_bitrate(int i)
+{
+    switch (i)
+    {
+    case 0:
+        return 90;
+    case 1:
+        return 130;
+    case 2:
+        return 180;
+    case 3:
+        return 210;
+    case 4:
+        return 240;
+    }
+    
+    fprintf(stderr, "int_to_wavpack_bitrate() called with bad parameter (%d)\n", i);
+    return 90;
 }
 
 // construct a filename from various parts

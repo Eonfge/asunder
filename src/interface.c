@@ -546,7 +546,9 @@ create_prefs (void)
     tooltips = gtk_tooltips_new ();
     gtk_tooltips_set_tip (tooltips, mp3bitrate, _("Higher bitrate is better quality but also bigger file. Most people use 192Kbps."), NULL);
     
-    label = gtk_label_new (_("32Kbps"));
+    char kbps_text[10];
+    snprintf(kbps_text, 10, _("%dKbps"), 32);
+    label = gtk_label_new (kbps_text);
     gtk_widget_show (label);
     gtk_box_pack_start (GTK_BOX (hbox9), label, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, label, "bitrate_lbl_2");
@@ -603,7 +605,7 @@ create_prefs (void)
     gtk_widget_show (alignment10);
     gtk_container_add (GTK_CONTAINER (frame5), alignment10);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment10), 2, 2, 12, 2);
-
+    
     hbox11 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox11);
     gtk_container_add (GTK_CONTAINER (alignment10), hbox11);
@@ -638,29 +640,36 @@ create_prefs (void)
     GtkWidget* wavpackcompression;
     GtkWidget* hybridwavpack;
     GtkWidget* wavpackbitrate;
+    GtkWidget* hiddenbox;
     
     expander = gtk_expander_new(_("More formats"));
     gtk_widget_show (expander);
     gtk_box_pack_start (GTK_BOX (vbox), expander, FALSE, FALSE, 0);
-    //~ gtk_expander_set_expanded (GTK_EXPANDER(expander), TRUE);
+    GLADE_HOOKUP_OBJECT (prefs, expander, "more_formats_expander");
+    
+    hiddenbox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (hiddenbox);
+    gtk_container_add (GTK_CONTAINER (expander), hiddenbox);
     
     /* WAVPACK */
+    GtkWidget* flacVbox;
+    
     frame6 = gtk_frame_new (NULL);
     gtk_widget_show (frame6);
-    gtk_container_add (GTK_CONTAINER (expander), frame6);
+    gtk_box_pack_start (GTK_BOX (hiddenbox), frame6, FALSE, FALSE, 0);
     
     alignment11 = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_show (alignment11);
     gtk_container_add (GTK_CONTAINER (frame6), alignment11);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
     
-    vbox = gtk_vbox_new (FALSE, 0);
-    gtk_widget_show (vbox);
-    gtk_container_add (GTK_CONTAINER (alignment11), vbox);
+    flacVbox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (flacVbox);
+    gtk_container_add (GTK_CONTAINER (alignment11), flacVbox);
     
     hbox13 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox13);
-    gtk_box_pack_start (GTK_BOX (vbox), hbox13, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (flacVbox), hbox13, FALSE, FALSE, 0);
 
     label = gtk_label_new (_("Compression level"));
     gtk_widget_show (label);
@@ -679,7 +688,7 @@ create_prefs (void)
     
     frame7 = gtk_frame_new (NULL);
     gtk_widget_show (frame7);
-    gtk_box_pack_start (GTK_BOX (vbox), frame7, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (flacVbox), frame7, FALSE, FALSE, 0);
     
     hybridwavpack = gtk_check_button_new_with_mnemonic (_("Hybrid compression"));
     gtk_widget_show (hybridwavpack);
@@ -720,6 +729,164 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, rip_wavpack, "rip_wavpack");
     /* END WAVPACK */
     
+    /* MUSEPACK */
+    GtkWidget* frame9;
+    GtkWidget* rip_musepack;
+    GtkWidget* musepackBitrate;
+    GtkWidget* musepackVbox;
+    
+    frame9 = gtk_frame_new (NULL);
+    gtk_widget_show (frame9);
+    gtk_box_pack_start (GTK_BOX (hiddenbox), frame9, FALSE, FALSE, 0);
+    
+    alignment11 = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_show (alignment11);
+    gtk_container_add (GTK_CONTAINER (frame9), alignment11);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
+    
+    musepackVbox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (musepackVbox);
+    gtk_container_add (GTK_CONTAINER (alignment11), musepackVbox);
+    
+    hbox13 = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hbox13);
+    gtk_box_pack_start (GTK_BOX (musepackVbox), hbox13, FALSE, FALSE, 0);
+    
+    label = gtk_label_new (_("Bitrate"));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox13), label, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, label, "musepack_bitrate_lbl");
+    
+    musepackBitrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 5, 1, 1, 1)));
+    gtk_widget_show (musepackBitrate);
+    gtk_box_pack_start (GTK_BOX (hbox13), musepackBitrate, TRUE, TRUE, 5);
+    gtk_scale_set_draw_value (GTK_SCALE (musepackBitrate), FALSE);
+    gtk_scale_set_digits (GTK_SCALE (musepackBitrate), 0);
+    g_signal_connect ((gpointer) musepackBitrate, "value_changed",
+                                        G_CALLBACK (on_musepackbitrate_value_changed),
+                                        NULL);
+    GLADE_HOOKUP_OBJECT (prefs, musepackBitrate, "musepack_bitrate_slider");
+    
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, musepackBitrate, _("Higher bitrate is better quality but also bigger file."), NULL);
+    
+    snprintf(kbps_text, 10, _("%dKbps"), 90);
+    label = gtk_label_new (kbps_text);
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox13), label, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, label, "bitrate_lbl_3");
+    
+    rip_musepack = gtk_check_button_new_with_mnemonic (_("Musepack (lossy compression)"));
+    gtk_widget_show (rip_musepack);
+    gtk_frame_set_label_widget (GTK_FRAME (frame9), rip_musepack);
+    g_signal_connect ((gpointer) rip_musepack, "toggled",
+                                        G_CALLBACK (on_rip_musepack_toggled),
+                                        NULL);
+    GLADE_HOOKUP_OBJECT (prefs, rip_musepack, "rip_musepack");
+    /* END MUSEPACK */
+    
+    /* MONKEY */
+    GtkWidget* frame8;
+    GtkWidget* rip_monkey;
+    GtkWidget* monkeyCompression;
+    GtkWidget* monkeyVbox;
+    
+    frame8 = gtk_frame_new (NULL);
+    gtk_widget_show (frame8);
+    gtk_box_pack_start (GTK_BOX (hiddenbox), frame8, FALSE, FALSE, 0);
+    
+    alignment11 = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_show (alignment11);
+    gtk_container_add (GTK_CONTAINER (frame8), alignment11);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
+    
+    monkeyVbox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (monkeyVbox);
+    gtk_container_add (GTK_CONTAINER (alignment11), monkeyVbox);
+    
+    hbox13 = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hbox13);
+    gtk_box_pack_start (GTK_BOX (monkeyVbox), hbox13, FALSE, FALSE, 0);
+    
+    label = gtk_label_new (_("Compression level"));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox13), label, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, label, "monkey_compression_lbl");
+    
+    monkeyCompression = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 5, 1, 1, 1)));
+    gtk_widget_show (monkeyCompression);
+    gtk_box_pack_start (GTK_BOX (hbox13), monkeyCompression, TRUE, TRUE, 5);
+    gtk_scale_set_value_pos (GTK_SCALE (monkeyCompression), GTK_POS_RIGHT);
+    gtk_scale_set_digits (GTK_SCALE (monkeyCompression), 0);
+    GLADE_HOOKUP_OBJECT (prefs, monkeyCompression, "monkey_compression_slider");
+    
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, monkeyCompression, _("This does not affect the quality. Higher number means smaller file."), NULL);
+    
+    rip_monkey = gtk_check_button_new_with_mnemonic (_("Monkey's Audio (lossless compression)"));
+    gtk_widget_show (rip_monkey);
+    gtk_frame_set_label_widget (GTK_FRAME (frame8), rip_monkey);
+    g_signal_connect ((gpointer) rip_monkey, "toggled",
+                                        G_CALLBACK (on_rip_monkey_toggled),
+                                        NULL);
+    GLADE_HOOKUP_OBJECT (prefs, rip_monkey, "rip_monkey");
+    /* END MONKEY */
+    
+    expander = gtk_expander_new(_("Proprietary encoders"));
+    gtk_widget_show (expander);
+    gtk_box_pack_start (GTK_BOX (vbox), expander, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, expander, "proprietary_formats_expander");
+    
+    hiddenbox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (hiddenbox);
+    gtk_container_add (GTK_CONTAINER (expander), hiddenbox);
+    
+    /* AAC */
+    GtkWidget* rip_aac;
+    GtkWidget* aacQuality;
+    GtkWidget* aacVbox;
+    
+    frame8 = gtk_frame_new (NULL);
+    gtk_widget_show (frame8);
+    gtk_box_pack_start (GTK_BOX (hiddenbox), frame8, FALSE, FALSE, 0);
+    
+    alignment11 = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_show (alignment11);
+    gtk_container_add (GTK_CONTAINER (frame8), alignment11);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
+    
+    aacVbox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (aacVbox);
+    gtk_container_add (GTK_CONTAINER (alignment11), aacVbox);
+    
+    hbox13 = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hbox13);
+    gtk_box_pack_start (GTK_BOX (aacVbox), hbox13, FALSE, FALSE, 0);
+    
+    label = gtk_label_new (_("Quality"));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox13), label, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, label, "aac_quality_lbl");
+    
+    aacQuality = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 1, 100, 1, 1, 1)));
+    gtk_widget_show (aacQuality);
+    gtk_box_pack_start (GTK_BOX (hbox13), aacQuality, TRUE, TRUE, 5);
+    gtk_scale_set_value_pos (GTK_SCALE (aacQuality), GTK_POS_RIGHT);
+    gtk_scale_set_digits (GTK_SCALE (aacQuality), 0);
+    GLADE_HOOKUP_OBJECT (prefs, aacQuality, "aac_quality_slider");
+    
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, aacQuality, _("Higher quality means bigger file. Default is 60."), NULL);
+    
+    rip_aac = gtk_check_button_new_with_mnemonic (_("AAC (lossy compression, Nero encoder)"));
+    gtk_widget_show (rip_aac);
+    gtk_frame_set_label_widget (GTK_FRAME (frame8), rip_aac);
+    g_signal_connect ((gpointer) rip_aac, "toggled",
+                                        G_CALLBACK (on_rip_aac_toggled),
+                                        NULL);
+    GLADE_HOOKUP_OBJECT (prefs, rip_aac, "rip_aac");
+    /* END AAC */
+    
     label = gtk_label_new (_("Encode"));
     gtk_widget_show (label);
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 2), label);
@@ -729,6 +896,8 @@ create_prefs (void)
     GtkWidget* do_cddb_updates;
     GtkWidget* frame;
     GtkWidget* hbox;
+    GtkWidget* cddbServerName;
+    GtkWidget* cddbPortNum;
     GtkWidget* useProxy;
     GtkWidget* serverName;
     GtkWidget* portNum;
@@ -740,15 +909,56 @@ create_prefs (void)
     gtk_widget_show (vbox);
     gtk_container_add (GTK_CONTAINER (notebook1), vbox);
     
+    frame = gtk_frame_new (NULL);
+    gtk_frame_set_label(GTK_FRAME(frame), "CDDB");
+    gtk_widget_show (frame);
+    gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
+    
+    frameVbox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (frameVbox);
+    gtk_container_add (GTK_CONTAINER (frame), frameVbox);
+    
     do_cddb_updates = gtk_check_button_new_with_mnemonic (_("Get disc info from the internet automatically"));
     gtk_widget_show (do_cddb_updates);
-    gtk_box_pack_start (GTK_BOX (vbox), do_cddb_updates, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (frameVbox), do_cddb_updates, FALSE, FALSE, 0);
+    
+    hbox = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hbox);
+    gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 1);
+    
+    label = gtk_label_new (_("Server: "));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 5);
+    
+    cddbServerName = gtk_entry_new ();
+    gtk_widget_show (cddbServerName);
+    gtk_box_pack_start (GTK_BOX (hbox), cddbServerName, TRUE, TRUE, 5);
+    GLADE_HOOKUP_OBJECT (prefs, cddbServerName, "cddb_server_name");
+    
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, cddbServerName, _("The CDDB server to get disc info from (default is freedb.org)"), NULL);
+    
+    hbox = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hbox);
+    gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 1);
+    
+    label = gtk_label_new (_("Port: "));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 5);
+    
+    cddbPortNum = gtk_entry_new ();
+    gtk_widget_show (cddbPortNum);
+    gtk_box_pack_start (GTK_BOX (hbox), cddbPortNum, TRUE, TRUE, 5);
+    GLADE_HOOKUP_OBJECT (prefs, cddbPortNum, "cddb_port_number");
+    
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, cddbPortNum, _("The CDDB server port (default is 888)"), NULL);
     
     frame = gtk_frame_new (NULL);
     gtk_widget_show (frame);
     gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
     
-    useProxy = gtk_check_button_new_with_mnemonic (_("Use HTTP proxy to connect to the internet"));
+    useProxy = gtk_check_button_new_with_mnemonic (_("Use an HTTP proxy to connect to the internet"));
     gtk_widget_show (useProxy);
     gtk_frame_set_label_widget (GTK_FRAME (frame), useProxy);
     GLADE_HOOKUP_OBJECT (prefs, useProxy, "use_proxy");
@@ -814,7 +1024,7 @@ create_prefs (void)
     g_signal_connect ((gpointer) prefs, "response",
                                         G_CALLBACK (on_prefs_response),
                                         NULL);
-    g_signal_connect ((gpointer) prefs, "show",
+    g_signal_connect ((gpointer) prefs, "realize",
                                         G_CALLBACK (on_prefs_show),
                                         NULL);
     
@@ -1038,9 +1248,45 @@ void enable_wavpack_widgets(void)
     }
 }
 
+void disable_monkey_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "monkey_compression_lbl"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "monkey_compression_slider"), FALSE);
+}
+
+void enable_monkey_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "monkey_compression_lbl"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "monkey_compression_slider"), TRUE);
+}
+
+void disable_aac_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "aac_quality_lbl"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "aac_quality_slider"), FALSE);
+}
+
+void enable_aac_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "aac_quality_lbl"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "aac_quality_slider"), TRUE);
+}
+
+void disable_musepack_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "musepack_bitrate_lbl"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "musepack_bitrate_slider"), FALSE);
+}
+
+void enable_musepack_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "musepack_bitrate_lbl"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "musepack_bitrate_slider"), TRUE);
+}
+
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 1.6.2";
+GBLprogramName = "Asunder 1.6.3";
 
 static const char* 
 GBLauthors[2] = {

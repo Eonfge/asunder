@@ -1,23 +1,27 @@
 - consider using .config/asunder per freedesktop spec
-- need better icon
 - everything gets checked when clicking refresh cddb
 - make sure artist + song name is unique
-- other codecs:
- - aac (mp3-like, apple)
- - musepack
- - monkey audio (flac-like)
-- make .desktop file translations
 - A slider for WavPack looks strange when moved (see attachment).
-- if cdrecord dies (e.g. add some junk after -d) asunder freezes, waiting in sigchild
+- translate .desktop file
+- test other cddb server/port, musicbrainz proxy
+ - if musicbrainz works, add note in tooltip
+- try cddb server freedb2.org:80
+- try freedb.org port 80
+- links from encoder pages
+- test playlists
+- felipe augusto is flipe
 
 Low Priority
 ============
-- Sound Juicer and Banshee rip to ogg almost twice faster, figure out why.
 - option for saving different file types in different directories
 - if i eject the disk while ripping, strange things happen
 - log all output from programs so i can debug remotely
 - make uninstall doesn't remove icon
-
+- cd-text support
+- send the cd tags to freedb
+- cover art
+- musicbrainz support
+- cd+g, mp3+g
 
 Tests to run before a release
 =============================

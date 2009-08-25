@@ -54,7 +54,7 @@ format_wavpack_bitrate                 (GtkScale *scale,
                                         gdouble   arg1,
                                         gpointer  user_data)
 {
-    return g_strdup_printf ("%dKbps", int_to_wavpack_bitrate((int)arg1));
+    return g_strdup_printf (_("%dKbps"), int_to_wavpack_bitrate((int)arg1));
 }
 
 gboolean
@@ -184,7 +184,7 @@ on_vbr_toggled                         (GtkToggleButton *togglebutton,
     /* update the displayed vbr, as it's different for vbr and non-vbr */
     vbr = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton));
     range = GTK_RANGE(lookup_widget(win_prefs, "mp3bitrate"));
-    snprintf(bitrate, 8, "%dKbps", int_to_bitrate((int)gtk_range_get_value(range), vbr));
+    snprintf(bitrate, 8, _("%dKbps"), int_to_bitrate((int)gtk_range_get_value(range), vbr));
     gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "bitrate_lbl_2")), bitrate);
 }
 
@@ -212,8 +212,18 @@ on_mp3bitrate_value_changed            (GtkRange        *range,
     bool vbr;
     
     vbr = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "mp3_vbr")));
-    snprintf(bitrate, 8, "%dKbps", int_to_bitrate((int)gtk_range_get_value(range), vbr));
+    snprintf(bitrate, 8, _("%dKbps"), int_to_bitrate((int)gtk_range_get_value(range), vbr));
     gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "bitrate_lbl_2")), bitrate);
+}
+
+void
+on_musepackbitrate_value_changed            (GtkRange        *range,
+                                             gpointer         user_data)
+{
+    char bitrate[8];
+    
+    snprintf(bitrate, 8, _("%dKbps"), int_to_musepack_bitrate((int)gtk_range_get_value(range)));
+    gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "bitrate_lbl_3")), bitrate);
 }
 
 void
@@ -422,6 +432,81 @@ on_rip_wavpack_toggled                 (GtkToggleButton *togglebutton,
         disable_wavpack_widgets();
     else
         enable_wavpack_widgets();
+}
+
+void
+on_rip_monkey_toggled                  (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+    if (gtk_toggle_button_get_active(togglebutton) && !program_exists("mac"))
+    {
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        _("%s was not found in your path. Asunder requires it to create %s files. "
+                                        "All %s functionality is disabled."),
+                                        "'mac'", "APE", "Monkey's Audio");
+        gtk_dialog_run(GTK_DIALOG(dialog));
+        gtk_widget_destroy(dialog);
+
+        global_prefs->rip_monkey = 0;
+        gtk_toggle_button_set_active(togglebutton, global_prefs->rip_monkey);
+    }
+    
+    if (!gtk_toggle_button_get_active(togglebutton))
+        disable_monkey_widgets();
+    else
+        enable_monkey_widgets();
+}
+
+void
+on_rip_aac_toggled                  (GtkToggleButton *togglebutton,
+                                     gpointer         user_data)
+{
+    if (gtk_toggle_button_get_active(togglebutton) && !program_exists("neroAacEnc"))
+    {
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        _("%s was not found in your path. Asunder requires it to create %s files. "
+                                        "All %s functionality is disabled."),
+                                        "'neroAacEnc'", "MP4", "AAC");
+        gtk_dialog_run(GTK_DIALOG(dialog));
+        gtk_widget_destroy(dialog);
+
+        global_prefs->rip_aac = 0;
+        gtk_toggle_button_set_active(togglebutton, global_prefs->rip_aac);
+    }
+    
+    if (!gtk_toggle_button_get_active(togglebutton))
+        disable_aac_widgets();
+    else
+        enable_aac_widgets();
+}
+
+void
+on_rip_musepack_toggled                  (GtkToggleButton *togglebutton,
+                                          gpointer         user_data)
+{
+    if (gtk_toggle_button_get_active(togglebutton) && !program_exists("mpcenc"))
+    {
+        GtkWidget * dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        _("%s was not found in your path. Asunder requires it to create %s files. "
+                                        "All %s functionality is disabled."),
+                                        "'mpcenc'", "MPC", "Musepack");
+        gtk_dialog_run(GTK_DIALOG(dialog));
+        gtk_widget_destroy(dialog);
+
+        global_prefs->rip_musepack = 0;
+        gtk_toggle_button_set_active(togglebutton, global_prefs->rip_musepack);
+    }
+    
+    if (!gtk_toggle_button_get_active(togglebutton))
+        disable_musepack_widgets();
+    else
+        enable_musepack_widgets();
 }
 
 void

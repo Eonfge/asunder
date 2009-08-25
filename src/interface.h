@@ -13,6 +13,12 @@ void disable_ogg_widgets(void);
 void enable_ogg_widgets(void);
 void disable_wavpack_widgets(void);
 void enable_wavpack_widgets(void);
+void disable_monkey_widgets(void);
+void enable_monkey_widgets(void);
+void disable_aac_widgets(void);
+void enable_aac_widgets(void);
+void disable_musepack_widgets(void);
+void enable_musepack_widgets(void);
 #if GTK_MINOR_VERSION >= 6
 void show_aboutbox (void);
 #endif

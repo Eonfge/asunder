@@ -2,13 +2,13 @@
 
 typedef struct _prefs
 {
-    char * cdrom;
-    char * music_dir;
+    char* cdrom;
+    char* music_dir;
     int make_playlist;
     int make_albumdir; /* no longer used */
-    char * format_music;
-    char * format_playlist;
-    char * format_albumdir;
+    char* format_music;
+    char* format_playlist;
+    char* format_albumdir;
     int rip_wav;
     int rip_mp3;
     int rip_ogg;
@@ -17,23 +17,35 @@ typedef struct _prefs
     int mp3_bitrate;
     int ogg_quality;
     int flac_compression;
-    char * invalid_chars; /* no longer used */
+    char* invalid_chars; /* no longer used */
     int main_window_width;
     int main_window_height;
     int eject_on_done;
     int do_cddb_updates;
     int use_proxy;
-    char * server_name;
+    char* server_name;
     int port_number;
     int rip_wavpack;
     int wavpack_compression;
     int wavpack_hybrid;
     int wavpack_bitrate;
     int do_log;
+    char* cddb_server_name;
+    int cddb_port_number;
+    int rip_monkey;
+    int monkey_compression;
+    int rip_aac;
+    int aac_quality;
+    int rip_musepack;
+    int musepack_bitrate;
+    int more_formats_expanded;
+    int proprietary_formats_expanded;
     
 } prefs;
 
 #define DEFAULT_PROXY_PORT 8080
+#define DEFAULT_CDDB_SERVER "freedb.org"
+#define DEFAULT_CDDB_SERVER_PORT 888
 
 extern prefs * global_prefs;
 

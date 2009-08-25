@@ -37,6 +37,9 @@ static FILE * playlist_mp3 = NULL;
 static FILE * playlist_ogg = NULL;
 static FILE * playlist_flac = NULL;
 static FILE * playlist_wavpack = NULL;
+static FILE * playlist_monkey = NULL;
+static FILE * playlist_musepack = NULL;
+static FILE * playlist_aac = NULL;
 
 /* ripping or encoding, so that can know not to clear the tracklist on eject */
 bool working;
@@ -55,6 +58,9 @@ static double mp3_percent;
 static double ogg_percent;
 static double flac_percent;
 static double wavpack_percent;
+static double monkey_percent;
+static double musepack_percent;
+static double aac_percent;
 static int rip_tracks_completed;
 static int encode_tracks_completed;
 
@@ -74,9 +80,19 @@ void abort_threads()
         kill(oggenc_pid, SIGKILL);
     if (flac_pid != 0) 
         kill(flac_pid, SIGKILL);
+    if (wavpack_pid != 0) 
+        kill(wavpack_pid, SIGKILL);
+    if (monkey_pid != 0) 
+        kill(monkey_pid, SIGKILL);
+    if (musepack_pid != 0) 
+        kill(musepack_pid, SIGKILL);
+    if (aac_pid != 0) 
+        kill(aac_pid, SIGKILL);
     
     /* wait until all the worker threads are done */
-    while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0 || wavpack_pid != 0)
+    while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || 
+           flac_pid != 0 || wavpack_pid != 0 || monkey_pid != 0 || 
+           musepack_pid != 0 || aac_pid != 0)
     {
         debugLog("w1");
         usleep(100000);
@@ -97,8 +113,9 @@ void abort_threads()
     gtk_widget_hide(win_ripping);
     gdk_flush();
     working = false;
-    show_completed_dialog(numCdparanoiaOk + numLameOk + numOggOk + numFlacOk,
-                          numCdparanoiaFailed + numLameFailed + numOggFailed + numFlacFailed);
+    
+    show_completed_dialog(numCdparanoiaOk + numLameOk + numOggOk + numFlacOk + numWavpackOk + numMonkeyOk + numMusepackOk + numAacOk,
+                          numCdparanoiaFailed + numLameFailed + numOggFailed + numFlacFailed + numWavpackFailed + numMonkeyFailed + numMusepackFailed + numAacFailed);
 }
 
 // spawn needed threads and begin ripping
@@ -115,6 +132,9 @@ void dorip()
     ogg_percent = 0.0;
     flac_percent = 0.0;
     wavpack_percent = 0.0;
+    monkey_percent = 0.0;
+    musepack_percent = 0.0;
+    aac_percent = 0.0;
     rip_tracks_completed = 0;
     encode_tracks_completed = 0;
     
@@ -128,7 +148,8 @@ void dorip()
     
     // make sure there's at least one format to rip to
     if (!global_prefs->rip_wav && !global_prefs->rip_mp3 && !global_prefs->rip_ogg && 
-        !global_prefs->rip_flac && !global_prefs->rip_wavpack)
+        !global_prefs->rip_flac && !global_prefs->rip_wavpack && !global_prefs->rip_monkey &&
+        !global_prefs->rip_musepack && !global_prefs->rip_aac)
     {
         GtkWidget * dialog;
         dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
@@ -244,6 +265,30 @@ void dorip()
             
             free(filename);
         }
+        if (global_prefs->rip_monkey)
+        {
+            char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "ape.m3u");
+            
+            make_playlist(filename, &playlist_monkey);
+            
+            free(filename);
+        }
+        if (global_prefs->rip_musepack)
+        {
+            char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "mpc.m3u");
+            
+            make_playlist(filename, &playlist_monkey);
+            
+            free(filename);
+        }
+        if (global_prefs->rip_aac)
+        {
+            char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "m4a.m3u");
+            
+            make_playlist(filename, &playlist_monkey);
+            
+            free(filename);
+        }
     }
     
     free(albumdir);
@@ -256,12 +301,18 @@ void dorip()
     numOggFailed = 0;
     numFlacFailed = 0;
     numWavpackFailed = 0;
+    numMonkeyFailed = 0;
+    numMusepackFailed = 0;
+    numAacFailed = 0;
     
     numCdparanoiaOk = 0;
     numLameOk = 0;
     numOggOk = 0;
     numFlacOk = 0;
     numWavpackOk = 0;
+    numMonkeyOk = 0;
+    numMusepackOk = 0;
+    numAacOk = 0;
     
     ripper = g_thread_create(rip, NULL, TRUE, NULL);
     encoder = g_thread_create(encode, NULL, TRUE, NULL);
@@ -293,12 +344,12 @@ gpointer rip(gpointer data)
     while(rowsleft)
     {
         gdk_threads_enter();
-        gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
-            COL_RIPTRACK, &riptrack,
-            COL_TRACKNUM, &tracknum,
-            COL_TRACKARTIST, &trackartist,
-            COL_TRACKTITLE, &tracktitle,
-            -1);
+            gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
+                COL_RIPTRACK, &riptrack,
+                COL_TRACKNUM, &tracknum,
+                COL_TRACKARTIST, &trackartist,
+                COL_TRACKTITLE, &tracktitle,
+                -1);
         gdk_threads_leave();
         
         if (single_artist)
@@ -373,29 +424,31 @@ gpointer encode(gpointer data)
 
     int riptrack;
     int tracknum;
-    char * trackartist = NULL;
-    char * tracktitle = NULL;
-    char * tracktime = NULL;
-    char * genre = NULL;
+    char* trackartist = NULL;
+    char* tracktitle = NULL;
+    char* tracktime = NULL;
+    char* genre = NULL;
     unsigned year;
     char yearStr[5];
-    char * yearStrPtr;
+    char* yearStrPtr;
     int min;
     int sec;
-    int i;
     int rc;
     
-    char * album_artist = NULL;
-    char * album_title = NULL;
+    char* album_artist = NULL;
+    char* album_title = NULL;
     
-    char * albumdir = NULL;
-    char * musicfilename = NULL;
-    char * wavfilename = NULL;
-    char * mp3filename = NULL;
-    char * oggfilename = NULL;
-    char * flacfilename = NULL;
-    char * wavpackfilename = NULL;
-    char * wavpackfilename2 = NULL;
+    char* albumdir = NULL;
+    char* musicfilename = NULL;
+    char* wavfilename = NULL;
+    char* mp3filename = NULL;
+    char* oggfilename = NULL;
+    char* flacfilename = NULL;
+    char* wavpackfilename = NULL;
+    char* wavpackfilename2 = NULL;
+    char* monkeyfilename = NULL;
+    char* musepackfilename = NULL;
+    char* aacfilename = NULL;
     struct stat statStruct;
     bool doEncode;
     
@@ -462,6 +515,9 @@ gpointer encode(gpointer data)
             flacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "flac");
             wavpackfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wv");
             wavpackfilename2 = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wvc");
+            monkeyfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ape");
+            musepackfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mpc");
+            aacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "m4a");
             
             if (global_prefs->rip_mp3)
             {
@@ -554,7 +610,6 @@ gpointer encode(gpointer data)
                 
                 if (playlist_flac)
                 {
-                    for (i=strlen(flacfilename); ((i>0) && (flacfilename[i] != '/')); i--);
                     fprintf(playlist_flac, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
                     fprintf(playlist_flac, "%s\n", basename(flacfilename));
                     fflush(playlist_flac);
@@ -591,10 +646,114 @@ gpointer encode(gpointer data)
                 
                 if (playlist_wavpack)
                 {
-                    for (i=strlen(flacfilename); ((i>0) && (wavpackfilename[i] != '/')); i--);
                     fprintf(playlist_wavpack, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
                     fprintf(playlist_wavpack, "%s\n", basename(wavpackfilename));
                     fflush(playlist_wavpack);
+                }
+            }
+            if (global_prefs->rip_monkey)
+            {
+                debugLog("Encoding track %d to \"%s\"\n", tracknum, monkeyfilename);
+                
+                if (aborted) g_thread_exit(NULL);
+                
+                rc = stat(monkeyfilename, &statStruct);
+                if(rc == 0)
+                {
+                    gdk_threads_enter();
+                        if(confirmOverwrite(monkeyfilename))
+                            doEncode = true;
+                        else
+                            doEncode = false;
+                    gdk_threads_leave();
+                }
+                else
+                    doEncode = true;
+                
+                if(doEncode)
+                {
+                    mac(wavfilename, monkeyfilename,
+                        int_to_monkey_int(global_prefs->monkey_compression), 
+                        &monkey_percent);
+                }
+                
+                if (aborted) g_thread_exit(NULL);
+                
+                if (playlist_monkey)
+                {
+                    fprintf(playlist_monkey, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
+                    fprintf(playlist_monkey, "%s\n", basename(monkeyfilename));
+                    fflush(playlist_monkey);
+                }
+            }
+            if (global_prefs->rip_musepack)
+            {
+                debugLog("Encoding track %d to \"%s\"\n", tracknum, musepackfilename);
+                
+                if (aborted) g_thread_exit(NULL);
+                
+                rc = stat(musepackfilename, &statStruct);
+                if(rc == 0)
+                {
+                    gdk_threads_enter();
+                        if(confirmOverwrite(musepackfilename))
+                            doEncode = true;
+                        else
+                            doEncode = false;
+                    gdk_threads_leave();
+                }
+                else
+                    doEncode = true;
+                
+                if(doEncode)
+                {
+                    musepack(wavfilename, musepackfilename,
+                             int_to_musepack_int(global_prefs->musepack_bitrate), 
+                             &musepack_percent);
+                }
+                
+                if (aborted) g_thread_exit(NULL);
+                
+                if (playlist_musepack)
+                {
+                    fprintf(playlist_musepack, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
+                    fprintf(playlist_musepack, "%s\n", basename(musepackfilename));
+                    fflush(playlist_musepack);
+                }
+            }
+            if (global_prefs->rip_aac)
+            {
+                debugLog("Encoding track %d to \"%s\"\n", tracknum, aacfilename);
+                
+                if (aborted) g_thread_exit(NULL);
+                
+                rc = stat(aacfilename, &statStruct);
+                if(rc == 0)
+                {
+                    gdk_threads_enter();
+                        if(confirmOverwrite(aacfilename))
+                            doEncode = true;
+                        else
+                            doEncode = false;
+                    gdk_threads_leave();
+                }
+                else
+                    doEncode = true;
+                
+                if(doEncode)
+                {
+                    aac(wavfilename, aacfilename,
+                        global_prefs->aac_quality, 
+                        &aac_percent);
+                }
+                
+                if (aborted) g_thread_exit(NULL);
+                
+                if (playlist_aac)
+                {
+                    fprintf(playlist_aac, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
+                    fprintf(playlist_aac, "%s\n", basename(aacfilename));
+                    fflush(playlist_aac);
                 }
             }
             if (!global_prefs->rip_wav)
@@ -608,7 +767,6 @@ gpointer encode(gpointer data)
             } else {
                 if (playlist_wav)
                 {
-                    for (i=strlen(wavfilename); ((i>0) && (wavfilename[i] != '/')); i--);
                     fprintf(playlist_wav, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
                     fprintf(playlist_wav, "%s\n", basename(wavfilename));
                     fflush(playlist_wav);
@@ -622,11 +780,17 @@ gpointer encode(gpointer data)
             free(oggfilename);
             free(flacfilename);
             free(wavpackfilename);
+            free(monkeyfilename);
+            free(musepackfilename);
+            free(aacfilename);
             
             mp3_percent = 0.0;
             ogg_percent = 0.0;
             flac_percent = 0.0;
             wavpack_percent = 0.0;
+            monkey_percent = 0.0;
+            musepack_percent = 0.0;
+            aac_percent = 0.0;
             encode_tracks_completed++;
         }
         
@@ -648,6 +812,14 @@ gpointer encode(gpointer data)
     playlist_ogg = NULL;
     if (playlist_flac) fclose(playlist_flac);
     playlist_flac = NULL;
+    if (playlist_wavpack) fclose(playlist_wavpack);
+    playlist_wavpack = NULL;
+    if (playlist_monkey) fclose(playlist_monkey);
+    playlist_monkey = NULL;
+    if (playlist_musepack) fclose(playlist_musepack);
+    playlist_musepack = NULL;
+    if (playlist_aac) fclose(playlist_aac);
+    playlist_aac = NULL;
     
     g_mutex_free(barrier);
     barrier = NULL;
@@ -655,7 +827,9 @@ gpointer encode(gpointer data)
     available = NULL;
     
     /* wait until all the worker threads are done */
-    while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || flac_pid != 0 || wavpack_pid != 0)
+    while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || 
+           flac_pid != 0 || wavpack_pid != 0 || monkey_pid != 0 ||
+           musepack_pid != 0 || aac_pid != 0)
     {
         debugLog("w2");
         usleep(100000);
@@ -667,8 +841,9 @@ gpointer encode(gpointer data)
     gdk_threads_enter();
         gtk_widget_hide(win_ripping);
         gdk_flush();
-        show_completed_dialog(numCdparanoiaOk + numLameOk + numOggOk + numFlacOk + numWavpackOk,
-                              numCdparanoiaFailed + numLameFailed + numOggFailed + numFlacFailed + numWavpackFailed);
+        
+        show_completed_dialog(numCdparanoiaOk + numLameOk + numOggOk + numFlacOk + numWavpackOk + numMonkeyOk + numMusepackOk + numAacOk,
+                              numCdparanoiaFailed + numLameFailed + numOggFailed + numFlacFailed + numWavpackFailed + numMonkeyFailed + numMusepackFailed + numAacFailed);
     gdk_threads_leave();
     
     return NULL;
@@ -685,6 +860,12 @@ gpointer track(gpointer data)
     if(global_prefs->rip_flac) 
         parts++;
     if(global_prefs->rip_wavpack) 
+        parts++;
+    if(global_prefs->rip_monkey) 
+        parts++;
+    if(global_prefs->rip_musepack) 
+        parts++;
+    if(global_prefs->rip_aac) 
         parts++;
     
     gdk_threads_enter();
@@ -719,15 +900,20 @@ gpointer track(gpointer data)
         if (aborted) g_thread_exit(NULL);
         
         debugLog("completed tracks %d, rip %.2lf%%; encoded tracks %d, "
-                 "mp3 %.2lf%% ogg %.2lf%% flac %.2lf%% wavpack %.2lf%%\n", 
-                 rip_tracks_completed, rip_percent, encode_tracks_completed, 
-                 mp3_percent, ogg_percent, flac_percent, wavpack_percent);
+                 "mp3 %.2lf%% ogg %.2lf%% flac %.2lf%% wavpack %.2lf%% "
+                 "monkey %.2lf%% musepack %.2lf%% aac %.2lf%%\n\n", 
+                 rip_tracks_completed, rip_percent*100, encode_tracks_completed, 
+                 mp3_percent*100, ogg_percent*100, flac_percent*100, wavpack_percent*100, 
+                 monkey_percent*100,musepack_percent*100,aac_percent*100);
         
         prip = (rip_tracks_completed+rip_percent) / tracks_to_rip;
         snprintf(srip, 13, "%d%% (%d/%d)", (int)(prip*100), rip_tracks_completed, tracks_to_rip);
         if (parts > 1)
         {
-            pencode = ((double)encode_tracks_completed/(double)tracks_to_rip) + ((mp3_percent+ogg_percent+flac_percent+wavpack_percent)/(parts-1)/tracks_to_rip);
+            pencode = ((double)encode_tracks_completed/(double)tracks_to_rip) + 
+                       ((mp3_percent+ogg_percent+flac_percent+wavpack_percent+monkey_percent
+                         +musepack_percent+aac_percent) /
+                        (parts-1) / tracks_to_rip);
             snprintf(sencode, 13, "%d%% (%d/%d)", (int)(pencode*100), encode_tracks_completed, tracks_to_rip);
             ptotal = prip/parts + pencode*(parts-1)/parts;
         } else {

@@ -6,18 +6,27 @@ extern pid_t lame_pid;
 extern pid_t oggenc_pid;
 extern pid_t flac_pid;
 extern pid_t wavpack_pid;
+extern pid_t monkey_pid;
+extern pid_t musepack_pid;
+extern pid_t aac_pid;
 
 extern int numCdparanoiaFailed;
 extern int numLameFailed;
 extern int numOggFailed;
 extern int numFlacFailed;
 extern int numWavpackFailed;
+extern int numMonkeyFailed;
+extern int numMusepackFailed;
+extern int numAacFailed;
 
 extern int numCdparanoiaOk;
 extern int numLameOk;
 extern int numOggOk;
 extern int numFlacOk;
 extern int numWavpackOk;
+extern int numMonkeyOk;
+extern int numMusepackOk;
+extern int numAacOk;
 
 // signal handler to find out when out child has exited
 void sigchld(int signum);
@@ -109,3 +118,18 @@ void wavpack(int tracknum,
              bool hybrid,
              int bitrate,
              double * progress);
+
+void mac(char* wavfilename,
+         char* monkeyfilename,
+         int compression,
+         double* progress);
+
+void musepack(char* wavfilename,
+              char* musepackfilename,
+              int quality,
+              double* progress);
+
+void aac(char* wavfilename,
+         char* aacfilename,
+         int quality,
+         double* progress);

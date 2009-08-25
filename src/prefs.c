@@ -64,6 +64,10 @@ void clear_prefs(prefs * p)
     if (p->server_name != NULL) 
         free(p->server_name);
     p->server_name = NULL;
+    
+    if (p->cddb_server_name != NULL) 
+        free(p->cddb_server_name);
+    p->cddb_server_name = NULL;
 }
 
 // free memory allocated for prefs struct
@@ -116,6 +120,12 @@ prefs * get_default_prefs()
     p->wavpack_compression = 1;
     p->wavpack_hybrid = 1;
     p->wavpack_bitrate = 3;
+    p->rip_monkey = 0;
+    p->monkey_compression = 2;
+    p->rip_aac = 0;
+    p->aac_quality = 60;
+    p->rip_musepack = 0;
+    p->musepack_bitrate = 2;
     
     p->main_window_width = 600;
     p->main_window_height = 450;
@@ -134,6 +144,16 @@ prefs * get_default_prefs()
     strcpy(p->server_name, "10.0.0.1");
     
     p->port_number = DEFAULT_PROXY_PORT;
+    
+    p->cddb_server_name = malloc(sizeof(char) * (strlen(DEFAULT_CDDB_SERVER) + 1));
+    if (p->cddb_server_name == NULL)
+        fatalError("malloc(sizeof(char) * (strlen(\"freedb.org\") + 1)) failed. Out of memory.");
+    strcpy(p->cddb_server_name, DEFAULT_CDDB_SERVER);
+    
+    p->cddb_port_number = DEFAULT_CDDB_SERVER_PORT;
+    
+    p->more_formats_expanded = 0;
+    p->proprietary_formats_expanded = 0;
     
     return p;
 }
@@ -162,6 +182,12 @@ void set_widgets_from_prefs(prefs * p)
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_compression")), p->wavpack_compression);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hybrid")), p->wavpack_hybrid);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_bitrate_slider")), p->wavpack_bitrate);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_monkey")), p->rip_monkey);
+    gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "monkey_compression_slider")), p->monkey_compression);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_aac")), p->rip_aac);
+    gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "aac_quality_slider")), p->aac_quality);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_musepack")), p->rip_musepack);
+    gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "musepack_bitrate_slider")), p->musepack_bitrate);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")), p->eject_on_done);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_cddb_updates")), p->do_cddb_updates);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "use_proxy")), p->use_proxy);
@@ -169,6 +195,13 @@ void set_widgets_from_prefs(prefs * p)
     snprintf(tempStr, 10, "%d", p->port_number);
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number")), tempStr);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_log")), p->do_log);
+    gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "cddb_server_name")), p->cddb_server_name);
+    snprintf(tempStr, 10, "%d", p->cddb_port_number);
+    gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "cddb_port_number")), tempStr);
+    if(global_prefs->more_formats_expanded)
+        gtk_expander_set_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "more_formats_expander")), TRUE);
+    if(global_prefs->proprietary_formats_expanded)
+        gtk_expander_set_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")), TRUE);
     
     /* disable widgets if needed */
     if ( !(p->rip_mp3) )
@@ -181,6 +214,12 @@ void set_widgets_from_prefs(prefs * p)
         disable_wavpack_widgets();
     else
         enable_wavpack_widgets(); /* need this to potentially disable hybrid widgets */
+    if( !(p->rip_monkey) )
+        disable_monkey_widgets();
+    if( !(p->rip_aac) )
+        disable_aac_widgets();
+    if( !(p->rip_musepack) )
+        disable_musepack_widgets();
 }
 
 // populates a prefs struct from the current state of the widgets
@@ -234,6 +273,12 @@ void get_prefs_from_widgets(prefs * p)
     p->wavpack_compression = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_compression")));
     p->wavpack_hybrid = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hybrid")));
     p->wavpack_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_bitrate_slider")));
+    p->rip_monkey = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_monkey")));
+    p->monkey_compression = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "monkey_compression_slider")));
+    p->rip_aac = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_aac")));
+    p->aac_quality = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "aac_quality_slider")));
+    p->rip_musepack = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_musepack")));
+    p->musepack_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "musepack_bitrate_slider")));
     
     p->eject_on_done = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")));
     
@@ -247,9 +292,20 @@ void get_prefs_from_widgets(prefs * p)
         fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->server_name, tocopyc, strlen(tocopyc) + 1);
     
-    tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number")));
+    p->port_number = atoi(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number"))));
+    
+    tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "cddb_server_name")));
+    p->cddb_server_name = malloc(sizeof(char) * (strlen(tocopyc) + 1));
+    if (p->cddb_server_name == NULL)
+        fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
+    strncpy(p->cddb_server_name, tocopyc, strlen(tocopyc) + 1);
+    
+    p->cddb_port_number = atoi(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "cddb_port_number"))));
     
     p->do_log = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_log")));
+    
+    p->more_formats_expanded = gtk_expander_get_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "more_formats_expander")));
+    p->proprietary_formats_expanded = gtk_expander_get_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")));
 }
 
 // store the given prefs struct to the config file
@@ -298,6 +354,16 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->wavpack_hybrid);
         fprintf(config, "%d\n", p->wavpack_bitrate);
         fprintf(config, "%d\n", p->do_log);
+        fprintf(config, "%s\n", p->cddb_server_name);
+        fprintf(config, "%d\n", p->cddb_port_number);
+        fprintf(config, "%d\n", p->rip_monkey);
+        fprintf(config, "%d\n", p->monkey_compression);
+        fprintf(config, "%d\n", p->rip_aac);
+        fprintf(config, "%d\n", p->aac_quality);
+        fprintf(config, "%d\n", p->rip_musepack);
+        fprintf(config, "%d\n", p->musepack_bitrate);
+        fprintf(config, "%d\n", p->more_formats_expanded);
+        fprintf(config, "%d\n", p->proprietary_formats_expanded);
         
         fclose(config);
     } else {
@@ -427,9 +493,8 @@ void load_prefs(prefs * p)
             p->server_name = aCharPtr;
         }
         
-        // this one can be 0
         p->port_number = read_line_num(fd);
-        if (!is_valid_port_number(p->port_number))
+        if (p->port_number == 0 || !is_valid_port_number(p->port_number))
         {
             printf("bad port number read from config file, using %d instead\n", DEFAULT_PROXY_PORT);
             p->port_number = DEFAULT_PROXY_PORT;
@@ -449,6 +514,45 @@ void load_prefs(prefs * p)
         
         // this one can be 0
         p->do_log = read_line_num(fd);
+        
+        aCharPtr = read_line(fd);
+        if (aCharPtr != NULL)
+        {
+            if (p->cddb_server_name != NULL)
+                free(p->cddb_server_name);
+            p->cddb_server_name = aCharPtr;
+        }
+        
+        p->cddb_port_number = read_line_num(fd);
+        if (p->cddb_port_number == 0 || !is_valid_port_number(p->cddb_port_number))
+        {
+            printf("bad port number read from config file, using 888 instead\n");
+            p->cddb_port_number = DEFAULT_CDDB_SERVER_PORT;
+        }
+        
+        // this one can be 0
+        p->rip_monkey = read_line_num(fd);
+        
+        // this one can be 0
+        p->monkey_compression = read_line_num(fd);
+        
+        // this one can be 0
+        p->rip_aac = read_line_num(fd);
+        
+        // this one can be 0
+        p->aac_quality = read_line_num(fd);
+        
+        // this one can be 0
+        p->rip_musepack = read_line_num(fd);
+        
+        // this one can be 0
+        p->musepack_bitrate = read_line_num(fd);
+        
+        // this one can be 0
+        p->more_formats_expanded = read_line_num(fd);
+        
+        // this one can be 0
+        p->proprietary_formats_expanded = read_line_num(fd);
         
         close(fd);
     } else {
@@ -545,6 +649,19 @@ bool prefs_are_valid(void)
         warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
                                                GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
                                                _("Invalid proxy port number"));
+        gtk_dialog_run(GTK_DIALOG(warningDialog));
+        gtk_widget_destroy(warningDialog);
+        somethingWrong = true;
+    }
+    
+    // cddb server port
+    int cddb_port_number;
+    rc = sscanf(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "cddb_port_number"))), "%d", &cddb_port_number);
+    if (rc != 1 || !is_valid_port_number(cddb_port_number))
+    {
+        warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
+                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                               _("Invalid cddb server port number"));
         gtk_dialog_run(GTK_DIALOG(warningDialog));
         gtk_widget_destroy(warningDialog);
         somethingWrong = true;

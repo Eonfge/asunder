@@ -4,9 +4,12 @@ void debugLog(const char* format, ...);
 
 void fatalError(const char* message);
 
+int int_to_monkey_int(int i);
 int int_to_vbr_int(int i);
 int int_to_bitrate(int i, bool vbr);
 int int_to_wavpack_bitrate(int i);
+int int_to_musepack_bitrate(int i);
+int int_to_musepack_int(int i);
 
 // substitute various items into a formatted string (similar to printf)
 //

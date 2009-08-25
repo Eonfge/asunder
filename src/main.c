@@ -377,6 +377,9 @@ GList * lookup_disc(cddb_disc_t * disc)
     if (gbl_cddb_query_thread_conn == NULL)
         fatalError("cddb_new() failed. Out of memory?");
     
+    cddb_set_server_name(gbl_cddb_query_thread_conn, global_prefs->cddb_server_name);
+    cddb_set_server_port(gbl_cddb_query_thread_conn, global_prefs->cddb_port_number);
+    
     if (global_prefs->use_proxy)
     {
         cddb_set_http_proxy_server_name(gbl_cddb_query_thread_conn, global_prefs->server_name);
