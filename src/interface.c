@@ -1358,6 +1358,9 @@ GBLauthors[2] = {
 "Christophe Lincoln\n"
 "- Slitaz package of Asunder, version 1.0.2\n"
 "\n"
+"coolpup\n"
+"- Puppy package of Asunder, version 1.6.2\n"
+"\n"
 ,
 NULL};
 

@@ -2,19 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Mohamed Magdy <mohamedmk@gmail.com>, 2009.
-#
+# Khaled Hosny <khaledhosny@eglug.org>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 19:01-0400\n"
-"PO-Revision-Date: 2009-08-28 03:15+0200\n"
-"Last-Translator: Mohamed Magdy <mohamedmk@gmail.com>\n"
-"Language-Team: Arabic <ar@li.org>\n"
+"PO-Revision-Date: 2009-08-28 18:26+0300\n"
+"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Virtaal 0.4.0\n"
 "X-Poedit-Language: Arabic\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -25,7 +28,7 @@ msgstr "انسخ"
 
 #: src/main.c:116
 msgid "Track"
-msgstr "التراك"
+msgstr "المقطوعة"
 
 #: src/main.c:123
 msgid "Artist"
@@ -40,12 +43,14 @@ msgid "Time"
 msgstr "الزمن"
 
 #: src/main.c:161
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "لم يوجد 'cdparanoia' في مسارك. يحتاج أسوندر cdparanoia لنسخ الأسطوانات."
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr "لم يوجد 'cdparanoia' في مسارك. يحتاج أسوندر cdparanoia لنسخ الاسطوانات."
 
 #: src/main.c:400
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>يجري جلب معلومات القرص من الإنترنت</b>"
+msgstr "<b>يجلب معلومات القرص من الإنترنت...</b>"
 
 #: src/callbacks.c:57
 #: src/callbacks.c:187
@@ -55,11 +60,11 @@ msgstr "<b>يجري جلب معلومات القرص من الإنترنت</b>"
 #: src/interface.c:773
 #, c-format
 msgid "%dKbps"
-msgstr "%dك‌ب‌بالثانية"
+msgstr "%d ك.بايت\\ث"
 
 #: src/callbacks.c:327
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr "لم يتم إدخال أسطوانة. من فضلك أدخل أسطوانة في مشغل الأسطوانات"
+msgstr "لم تُدخل أي اسطوانات. من فضلك أدخل اسطوانة في مشغل الاسطوانات."
 
 #: src/callbacks.c:346
 #: src/callbacks.c:371
@@ -69,8 +74,10 @@ msgstr "لم يتم إدخال أسطوانة. من فضلك أدخل أسطوا
 #: src/callbacks.c:471
 #: src/callbacks.c:496
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s لم يوجد في مسارك. أسوندر يتطلبه لإنشاء ملفات %s. كل وظائف %s عطبت."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr "‏%s لم يوجد في مسارك. أسوندر يتطلبه لإنشاء ملفات %s. كل وظائف %s عطلت."
 
 #: src/callbacks.c:583
 msgid "Select all for ripping"
@@ -82,7 +89,7 @@ msgstr "انزع الاختيار عن الكل"
 
 #: src/interface.c:93
 msgid "CDDB Lookup"
-msgstr " ابحث في سي‌دي‌دي‌بي "
+msgstr "ابحث في CDDB"
 
 #: src/interface.c:136
 msgid "Disc:"
@@ -115,7 +122,7 @@ msgstr "أنشىء قائمة تشغيل M3U"
 
 #: src/interface.c:368
 msgid "CD-ROM device: "
-msgstr "جهاز الأسطوانات:"
+msgstr "جهاز الاسطوانات:"
 
 #: src/interface.c:377
 msgid ""
@@ -123,7 +130,7 @@ msgid ""
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
-"الإفتراضي: /dev/cdrom\n"
+"الافتراضي: /dev/cdrom\n"
 "مثال آخر: /dev/hdc\n"
 "مثال آخر: /dev/sr0"
 
@@ -142,25 +149,25 @@ msgid ""
 "%N - Track number (2-digit)\n"
 "%T - Song title"
 msgstr ""
-"%A - الفنان\n"
-"%L - الألبوم\n"
-"%N - رقم التراك (من رقمين)\n"
-"%T - عنوان الأغنية"
+"‏%A - الفنان\n"
+"‏%L - الألبوم\n"
+"‏%N - رقم المقطوعة (من رقمين)\n"
+"‏%T - عنوان الأغنية"
 
 #: src/interface.c:419
 msgid "Album directory: "
-msgstr "مجلد الألبوم:"
+msgstr "مجلد الألبوم: "
 
 #: src/interface.c:426
 #: src/prefs.c:615
 msgid "Playlist file: "
-msgstr "ملف قائمة التشغيل:"
+msgstr "ملف قائمة التشغيل: "
 
 #: src/interface.c:433
 #: src/prefs.c:627
 #: src/prefs.c:637
 msgid "Music file: "
-msgstr "ملف الموسيقى:"
+msgstr "ملف الموسيقى: "
 
 #: src/interface.c:447
 msgid ""
@@ -169,9 +176,9 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
-"هذا منسوب لمجلد الوجهة  (من اللسان العام).\n"
-"يمكن أن يكون فارغ.\n"
-"الإفتراضي %A - %L\n"
+"هذا نسبي لمجلد الوجهة (من اللسان العام).\n"
+"يمكن أن يكون فارغا.\n"
+"الافتراضي %A - %L\n"
 "مثال آخر %A/%L"
 
 #: src/interface.c:459
@@ -181,8 +188,8 @@ msgid ""
 "Default: %A - %L"
 msgstr ""
 "هذا سيحفظ في مجلد الألبوم.\n"
-"يمكن أن يكون فارغ.\n"
-"الإفتراضي: %A - %L"
+"يمكن أن يكون فارغا.\n"
+"الافتراضي: %A - %L"
 
 #: src/interface.c:470
 msgid ""
@@ -193,7 +200,7 @@ msgid ""
 msgstr ""
 "هذا سيحفظ في مجلد الألبوم.\n"
 "لا يمكن أن يكون فارغا.\n"
-"الإفتراضي: %A - %T\n"
+"الافتراضي: %A - %T\n"
 "مثال آخر: %N - %T"
 
 #: src/interface.c:475
@@ -207,29 +214,33 @@ msgstr "أسماء الملفات"
 #. WAV
 #: src/interface.c:499
 msgid "WAV (uncompressed)"
-msgstr "واف (بدون ضغط)"
+msgstr "‏WAV (بدون ضغط)"
 
 #: src/interface.c:518
 msgid "Variable bit rate (VBR)"
-msgstr "معدل بت متغير (في‌بي‌أر)"
+msgstr "معدل بتات متغير (VBR)"
 
 #: src/interface.c:526
 msgid "Better quality for the same size."
-msgstr "جودة أعلى لنفس الحجم."
+msgstr "جودة أعلى بنفس الحجم."
 
 #: src/interface.c:532
 #: src/interface.c:708
 #: src/interface.c:755
 msgid "Bitrate"
-msgstr "معدل البت"
+msgstr "معدل البتات"
 
 #: src/interface.c:547
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "معدل البت الأعلى يعني جودة أفضل ولكن يعني أيضا ملف أكبر. معظم الناس تستخدم 192 ك‌ب‌بالثانية"
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"معدل البتات الأعلى يعني جودة أفضل ولكن يعني أيضا ملفا أكبر. معظم الناس "
+"تستخدم 192 ك.بايت\\ث"
 
 #: src/interface.c:556
 msgid "MP3 (lossy compression)"
-msgstr "إم‌بي‌ثري (ضغط بفقد)"
+msgstr "‏MP3 (ضغط فقود)"
 
 #: src/interface.c:578
 #: src/interface.c:866
@@ -238,11 +249,11 @@ msgstr "الجودة"
 
 #: src/interface.c:589
 msgid "Higher quality means bigger file. Default is 6."
-msgstr "الجودة الأعلى تعني ملف أكبر. الإفتراضي 6."
+msgstr "الجودة الأعلى تعني ملف أكبر. الافتراضي 6."
 
 #: src/interface.c:591
 msgid "OGG Vorbis (lossy compression)"
-msgstr "أج فوربيس (ضغط بفقد)"
+msgstr "‏OGG  Vorbis (ضغط فقود)"
 
 #: src/interface.c:613
 #: src/interface.c:674
@@ -253,57 +264,62 @@ msgstr "مستوى الضغط"
 #: src/interface.c:624
 #: src/interface.c:824
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr "هذا لا يؤثر على الجودة.  الرقم الأعلى يعني ملفا أصغر."
+msgstr "لا يؤثر هذا على الجودة. الرقم الأعلى يعني ملفا أصغر."
 
 #: src/interface.c:626
 msgid "FLAC (lossless compression)"
-msgstr "فلاك (ضغط بدون فقد)"
+msgstr "‏FLAC (ضغط غير فقود)"
 
 #: src/interface.c:645
 msgid "More formats"
 msgstr "مزيد من الصيغ"
 
 #: src/interface.c:687
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
-msgstr "هذا لا يؤثر على الجودة.  الرقم الأعلى يعني ملفا أصغر. الإفتراضي 1 (منصوح)."
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"لا يؤثر هذا على الجودة. الرقم الأعلى يعني ملفا أصغر. الافتراضي 1 (مُزكّى)."
 
 #: src/interface.c:693
 msgid "Hybrid compression"
 msgstr "ضغط مهجن"
 
 #: src/interface.c:702
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
-msgstr "الصيغة فاقدة ولكن أُنشىء ملف تصحيح لإسترجاع الأصل غير الفاقد."
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr "الصيغة فقودة ولكن أُنشئ ملف تصحيح لاسترجاع الأصل غير الفقود."
 
 #: src/interface.c:771
 msgid "Higher bitrate is better quality but also bigger file."
-msgstr "معدل البت الأعلى يعني جودة أفضل ولكن يعني أيضا ملف أكبر."
+msgstr "معدل البتات الأعلى يعني جودة أفضل ولكن يعني أيضا ملفا أكبر."
 
 #: src/interface.c:779
 msgid "Musepack (lossy compression)"
-msgstr "ميوزباك (ضغط بفقد)"
+msgstr "‏ Musepack (ضغط فقود)"
 
 #: src/interface.c:826
 msgid "Monkey's Audio (lossless compression)"
-msgstr "منكيز أديو (ضغط بدون فقد)"
+msgstr "‏Monkey's Audio (ضغط غير فقود)"
 
 #. END MONKEY
 #: src/interface.c:835
 msgid "Proprietary encoders"
-msgstr "مشفرات احتكارية"
+msgstr "مُرمّزات احتكارية"
 
 #: src/interface.c:879
 msgid "Higher quality means bigger file. Default is 60."
-msgstr "الجودة الأعلى تعني ملف أكبر. الإفتراضي 60."
+msgstr "الجودة الأعلى تعني ملفا أكبر. الافتراضي 60."
 
 #: src/interface.c:881
 msgid "AAC (lossy compression, Nero encoder)"
-msgstr "إيه‌إيه‌سي (ضغط بفقد، مشفر نيرو)"
+msgstr "‏AAC (ضغط فقود، مُرمّز نيرو)"
 
 #. END AAC
 #: src/interface.c:890
 msgid "Encode"
-msgstr "شفّر"
+msgstr "رمّز"
 
 #: src/interface.c:921
 msgid "Get disc info from the internet automatically"
@@ -312,24 +328,24 @@ msgstr "اجلب معلومات القرص من الإنترنت تلقائيا"
 #: src/interface.c:929
 #: src/interface.c:974
 msgid "Server: "
-msgstr "الخادم:"
+msgstr "الخادوم: "
 
 #: src/interface.c:939
 msgid "The CDDB server to get disc info from (default is freedb.org)"
-msgstr "خادم السي‌دي‌دي‌بي المستخدم في جلب معلومات القرص (الإفتراضي freedb.org)"
+msgstr "خادوم CDDB المستخدم في جلب معلومات القرص (الافتراضي freedb.org)"
 
 #: src/interface.c:945
 #: src/interface.c:987
 msgid "Port: "
-msgstr "المنفذ:"
+msgstr "المنفذ: "
 
 #: src/interface.c:955
 msgid "The CDDB server port (default is 888)"
-msgstr "منفذ خادم السي‌دي‌دي‌بي (الإفتراضي 888)"
+msgstr "منفذ خادوم CDDB (الافتراضي 888)"
 
 #: src/interface.c:961
 msgid "Use an HTTP proxy to connect to the internet"
-msgstr "استخدم وسيط إيتش‌تي‌تي‌بي للإتصال بالإنترنت"
+msgstr "استخدم وسيط HTTP للاتصال بالإنترنت"
 
 #: src/interface.c:1005
 msgid "Advanced"
@@ -338,7 +354,7 @@ msgstr "متقدم"
 #: src/interface.c:1076
 #: src/interface.c:1112
 msgid "Ripping"
-msgstr "يجري النسخ"
+msgstr "ينسخ"
 
 #: src/interface.c:1105
 msgid "Total progress"
@@ -346,29 +362,29 @@ msgstr "التقدم الكلي"
 
 #: src/interface.c:1119
 msgid "Encoding"
-msgstr "يجري التشفير"
+msgstr "يُرمّز"
 
 #: src/interface.c:1507
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] "أنشىء ملف %d بنجاح"
-msgstr[1] "أنشىء ملف %d بنجاح"
-msgstr[2] "أنشىء ملفي %d بنجاح"
-msgstr[3] "أنشئت ملفات %d بنجاح"
-msgstr[4] "أنشىء ملفا %d بنجاح"
-msgstr[5] "أنشىء ملف %d بنجاح"
+msgstr[0] "لم تُنشأ أي ملفات"
+msgstr[1] "أنشئ ملف واحد بنجاح"
+msgstr[2] "أنشئ ملفين بنجاح"
+msgstr[3] "أنشئت %d ملفات بنجاح"
+msgstr[4] "أنشئ %d ملفا بنجاح"
+msgstr[5] "أنشئ %d ملف بنجاح"
 
 #: src/interface.c:1516
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] "حدث خطأ أثناء إنشاء ملف %d "
-msgstr[1] "حدث خطأ أثناء إنشاء ملف %d "
-msgstr[2] "حدث خطأ أثناء إنشاء ملفي %d "
-msgstr[3] "حدث خطأ أثناء إنشاء ملفات %d "
-msgstr[4] "حدث خطأ أثناء إنشاء ملفا %d "
-msgstr[5] "حدث خطأ أثناء إنشاء ملف %d "
+msgstr[0] "لم تحدث أخطاء أثناء إنشاء الملفات"
+msgstr[1] "حدث خطأ أثناء إنشاء ملف واحد"
+msgstr[2] "حدث خطأ أثناء إنشاء ملفين"
+msgstr[3] "حدث خطأ أثناء إنشاء %d ملفات"
+msgstr[4] "حدث خطأ أثناء إنشاء %d ملفا"
+msgstr[5] "حدث خطأ أثناء إنشاء %d ملف"
 
 #: src/prefs.c:614
 #: src/prefs.c:626
@@ -379,7 +395,7 @@ msgstr "محارف غير صالحة في حقل '%s' "
 #: src/prefs.c:636
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr "'%s' لا يمكن أن تكون فارغة"
+msgstr "‏'%s' لا يمكن أن تكون فارغة"
 
 #: src/prefs.c:651
 msgid "Invalid proxy port number"
@@ -387,32 +403,35 @@ msgstr "رقم منفذ الوسيط غير صالح"
 
 #: src/prefs.c:664
 msgid "Invalid cddb server port number"
-msgstr "رقم منفذ خادم السي‌دي‌دي‌بي غير صالح"
+msgstr "رقم منفذ خادوم cddb غير صالح"
 
 #: src/support.c:47
 msgid "Overwrite?"
-msgstr "أكتب فوقه؟"
+msgstr "أأكتب فوقه؟"
 
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr "الملف  '%s'  موجود أصلا. هل تريد أن تكتب فوقه؟\n"
+msgstr "الملف '%s' موجود أصلا. هل تريد أن تكتب فوقه؟\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "تذكر الجواب _لكل الملفات المصنعة من هذه الأسطوانة"
 
 #: src/threads.c:159
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "لم تختار طريقة للنسخ/التشفير. من فضلك فعّل واحدة من قائمة التفضيلات."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr "لم تختر طريقة للنسخ/الترميز. من فضلك فعّل واحدة من قائمة 'التفضيلات'."
 
 #: src/threads.c:190
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "لم يختار أي تراكات للنسخ/التشفير. من فضلك اختر تراك واحد على الأقل."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr "لم تختر أي مقاطع للنسخ/الترميز. من فضلك اختر مقطعا واحدا على الأقل."
 
 #: src/threads.c:877
 #: src/threads.c:879
 #: src/threads.c:883
 msgid "Waiting..."
 msgstr "ينتظر..."
-
