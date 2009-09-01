@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-24 21:38-0400\n"
-"PO-Revision-Date: 2008-01-19 13:36+0100\n"
-"Last-Translator: Milan Pužić <m@gmail.com>\n"
+"POT-Creation-Date: 2009-08-23 03:15-0400\n"
+"PO-Revision-Date: 2009-08-25 17:16+0100\n"
+"Last-Translator: Milan Pužić <milanpuzic@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 "X-Poedit-Language: Serbian\n"
 
-#: src/main.c:111 src/interface.c:203
+#: src/main.c:111
+#: src/interface.c:203
 msgid "Rip"
 msgstr "Екстрактуј CD"
 
@@ -37,37 +38,37 @@ msgid "Time"
 msgstr "Трајање"
 
 #: src/main.c:161
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
-msgstr ""
-"'cdparanoia' није пронађена у вашој путањи. Ово је потребно за екстрактовање "
-"CD-ова."
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "'cdparanoia' није пронађена у вашој путањи. Ово је потребно за екстрактовање CD-ова."
 
 #: src/main.c:400
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Преузимам информације о диску са интернета...</b>"
 
-#: src/callbacks.c:57 src/callbacks.c:187 src/callbacks.c:215
-#: src/callbacks.c:225 src/interface.c:550 src/interface.c:773
-#, fuzzy, c-format
+#: src/callbacks.c:57
+#: src/callbacks.c:187
+#: src/callbacks.c:215
+#: src/callbacks.c:225
+#: src/interface.c:550
+#: src/interface.c:773
+#, c-format
 msgid "%dKbps"
-msgstr "32Kbps"
+msgstr "%dKbps"
 
 #: src/callbacks.c:327
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Није убачен CD. Молим убаците CD у ваш CD-ROM уређај."
 
-#: src/callbacks.c:346 src/callbacks.c:371 src/callbacks.c:396
-#: src/callbacks.c:421 src/callbacks.c:446 src/callbacks.c:471
+#: src/callbacks.c:346
+#: src/callbacks.c:371
+#: src/callbacks.c:396
+#: src/callbacks.c:421
+#: src/callbacks.c:446
+#: src/callbacks.c:471
 #: src/callbacks.c:496
 #, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All %"
-"s functionality is disabled."
-msgstr ""
-"%s није пронађен у вашој путањи. Потребан је за креирање фајлова %s. Сва %s "
-"функционалност је онемогућена."
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "%s није пронађен у вашој путањи. Потребан је за креирање фајлова %s. Сва %s функционалност је онемогућена."
 
 #: src/callbacks.c:583
 msgid "Select all for ripping"
@@ -101,7 +102,8 @@ msgstr "Један извођач"
 msgid "Preferences"
 msgstr "Подешавања"
 
-#: src/interface.c:350 src/interface.c:356
+#: src/interface.c:350
+#: src/interface.c:356
 msgid "Destination folder"
 msgstr "Дестинациона фасцикла"
 
@@ -147,11 +149,14 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Фасцикла албума: "
 
-#: src/interface.c:426 src/prefs.c:615
+#: src/interface.c:426
+#: src/prefs.c:615
 msgid "Playlist file: "
 msgstr "Датотека листе нумера: "
 
-#: src/interface.c:433 src/prefs.c:627 src/prefs.c:637
+#: src/interface.c:433
+#: src/prefs.c:627
+#: src/prefs.c:637
 msgid "Music file: "
 msgstr "Музичка датотека: "
 
@@ -208,41 +213,43 @@ msgstr "Променљиви битрејт (VBR)"
 
 #: src/interface.c:526
 msgid "Better quality for the same size."
-msgstr "Бољи квалитет за исту величину датотека."
+msgstr "Бољи квалитет за исту величину датотеке."
 
-#: src/interface.c:532 src/interface.c:708 src/interface.c:755
+#: src/interface.c:532
+#: src/interface.c:708
+#: src/interface.c:755
 msgid "Bitrate"
 msgstr "Битрејт (број битова у секунди)"
 
 #: src/interface.c:547
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"192Kbps."
-msgstr ""
-"Већи битрејт проузрокује бољим квалитетом, али и већом датотеком. Већина "
-"корисника употребљава 192Kbps."
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "Већи битрејт резултује бољим квалитетом, али и већом датотеком. Већина корисника употребљава 192Kbps."
 
 #: src/interface.c:556
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (компресија са малим губитком квалитета)"
 
-#: src/interface.c:578 src/interface.c:866
+#: src/interface.c:578
+#: src/interface.c:866
 msgid "Quality"
 msgstr "Квалитет"
 
 #: src/interface.c:589
 msgid "Higher quality means bigger file. Default is 6."
-msgstr "Бољи квалитет проузрокује већом датотеком. Уобичајена вредност је 6."
+msgstr "Бољи квалитет резултује већом датотеком. Уобичајена вредност је 6."
 
 #: src/interface.c:591
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (компресија са малим губитком квалитета)"
 
-#: src/interface.c:613 src/interface.c:674 src/interface.c:811
+#: src/interface.c:613
+#: src/interface.c:674
+#: src/interface.c:811
 msgid "Compression level"
 msgstr "Ниво компресије"
 
-#: src/interface.c:624 src/interface.c:824
+#: src/interface.c:624
+#: src/interface.c:824
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "Ово не утиче на квалитет. Виша вредност указује на мању датотеку."
 
@@ -255,57 +262,41 @@ msgid "More formats"
 msgstr "Додатни формати"
 
 #: src/interface.c:687
-msgid ""
-"This does not affect the quality. Higher number means smaller file. Default "
-"is 1 (recommended)."
-msgstr ""
-"Ово не утиче на квалитет. Виша вредност указује на мању датотеку. Уобичајено "
-"је 1 (препоручено)."
+msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
+msgstr "Ово не утиче на квалитет. Виша вредност указује на мању датотеку. Уобичајена вредност је 1 (препоручено)."
 
 #: src/interface.c:693
-#, fuzzy
 msgid "Hybrid compression"
 msgstr "Хибридна компресија"
 
 #: src/interface.c:702
-msgid ""
-"The format is lossy but a correction file is created for restoring the "
-"lossless original."
-msgstr ""
-"Формат је са губитком у квалитети, али корекциони фајл је креиран због "
-"обнове оригинала без губитка."
+msgid "The format is lossy but a correction file is created for restoring the lossless original."
+msgstr "Формат проузрокује губитак квалитета, али корекциони датотека је креирана ради обнове оригиналне датотеке без губитка."
 
 #: src/interface.c:771
-#, fuzzy
 msgid "Higher bitrate is better quality but also bigger file."
-msgstr ""
-"Већи битрејт проузрокује бољим квалитетом, али и већом датотеком. Већина "
-"корисника употребљава 192Kbps."
+msgstr "Већи битрејт резултује бољим квалитетом, али и већом датотеком. Већина корисника употребљава 192Kbps."
 
 #: src/interface.c:779
-#, fuzzy
 msgid "Musepack (lossy compression)"
-msgstr "MP3 (компресија са малим губитком квалитета)"
+msgstr "Musepack (компресија са малим губитком квалитета)"
 
 #: src/interface.c:826
-#, fuzzy
 msgid "Monkey's Audio (lossless compression)"
-msgstr "FLAC (компресија без губитка квалитета)"
+msgstr "Monkey's Audio (компресија без губитка квалитета)"
 
 #. END MONKEY
 #: src/interface.c:835
 msgid "Proprietary encoders"
-msgstr ""
+msgstr "Власнички енкодери"
 
 #: src/interface.c:879
-#, fuzzy
 msgid "Higher quality means bigger file. Default is 60."
-msgstr "Бољи квалитет проузрокује већом датотеком. Уобичајена вредност је 6."
+msgstr "Бољи квалитет резултује већом датотеком. Уобичајена вредност је 60."
 
 #: src/interface.c:881
-#, fuzzy
 msgid "AAC (lossy compression, Nero encoder)"
-msgstr "MP3 (компресија са малим губитком квалитета)"
+msgstr "AAC (компресија са малим губитком квалитета, \"Nero\" енкодер)"
 
 #. END AAC
 #: src/interface.c:890
@@ -316,24 +307,25 @@ msgstr "Кодирај"
 msgid "Get disc info from the internet automatically"
 msgstr "Аутоматски преузми информације о диску са интернета"
 
-#: src/interface.c:929 src/interface.c:974
+#: src/interface.c:929
+#: src/interface.c:974
 msgid "Server: "
 msgstr "Сервер:"
 
 #: src/interface.c:939
 msgid "The CDDB server to get disc info from (default is freedb.org)"
-msgstr ""
+msgstr "CDDB сервер за преузимање информација о диску (фабричка вредност је \"freedb.org\")"
 
-#: src/interface.c:945 src/interface.c:987
+#: src/interface.c:945
+#: src/interface.c:987
 msgid "Port: "
 msgstr "Порт:"
 
 #: src/interface.c:955
 msgid "The CDDB server port (default is 888)"
-msgstr ""
+msgstr "Порт CDDB сервера (фабричка вредност је 888)"
 
 #: src/interface.c:961
-#, fuzzy
 msgid "Use an HTTP proxy to connect to the internet"
 msgstr "Користи HTTP proxy за прикључивање на интернет"
 
@@ -341,7 +333,8 @@ msgstr "Користи HTTP proxy за прикључивање на интер�
 msgid "Advanced"
 msgstr "Додатна подешавања"
 
-#: src/interface.c:1076 src/interface.c:1112
+#: src/interface.c:1076
+#: src/interface.c:1112
 msgid "Ripping"
 msgstr "Екстракција"
 
@@ -351,23 +344,24 @@ msgstr "Укупан напредак"
 
 #: src/interface.c:1119
 msgid "Encoding"
-msgstr "кодирање"
+msgstr "Кодирање"
 
-#: src/interface.c:1507
+#: src/interface.c:1503
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Датотека %d је успешно креирана"
 msgstr[1] "Датотеке %d су успешно креиране"
 
-#: src/interface.c:1516
+#: src/interface.c:1512
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Дошло је до грешке при креирању датотеке %d"
 msgstr[1] "Дошло је до грешке при креирању датотека %d"
 
-#: src/prefs.c:614 src/prefs.c:626
+#: src/prefs.c:614
+#: src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Неважећи знаци у пољу '%s'"
@@ -382,9 +376,8 @@ msgid "Invalid proxy port number"
 msgstr "Неважећи број proxy порта"
 
 #: src/prefs.c:664
-#, fuzzy
 msgid "Invalid cddb server port number"
-msgstr "Неважећи број proxy порта"
+msgstr "Неважећи број порта CDDB сервера"
 
 #: src/support.c:47
 msgid "Overwrite?"
@@ -400,21 +393,16 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "Запамти одговор за _све датотеке креиране са овог CD-а"
 
 #: src/threads.c:159
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
-msgstr ""
-"Није изабран метод за екстрактовање/кодирање. Молим изаберите један од "
-"метода из менија \"Подешавања\"."
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgstr "Није изабран метод за екстрактовање/кодирање. Молим изаберите један од метода из менија \"Подешавања\"."
 
 #: src/threads.c:190
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
-msgstr ""
-"Није изабрана ни једна нумера за екстрактовање/кодирање. Молим изаберите "
-"барем једну нумеру."
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgstr "Није изабрана ни једна нумера за екстрактовање/кодирање. Молим изаберите барем једну нумеру."
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:877
+#: src/threads.c:879
+#: src/threads.c:883
 msgid "Waiting..."
 msgstr "Чекам..."
+

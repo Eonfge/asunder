@@ -7,6 +7,7 @@
 - Made CDDB server and port user-configurable.
 - Fixed some wavpack encoding status reporting and cleanup.
 - Remember whether things in the preferences were expanded or not.
+- Added Arabic, Slovenian translations.
 
 29 Nov 2008 - 1.6.2
 ===================
