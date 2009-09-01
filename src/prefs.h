@@ -44,8 +44,8 @@ typedef struct _prefs
 } prefs;
 
 #define DEFAULT_PROXY_PORT 8080
-#define DEFAULT_CDDB_SERVER "freedb.org"
-#define DEFAULT_CDDB_SERVER_PORT 888
+#define DEFAULT_CDDB_SERVER "freedb.freedb.org"
+#define DEFAULT_CDDB_SERVER_PORT 80
 
 extern prefs * global_prefs;
 

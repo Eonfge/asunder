@@ -1436,7 +1436,7 @@ GBLtranslators =
 "Antonio Sousa\n"
 "- pt (Portuguese) translation of Asunder version 1.5\n"
 "\n"
-"Felipe Augusto\n"
+"Flipe Augusto\n"
 "- pt_BR (Portuguese/Brazil) translation of Asunder versions 0.8.1 - 1.9\n"
 "\n"
 "Alexey Sivakov\n"

@@ -8,6 +8,7 @@
 - Fixed some wavpack encoding status reporting and cleanup.
 - Remember whether things in the preferences were expanded or not.
 - Added Arabic, Slovenian translations.
+- Replaced the program icon.
 
 29 Nov 2008 - 1.6.2
 ===================
