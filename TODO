@@ -3,9 +3,6 @@
 - make sure artist + song name is unique
 - A slider for WavPack looks strange when moved (see attachment).
 - translate .desktop file
-- test other cddb server/port, musicbrainz proxy
- - if musicbrainz works, add note in tooltip
-- try freedb.org port 80
 - links from encoder pages
 - link from cddb page
 - test playlists
