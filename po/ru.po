@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-23 03:15-0400\n"
+"POT-Creation-Date: 2009-09-02 10:13-0400\n"
 "PO-Revision-Date: 2009-08-26 13:35+0300\n"
 "Last-Translator: Goodvin aka Alexey Sivakov <asivakov@gmail.com>\n"
 "Language-Team: 11 <1>\n"
@@ -18,8 +18,7 @@ msgstr ""
 "X-Poedit-Country: 1\n"
 "X-Poedit-SourceCharset: 1\n"
 
-#: src/main.c:111
-#: src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Извлечь"
 
@@ -40,19 +39,19 @@ msgid "Time"
 msgstr "Время"
 
 #: src/main.c:161
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "'cdparanoia' не найдена по указанному пути. Asunder требует наличия cdparanoia для извлечения дорожек с CD."
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"'cdparanoia' не найдена по указанному пути. Asunder требует наличия "
+"cdparanoia для извлечения дорожек с CD."
 
 #: src/main.c:400
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Получение информаций о диске из сети...</b>"
 
-#: src/callbacks.c:57
-#: src/callbacks.c:187
-#: src/callbacks.c:215
-#: src/callbacks.c:225
-#: src/interface.c:550
-#: src/interface.c:773
+#: src/callbacks.c:57 src/callbacks.c:187 src/callbacks.c:215
+#: src/callbacks.c:225 src/interface.c:550 src/interface.c:773
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -61,16 +60,16 @@ msgstr "%dKbps"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Не вставлен диск. Пожалуйста, вставьте диск в привод."
 
-#: src/callbacks.c:346
-#: src/callbacks.c:371
-#: src/callbacks.c:396
-#: src/callbacks.c:421
-#: src/callbacks.c:446
-#: src/callbacks.c:471
+#: src/callbacks.c:346 src/callbacks.c:371 src/callbacks.c:396
+#: src/callbacks.c:421 src/callbacks.c:446 src/callbacks.c:471
 #: src/callbacks.c:496
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "Не найден %s. Это необходимо программе Asunder для создания %s-файлов. Функции %s не могут быть использованы."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"Не найден %s. Это необходимо программе Asunder для создания %s-файлов. "
+"Функции %s не могут быть использованы."
 
 #: src/callbacks.c:583
 msgid "Select all for ripping"
@@ -104,8 +103,7 @@ msgstr "Один исполнитель"
 msgid "Preferences"
 msgstr "Настройки"
 
-#: src/interface.c:350
-#: src/interface.c:356
+#: src/interface.c:350 src/interface.c:356
 msgid "Destination folder"
 msgstr "Каталог назначения"
 
@@ -151,14 +149,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Каталог альбома: "
 
-#: src/interface.c:426
-#: src/prefs.c:615
+#: src/interface.c:426 src/prefs.c:615
 msgid "Playlist file: "
 msgstr "Файл плейлиста: "
 
-#: src/interface.c:433
-#: src/prefs.c:627
-#: src/prefs.c:637
+#: src/interface.c:433 src/prefs.c:627 src/prefs.c:637
 msgid "Music file: "
 msgstr "Музыкальный файл: "
 
@@ -217,22 +212,23 @@ msgstr "Переменный битрейт (VBR)"
 msgid "Better quality for the same size."
 msgstr "Лучшее качество при том же размере"
 
-#: src/interface.c:532
-#: src/interface.c:708
-#: src/interface.c:755
+#: src/interface.c:532 src/interface.c:708 src/interface.c:755
 msgid "Bitrate"
 msgstr "Битрейт"
 
 #: src/interface.c:547
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "Более высокий битрейт означает больший размер файла. Большинство используют 192Kbps."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"Более высокий битрейт означает больший размер файла. Большинство используют "
+"192Kbps."
 
 #: src/interface.c:556
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (сжатие с потерями)"
 
-#: src/interface.c:578
-#: src/interface.c:866
+#: src/interface.c:578 src/interface.c:866
 msgid "Quality"
 msgstr "Качество"
 
@@ -244,14 +240,11 @@ msgstr "Высокое качество означает файл большег
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (сжатие с потерями)"
 
-#: src/interface.c:613
-#: src/interface.c:674
-#: src/interface.c:811
+#: src/interface.c:613 src/interface.c:674 src/interface.c:811
 msgid "Compression level"
 msgstr "Степень сжатия"
 
-#: src/interface.c:624
-#: src/interface.c:824
+#: src/interface.c:624 src/interface.c:824
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "Это не влияет на качество. Большая цифра означает меньший файл."
 
@@ -264,20 +257,30 @@ msgid "More formats"
 msgstr "Больше форматов"
 
 #: src/interface.c:687
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
-msgstr "Это не влияет на качество. Большая цифра означает меньший файл. По умолчанию 1 (рекомендуется)."
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"Это не влияет на качество. Большая цифра означает меньший файл. По умолчанию "
+"1 (рекомендуется)."
 
 #: src/interface.c:693
 msgid "Hybrid compression"
 msgstr "Смешанное сжатие"
 
 #: src/interface.c:702
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
-msgstr "Выбран формат с потерями, но создан файл коррекций для восстановления оригинала без потерь."
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+"Выбран формат с потерями, но создан файл коррекций для восстановления "
+"оригинала без потерь."
 
 #: src/interface.c:771
 msgid "Higher bitrate is better quality but also bigger file."
-msgstr "Более высокий битрейт означает более высокое качество, но также больший размер файла."
+msgstr ""
+"Более высокий битрейт означает более высокое качество, но также больший "
+"размер файла."
 
 #: src/interface.c:779
 msgid "Musepack (lossy compression)"
@@ -294,7 +297,8 @@ msgstr "Проприетарные кодеки"
 
 #: src/interface.c:879
 msgid "Higher quality means bigger file. Default is 60."
-msgstr "Более высокое качество означает файл большего размера. По умолчанию 60."
+msgstr ""
+"Более высокое качество означает файл большего размера. По умолчанию 60."
 
 #: src/interface.c:881
 msgid "AAC (lossy compression, Nero encoder)"
@@ -309,8 +313,7 @@ msgstr "Кодировать"
 msgid "Get disc info from the internet automatically"
 msgstr "Получить информацию о диске из сети Интернет автоматически"
 
-#: src/interface.c:929
-#: src/interface.c:974
+#: src/interface.c:929 src/interface.c:974
 msgid "Server: "
 msgstr "Сервер: "
 
@@ -318,8 +321,7 @@ msgstr "Сервер: "
 msgid "The CDDB server to get disc info from (default is freedb.org)"
 msgstr "Сервер CDDB для получения информации о диске (по умолчанию freedb.org)"
 
-#: src/interface.c:945
-#: src/interface.c:987
+#: src/interface.c:945 src/interface.c:987
 msgid "Port: "
 msgstr "Порт: "
 
@@ -335,8 +337,7 @@ msgstr "Использовать HTTP-прокси для подключения
 msgid "Advanced"
 msgstr "Расширенные"
 
-#: src/interface.c:1076
-#: src/interface.c:1112
+#: src/interface.c:1076 src/interface.c:1112
 msgid "Ripping"
 msgstr "Извлечение"
 
@@ -348,22 +349,21 @@ msgstr "Всего выполнено"
 msgid "Encoding"
 msgstr "Кодирование"
 
-#: src/interface.c:1503
+#: src/interface.c:1517
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d файл созданн успешно"
 msgstr[1] "%d файлов созданно успешно"
 
-#: src/interface.c:1512
+#: src/interface.c:1526
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Ошибка создания %d файла"
 msgstr[1] "Ошибка создания %d файлов"
 
-#: src/prefs.c:614
-#: src/prefs.c:626
+#: src/prefs.c:614 src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Неверные символы в поле '%s'"
@@ -395,16 +395,21 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "Запомнить ответ для _всех файлов из этого CD"
 
 #: src/threads.c:159
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "Не выбран метод извлечения/кодирования дорожек. Выберите один из указанных в меню 'Preferences'."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"Не выбран метод извлечения/кодирования дорожек. Выберите один из указанных в "
+"меню 'Preferences'."
 
 #: src/threads.c:190
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "Не выбраны дорожки для извлечения/кодирования. Пожалуйста, выберите как минимум одну дорожку."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"Не выбраны дорожки для извлечения/кодирования. Пожалуйста, выберите как "
+"минимум одну дорожку."
 
-#: src/threads.c:877
-#: src/threads.c:879
-#: src/threads.c:883
+#: src/threads.c:877 src/threads.c:879 src/threads.c:883
 msgid "Waiting..."
 msgstr "Ожидайте ..."
-

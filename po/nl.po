@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-23 03:15-0400\n"
+"POT-Creation-Date: 2009-09-02 10:13-0400\n"
 "PO-Revision-Date: 2009-08-30 18:49+0100\n"
 "Last-Translator: Stephen Brandt <stephen at stephenbrandt dot com>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -14,8 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:111
-#: src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Rippen"
 
@@ -36,19 +35,20 @@ msgid "Time"
 msgstr "Tijd"
 
 #: src/main.c:161
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "'cdparanoia' kon niet worden gevonden in het opgegeven pad. Asunder heeft cdparanoia nodig om cd's te rippen."
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"'cdparanoia' kon niet worden gevonden in het opgegeven pad. Asunder heeft "
+"cdparanoia nodig om cd's te rippen."
 
 #: src/main.c:400
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>Bezig met het verkrijgen van schijfinformatie van het internet...</b>"
+msgstr ""
+"<b>Bezig met het verkrijgen van schijfinformatie van het internet...</b>"
 
-#: src/callbacks.c:57
-#: src/callbacks.c:187
-#: src/callbacks.c:215
-#: src/callbacks.c:225
-#: src/interface.c:550
-#: src/interface.c:773
+#: src/callbacks.c:57 src/callbacks.c:187 src/callbacks.c:215
+#: src/callbacks.c:225 src/interface.c:550 src/interface.c:773
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -57,16 +57,16 @@ msgstr "%dKbps"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Geen cd geplaatst. Plaats een cd in de cd-romspeler."
 
-#: src/callbacks.c:346
-#: src/callbacks.c:371
-#: src/callbacks.c:396
-#: src/callbacks.c:421
-#: src/callbacks.c:446
-#: src/callbacks.c:471
+#: src/callbacks.c:346 src/callbacks.c:371 src/callbacks.c:396
+#: src/callbacks.c:421 src/callbacks.c:446 src/callbacks.c:471
 #: src/callbacks.c:496
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s kon niet worden gevonden in het opgegeven pad. Asunder heeft dit nodig om %s bestanden aan te maken. Alle %s functionaliteit is uitgeschakeld."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"%s kon niet worden gevonden in het opgegeven pad. Asunder heeft dit nodig om "
+"%s bestanden aan te maken. Alle %s functionaliteit is uitgeschakeld."
 
 #: src/callbacks.c:583
 msgid "Select all for ripping"
@@ -103,8 +103,7 @@ msgstr "Single-artiest"
 msgid "Preferences"
 msgstr "Voorkeuren"
 
-#: src/interface.c:350
-#: src/interface.c:356
+#: src/interface.c:350 src/interface.c:356
 msgid "Destination folder"
 msgstr "Bestemmingsmap"
 
@@ -150,14 +149,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Albummap: "
 
-#: src/interface.c:426
-#: src/prefs.c:615
+#: src/interface.c:426 src/prefs.c:615
 msgid "Playlist file: "
 msgstr "Afspeellijstbestand: "
 
-#: src/interface.c:433
-#: src/prefs.c:627
-#: src/prefs.c:637
+#: src/interface.c:433 src/prefs.c:627 src/prefs.c:637
 msgid "Music file: "
 msgstr "Muziekbestand: "
 
@@ -168,7 +164,8 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
-"Dit is relatief ten opzichte van de bestemmingsmap (zie het tabblad 'Algemeen').\n"
+"Dit is relatief ten opzichte van de bestemmingsmap (zie het tabblad "
+"'Algemeen').\n"
 "Mag leeg worden gelaten.\n"
 "Standaardwaarde: %A - %L\n"
 "Ander voorbeeld: %A/%L"
@@ -216,43 +213,44 @@ msgstr "Variabele bitrate (VBR)"
 msgid "Better quality for the same size."
 msgstr "Betere kwaliteit voor dezelfde grootte."
 
-#: src/interface.c:532
-#: src/interface.c:708
-#: src/interface.c:755
+#: src/interface.c:532 src/interface.c:708 src/interface.c:755
 msgid "Bitrate"
 msgstr "Bitrate"
 
 #: src/interface.c:547
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "Hogere bitrate geeft een betere kwaliteit, maar zorgt ook voor een groter bestand. Meest gangbaar is 192Kbps."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"Hogere bitrate geeft een betere kwaliteit, maar zorgt ook voor een groter "
+"bestand. Meest gangbaar is 192Kbps."
 
 #: src/interface.c:556
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (met kwaliteitsverlies)"
 
-#: src/interface.c:578
-#: src/interface.c:866
+#: src/interface.c:578 src/interface.c:866
 msgid "Quality"
 msgstr "Kwaliteit"
 
 #: src/interface.c:589
 msgid "Higher quality means bigger file. Default is 6."
-msgstr "Een hogere kwaliteit resulteert in een groter bestand. Standaardwaarde is 6."
+msgstr ""
+"Een hogere kwaliteit resulteert in een groter bestand. Standaardwaarde is 6."
 
 #: src/interface.c:591
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (met kwaliteitsverlies)"
 
-#: src/interface.c:613
-#: src/interface.c:674
-#: src/interface.c:811
+#: src/interface.c:613 src/interface.c:674 src/interface.c:811
 msgid "Compression level"
 msgstr "Compressieniveau"
 
-#: src/interface.c:624
-#: src/interface.c:824
+#: src/interface.c:624 src/interface.c:824
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr "Dit heeft geen invloed op de kwaliteit. Een hoger getal zorgt voor een kleiner bestand."
+msgstr ""
+"Dit heeft geen invloed op de kwaliteit. Een hoger getal zorgt voor een "
+"kleiner bestand."
 
 #: src/interface.c:626
 msgid "FLAC (lossless compression)"
@@ -263,20 +261,30 @@ msgid "More formats"
 msgstr "Meer formaten"
 
 #: src/interface.c:687
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
-msgstr "Dit heeft geen invloed op de kwaliteit. Een hoger getal zorgt voor een kleiner bestand. Standaard is dit 1 (aanbevolen)."
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"Dit heeft geen invloed op de kwaliteit. Een hoger getal zorgt voor een "
+"kleiner bestand. Standaard is dit 1 (aanbevolen)."
 
 #: src/interface.c:693
 msgid "Hybrid compression"
 msgstr "Hybride compressie"
 
 #: src/interface.c:702
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
-msgstr "Het formaat heeft kwaliteitsverlies, maar een correctiebestand wordt aangemaakt om het verliesvrije origineel te herstellen."
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+"Het formaat heeft kwaliteitsverlies, maar een correctiebestand wordt "
+"aangemaakt om het verliesvrije origineel te herstellen."
 
 #: src/interface.c:771
 msgid "Higher bitrate is better quality but also bigger file."
-msgstr "Hogere bitrate geeft een betere kwaliteit, maar zorgt ook voor een groter bestand."
+msgstr ""
+"Hogere bitrate geeft een betere kwaliteit, maar zorgt ook voor een groter "
+"bestand."
 
 #: src/interface.c:779
 msgid "Musepack (lossy compression)"
@@ -293,7 +301,8 @@ msgstr "Eigendomsmatige encoders"
 
 #: src/interface.c:879
 msgid "Higher quality means bigger file. Default is 60."
-msgstr "Een hogere kwaliteit resulteert in een groter bestand. Standaardwaarde is 60."
+msgstr ""
+"Een hogere kwaliteit resulteert in een groter bestand. Standaardwaarde is 60."
 
 #: src/interface.c:881
 msgid "AAC (lossy compression, Nero encoder)"
@@ -308,17 +317,17 @@ msgstr "Encodering"
 msgid "Get disc info from the internet automatically"
 msgstr "Schijfinformatie automatisch verkrijgen van het internet"
 
-#: src/interface.c:929
-#: src/interface.c:974
+#: src/interface.c:929 src/interface.c:974
 msgid "Server: "
 msgstr "Server: "
 
 #: src/interface.c:939
 msgid "The CDDB server to get disc info from (default is freedb.org)"
-msgstr "CDDB-server waar de schijf-informatie vandaan gehaald dient te worden (standaardwaarde is freedb.org)"
+msgstr ""
+"CDDB-server waar de schijf-informatie vandaan gehaald dient te worden "
+"(standaardwaarde is freedb.org)"
 
-#: src/interface.c:945
-#: src/interface.c:987
+#: src/interface.c:945 src/interface.c:987
 msgid "Port: "
 msgstr "Poort: "
 
@@ -334,8 +343,7 @@ msgstr "Maak gebruik van een HTTP-proxy om te verbinden met het internet"
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: src/interface.c:1076
-#: src/interface.c:1112
+#: src/interface.c:1076 src/interface.c:1112
 msgid "Ripping"
 msgstr "Rippen"
 
@@ -348,22 +356,21 @@ msgstr "Totale voortgang"
 msgid "Encoding"
 msgstr "Encoderen"
 
-#: src/interface.c:1503
+#: src/interface.c:1517
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d bestand succesvol aangemaakt"
 msgstr[1] "%d bestanden succesvol aangemaakt"
 
-#: src/interface.c:1512
+#: src/interface.c:1526
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Er is een fout opgestreden bij het aanmaken van %d bestand"
 msgstr[1] "Er is een fout opgestreden bij het aanmaken van %d bestanden"
 
-#: src/prefs.c:614
-#: src/prefs.c:626
+#: src/prefs.c:614 src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Ongeldige tekens in het '%s'-veld"
@@ -395,16 +402,22 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "Antwoord voor _alle bestanden van deze CD onthouden"
 
 #: src/threads.c:159
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "Er is geen methode geselecteerd voor het rippen/encoderen. Selecteer een methode via het 'Voorkeuren'-menu."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"Er is geen methode geselecteerd voor het rippen/encoderen. Selecteer een "
+"methode via het 'Voorkeuren'-menu."
 
 #: src/threads.c:190
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "Er zijn geen tracks geselecteerd om te rippen/encoderen. Selecteer minimaal één track."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"Er zijn geen tracks geselecteerd om te rippen/encoderen. Selecteer minimaal "
+"één track."
 
-#: src/threads.c:877
-#: src/threads.c:879
-#: src/threads.c:883
+#: src/threads.c:877 src/threads.c:879 src/threads.c:883
 msgid "Waiting..."
 msgstr "Aan het wachten..."
 
@@ -415,10 +428,12 @@ msgstr "Aan het wachten..."
 #, fuzzy
 #~ msgid "Music file"
 #~ msgstr "Muziekbestand: "
+
 #~ msgid "Create directory for each album"
 #~ msgstr "Creëer een map voor elk album"
+
 #~ msgid "These characters will be removed from all filenames."
 #~ msgstr "Deze tekens zullen worden verwijderd uit alle bestandsnamen."
+
 #~ msgid "Asunder"
 #~ msgstr "Asunder"
-

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs.po_[XwND8b]\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-23 03:15-0400\n"
+"POT-Creation-Date: 2009-09-02 10:13-0400\n"
 "PO-Revision-Date: 2009-08-24 13:01+0200\n"
 "Last-Translator: Roman Smakal <smallsmaky@seznam.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -51,7 +51,8 @@ msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Získávání informací o disku z internetu</b>"
 
 #: src/callbacks.c:57 src/callbacks.c:187 src/callbacks.c:215
-#: src/callbacks.c:225 src/interface.c:550 src/interface.c:773, c-format
+#: src/callbacks.c:225 src/interface.c:550 src/interface.c:773
+#, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
@@ -346,14 +347,14 @@ msgstr "Celkový průběh"
 msgid "Encoding"
 msgstr "Kódování"
 
-#: src/interface.c:1503
+#: src/interface.c:1517
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d soubor úspěšně vytvořen"
 msgstr[1] "%d soubory úspěšně vytvořeny"
 
-#: src/interface.c:1512
+#: src/interface.c:1526
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -410,5 +411,3 @@ msgstr ""
 #: src/threads.c:877 src/threads.c:879 src/threads.c:883
 msgid "Waiting..."
 msgstr "Čekám..."
-
-

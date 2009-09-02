@@ -1,11 +1,11 @@
 # Polish translation for Asunder.
 # This file is distributed under the same license as the Asunder package.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-23 03:15-0400\n"
+"POT-Creation-Date: 2009-09-02 10:13-0400\n"
 "PO-Revision-Date: 2007-10-05 08:31-0400\n"
 "Last-Translator: Marcin Gasiorowski <marcin_g@epf.pl>\n"
 "Language-Team: \n"
@@ -342,14 +342,14 @@ msgstr "Całkowity postęp"
 msgid "Encoding"
 msgstr "Kodowanie"
 
-#: src/interface.c:1503
+#: src/interface.c:1517
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d plik został utworzony pomyślnie"
 msgstr[1] "%d plików zostało utworzonych pomyślnie"
 
-#: src/interface.c:1512
+#: src/interface.c:1526
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

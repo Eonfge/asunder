@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-23 03:15-0400\n"
+"POT-Creation-Date: 2009-09-02 10:13-0400\n"
 "PO-Revision-Date: 2009-08-24 08:37+0800\n"
 "Last-Translator: Cheng-Wei Chien <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
@@ -17,8 +17,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: src/main.c:111
-#: src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "擷取音軌"
 
@@ -39,19 +38,18 @@ msgid "Time"
 msgstr "歌曲長度"
 
 #: src/main.c:161
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "您指定的路徑內找不到「cdparanoia」。Asunder 需要「cdparanoia」 來擷取音軌。"
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"您指定的路徑內找不到「cdparanoia」。Asunder 需要「cdparanoia」 來擷取音軌。"
 
 #: src/main.c:400
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>正在從網路取得光碟資訊...</b>"
 
-#: src/callbacks.c:57
-#: src/callbacks.c:187
-#: src/callbacks.c:215
-#: src/callbacks.c:225
-#: src/interface.c:550
-#: src/interface.c:773
+#: src/callbacks.c:57 src/callbacks.c:187 src/callbacks.c:215
+#: src/callbacks.c:225 src/interface.c:550 src/interface.c:773
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -60,16 +58,16 @@ msgstr "%dKbps"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "尚未放入光碟。請將光碟放入光碟機中。"
 
-#: src/callbacks.c:346
-#: src/callbacks.c:371
-#: src/callbacks.c:396
-#: src/callbacks.c:421
-#: src/callbacks.c:446
-#: src/callbacks.c:471
+#: src/callbacks.c:346 src/callbacks.c:371 src/callbacks.c:396
+#: src/callbacks.c:421 src/callbacks.c:446 src/callbacks.c:471
 #: src/callbacks.c:496
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "在您指定的路徑內找不到 %s。Asunder 需要該檔案來新建 %s 檔。%s 的所有功能都已被停用。"
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"在您指定的路徑內找不到 %s。Asunder 需要該檔案來新建 %s 檔。%s 的所有功能都已"
+"被停用。"
 
 #: src/callbacks.c:583
 msgid "Select all for ripping"
@@ -103,8 +101,7 @@ msgstr "單一藝人"
 msgid "Preferences"
 msgstr "偏好設定"
 
-#: src/interface.c:350
-#: src/interface.c:356
+#: src/interface.c:350 src/interface.c:356
 msgid "Destination folder"
 msgstr "存至"
 
@@ -150,14 +147,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "專輯目錄： "
 
-#: src/interface.c:426
-#: src/prefs.c:615
+#: src/interface.c:426 src/prefs.c:615
 msgid "Playlist file: "
 msgstr "播放清單： "
 
-#: src/interface.c:433
-#: src/prefs.c:627
-#: src/prefs.c:637
+#: src/interface.c:433 src/prefs.c:627 src/prefs.c:637
 msgid "Music file: "
 msgstr "音樂檔： "
 
@@ -216,22 +210,21 @@ msgstr "變動位元率（VBR）"
 msgid "Better quality for the same size."
 msgstr "提高音質但保持相同檔案大小。"
 
-#: src/interface.c:532
-#: src/interface.c:708
-#: src/interface.c:755
+#: src/interface.c:532 src/interface.c:708 src/interface.c:755
 msgid "Bitrate"
 msgstr "位元率"
 
 #: src/interface.c:547
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
 msgstr "位元率越高，雖然音質越好，但檔案也會越大。大多數人都指定192Kbps。"
 
 #: src/interface.c:556
 msgid "MP3 (lossy compression)"
 msgstr "MP3（有失真的壓縮）"
 
-#: src/interface.c:578
-#: src/interface.c:866
+#: src/interface.c:578 src/interface.c:866
 msgid "Quality"
 msgstr "音質"
 
@@ -243,14 +236,11 @@ msgstr "音質越好，檔案越大。預設值為6。"
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis（無失真的壓縮）"
 
-#: src/interface.c:613
-#: src/interface.c:674
-#: src/interface.c:811
+#: src/interface.c:613 src/interface.c:674 src/interface.c:811
 msgid "Compression level"
 msgstr "壓縮等級"
 
-#: src/interface.c:624
-#: src/interface.c:824
+#: src/interface.c:624 src/interface.c:824
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "這並不會影響音質。數字越大，檔案越小。"
 
@@ -263,7 +253,9 @@ msgid "More formats"
 msgstr "其他格式"
 
 #: src/interface.c:687
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
 msgstr "這並不會影響音質。數字越大，檔案越小。預設值為 1（建議使用）。"
 
 #: src/interface.c:693
@@ -271,7 +263,9 @@ msgid "Hybrid compression"
 msgstr "Hibrid 壓縮法"
 
 #: src/interface.c:702
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
 msgstr "這種格式雖有損音質，但已創建一修正檔以供還原至原音質之用。"
 
 #: src/interface.c:771
@@ -308,8 +302,7 @@ msgstr "編碼設定"
 msgid "Get disc info from the internet automatically"
 msgstr "自動從網路取得光碟資訊"
 
-#: src/interface.c:929
-#: src/interface.c:974
+#: src/interface.c:929 src/interface.c:974
 msgid "Server: "
 msgstr "伺服器位址："
 
@@ -317,8 +310,7 @@ msgstr "伺服器位址："
 msgid "The CDDB server to get disc info from (default is freedb.org)"
 msgstr "取得光碟資訊的 CDDB 伺服器（預設為 freedb.org）"
 
-#: src/interface.c:945
-#: src/interface.c:987
+#: src/interface.c:945 src/interface.c:987
 msgid "Port: "
 msgstr "連接埠："
 
@@ -334,8 +326,7 @@ msgstr "透過 HTTP 連線伺服器來連上網路"
 msgid "Advanced"
 msgstr "進階設定"
 
-#: src/interface.c:1076
-#: src/interface.c:1112
+#: src/interface.c:1076 src/interface.c:1112
 msgid "Ripping"
 msgstr "正在擷取..."
 
@@ -347,20 +338,19 @@ msgstr "總進度"
 msgid "Encoding"
 msgstr "正在編碼..."
 
-#: src/interface.c:1503
+#: src/interface.c:1517
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "成功地新建了%d個檔案"
 
-#: src/interface.c:1512
+#: src/interface.c:1526
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "新建%d個檔案時發生錯誤"
 
-#: src/prefs.c:614
-#: src/prefs.c:626
+#: src/prefs.c:614 src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "'%s'欄位中有無效的字元"
@@ -392,16 +382,18 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "記住設定值，供所有用此CD做出的檔案使用"
 
 #: src/threads.c:159
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
 msgstr "尚未選擇 擷取音軌/編碼 方法。請從「偏好設定」選單中啟用其中一種。"
 
 #: src/threads.c:190
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
 msgstr "尚未選取要 擷取/編碼 的音軌。請至少選擇一個音軌。"
 
-#: src/threads.c:877
-#: src/threads.c:879
-#: src/threads.c:883
+#: src/threads.c:877 src/threads.c:879 src/threads.c:883
 msgid "Waiting..."
 msgstr "請稍待..."
 
@@ -412,8 +404,9 @@ msgstr "請稍待..."
 #, fuzzy
 #~ msgid "Music file"
 #~ msgstr "音樂檔： "
+
 #~ msgid "Create directory for each album"
 #~ msgstr "每張專輯都建立個別的目錄"
+
 #~ msgid "These characters will be removed from all filenames."
 #~ msgstr "這些字元將會從所有檔名中刪除。"
-

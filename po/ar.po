@@ -7,22 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-24 19:01-0400\n"
+"POT-Creation-Date: 2009-09-02 10:13-0400\n"
 "PO-Revision-Date: 2009-08-28 18:26+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
-"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Virtaal 0.4.0\n"
 "X-Poedit-Language: Arabic\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: src/main.c:111
-#: src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "انسخ"
 
@@ -46,18 +45,15 @@ msgstr "الزمن"
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
-msgstr "لم يوجد 'cdparanoia' في مسارك. يحتاج أسوندر cdparanoia لنسخ الاسطوانات."
+msgstr ""
+"لم يوجد 'cdparanoia' في مسارك. يحتاج أسوندر cdparanoia لنسخ الاسطوانات."
 
 #: src/main.c:400
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>يجلب معلومات القرص من الإنترنت...</b>"
 
-#: src/callbacks.c:57
-#: src/callbacks.c:187
-#: src/callbacks.c:215
-#: src/callbacks.c:225
-#: src/interface.c:550
-#: src/interface.c:773
+#: src/callbacks.c:57 src/callbacks.c:187 src/callbacks.c:215
+#: src/callbacks.c:225 src/interface.c:550 src/interface.c:773
 #, c-format
 msgid "%dKbps"
 msgstr "%d ك.بايت\\ث"
@@ -66,12 +62,8 @@ msgstr "%d ك.بايت\\ث"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "لم تُدخل أي اسطوانات. من فضلك أدخل اسطوانة في مشغل الاسطوانات."
 
-#: src/callbacks.c:346
-#: src/callbacks.c:371
-#: src/callbacks.c:396
-#: src/callbacks.c:421
-#: src/callbacks.c:446
-#: src/callbacks.c:471
+#: src/callbacks.c:346 src/callbacks.c:371 src/callbacks.c:396
+#: src/callbacks.c:421 src/callbacks.c:446 src/callbacks.c:471
 #: src/callbacks.c:496
 #, c-format
 msgid ""
@@ -111,8 +103,7 @@ msgstr "فنان منفرد"
 msgid "Preferences"
 msgstr "التفضيلات"
 
-#: src/interface.c:350
-#: src/interface.c:356
+#: src/interface.c:350 src/interface.c:356
 msgid "Destination folder"
 msgstr "مجلد النسخ"
 
@@ -158,14 +149,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "مجلد الألبوم: "
 
-#: src/interface.c:426
-#: src/prefs.c:615
+#: src/interface.c:426 src/prefs.c:615
 msgid "Playlist file: "
 msgstr "ملف قائمة التشغيل: "
 
-#: src/interface.c:433
-#: src/prefs.c:627
-#: src/prefs.c:637
+#: src/interface.c:433 src/prefs.c:627 src/prefs.c:637
 msgid "Music file: "
 msgstr "ملف الموسيقى: "
 
@@ -224,9 +212,7 @@ msgstr "معدل بتات متغير (VBR)"
 msgid "Better quality for the same size."
 msgstr "جودة أعلى بنفس الحجم."
 
-#: src/interface.c:532
-#: src/interface.c:708
-#: src/interface.c:755
+#: src/interface.c:532 src/interface.c:708 src/interface.c:755
 msgid "Bitrate"
 msgstr "معدل البتات"
 
@@ -242,8 +228,7 @@ msgstr ""
 msgid "MP3 (lossy compression)"
 msgstr "‏MP3 (ضغط فقود)"
 
-#: src/interface.c:578
-#: src/interface.c:866
+#: src/interface.c:578 src/interface.c:866
 msgid "Quality"
 msgstr "الجودة"
 
@@ -255,14 +240,11 @@ msgstr "الجودة الأعلى تعني ملف أكبر. الافتراضي 6
 msgid "OGG Vorbis (lossy compression)"
 msgstr "‏OGG  Vorbis (ضغط فقود)"
 
-#: src/interface.c:613
-#: src/interface.c:674
-#: src/interface.c:811
+#: src/interface.c:613 src/interface.c:674 src/interface.c:811
 msgid "Compression level"
 msgstr "مستوى الضغط"
 
-#: src/interface.c:624
-#: src/interface.c:824
+#: src/interface.c:624 src/interface.c:824
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "لا يؤثر هذا على الجودة. الرقم الأعلى يعني ملفا أصغر."
 
@@ -325,8 +307,7 @@ msgstr "رمّز"
 msgid "Get disc info from the internet automatically"
 msgstr "اجلب معلومات القرص من الإنترنت تلقائيا"
 
-#: src/interface.c:929
-#: src/interface.c:974
+#: src/interface.c:929 src/interface.c:974
 msgid "Server: "
 msgstr "الخادوم: "
 
@@ -334,8 +315,7 @@ msgstr "الخادوم: "
 msgid "The CDDB server to get disc info from (default is freedb.org)"
 msgstr "خادوم CDDB المستخدم في جلب معلومات القرص (الافتراضي freedb.org)"
 
-#: src/interface.c:945
-#: src/interface.c:987
+#: src/interface.c:945 src/interface.c:987
 msgid "Port: "
 msgstr "المنفذ: "
 
@@ -351,8 +331,7 @@ msgstr "استخدم وسيط HTTP للاتصال بالإنترنت"
 msgid "Advanced"
 msgstr "متقدم"
 
-#: src/interface.c:1076
-#: src/interface.c:1112
+#: src/interface.c:1076 src/interface.c:1112
 msgid "Ripping"
 msgstr "ينسخ"
 
@@ -364,7 +343,7 @@ msgstr "التقدم الكلي"
 msgid "Encoding"
 msgstr "يُرمّز"
 
-#: src/interface.c:1507
+#: src/interface.c:1517
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -375,7 +354,7 @@ msgstr[3] "أنشئت %d ملفات بنجاح"
 msgstr[4] "أنشئ %d ملفا بنجاح"
 msgstr[5] "أنشئ %d ملف بنجاح"
 
-#: src/interface.c:1516
+#: src/interface.c:1526
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -386,8 +365,7 @@ msgstr[3] "حدث خطأ أثناء إنشاء %d ملفات"
 msgstr[4] "حدث خطأ أثناء إنشاء %d ملفا"
 msgstr[5] "حدث خطأ أثناء إنشاء %d ملف"
 
-#: src/prefs.c:614
-#: src/prefs.c:626
+#: src/prefs.c:614 src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "محارف غير صالحة في حقل '%s' "
@@ -430,8 +408,6 @@ msgid ""
 "track."
 msgstr "لم تختر أي مقاطع للنسخ/الترميز. من فضلك اختر مقطعا واحدا على الأقل."
 
-#: src/threads.c:877
-#: src/threads.c:879
-#: src/threads.c:883
+#: src/threads.c:877 src/threads.c:879 src/threads.c:883
 msgid "Waiting..."
 msgstr "ينتظر..."

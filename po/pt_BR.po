@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder-0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-23 03:15-0400\n"
+"POT-Creation-Date: 2009-09-02 10:13-0400\n"
 "PO-Revision-Date: 2009-08-24 10:20-0300\n"
 "Last-Translator: felipe augusto <flipeicl@gmail.com>\n"
 "Language-Team: Pt-Br <flipeicl@gmail.com>\n"
@@ -17,8 +17,7 @@ msgstr ""
 "X-Poedit-Country: BRAZIL\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: src/main.c:111
-#: src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Ripar"
 
@@ -39,37 +38,38 @@ msgid "Time"
 msgstr "Tempo"
 
 #: src/main.c:161
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "'cdparanoia' não foi encontrado no seu sistema. O Asunder requer o cdparanoia para ripar CDs."
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"'cdparanoia' não foi encontrado no seu sistema. O Asunder requer o "
+"cdparanoia para ripar CDs."
 
 #: src/main.c:400
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Pegando info do disco da internet...</b>"
 
-#: src/callbacks.c:57
-#: src/callbacks.c:187
-#: src/callbacks.c:215
-#: src/callbacks.c:225
-#: src/interface.c:550
-#: src/interface.c:773
+#: src/callbacks.c:57 src/callbacks.c:187 src/callbacks.c:215
+#: src/callbacks.c:225 src/interface.c:550 src/interface.c:773
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
 #: src/callbacks.c:327
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr "Nenhum CD foi inserido. Por favor insira um CD dendtro o drive de CD-ROM."
+msgstr ""
+"Nenhum CD foi inserido. Por favor insira um CD dendtro o drive de CD-ROM."
 
-#: src/callbacks.c:346
-#: src/callbacks.c:371
-#: src/callbacks.c:396
-#: src/callbacks.c:421
-#: src/callbacks.c:446
-#: src/callbacks.c:471
+#: src/callbacks.c:346 src/callbacks.c:371 src/callbacks.c:396
+#: src/callbacks.c:421 src/callbacks.c:446 src/callbacks.c:471
 #: src/callbacks.c:496
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s não foi encontrado no seu sistema. O Asunder o requer para criar arquivos %s. Todos funcionalidades %s estão disabilitadas."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"%s não foi encontrado no seu sistema. O Asunder o requer para criar arquivos "
+"%s. Todos funcionalidades %s estão disabilitadas."
 
 #: src/callbacks.c:583
 msgid "Select all for ripping"
@@ -103,8 +103,7 @@ msgstr "Artista único"
 msgid "Preferences"
 msgstr "Preferências"
 
-#: src/interface.c:350
-#: src/interface.c:356
+#: src/interface.c:350 src/interface.c:356
 msgid "Destination folder"
 msgstr "Diretório de destino"
 
@@ -150,14 +149,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Diretório do álbum:"
 
-#: src/interface.c:426
-#: src/prefs.c:615
+#: src/interface.c:426 src/prefs.c:615
 msgid "Playlist file: "
 msgstr "Arquivo de lista:"
 
-#: src/interface.c:433
-#: src/prefs.c:627
-#: src/prefs.c:637
+#: src/interface.c:433 src/prefs.c:627 src/prefs.c:637
 msgid "Music file: "
 msgstr "Arquivo de música:"
 
@@ -216,22 +212,23 @@ msgstr "Taxa de bit váriavel (VBR)"
 msgid "Better quality for the same size."
 msgstr "Melhor qualidade para o mesmo tamanho."
 
-#: src/interface.c:532
-#: src/interface.c:708
-#: src/interface.c:755
+#: src/interface.c:532 src/interface.c:708 src/interface.c:755
 msgid "Bitrate"
 msgstr "Taxa de bit"
 
 #: src/interface.c:547
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "Taxa de bit maior tem melhor qualidade mas também um arquivo maior. A maioria das pessoas usam 192Kbps."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"Taxa de bit maior tem melhor qualidade mas também um arquivo maior. A "
+"maioria das pessoas usam 192Kbps."
 
 #: src/interface.c:556
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (compressão com perda)"
 
-#: src/interface.c:578
-#: src/interface.c:866
+#: src/interface.c:578 src/interface.c:866
 msgid "Quality"
 msgstr "Qualidade"
 
@@ -243,14 +240,11 @@ msgstr "Qualidade maior significa arquivo maior. O padrão é 6."
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (compressão com perda)"
 
-#: src/interface.c:613
-#: src/interface.c:674
-#: src/interface.c:811
+#: src/interface.c:613 src/interface.c:674 src/interface.c:811
 msgid "Compression level"
 msgstr "Nível de compressão"
 
-#: src/interface.c:624
-#: src/interface.c:824
+#: src/interface.c:624 src/interface.c:824
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "Isto não afeta a qualidade. Maior número significa arquivo menor."
 
@@ -263,16 +257,24 @@ msgid "More formats"
 msgstr "Mais formatos"
 
 #: src/interface.c:687
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
-msgstr "Isto não afeta a qualidade. Maior número significa arquivo menor. Padrão é 1 (recomendado)."
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"Isto não afeta a qualidade. Maior número significa arquivo menor. Padrão é 1 "
+"(recomendado)."
 
 #: src/interface.c:693
 msgid "Hybrid compression"
 msgstr "Compressão Híbrida"
 
 #: src/interface.c:702
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
-msgstr "O formato é com perda mas um arquivo de correção é criado para restaurar o original sem perda."
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+"O formato é com perda mas um arquivo de correção é criado para restaurar o "
+"original sem perda."
 
 #: src/interface.c:771
 msgid "Higher bitrate is better quality but also bigger file."
@@ -308,8 +310,7 @@ msgstr "Codificar"
 msgid "Get disc info from the internet automatically"
 msgstr "Obter info do disco pela internet automaticamente"
 
-#: src/interface.c:929
-#: src/interface.c:974
+#: src/interface.c:929 src/interface.c:974
 msgid "Server: "
 msgstr "Servidor:"
 
@@ -317,8 +318,7 @@ msgstr "Servidor:"
 msgid "The CDDB server to get disc info from (default is freedb.org)"
 msgstr "O servidor CDDB para obter info sobre o disco em (padrão é freedb.org)"
 
-#: src/interface.c:945
-#: src/interface.c:987
+#: src/interface.c:945 src/interface.c:987
 msgid "Port: "
 msgstr "Porta:"
 
@@ -334,8 +334,7 @@ msgstr "Usar um proxy HTTP para conectar-se a internet"
 msgid "Advanced"
 msgstr "Avançado"
 
-#: src/interface.c:1076
-#: src/interface.c:1112
+#: src/interface.c:1076 src/interface.c:1112
 msgid "Ripping"
 msgstr "Ripando"
 
@@ -347,22 +346,21 @@ msgstr "Progresso total"
 msgid "Encoding"
 msgstr "Decodificar"
 
-#: src/interface.c:1503
+#: src/interface.c:1517
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "O Arquivo %d foi criado com sucesso"
 msgstr[1] "Os arquivos %d foram criados com sucesso"
 
-#: src/interface.c:1512
+#: src/interface.c:1526
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Houve erro ao criar o arquivo %d"
 msgstr[1] "Houve erro ao criar os arquivos %d"
 
-#: src/prefs.c:614
-#: src/prefs.c:626
+#: src/prefs.c:614 src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Caracteres inválidos no campo '%s'"
@@ -394,16 +392,21 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "Lembrar a pergunta para _todos os arquivos feitos deste CD"
 
 #: src/threads.c:159
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "Método de ripar/descodificar não selecionado. Por favor habilite uma no menu \"Preferências\"."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"Método de ripar/descodificar não selecionado. Por favor habilite uma no menu "
+"\"Preferências\"."
 
 #: src/threads.c:190
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "Nenhuma faixa foi selecionada para ripar/descodificar. Por favor selecione ao menos uma faixa."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"Nenhuma faixa foi selecionada para ripar/descodificar. Por favor selecione "
+"ao menos uma faixa."
 
-#: src/threads.c:877
-#: src/threads.c:879
-#: src/threads.c:883
+#: src/threads.c:877 src/threads.c:879 src/threads.c:883
 msgid "Waiting..."
 msgstr "Aguardando..."
-

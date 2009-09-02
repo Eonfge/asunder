@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-23 03:15-0400\n"
+"POT-Creation-Date: 2009-09-02 10:13-0400\n"
 "PO-Revision-Date: 2009-08-25 17:13+0100\n"
 "Last-Translator: Milan Pužić <milanpuzic@gmail.com>\n"
 "Language-Team: \n"
@@ -16,8 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 "X-Poedit-Language: Serbian\n"
 
-#: src/main.c:111
-#: src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Ekstraktuj CD"
 
@@ -38,19 +37,19 @@ msgid "Time"
 msgstr "Trajanje"
 
 #: src/main.c:161
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "'cdparanoia' nije pronađena u vašoj putanji. Ovo je potrebno za ekstraktovanje CD-ova."
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"'cdparanoia' nije pronađena u vašoj putanji. Ovo je potrebno za "
+"ekstraktovanje CD-ova."
 
 #: src/main.c:400
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Preuzimam informacije o disku sa interneta...</b>"
 
-#: src/callbacks.c:57
-#: src/callbacks.c:187
-#: src/callbacks.c:215
-#: src/callbacks.c:225
-#: src/interface.c:550
-#: src/interface.c:773
+#: src/callbacks.c:57 src/callbacks.c:187 src/callbacks.c:215
+#: src/callbacks.c:225 src/interface.c:550 src/interface.c:773
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -59,16 +58,16 @@ msgstr "%dKbps"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Nije ubačen CD. Molim ubacite CD u vaš CD-ROM uređaj."
 
-#: src/callbacks.c:346
-#: src/callbacks.c:371
-#: src/callbacks.c:396
-#: src/callbacks.c:421
-#: src/callbacks.c:446
-#: src/callbacks.c:471
+#: src/callbacks.c:346 src/callbacks.c:371 src/callbacks.c:396
+#: src/callbacks.c:421 src/callbacks.c:446 src/callbacks.c:471
 #: src/callbacks.c:496
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s nije pronađen u vašoj putanji. Potreban je za kreiranje fajlova %s. Sva %s funkcionalnost je onemogućena."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"%s nije pronađen u vašoj putanji. Potreban je za kreiranje fajlova %s. Sva %"
+"s funkcionalnost je onemogućena."
 
 #: src/callbacks.c:583
 msgid "Select all for ripping"
@@ -102,8 +101,7 @@ msgstr "Jedan izvođač"
 msgid "Preferences"
 msgstr "Podešavanja"
 
-#: src/interface.c:350
-#: src/interface.c:356
+#: src/interface.c:350 src/interface.c:356
 msgid "Destination folder"
 msgstr "Destinaciona fascikla"
 
@@ -149,14 +147,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Fascikla albuma: "
 
-#: src/interface.c:426
-#: src/prefs.c:615
+#: src/interface.c:426 src/prefs.c:615
 msgid "Playlist file: "
 msgstr "Datoteka liste numera: "
 
-#: src/interface.c:433
-#: src/prefs.c:627
-#: src/prefs.c:637
+#: src/interface.c:433 src/prefs.c:627 src/prefs.c:637
 msgid "Music file: "
 msgstr "Muzička datoteka: "
 
@@ -215,22 +210,23 @@ msgstr "Promenljivi bitrate (VBR)"
 msgid "Better quality for the same size."
 msgstr "Bolji kvalitet za istu veličinu datoteke."
 
-#: src/interface.c:532
-#: src/interface.c:708
-#: src/interface.c:755
+#: src/interface.c:532 src/interface.c:708 src/interface.c:755
 msgid "Bitrate"
 msgstr "Bitrate (broj bitova u sekundi)"
 
 #: src/interface.c:547
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "Veći bitrate rezultuje boljim kvalitetom, ali i većom datotekom. Većina korisnika upotrebljava 192Kbps."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"Veći bitrate rezultuje boljim kvalitetom, ali i većom datotekom. Većina "
+"korisnika upotrebljava 192Kbps."
 
 #: src/interface.c:556
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (kompresija sa malim gubitkom kvaliteta)"
 
-#: src/interface.c:578
-#: src/interface.c:866
+#: src/interface.c:578 src/interface.c:866
 msgid "Quality"
 msgstr "Kvalitet"
 
@@ -242,14 +238,11 @@ msgstr "Bolji kvalitet rezultuje većom datotekom. Uobičajena vrednost je 6."
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (kompresija sa malim gubitkom kvaliteta)"
 
-#: src/interface.c:613
-#: src/interface.c:674
-#: src/interface.c:811
+#: src/interface.c:613 src/interface.c:674 src/interface.c:811
 msgid "Compression level"
 msgstr "Nivo kompresije"
 
-#: src/interface.c:624
-#: src/interface.c:824
+#: src/interface.c:624 src/interface.c:824
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "Ovo ne utiče na kvalitet. Viša vrednost ukazuje na manju datoteku."
 
@@ -262,20 +255,30 @@ msgid "More formats"
 msgstr "Dodatni formati"
 
 #: src/interface.c:687
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
-msgstr "Ovo ne utiče na kvalitet. Viša vrednost ukazuje na manju datoteku. Uobičajena vrednost je 1 (preporučeno)."
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"Ovo ne utiče na kvalitet. Viša vrednost ukazuje na manju datoteku. "
+"Uobičajena vrednost je 1 (preporučeno)."
 
 #: src/interface.c:693
 msgid "Hybrid compression"
 msgstr "Hibridna kompresija"
 
 #: src/interface.c:702
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
-msgstr "Format prouzrokuje gubitak kvaliteta, ali korekciona datoteka je kreirana radi obnove originalne datoteke bez gubitka."
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+"Format prouzrokuje gubitak kvaliteta, ali korekciona datoteka je kreirana "
+"radi obnove originalne datoteke bez gubitka."
 
 #: src/interface.c:771
 msgid "Higher bitrate is better quality but also bigger file."
-msgstr "Veći bitrate rezultuje boljim kvalitetom, ali i većom datotekom. Većina korisnika upotrebljava 192Kbps."
+msgstr ""
+"Veći bitrate rezultuje boljim kvalitetom, ali i većom datotekom. Većina "
+"korisnika upotrebljava 192Kbps."
 
 #: src/interface.c:779
 msgid "Musepack (lossy compression)"
@@ -307,17 +310,17 @@ msgstr "Kodiraj"
 msgid "Get disc info from the internet automatically"
 msgstr "Automatski preuzmi informacije o disku sa interneta"
 
-#: src/interface.c:929
-#: src/interface.c:974
+#: src/interface.c:929 src/interface.c:974
 msgid "Server: "
 msgstr "Server:"
 
 #: src/interface.c:939
 msgid "The CDDB server to get disc info from (default is freedb.org)"
-msgstr "CDDB server za preuzimanje informacija o disku (fabrička vrednost je \"freedb.org\")"
+msgstr ""
+"CDDB server za preuzimanje informacija o disku (fabrička vrednost je "
+"\"freedb.org\")"
 
-#: src/interface.c:945
-#: src/interface.c:987
+#: src/interface.c:945 src/interface.c:987
 msgid "Port: "
 msgstr "Port:"
 
@@ -333,8 +336,7 @@ msgstr "Koristi HTTP proxy za priključivanje na internet"
 msgid "Advanced"
 msgstr "Dodatna podešavanja"
 
-#: src/interface.c:1076
-#: src/interface.c:1112
+#: src/interface.c:1076 src/interface.c:1112
 msgid "Ripping"
 msgstr "Ekstrakcija"
 
@@ -346,22 +348,21 @@ msgstr "Ukupan napredak"
 msgid "Encoding"
 msgstr "Kodiranje"
 
-#: src/interface.c:1503
+#: src/interface.c:1517
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Datoteka %d je uspešno kreirana"
 msgstr[1] "Datoteke %d su uspešno kreirane"
 
-#: src/interface.c:1512
+#: src/interface.c:1526
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Došlo je do greške pri kreiranju datoteke %d"
 msgstr[1] "Došlo je do greške pri kreiranju datoteka %d"
 
-#: src/prefs.c:614
-#: src/prefs.c:626
+#: src/prefs.c:614 src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Nevažeći znaci u polju '%s'"
@@ -393,16 +394,21 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "Zapamti odgovor za _sve datoteke kreirane sa ovog CD-a"
 
 #: src/threads.c:159
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "Nije izabran metod za ekstraktovanje/kodiranje. Molim izaberite jedan od metoda iz menija \"Podešavanja\"."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"Nije izabran metod za ekstraktovanje/kodiranje. Molim izaberite jedan od "
+"metoda iz menija \"Podešavanja\"."
 
 #: src/threads.c:190
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "Nije izabrana ni jedna numera za ekstraktovanje/kodiranje. Molim izaberite barem jednu numeru."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"Nije izabrana ni jedna numera za ekstraktovanje/kodiranje. Molim izaberite "
+"barem jednu numeru."
 
-#: src/threads.c:877
-#: src/threads.c:879
-#: src/threads.c:883
+#: src/threads.c:877 src/threads.c:879 src/threads.c:883
 msgid "Waiting..."
 msgstr "Čekam..."
-
