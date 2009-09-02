@@ -6,7 +6,7 @@ Asunder is a graphical Audio CD ripper and encoder. You can use it to save track
 
 Features
 ========
-* Supports WAV, MP3, Ogg Vorbis, FLAC, and Wavpack audio files
+* Supports WAV, MP3, Ogg Vorbis, FLAC, Wavpack, Musepack, AAC, and Monkey's audio files
 * Uses CDDB to name and tag each track
 * Can encode to multiple formats in one session
 * Creates M3U playlists
@@ -29,12 +29,20 @@ Requirements
   http://flac.sourceforge.net/
 * Wavpack (optional for wavpack support)
   http://www.wavpack.com/
+* mpcenc (optional for Musepack support)
+  http://www.musepack.net/
+* neroAacEnc (optional for AAC support)
+  http://www.nero.com/
+* mac (optional for Monkey's Audio support)
+  http://www.monkeysaudio.com/
 
 To compile from source you may need the -dev or -devel versions of GTK and libcddb. On Ubuntu these packages are called libgtk2.0-dev and libcddb2-dev.
 
 Compiling
 =========
 First install all the dependencies. LAME, Vorbis-Tools, FLAC, and Wavpack don't have to be installed to compile. They are only needed at runtime if you choose to encode in those formats.
+
+mpcenc, neroAacEnc, and mac are also not required and may be difficult to install on your distribution. If you really want them, you probably already have them.
 
 Then run:
 

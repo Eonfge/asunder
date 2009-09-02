@@ -1,13 +1,12 @@
 1 Aug 2009 - 1.9
 ================
-- Added Latvian and Slovak translations.
+- Added Arabic, Slovenian, Latvian, and Slovak translations.
 - Added Musepack support.
 - Added AAC support with Nero encoder.
 - Added Monkey's Audio support.
 - Made CDDB server and port user-configurable.
 - Fixed some wavpack encoding status reporting and cleanup.
 - Remember whether things in the preferences were expanded or not.
-- Added Arabic, Slovenian translations.
 - Replaced the program icon.
 
 29 Nov 2008 - 1.6.2
