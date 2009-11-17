@@ -1,0 +1,402 @@
+# Turkish translation for Asunder.
+# This file is distributed under the same license as the Asunder package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-08-24 21:38-0400\n"
+"PO-Revision-Date: 2009-11-08 17:18+0200\n"
+"Last-Translator: Savaş Şen <sen.savas@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural= n!=1;\n"
+
+#: src/main.c:111
+#: src/interface.c:203
+msgid "Rip"
+msgstr "Dönüştür"
+
+#: src/main.c:116
+msgid "Track"
+msgstr "Parça"
+
+#: src/main.c:123
+msgid "Artist"
+msgstr "Sanatçı"
+
+#: src/main.c:130
+msgid "Title"
+msgstr "Başlık"
+
+#: src/main.c:135
+msgid "Time"
+msgstr "Zaman"
+
+#: src/main.c:161
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "Sisteminizde 'cdparanoia' bulunamadı. Asunder uygulamasının CDlerinizi dönüştürebilmesi için 'cdparanoia' paketine gereksinimi vardır."
+
+#: src/main.c:400
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr "<b>İnternetten disk bilgisi alınıyor...</b>"
+
+#: src/callbacks.c:57
+#: src/callbacks.c:187
+#: src/callbacks.c:215
+#: src/callbacks.c:225
+#: src/interface.c:550
+#: src/interface.c:773
+#, c-format
+msgid "%dKbps"
+msgstr "%dKbps"
+
+#: src/callbacks.c:327
+msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
+msgstr "CD bulunamadı. Lütfen CD-ROM aygıtınıza bir CD takınız."
+
+#: src/callbacks.c:346
+#: src/callbacks.c:371
+#: src/callbacks.c:396
+#: src/callbacks.c:421
+#: src/callbacks.c:446
+#: src/callbacks.c:471
+#: src/callbacks.c:496
+#, c-format
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "%s sisteminizde bulunamdı. Asunder'in %s dosyasını oluşturabilmesi için buna gereksinimi vardır. Tüm %s işlevselliği devre dışı."
+
+#: src/callbacks.c:583
+msgid "Select all for ripping"
+msgstr "Dönüştürme için hepsini seç"
+
+#: src/callbacks.c:589
+msgid "Deselect all for ripping"
+msgstr "Dönüştürme için hiçbirini seçme"
+
+#: src/interface.c:93
+msgid "CDDB Lookup"
+msgstr "CDDB Araştır"
+
+#: src/interface.c:136
+msgid "Disc:"
+msgstr "Disk:"
+
+#: src/interface.c:142
+msgid "Album artist:"
+msgstr "Albüm Sanatçısı"
+
+#: src/interface.c:149
+msgid "Album title:"
+msgstr "Albüm Başlığı:"
+
+#: src/interface.c:156
+msgid "Single artist"
+msgstr "Tek sanatçı"
+
+#: src/interface.c:333
+msgid "Preferences"
+msgstr "Tercihler"
+
+#: src/interface.c:350
+#: src/interface.c:356
+msgid "Destination folder"
+msgstr "Hedef klasör"
+
+#: src/interface.c:368
+msgid "CD-ROM device: "
+msgstr "CD-ROM aygıtı:"
+
+#: src/interface.c:377
+msgid ""
+"Default: /dev/cdrom\n"
+"Other example: /dev/hdc\n"
+"Other example: /dev/sr0"
+msgstr ""
+"Varsayılan: /dev/cdrom\n"
+"Diğer örnek: /dev/hdc\n"
+"Diğer örnek: /dev/sr0"
+
+#: src/interface.c:381
+msgid "Eject disc when finished"
+msgstr "Bittiğinde diski çıkart"
+
+#: src/interface.c:389
+msgid "General"
+msgstr "Genel"
+
+#: src/interface.c:409
+msgid ""
+"%A - Artist\n"
+"%L - Album\n"
+"%N - Track number (2-digit)\n"
+"%T - Song title"
+msgstr ""
+"%A - Sanatçı\n"
+"%L - Albüm\n"
+"%N - Parça numarası (2-basamak)\n"
+"%T - Song ismi"
+
+#: src/interface.c:419
+msgid "Album directory: "
+msgstr "Albüm dizini:"
+
+#: src/interface.c:426
+#: src/prefs.c:615
+msgid "Playlist file: "
+msgstr "Çalma Listesi dosyası:"
+
+#: src/interface.c:433
+#: src/prefs.c:627
+#: src/prefs.c:637
+msgid "Music file: "
+msgstr "Müzik dosyası:"
+
+#: src/interface.c:447
+msgid ""
+"This is relative to the destination folder (from the General tab).\n"
+"Can be blank.\n"
+"Default: %A - %L\n"
+"Other example: %A/%L"
+msgstr ""
+"Bu hedef klasöre bağlıdır.  (Genel sekmesindeki).\n"
+"Boş olamaz.\n"
+"Varsayılan değer: %A - %L\n"
+"Diğer örnek:  %A/%L"
+
+#: src/interface.c:459
+msgid ""
+"This will be stored in the album directory.\n"
+"Can be blank.\n"
+"Default: %A - %L"
+msgstr ""
+"Albüm dosyasına kaydedilecek.\n"
+"Boş olamaz.\n"
+"Varsayılan değer: %A - %L"
+
+#: src/interface.c:470
+msgid ""
+"This will be stored in the album directory.\n"
+"Cannot be blank.\n"
+"Default: %A - %T\n"
+"Other example: %N - %T"
+msgstr ""
+"Albüm dosyasına kaydedilecek.\n"
+"Boş olamaz.\n"
+"Varsayılan: %A - %T\n"
+"Diğer örnek: %N - %T"
+
+#: src/interface.c:475
+msgid "Filename formats"
+msgstr "Dosya ismi biçimleri"
+
+#: src/interface.c:480
+msgid "Filenames"
+msgstr "Dosya isimleri"
+
+#. WAV
+#: src/interface.c:499
+msgid "WAV (uncompressed)"
+msgstr "WAV (Sıkıştırılmamış)"
+
+#: src/interface.c:518
+msgid "Variable bit rate (VBR)"
+msgstr "Değişken bit oranı (VBR)"
+
+#: src/interface.c:526
+msgid "Better quality for the same size."
+msgstr "Aynı dosya boyutunda daha kaliteli"
+
+#: src/interface.c:532
+#: src/interface.c:708
+#: src/interface.c:755
+msgid "Bitrate"
+msgstr "Bitoranı"
+
+#: src/interface.c:547
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "Daha yüksek bit oranı, daha kaliteli olmakla beraber daha büyük dosya demektir. Çoğu insan 192Kbps değerini kullanır."
+
+#: src/interface.c:556
+msgid "MP3 (lossy compression)"
+msgstr "MP3 (kayıplı sıkıştırma)"
+
+#: src/interface.c:578
+#: src/interface.c:866
+msgid "Quality"
+msgstr "Kalite"
+
+#: src/interface.c:589
+msgid "Higher quality means bigger file. Default is 6."
+msgstr "Daha yüksek kalite daha büyük dosya demektir. Varsayılan değer 6."
+
+#: src/interface.c:591
+msgid "OGG Vorbis (lossy compression)"
+msgstr "Ogg Vorbis (kayıplı sıkıştırma)"
+
+#: src/interface.c:613
+#: src/interface.c:674
+#: src/interface.c:811
+msgid "Compression level"
+msgstr "Sıkıştırma seviyesi"
+
+#: src/interface.c:624
+#: src/interface.c:824
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr "Bu işlem kaliteyi etkilemez. Daha büyük sayı daha küçük dosya demektir."
+
+#: src/interface.c:626
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (kayıpsız sıkıştırma)"
+
+#: src/interface.c:645
+msgid "More formats"
+msgstr "Daha fazla biçim"
+
+#: src/interface.c:687
+msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
+msgstr "Bu işlem kaliteyi etkilemez. Daha büyük sayı daha küçük dosya demektir. Varsayılan (önerilen) değer 1."
+
+#: src/interface.c:693
+msgid "Hybrid compression"
+msgstr "Karma Sıkıştırma"
+
+#: src/interface.c:702
+msgid "The format is lossy but a correction file is created for restoring the lossless original."
+msgstr "Biçim kayıplı bir biçim olmasına rağmen orjinal kayıpsız hale getirebilmek için bir düzeltme dosyası oluşturulur."
+
+#: src/interface.c:771
+msgid "Higher bitrate is better quality but also bigger file."
+msgstr "Yüksek bitoranı yüksek kalite fakat büyük dosya boyutudur."
+
+#: src/interface.c:779
+msgid "Musepack (lossy compression)"
+msgstr "Musepack (kayıplı sıkıştırma)"
+
+#: src/interface.c:826
+msgid "Monkey's Audio (lossless compression)"
+msgstr "Monkey's Audio (kayıpsız sıkıştırma)"
+
+#. END MONKEY
+#: src/interface.c:835
+msgid "Proprietary encoders"
+msgstr "Özel kodlayıcılar"
+
+#: src/interface.c:879
+msgid "Higher quality means bigger file. Default is 60."
+msgstr "Daha yüksek sayı daha büyük dosya bıyutudurç Varsayılan değer 60."
+
+#: src/interface.c:881
+msgid "AAC (lossy compression, Nero encoder)"
+msgstr "AAC (kayıplı sıkıçtırma, Nero kodlayıcı)"
+
+#. END AAC
+#: src/interface.c:890
+msgid "Encode"
+msgstr "Dönüştür"
+
+#: src/interface.c:921
+msgid "Get disc info from the internet automatically"
+msgstr "Disk bilgisini internetten otomatik olarak al"
+
+#: src/interface.c:929
+#: src/interface.c:974
+msgid "Server: "
+msgstr "Sunucu:"
+
+#: src/interface.c:939
+msgid "The CDDB server to get disc info from (default is freedb.org)"
+msgstr "Disk bilgisi alınacak CDDB sunucusu (varsayılan sunucu freedb.org)"
+
+#: src/interface.c:945
+#: src/interface.c:987
+msgid "Port: "
+msgstr "Port:"
+
+#: src/interface.c:955
+msgid "The CDDB server port (default is 888)"
+msgstr "CDDB sunucu portu (varsayılan değer 888)"
+
+#: src/interface.c:961
+msgid "Use an HTTP proxy to connect to the internet"
+msgstr "İnternete bağlanmak için HTTP proxy kullan."
+
+#: src/interface.c:1005
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+#: src/interface.c:1076
+#: src/interface.c:1112
+msgid "Ripping"
+msgstr "Dönüştürülüyor"
+
+#: src/interface.c:1105
+msgid "Total progress"
+msgstr "Toplam işlenen"
+
+#: src/interface.c:1119
+msgid "Encoding"
+msgstr "Kodlanıyor"
+
+#: src/interface.c:1507
+#, c-format
+msgid "%d file created successfully"
+msgid_plural "%d files created successfully"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/interface.c:1516
+#, c-format
+msgid "There was an error creating %d file"
+msgid_plural "There was an error creating %d files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/prefs.c:614
+#: src/prefs.c:626
+#, c-format
+msgid "Invalid characters in the '%s' field"
+msgstr "'%s' alanında geçersiz karakter"
+
+#: src/prefs.c:636
+#, c-format
+msgid "'%s' cannot be empty"
+msgstr "'%s' boş bırakılamaz"
+
+#: src/prefs.c:651
+msgid "Invalid proxy port number"
+msgstr "Yanlış proxy port numarası"
+
+#: src/prefs.c:664
+msgid "Invalid cddb server port number"
+msgstr "Yanlış cddb port numarası"
+
+#: src/support.c:47
+msgid "Overwrite?"
+msgstr "Üstüne yazılsın mı?"
+
+#: src/support.c:60
+#, c-format
+msgid "The file '%s' already exists. Do you want to overwrite it?\n"
+msgstr "'%s' dosyası zaten var. Bunun üzerine yazmak istiyor musunuz?\n"
+
+#: src/support.c:66
+msgid "Remember the answer for _all the files made from this CD"
+msgstr ""
+
+#: src/threads.c:159
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgstr "Dönüştürme/kodlama yöntemi seçilmedi. Lütfen 'Tercihler' menüsünü kullanarak bir yöntem etkinleştiriniz."
+
+#: src/threads.c:190
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgstr "Dönüştürme/kodlama işlemi için parça seçilmedi. Lütfen en az bir parça seçiniz."
+
+#: src/threads.c:877
+#: src/threads.c:879
+#: src/threads.c:883
+msgid "Waiting..."
+msgstr "Bekleniyor..."
+
