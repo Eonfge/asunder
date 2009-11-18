@@ -3,16 +3,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-24 21:38-0400\n"
 "PO-Revision-Date: 2009-11-08 17:18+0200\n"
 "Last-Translator: Savaş Şen <sen.savas@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural= n!=1;\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #: src/main.c:111
 #: src/interface.c:203
@@ -344,15 +344,13 @@ msgstr "Kodlanıyor"
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d dosyası(ları) başarıyla oluşturuldu"
 
 #: src/interface.c:1516
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d dosyası(ları) oluşturulurken hata meydana geldi"
 
 #: src/prefs.c:614
 #: src/prefs.c:626
@@ -384,7 +382,7 @@ msgstr "'%s' dosyası zaten var. Bunun üzerine yazmak istiyor musunuz?\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
-msgstr ""
+msgstr "Unutmayın ki _tüm dosyaların karşılığı bu CD den oluşturldu"
 
 #: src/threads.c:159
 msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
