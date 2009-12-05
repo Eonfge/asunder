@@ -406,7 +406,7 @@ create_prefs (void)
     gtk_widget_show (vbox);
     gtk_container_add (GTK_CONTAINER (frame2), vbox);
     
-    label = gtk_label_new (_("%A - Artist\n%L - Album\n%N - Track number (2-digit)\n%T - Song title"));
+    label = gtk_label_new (_("%A - Artist\n%L - Album\n%N - Track number (2-digit)\n%Y - Year (4-digit or \"0\")\n%T - Song title"));
     gtk_widget_show (label);
     gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0);

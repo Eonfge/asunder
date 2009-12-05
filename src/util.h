@@ -15,12 +15,13 @@ int int_to_musepack_int(int i);
 //
 // format - the format of the filename
 // tracknum - gets substituted for %N in format
+// year - gets substituted for %Y in format
 // artist - gets substituted for %A in format
 // album - gets substituted for %L in format
 // title - gets substituted for %T in format
 //
 // NOTE: caller must free the returned string!
-char * parse_format(const char * format, int tracknum, const char * artist, const char * album, const char * title);
+char * parse_format(const char * format, int tracknum, int year, const char * artist, const char * album, const char * title);
 
 // construct a filename from various parts
 //

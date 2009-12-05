@@ -137,11 +137,23 @@ void dorip()
     aac_percent = 0.0;
     rip_tracks_completed = 0;
     encode_tracks_completed = 0;
-    
+
+    // get year
+    GtkTreeIter iter;
+    GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
+    gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
+    unsigned year = 0;
+    if(rowsleft)
+    {
+        gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
+                           COL_YEAR, &year,
+                           -1);
+    }
+
     const char * albumartist = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_artist")));
     const char * albumtitle = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_title")));
-    char * albumdir = parse_format(global_prefs->format_albumdir, 0, albumartist, albumtitle, NULL);
-    char * playlist = parse_format(global_prefs->format_playlist, 0, albumartist, albumtitle, NULL);
+    char * albumdir = parse_format(global_prefs->format_albumdir, 0, year, albumartist, albumtitle, NULL);
+    char * playlist = parse_format(global_prefs->format_playlist, 0, year, albumartist, albumtitle, NULL);
     
     overwriteAll = false;
     overwriteNone = false;
@@ -166,9 +178,7 @@ void dorip()
     }
     
     // make sure there's some tracks to rip
-    GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
-    GtkTreeIter iter;
-    gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
+    rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
     tracks_to_rip = 0;
     int riptrack;
     while(rowsleft)
@@ -343,12 +353,14 @@ gpointer rip(gpointer data)
     gdk_threads_leave();
     while(rowsleft)
     {
+        unsigned year = 0;
         gdk_threads_enter();
             gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
                 COL_RIPTRACK, &riptrack,
                 COL_TRACKNUM, &tracknum,
                 COL_TRACKARTIST, &trackartist,
                 COL_TRACKTITLE, &tracktitle,
+                COL_YEAR, &year,
                 -1);
         gdk_threads_leave();
         
@@ -359,8 +371,8 @@ gpointer rip(gpointer data)
         
         if (riptrack)
         {
-            albumdir = parse_format(global_prefs->format_albumdir, 0, albumartist, albumtitle, NULL);
-            musicfilename = parse_format(global_prefs->format_music, tracknum, trackartist, albumtitle, tracktitle);
+            albumdir = parse_format(global_prefs->format_albumdir, 0, year, albumartist, albumtitle, NULL);
+            musicfilename = parse_format(global_prefs->format_music, tracknum, year, trackartist, albumtitle, tracktitle);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             
             debugLog("Ripping track %d to \"%s\"\n", tracknum, wavfilename);
@@ -507,8 +519,8 @@ gpointer encode(gpointer data)
         
         if (riptrack)
         {
-            albumdir = parse_format(global_prefs->format_albumdir, 0, album_artist, album_title, NULL);
-            musicfilename = parse_format(global_prefs->format_music, tracknum, trackartist, album_title, tracktitle);
+            albumdir = parse_format(global_prefs->format_albumdir, 0, year, album_artist, album_title, NULL);
+            musicfilename = parse_format(global_prefs->format_music, tracknum, year, trackartist, album_title, tracktitle);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
             oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");
