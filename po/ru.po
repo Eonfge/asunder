@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 10:13-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2009-08-26 13:35+0300\n"
 "Last-Translator: Goodvin aka Alexey Sivakov <asivakov@gmail.com>\n"
 "Language-Team: 11 <1>\n"
@@ -134,10 +134,12 @@ msgid "General"
 msgstr "Общие"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - Исполнитель\n"
@@ -349,14 +351,14 @@ msgstr "Всего выполнено"
 msgid "Encoding"
 msgstr "Кодирование"
 
-#: src/interface.c:1517
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d файл созданн успешно"
 msgstr[1] "%d файлов созданно успешно"
 
-#: src/interface.c:1526
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -394,7 +396,7 @@ msgstr "Файл '%s' уже существует. Хотите перезапи
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Запомнить ответ для _всех файлов из этого CD"
 
-#: src/threads.c:159
+#: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -402,7 +404,7 @@ msgstr ""
 "Не выбран метод извлечения/кодирования дорожек. Выберите один из указанных в "
 "меню 'Preferences'."
 
-#: src/threads.c:190
+#: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -410,6 +412,6 @@ msgstr ""
 "Не выбраны дорожки для извлечения/кодирования. Пожалуйста, выберите как "
 "минимум одну дорожку."
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "Ожидайте ..."

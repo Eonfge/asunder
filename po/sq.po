@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 10:13-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2009-08-27 18:55+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -130,10 +130,12 @@ msgid "General"
 msgstr "Të përgjithshme"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - Artist\n"
@@ -347,14 +349,14 @@ msgstr "Ecuri gjithsej"
 msgid "Encoding"
 msgstr "Kodim"
 
-#: src/interface.c:1517
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "u krijua me sukses %d kartelë "
 msgstr[1] "u krijuan me sukses %d kartela"
 
-#: src/interface.c:1526
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -392,7 +394,7 @@ msgstr "Ka tashmë një kartelë '%s'. Dni të mbishkruhet ajo?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Mbaje mend përgjigjen për _tërë kartelat e krijuara prej këtij CD-je"
 
-#: src/threads.c:159
+#: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -400,7 +402,7 @@ msgstr ""
 "Nuk është përzgjedhur metodë përftimi/kodimi. Ju lutem aktivizoni një të "
 "tillë prej menusë 'Parapëlqime'."
 
-#: src/threads.c:190
+#: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -408,7 +410,7 @@ msgstr ""
 "Nuk janë përzgjedhur gjurmë për përftim/kodim. Ju lutem përzgjidhni të "
 "paktën një gjurmë."
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "Po pres..."
 

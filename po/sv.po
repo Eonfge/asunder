@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 10:13-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2009-08-23 20:04+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -132,10 +132,12 @@ msgid "General"
 msgstr "Allmänt"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - Artist\n"
@@ -344,14 +346,14 @@ msgstr "Totalt förlopp"
 msgid "Encoding"
 msgstr "Kodning"
 
-#: src/interface.c:1517
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fil skapades"
 msgstr[1] "%d filer skapades"
 
-#: src/interface.c:1526
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -389,7 +391,7 @@ msgstr "Filen \"%s\" finns redan. Vill du skriva över den?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Kom ihåg svaret för _alla filer skapade från denna skiva"
 
-#: src/threads.c:159
+#: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -397,13 +399,13 @@ msgstr ""
 "Ingen metod för extrahering/kodning har valts. Aktivera en från menyn "
 "\"Inställningar\"."
 
-#: src/threads.c:190
+#: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "Inga spår har markerats för extrahering/kodning. Välj minst ett spår."
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "Väntar..."
 

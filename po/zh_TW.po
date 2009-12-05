@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 10:13-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2009-08-24 08:37+0800\n"
 "Last-Translator: Cheng-Wei Chien <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
@@ -132,10 +132,12 @@ msgid "General"
 msgstr "一般設定"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - 藝人\n"
@@ -338,13 +340,13 @@ msgstr "總進度"
 msgid "Encoding"
 msgstr "正在編碼..."
 
-#: src/interface.c:1517
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "成功地新建了%d個檔案"
 
-#: src/interface.c:1526
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -381,19 +383,19 @@ msgstr "檔案 '%s' 已經存在。您是否要覆寫？\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "記住設定值，供所有用此CD做出的檔案使用"
 
-#: src/threads.c:159
+#: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr "尚未選擇 擷取音軌/編碼 方法。請從「偏好設定」選單中啟用其中一種。"
 
-#: src/threads.c:190
+#: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "尚未選取要 擷取/編碼 的音軌。請至少選擇一個音軌。"
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "請稍待..."
 

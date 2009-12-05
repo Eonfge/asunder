@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 10:13-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2008-01-06 01:33+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: i18n@mova.org <i18n@mova.org>\n"
@@ -134,10 +134,12 @@ msgid "General"
 msgstr "Ahulnaje"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - Vykanaŭca\n"
@@ -354,7 +356,7 @@ msgstr "Ahulny prahres"
 msgid "Encoding"
 msgstr "Kadavańnie"
 
-#: src/interface.c:1517
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -362,7 +364,7 @@ msgstr[0] "%d fajł paśpiachova stvorany"
 msgstr[1] "%d fajły paśpiachova stvoranyja"
 msgstr[2] "%d fajłaŭ paśpiachova stvoranyja"
 
-#: src/interface.c:1526
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -402,7 +404,7 @@ msgstr "Fajł \"%s\" užo isnuje. Chočaš nadpisać?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Zapomni adkaz dla _ŭsich fajłaŭ, zroblenych z hetaha dysku"
 
-#: src/threads.c:159
+#: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -410,7 +412,7 @@ msgstr ""
 "Metad ździrańnia/kadavańnia nia vybrany. Kali łaska, uklučy adzin ź ich u "
 "menu \"Nałady\"."
 
-#: src/threads.c:190
+#: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -418,6 +420,6 @@ msgstr ""
 "Dla ździrańnia/kadavańnia nie zaznačana pieśniaŭ. Kali łaska, zaznač chacia "
 "b adnu ź pieśniaŭ."
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "Čakańnie..."

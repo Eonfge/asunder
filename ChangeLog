@@ -1,6 +1,7 @@
 26 November 2009 - 1.9.1
 ========================
-- Support for year in format strings (%Y)
+- Added Turkish translation.
+- Added support for year in format strings (%Y).
 
 1 Aug 2009 - 1.9
 ================

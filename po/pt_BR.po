@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder-0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 10:13-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2009-08-24 10:20-0300\n"
 "Last-Translator: felipe augusto <flipeicl@gmail.com>\n"
 "Language-Team: Pt-Br <flipeicl@gmail.com>\n"
@@ -134,10 +134,12 @@ msgid "General"
 msgstr "Geral"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - Artista\n"
@@ -346,14 +348,14 @@ msgstr "Progresso total"
 msgid "Encoding"
 msgstr "Decodificar"
 
-#: src/interface.c:1517
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "O Arquivo %d foi criado com sucesso"
 msgstr[1] "Os arquivos %d foram criados com sucesso"
 
-#: src/interface.c:1526
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -391,7 +393,7 @@ msgstr "O arquivo '%s' já existe. Você deseja sobrescrevê-lo?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Lembrar a pergunta para _todos os arquivos feitos deste CD"
 
-#: src/threads.c:159
+#: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -399,7 +401,7 @@ msgstr ""
 "Método de ripar/descodificar não selecionado. Por favor habilite uma no menu "
 "\"Preferências\"."
 
-#: src/threads.c:190
+#: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -407,6 +409,6 @@ msgstr ""
 "Nenhuma faixa foi selecionada para ripar/descodificar. Por favor selecione "
 "ao menos uma faixa."
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "Aguardando..."

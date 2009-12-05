@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 10:13-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2009-08-24 09:30+0200\n"
 "Last-Translator: Mike Kranidis <mikek@openforall.com>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -130,10 +130,12 @@ msgid "General"
 msgstr "Γενικά"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - Καλλιτέχνης\n"
@@ -346,14 +348,14 @@ msgstr "Συνολική πρόοδος"
 msgid "Encoding"
 msgstr "Κωδικοποίηση"
 
-#: src/interface.c:1517
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Το αρχείο %d δημιουργήθηκε με επιτυχία"
 msgstr[1] "Τα αρχεία %d δημιουργήθηκαν με επιτυχία"
 
-#: src/interface.c:1526
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -391,7 +393,7 @@ msgstr "Το αρχείο '%s' υπάρχει. Θέλετε να το επικα
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Θυμηθείτε την απάντηση για _όλα τα αρχεία που γίνονται από αυτό το CD"
 
-#: src/threads.c:159
+#: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -399,7 +401,7 @@ msgstr ""
 "Καμία μέθοδος απόσπασης/κωδικοποίησης δεν έχει επιλεχθεί. Παρακαλώ "
 "ενεργοποιήστε μια από το μενού των 'προτιμήσεων'."
 
-#: src/threads.c:190
+#: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -407,7 +409,7 @@ msgstr ""
 "Κανένα κομμάτι δεν επιλέχτηκε για απόσπαση/κωδικοποίηση. Παρακαλώ επιλέξτε "
 "τουλάχιστον ένα."
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "Αναμονή..."
 

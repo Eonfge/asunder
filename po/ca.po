@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 10:13-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2009-08-24 13:46+0100\n"
 "Last-Translator: Siegfried-Angel Gevatter Pujals <rainct@ubuntu.com>\n"
 "Language-Team: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
@@ -137,10 +137,12 @@ msgid "General"
 msgstr "General"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - Artista\n"
@@ -356,14 +358,14 @@ msgstr "Progrés total"
 msgid "Encoding"
 msgstr "S'està codificant..."
 
-#: src/interface.c:1517
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "El fitxer s'ha creat amb èxit"
 msgstr[1] "S'han creat %d fitxers correctament"
 
-#: src/interface.c:1526
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -402,7 +404,7 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr ""
 "Recorda la resposta per a _tots els fitxers generats a partir d'aquest CD"
 
-#: src/threads.c:159
+#: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -410,7 +412,7 @@ msgstr ""
 "No heu seleccionat cap mètode de captura/codificació. Heu de triar-ne un des "
 "del menú «Preferències»."
 
-#: src/threads.c:190
+#: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -418,6 +420,6 @@ msgstr ""
 "No heu seleccionat cap pista per a capturar/codificar. Heu de triar-ne com a "
 "mínim una."
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "S'està esperant..."

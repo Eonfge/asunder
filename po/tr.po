@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-24 21:38-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2009-11-08 17:18+0200\n"
 "Last-Translator: Savaş Şen <sen.savas@gmail.com>\n"
 "Language-Team: <LL@li.org>\n"
@@ -14,8 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: src/main.c:111
-#: src/interface.c:203
+#: src/main.c:111 src/interface.c:203
 msgid "Rip"
 msgstr "Dönüştür"
 
@@ -36,19 +35,19 @@ msgid "Time"
 msgstr "Zaman"
 
 #: src/main.c:161
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "Sisteminizde 'cdparanoia' bulunamadı. Asunder uygulamasının CDlerinizi dönüştürebilmesi için 'cdparanoia' paketine gereksinimi vardır."
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"Sisteminizde 'cdparanoia' bulunamadı. Asunder uygulamasının CDlerinizi "
+"dönüştürebilmesi için 'cdparanoia' paketine gereksinimi vardır."
 
 #: src/main.c:400
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>İnternetten disk bilgisi alınıyor...</b>"
 
-#: src/callbacks.c:57
-#: src/callbacks.c:187
-#: src/callbacks.c:215
-#: src/callbacks.c:225
-#: src/interface.c:550
-#: src/interface.c:773
+#: src/callbacks.c:57 src/callbacks.c:187 src/callbacks.c:215
+#: src/callbacks.c:225 src/interface.c:550 src/interface.c:773
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -57,16 +56,16 @@ msgstr "%dKbps"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "CD bulunamadı. Lütfen CD-ROM aygıtınıza bir CD takınız."
 
-#: src/callbacks.c:346
-#: src/callbacks.c:371
-#: src/callbacks.c:396
-#: src/callbacks.c:421
-#: src/callbacks.c:446
-#: src/callbacks.c:471
+#: src/callbacks.c:346 src/callbacks.c:371 src/callbacks.c:396
+#: src/callbacks.c:421 src/callbacks.c:446 src/callbacks.c:471
 #: src/callbacks.c:496
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s sisteminizde bulunamdı. Asunder'in %s dosyasını oluşturabilmesi için buna gereksinimi vardır. Tüm %s işlevselliği devre dışı."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"%s sisteminizde bulunamdı. Asunder'in %s dosyasını oluşturabilmesi için buna "
+"gereksinimi vardır. Tüm %s işlevselliği devre dışı."
 
 #: src/callbacks.c:583
 msgid "Select all for ripping"
@@ -100,10 +99,13 @@ msgstr "Tek sanatçı"
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: src/interface.c:350
-#: src/interface.c:356
+#: src/interface.c:350 src/interface.c:356
 msgid "Destination folder"
 msgstr "Hedef klasör"
+
+#: src/interface.c:360
+msgid "Create M3U playlist"
+msgstr ""
 
 #: src/interface.c:368
 msgid "CD-ROM device: "
@@ -128,10 +130,12 @@ msgid "General"
 msgstr "Genel"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - Sanatçı\n"
@@ -143,14 +147,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Albüm dizini:"
 
-#: src/interface.c:426
-#: src/prefs.c:615
+#: src/interface.c:426 src/prefs.c:615
 msgid "Playlist file: "
 msgstr "Çalma Listesi dosyası:"
 
-#: src/interface.c:433
-#: src/prefs.c:627
-#: src/prefs.c:637
+#: src/interface.c:433 src/prefs.c:627 src/prefs.c:637
 msgid "Music file: "
 msgstr "Müzik dosyası:"
 
@@ -209,22 +210,23 @@ msgstr "Değişken bit oranı (VBR)"
 msgid "Better quality for the same size."
 msgstr "Aynı dosya boyutunda daha kaliteli"
 
-#: src/interface.c:532
-#: src/interface.c:708
-#: src/interface.c:755
+#: src/interface.c:532 src/interface.c:708 src/interface.c:755
 msgid "Bitrate"
 msgstr "Bitoranı"
 
 #: src/interface.c:547
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "Daha yüksek bit oranı, daha kaliteli olmakla beraber daha büyük dosya demektir. Çoğu insan 192Kbps değerini kullanır."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"Daha yüksek bit oranı, daha kaliteli olmakla beraber daha büyük dosya "
+"demektir. Çoğu insan 192Kbps değerini kullanır."
 
 #: src/interface.c:556
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (kayıplı sıkıştırma)"
 
-#: src/interface.c:578
-#: src/interface.c:866
+#: src/interface.c:578 src/interface.c:866
 msgid "Quality"
 msgstr "Kalite"
 
@@ -236,16 +238,14 @@ msgstr "Daha yüksek kalite daha büyük dosya demektir. Varsayılan değer 6."
 msgid "OGG Vorbis (lossy compression)"
 msgstr "Ogg Vorbis (kayıplı sıkıştırma)"
 
-#: src/interface.c:613
-#: src/interface.c:674
-#: src/interface.c:811
+#: src/interface.c:613 src/interface.c:674 src/interface.c:811
 msgid "Compression level"
 msgstr "Sıkıştırma seviyesi"
 
-#: src/interface.c:624
-#: src/interface.c:824
+#: src/interface.c:624 src/interface.c:824
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr "Bu işlem kaliteyi etkilemez. Daha büyük sayı daha küçük dosya demektir."
+msgstr ""
+"Bu işlem kaliteyi etkilemez. Daha büyük sayı daha küçük dosya demektir."
 
 #: src/interface.c:626
 msgid "FLAC (lossless compression)"
@@ -256,16 +256,24 @@ msgid "More formats"
 msgstr "Daha fazla biçim"
 
 #: src/interface.c:687
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
-msgstr "Bu işlem kaliteyi etkilemez. Daha büyük sayı daha küçük dosya demektir. Varsayılan (önerilen) değer 1."
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"Bu işlem kaliteyi etkilemez. Daha büyük sayı daha küçük dosya demektir. "
+"Varsayılan (önerilen) değer 1."
 
 #: src/interface.c:693
 msgid "Hybrid compression"
 msgstr "Karma Sıkıştırma"
 
 #: src/interface.c:702
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
-msgstr "Biçim kayıplı bir biçim olmasına rağmen orjinal kayıpsız hale getirebilmek için bir düzeltme dosyası oluşturulur."
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+"Biçim kayıplı bir biçim olmasına rağmen orjinal kayıpsız hale getirebilmek "
+"için bir düzeltme dosyası oluşturulur."
 
 #: src/interface.c:771
 msgid "Higher bitrate is better quality but also bigger file."
@@ -301,8 +309,7 @@ msgstr "Dönüştür"
 msgid "Get disc info from the internet automatically"
 msgstr "Disk bilgisini internetten otomatik olarak al"
 
-#: src/interface.c:929
-#: src/interface.c:974
+#: src/interface.c:929 src/interface.c:974
 msgid "Server: "
 msgstr "Sunucu:"
 
@@ -310,8 +317,7 @@ msgstr "Sunucu:"
 msgid "The CDDB server to get disc info from (default is freedb.org)"
 msgstr "Disk bilgisi alınacak CDDB sunucusu (varsayılan sunucu freedb.org)"
 
-#: src/interface.c:945
-#: src/interface.c:987
+#: src/interface.c:945 src/interface.c:987
 msgid "Port: "
 msgstr "Port:"
 
@@ -327,8 +333,7 @@ msgstr "İnternete bağlanmak için HTTP proxy kullan."
 msgid "Advanced"
 msgstr "Gelişmiş"
 
-#: src/interface.c:1076
-#: src/interface.c:1112
+#: src/interface.c:1076 src/interface.c:1112
 msgid "Ripping"
 msgstr "Dönüştürülüyor"
 
@@ -340,20 +345,19 @@ msgstr "Toplam işlenen"
 msgid "Encoding"
 msgstr "Kodlanıyor"
 
-#: src/interface.c:1507
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d dosyası(ları) başarıyla oluşturuldu"
 
-#: src/interface.c:1516
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "%d dosyası(ları) oluşturulurken hata meydana geldi"
 
-#: src/prefs.c:614
-#: src/prefs.c:626
+#: src/prefs.c:614 src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "'%s' alanında geçersiz karakter"
@@ -384,17 +388,22 @@ msgstr "'%s' dosyası zaten var. Bunun üzerine yazmak istiyor musunuz?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Unutmayın ki _tüm dosyaların karşılığı bu CD den oluşturldu"
 
-#: src/threads.c:159
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "Dönüştürme/kodlama yöntemi seçilmedi. Lütfen 'Tercihler' menüsünü kullanarak bir yöntem etkinleştiriniz."
+#: src/threads.c:171
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"Dönüştürme/kodlama yöntemi seçilmedi. Lütfen 'Tercihler' menüsünü kullanarak "
+"bir yöntem etkinleştiriniz."
 
-#: src/threads.c:190
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "Dönüştürme/kodlama işlemi için parça seçilmedi. Lütfen en az bir parça seçiniz."
+#: src/threads.c:200
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"Dönüştürme/kodlama işlemi için parça seçilmedi. Lütfen en az bir parça "
+"seçiniz."
 
-#: src/threads.c:877
-#: src/threads.c:879
-#: src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "Bekleniyor..."
-

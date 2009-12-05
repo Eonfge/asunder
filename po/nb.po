@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ISO Master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 10:13-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2008-10-14 18:53-0500\n"
 "Last-Translator: \n"
 "Language-Team: Ubuntu Norwegian Translators <oversettelse@ubuntu.no>\n"
@@ -130,10 +130,12 @@ msgid "General"
 msgstr "Generelt"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - Artist\n"
@@ -351,14 +353,14 @@ msgstr "Total fremgang"
 msgid "Encoding"
 msgstr "Koding"
 
-#: src/interface.c:1517
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d filen ble laget suksessfullt"
 msgstr[1] "%d filene ble laget suksessfullt"
 
-#: src/interface.c:1526
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -397,19 +399,19 @@ msgstr "Filen '%s' finnes allerede. Vil du overskrive den?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Husk svaret for _alle filene laget til denne CD platen"
 
-#: src/threads.c:159
+#: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr "Ingen hente/kode metode er valgt. Velg en fra 'Innstillinger' menyen."
 
-#: src/threads.c:190
+#: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "Ingen lydspor er valgt til henting/koding. Velg minst et lydspor."
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "Venter..."
 

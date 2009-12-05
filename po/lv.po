@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 10:13-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2009-01-26 18:40+0300\n"
 "Last-Translator: Kristaps Kūlis <kristaps.kulis@gmail.com>\n"
 "Language-Team: \n"
@@ -128,10 +128,12 @@ msgid "General"
 msgstr "Vispārīgi"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - Izpildītājs \n"
@@ -349,14 +351,14 @@ msgstr "Kopējais progress"
 msgid "Encoding"
 msgstr "Pārkodēšana"
 
-#: src/interface.c:1517
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] ""
 msgstr[1] "%d fails izveidots "
 
-#: src/interface.c:1526
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -396,7 +398,7 @@ msgstr "Fails '%s' jau eksistē. Vai vēlies to pārrakstīt? \n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Atcerēties atbildi visiem failiem, kas tiek izveidoti no šī CD"
 
-#: src/threads.c:159
+#: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -404,7 +406,7 @@ msgstr ""
 "Izvilkšanas/pārkodēšanas metode netika izvēlēta. Lūdzu izvēlies vienu "
 "'Iestatījumi' izvēlnē."
 
-#: src/threads.c:190
+#: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -412,6 +414,6 @@ msgstr ""
 "Netika izvēlēti celiņi izvilkšanai/pārkodēšanai. Lūdzu izvēlies vismaz vienu "
 "celiņu."
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "Gaidu..."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-02 10:13-0400\n"
+"POT-Creation-Date: 2009-12-05 14:14-0500\n"
 "PO-Revision-Date: 2009-09-02 11:25+0200\n"
 "Last-Translator: Tomáš Vadina <kyberdev@gmail.com>\n"
 "Language-Team: Tomáš Vadina <kyberdev@gmail.com>\n"
@@ -135,10 +135,12 @@ msgid "General"
 msgstr "Hlavné"
 
 #: src/interface.c:409
+#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
 "%A - Umelec\n"
@@ -347,7 +349,7 @@ msgstr "Celkový priebeh"
 msgid "Encoding"
 msgstr "Zakódovanie"
 
-#: src/interface.c:1517
+#: src/interface.c:1520
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -355,7 +357,7 @@ msgstr[0] "%d súborov úspešne vytvorených"
 msgstr[1] "%d súbor úspešne vytvorený"
 msgstr[2] "%d súbory úspešne vytvorené"
 
-#: src/interface.c:1526
+#: src/interface.c:1529
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -394,7 +396,7 @@ msgstr "Súbor '%s' už existuje. Prajete si ho prepísať?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Zapamätať si odpoveď pre _všetky súbory vytvorené z tohto CD"
 
-#: src/threads.c:159
+#: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -402,7 +404,7 @@ msgstr ""
 "Nebola zvolená metóda ripovania/zakódovania. Prosím, povoľte jednu v menu "
 "'Nastavenia'."
 
-#: src/threads.c:190
+#: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -410,6 +412,6 @@ msgstr ""
 "Žiadna stopa nebola vybraná pre ripovanie/zakódovanie. Prosím, vyberte aspoň "
 "jednu stopu."
 
-#: src/threads.c:877 src/threads.c:879 src/threads.c:883
+#: src/threads.c:889 src/threads.c:891 src/threads.c:895
 msgid "Waiting..."
 msgstr "Čakám..."
