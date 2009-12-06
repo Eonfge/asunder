@@ -919,14 +919,22 @@ gpointer track(gpointer data)
                  monkey_percent*100,musepack_percent*100,aac_percent*100);
         
         prip = (rip_tracks_completed+rip_percent) / tracks_to_rip;
-        snprintf(srip, 13, "%d%% (%d/%d)", (int)(prip*100), rip_tracks_completed, tracks_to_rip);
+        snprintf(srip, 13, "%d%% (%d/%d)", (int)(prip*100),
+                 (rip_tracks_completed < tracks_to_rip)
+                     ? (rip_tracks_completed + 1)
+                     : tracks_to_rip,
+                 tracks_to_rip);
         if (parts > 1)
         {
             pencode = ((double)encode_tracks_completed/(double)tracks_to_rip) + 
                        ((mp3_percent+ogg_percent+flac_percent+wavpack_percent+monkey_percent
                          +musepack_percent+aac_percent) /
                         (parts-1) / tracks_to_rip);
-            snprintf(sencode, 13, "%d%% (%d/%d)", (int)(pencode*100), encode_tracks_completed, tracks_to_rip);
+            snprintf(sencode, 13, "%d%% (%d/%d)", (int)(pencode*100),
+                     (encode_tracks_completed < tracks_to_rip)
+                         ? (encode_tracks_completed + 1)
+                         : tracks_to_rip,
+                     tracks_to_rip);
             ptotal = prip/parts + pencode*(parts-1)/parts;
         } else {
             ptotal = prip;
