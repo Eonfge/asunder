@@ -396,6 +396,8 @@ void lame(int tracknum,
     char bitrate_text[4];
     const char * args[18];
 
+//    fprintf( stderr, " lame()   Genre: %s Artist: %s Title: %s\n", genre, artist, title );	// lnr
+
     snprintf(tracknum_text, 3, "%d", tracknum);
     
     pos = 0;
@@ -429,12 +431,18 @@ void lame(int tracknum,
         args[pos++] = "--tt";
         args[pos++] = title;
     }
-    // lame refuses to accept somegenres that come from cddb, and users get upset
-    if (false && (genre != NULL) && (strlen(genre) > 0))
+
+    // lame refuses to accept some genres that come from cddb, and users get upset
+    // No longer an issue - users can now edit the genre field -lnr 
+
+    // if (false && (genre != NULL) && (strlen(genre) > 0))
+    if (( genre != NULL )								// lnr
+    &&  ( strlen( genre )))
     {
         args[pos++] = "--tg";
         args[pos++] = genre;
     }
+
     if ((year != NULL) && (strlen(year) > 0))
     {
         args[pos++] = "--ty";

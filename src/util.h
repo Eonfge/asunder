@@ -62,3 +62,8 @@ void trim_whitespace(char * str);
 // str - the string to trim
 // bad - the sting containing all the characters to remove
 void trim_chars(char * str, const char * bad);
+
+// LNR - It's possible that some files may end up on a MS file system,
+// so it's best to disallow MS invalid chars as well. I also disallow
+// period (dot) because it screws up my file name database software. YMMV
+#define	BADCHARS	"./?*|><:\"\\"

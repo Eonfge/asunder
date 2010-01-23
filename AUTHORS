@@ -10,6 +10,11 @@ http://ericlathrop.com/
 - original author
 - 'eject when finished' feature
 
+Lorraine Reed, aka Lightning Rose
+http://lightning-rose.com/
+- Editable genre feature to version 1.9.2
+- Added invalid MS file chars to trim_chars()
+
 Fraser Tweedale
 - FreeBSD port
 

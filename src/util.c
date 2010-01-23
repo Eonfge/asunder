@@ -823,7 +823,7 @@ void trim_chars(char * str, const char * bad)
     int pos;
     int len = strlen(str);
     unsigned b;
-    
+
     for (b=0; b<strlen(bad); b++)
     {
         pos = 0;

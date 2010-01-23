@@ -65,6 +65,9 @@ create_main (void)
     GtkWidget* hbox5;
     GtkWidget* fillerBox;
     GtkWidget* statusLbl;
+    GtkWidget *album_genre;			// lnr
+    GtkWidget *genre_label;			// lnr
+    GtkWidget *single_genre;		// lnr
     
     main_win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title (GTK_WINDOW (main_win), "Asunder");
@@ -133,30 +136,49 @@ create_main (void)
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (GTK_FILL), 0, 0);
 
+    album_genre = gtk_entry_new();						// lnr
+    gtk_widget_show( album_genre );
+    gtk_table_attach( GTK_TABLE( table2 ), album_genre, 1, 2, 3, 4,
+                      (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
+                      (GtkAttachOptions) (0), 0, 0);
+
     disc = gtk_label_new (_("Disc:"));
     gtk_table_attach (GTK_TABLE (table2), disc, 0, 1, 0, 1,
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (0), 3, 0);
     gtk_misc_set_alignment (GTK_MISC (disc), 0, 0.49);
 
-    artist_label = gtk_label_new (_("Album artist:"));
+    artist_label = gtk_label_new (_("Album Artist:"));
     gtk_misc_set_alignment (GTK_MISC (artist_label), 0, 0);
     gtk_widget_show (artist_label);
     gtk_table_attach (GTK_TABLE (table2), artist_label, 0, 1, 1, 2,
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (0), 3, 0);
 
-    title_label = gtk_label_new (_("Album title:"));
+    title_label = gtk_label_new (_("Album Title:"));
     gtk_misc_set_alignment (GTK_MISC (title_label), 0, 0);
     gtk_widget_show (title_label);
     gtk_table_attach (GTK_TABLE (table2), title_label, 0, 1, 2, 3,
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (0), 3, 0);
 
-    single_artist = gtk_check_button_new_with_mnemonic (_("Single artist"));
+    single_artist = gtk_check_button_new_with_mnemonic (_("Single Artist"));
     gtk_widget_show (single_artist);
     gtk_table_attach (GTK_TABLE (table2), single_artist, 2, 3, 1, 2,
                       (GtkAttachOptions) (GTK_FILL),
+                      (GtkAttachOptions) (0), 3, 0);
+
+    genre_label	= gtk_label_new (_("Genre:"));								// lnr
+    gtk_misc_set_alignment (GTK_MISC ( genre_label ), 0, 0);
+    gtk_widget_show (genre_label);
+    gtk_table_attach (GTK_TABLE (table2), genre_label, 0, 1, 3, 4,
+                      (GtkAttachOptions) (GTK_FILL),
+                      (GtkAttachOptions) (0), 3, 0);
+
+    single_genre = gtk_check_button_new_with_mnemonic(_("Single Genre"));	// lnr
+    gtk_widget_show( single_genre );
+    gtk_table_attach( GTK_TABLE( table2 ), single_genre, 2, 3, 3, 4,
+                      (GtkAttachOptions) ( GTK_FILL ),
                       (GtkAttachOptions) (0), 3, 0);
 
     scrolledwindow1 = gtk_scrolled_window_new (NULL, NULL);
@@ -238,6 +260,12 @@ create_main (void)
     g_signal_connect ((gpointer) rip_button, "clicked",
                                         G_CALLBACK (on_rip_button_clicked),
                                         NULL);
+    g_signal_connect ((gpointer) album_genre, "focus_out_event",					// lnr
+                                        G_CALLBACK (on_album_genre_focus_out_event),
+                                        NULL);
+    g_signal_connect ((gpointer) single_genre, "toggled",
+                                        G_CALLBACK (on_single_genre_toggled),
+                                        NULL);
 
     /* KEYBOARD accelerators */
     GtkAccelGroup* accelGroup;
@@ -287,6 +315,9 @@ create_main (void)
     GLADE_HOOKUP_OBJECT (main_win, image1, "image1");
     GLADE_HOOKUP_OBJECT (main_win, label8, "label8");
     GLADE_HOOKUP_OBJECT (main_win, statusLbl, "statusLbl");
+    GLADE_HOOKUP_OBJECT (main_win, album_genre, "album_genre");			// lnr
+    GLADE_HOOKUP_OBJECT (main_win, genre_label, "genre_label" );		// lnr
+    GLADE_HOOKUP_OBJECT (main_win, single_genre, "single_genre" );		// lnr
     
     return main_win;
 }
@@ -1165,6 +1196,9 @@ void disable_all_main_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_main, "single_artist"), FALSE);
     gtk_widget_set_sensitive(tracklist, FALSE);
     gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "album_genre"), FALSE);	// lnr
+    gtk_widget_set_sensitive(lookup_widget(win_main, "genre_label"), FALSE);	// lnr
+    gtk_widget_set_sensitive(lookup_widget(win_main, "single_genre"), FALSE);	// lnr
 }
 
 void enable_all_main_widgets(void)
@@ -1180,6 +1214,9 @@ void enable_all_main_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_main, "single_artist"), TRUE);
     gtk_widget_set_sensitive(tracklist, TRUE);
     gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_main, "album_genre"), TRUE);		// lnr
+    gtk_widget_set_sensitive(lookup_widget(win_main, "genre_label"), TRUE);		// lnr
+    gtk_widget_set_sensitive(lookup_widget(win_main, "single_genre"), TRUE);	// lnr
 }
 
 void disable_mp3_widgets(void)
@@ -1286,7 +1323,7 @@ void enable_musepack_widgets(void)
 
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 1.9.1";
+GBLprogramName = "Asunder 1.9.1a";
 
 static const char* 
 GBLauthors[2] = {
@@ -1304,6 +1341,11 @@ GBLauthors[2] = {
 "\n"
 "Fraser Tweedale\n"
 "- FreeBSD port\n"
+"\n"
+"Lorraine Reed, aka Lightning Rose\n"
+"http://www.lightning-rose.com/\n"
+"- Editable genre feature to version 1.9.2\n"
+"- Added invalid MS file chars to trim_chars()\n"
 "\n"
 "Radu Potop\n"
 "http://wooptoo.com/\n"

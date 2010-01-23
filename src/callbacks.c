@@ -91,7 +91,7 @@ on_album_artist_focus_out_event        (GtkWidget       *widget,
         fatalError("malloc(sizeof(gchar) * (strlen(ctext) + 1)) failed. Out of memory.");
     strncpy(text, ctext, strlen(ctext)+1);
     
-    trim_chars(text, "/");
+    trim_chars(text, BADCHARS);		// lnr
     trim_whitespace(text);
     
     if(text[0] == '\0')
@@ -114,7 +114,7 @@ on_album_title_focus_out_event         (GtkWidget       *widget,
         fatalError("malloc(sizeof(gchar) * (strlen(ctext) + 1)) failed. Out of memory.");
     strncpy(text, ctext, strlen(ctext)+1);
     
-    trim_chars(text, "/");
+    trim_chars(text, BADCHARS);		// lnr
     trim_whitespace(text);
     
     if(text[0] == '\0')
@@ -123,6 +123,34 @@ on_album_title_focus_out_event         (GtkWidget       *widget,
         gtk_entry_set_text(GTK_ENTRY(widget), text);
     
     free(text);
+    return FALSE;
+}
+
+// lnr
+gboolean
+on_album_genre_focus_out_event         (GtkWidget       *widget,
+                                        GdkEventFocus   *event,
+                                        gpointer         user_data)
+{
+    const gchar * ctext = gtk_entry_get_text(GTK_ENTRY(widget));
+
+    gchar * text = malloc(sizeof(gchar) * (strlen(ctext) + 1));
+
+    if (text == NULL)
+        fatalError("malloc(sizeof(gchar) * (strlen(ctext) + 1)) failed. Out of memory.");
+
+    strncpy(text, ctext, strlen(ctext)+1);
+    
+    trim_chars(text, BADCHARS);		// lnr
+    trim_whitespace(text);
+    
+    if(text[0] == '\0')
+        gtk_entry_set_text(GTK_ENTRY(widget), "FOE Unknown");
+    else
+        gtk_entry_set_text(GTK_ENTRY(widget), text);
+    
+    free(text);
+    
     return FALSE;
 }
 
@@ -136,7 +164,7 @@ on_artist_edited                    (GtkCellRendererText *cell,
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
     
-    trim_chars(new_text, "/");
+    trim_chars(new_text, BADCHARS);		// lnr
     trim_whitespace(new_text);
     
     gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
@@ -145,6 +173,28 @@ on_artist_edited                    (GtkCellRendererText *cell,
         gtk_list_store_set(store, &iter, COL_TRACKARTIST, "unknown", -1);
     else
         gtk_list_store_set(store, &iter, COL_TRACKARTIST, new_text, -1);
+}
+
+// lnr
+void
+on_genre_edited                    (GtkCellRendererText *cell,
+                                     gchar               *path_string,
+                                     gchar               *new_text,
+                                     gpointer             user_data)
+{
+    GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
+                    GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
+    GtkTreeIter iter;
+    
+    trim_chars(new_text, BADCHARS);
+    trim_whitespace(new_text);
+    
+    gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
+    
+    if(new_text[0] == '\0')
+        gtk_list_store_set(store, &iter, COL_GENRE, "Unknown", -1);
+    else
+        gtk_list_store_set(store, &iter, COL_GENRE, new_text, -1);
 }
 
 void
@@ -540,7 +590,17 @@ void
 on_single_artist_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
-    GtkTreeViewColumn * col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), 2);
+//    GtkTreeViewColumn * col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), 2);
+    GtkTreeViewColumn * col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), COL_TRACKARTIST ); //lnr
+    gtk_tree_view_column_set_visible(col, !gtk_toggle_button_get_active(togglebutton));
+}
+
+// lnr
+void
+on_single_genre_toggled               (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+    GtkTreeViewColumn * col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), COL_GENRE );
     gtk_tree_view_column_set_visible(col, !gtk_toggle_button_get_active(togglebutton));
 }
 
@@ -554,7 +614,7 @@ on_title_edited                    (GtkCellRendererText *cell,
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
     
-    trim_chars(new_text, "/");
+    trim_chars(new_text, BADCHARS);		// lnr
     trim_whitespace(new_text);
     
     gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);

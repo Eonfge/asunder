@@ -4,14 +4,17 @@
 
 #define LOG_FILE "/tmp/asunder.log"
 
+// LNR - I think the editable genre column should come before the static track time,
+// but it could arguably come between artist and title so the two editable columns
+// would be together. 
 enum
 {
     COL_RIPTRACK,
     COL_TRACKNUM,
     COL_TRACKARTIST,
     COL_TRACKTITLE,
-    COL_TRACKTIME,
     COL_GENRE,
+    COL_TRACKTIME,
     COL_YEAR,
     NUM_COLS
 };

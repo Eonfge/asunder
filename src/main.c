@@ -53,6 +53,8 @@ GtkWidget * win_about = NULL;
 
 GtkWidget * album_artist;
 GtkWidget * album_title;
+GtkWidget * album_genre;					// lnr
+
 GtkWidget * tracklist;
 GtkWidget * pick_disc;
 
@@ -100,6 +102,7 @@ int main(int argc, char *argv[])
     win_main = create_main();
     album_artist = lookup_widget(win_main, "album_artist");
     album_title = lookup_widget(win_main, "album_title");
+    album_genre	= lookup_widget(win_main, "album_genre");				// lnr
     tracklist = lookup_widget(win_main, "tracklist");
     pick_disc = lookup_widget(win_main, "pick_disc");
     
@@ -128,7 +131,14 @@ int main(int argc, char *argv[])
     g_signal_connect(renderer, "edited", (GCallback) on_title_edited, NULL);
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Title"), renderer, "text", COL_TRACKTITLE, NULL);
-    
+
+    col = gtk_tree_view_column_new();						// lnr
+    renderer = gtk_cell_renderer_text_new();
+    g_object_set(renderer, "editable", TRUE, NULL);
+    g_signal_connect(renderer, "edited", (GCallback) on_genre_edited, NULL);
+    gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
+                    _("Genre"), renderer, "text", COL_GENRE, NULL);
+
     col = gtk_tree_view_column_new();
     renderer = gtk_cell_renderer_text_new();
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
@@ -265,7 +275,8 @@ void clear_widgets()
     // clear the textboxes
     gtk_entry_set_text(GTK_ENTRY(album_artist), "");
     gtk_entry_set_text(GTK_ENTRY(album_title), "");
-    
+    gtk_entry_set_text(GTK_ENTRY(album_genre), "");				// lnr
+
     // clear the tracklist
     gtk_tree_view_set_model(GTK_TREE_VIEW(tracklist), NULL);
     
@@ -300,11 +311,11 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
         snprintf(time, 6, "%02d:%02d", seconds/60, seconds%60);
         
         track_artist = (char*)cddb_track_get_artist(track);
-        trim_chars(track_artist, "/");
+        trim_chars(track_artist, BADCHARS);		// lnr
         trim_whitespace(track_artist);
         
         track_title = (char*)cddb_track_get_title(track); //!! this returns const char*
-        trim_chars(track_title, "/");
+        trim_chars(track_title, BADCHARS);		// lnr
         trim_whitespace(track_title);
         
         gtk_list_store_append(store, &iter);
@@ -577,12 +588,13 @@ void update_tracklist(cddb_disc_t * disc)
     GtkTreeModel * model;
     char * disc_artist = (char*)cddb_disc_get_artist(disc);
     char * disc_title = (char*)cddb_disc_get_title(disc);
+    char * disc_genre = (char*)cddb_disc_get_genre(disc);			// lnr
     cddb_track_t * track;
     bool singleartist;
     
     if (disc_artist != NULL)
     {
-        trim_chars(disc_artist, "/");
+        trim_chars(disc_artist, BADCHARS);			// lnr
         trim_whitespace(disc_artist);
         gtk_entry_set_text(GTK_ENTRY(album_artist), disc_artist);
         
@@ -599,10 +611,23 @@ void update_tracklist(cddb_disc_t * disc)
     }
     if (disc_title != NULL)
     {
-        trim_chars(disc_title, "/");
+        trim_chars(disc_title, BADCHARS);			// lnr
         trim_whitespace(disc_title);
         gtk_entry_set_text(GTK_ENTRY(album_title), disc_title);
     }
+    
+    if ( disc_genre )								// lnr
+    {
+        trim_chars( disc_genre, BADCHARS);
+        trim_whitespace( disc_genre );
+
+        gtk_entry_set_text( GTK_ENTRY( album_genre ), disc_genre );
+    }
+    else
+        gtk_entry_set_text( GTK_ENTRY( album_genre ), "Unknown" );
+
+    gtk_toggle_button_set_active(			    	// lnr
+        GTK_TOGGLE_BUTTON( lookup_widget( win_main, "single_genre" )), true );
     
     model = create_model_from_disc(disc);
     gtk_tree_view_set_model(GTK_TREE_VIEW(tracklist), model);
