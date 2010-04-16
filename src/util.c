@@ -29,23 +29,19 @@ Foundation; version 2 of the licence.
 
 void debugLog(const char* format, ...)
 {
+    if(!global_prefs->do_log)
+        return;
+    
     va_list ap;
     const char* p = format;
     
     FILE* logFile = NULL;
     
-    if(global_prefs->do_log)
-    {
-        logFile = fopen(LOG_FILE, "a");
-        if(logFile == NULL)
-            return;
-    }
+    logFile = fopen(LOG_FILE, "a");
+    if(logFile == NULL)
+        return;
     
     va_start(ap, format);
-    
-    time_t currentTime = time(NULL);
-    char* currentTimeStr = ctime(&currentTime);
-    currentTimeStr[strlen(currentTimeStr) - 1] = '\0';
     
     while (*p && *(p + 1))
     {
@@ -53,40 +49,35 @@ void debugLog(const char* format, ...)
         {
             if (*(p + 1) == 'd')
             {
-                if(global_prefs->do_log)
-                    fprintf(logFile, "%d", va_arg(ap, int));
+                fprintf(logFile, "%d", va_arg(ap, int));
 #ifdef DEBUG
                 printf("%d", va_arg(ap, int));
 #endif
             }
             else if (*(p + 1) == 'x')
             {
-                if(global_prefs->do_log)
-                    fprintf(logFile, "%x", va_arg(ap, unsigned int));
+                fprintf(logFile, "%x", va_arg(ap, unsigned int));
 #ifdef DEBUG
                 printf("%x", va_arg(ap, unsigned int));
 #endif
             }
             else if (*(p + 1) == 'X')
             {
-                if(global_prefs->do_log)
-                    fprintf(logFile, "%X", va_arg(ap, unsigned int));
+                fprintf(logFile, "%X", va_arg(ap, unsigned int));
 #ifdef DEBUG
                 printf("%X", va_arg(ap, unsigned int));
 #endif
             }
             else if (*(p + 1) == 'o')
             {
-                if(global_prefs->do_log)
-                    fprintf(logFile, "%o", va_arg(ap, unsigned int));
+                fprintf(logFile, "%o", va_arg(ap, unsigned int));
 #ifdef DEBUG
                 printf("%o", va_arg(ap, unsigned int));
 #endif
             }
             else if (*(p + 1) == 'u')
             {
-                if(global_prefs->do_log)
-                    fprintf(logFile, "%u", va_arg(ap, unsigned int));
+                fprintf(logFile, "%u", va_arg(ap, unsigned int));
 #ifdef DEBUG
                 printf("%u", va_arg(ap, unsigned int));
 #endif
@@ -94,8 +85,7 @@ void debugLog(const char* format, ...)
             else if (*(p + 1) == '.' && *(p + 2) && *(p + 2) >= '0' && *(p + 2) <= '9' && 
                      *(p + 3) && *(p + 3) == 'f')
             {
-                if(global_prefs->do_log)
-                    fprintf(logFile, "%.2lf", va_arg(ap, double));
+                fprintf(logFile, "%.2lf", va_arg(ap, double));
 #ifdef DEBUG
                 printf("%.2lf", va_arg(ap, double));
 #endif
@@ -103,8 +93,7 @@ void debugLog(const char* format, ...)
             }
             else if(*(p + 1) == 'f')
             {
-                if(global_prefs->do_log)
-                    fprintf(logFile, "%.2lf", va_arg(ap, double));
+                fprintf(logFile, "%.2lf", va_arg(ap, double));
 #ifdef DEBUG
                 printf("%.2lf", va_arg(ap, double));
 #endif
@@ -112,8 +101,7 @@ void debugLog(const char* format, ...)
             else if (*(p + 1) == '.' && *(p + 2) && *(p + 2) >= '0' && *(p + 2) <= '9' && 
                      *(p + 3) && *(p + 3) == 'l' && *(p + 4) && *(p + 4) == 'f')
             {
-                if(global_prefs->do_log)
-                    fprintf(logFile, "%.2lf", va_arg(ap, double));
+                fprintf(logFile, "%.2lf", va_arg(ap, double));
 #ifdef DEBUG
                 printf("%.2lf", va_arg(ap, double));
 #endif
@@ -121,16 +109,14 @@ void debugLog(const char* format, ...)
             }
             else if(*(p + 1) == 'l' && *(p + 2) && *(p + 2) == 'f')
             {
-                if(global_prefs->do_log)
-                    fprintf(logFile, "%.2lf", va_arg(ap, double));
+                fprintf(logFile, "%.2lf", va_arg(ap, double));
 #ifdef DEBUG
                 printf("%.2lf", va_arg(ap, double));
 #endif
             }
             else if (*(p + 1) == 'c')
             {
-                if(global_prefs->do_log)
-                    fprintf(logFile, "%c", (char)va_arg(ap, int));
+                fprintf(logFile, "%c", (char)va_arg(ap, int));
 #ifdef DEBUG
                 printf("%c", (char)va_arg(ap, int));
 #endif
@@ -140,16 +126,14 @@ void debugLog(const char* format, ...)
                 char* str = va_arg(ap, char*);
                 if (str == NULL)
                 {
-                    if(global_prefs->do_log)
-                        fprintf(logFile, "NULL");
+                    fprintf(logFile, "NULL");
 #ifdef DEBUG
                     printf("NULL");
 #endif
                 }
                 else
                 {
-                    if(global_prefs->do_log)
-                        fprintf(logFile, "%s", str);
+                    fprintf(logFile, "%s", str);
 #ifdef DEBUG
                     printf("%s", str);
 #endif
@@ -157,8 +141,7 @@ void debugLog(const char* format, ...)
             }
             else if (*(p + 1) == '%')
             {
-                if(global_prefs->do_log)
-                    fprintf(logFile, "%%");
+                fprintf(logFile, "%%");
 #ifdef DEBUG
                 printf("%%");
 #endif
@@ -168,8 +151,7 @@ void debugLog(const char* format, ...)
                 //~ fprintf(logFile, "<<%d %d %d %d %d %d %d %d>>\n",
                 //~ *(p + 1) == '.', *(p + 2), *(p + 2) >= 0, *(p + 2) <= 9, 
                       //~ *(p + 3), *(p + 3) == 'l', *(p + 4), *(p + 4) == 'f');
-                if(global_prefs->do_log)
-                    fprintf(logFile, "unsupported format flag '%c'", *(p + 1));
+                fprintf(logFile, "unsupported format flag '%c'", *(p + 1));
 #ifdef DEBUG
                 printf("unsupported format flag '%c'", *(p + 1));
 #endif
@@ -179,8 +161,7 @@ void debugLog(const char* format, ...)
         }
         else /* last character on the line */
         {
-            if(global_prefs->do_log)
-                fprintf(logFile, "%c", *p);
+            fprintf(logFile, "%c", *p);
 #ifdef DEBUG
             printf("%c", *p);
 #endif
@@ -190,15 +171,13 @@ void debugLog(const char* format, ...)
     }
     if (*p)
     {
-        if(global_prefs->do_log)
-            fprintf(logFile, "%c", *p);
+        fprintf(logFile, "%c", *p);
 #ifdef DEBUG
         printf("%c", *p);
 #endif
     }
     
-    if(global_prefs->do_log)
-        fclose(logFile);
+    fclose(logFile);
 }
 
 void fatalError(const char* message)
