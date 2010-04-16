@@ -502,6 +502,7 @@ void oggenc(int tracknum,
             char * artist,
             char * album,
             char * title,
+            char * year,
             char * genre,
             char * wavfilename,
             char * oggfilename,
@@ -548,6 +549,11 @@ void oggenc(int tracknum,
     {
         args[pos++] = "-t";
         args[pos++] = title;
+    } 
+    if ((year != NULL) && (strlen(year) > 0))
+    {
+        args[pos++] = "-d";
+        args[pos++] = year;
     }
     if ((genre != NULL) && (strlen(genre) > 0))
     {
