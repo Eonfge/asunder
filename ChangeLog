@@ -1,3 +1,13 @@
+16 April 2010 - 1.9.2
+=====================
+- Added Danish translation
+- Updated Portuguese (Brasil) translation
+- Try to minimize the risk of Asunder freezing during rip/encode
+- Will now show progress as (1/1) instead of (0/1)
+- Allow to edit the genre
+- Do not allow invalid Windows filesystem characters in filenames
+- Store the year in OGG metadata also
+
 26 November 2009 - 1.9.1
 ========================
 - Added Turkish translation.

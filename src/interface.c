@@ -1323,7 +1323,7 @@ void enable_musepack_widgets(void)
 
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 1.9.1a";
+GBLprogramName = "Asunder 1.9.2";
 
 static const char* 
 GBLauthors[2] = {

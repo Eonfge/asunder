@@ -10,22 +10,17 @@ http://ericlathrop.com/
 - original author
 - 'eject when finished' feature
 
-Lorraine Reed, aka Lightning Rose
-http://lightning-rose.com/
-- Editable genre feature to version 1.9.2
-- Added invalid MS file chars to trim_chars()
-
 Fraser Tweedale
 - FreeBSD port
+
+Lorraine Reed, aka Lightning Rose
+http://www.lightning-rose.com/
+- Editable genre feature to version 1.9.2
+- Added invalid MS file chars to trim_chars()
 
 Radu Potop
 http://wooptoo.com/
 - The new Asunder icon
-
-Sebastian Pipping
-http://www.hartwork.org/
-- %Y (year) in format strings
-- Usability fix in progress dialogue
 
 Packages:
 
@@ -76,6 +71,9 @@ Philip Muller
 Christophe Lincoln
 - Slitaz package of Asunder, version 1.0.2
 
+coolpup
+- Puppy package of Asunder, version 1.6.2
+
 Translators:
 
 Mohamed Magdy
@@ -93,6 +91,9 @@ Siegfried-Angel Gevatter Pujals
 
 Schmaki
 - cs (Czeck) translation of Asunder versions 0.8 - 1.0, 1.9
+
+Joe Hansen
+- da (Danish) translation of Asunder version 1.9
 
 Rene Schmidt
 - de (German) translation of Asunder versions 0.8 - 1.5
@@ -154,6 +155,9 @@ Antonio Sousa
 Flipe Augusto
 - pt_BR (Portuguese/Brazil) translation of Asunder versions 0.8.1 - 1.9
 
+Sergio Brandao Cipolla
+- pt_BR (Portuguese/Brazil) translation of Asunder version 1.9.1
+
 Alexey Sivakov
 - ru (Russian) translation of Asunder versions 0.8 - 1.0, 1.9
 
@@ -177,6 +181,9 @@ Milan Puzic
 
 Daniel Nylander
 - sv (Swedish) translation of Asunder versions 0.8 - 1.9
+
+Savas Sen
+- tr (Turkish) translation of Asunder version 1.9
 
 Cheng-Wei Chien
 - zh_TW (Chineese/Taiwan) translation of Asunder versions 0.8 - 1.9
