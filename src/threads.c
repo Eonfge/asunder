@@ -595,7 +595,7 @@ gpointer encode(gpointer data)
                     doEncode = true;
                 
                 if(doEncode)
-                    oggenc(tracknum, trackartist, album_title, yearStrPtr, tracktitle, genre, wavfilename, 
+                    oggenc(tracknum, trackartist, album_title, tracktitle, yearStrPtr, genre, wavfilename, 
                            oggfilename, global_prefs->ogg_quality, &ogg_percent);
                 
                 if (aborted) g_thread_exit(NULL);
