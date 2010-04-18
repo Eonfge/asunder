@@ -520,7 +520,7 @@ void oggenc(int tracknum,
 
     char tracknum_text[3];
     char quality_level_text[3];
-    const char * args[17];
+    const char * args[19];
 
     snprintf(tracknum_text, 3, "%d", tracknum);
     snprintf(quality_level_text, 3, "%d", quality_level);

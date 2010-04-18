@@ -1532,7 +1532,7 @@ GBLcomments =
 static const char* 
 GBLcopyright = 
 "Copyright 2005 Eric Lathrop\n"
-"Copyright 2007 - 2008 Andrew Smith";
+"Copyright 2007 - 2010 Andrew Smith";
 
 static const char* 
 GBLwebsite = "http://littlesvr.ca/asunder/";
