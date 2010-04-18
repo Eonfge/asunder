@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ISO Master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-16 22:18-0400\n"
+"POT-Creation-Date: 2010-04-18 18:42-0400\n"
 "PO-Revision-Date: 2008-10-14 18:53-0500\n"
 "Last-Translator: \n"
 "Language-Team: Ubuntu Norwegian Translators <oversettelse@ubuntu.no>\n"
@@ -371,14 +371,14 @@ msgstr "Total fremgang"
 msgid "Encoding"
 msgstr "Koding"
 
-#: src/interface.c:1568
+#: src/interface.c:1574
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d filen ble laget suksessfullt"
 msgstr[1] "%d filene ble laget suksessfullt"
 
-#: src/interface.c:1577
+#: src/interface.c:1583
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

@@ -1,3 +1,8 @@
+18 April 2010 - 1.9.3
+=====================
+- Updated Russian and Hungarian translations
+- Fixed problem introduced in 1.9.2 where the OGG title was switched with the year and some memory was getting corrupted.
+
 16 April 2010 - 1.9.2
 =====================
 - Added Danish translation

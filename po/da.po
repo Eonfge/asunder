@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder 1.9.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-16 22:18-0400\n"
+"POT-Creation-Date: 2010-04-18 18:42-0400\n"
 "PO-Revision-Date: 2010-01-08 00:00+2000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -365,14 +365,14 @@ msgstr "Samlet fremskridt"
 msgid "Encoding"
 msgstr "Konvertering"
 
-#: src/interface.c:1568
+#: src/interface.c:1574
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fil oprettet"
 msgstr[1] "%d filer oprettet"
 
-#: src/interface.c:1577
+#: src/interface.c:1583
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

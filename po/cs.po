@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs.po_[XwND8b]\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-16 22:18-0400\n"
+"POT-Creation-Date: 2010-04-18 18:42-0400\n"
 "PO-Revision-Date: 2009-08-24 13:01+0200\n"
 "Last-Translator: Roman Smakal <smallsmaky@seznam.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -367,14 +367,14 @@ msgstr "Celkový průběh"
 msgid "Encoding"
 msgstr "Kódování"
 
-#: src/interface.c:1568
+#: src/interface.c:1574
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d soubor úspěšně vytvořen"
 msgstr[1] "%d soubory úspěšně vytvořeny"
 
-#: src/interface.c:1577
+#: src/interface.c:1583
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

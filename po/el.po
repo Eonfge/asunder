@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-16 22:18-0400\n"
+"POT-Creation-Date: 2010-04-18 18:42-0400\n"
 "PO-Revision-Date: 2009-08-24 09:30+0200\n"
 "Last-Translator: Mike Kranidis <mikek@openforall.com>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -366,14 +366,14 @@ msgstr "Συνολική πρόοδος"
 msgid "Encoding"
 msgstr "Κωδικοποίηση"
 
-#: src/interface.c:1568
+#: src/interface.c:1574
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Το αρχείο %d δημιουργήθηκε με επιτυχία"
 msgstr[1] "Τα αρχεία %d δημιουργήθηκαν με επιτυχία"
 
-#: src/interface.c:1577
+#: src/interface.c:1583
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
