@@ -1351,6 +1351,9 @@ GBLauthors[2] = {
 "http://wooptoo.com/\n"
 "- The new Asunder icon\n"
 "\n"
+"Pader Reszo\n"
+"- Made the about description translatable\n"
+"\n"
 "Packages:\n"
 "\n"
 "Toni Graffy\n"
@@ -1434,7 +1437,7 @@ GBLtranslators =
 "- el (Greek) translation of Asunder versions 0.8 - 1.0, 1.9\n"
 "\n"
 "George Vlahavas\n"
-"- el (Greek) translation of Asunder versio 1.5\n"
+"- el (Greek) translation of Asunder version 1.5\n"
 "\n"
 "Juan Garcia-Murga Monago\n"
 "- es (Spanish) translation of Asunder versions 0.8 - 1.9\n"
@@ -1529,8 +1532,9 @@ GBLtranslators =
 
 static const char* 
 GBLcomments = 
-"An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, and/or Wavpack.";
+N_("An application to save tracks from an Audio CD \n"
+"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or "
+"AAC files.");
 
 static const char* 
 GBLcopyright = 
@@ -1555,7 +1559,7 @@ show_aboutbox (void)
 #endif
                           "authors", GBLauthors,
                           "translator-credits", GBLtranslators,
-                          "comments", GBLcomments,
+                          "comments", _(GBLcomments),
                           "copyright", GBLcopyright,
                           "license", GBLlicense,
                           "website", GBLwebsite,

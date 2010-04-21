@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder-0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-18 18:42-0400\n"
+"POT-Creation-Date: 2010-04-21 10:50-0400\n"
 "PO-Revision-Date: 2010-03-28 21:24-0300\n"
 "Last-Translator: Sérgio Brandão Cipolla <secipolla@gmail.com>\n"
 "Language-Team: Pt-Br <flipeicl@gmail.com>\n"
@@ -367,14 +367,20 @@ msgstr "Progresso total"
 msgid "Encoding"
 msgstr "Codificação"
 
-#: src/interface.c:1574
+#: src/interface.c:1532
+msgid ""
+"An application to save tracks from an Audio CD \n"
+"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+msgstr ""
+
+#: src/interface.c:1575
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "O Arquivo %d foi criado com sucesso"
 msgstr[1] "Os arquivos %d foram criados com sucesso"
 
-#: src/interface.c:1583
+#: src/interface.c:1584
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

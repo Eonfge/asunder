@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-18 18:42-0400\n"
+"POT-Creation-Date: 2010-04-21 10:50-0400\n"
 "PO-Revision-Date: 2009-11-08 17:18+0200\n"
 "Last-Translator: Savaş Şen <sen.savas@gmail.com>\n"
 "Language-Team: <LL@li.org>\n"
@@ -363,13 +363,19 @@ msgstr "Toplam işlenen"
 msgid "Encoding"
 msgstr "Kodlanıyor"
 
-#: src/interface.c:1574
+#: src/interface.c:1532
+msgid ""
+"An application to save tracks from an Audio CD \n"
+"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+msgstr ""
+
+#: src/interface.c:1575
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d dosyası(ları) başarıyla oluşturuldu"
 
-#: src/interface.c:1583
+#: src/interface.c:1584
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
