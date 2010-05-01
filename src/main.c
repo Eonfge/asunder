@@ -28,7 +28,7 @@ Foundation; version 2 of the licence.
 #include <stdbool.h>
 #include <signal.h>
 
-#if defined(__FreeBSD__)
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
     #include <sys/cdio.h>
 #elif defined(__linux__)
     #include <linux/cdrom.h>
@@ -194,7 +194,7 @@ bool check_disc(char * cdrom)
     bool ret = false;
     int status;
     
-#if defined(__FreeBSD__)
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
     struct ioc_read_subchannel cdsc;
     struct cd_sub_channel_info data;
 #endif
@@ -231,7 +231,7 @@ bool check_disc(char * cdrom)
     static bool alreadyKnowGood = false; /* check when program just started */
     static bool alreadyCleared = true; /* no need to clear when program just started */
     
-#if defined(__FreeBSD__)
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
     bzero(&cdsc, sizeof(cdsc));
     cdsc.data = &data;
     cdsc.data_len = sizeof(data);
@@ -350,7 +350,7 @@ void eject_disc(char * cdrom)
     //~ {
         //~ ioctl(fd, CDROMCLOSETRAY, CDSL_CURRENT);
     //~ } else {
-#if defined(__FreeBSD__)
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
             ioctl(fd, CDIOCALLOW);
             ioctl(fd, CDIOCEJECT);
 #elif defined(__linux__)
@@ -453,7 +453,7 @@ cddb_disc_t * read_disc(char * cdrom)
     int fd;
     int status;
     int i;
-#if defined(__FreeBSD__)
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
     struct ioc_toc_header th;
     struct ioc_read_toc_single_entry te;
     struct ioc_read_subchannel cdsc;
@@ -476,7 +476,7 @@ cddb_disc_t * read_disc(char * cdrom)
         return NULL;
     }
     
-#if defined(__FreeBSD__)
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
     // read disc status info
     bzero(&cdsc,sizeof(cdsc));
     cdsc.data = &data;
