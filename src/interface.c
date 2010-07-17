@@ -1323,7 +1323,7 @@ void enable_musepack_widgets(void)
 
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 1.9.3";
+GBLprogramName = "Asunder 2.0";
 
 static const char* 
 GBLauthors[2] = {
@@ -1498,6 +1498,9 @@ GBLtranslators =
 "\n"
 "Antonio Sousa\n"
 "- pt (Portuguese) translation of Asunder version 1.5\n"
+"\n"
+"Sergio Marques\n"
+"- pt (Portuguese) translation of Asunder version 1.9\n"
 "\n"
 "Flipe Augusto\n"
 "- pt_BR (Portuguese/Brazil) translation of Asunder versions 0.8.1 - 1.9\n"

@@ -995,7 +995,7 @@ void aac(char* wavfilename,
     
     args[pos++] = "-q";
     char qualityParam[5];
-    snprintf(qualityParam, 5, "%.2lf", (double)quality / 100);
+    snprintf(qualityParam, 5, "0.%d", quality);
     args[pos++] = qualityParam;
     
     args[pos++] = "-if";
