@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-21 10:50-0400\n"
+"POT-Creation-Date: 2010-07-17 08:40-0400\n"
 "PO-Revision-Date: 2009-08-25 10:19+0200\n"
 "Last-Translator: uros <n@g.com>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -366,20 +366,20 @@ msgstr "Skupen napredek"
 msgid "Encoding"
 msgstr "Kodiranje"
 
-#: src/interface.c:1532
+#: src/interface.c:1547
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 
-#: src/interface.c:1575
+#: src/interface.c:1590
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d uspešno ustvarjen"
 msgstr[1] "%d uspešno ustvarjeni"
 
-#: src/interface.c:1584
+#: src/interface.c:1599
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

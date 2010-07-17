@@ -22,6 +22,12 @@ Radu Potop
 http://wooptoo.com/
 - The new Asunder icon
 
+Pader Reszo
+- Made the about description translatable
+
+Cyril Brulebois
+- A kFreeBSD fix.
+
 Packages:
 
 Toni Graffy
@@ -103,10 +109,13 @@ Mike Kranidis
 - el (Greek) translation of Asunder versions 0.8 - 1.0, 1.9
 
 George Vlahavas
-- el (Greek) translation of Asunder versio 1.5
+- el (Greek) translation of Asunder version 1.5
 
 Juan Garcia-Murga Monago
 - es (Spanish) translation of Asunder versions 0.8 - 1.9
+
+Marco Antonio
+- es (Spanish) translation of Asunder version 1.9.3
 
 Eero Salokannel
 - fi (Finnish) translation of Asunder versions 0.8 - 1.5
@@ -119,6 +128,9 @@ Fabrice Le Goff
 
 Peter Polonkai
 - hu (Hungarian) translation of Asunder versions 0.8 - 1.9
+
+Petar Kulic
+- hr (Croatian) translation of Asunder version 1.9
 
 Pader Rezso
 - hu (Hungarian) translation of Asunder version 1.9.2
@@ -155,6 +167,9 @@ Marcin Gasiorowski
 
 Antonio Sousa
 - pt (Portuguese) translation of Asunder version 1.5
+
+Sergio Marques
+- pt (Portuguese) translation of Asunder version 1.9
 
 Flipe Augusto
 - pt_BR (Portuguese/Brazil) translation of Asunder versions 0.8.1 - 1.9

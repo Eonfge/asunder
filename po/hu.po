@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-21 10:50-0400\n"
+"POT-Creation-Date: 2010-07-17 08:40-0400\n"
 "PO-Revision-Date: 2010-04-18 22:18+0100\n"
 "Last-Translator: rezso <rezso@rezso.net>\n"
 "Language-Team: <NONE>\n"
@@ -360,7 +360,7 @@ msgstr "Teljes folyamat"
 msgid "Encoding"
 msgstr "Kódolás"
 
-#: src/interface.c:1532
+#: src/interface.c:1547
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
@@ -368,14 +368,14 @@ msgstr ""
 "Audio CD hangsávjait WAV, MP3, OGG, FLAC, Wavpack, Musepack,\n"
 "Monkey's Audio és/vagy AAC formátumba kódoló program."
 
-#: src/interface.c:1575
+#: src/interface.c:1590
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fájl sikeresen elkészült"
 msgstr[1] "%d fájl sikeresen elkészült"
 
-#: src/interface.c:1584
+#: src/interface.c:1599
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

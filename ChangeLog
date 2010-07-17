@@ -1,3 +1,10 @@
+17 July 2010 - 2.0
+==================
+- Added Croatian translation.
+- Updated Spanish, Hungarian, Portuguese, and Portuguese (Brasil) translations.
+- Asunder now compiles on kFreeBSD.
+- Fixed bug where AAC files were always encoded at lowest quality despite UI selection.
+
 18 April 2010 - 1.9.3
 =====================
 - Updated Russian and Hungarian translations

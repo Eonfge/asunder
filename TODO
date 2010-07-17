@@ -28,6 +28,7 @@ Tests to run before a release
 - update authors, packagers, translators
 - update changelog
 - update AUTHORS
+- autoconf
 - cd po && make update-po
 - make dist-bzip2
 - uninstall, extract, compile, install and run
