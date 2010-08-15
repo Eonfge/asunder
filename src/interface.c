@@ -1515,7 +1515,7 @@ GBLtranslators =
 "- ru (Russian) translation of Asunder version 1.9.2\n"
 "\n"
 "Alexey Sivakov\n"
-"- ru (Russian) translation of Asunder versions 0.8 - 1.0, 1.9\n"
+"- ru (Russian) translation of Asunder versions 0.8 - 1.0, 1.9, 2.0\n"
 "\n"
 "Evgenii Terechkov\n"
 "- ru (Russian) translation of Asunder versions 1.0.2 - 1.5\n"

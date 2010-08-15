@@ -1,14 +1,14 @@
 # This file is distributed under the same license as the Asunder package.
 # Updated for 0.9 by Evgenii Terechkov
-# Updated by Alexey Sivakov aka Goodvin
 # Александр Прокудин <alexandre.prokoudine@gmail.com>, 2010.
+# Updated for 2.0 by Alexey Sivakov <asivakov@gmail.com>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: Asunder 1.9.2\n"
+"Project-Id-Version: Asunder 2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-17 08:40-0400\n"
-"PO-Revision-Date: 2010-04-18 05:45+0400\n"
-"Last-Translator: Александр Прокудин <alexandre.prokoudine@gmail.com>\n"
+"PO-Revision-Date: 2010-08-09 11:33+0400\n"
+"Last-Translator: Alexey Sivakov <asivakov@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@lists.gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -370,6 +370,8 @@ msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
+"Приложение для извлечения дорожек из Audio CD и сохранения в файлах форматов "
+"WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, и/или AAC."
 
 #: src/interface.c:1590
 #, c-format
