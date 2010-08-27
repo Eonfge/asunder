@@ -1,14 +1,22 @@
 # Danish translation Asunder.
 # Copyright (C) 2010 Asunder & nedenstående oversættere.
 # This file is distributed under the same license as the Asunder package.
-# Joe Hansen <joedalton2@yahoo.dk>, 2010.
+# Joe Hansen <j@yahoo.dk>, 2010.
+#
+# konventioner
+# compression -> komprimering (alternativet er kompression, men det er ikke brugt
+#                              i Gnome, KDE, Fedora et cetera).
+# track -> nummer
+#
+# '' -> ''
+# "" -> »«
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Asunder 1.9.1\n"
+"Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-17 08:40-0400\n"
-"PO-Revision-Date: 2010-01-08 00:00+2000\n"
+"PO-Revision-Date: 2010-08-18 23:00+2000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -33,9 +41,8 @@ msgid "Title"
 msgstr "Titel"
 
 #: src/main.c:140
-#, fuzzy
 msgid "Genre"
-msgstr "Generelt"
+msgstr "Genre"
 
 # måske varighed
 #: src/main.c:145
@@ -92,29 +99,24 @@ msgid "Disc:"
 msgstr "Cd:"
 
 #: src/interface.c:151
-#, fuzzy
 msgid "Album Artist:"
 msgstr "Kunstner:"
 
 #: src/interface.c:158
-#, fuzzy
 msgid "Album Title:"
 msgstr "Albumtitel:"
 
 #: src/interface.c:165
-#, fuzzy
 msgid "Single Artist"
 msgstr "En kunstner"
 
 #: src/interface.c:171
-#, fuzzy
 msgid "Genre:"
-msgstr "Generelt"
+msgstr "Genre:"
 
 #: src/interface.c:178
-#, fuzzy
 msgid "Single Genre"
-msgstr "En kunstner"
+msgstr "En genre"
 
 #: src/interface.c:364
 msgid "Preferences"
@@ -151,7 +153,6 @@ msgid "General"
 msgstr "Generelt"
 
 #: src/interface.c:440
-#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -162,6 +163,7 @@ msgstr ""
 "%A - Kunstner\n"
 "%L - Album\n"
 "%N - Nr. på albummet (2 cifre)\n"
+"%Y - År (4-tal eller »0«)\n"
 "%T - Titel"
 
 #: src/interface.c:450
@@ -183,7 +185,7 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
-"Dette er i forhold til modtagelsesmappen (fra det generelle faneblad).\n"
+"Dette er i forhold til modtagelsesmappen (fra fanebladet Generelt).\n"
 "Må være uudfyldt.\n"
 "Standard: %A - L%\n"
 "Andet eksempel: %A/%L"
@@ -245,7 +247,7 @@ msgstr ""
 
 #: src/interface.c:587
 msgid "MP3 (lossy compression)"
-msgstr "MP3 (kompression med kvalitetstab)"
+msgstr "MP3 (komprimering med kvalitetstab)"
 
 #: src/interface.c:609 src/interface.c:897
 msgid "Quality"
@@ -257,11 +259,11 @@ msgstr "Højere kvalitet betyder større filer. Standard er 6."
 
 #: src/interface.c:622
 msgid "OGG Vorbis (lossy compression)"
-msgstr "OGG Vorbis (kompression med kvalitetstab)"
+msgstr "OGG Vorbis (komprimering med kvalitetstab)"
 
 #: src/interface.c:644 src/interface.c:705 src/interface.c:842
 msgid "Compression level"
-msgstr "Kompressionsniveau"
+msgstr "Komprimeringsniveau"
 
 #: src/interface.c:655 src/interface.c:855
 msgid "This does not affect the quality. Higher number means smaller file."
@@ -269,7 +271,7 @@ msgstr "Dette påvirker ikke kvaliteten. Højere tal betyder mindre filer."
 
 #: src/interface.c:657
 msgid "FLAC (lossless compression)"
-msgstr "FLAC (kompression uden kvalitetstab)"
+msgstr "FLAC (komprimering uden kvalitetstab)"
 
 #: src/interface.c:676
 msgid "More formats"
@@ -285,14 +287,14 @@ msgstr ""
 
 #: src/interface.c:724
 msgid "Hybrid compression"
-msgstr "Blandet kompression"
+msgstr "Blandet komprimering"
 
 #: src/interface.c:733
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
 msgstr ""
-"Dette format har kvalitetstab men en korrektionsfil oprettes så filen uden "
+"Dette format har kvalitetstab, men en korrektionsfil oprettes så filen uden "
 "kvalitetstab kan genskabes."
 
 #: src/interface.c:802
@@ -301,11 +303,11 @@ msgstr "Højere bitrate medfører bedre kvalitet men også større filer."
 
 #: src/interface.c:810
 msgid "Musepack (lossy compression)"
-msgstr "Musepack (kompression med kvalitetstab)"
+msgstr "Musepack (komprimering med kvalitetstab)"
 
 #: src/interface.c:857
 msgid "Monkey's Audio (lossless compression)"
-msgstr "Monkeys Audio (kompression uden kvalitetstab)"
+msgstr "Monkeys Audio (komprimering uden kvalitetstab)"
 
 #. END MONKEY
 #: src/interface.c:866
@@ -318,7 +320,7 @@ msgstr "Højere kvalitet medfører større filer. Standard er 60."
 
 #: src/interface.c:912
 msgid "AAC (lossy compression, Nero encoder)"
-msgstr "AAC (kompression med tab, Nerokodning)"
+msgstr "AAC (komprimering med tab, Nerokodning)"
 
 #. END AAC
 #: src/interface.c:921
@@ -370,6 +372,8 @@ msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
+"Et program til at gemme numre fra en lyd-cd \n"
+"som WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkeys Audio og/eller AAC-filer."
 
 #: src/interface.c:1590
 #, c-format
@@ -382,8 +386,8 @@ msgstr[1] "%d filer oprettet"
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] "En fejl opstod under oprettelse af %d fil"
-msgstr[1] "En fejl opstod under oprettelse af %d filer"
+msgstr[0] "Der opstod en fejl under oprettelse af %d fil"
+msgstr[1] "Der opstod en fejl under oprettelse af %d filer"
 
 #: src/prefs.c:614 src/prefs.c:626
 #, c-format
@@ -421,7 +425,7 @@ msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
-"Ingen udtræks-/konverteringsmetode valgt. Slå venligt en metode til via "
+"Ingen udtræks-/konverteringsmetode valgt. Slå venligst en metode til via "
 "'Indstillinger'."
 
 #: src/threads.c:200
