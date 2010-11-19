@@ -93,6 +93,8 @@ int main(int argc, char *argv[])
     gdk_threads_init();
     gtk_init(&argc, &argv);
     
+    // If moving this in relation to the signal handler setup above - make sure
+    // to pay attention to the check in sigchld(), see email from Ariel Faigon
     global_prefs = get_default_prefs();
     load_prefs(global_prefs);
     

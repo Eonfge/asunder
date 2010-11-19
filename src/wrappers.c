@@ -97,6 +97,10 @@ void sigchld(int signum)
     int status;
     pid_t pid;
     
+    if(global_prefs == NULL)
+    // Cannot call debugLog at this point
+        return;
+    
     pid = wait(&status);
     
     debugLog("sigchld for %d (know about wav %d, mp3 %d, ogg %d, flac %d, "
