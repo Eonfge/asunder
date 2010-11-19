@@ -1,0 +1,436 @@
+# Guillermo Gras <urdinene@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: Asunder Euskaraz\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-07-17 08:40-0400\n"
+"PO-Revision-Date: 2010-10-10 10:40+0200\n"
+"Last-Translator: Guillermo Gras <urdinene@gmail.com>\n"
+"Language-Team: Basque <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: eu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.5.2\n"
+
+#: src/main.c:114 src/interface.c:225
+msgid "Rip"
+msgstr "Erauzi"
+
+#: src/main.c:119
+msgid "Track"
+msgstr "Pista"
+
+#: src/main.c:126
+msgid "Artist"
+msgstr "Artista"
+
+#: src/main.c:133
+msgid "Title"
+msgstr "Titulua"
+
+#: src/main.c:140
+msgid "Genre"
+msgstr "Generoa"
+
+#: src/main.c:145
+msgid "Time"
+msgstr "Denbora"
+
+#: src/main.c:171
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"'cdparanoia' ez da zure bide-izenean aurkitu. Asunder-ek CDak erauzteko "
+"cdparanoia behar du"
+
+#: src/main.c:411
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr "<b>Diskoaren informazioa internetetik lortzen...</b>"
+
+#: src/callbacks.c:57 src/callbacks.c:237 src/callbacks.c:265
+#: src/callbacks.c:275 src/interface.c:581 src/interface.c:804
+#, c-format
+msgid "%dKbps"
+msgstr "%dKbps"
+
+#: src/callbacks.c:377
+msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
+msgstr "Ez da CDrik sartu. CD-ROM unitatean CD bat sartu, mesedez."
+
+#: src/callbacks.c:396 src/callbacks.c:421 src/callbacks.c:446
+#: src/callbacks.c:471 src/callbacks.c:496 src/callbacks.c:521
+#: src/callbacks.c:546
+#, c-format
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"%s ez da zure bide-izenean aurkitu. Asunder-ek %s fitxategiak sortzeko behar "
+"du. %s erabilgarritasuna desgaitua dago."
+
+#: src/callbacks.c:643
+msgid "Select all for ripping"
+msgstr "Guztia hautatu erauzteko"
+
+#: src/callbacks.c:649
+msgid "Deselect all for ripping"
+msgstr "Guztia desautatu erauzteko"
+
+#: src/interface.c:96
+msgid "CDDB Lookup"
+msgstr "CDDB Bilaketa"
+
+#: src/interface.c:145
+msgid "Disc:"
+msgstr "Diskoa:"
+
+#: src/interface.c:151
+msgid "Album Artist:"
+msgstr "Album Artista:"
+
+#: src/interface.c:158
+msgid "Album Title:"
+msgstr "Album Titulua:"
+
+#: src/interface.c:165
+msgid "Single Artist"
+msgstr "Artista Bakarra"
+
+#: src/interface.c:171
+msgid "Genre:"
+msgstr "Generoa:"
+
+#: src/interface.c:178
+msgid "Single Genre"
+msgstr "Genero Bakarra"
+
+#: src/interface.c:364
+msgid "Preferences"
+msgstr "Hobespenak"
+
+#: src/interface.c:381 src/interface.c:387
+msgid "Destination folder"
+msgstr "Helburu karpeta"
+
+#: src/interface.c:391
+msgid "Create M3U playlist"
+msgstr "M3U erreprodukzio-zerrenda sortu"
+
+#: src/interface.c:399
+msgid "CD-ROM device: "
+msgstr "CD-ROM gailua: "
+
+#: src/interface.c:408
+msgid ""
+"Default: /dev/cdrom\n"
+"Other example: /dev/hdc\n"
+"Other example: /dev/sr0"
+msgstr ""
+"Lehenetsia: /dev/cdrom\n"
+"Beste adibide bat: /dev/hdc\n"
+"Beste adibide bat: /dev/sr0"
+
+#: src/interface.c:412
+msgid "Eject disc when finished"
+msgstr "Bukatzean diskoa egotzi"
+
+#: src/interface.c:420
+msgid "General"
+msgstr "Orokorra"
+
+#: src/interface.c:440
+msgid ""
+"%A - Artist\n"
+"%L - Album\n"
+"%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
+"%T - Song title"
+msgstr ""
+"%A - Artista\n"
+"%L - Albuma\n"
+"%N - Pista zenbakia (2-digitu)\n"
+"%Y - Urtea (4-digitu edo \"0\")\n"
+"%T - Abestiaren titulua"
+
+#: src/interface.c:450
+msgid "Album directory: "
+msgstr "Albumaren direktorioa:"
+
+#: src/interface.c:457 src/prefs.c:615
+msgid "Playlist file: "
+msgstr "Erreprodukzio-zerrenda fitxategia: "
+
+#: src/interface.c:464 src/prefs.c:627 src/prefs.c:637
+msgid "Music file: "
+msgstr "Musika fitxategia: "
+
+#: src/interface.c:478
+msgid ""
+"This is relative to the destination folder (from the General tab).\n"
+"Can be blank.\n"
+"Default: %A - %L\n"
+"Other example: %A/%L"
+msgstr ""
+"Hau helburu karpetari buruzkoa da (Orokorra fitxan).\n"
+"Ezin da hutsik utzi\n"
+"Lehenetsia: %A - %L\n"
+"Beste adibide bat: %A/%L"
+
+#: src/interface.c:490
+msgid ""
+"This will be stored in the album directory.\n"
+"Can be blank.\n"
+"Default: %A - %L"
+msgstr ""
+"Hau albumaren direktorioan gordeko da.\n"
+"Ezin da hutsik utzi.\n"
+"Lehenetsia: %A - %L"
+
+#: src/interface.c:501
+msgid ""
+"This will be stored in the album directory.\n"
+"Cannot be blank.\n"
+"Default: %A - %T\n"
+"Other example: %N - %T"
+msgstr ""
+"Hau albumaren direktorioan gordeko da.\n"
+"Ezin da hutsik utzi.\n"
+"Lehenetsia: %A - %T\n"
+"Beste adibide bat: %N - %T"
+
+#: src/interface.c:506
+msgid "Filename formats"
+msgstr "Fitxategi-izenen formatuak"
+
+#: src/interface.c:511
+msgid "Filenames"
+msgstr "Fitxategi-izenak"
+
+#. WAV
+#: src/interface.c:530
+msgid "WAV (uncompressed)"
+msgstr "WAV (konpresiorik gabea)"
+
+#: src/interface.c:549
+msgid "Variable bit rate (VBR)"
+msgstr "Bit-abiadura aldagarria (VBR)"
+
+#: src/interface.c:557
+msgid "Better quality for the same size."
+msgstr "Kalitate hobea tamaina berdinean."
+
+#: src/interface.c:563 src/interface.c:739 src/interface.c:786
+msgid "Bitrate"
+msgstr "Bit-abiadura"
+
+#: src/interface.c:578
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"Bit-abiadura handiagoak kalitate hobedun baina handiagoa den fitxategia "
+"sortzen du. Gehiengoak 192Kbps erabiltzen du."
+
+#: src/interface.c:587
+msgid "MP3 (lossy compression)"
+msgstr "MP3 (konpresioa galerarekin)"
+
+#: src/interface.c:609 src/interface.c:897
+msgid "Quality"
+msgstr "Kalitatea"
+
+#: src/interface.c:620
+msgid "Higher quality means bigger file. Default is 6."
+msgstr "Kalitate handiagoak fitxategi handiagoa sortzen du. Lehenetsia 6 da."
+
+#: src/interface.c:622
+msgid "OGG Vorbis (lossy compression)"
+msgstr "OGG Vorbis (konpresioa galerarekin)"
+
+#: src/interface.c:644 src/interface.c:705 src/interface.c:842
+msgid "Compression level"
+msgstr "Konpresio maila"
+
+#: src/interface.c:655 src/interface.c:855
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr ""
+"Honek ez dio kalitateari eragiten. Zenbaki handiagoak fitxategi txikiagoa "
+"sortzen du."
+
+#: src/interface.c:657
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (galerarik gabeko formatua)"
+
+#: src/interface.c:676
+msgid "More formats"
+msgstr "Formatu gehiago"
+
+#: src/interface.c:718
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"Honek ez dio kalitateari eragiten. Zenbaki handiagoak fitxategi txikiagoa "
+"sortzen du. Lehenetsia 1 da (gomendatua)"
+
+#: src/interface.c:724
+msgid "Hybrid compression"
+msgstr "Konpresio hibridoa"
+
+#: src/interface.c:733
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+"Formatuak galera dauka baina jatorrizkoa berreskuratzeko zuzenketa fitxategi "
+"bat sortuko da."
+
+#: src/interface.c:802
+msgid "Higher bitrate is better quality but also bigger file."
+msgstr ""
+"Bit-abiadura handiagoak kalitate hobedun baina handiagoa den fitxategia "
+"sortzen du"
+
+#: src/interface.c:810
+msgid "Musepack (lossy compression)"
+msgstr "Musepack (konpresioa galerarekin)"
+
+#: src/interface.c:857
+msgid "Monkey's Audio (lossless compression)"
+msgstr "Monkey's Audio (galerarik gabeko konpresioa)"
+
+#. END MONKEY
+#: src/interface.c:866
+msgid "Proprietary encoders"
+msgstr "Jabedun kodetzaileak"
+
+#: src/interface.c:910
+msgid "Higher quality means bigger file. Default is 60."
+msgstr "Kalitate handiagoak fitxategi handiagoa sortzen du. Lehenetsia 60 da."
+
+#: src/interface.c:912
+msgid "AAC (lossy compression, Nero encoder)"
+msgstr "AAC (konpresioa galerarekin, Nero kodetzailea)"
+
+#. END AAC
+#: src/interface.c:921
+msgid "Encode"
+msgstr "Kodetu"
+
+#: src/interface.c:952
+msgid "Get disc info from the internet automatically"
+msgstr "Diskoaren informazioa internetetik eskuratu automatikoki"
+
+#: src/interface.c:960 src/interface.c:1005
+msgid "Server: "
+msgstr "Zerbitzaria: "
+
+#: src/interface.c:970
+msgid "The CDDB server to get disc info from (default is freedb.org)"
+msgstr ""
+"Diskoaren informazioa lortzeko CDDB zerbitzaria (lehenetsia freedb.org da)"
+
+#: src/interface.c:976 src/interface.c:1018
+msgid "Port: "
+msgstr "Ataka: "
+
+#: src/interface.c:986
+msgid "The CDDB server port (default is 888)"
+msgstr "CDDB zerbitzariaren ataka (lehenetsia 888 da)"
+
+#: src/interface.c:992
+msgid "Use an HTTP proxy to connect to the internet"
+msgstr "HTTP proxya erabili internetera konektatzeko"
+
+#: src/interface.c:1036
+msgid "Advanced"
+msgstr "Aurreratua"
+
+#: src/interface.c:1107 src/interface.c:1143
+msgid "Ripping"
+msgstr "Erauzten"
+
+#: src/interface.c:1136
+msgid "Total progress"
+msgstr "Aurrerapen osoa"
+
+#: src/interface.c:1150
+msgid "Encoding"
+msgstr "Kodetzen"
+
+#: src/interface.c:1547
+msgid ""
+"An application to save tracks from an Audio CD \n"
+"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+msgstr ""
+"Audio CD batetik pistak WAV, MP3, OGG, FLAC, \n"
+"Wavpack,Musepack,Monkey's Audio eta/edo AAC fitxategi moduan erauzteko "
+"aplikazioa."
+
+#: src/interface.c:1590
+#, c-format
+msgid "%d file created successfully"
+msgid_plural "%d files created successfully"
+msgstr[0] "%d fitxategia ongi sortu da"
+msgstr[1] "%d fitxategiak ongi sortu dira"
+
+#: src/interface.c:1599
+#, c-format
+msgid "There was an error creating %d file"
+msgid_plural "There was an error creating %d files"
+msgstr[0] "Akats bat egon da %d fitxategia sortzean"
+msgstr[1] "Akats bat egon da %d fitxategiak sortzean"
+
+#: src/prefs.c:614 src/prefs.c:626
+#, c-format
+msgid "Invalid characters in the '%s' field"
+msgstr "Baliogabeko karaktereak '%s' eremuan"
+
+#: src/prefs.c:636
+#, c-format
+msgid "'%s' cannot be empty"
+msgstr "'%s' ezin da hutsik utzi"
+
+#: src/prefs.c:651
+msgid "Invalid proxy port number"
+msgstr "Proxyaren ataka zenbaki baliogabea"
+
+#: src/prefs.c:664
+msgid "Invalid cddb server port number"
+msgstr "cddb zerbitzariaren ataka zenbaki baliogabea"
+
+#: src/support.c:47
+msgid "Overwrite?"
+msgstr "Gainidatzi?"
+
+#: src/support.c:60
+#, c-format
+msgid "The file '%s' already exists. Do you want to overwrite it?\n"
+msgstr "'%s' fitxategia badago lehendik ere. Jarraitu nahi duzu?\n"
+
+#: src/support.c:66
+msgid "Remember the answer for _all the files made from this CD"
+msgstr "Gogoratu erantzuna _CD honetatik sortutako fitxategi guztientzat"
+
+#: src/threads.c:171
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"Ez da erauzte/kodetze metodorik hautatu. 'Hobespenak' menuan baten bat "
+"gaitu, mesedez."
+
+#: src/threads.c:200
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"Ez da erauzi/kodetzeko pistarik hautatu. Gutxienez pista bat aukeratu "
+"mesedez."
+
+#: src/threads.c:902 src/threads.c:904 src/threads.c:908
+msgid "Waiting..."
+msgstr "Zain..."
