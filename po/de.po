@@ -4,6 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-27 12:36-0500\n"
 "PO-Revision-Date: 2010-07-23 21:29-0500\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -11,50 +13,47 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
-"POT-Creation-Date: \n"
 
-#: src/main.c:114
-#: src/interface.c:225
+#: src/main.c:116 src/interface.c:225
 msgid "Rip"
 msgstr "Importieren"
 
-#: src/main.c:119
+#: src/main.c:121
 msgid "Track"
 msgstr "Nr."
 
-#: src/main.c:126
+#: src/main.c:128
 msgid "Artist"
 msgstr "Interpret"
 
-#: src/main.c:133
+#: src/main.c:135
 msgid "Title"
 msgstr "Titel"
 
-#: src/main.c:140
+#: src/main.c:142
 msgid "Genre"
 msgstr "Allgemein"
 
-#: src/main.c:145
+#: src/main.c:147
 msgid "Time"
 msgstr "Dauer"
 
-#: src/main.c:171
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+#: src/main.c:173
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
 msgstr ""
-"'cdparanoia' wurde nicht gefunden. Asunder benötigt diese Applikation jedoch zum Lesen von CDs.\n"
+"'cdparanoia' wurde nicht gefunden. Asunder benötigt diese Applikation jedoch "
+"zum Lesen von CDs.\n"
 "\n"
 "Das Importieren von CDs ist daher nicht möglich."
 
-#: src/main.c:411
+#: src/main.c:413
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>CD-Info aus dem Internet abrufen...</b>"
 
-#: src/callbacks.c:57
-#: src/callbacks.c:237
-#: src/callbacks.c:265
-#: src/callbacks.c:275
-#: src/interface.c:581
-#: src/interface.c:804
+#: src/callbacks.c:57 src/callbacks.c:237 src/callbacks.c:265
+#: src/callbacks.c:275 src/interface.c:581 src/interface.c:804
 #, c-format
 msgid "%dKbps"
 msgstr "%dkbps"
@@ -64,19 +63,19 @@ msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr ""
 "Das gewählte Gerät scheint keine CD zu enthalten.\n"
 "\n"
-"Legen Sie bitte eine CD ein und prüfen Sie gegebenenfalls die Einstellungen hinsichtlich der Gerätedatei des CD-Laufwerks."
+"Legen Sie bitte eine CD ein und prüfen Sie gegebenenfalls die Einstellungen "
+"hinsichtlich der Gerätedatei des CD-Laufwerks."
 
-#: src/callbacks.c:396
-#: src/callbacks.c:421
-#: src/callbacks.c:446
-#: src/callbacks.c:471
-#: src/callbacks.c:496
-#: src/callbacks.c:521
+#: src/callbacks.c:396 src/callbacks.c:421 src/callbacks.c:446
+#: src/callbacks.c:471 src/callbacks.c:496 src/callbacks.c:521
 #: src/callbacks.c:546
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
 msgstr ""
-"%s wurde nicht gefunden. Asunder benötigt diese Applikation jedoch zum Erstellen von %s-Dateien.\n"
+"%s wurde nicht gefunden. Asunder benötigt diese Applikation jedoch zum "
+"Erstellen von %s-Dateien.\n"
 "\n"
 "Das Erstellen von %s-Dateien ist daher nicht möglich."
 
@@ -120,8 +119,7 @@ msgstr "trifft auf alle Titel zu"
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: src/interface.c:381
-#: src/interface.c:387
+#: src/interface.c:381 src/interface.c:387
 msgid "Destination folder"
 msgstr "Ziel-Ordner"
 
@@ -139,7 +137,8 @@ msgid ""
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
-"Tragen Sie bitte hier den absoluten Pfad zur Gerätedatei des CD-Laufwerks ein, welches Sie zum Importieren verwenden wollen.\n"
+"Tragen Sie bitte hier den absoluten Pfad zur Gerätedatei des CD-Laufwerks "
+"ein, welches Sie zum Importieren verwenden wollen.\n"
 "\n"
 "Vorgabe: /dev/cdrom\n"
 "Weiteres Beispiel: /dev/hdc\n"
@@ -171,14 +170,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "Ordner für Alben: "
 
-#: src/interface.c:457
-#: src/prefs.c:615
+#: src/interface.c:457 src/prefs.c:615
 msgid "Playlist file: "
 msgstr "Abspielliste: "
 
-#: src/interface.c:464
-#: src/prefs.c:627
-#: src/prefs.c:637
+#: src/interface.c:464 src/prefs.c:627 src/prefs.c:637
 msgid "Music file: "
 msgstr "Audio-Dateien: "
 
@@ -189,7 +185,8 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
-"Die Ordner für die Alben werden in dem unter 'Allgemein' gewählten Ziel-Ordner angelegt.\n"
+"Die Ordner für die Alben werden in dem unter 'Allgemein' gewählten Ziel-"
+"Ordner angelegt.\n"
 "\n"
 "Dieses Feld darf leer bleiben.\n"
 "\n"
@@ -242,20 +239,22 @@ msgstr "Variable Bitrate (VBR)"
 #: src/interface.c:557
 msgid "Better quality for the same size."
 msgstr ""
-"Eine variable Bitrate bewirkt bessere Qualität bei gleichem Platzbedarf der Audio-Daten.\n"
+"Eine variable Bitrate bewirkt bessere Qualität bei gleichem Platzbedarf der "
+"Audio-Daten.\n"
 "\n"
 "Manch älteres Gerät unterstützt die Wiedergabe möglicherweise nicht."
 
-#: src/interface.c:563
-#: src/interface.c:739
-#: src/interface.c:786
+#: src/interface.c:563 src/interface.c:739 src/interface.c:786
 msgid "Bitrate"
 msgstr "Bitrate"
 
 #: src/interface.c:578
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
 msgstr ""
-"Eine höhere Bitrate bewirkt bessere Qualität bei höherem Platzbedarf der Audio-Daten.\n"
+"Eine höhere Bitrate bewirkt bessere Qualität bei höherem Platzbedarf der "
+"Audio-Daten.\n"
 "\n"
 "Vorgabe: 192kbps"
 
@@ -263,15 +262,15 @@ msgstr ""
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (verlustbehaftete Komprimierung)"
 
-#: src/interface.c:609
-#: src/interface.c:897
+#: src/interface.c:609 src/interface.c:897
 msgid "Quality"
 msgstr "Qualität"
 
 #: src/interface.c:620
 msgid "Higher quality means bigger file. Default is 6."
 msgstr ""
-"Eine höhere Stufe bewirkt bessere Qualität bei höherem Platzbedarf der Audio-Daten.\n"
+"Eine höhere Stufe bewirkt bessere Qualität bei höherem Platzbedarf der Audio-"
+"Daten.\n"
 "\n"
 "Vorgabe: 6"
 
@@ -279,17 +278,15 @@ msgstr ""
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (verlustbehaftete Komprimierung)"
 
-#: src/interface.c:644
-#: src/interface.c:705
-#: src/interface.c:842
+#: src/interface.c:644 src/interface.c:705 src/interface.c:842
 msgid "Compression level"
 msgstr "Komprimierung"
 
-#: src/interface.c:655
-#: src/interface.c:855
+#: src/interface.c:655 src/interface.c:855
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr ""
-"Eine höhere Stufe bewirkt stärkere Komprimierung und damit einen geringeren Platzbedarf der Audio-Daten.\n"
+"Eine höhere Stufe bewirkt stärkere Komprimierung und damit einen geringeren "
+"Platzbedarf der Audio-Daten.\n"
 "\n"
 "Dies hat keinen Einfluss auf die Qualität."
 
@@ -302,9 +299,12 @@ msgid "More formats"
 msgstr "Mehr Formate"
 
 #: src/interface.c:718
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
 msgstr ""
-"Eine höhere Stufe bewirkt stärkere Komprimierung und damit einen geringeren Platzbedarf der Audio-Daten.\n"
+"Eine höhere Stufe bewirkt stärkere Komprimierung und damit einen geringeren "
+"Platzbedarf der Audio-Daten.\n"
 "\n"
 "Dies hat keinen Einfluss auf die Qualität.\n"
 "\n"
@@ -315,18 +315,24 @@ msgid "Hybrid compression"
 msgstr "WavPack-Hybridmodus"
 
 #: src/interface.c:733
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
 msgstr ""
-"Der WavPack-Hybridmodus kombiniert verlustbehaftete mit verlustfreier Komprimierung.\n"
+"Der WavPack-Hybridmodus kombiniert verlustbehaftete mit verlustfreier "
+"Komprimierung.\n"
 "\n"
-"Es wird zur verlustbehaftet komprimierten Datei eine weitere erstellt, welche Korrektur-Informationen enthält, die eine vollständig verlustfreie Rekonstruktion des Originals erlauben.\n"
+"Es wird zur verlustbehaftet komprimierten Datei eine weitere erstellt, "
+"welche Korrektur-Informationen enthält, die eine vollständig verlustfreie "
+"Rekonstruktion des Originals erlauben.\n"
 "\n"
 "Info: http://de.wikipedia.org/wiki/WavPack"
 
 #: src/interface.c:802
 msgid "Higher bitrate is better quality but also bigger file."
 msgstr ""
-"Eine höhere Bitrate bewirkt bessere Qualität bei höherem Platzbedarf der Audio-Daten.\n"
+"Eine höhere Bitrate bewirkt bessere Qualität bei höherem Platzbedarf der "
+"Audio-Daten.\n"
 "\n"
 "Vorgabe: 192kbps"
 
@@ -346,7 +352,8 @@ msgstr "Eigener Encoder"
 #: src/interface.c:910
 msgid "Higher quality means bigger file. Default is 60."
 msgstr ""
-"Eine höhere Stufe bewirkt bessere Qualität bei höherem Platzbedarf der Audio-Daten.\n"
+"Eine höhere Stufe bewirkt bessere Qualität bei höherem Platzbedarf der Audio-"
+"Daten.\n"
 "\n"
 "Vorgabe: 6"
 
@@ -363,17 +370,17 @@ msgstr "Import"
 msgid "Get disc info from the internet automatically"
 msgstr "CD-Info automatisch aus dem Internet abrufen"
 
-#: src/interface.c:960
-#: src/interface.c:1005
+#: src/interface.c:960 src/interface.c:1005
 msgid "Server: "
 msgstr "Server: "
 
 #: src/interface.c:970
 msgid "The CDDB server to get disc info from (default is freedb.org)"
-msgstr "CDDB-Server von dem die Daten abgerufen werden sollen (freedb.org ist Voreinstellung)"
+msgstr ""
+"CDDB-Server von dem die Daten abgerufen werden sollen (freedb.org ist "
+"Voreinstellung)"
 
-#: src/interface.c:976
-#: src/interface.c:1018
+#: src/interface.c:976 src/interface.c:1018
 msgid "Port: "
 msgstr "Port-Nr.: "
 
@@ -389,8 +396,7 @@ msgstr "Über einen HTTP-Proxy mit dem Internet verbinden"
 msgid "Advanced"
 msgstr "Erweitert"
 
-#: src/interface.c:1107
-#: src/interface.c:1143
+#: src/interface.c:1107 src/interface.c:1143
 msgid "Ripping"
 msgstr "Importieren"
 
@@ -402,28 +408,29 @@ msgstr "Gesamt"
 msgid "Encoding"
 msgstr "Komprimieren"
 
-#: src/interface.c:1547
+#: src/interface.c:1553
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
-msgstr "Eine Anwendung, um Daten einer Audio-CD als WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio und/oder AAC zu speichern."
+msgstr ""
+"Eine Anwendung, um Daten einer Audio-CD als WAV, MP3, OGG, FLAC, Wavpack, "
+"Musepack, Monkey's Audio und/oder AAC zu speichern."
 
-#: src/interface.c:1590
+#: src/interface.c:1596
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d Datei erfolgreich erstellt."
 msgstr[1] "%d Dateien erfolgreich erstellt."
 
-#: src/interface.c:1599
+#: src/interface.c:1605
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Fehler beim Erstellen von %d Datei."
 msgstr[1] "Fehler beim Erstellen von %d Dateien."
 
-#: src/prefs.c:614
-#: src/prefs.c:626
+#: src/prefs.c:614 src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr ""
@@ -460,29 +467,32 @@ msgstr "Überschreiben?"
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr "Die Datei '%s' existiert bereits. Möchten Sie, dass sie überschrieben wird?\n"
+msgstr ""
+"Die Datei '%s' existiert bereits. Möchten Sie, dass sie überschrieben wird?\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Antwort für _alle von dieser CD importierten Dateien merken"
 
 #: src/threads.c:171
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
 msgstr ""
 "Keine Import-Methode spezifiziert.\n"
 "\n"
-"Wählen Sie bitte in den Einstellungen, ob und auf welche Weise die Audio-Daten komprimiert werden sollen."
+"Wählen Sie bitte in den Einstellungen, ob und auf welche Weise die Audio-"
+"Daten komprimiert werden sollen."
 
 #: src/threads.c:200
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
 msgstr ""
 "Kein Titel zum Importieren gewählt.\n"
 "\n"
 "Markieren Sie bitte mindestens einen Titel."
 
-#: src/threads.c:902
-#: src/threads.c:904
-#: src/threads.c:908
+#: src/threads.c:902 src/threads.c:904 src/threads.c:908
 msgid "Waiting..."
 msgstr "Warten..."
-

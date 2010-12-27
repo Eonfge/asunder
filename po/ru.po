@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder 2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-17 08:40-0400\n"
+"POT-Creation-Date: 2010-12-27 12:36-0500\n"
 "PO-Revision-Date: 2010-08-09 11:33+0400\n"
 "Last-Translator: Alexey Sivakov <asivakov@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@lists.gnome.org>\n"
@@ -20,31 +20,31 @@ msgstr ""
 "X-Poedit-Country: 1\n"
 "X-Poedit-SourceCharset: 1\n"
 
-#: src/main.c:114 src/interface.c:225
+#: src/main.c:116 src/interface.c:225
 msgid "Rip"
 msgstr "Извлечь"
 
-#: src/main.c:119
+#: src/main.c:121
 msgid "Track"
 msgstr "Дорожка"
 
-#: src/main.c:126
+#: src/main.c:128
 msgid "Artist"
 msgstr "Исполнитель"
 
-#: src/main.c:133
+#: src/main.c:135
 msgid "Title"
 msgstr "Заголовок"
 
-#: src/main.c:140
+#: src/main.c:142
 msgid "Genre"
 msgstr "Жанр"
 
-#: src/main.c:145
+#: src/main.c:147
 msgid "Time"
 msgstr "Время"
 
-#: src/main.c:171
+#: src/main.c:173
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -52,7 +52,7 @@ msgstr ""
 "Программа 'cdparanoia' не найдена в системе. Она нужна программе для "
 "извлечения дорожек с CD."
 
-#: src/main.c:411
+#: src/main.c:413
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Получение информаций о диске из сети...</b>"
 
@@ -365,7 +365,7 @@ msgstr "Всего выполнено"
 msgid "Encoding"
 msgstr "Кодирование"
 
-#: src/interface.c:1547
+#: src/interface.c:1553
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
@@ -373,7 +373,7 @@ msgstr ""
 "Приложение для извлечения дорожек из Audio CD и сохранения в файлах форматов "
 "WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, и/или AAC."
 
-#: src/interface.c:1590
+#: src/interface.c:1596
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -381,7 +381,7 @@ msgstr[0] "%d файл создан успешно"
 msgstr[1] "%d файла создано успешно"
 msgstr[2] "%d файлов создано успешно"
 
-#: src/interface.c:1599
+#: src/interface.c:1605
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

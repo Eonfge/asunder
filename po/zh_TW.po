@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-17 08:40-0400\n"
+"POT-Creation-Date: 2010-12-27 12:36-0500\n"
 "PO-Revision-Date: 2009-08-24 08:37+0800\n"
 "Last-Translator: Cheng-Wei Chien <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: src/main.c:114 src/interface.c:225
+#: src/main.c:116 src/interface.c:225
 msgid "Rip"
 msgstr "擷取音軌"
 
-#: src/main.c:119
+#: src/main.c:121
 msgid "Track"
 msgstr "音軌"
 
-#: src/main.c:126
+#: src/main.c:128
 msgid "Artist"
 msgstr "藝人"
 
-#: src/main.c:133
+#: src/main.c:135
 msgid "Title"
 msgstr "歌名"
 
-#: src/main.c:140
+#: src/main.c:142
 #, fuzzy
 msgid "Genre"
 msgstr "一般設定"
 
-#: src/main.c:145
+#: src/main.c:147
 msgid "Time"
 msgstr "歌曲長度"
 
-#: src/main.c:171
+#: src/main.c:173
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
 "您指定的路徑內找不到「cdparanoia」。Asunder 需要「cdparanoia」 來擷取音軌。"
 
-#: src/main.c:411
+#: src/main.c:413
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>正在從網路取得光碟資訊...</b>"
 
@@ -358,19 +358,19 @@ msgstr "總進度"
 msgid "Encoding"
 msgstr "正在編碼..."
 
-#: src/interface.c:1547
+#: src/interface.c:1553
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 
-#: src/interface.c:1590
+#: src/interface.c:1596
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "成功地新建了%d個檔案"
 
-#: src/interface.c:1599
+#: src/interface.c:1605
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

@@ -1,55 +1,59 @@
-# Albanian translation for Asunder.
-# This file is distributed under the same license as the Asunder package.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Asunder\n"
+"Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-27 12:36-0500\n"
-"PO-Revision-Date: 2009-08-27 18:55+0200\n"
-"Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
-"Language-Team:  <LL@li.org>\n"
+"PO-Revision-Date: 2010-12-26 23:13+0200\n"
+"Last-Translator: Muhammad Ali Makki <makkiabufaris@aol.com>\n"
+"Language-Team: Urdu <makkiabufaris@aol.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural= n!=1;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Urdu\n"
+"X-Poedit-Country: PAKISTAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: src/main.c:116 src/interface.c:225
 msgid "Rip"
-msgstr "Përftoje"
+msgstr "رِپ کریں"
 
 #: src/main.c:121
 msgid "Track"
-msgstr "Gjurmë"
+msgstr "ٹریک"
 
 #: src/main.c:128
 msgid "Artist"
-msgstr "Artist"
+msgstr "فنکار"
 
 #: src/main.c:135
 msgid "Title"
-msgstr "Titull"
+msgstr "عُنوان"
 
 #: src/main.c:142
-#, fuzzy
 msgid "Genre"
-msgstr "Të përgjithshme"
+msgstr "نوع"
 
 #: src/main.c:147
 msgid "Time"
-msgstr "Kohë"
+msgstr "وقت"
 
 #: src/main.c:173
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
-"'cdparanoia' nuk u gjet te shtegu juaj. Asunder-i lyp cdparanoia-an për "
-"përftim CD-sh."
+"سیڈیوں کو رِپ rip کرنے کے لیے اسنڈر کو 'cdparanoia' درکار ہے جو آپ کے پاتھ پر "
+"نہیں پایا گیا."
 
 #: src/main.c:413
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>Po marr të dhëna disku prej interneti...</b>"
+msgstr "<b>انٹرنیٹ سے ڈسک کی معلومات حاصل کی جارہی ہے...</b>"
 
 #: src/callbacks.c:57 src/callbacks.c:237 src/callbacks.c:265
 #: src/callbacks.c:275 src/interface.c:581 src/interface.c:804
@@ -59,7 +63,8 @@ msgstr "%dKbps"
 
 #: src/callbacks.c:377
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr "Nuk është futur CD. Ju lutem fusni një CD te pajisja CD-ROM."
+msgstr ""
+"کوئی سی ڈی داخل نہیں کی گئی. ازراہِ کرم سی ڈی روم ڈرائیو میں سی ڈی داخل کریں."
 
 #: src/callbacks.c:396 src/callbacks.c:421 src/callbacks.c:446
 #: src/callbacks.c:471 src/callbacks.c:496 src/callbacks.c:521
@@ -69,65 +74,60 @@ msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
 "s functionality is disabled."
 msgstr ""
-"%s nuk u gjet në shtegun tuaj. Asunder-i e ka të nevojshme që të krijojë "
-"kartela %s. Gjithë ana %s është çaktivizuar."
+"%s آپ کے پاتھ پر نہیں پایا گیا. اسنڈر کو %s فائلیں بنانے کے لیے اس کی ضرورت "
+"ہے. تمام %s فعلیت معطل کردی گئی ہے."
 
 #: src/callbacks.c:643
 msgid "Select all for ripping"
-msgstr "Përzgjidhini të tëra për përftim"
+msgstr "رِپنگ کے لیے سب کو منتخب کریں"
 
 #: src/callbacks.c:649
 msgid "Deselect all for ripping"
-msgstr "Shpërzgjidhini të tëra për përftim"
+msgstr "رِپنگ کے لیے سب کو نامنتخب کریں"
 
 #: src/interface.c:96
 msgid "CDDB Lookup"
-msgstr "Kërkim në CDDB"
+msgstr "CDDB مشاہدہ"
 
 #: src/interface.c:145
 msgid "Disc:"
-msgstr "Disk:"
+msgstr "ڈسک:"
 
 #: src/interface.c:151
-#, fuzzy
 msgid "Album Artist:"
-msgstr "Artist albumi:"
+msgstr "ایلبم کا فنکار:"
 
 #: src/interface.c:158
-#, fuzzy
 msgid "Album Title:"
-msgstr "Titull albumi:"
+msgstr "ایلبم کا عُنوان:"
 
 #: src/interface.c:165
-#, fuzzy
 msgid "Single Artist"
-msgstr "Artist pjese"
+msgstr "ایک فنکار:"
 
 #: src/interface.c:171
-#, fuzzy
 msgid "Genre:"
-msgstr "Të përgjithshme"
+msgstr "نوع:"
 
 #: src/interface.c:178
-#, fuzzy
 msgid "Single Genre"
-msgstr "Artist pjese"
+msgstr "ایک نوع:"
 
 #: src/interface.c:364
 msgid "Preferences"
-msgstr "Parapëlqime"
+msgstr "ترجیحات"
 
 #: src/interface.c:381 src/interface.c:387
 msgid "Destination folder"
-msgstr "Dosje vendmbërritje"
+msgstr "سمت فولڈر"
 
 #: src/interface.c:391
 msgid "Create M3U playlist"
-msgstr "Krijo luajlistë M3U"
+msgstr "M3U چلانے کی فہرست بنائیں"
 
 #: src/interface.c:399
 msgid "CD-ROM device: "
-msgstr "Pajisje CD-ROM: "
+msgstr "سی ڈی روم آلہ:"
 
 #: src/interface.c:408
 msgid ""
@@ -135,17 +135,17 @@ msgid ""
 "Other example: /dev/hdc\n"
 "Other example: /dev/sr0"
 msgstr ""
-"Parazgjedhje: /dev/cdrom\n"
-"Shembull tjetër: /dev/hdc\n"
-"Shembull tjetër: /dev/sr0"
+"طے شُدہ: /dev/cdrom\n"
+"دوسری مثال: /dev/hdc\n"
+"دوسری مثال: /dev/sr0"
 
 #: src/interface.c:412
 msgid "Eject disc when finished"
-msgstr "Nxirre diskun kur përfundohet"
+msgstr "ختم ہونے پر ڈسک خارج کریں"
 
 #: src/interface.c:420
 msgid "General"
-msgstr "Të përgjithshme"
+msgstr "عام"
 
 #: src/interface.c:440
 #, fuzzy
@@ -156,22 +156,22 @@ msgid ""
 "%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
-"%A - Artist\n"
-"%L - Album\n"
-"%N - Numër gjurme (me 2 shifra)\n"
-"%T - Titull pjese"
+"%A - فنکار\n"
+"%L - ایلبم\n"
+"%N - ٹریک نمبر (2-عدد)\n"
+"%T - گانے کا عُنوان"
 
 #: src/interface.c:450
 msgid "Album directory: "
-msgstr "Drejtori albumi: "
+msgstr "ایلبم کی دائریکٹری:"
 
 #: src/interface.c:457 src/prefs.c:615
 msgid "Playlist file: "
-msgstr "Kartelë luajlistë: "
+msgstr "چلانے کی فہرست کی فائل:"
 
 #: src/interface.c:464 src/prefs.c:627 src/prefs.c:637
 msgid "Music file: "
-msgstr "Kartelë muzikore: "
+msgstr "موسیقی فائل:"
 
 #: src/interface.c:478
 msgid ""
@@ -180,10 +180,10 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
-"Kjo ka të bëjë me dosjen përfundim (prej skedës Të përgjithshme).\n"
-"Mund të jetë bosh.\n"
-"Parazgjedhje: %A - %L\n"
-"Shembull tjetër: %A/%L"
+"‫یہ مقصود فولڈر سے نسبتی ہے (عام ٹیب سے).\n"
+"خالی ہوسکتا ہے.\n"
+"طے شُدہ: %A - %L\n"
+"دوسری مثال: %A/%L"
 
 #: src/interface.c:490
 msgid ""
@@ -191,9 +191,9 @@ msgid ""
 "Can be blank.\n"
 "Default: %A - %L"
 msgstr ""
-"Kjo do të ruhet te drejtoria e albumit.\n"
-"Mund të jetë bosh.\n"
-"Parazgjedhje: %A - %L"
+"یہ ایلبم کی ڈائریکٹری میں ذخیرہ کیا جائے گا.\n"
+"خالی ہوسکتا ہے.\n"
+"طے شُدہ: %A - %L"
 
 #: src/interface.c:501
 msgid ""
@@ -202,252 +202,237 @@ msgid ""
 "Default: %A - %T\n"
 "Other example: %N - %T"
 msgstr ""
-"Kjo do të ruhet te drejtoria e albumit.\n"
-"Nuk mund të jetë bosh.\n"
-"Parazgjedhje: %A - %T\n"
-"Shembull tjetër: %N - %T"
+"یہ ایلبم کی ڈائریکٹری میں ذخیرہ کیا جائے گا.\n"
+"خالی نہیں ہوسکتا.\n"
+"طے شُدہ: %A - %T\n"
+"دوسری مثال: %N - %T"
 
 #: src/interface.c:506
 msgid "Filename formats"
-msgstr "Formate emrash kartelash:"
+msgstr "فائلوں کے نام کی ساختیں"
 
 #: src/interface.c:511
 msgid "Filenames"
-msgstr "Emra kartelash"
+msgstr "فائلوں کے نام"
 
 #. WAV
 #: src/interface.c:530
 msgid "WAV (uncompressed)"
-msgstr "WAV (e pangjeshur)"
+msgstr "WAV (غیر دبا ہوا)"
 
 #: src/interface.c:549
 msgid "Variable bit rate (VBR)"
-msgstr "Bitrate i ndryshueshëm (VBR)"
+msgstr "مُتغیرہ بِٹ شرح (VBR)"
 
 #: src/interface.c:557
 msgid "Better quality for the same size."
-msgstr "Cilësi më e mirë për të njëjtën madhësi."
+msgstr "اسی حجم کے لیے بہترین معیار."
 
 #: src/interface.c:563 src/interface.c:739 src/interface.c:786
 msgid "Bitrate"
-msgstr "Bitrate"
+msgstr "بِٹ شرح"
 
 #: src/interface.c:578
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
 msgstr ""
-"Bitrate më i lartë do të thotë cilësi më e mirë por gjithashtu një kartelë "
-"më e madhe. Shumica e njerëzve përdorin 192Kbps."
+"بُلند بِٹ شرح بہترین معیار ہے مگر بڑی فائل بھی ہے. لوگ زیادہ تر 192 کلو بائٹ "
+"فی سیکنڈ استعمال کرتے ہیں."
 
 #: src/interface.c:587
 msgid "MP3 (lossy compression)"
-msgstr "MP3 (ngjeshje me humbje)"
+msgstr "MP3 (بالضیاع دباؤ)"
 
 #: src/interface.c:609 src/interface.c:897
 msgid "Quality"
-msgstr "Cilësi"
+msgstr "معیار"
 
 #: src/interface.c:620
 msgid "Higher quality means bigger file. Default is 6."
-msgstr ""
-"Cilësi më e lartë do të thotë kartelë më e madhe. Parazgjedhja është 6."
+msgstr "بُلند معیار کا مطلب بڑی فائل ہے. طے شُدہ 6 ہے."
 
 #: src/interface.c:622
 msgid "OGG Vorbis (lossy compression)"
-msgstr "OGG Vorbis (ngjeshje me humbje)"
+msgstr "OGG Vorbis (بالضیاع دباؤ)"
 
 #: src/interface.c:644 src/interface.c:705 src/interface.c:842
 msgid "Compression level"
-msgstr "Nivel ngjeshjeje"
+msgstr "دباؤ کی سطح"
 
 #: src/interface.c:655 src/interface.c:855
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr "Kjo nuk prek cilësinë. Numër më i madh do të thotë kartelë më e vogël."
+msgstr "اس سے معیار پر کوئی اثر نہیں پڑے گا. بڑے عدد کا مطلب چھوٹی تر فائل ہے."
 
 #: src/interface.c:657
 msgid "FLAC (lossless compression)"
-msgstr "FLAC (Ngjeshje pa humbje)"
+msgstr "FLAC (بلا ضیاع دباؤ)"
 
 #: src/interface.c:676
 msgid "More formats"
-msgstr "Më tepër formate"
+msgstr "مزید ساختیں"
 
 #: src/interface.c:718
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
 msgstr ""
-"Kjo nuk prek cilësinë. Numër më i madh do të thotë kartelë më e vogël. "
-"Parazgjedhja është 1 (e këshillueshme)."
+"اس سے معیار پر کوئی اثر نہیں پڑے گا. بڑے عدد کا مطلب چھوٹر تر فائل ہے. طے "
+"شدہ 1 ہے (تجویز دی جاتی ہے)."
 
 #: src/interface.c:724
 msgid "Hybrid compression"
-msgstr "Ngjeshje hibride"
+msgstr "ہائبرڈ دباؤ"
 
 #: src/interface.c:733
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
 msgstr ""
-"Formati është me humbje por u krijua një kartelë ndreqëse për rikthim pa "
-"humbje të origjinalit."
+"‫یہ ساخت بالضیاع ہے لیکن بلا ضیاع اصل مواد کو واپس حاصل کرنے کے لیے ایک "
+"تصحیحی فائل بنائی جاتی ہے۔"
 
 #: src/interface.c:802
 msgid "Higher bitrate is better quality but also bigger file."
-msgstr ""
-"Bitrate më i lartë do të thotë cilësi më e mirë por gjithashtu një kartelë "
-"më e madhe"
+msgstr "بُلند بِٹ شرح بہترین معیار ہے مگر بڑی فائل بھی."
 
 #: src/interface.c:810
 msgid "Musepack (lossy compression)"
-msgstr "Musepack (ngjeshje me humbje)"
+msgstr "ماؤس پیک (بالضیاع دباؤ)"
 
 #: src/interface.c:857
 msgid "Monkey's Audio (lossless compression)"
-msgstr "Monkey's Audio (ngjeshje pa humbje)"
+msgstr "منکی کا آڈیو (بلا ضیاع دباؤ)"
 
 #. END MONKEY
 #: src/interface.c:866
 msgid "Proprietary encoders"
-msgstr "Koduesa pronësorë"
+msgstr "ملکیتی انکوڈر"
 
 #: src/interface.c:910
 msgid "Higher quality means bigger file. Default is 60."
-msgstr ""
-"Cilësi më e lartë do të thotë kartelë më e madhe. Parazgjedhja është 60."
+msgstr "بُلند معیار کا مطلب بڑی فائل ہے. طے شُدہ 60 ہے."
 
 #: src/interface.c:912
 msgid "AAC (lossy compression, Nero encoder)"
-msgstr "AAC (ngjeshje me humbje, kodues Nero)"
+msgstr "AAC (بالضیاع دباؤ، نیرو انکوڈر)"
 
 #. END AAC
 #: src/interface.c:921
 msgid "Encode"
-msgstr "Kodo"
+msgstr "انکوڈ کریں"
 
 #: src/interface.c:952
 msgid "Get disc info from the internet automatically"
-msgstr "Merr vetvetiu të dhëna disku prej internetit"
+msgstr "انٹرنیٹ سے ڈسک کی معلومات خودکار طور پر حاصل کریں"
 
 #: src/interface.c:960 src/interface.c:1005
 msgid "Server: "
-msgstr "Shërbyes"
+msgstr "سرور:"
 
 #: src/interface.c:970
 msgid "The CDDB server to get disc info from (default is freedb.org)"
-msgstr ""
-"Shërbyesi CDDB nga të kihen të dhëna disku (parazgjedhja është freedb.org)"
+msgstr "ڈسک کی معلومات حاصل کرنے کے لیے CDDB سرور (طے شُدہ freedb.org ہے)"
 
 #: src/interface.c:976 src/interface.c:1018
 msgid "Port: "
-msgstr "Portë:"
+msgstr "پورٹ:"
 
 #: src/interface.c:986
 msgid "The CDDB server port (default is 888)"
-msgstr "Porta e shërbyesit CDDB (parazgjedhja është 888)"
+msgstr "سرور پورٹ برائے CDDB سرور (طے شُدہ 888 ہے)"
 
 #: src/interface.c:992
+#, fuzzy
 msgid "Use an HTTP proxy to connect to the internet"
-msgstr "Përdor ndërmjetës HTTP për lidhje në internet"
+msgstr "انٹرنیٹ سے اتصال کے لیے HTTP پراکسی کا استعمال کریں"
 
 #: src/interface.c:1036
 msgid "Advanced"
-msgstr "Të mëtejshme"
+msgstr "اعلی"
 
 #: src/interface.c:1107 src/interface.c:1143
 msgid "Ripping"
-msgstr "Përftim"
+msgstr "رِپنگ"
 
 #: src/interface.c:1136
 msgid "Total progress"
-msgstr "Ecuri gjithsej"
+msgstr "مجموعی پیش رفت"
 
 #: src/interface.c:1150
 msgid "Encoding"
-msgstr "Kodim"
+msgstr "انکوڈنگ"
 
 #: src/interface.c:1553
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
+"صوتی سیڈیوں سے ٹریک محفوظ کرنے کا اطلاقیہ \n"
+"جیسے WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"فائلیں."
 
 #: src/interface.c:1596
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] "u krijua me sukses %d kartelë "
-msgstr[1] "u krijuan me sukses %d kartela"
+msgstr[0] "%d فائل کامیابی سے بنا دی گئی"
+msgstr[1] "%d فائلیں کامیابی سے بنا دی گئی ہیں"
 
 #: src/interface.c:1605
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] "Pati gabim gjatë krijimit të %d kartele"
-msgstr[1] "Pati gabim gjatë krijimit të %d kartelave"
+msgstr[0] "%d فائل کو بناتے ہوئے غلطی ہوئی ہے"
+msgstr[1] "%d فائلوں کو بناتے ہوئے غلطی ہوئی ہے"
 
 #: src/prefs.c:614 src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
-msgstr "Shenja të pavlefshme te fusha '%s'"
+msgstr "ناموزوں کریکٹر '%s' کے قطعہ میں"
 
 #: src/prefs.c:636
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr "'%s' nuk mund të jetë bosh"
+msgstr "'%s' خالی نہیں کی جاسکتا"
 
 #: src/prefs.c:651
 msgid "Invalid proxy port number"
-msgstr "Numër i pavlefshëm porte ndërmjetësi"
+msgstr "ناموزوں پراکسی پورٹ نمبر"
 
 #: src/prefs.c:664
 msgid "Invalid cddb server port number"
-msgstr "Numër i pavlefshëm porte shërbyesi cddb"
+msgstr "ناموزوں cddb سرور پورٹ نمبر"
 
 #: src/support.c:47
 msgid "Overwrite?"
-msgstr "Ta mbishkruaj?"
+msgstr "کیا اوپر لکھ دیا جائے؟"
 
 #: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr "Ka tashmë një kartelë '%s'. Dni të mbishkruhet ajo?\n"
+msgstr "فائل '%s' پہلے ہی موجود ہے. کیا آپ اس کے اوپر لکھنا چاہتے ہیں؟\n"
 
 #: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
-msgstr "Mbaje mend përgjigjen për _tërë kartelat e krijuara prej këtij CD-je"
+msgstr "اس سی ڈی سے بنائی جانی والی _تمام فائلوں کے لیے جواب یاد رکھیں"
 
 #: src/threads.c:171
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
-"Nuk është përzgjedhur metodë përftimi/kodimi. Ju lutem aktivizoni një të "
-"tillë prej menusë 'Parapëlqime'."
+"رِپنگ/انکوڈنگ کے لیے کوئی طریقہ منتخب نہیں کیا گیا. ازراہِ کرم 'ترجیحات' کی "
+"فہرست سے ایک فعال کریں."
 
 #: src/threads.c:200
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr ""
-"Nuk janë përzgjedhur gjurmë për përftim/kodim. Ju lutem përzgjidhni të "
-"paktën një gjurmë."
+"رِپنگ/انکوڈنگ کے لیے کوئی ٹریک منتخب نہیں کئے گئے. ازراہِ کرم کم سے کم ایک "
+"ٹریک منتخب کریں."
 
 #: src/threads.c:902 src/threads.c:904 src/threads.c:908
 msgid "Waiting..."
-msgstr "Po pres..."
-
-#, fuzzy
-#~ msgid "Playlist file"
-#~ msgstr "Kartelë luajlistë: "
-
-#, fuzzy
-#~ msgid "Music file"
-#~ msgstr "Kartelë muzikore: "
-
-#~ msgid "Create directory for each album"
-#~ msgstr "Krijo drejtori për çdo album"
-
-#~ msgid "These characters will be removed from all filenames."
-#~ msgstr "Këto shenja do të hiqen prej tërë emrave të kartelave."
+msgstr "انتظار..."

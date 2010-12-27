@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-17 08:40-0400\n"
+"POT-Creation-Date: 2010-12-27 12:36-0500\n"
 "PO-Revision-Date: 2008-01-06 01:33+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: i18n@mova.org <i18n@mova.org>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/main.c:114 src/interface.c:225
+#: src/main.c:116 src/interface.c:225
 msgid "Rip"
 msgstr "Ździary"
 
-#: src/main.c:119
+#: src/main.c:121
 msgid "Track"
 msgstr "Numar pieśni"
 
-#: src/main.c:126
+#: src/main.c:128
 msgid "Artist"
 msgstr "Vykanaŭca"
 
-#: src/main.c:133
+#: src/main.c:135
 msgid "Title"
 msgstr "Nazva"
 
-#: src/main.c:140
+#: src/main.c:142
 #, fuzzy
 msgid "Genre"
 msgstr "Ahulnaje"
 
-#: src/main.c:145
+#: src/main.c:147
 msgid "Time"
 msgstr "Čas"
 
-#: src/main.c:171
+#: src/main.c:173
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -51,7 +51,7 @@ msgstr ""
 "\"cdparanoia\" nia znojdzienaja ŭ ściežcy. Asunder vymahaje \"cdparanoia\", "
 "kab ździrać huk z dyskaŭ."
 
-#: src/main.c:411
+#: src/main.c:413
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Atrymańnie źviestak ab dysku ź sieciva...</b>"
 
@@ -374,13 +374,13 @@ msgstr "Ahulny prahres"
 msgid "Encoding"
 msgstr "Kadavańnie"
 
-#: src/interface.c:1547
+#: src/interface.c:1553
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 
-#: src/interface.c:1590
+#: src/interface.c:1596
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -388,7 +388,7 @@ msgstr[0] "%d fajł paśpiachova stvorany"
 msgstr[1] "%d fajły paśpiachova stvoranyja"
 msgstr[2] "%d fajłaŭ paśpiachova stvoranyja"
 
-#: src/interface.c:1599
+#: src/interface.c:1605
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

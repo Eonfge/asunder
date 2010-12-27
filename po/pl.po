@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-17 08:40-0400\n"
+"POT-Creation-Date: 2010-12-27 12:36-0500\n"
 "PO-Revision-Date: 2007-10-05 08:31-0400\n"
 "Last-Translator: Marcin Gasiorowski <marcin_g@epf.pl>\n"
 "Language-Team: \n"
@@ -14,32 +14,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:114 src/interface.c:225
+#: src/main.c:116 src/interface.c:225
 msgid "Rip"
 msgstr "Zgraj"
 
-#: src/main.c:119
+#: src/main.c:121
 msgid "Track"
 msgstr "Ścieżka"
 
-#: src/main.c:126
+#: src/main.c:128
 msgid "Artist"
 msgstr "Artysta"
 
-#: src/main.c:133
+#: src/main.c:135
 msgid "Title"
 msgstr "Tytuł"
 
-#: src/main.c:140
+#: src/main.c:142
 #, fuzzy
 msgid "Genre"
 msgstr "Ogólne"
 
-#: src/main.c:145
+#: src/main.c:147
 msgid "Time"
 msgstr "Czas"
 
-#: src/main.c:171
+#: src/main.c:173
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -47,7 +47,7 @@ msgstr ""
 "Brak programu 'cdparanoia'. Asunder potrzebuje programu cdparanoia do "
 "zgrywania dysków CD."
 
-#: src/main.c:411
+#: src/main.c:413
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Pobieranie informacji z internetu...</b>"
 
@@ -362,20 +362,20 @@ msgstr "Całkowity postęp"
 msgid "Encoding"
 msgstr "Kodowanie"
 
-#: src/interface.c:1547
+#: src/interface.c:1553
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 
-#: src/interface.c:1590
+#: src/interface.c:1596
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d plik został utworzony pomyślnie"
 msgstr[1] "%d plików zostało utworzonych pomyślnie"
 
-#: src/interface.c:1599
+#: src/interface.c:1605
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

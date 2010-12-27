@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder v1.6.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-17 08:40-0400\n"
+"POT-Creation-Date: 2010-12-27 12:36-0500\n"
 "PO-Revision-Date: 2009-08-23 23:39+0100\n"
 "Last-Translator: Christophe Legras <chris.l@free.fr>\n"
 "Language-Team: \n"
@@ -17,32 +17,32 @@ msgstr ""
 "X-Poedit-Country: FRANCE\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: src/main.c:114 src/interface.c:225
+#: src/main.c:116 src/interface.c:225
 msgid "Rip"
 msgstr "Extraire"
 
-#: src/main.c:119
+#: src/main.c:121
 msgid "Track"
 msgstr "Piste"
 
-#: src/main.c:126
+#: src/main.c:128
 msgid "Artist"
 msgstr "Artiste"
 
-#: src/main.c:133
+#: src/main.c:135
 msgid "Title"
 msgstr "Titre"
 
-#: src/main.c:140
+#: src/main.c:142
 #, fuzzy
 msgid "Genre"
 msgstr "Général"
 
-#: src/main.c:145
+#: src/main.c:147
 msgid "Time"
 msgstr "Durée"
 
-#: src/main.c:171
+#: src/main.c:173
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -50,7 +50,7 @@ msgstr ""
 "'cdparanoia' n'a pas été trouvé dans votre PATH. Asunder a besoin de "
 "cdparanoia pour extraire les CDs."
 
-#: src/main.c:411
+#: src/main.c:413
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Obtention des informations du disque à partir d'internet...</b>"
 
@@ -371,20 +371,20 @@ msgstr "Progression totale"
 msgid "Encoding"
 msgstr "Encodage"
 
-#: src/interface.c:1547
+#: src/interface.c:1553
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 
-#: src/interface.c:1590
+#: src/interface.c:1596
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fichier a été créé avec succès"
 msgstr[1] "%d fichiers ont été créés avec succès"
 
-#: src/interface.c:1599
+#: src/interface.c:1605
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
