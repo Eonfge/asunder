@@ -1,8 +1,7 @@
+- bug: multiple cddb records come up only once? else need to blow away cddb cache (email)
 - consider using .config/asunder per freedesktop spec
-- everything gets checked when clicking refresh cddb
-- make sure artist + song name is unique
 - A slider for WavPack looks strange when moved (see attachment).
-- links from encoder pages
+- links from encoder pages (cdparanoia, lame, vorbis-tools, flac, mac)
 - link from cddb page
 
 Low Priority
@@ -17,6 +16,9 @@ Low Priority
 - musicbrainz support
 - cd+g, mp3+g
 - translate .desktop file
+- everything gets checked when clicking refresh cddb
+- make sure artist + song name is unique
+- cddb_write()
 
 Tests to run before a release
 =============================
