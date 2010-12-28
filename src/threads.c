@@ -210,7 +210,7 @@ void dorip()
     char * dirpath = make_filename(prefs_get_music_dir(global_prefs), albumdir, NULL, NULL);
     debugLog("Making album directory '%s'\n", dirpath);
     
-    if ( recursive_mkdir(dirpath, S_IRWXU|S_IRGRP|S_IXGRP|S_IROTH|S_IXOTH) != 0 && 
+    if ( recursive_mkdir(dirpath, S_IRWXU|S_IRWXG|S_IRWXO) != 0 && 
          errno != EEXIST )
     {
         GtkWidget * dialog;
