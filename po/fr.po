@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder v1.6.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-27 12:36-0500\n"
+"POT-Creation-Date: 2010-12-28 01:34-0500\n"
 "PO-Revision-Date: 2009-08-23 23:39+0100\n"
 "Last-Translator: Christophe Legras <chris.l@free.fr>\n"
 "Language-Team: \n"
@@ -338,9 +338,9 @@ msgid "Server: "
 msgstr "Serveur :"
 
 #: src/interface.c:970
-msgid "The CDDB server to get disc info from (default is freedb.org)"
+msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr ""
-"Le serveur CDDB pour obtenir les informations du disque (par défaut freedb."
+"Le serveur CDDB pour obtenir les informations du disque (par défaut freedb.freedb."
 "org)"
 
 #: src/interface.c:976 src/interface.c:1018
@@ -348,8 +348,8 @@ msgid "Port: "
 msgstr "Port : "
 
 #: src/interface.c:986
-msgid "The CDDB server port (default is 888)"
-msgstr "Le port du serveur CDDB (par défaut 888)"
+msgid "The CDDB server port (default is 8880)"
+msgstr "Le port du serveur CDDB (par défaut 8880)"
 
 #: src/interface.c:992
 msgid "Use an HTTP proxy to connect to the internet"
@@ -371,20 +371,20 @@ msgstr "Progression totale"
 msgid "Encoding"
 msgstr "Encodage"
 
-#: src/interface.c:1553
+#: src/interface.c:1561
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 
-#: src/interface.c:1596
+#: src/interface.c:1604
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fichier a été créé avec succès"
 msgstr[1] "%d fichiers ont été créés avec succès"
 
-#: src/interface.c:1605
+#: src/interface.c:1613
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

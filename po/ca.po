@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-27 12:36-0500\n"
+"POT-Creation-Date: 2010-12-28 01:34-0500\n"
 "PO-Revision-Date: 2009-08-24 13:46+0100\n"
 "Last-Translator: Siegfried-Angel Gevatter Pujals <rainct@ubuntu.com>\n"
 "Language-Team: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
@@ -343,18 +343,18 @@ msgid "Server: "
 msgstr "Servidor:"
 
 #: src/interface.c:970
-msgid "The CDDB server to get disc info from (default is freedb.org)"
+msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr ""
 "El servidor CDDB d'on obtenir informació sobre els disc (el valor "
-"predeterminat és freedb.org)"
+"predeterminat és freedb.freedb.org)"
 
 #: src/interface.c:976 src/interface.c:1018
 msgid "Port: "
 msgstr "Port:"
 
 #: src/interface.c:986
-msgid "The CDDB server port (default is 888)"
-msgstr "El port del servidor CDDB (el valor predeterminat és 888)"
+msgid "The CDDB server port (default is 8880)"
+msgstr "El port del servidor CDDB (el valor predeterminat és 8880)"
 
 #: src/interface.c:992
 msgid "Use an HTTP proxy to connect to the internet"
@@ -376,20 +376,20 @@ msgstr "Progrés total"
 msgid "Encoding"
 msgstr "S'està codificant..."
 
-#: src/interface.c:1553
+#: src/interface.c:1561
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 
-#: src/interface.c:1596
+#: src/interface.c:1604
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "El fitxer s'ha creat amb èxit"
 msgstr[1] "S'han creat %d fitxers correctament"
 
-#: src/interface.c:1605
+#: src/interface.c:1613
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

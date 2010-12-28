@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-27 12:36-0500\n"
+"POT-Creation-Date: 2010-12-28 01:34-0500\n"
 "PO-Revision-Date: 2009-08-25 17:16+0100\n"
 "Last-Translator: Milan Pužić <milanpuzic@gmail.com>\n"
 "Language-Team: \n"
@@ -335,9 +335,9 @@ msgid "Server: "
 msgstr "Сервер:"
 
 #: src/interface.c:970
-msgid "The CDDB server to get disc info from (default is freedb.org)"
+msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr ""
-"CDDB сервер за преузимање информација о диску (фабричка вредност је \"freedb."
+"CDDB сервер за преузимање информација о диску (фабричка вредност је \"freedb.freedb."
 "org\")"
 
 #: src/interface.c:976 src/interface.c:1018
@@ -345,8 +345,8 @@ msgid "Port: "
 msgstr "Порт:"
 
 #: src/interface.c:986
-msgid "The CDDB server port (default is 888)"
-msgstr "Порт CDDB сервера (фабричка вредност је 888)"
+msgid "The CDDB server port (default is 8880)"
+msgstr "Порт CDDB сервера (фабричка вредност је 8880)"
 
 #: src/interface.c:992
 msgid "Use an HTTP proxy to connect to the internet"
@@ -368,20 +368,20 @@ msgstr "Укупан напредак"
 msgid "Encoding"
 msgstr "Кодирање"
 
-#: src/interface.c:1553
+#: src/interface.c:1561
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 
-#: src/interface.c:1596
+#: src/interface.c:1604
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Датотека %d је успешно креирана"
 msgstr[1] "Датотеке %d су успешно креиране"
 
-#: src/interface.c:1605
+#: src/interface.c:1613
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

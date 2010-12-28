@@ -967,7 +967,7 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, cddbServerName, "cddb_server_name");
     
     tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, cddbServerName, _("The CDDB server to get disc info from (default is freedb.org)"), NULL);
+    gtk_tooltips_set_tip (tooltips, cddbServerName, _("The CDDB server to get disc info from (default is freedb.freedb.org)"), NULL);
     
     hbox = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox);
@@ -983,7 +983,7 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, cddbPortNum, "cddb_port_number");
     
     tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, cddbPortNum, _("The CDDB server port (default is 888)"), NULL);
+    gtk_tooltips_set_tip (tooltips, cddbPortNum, _("The CDDB server port (default is 8880)"), NULL);
     
     frame = gtk_frame_new (NULL);
     gtk_widget_show (frame);

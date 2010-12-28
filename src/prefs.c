@@ -147,7 +147,7 @@ prefs * get_default_prefs()
     
     p->cddb_server_name = malloc(sizeof(char) * (strlen(DEFAULT_CDDB_SERVER) + 1));
     if (p->cddb_server_name == NULL)
-        fatalError("malloc(sizeof(char) * (strlen(\"freedb.org\") + 1)) failed. Out of memory.");
+        fatalError("malloc(sizeof(char) * (strlen(DEFAULT_CDDB_SERVER) + 1)) failed. Out of memory.");
     strcpy(p->cddb_server_name, DEFAULT_CDDB_SERVER);
     
     p->cddb_port_number = DEFAULT_CDDB_SERVER_PORT;

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-27 12:36-0500\n"
+"POT-Creation-Date: 2010-12-28 01:34-0500\n"
 "PO-Revision-Date: 2010-08-18 23:00+2000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -336,7 +336,8 @@ msgid "Server: "
 msgstr "Server: "
 
 #: src/interface.c:970
-msgid "The CDDB server to get disc info from (default is freedb.org)"
+#, fuzzy
+msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr "CDDB-serveren som cd-infoen skal hentes fra (standard er freedb.org)"
 
 #: src/interface.c:976 src/interface.c:1018
@@ -344,7 +345,8 @@ msgid "Port: "
 msgstr "Port: "
 
 #: src/interface.c:986
-msgid "The CDDB server port (default is 888)"
+#, fuzzy
+msgid "The CDDB server port (default is 8880)"
 msgstr "CDDB-serverporten (standard er 888)"
 
 #: src/interface.c:992
@@ -367,7 +369,7 @@ msgstr "Samlet fremskridt"
 msgid "Encoding"
 msgstr "Konvertering"
 
-#: src/interface.c:1553
+#: src/interface.c:1561
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
@@ -375,14 +377,14 @@ msgstr ""
 "Et program til at gemme numre fra en lyd-cd \n"
 "som WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkeys Audio og/eller AAC-filer."
 
-#: src/interface.c:1596
+#: src/interface.c:1604
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fil oprettet"
 msgstr[1] "%d filer oprettet"
 
-#: src/interface.c:1605
+#: src/interface.c:1613
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

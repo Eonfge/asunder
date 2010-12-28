@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-27 12:36-0500\n"
+"POT-Creation-Date: 2010-12-28 01:34-0500\n"
 "PO-Revision-Date: 2009-08-24 08:37+0800\n"
 "Last-Translator: Cheng-Wei Chien <e.cwchien@gmail.com>\n"
 "Language-Team: Chien Cheng Wei <e.cwchien@gmail.com>\n"
@@ -327,16 +327,16 @@ msgid "Server: "
 msgstr "伺服器位址："
 
 #: src/interface.c:970
-msgid "The CDDB server to get disc info from (default is freedb.org)"
-msgstr "取得光碟資訊的 CDDB 伺服器（預設為 freedb.org）"
+msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
+msgstr "取得光碟資訊的 CDDB 伺服器（預設為 freedb.freedb.org）"
 
 #: src/interface.c:976 src/interface.c:1018
 msgid "Port: "
 msgstr "連接埠："
 
 #: src/interface.c:986
-msgid "The CDDB server port (default is 888)"
-msgstr "CDDB 伺服器通訊埠（預設為 888）"
+msgid "The CDDB server port (default is 8880)"
+msgstr "CDDB 伺服器通訊埠（預設為 8880）"
 
 #: src/interface.c:992
 msgid "Use an HTTP proxy to connect to the internet"
@@ -358,19 +358,19 @@ msgstr "總進度"
 msgid "Encoding"
 msgstr "正在編碼..."
 
-#: src/interface.c:1553
+#: src/interface.c:1561
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 
-#: src/interface.c:1596
+#: src/interface.c:1604
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "成功地新建了%d個檔案"
 
-#: src/interface.c:1605
+#: src/interface.c:1613
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

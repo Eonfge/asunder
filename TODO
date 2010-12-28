@@ -2,11 +2,8 @@
 - everything gets checked when clicking refresh cddb
 - make sure artist + song name is unique
 - A slider for WavPack looks strange when moved (see attachment).
-- translate .desktop file
 - links from encoder pages
 - link from cddb page
-- test playlists
-- fix the tooltips for cddb server and port defaults
 
 Low Priority
 ============
@@ -19,6 +16,7 @@ Low Priority
 - cover art
 - musicbrainz support
 - cd+g, mp3+g
+- translate .desktop file
 
 Tests to run before a release
 =============================

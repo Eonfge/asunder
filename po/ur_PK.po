@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-27 12:36-0500\n"
+"POT-Creation-Date: 2010-12-28 01:34-0500\n"
 "PO-Revision-Date: 2010-12-27 21:26+0200\n"
 "Last-Translator: Muhammad Ali Makki <makkiabufaris@aol.com>\n"
 "Language-Team: Urdu <makkiabufaris@aol.com>\n"
@@ -19,8 +19,7 @@ msgstr ""
 "X-Poedit-Country: PAKISTAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: src/main.c:116
-#: src/interface.c:225
+#: src/main.c:116 src/interface.c:225
 msgid "Rip"
 msgstr "رِپ کریں"
 
@@ -45,37 +44,38 @@ msgid "Time"
 msgstr "وقت"
 
 #: src/main.c:173
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "سیڈیوں کو رِپ rip کرنے کے لیے اسنڈر کو 'cdparanoia' درکار ہے جو آپ کے پاتھ پر نہیں پایا گیا."
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"سیڈیوں کو رِپ rip کرنے کے لیے اسنڈر کو 'cdparanoia' درکار ہے جو آپ کے پاتھ پر "
+"نہیں پایا گیا."
 
 #: src/main.c:413
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>انٹرنیٹ سے ڈسک کی معلومات حاصل کی جارہی ہے...</b>"
 
-#: src/callbacks.c:57
-#: src/callbacks.c:237
-#: src/callbacks.c:265
-#: src/callbacks.c:275
-#: src/interface.c:581
-#: src/interface.c:804
+#: src/callbacks.c:57 src/callbacks.c:237 src/callbacks.c:265
+#: src/callbacks.c:275 src/interface.c:581 src/interface.c:804
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
 #: src/callbacks.c:377
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr "کوئی سی ڈی داخل نہیں کی گئی. ازراہِ کرم سی ڈی روم ڈرائیو میں سی ڈی داخل کریں."
+msgstr ""
+"کوئی سی ڈی داخل نہیں کی گئی. ازراہِ کرم سی ڈی روم ڈرائیو میں سی ڈی داخل کریں."
 
-#: src/callbacks.c:396
-#: src/callbacks.c:421
-#: src/callbacks.c:446
-#: src/callbacks.c:471
-#: src/callbacks.c:496
-#: src/callbacks.c:521
+#: src/callbacks.c:396 src/callbacks.c:421 src/callbacks.c:446
+#: src/callbacks.c:471 src/callbacks.c:496 src/callbacks.c:521
 #: src/callbacks.c:546
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "%s آپ کے پاتھ پر نہیں پایا گیا. اسنڈر کو %s فائلیں بنانے کے لیے اس کی ضرورت ہے. تمام %s فعلیت معطل کردی گئی ہے."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All %"
+"s functionality is disabled."
+msgstr ""
+"%s آپ کے پاتھ پر نہیں پایا گیا. اسنڈر کو %s فائلیں بنانے کے لیے اس کی ضرورت "
+"ہے. تمام %s فعلیت معطل کردی گئی ہے."
 
 #: src/callbacks.c:643
 msgid "Select all for ripping"
@@ -117,8 +117,7 @@ msgstr "ایک نوع:"
 msgid "Preferences"
 msgstr "ترجیحات"
 
-#: src/interface.c:381
-#: src/interface.c:387
+#: src/interface.c:381 src/interface.c:387
 msgid "Destination folder"
 msgstr "سمت فولڈر"
 
@@ -166,14 +165,11 @@ msgstr ""
 msgid "Album directory: "
 msgstr "ایلبم کی دائریکٹری:"
 
-#: src/interface.c:457
-#: src/prefs.c:615
+#: src/interface.c:457 src/prefs.c:615
 msgid "Playlist file: "
 msgstr "چلانے کی فہرست کی فائل:"
 
-#: src/interface.c:464
-#: src/prefs.c:627
-#: src/prefs.c:637
+#: src/interface.c:464 src/prefs.c:627 src/prefs.c:637
 msgid "Music file: "
 msgstr "موسیقی فائل:"
 
@@ -232,22 +228,23 @@ msgstr "مُتغیرہ بِٹ شرح (VBR)"
 msgid "Better quality for the same size."
 msgstr "اسی حجم کے لیے بہترین معیار."
 
-#: src/interface.c:563
-#: src/interface.c:739
-#: src/interface.c:786
+#: src/interface.c:563 src/interface.c:739 src/interface.c:786
 msgid "Bitrate"
 msgstr "بِٹ شرح"
 
 #: src/interface.c:578
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "بُلند بِٹ شرح بہترین معیار ہے مگر بڑی فائل بھی ہے. لوگ زیادہ تر 192 کلو بائٹ فی سیکنڈ استعمال کرتے ہیں."
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"بُلند بِٹ شرح بہترین معیار ہے مگر بڑی فائل بھی ہے. لوگ زیادہ تر 192 کلو بائٹ "
+"فی سیکنڈ استعمال کرتے ہیں."
 
 #: src/interface.c:587
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (بالضیاع دباؤ)"
 
-#: src/interface.c:609
-#: src/interface.c:897
+#: src/interface.c:609 src/interface.c:897
 msgid "Quality"
 msgstr "معیار"
 
@@ -259,14 +256,11 @@ msgstr "بُلند معیار کا مطلب بڑی فائل ہے. طے شُدہ 
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (بالضیاع دباؤ)"
 
-#: src/interface.c:644
-#: src/interface.c:705
-#: src/interface.c:842
+#: src/interface.c:644 src/interface.c:705 src/interface.c:842
 msgid "Compression level"
 msgstr "دباؤ کی سطح"
 
-#: src/interface.c:655
-#: src/interface.c:855
+#: src/interface.c:655 src/interface.c:855
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "اس سے معیار پر کوئی اثر نہیں پڑے گا. بڑے عدد کا مطلب چھوٹی تر فائل ہے."
 
@@ -279,16 +273,24 @@ msgid "More formats"
 msgstr "مزید ساختیں"
 
 #: src/interface.c:718
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
-msgstr "اس سے معیار پر کوئی اثر نہیں پڑے گا. بڑے عدد کا مطلب چھوٹر تر فائل ہے. طے شدہ 1 ہے (تجویز دی جاتی ہے)."
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"اس سے معیار پر کوئی اثر نہیں پڑے گا. بڑے عدد کا مطلب چھوٹر تر فائل ہے. طے "
+"شدہ 1 ہے (تجویز دی جاتی ہے)."
 
 #: src/interface.c:724
 msgid "Hybrid compression"
 msgstr "ہائبرڈ دباؤ"
 
 #: src/interface.c:733
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
-msgstr "‫یہ ساخت بالضیاع ہے لیکن بلا ضیاع اصل مواد کو واپس حاصل کرنے کے لیے ایک تصحیحی فائل بنائی جاتی ہے۔"
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+"‫یہ ساخت بالضیاع ہے لیکن بلا ضیاع اصل مواد کو واپس حاصل کرنے کے لیے ایک "
+"تصحیحی فائل بنائی جاتی ہے۔"
 
 #: src/interface.c:802
 msgid "Higher bitrate is better quality but also bigger file."
@@ -324,23 +326,22 @@ msgstr "انکوڈ کریں"
 msgid "Get disc info from the internet automatically"
 msgstr "انٹرنیٹ سے ڈسک کی معلومات خودکار طور پر حاصل کریں"
 
-#: src/interface.c:960
-#: src/interface.c:1005
+#: src/interface.c:960 src/interface.c:1005
 msgid "Server: "
 msgstr "سرور:"
 
 #: src/interface.c:970
-msgid "The CDDB server to get disc info from (default is freedb.org)"
-msgstr "ڈسک کی معلومات حاصل کرنے کے لیے CDDB سرور (طے شُدہ freedb.org ہے)"
+msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
+msgstr "ڈسک کی معلومات حاصل کرنے کے لیے CDDB سرور (طے شُدہ freedb.freedb.org ہے)"
 
-#: src/interface.c:976
-#: src/interface.c:1018
+#: src/interface.c:976 src/interface.c:1018
 msgid "Port: "
 msgstr "پورٹ:"
 
 #: src/interface.c:986
-msgid "The CDDB server port (default is 888)"
-msgstr "سرور پورٹ برائے CDDB سرور (طے شُدہ 888 ہے)"
+#, fuzzy
+msgid "The CDDB server port (default is 8880)"
+msgstr "سرور پورٹ برائے CDDB سرور (طے شُدہ 8880 ہے)"
 
 #: src/interface.c:992
 msgid "Use an HTTP proxy to connect to the internet"
@@ -350,8 +351,7 @@ msgstr "انٹرنیٹ سے اتصال کے لیے HTTP پراکسی کا است
 msgid "Advanced"
 msgstr "اعلی"
 
-#: src/interface.c:1107
-#: src/interface.c:1143
+#: src/interface.c:1107 src/interface.c:1143
 msgid "Ripping"
 msgstr "رِپنگ"
 
@@ -363,30 +363,30 @@ msgstr "مجموعی پیش رفت"
 msgid "Encoding"
 msgstr "انکوڈنگ"
 
-#: src/interface.c:1553
+#: src/interface.c:1561
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 "صوتی سیڈیوں سے ٹریک محفوظ کرنے کا اطلاقیہ \n"
-"جیسے WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC فائلیں."
+"جیسے WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"فائلیں."
 
-#: src/interface.c:1596
+#: src/interface.c:1604
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d فائل کامیابی سے بنا دی گئی"
 msgstr[1] "%d فائلیں کامیابی سے بنا دی گئی ہیں"
 
-#: src/interface.c:1605
+#: src/interface.c:1613
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "%d فائل کو بناتے ہوئے غلطی ہوئی ہے"
 msgstr[1] "%d فائلوں کو بناتے ہوئے غلطی ہوئی ہے"
 
-#: src/prefs.c:614
-#: src/prefs.c:626
+#: src/prefs.c:614 src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "ناموزوں کریکٹر '%s' کے قطعہ میں"
@@ -418,16 +418,21 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "اس سی ڈی سے بنائی جانی والی _تمام فائلوں کے لیے جواب یاد رکھیں"
 
 #: src/threads.c:171
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "رِپنگ/انکوڈنگ کے لیے کوئی طریقہ منتخب نہیں کیا گیا. ازراہِ کرم 'ترجیحات' کی فہرست سے ایک فعال کریں."
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"رِپنگ/انکوڈنگ کے لیے کوئی طریقہ منتخب نہیں کیا گیا. ازراہِ کرم 'ترجیحات' کی "
+"فہرست سے ایک فعال کریں."
 
 #: src/threads.c:200
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "رِپنگ/انکوڈنگ کے لیے کوئی ٹریک منتخب نہیں کئے گئے. ازراہِ کرم کم سے کم ایک ٹریک منتخب کریں."
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"رِپنگ/انکوڈنگ کے لیے کوئی ٹریک منتخب نہیں کئے گئے. ازراہِ کرم کم سے کم ایک "
+"ٹریک منتخب کریں."
 
-#: src/threads.c:902
-#: src/threads.c:904
-#: src/threads.c:908
+#: src/threads.c:902 src/threads.c:904 src/threads.c:908
 msgid "Waiting..."
 msgstr "انتظار..."
-
