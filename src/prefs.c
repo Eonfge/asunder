@@ -165,7 +165,7 @@ void set_widgets_from_prefs(prefs * p)
     char tempStr[10];
     
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "cdrom")), p->cdrom);
-    gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(lookup_widget(win_prefs, "music_dir")), prefs_get_music_dir(p));
+    gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(lookup_widget(win_prefs, "music_dir")), prefs_get_music_dir(p));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_playlist")), p->make_playlist);
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_music")), p->format_music);
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_playlist")), p->format_playlist);
