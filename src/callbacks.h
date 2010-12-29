@@ -37,6 +37,11 @@ on_album_artist_focus_out_event        (GtkWidget       *widget,
                                         gpointer         user_data);
 
 gboolean
+on_year_focus_out_event        (GtkWidget       *widget,
+                                        GdkEventFocus   *event,
+                                        gpointer         user_data);
+
+gboolean
 on_album_title_focus_out_event         (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data);

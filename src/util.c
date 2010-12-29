@@ -507,7 +507,7 @@ void make_playlist(const char* filename, FILE** file)
 // title - gets substituted for %T in format
 //
 // NOTE: caller must free the returned string!
-char * parse_format(const char * format, int tracknum, int year, const char * artist, const char * album, const char * title)
+char * parse_format(const char * format, int tracknum, const char * year, const char * artist, const char * album, const char * title)
 {
     unsigned i = 0;
     int len = 0;
@@ -530,10 +530,7 @@ char * parse_format(const char * format, int tracknum, int year, const char * ar
                     if ((tracknum > 0) && (tracknum < 100)) len += 2;
                     break;
                 case 'Y':
-                    if ((year > 0) && (year < 10000))
-                        len += 4;
-                    else
-                        len += 1;
+                    if (year) len += strlen(year);
                     break;
                 case 'T':
                     if (title) len += strlen(title);
@@ -582,18 +579,10 @@ char * parse_format(const char * format, int tracknum, int year, const char * ar
                     }
                     break;
                 case 'Y':
-                    if ((year > 0) && (year < 10000))
+                    if (year)
                     {
-                        ret[pos] = '0'+(year/1000);
-                        ret[pos+1] = '0'+((year/100)%10);
-                        ret[pos+2] = '0'+((year/10)%10);
-                        ret[pos+3] = '0'+(year%10);
-                        pos += 4;
-                    }
-                    else
-                    {
-                        ret[pos] = '0';
-                        pos += 1;
+                        strncpy(&ret[pos], year, strlen(year));
+                        pos += strlen(year);
                     }
                     break;
                 case 'T':

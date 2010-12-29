@@ -138,22 +138,15 @@ void dorip()
     rip_tracks_completed = 0;
     encode_tracks_completed = 0;
 
-    // get year
     GtkTreeIter iter;
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
-    unsigned year = 0;
-    if(rowsleft)
-    {
-        gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
-                           COL_YEAR, &year,
-                           -1);
-    }
 
     const char * albumartist = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_artist")));
     const char * albumtitle = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_title")));
-    char * albumdir = parse_format(global_prefs->format_albumdir, 0, year, albumartist, albumtitle, NULL);
-    char * playlist = parse_format(global_prefs->format_playlist, 0, year, albumartist, albumtitle, NULL);
+    const char * albumyear = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_year")));
+    char * albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist, albumtitle, NULL);
+    char * playlist = parse_format(global_prefs->format_playlist, 0, albumyear, albumartist, albumtitle, NULL);
     
     overwriteAll = false;
     overwriteNone = false;
@@ -348,19 +341,20 @@ gpointer rip(gpointer data)
         gboolean single_artist = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_main, "single_artist")));
         const char * albumartist = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_artist")));
         const char * albumtitle = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_title")));
+        const char * albumyear = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_year")));
 
         gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
     gdk_threads_leave();
     while(rowsleft)
     {
-        unsigned year = 0;
+        const char * trackyear = 0;
         gdk_threads_enter();
             gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
                 COL_RIPTRACK, &riptrack,
                 COL_TRACKNUM, &tracknum,
                 COL_TRACKARTIST, &trackartist,
                 COL_TRACKTITLE, &tracktitle,
-                COL_YEAR, &year,
+                COL_YEAR, &trackyear,
                 -1);
         gdk_threads_leave();
         
@@ -371,8 +365,8 @@ gpointer rip(gpointer data)
         
         if (riptrack)
         {
-            albumdir = parse_format(global_prefs->format_albumdir, 0, year, albumartist, albumtitle, NULL);
-            musicfilename = parse_format(global_prefs->format_music, tracknum, year, trackartist, albumtitle, tracktitle);
+            albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist, albumtitle, NULL);
+            musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, albumtitle, tracktitle);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             
             debugLog("Ripping track %d to \"%s\"\n", tracknum, wavfilename);
@@ -440,9 +434,7 @@ gpointer encode(gpointer data)
     char* tracktitle = NULL;
     char* tracktime = NULL;
     char* genre = NULL;
-    unsigned year;
-    char yearStr[5];
-    char* yearStrPtr;
+    char* trackyear;
     int min;
     int sec;
     int rc;
@@ -450,6 +442,7 @@ gpointer encode(gpointer data)
     char* album_artist = NULL;
     char* album_title = NULL;
     char* album_genre = NULL;		// lnr
+    char* album_year = NULL;
     
     char* albumdir = NULL;
     char* musicfilename = NULL;
@@ -475,6 +468,12 @@ gpointer encode(gpointer data)
         if (album_artist == NULL)
             fatalError("malloc(sizeof(char) * (strlen(temp_album_artist)+1)) failed. Out of memory.");
         strncpy(album_artist, temp_album_artist, strlen(temp_album_artist)+1);
+        
+        const char * temp_year = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_year")));
+        album_year = malloc(sizeof(char) * (strlen(temp_year)+1));
+        if (album_year == NULL)
+            fatalError("malloc(sizeof(char) * (strlen(temp_year)+1)) failed. Out of memory.");
+        strncpy(album_year, temp_year, strlen(temp_year)+1);
         
         const char * temp_album_title = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_title")));
         album_title = malloc(sizeof(char) * (strlen(temp_album_title)+1));
@@ -510,17 +509,11 @@ gpointer encode(gpointer data)
                 COL_TRACKTITLE, &tracktitle,
                 COL_TRACKTIME, &tracktime,
                 COL_GENRE, &genre,
-                COL_YEAR, &year,
+                COL_YEAR, &trackyear,
                 -1);
         gdk_threads_leave();
         sscanf(tracktime, "%d:%d", &min, &sec);
         
-        snprintf(yearStr, 5, "%d", year);
-        if(year == 0)
-            yearStrPtr = NULL;
-        else
-            yearStrPtr = yearStr;
-
         if (single_artist)
         {
             trackartist = album_artist;
@@ -531,8 +524,8 @@ gpointer encode(gpointer data)
         
         if (riptrack)
         {
-            albumdir = parse_format(global_prefs->format_albumdir, 0, year, album_artist, album_title, NULL);
-            musicfilename = parse_format(global_prefs->format_music, tracknum, year, trackartist, album_title, tracktitle);
+            albumdir = parse_format(global_prefs->format_albumdir, 0, album_year, album_artist, album_title, NULL);
+            musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, album_title, tracktitle);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
             oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");
@@ -563,7 +556,7 @@ gpointer encode(gpointer data)
                     doEncode = true;
 
                 if(doEncode)
-                    lame(tracknum, trackartist, album_title, tracktitle, genre, yearStrPtr, wavfilename, mp3filename, 
+                    lame(tracknum, trackartist, album_title, tracktitle, genre, trackyear, wavfilename, mp3filename, 
                          global_prefs->mp3_vbr, global_prefs->mp3_bitrate, &mp3_percent);
                 
                 if (aborted) g_thread_exit(NULL);
@@ -595,7 +588,7 @@ gpointer encode(gpointer data)
                     doEncode = true;
                 
                 if(doEncode)
-                    oggenc(tracknum, trackartist, album_title, tracktitle, yearStrPtr, genre, wavfilename, 
+                    oggenc(tracknum, trackartist, album_title, tracktitle, trackyear, genre, wavfilename, 
                            oggfilename, global_prefs->ogg_quality, &ogg_percent);
                 
                 if (aborted) g_thread_exit(NULL);
@@ -627,7 +620,7 @@ gpointer encode(gpointer data)
                     doEncode = true;
                 
                 if(doEncode)
-                    flac(tracknum, trackartist, album_title, tracktitle, genre, yearStrPtr, wavfilename, 
+                    flac(tracknum, trackartist, album_title, tracktitle, genre, trackyear, wavfilename, 
                          flacfilename, global_prefs->flac_compression, &flac_percent);
                 
                 if (aborted) g_thread_exit(NULL);

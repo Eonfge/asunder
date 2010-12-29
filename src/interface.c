@@ -168,7 +168,7 @@ create_main (void)
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (0), 3, 0);
 
-    genre_label	= gtk_label_new (_("Genre:"));								// lnr
+    genre_label	= gtk_label_new (_("Genre / Year:"));								// lnr
     gtk_misc_set_alignment (GTK_MISC ( genre_label ), 0, 0);
     gtk_widget_show (genre_label);
     gtk_table_attach (GTK_TABLE (table2), genre_label, 0, 1, 3, 4,
@@ -176,8 +176,14 @@ create_main (void)
                       (GtkAttachOptions) (0), 3, 0);
 
     single_genre = gtk_check_button_new_with_mnemonic(_("Single Genre"));	// lnr
-    gtk_widget_show( single_genre );
-    gtk_table_attach( GTK_TABLE( table2 ), single_genre, 2, 3, 3, 4,
+    //~ gtk_widget_show( single_genre );
+    //~ gtk_table_attach( GTK_TABLE( table2 ), single_genre, 2, 3, 3, 4,
+                      //~ (GtkAttachOptions) ( GTK_FILL ),
+                      //~ (GtkAttachOptions) (0), 3, 0);
+                      
+    GtkWidget* album_year = gtk_entry_new();
+    gtk_widget_show(album_year);
+    gtk_table_attach( GTK_TABLE( table2 ), album_year, 2, 3, 3, 4,
                       (GtkAttachOptions) ( GTK_FILL ),
                       (GtkAttachOptions) (0), 3, 0);
 
@@ -266,7 +272,10 @@ create_main (void)
     g_signal_connect ((gpointer) single_genre, "toggled",
                                         G_CALLBACK (on_single_genre_toggled),
                                         NULL);
-
+    g_signal_connect ((gpointer) album_year, "focus_out_event",
+                                        G_CALLBACK (on_year_focus_out_event),
+                                        NULL);
+    
     /* KEYBOARD accelerators */
     GtkAccelGroup* accelGroup;
     guint accelKey;
@@ -318,6 +327,7 @@ create_main (void)
     GLADE_HOOKUP_OBJECT (main_win, album_genre, "album_genre");			// lnr
     GLADE_HOOKUP_OBJECT (main_win, genre_label, "genre_label" );		// lnr
     GLADE_HOOKUP_OBJECT (main_win, single_genre, "single_genre" );		// lnr
+    GLADE_HOOKUP_OBJECT (main_win, album_year, "album_year");
     
     return main_win;
 }
@@ -1199,6 +1209,7 @@ void disable_all_main_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_main, "album_genre"), FALSE);	// lnr
     gtk_widget_set_sensitive(lookup_widget(win_main, "genre_label"), FALSE);	// lnr
     gtk_widget_set_sensitive(lookup_widget(win_main, "single_genre"), FALSE);	// lnr
+    gtk_widget_set_sensitive(lookup_widget(win_main, "album_year"), FALSE);
 }
 
 void enable_all_main_widgets(void)
@@ -1217,6 +1228,7 @@ void enable_all_main_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_main, "album_genre"), TRUE);		// lnr
     gtk_widget_set_sensitive(lookup_widget(win_main, "genre_label"), TRUE);		// lnr
     gtk_widget_set_sensitive(lookup_widget(win_main, "single_genre"), TRUE);	// lnr
+    gtk_widget_set_sensitive(lookup_widget(win_main, "album_year"), TRUE);
 }
 
 void disable_mp3_widgets(void)

@@ -54,6 +54,7 @@ GtkWidget * win_about = NULL;
 GtkWidget * album_artist;
 GtkWidget * album_title;
 GtkWidget * album_genre;					// lnr
+GtkWidget * album_year;
 
 GtkWidget * tracklist;
 GtkWidget * pick_disc;
@@ -105,6 +106,7 @@ int main(int argc, char *argv[])
     album_artist = lookup_widget(win_main, "album_artist");
     album_title = lookup_widget(win_main, "album_title");
     album_genre	= lookup_widget(win_main, "album_genre");				// lnr
+    album_year = lookup_widget(win_main, "album_year");
     tracklist = lookup_widget(win_main, "tracklist");
     pick_disc = lookup_widget(win_main, "pick_disc");
     
@@ -278,7 +280,8 @@ void clear_widgets()
     gtk_entry_set_text(GTK_ENTRY(album_artist), "");
     gtk_entry_set_text(GTK_ENTRY(album_title), "");
     gtk_entry_set_text(GTK_ENTRY(album_genre), "");				// lnr
-
+    gtk_entry_set_text(GTK_ENTRY(album_year), "");
+    
     // clear the tracklist
     gtk_tree_view_set_model(GTK_TREE_VIEW(tracklist), NULL);
     
@@ -304,7 +307,7 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
                                G_TYPE_STRING, /* track title */
                                G_TYPE_STRING, /* track time */
                                G_TYPE_STRING, /* genre */
-                               G_TYPE_UINT /* year */
+                               G_TYPE_STRING /* year */
                                );
     
     for (track = cddb_disc_get_track_first(disc); track != NULL; track = cddb_disc_get_track_next(disc))
@@ -320,6 +323,10 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
         trim_chars(track_title, BADCHARS);		// lnr
         trim_whitespace(track_title);
         
+        char year_str[5];
+        snprintf(year_str, 5, "%d", cddb_disc_get_year(disc));
+        year_str[4] = '\0';
+        
         gtk_list_store_append(store, &iter);
         gtk_list_store_set(store, &iter,
             COL_RIPTRACK, track_format[cddb_track_get_number(track)],
@@ -328,7 +335,7 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
             COL_TRACKTITLE, track_title,
             COL_TRACKTIME, time,
             COL_GENRE, cddb_disc_get_genre(disc),
-            COL_YEAR, cddb_disc_get_year(disc),
+            COL_YEAR, year_str,
             -1);
     }
     
@@ -591,6 +598,7 @@ void update_tracklist(cddb_disc_t * disc)
     char * disc_artist = (char*)cddb_disc_get_artist(disc);
     char * disc_title = (char*)cddb_disc_get_title(disc);
     char * disc_genre = (char*)cddb_disc_get_genre(disc);			// lnr
+    unsigned disc_year = cddb_disc_get_year(disc);
     cddb_track_t * track;
     bool singleartist;
     
@@ -627,7 +635,13 @@ void update_tracklist(cddb_disc_t * disc)
     }
     else
         gtk_entry_set_text( GTK_ENTRY( album_genre ), "Unknown" );
-
+    
+    if(disc_year == 0)
+        disc_year = 1900;
+    char disc_year_char[5];
+    snprintf(disc_year_char, 5, "%d", disc_year);
+    gtk_entry_set_text( GTK_ENTRY( album_year ), disc_year_char );
+    
     gtk_toggle_button_set_active(			    	// lnr
         GTK_TOGGLE_BUTTON( lookup_widget( win_main, "single_genre" )), true );
     
