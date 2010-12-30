@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder-1.0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-28 01:34-0500\n"
+"POT-Creation-Date: 2010-12-30 00:59-0500\n"
 "PO-Revision-Date: 2009-08-28 20:09+0200\n"
 "Last-Translator: Emil Krumov <emil_dk@yahoo.com>\n"
 "Language-Team: \n"
@@ -16,32 +16,32 @@ msgstr ""
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: src/main.c:116 src/interface.c:225
+#: src/main.c:118 src/interface.c:231
 msgid "Rip"
 msgstr "Рипване"
 
-#: src/main.c:121
+#: src/main.c:123
 msgid "Track"
 msgstr "Песен"
 
-#: src/main.c:128
+#: src/main.c:130
 msgid "Artist"
 msgstr "Изпълнител"
 
-#: src/main.c:135
+#: src/main.c:137
 msgid "Title"
 msgstr "Заглавие"
 
-#: src/main.c:142
+#: src/main.c:144
 #, fuzzy
 msgid "Genre"
 msgstr "Общи"
 
-#: src/main.c:147
+#: src/main.c:149
 msgid "Time"
 msgstr "Времетраене"
 
-#: src/main.c:173
+#: src/main.c:175
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -49,23 +49,23 @@ msgstr ""
 "'cdparanoia' не беше намерен в указаната пътека. Asunder изисква cdparanoia, "
 "за да рипва CD-та."
 
-#: src/main.c:413
+#: src/main.c:420
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Получаване на инфо за диска от Интернет...</b>"
 
-#: src/callbacks.c:57 src/callbacks.c:237 src/callbacks.c:265
-#: src/callbacks.c:275 src/interface.c:581 src/interface.c:804
+#: src/callbacks.c:57 src/callbacks.c:261 src/callbacks.c:289
+#: src/callbacks.c:299 src/interface.c:591 src/interface.c:814
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
-#: src/callbacks.c:377
+#: src/callbacks.c:401
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Няма зареден диск. Моля, заредете CD в CD-ROM устройството."
 
-#: src/callbacks.c:396 src/callbacks.c:421 src/callbacks.c:446
-#: src/callbacks.c:471 src/callbacks.c:496 src/callbacks.c:521
-#: src/callbacks.c:546
+#: src/callbacks.c:420 src/callbacks.c:445 src/callbacks.c:470
+#: src/callbacks.c:495 src/callbacks.c:520 src/callbacks.c:545
+#: src/callbacks.c:570
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All %"
@@ -74,11 +74,11 @@ msgstr ""
 "%s не беше намерен в указаната пътека. Asunder го изисква, за да създаде %s "
 "файлове. Цялата %s функционалност е изключена."
 
-#: src/callbacks.c:643
+#: src/callbacks.c:667
 msgid "Select all for ripping"
 msgstr "Избиране на всички за рипване"
 
-#: src/callbacks.c:649
+#: src/callbacks.c:673
 msgid "Deselect all for ripping"
 msgstr "Отхвърляне на всички за рипване"
 
@@ -107,7 +107,7 @@ msgstr "Изпълнител на песен"
 
 #: src/interface.c:171
 #, fuzzy
-msgid "Genre:"
+msgid "Genre / Year:"
 msgstr "Общи"
 
 #: src/interface.c:178
@@ -115,23 +115,23 @@ msgstr "Общи"
 msgid "Single Genre"
 msgstr "Изпълнител на песен"
 
-#: src/interface.c:364
+#: src/interface.c:374
 msgid "Preferences"
 msgstr "Предпочитания"
 
-#: src/interface.c:381 src/interface.c:387
+#: src/interface.c:391 src/interface.c:397
 msgid "Destination folder"
 msgstr "Работна папка"
 
-#: src/interface.c:391
+#: src/interface.c:401
 msgid "Create M3U playlist"
 msgstr "Създаване на M3U списък с песни"
 
-#: src/interface.c:399
+#: src/interface.c:409
 msgid "CD-ROM device: "
 msgstr "CD-ROM устройство:"
 
-#: src/interface.c:408
+#: src/interface.c:418
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
@@ -141,15 +141,15 @@ msgstr ""
 "Друг пример: /dev/hdc\n"
 "Друг пример: /dev/sr0"
 
-#: src/interface.c:412
+#: src/interface.c:422
 msgid "Eject disc when finished"
 msgstr "Изваждане на диска след завършване"
 
-#: src/interface.c:420
+#: src/interface.c:430
 msgid "General"
 msgstr "Общи"
 
-#: src/interface.c:440
+#: src/interface.c:450
 #, fuzzy
 msgid ""
 "%A - Artist\n"
@@ -163,19 +163,19 @@ msgstr ""
 "%N - Номер на песен (двуцифрен)\n"
 "%T - Име на песен"
 
-#: src/interface.c:450
+#: src/interface.c:460
 msgid "Album directory: "
 msgstr "Директория на албум:"
 
-#: src/interface.c:457 src/prefs.c:615
+#: src/interface.c:467 src/prefs.c:615
 msgid "Playlist file: "
 msgstr "Файл на списък с песни:"
 
-#: src/interface.c:464 src/prefs.c:627 src/prefs.c:637
+#: src/interface.c:474 src/prefs.c:627 src/prefs.c:637
 msgid "Music file: "
 msgstr "Музикален файл:"
 
-#: src/interface.c:478
+#: src/interface.c:488
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -187,7 +187,7 @@ msgstr ""
 "По подразбиране: %A - %L\n"
 "Друг пример: %A /%L"
 
-#: src/interface.c:490
+#: src/interface.c:500
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -197,7 +197,7 @@ msgstr ""
 "Може да е празно.\n"
 "По подразбиране: %A - %L"
 
-#: src/interface.c:501
+#: src/interface.c:511
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -209,32 +209,32 @@ msgstr ""
 "По подразбиране: %A - %T\n"
 "Друг пример: %N - %T"
 
-#: src/interface.c:506
+#: src/interface.c:516
 msgid "Filename formats"
 msgstr "Формати на файлови имена"
 
-#: src/interface.c:511
+#: src/interface.c:521
 msgid "Filenames"
 msgstr "Файлови имена"
 
 #. WAV
-#: src/interface.c:530
+#: src/interface.c:540
 msgid "WAV (uncompressed)"
 msgstr "WAV (не компресиран)"
 
-#: src/interface.c:549
+#: src/interface.c:559
 msgid "Variable bit rate (VBR)"
 msgstr "Променлив битрейт (VBR)"
 
-#: src/interface.c:557
+#: src/interface.c:567
 msgid "Better quality for the same size."
 msgstr "По-добро качество за същият размер."
 
-#: src/interface.c:563 src/interface.c:739 src/interface.c:786
+#: src/interface.c:573 src/interface.c:749 src/interface.c:796
 msgid "Bitrate"
 msgstr "Битрейт"
 
-#: src/interface.c:578
+#: src/interface.c:588
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
@@ -242,39 +242,39 @@ msgstr ""
 "По-висок битрейт осигурява по-добро качество, но и по-голям файл. Повечето "
 "потребители използват 192 Kbps."
 
-#: src/interface.c:587
+#: src/interface.c:597
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (компресиране със загуби)"
 
-#: src/interface.c:609 src/interface.c:897
+#: src/interface.c:619 src/interface.c:907
 msgid "Quality"
 msgstr "Качество"
 
-#: src/interface.c:620
+#: src/interface.c:630
 msgid "Higher quality means bigger file. Default is 6."
 msgstr "По-високо качество води до по-голям файл. По подразбиране е 6."
 
-#: src/interface.c:622
+#: src/interface.c:632
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (компресиране със загуби)"
 
-#: src/interface.c:644 src/interface.c:705 src/interface.c:842
+#: src/interface.c:654 src/interface.c:715 src/interface.c:852
 msgid "Compression level"
 msgstr "Степен на компресиране"
 
-#: src/interface.c:655 src/interface.c:855
+#: src/interface.c:665 src/interface.c:865
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "Не влияе на качеството. По-голямо число означава по-малък файл."
 
-#: src/interface.c:657
+#: src/interface.c:667
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (компресиране без загуби)"
 
-#: src/interface.c:676
+#: src/interface.c:686
 msgid "More formats"
 msgstr "Още формати"
 
-#: src/interface.c:718
+#: src/interface.c:728
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
@@ -282,11 +282,11 @@ msgstr ""
 "Не влияе на качеството. По-голямо число означава по-малък файл. По "
 "подразбиране е 1 (препоръчително)."
 
-#: src/interface.c:724
+#: src/interface.c:734
 msgid "Hybrid compression"
 msgstr "Смесена компресия"
 
-#: src/interface.c:733
+#: src/interface.c:743
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
@@ -294,90 +294,91 @@ msgstr ""
 "Форматът е със загуби, но е създаден корекционен файл за възстановяване на "
 "оригинала без загуби."
 
-#: src/interface.c:802
+#: src/interface.c:812
 msgid "Higher bitrate is better quality but also bigger file."
 msgstr "По-висок битрейт осигурява по-добро качество, но и по-голям файл."
 
-#: src/interface.c:810
+#: src/interface.c:820
 msgid "Musepack (lossy compression)"
 msgstr "Musepack (компресиране със загуби)"
 
-#: src/interface.c:857
+#: src/interface.c:867
 msgid "Monkey's Audio (lossless compression)"
 msgstr "Monkey's Audio (компресиране без загуби)"
 
 #. END MONKEY
-#: src/interface.c:866
+#: src/interface.c:876
 msgid "Proprietary encoders"
 msgstr "Патентовани енкодери"
 
-#: src/interface.c:910
+#: src/interface.c:920
 msgid "Higher quality means bigger file. Default is 60."
 msgstr "По-високо качество означава по-голям файл. По подразбиране е 60."
 
-#: src/interface.c:912
+#: src/interface.c:922
 msgid "AAC (lossy compression, Nero encoder)"
 msgstr "AAC (компресиране със загуби, Nero кодек)"
 
 #. END AAC
-#: src/interface.c:921
+#: src/interface.c:931
 msgid "Encode"
 msgstr "Кодиране"
 
-#: src/interface.c:952
+#: src/interface.c:962
 msgid "Get disc info from the internet automatically"
 msgstr "Автоматично получаване на инфо за диска от Интернет"
 
-#: src/interface.c:960 src/interface.c:1005
+#: src/interface.c:970 src/interface.c:1015
 msgid "Server: "
 msgstr "Сървър:"
 
-#: src/interface.c:970
+#: src/interface.c:980
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr ""
-"CDDB сървър за получаване на инфо за диска (по подразбиране е freedb.freedb.org)"
+"CDDB сървър за получаване на инфо за диска (по подразбиране е freedb.freedb."
+"org)"
 
-#: src/interface.c:976 src/interface.c:1018
+#: src/interface.c:986 src/interface.c:1028
 msgid "Port: "
 msgstr "Порт:"
 
-#: src/interface.c:986
+#: src/interface.c:996
 msgid "The CDDB server port (default is 8880)"
 msgstr "Порт на CDDB сървъра"
 
-#: src/interface.c:992
+#: src/interface.c:1002
 msgid "Use an HTTP proxy to connect to the internet"
 msgstr "Използване на HTTP proxy за връзка с Интернет"
 
-#: src/interface.c:1036
+#: src/interface.c:1046
 msgid "Advanced"
 msgstr "Разширено"
 
-#: src/interface.c:1107 src/interface.c:1143
+#: src/interface.c:1117 src/interface.c:1153
 msgid "Ripping"
 msgstr "Рипване"
 
-#: src/interface.c:1136
+#: src/interface.c:1146
 msgid "Total progress"
 msgstr "Цялостен напредък"
 
-#: src/interface.c:1150
+#: src/interface.c:1160
 msgid "Encoding"
 msgstr "Кодиране"
 
-#: src/interface.c:1561
+#: src/interface.c:1573
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 
-#: src/interface.c:1604
+#: src/interface.c:1616
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d файлът е създаден успешно"
 
-#: src/interface.c:1613
+#: src/interface.c:1625
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -414,7 +415,7 @@ msgstr "Файлът '%s' вече съществува. Да бъде ли пр
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Помни отговора за всички файлове създадени от това CD"
 
-#: src/threads.c:171
+#: src/threads.c:164
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -422,13 +423,13 @@ msgstr ""
 "Не е избран метод за рипване/кодиране. Моля изберете някой от меню "
 "'Предпочитания'."
 
-#: src/threads.c:200
+#: src/threads.c:193
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr ""
 "Няма избрани песни за рипване/кодиране. Моля, изберете поне една песен."
 
-#: src/threads.c:902 src/threads.c:904 src/threads.c:908
+#: src/threads.c:895 src/threads.c:897 src/threads.c:901
 msgid "Waiting..."
 msgstr "Изчакване..."
