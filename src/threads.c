@@ -342,7 +342,7 @@ gpointer rip(gpointer data)
         const char * albumartist = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_artist")));
         const char * albumtitle = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_title")));
         const char * albumyear = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_year")));
-
+        
         gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
     gdk_threads_leave();
     while(rowsleft)
@@ -366,7 +366,8 @@ gpointer rip(gpointer data)
         if (riptrack)
         {
             albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist, albumtitle, NULL);
-            musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, albumtitle, tracktitle);
+            //~ musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, albumtitle, tracktitle);
+            musicfilename = parse_format(global_prefs->format_music, tracknum, albumyear, trackartist, albumtitle, tracktitle);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             
             debugLog("Ripping track %d to \"%s\"\n", tracknum, wavfilename);
@@ -525,7 +526,8 @@ gpointer encode(gpointer data)
         if (riptrack)
         {
             albumdir = parse_format(global_prefs->format_albumdir, 0, album_year, album_artist, album_title, NULL);
-            musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, album_title, tracktitle);
+            //~ musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, album_title, tracktitle);
+            musicfilename = parse_format(global_prefs->format_music, tracknum, album_year, trackartist, album_title, tracktitle);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
             oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");
@@ -556,7 +558,9 @@ gpointer encode(gpointer data)
                     doEncode = true;
 
                 if(doEncode)
-                    lame(tracknum, trackartist, album_title, tracktitle, genre, trackyear, wavfilename, mp3filename, 
+                    //~ lame(tracknum, trackartist, album_title, tracktitle, genre, trackyear, wavfilename, mp3filename, 
+                         //~ global_prefs->mp3_vbr, global_prefs->mp3_bitrate, &mp3_percent);
+                    lame(tracknum, trackartist, album_title, tracktitle, genre, album_year, wavfilename, mp3filename, 
                          global_prefs->mp3_vbr, global_prefs->mp3_bitrate, &mp3_percent);
                 
                 if (aborted) g_thread_exit(NULL);
@@ -588,7 +592,9 @@ gpointer encode(gpointer data)
                     doEncode = true;
                 
                 if(doEncode)
-                    oggenc(tracknum, trackartist, album_title, tracktitle, trackyear, genre, wavfilename, 
+                    //~ oggenc(tracknum, trackartist, album_title, tracktitle, trackyear, genre, wavfilename, 
+                           //~ oggfilename, global_prefs->ogg_quality, &ogg_percent);
+                    oggenc(tracknum, trackartist, album_title, tracktitle, album_year, genre, wavfilename, 
                            oggfilename, global_prefs->ogg_quality, &ogg_percent);
                 
                 if (aborted) g_thread_exit(NULL);
@@ -620,7 +626,9 @@ gpointer encode(gpointer data)
                     doEncode = true;
                 
                 if(doEncode)
-                    flac(tracknum, trackartist, album_title, tracktitle, genre, trackyear, wavfilename, 
+                    //~ flac(tracknum, trackartist, album_title, tracktitle, genre, trackyear, wavfilename, 
+                         //~ flacfilename, global_prefs->flac_compression, &flac_percent);
+                    flac(tracknum, trackartist, album_title, tracktitle, genre, album_year, wavfilename, 
                          flacfilename, global_prefs->flac_compression, &flac_percent);
                 
                 if (aborted) g_thread_exit(NULL);
