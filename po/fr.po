@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder v1.6.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-30 00:59-0500\n"
+"POT-Creation-Date: 2011-01-04 00:04-0500\n"
 "PO-Revision-Date: 2009-08-23 23:39+0100\n"
 "Last-Translator: Christophe Legras <chris.l@free.fr>\n"
 "Language-Team: \n"
@@ -439,7 +439,7 @@ msgstr ""
 "Pas de pistes sélectionnées pour l'extraction/l'encodage. Veuillez en "
 "sélectionner au moins une."
 
-#: src/threads.c:895 src/threads.c:897 src/threads.c:901
+#: src/threads.c:903 src/threads.c:905 src/threads.c:909
 msgid "Waiting..."
 msgstr "Patientez..."
 

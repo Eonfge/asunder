@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-30 00:59-0500\n"
+"POT-Creation-Date: 2011-01-04 00:04-0500\n"
 "PO-Revision-Date: 2010-09-20 13:03+0200\n"
 "Last-Translator: Eero Salokannel <eero@salokannel.net>\n"
 "Language-Team: Finnish\n"
@@ -428,7 +428,7 @@ msgid ""
 "track."
 msgstr "Ei valittuja raitoja. Valitse vähintään yksi raita."
 
-#: src/threads.c:895 src/threads.c:897 src/threads.c:901
+#: src/threads.c:903 src/threads.c:905 src/threads.c:909
 msgid "Waiting..."
 msgstr "Odottaa..."
 

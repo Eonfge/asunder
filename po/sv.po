@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-30 00:59-0500\n"
+"POT-Creation-Date: 2011-01-04 00:04-0500\n"
 "PO-Revision-Date: 2009-08-23 20:04+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -430,7 +430,7 @@ msgid ""
 "track."
 msgstr "Inga spår har markerats för extrahering/kodning. Välj minst ett spår."
 
-#: src/threads.c:895 src/threads.c:897 src/threads.c:901
+#: src/threads.c:903 src/threads.c:905 src/threads.c:909
 msgid "Waiting..."
 msgstr "Väntar..."
 

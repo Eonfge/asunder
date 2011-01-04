@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-30 00:59-0500\n"
+"POT-Creation-Date: 2011-01-04 00:04-0500\n"
 "PO-Revision-Date: 2010-12-27 21:26+0200\n"
 "Last-Translator: Muhammad Ali Makki <makkiabufaris@aol.com>\n"
 "Language-Team: Urdu <makkiabufaris@aol.com>\n"
@@ -435,6 +435,6 @@ msgstr ""
 "رِپنگ/انکوڈنگ کے لیے کوئی ٹریک منتخب نہیں کئے گئے. ازراہِ کرم کم سے کم ایک "
 "ٹریک منتخب کریں."
 
-#: src/threads.c:895 src/threads.c:897 src/threads.c:901
+#: src/threads.c:903 src/threads.c:905 src/threads.c:909
 msgid "Waiting..."
 msgstr "انتظار..."

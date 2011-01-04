@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-30 00:59-0500\n"
+"POT-Creation-Date: 2011-01-04 00:04-0500\n"
 "PO-Revision-Date: 2008-04-21 23:46+0900\n"
 "Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
@@ -435,6 +435,6 @@ msgstr ""
 "吸い出す/エンコーディングするトラックを選んでいません。最低１つは選んでくださ"
 "い。"
 
-#: src/threads.c:895 src/threads.c:897 src/threads.c:901
+#: src/threads.c:903 src/threads.c:905 src/threads.c:909
 msgid "Waiting..."
 msgstr "待機中..."

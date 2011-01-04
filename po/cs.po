@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs.po_[XwND8b]\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-30 00:59-0500\n"
+"POT-Creation-Date: 2011-01-04 00:04-0500\n"
 "PO-Revision-Date: 2009-08-24 13:01+0200\n"
 "Last-Translator: Roman Smakal <smallsmaky@seznam.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -434,6 +434,6 @@ msgstr ""
 "Žádná stopa nebyla vybrána pro ripování/kódování. Prosím, vyberte alespoň "
 "jednu stopu."
 
-#: src/threads.c:895 src/threads.c:897 src/threads.c:901
+#: src/threads.c:903 src/threads.c:905 src/threads.c:909
 msgid "Waiting..."
 msgstr "Čekám..."

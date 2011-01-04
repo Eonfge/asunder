@@ -314,7 +314,7 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     
     snprintf(trackstring, 3, "%d", tracknum);
     
-    const char * args[] = { "cdparanoia", "-Y", "-Z", "-e", "-d", cdrom, trackstring, filename, NULL };
+    const char * args[] = { "cdparanoia", "-e", "-d", cdrom, trackstring, filename, NULL };
     
     fd = exec_with_output(args, STDERR_FILENO, &cdparanoia_pid);
     
@@ -854,7 +854,9 @@ void wavpack(int tracknum,
         if (buf[strlen(buf) - 1] != ')' && sscanf(&buf[pos], "%d%%", &percent) == 1)
         {
             *progress = (double)percent/100;
-            fprintf(stderr, "line '%s' percent %.2lf\n", &buf[pos], *progress);
+            //!! This was commented out, possibly because the last line is in some 
+            // different format than the normal progress
+            //~ fprintf(stderr, "line '%s' percent %.2lf\n", &buf[pos], *progress);
         }
     } while (size > 0);
     

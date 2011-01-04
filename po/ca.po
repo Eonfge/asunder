@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-30 00:59-0500\n"
+"POT-Creation-Date: 2011-01-04 00:04-0500\n"
 "PO-Revision-Date: 2009-08-24 13:46+0100\n"
 "Last-Translator: Siegfried-Angel Gevatter Pujals <rainct@ubuntu.com>\n"
 "Language-Team: Siegfried-Angel Gevatter Pujals <siggi.gevatter@gmail.com>\n"
@@ -444,6 +444,6 @@ msgstr ""
 "No heu seleccionat cap pista per a capturar/codificar. Heu de triar-ne com a "
 "mínim una."
 
-#: src/threads.c:895 src/threads.c:897 src/threads.c:901
+#: src/threads.c:903 src/threads.c:905 src/threads.c:909
 msgid "Waiting..."
 msgstr "S'està esperant..."

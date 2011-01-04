@@ -25,10 +25,10 @@ Tests to run before a release
 - try to run with an older config file
 - comment out #define DEBUG
 - update version in about box and configure.in
+- autoconf && configure
 - update authors, packagers, translators
 - update changelog
 - update AUTHORS
-- autoconf
 - cd po && make update-po
 - make dist-bzip2
 - uninstall, extract, compile, install and run

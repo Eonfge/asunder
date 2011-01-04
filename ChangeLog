@@ -1,3 +1,14 @@
+3 Jan 2011 - 2.1
+================
+- Added Basque, Urdu translations
+- Fixed crash at startup that happened on some systems (e.g. when run with kde-config).
+- Fixed bug where selected destination folder was lost when prefs window is open.
+- Fixed some tooltips.
+- System umask is now obeyed when creating directories.
+- Year for file/directory names and tags is now editable.
+- Removed 'Single Genre' checkbox.
+- No longer passing -Y and -Z options to cdparanoia, for better quality rips. This was reported to freeze on badly scratched disks, but perhaps the cause was different.
+
 17 July 2010 - 2.0
 ==================
 - Added Croatian translation.
