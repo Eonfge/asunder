@@ -1,4 +1,4 @@
-# Serbian (latin) translation for Asunder.
+# Serbian translation for Asunder.
 # This file is distributed under the same license as the Asunder package.
 # To test try sr_CS or sr_CS@latin
 #
@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-04 00:04-0500\n"
-"PO-Revision-Date: 2009-08-25 17:13+0100\n"
-"Last-Translator: Milan Pužić <milanpuzic@gmail.com>\n"
+"PO-Revision-Date: 2010-12-30 21:21+0100\n"
+"Last-Translator: Milan Pužić <milan.puzic@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -33,9 +33,8 @@ msgid "Title"
 msgstr "Naziv"
 
 #: src/main.c:144
-#, fuzzy
 msgid "Genre"
-msgstr "Opšte"
+msgstr "Žanr"
 
 #: src/main.c:149
 msgid "Time"
@@ -91,29 +90,25 @@ msgid "Disc:"
 msgstr "Disk:"
 
 #: src/interface.c:151
-#, fuzzy
 msgid "Album Artist:"
 msgstr "Izvođač albuma:"
 
 #: src/interface.c:158
-#, fuzzy
 msgid "Album Title:"
 msgstr "Naziv albuma:"
 
 #: src/interface.c:165
-#, fuzzy
 msgid "Single Artist"
 msgstr "Jedan izvođač"
 
 #: src/interface.c:171
 #, fuzzy
 msgid "Genre / Year:"
-msgstr "Opšte"
+msgstr "Žanr:"
 
 #: src/interface.c:178
-#, fuzzy
 msgid "Single Genre"
-msgstr "Jedan izvođač"
+msgstr "Jedan žanr"
 
 #: src/interface.c:374
 msgid "Preferences"
@@ -150,7 +145,6 @@ msgid "General"
 msgstr "Opšte"
 
 #: src/interface.c:450
-#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -161,6 +155,7 @@ msgstr ""
 "%A - Izvođač\n"
 "%L - Album\n"
 "%N - Broj numere (dvocifren)\n"
+"%Y - Godina (četvorocifrena ili \"0\")\n"
 "%T - Naziv numere"
 
 #: src/interface.c:460
@@ -224,7 +219,7 @@ msgstr "WAV (bez kompresije)"
 
 #: src/interface.c:559
 msgid "Variable bit rate (VBR)"
-msgstr "Promenljivi bitrate (VBR)"
+msgstr "Promenljivi bitrejt (VBR)"
 
 #: src/interface.c:567
 msgid "Better quality for the same size."
@@ -232,14 +227,14 @@ msgstr "Bolji kvalitet za istu veličinu datoteke."
 
 #: src/interface.c:573 src/interface.c:749 src/interface.c:796
 msgid "Bitrate"
-msgstr "Bitrate (broj bitova u sekundi)"
+msgstr "Bitrejt (broj bitova u sekundi)"
 
 #: src/interface.c:588
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
 msgstr ""
-"Veći bitrate rezultuje boljim kvalitetom, ali i većom datotekom. Većina "
+"Veći bitrejt rezultuje boljim kvalitetom, ali i većom datotekom. Većina "
 "korisnika upotrebljava 192Kbps."
 
 #: src/interface.c:597
@@ -291,13 +286,13 @@ msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
 msgstr ""
-"Format prouzrokuje gubitak kvaliteta, ali korekciona datoteka je kreirana "
+"Format prouzrokuje gubitak kvaliteta, ali korekcioni datoteka je kreirana "
 "radi obnove originalne datoteke bez gubitka."
 
 #: src/interface.c:812
 msgid "Higher bitrate is better quality but also bigger file."
 msgstr ""
-"Veći bitrate rezultuje boljim kvalitetom, ali i većom datotekom. Većina "
+"Veći bitrejt rezultuje boljim kvalitetom, ali i većom datotekom. Većina "
 "korisnika upotrebljava 192Kbps."
 
 #: src/interface.c:820
@@ -335,18 +330,20 @@ msgid "Server: "
 msgstr "Server:"
 
 #: src/interface.c:980
+#, fuzzy
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr ""
 "CDDB server za preuzimanje informacija o disku (fabrička vrednost je "
-"\"freedb.freedb.org\")"
+"\"freedb.org\")"
 
 #: src/interface.c:986 src/interface.c:1028
 msgid "Port: "
 msgstr "Port:"
 
 #: src/interface.c:996
+#, fuzzy
 msgid "The CDDB server port (default is 8880)"
-msgstr "Port CDDB servera (fabrička vrednost je 8880)"
+msgstr "Port CDDB servera (fabrička vrednost je 888)"
 
 #: src/interface.c:1002
 msgid "Use an HTTP proxy to connect to the internet"
@@ -373,6 +370,9 @@ msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
+"Aplikacija koja čuva pesme sa audio CD-a \n"
+"kao WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio i/ili AAC "
+"datoteke."
 
 #: src/interface.c:1616
 #, c-format
