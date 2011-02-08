@@ -398,7 +398,7 @@ void lame(int tracknum,
     
     char tracknum_text[3];
     char bitrate_text[4];
-    const char * args[18];
+    const char * args[19];
 
 //    fprintf( stderr, " lame()   Genre: %s Artist: %s Title: %s\n", genre, artist, title );	// lnr
 
@@ -415,6 +415,7 @@ void lame(int tracknum,
         snprintf(bitrate_text, 4, "%d", int_to_bitrate(bitrate, vbr));
     }
     args[pos++] = bitrate_text;
+    args[pos++] = "--add-id3v2";
     if ((tracknum > 0) && (tracknum < 100))
     {
         args[pos++] = "--tn";
