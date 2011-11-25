@@ -25,6 +25,8 @@ Foundation; version 2 of the licence.
 #include "support.h"
 #include "interface.h"
 
+#define CONFIG_FILENAME "asunder"
+
 prefs * global_prefs = NULL;
 
 // allocate memory for a new prefs struct
@@ -308,19 +310,44 @@ void get_prefs_from_widgets(prefs * p)
     p->proprietary_formats_expanded = gtk_expander_get_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")));
 }
 
+// get a config file path, using XDG_CONFIG_HOME is available
+static char *get_prefs_config_path(void)
+{
+	char *confdir;
+	char *file = NULL;
+	int len, flen;
+
+	flen = strlen(CONFIG_FILENAME);
+	confdir = getenv("XDG_CONFIG_HOME");
+	if (confdir == NULL || *confdir == '\0') {
+		confdir = getenv("HOME");
+		len = strlen(confdir);
+		file = malloc(sizeof(char) * (len + strlen("/.") + strlen(CONFIG_FILENAME) + 1));
+		if (file != NULL) {
+			strncpy(file, confdir, len);
+			strncpy(&file[len], "/.", 2);
+			strcpy(&file[len + 2], CONFIG_FILENAME);
+		}
+	}
+	else {
+		len = strlen(confdir);
+		file = malloc(sizeof(char) * (len + strlen("/") + strlen(CONFIG_FILENAME) + 1));
+		if (file != NULL) {
+			strncpy(file, confdir, len);
+			strncpy(&file[len], "/", 1);
+			strcpy(&file[len + 1], CONFIG_FILENAME);
+		}
+	}
+	if (file == NULL) {
+		fatalError("malloc() failed. Out of memory.");
+	}
+	return file;
+}
+
 // store the given prefs struct to the config file
 void save_prefs(prefs * p)
 {
-    char * home = getenv("HOME");
-    int homelen = strlen(home);
-    char * file;
-    
-    file = malloc(sizeof(char) * (homelen + 10));
-    if (file == NULL)
-        fatalError("malloc(sizeof(char) * (homelen + 10)) failed. Out of memory.");
-    strncpy(file, home, homelen);
-    strncpy(&file[homelen], "/.asunder", 10);
-        
+    char * file = get_prefs_config_path();
     debugLog("Saving configuration\n");
     
     FILE * config = fopen(file, "w");
@@ -375,16 +402,7 @@ void save_prefs(prefs * p)
 // load the prefereces from the config file into the given prefs struct
 void load_prefs(prefs * p)
 {
-    char * home = getenv("HOME");
-    int homelen = strlen(home);
-    char * file;
-    
-    file = malloc(sizeof(char) * (homelen + 10));
-    if (file == NULL)
-        fatalError("malloc(sizeof(char) * (homelen + 10)) failed. Out of memory.");
-    strncpy(file, home, homelen);
-    strncpy(&file[homelen], "/.asunder", 10);
-    
+	char * file = get_prefs_config_path();
     debugLog("Loading configuration\n");
     
     int fd = open(file, O_RDONLY);

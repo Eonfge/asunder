@@ -1,5 +1,4 @@
 - bug: multiple cddb records come up only once? else need to blow away cddb cache (email). test with Michael Jackson Greatest Hits HIStory
-- consider using .config/asunder per freedesktop spec
 - A slider for WavPack looks strange when moved (see attachment).
 - links from encoder pages (cdparanoia, lame, vorbis-tools, flac, mac)
 - link from cddb page
