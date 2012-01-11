@@ -1546,7 +1546,7 @@ GBLtranslators =
 "- sk (Slovak) translation of Asunder version 1.6.3\n"
 "\n"
 "Uros Golob\n"
-"- sl (Slovenian) translation of Asunder version 1.9\n"
+"- sl (Slovenian) translation of Asunder versions 1.9 - 2.1\n"
 "\n"
 "Besnik Bleta\n"
 "- sq (Albanian) translation of Asunder versions 0.8 - 1.9\n"
