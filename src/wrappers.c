@@ -415,7 +415,7 @@ void lame(int tracknum,
         snprintf(bitrate_text, 4, "%d", int_to_bitrate(bitrate, vbr));
     }
     args[pos++] = bitrate_text;
-    args[pos++] = "--add-id3v2";
+    args[pos++] = "--id3v2-only";
     if ((tracknum > 0) && (tracknum < 100))
     {
         args[pos++] = "--tn";
