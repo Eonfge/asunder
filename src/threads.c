@@ -145,8 +145,9 @@ void dorip()
     const char * albumartist = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_artist")));
     const char * albumtitle = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_title")));
     const char * albumyear = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_year")));
-    char * albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist, albumtitle, NULL);
-    char * playlist = parse_format(global_prefs->format_playlist, 0, albumyear, albumartist, albumtitle, NULL);
+    const char * albumgenre = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_genre")));
+    char * albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist, albumtitle, albumgenre, NULL);
+    char * playlist = parse_format(global_prefs->format_playlist, 0, albumyear, albumartist, albumtitle, albumgenre, NULL);
     
     overwriteAll = false;
     overwriteNone = false;
@@ -342,6 +343,7 @@ gpointer rip(gpointer data)
         const char * albumartist = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_artist")));
         const char * albumtitle = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_title")));
         const char * albumyear = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_year")));
+        const char * albumgenre = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_genre")));
         
         gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
     gdk_threads_leave();
@@ -365,9 +367,9 @@ gpointer rip(gpointer data)
         
         if (riptrack)
         {
-            albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist, albumtitle, NULL);
+            albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist, albumtitle, albumgenre, NULL);
             //~ musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, albumtitle, tracktitle);
-            musicfilename = parse_format(global_prefs->format_music, tracknum, albumyear, trackartist, albumtitle, tracktitle);
+            musicfilename = parse_format(global_prefs->format_music, tracknum, albumyear, trackartist, albumtitle, albumgenre, tracktitle);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             
             debugLog("Ripping track %d to \"%s\"\n", tracknum, wavfilename);
@@ -525,9 +527,9 @@ gpointer encode(gpointer data)
         
         if (riptrack)
         {
-            albumdir = parse_format(global_prefs->format_albumdir, 0, album_year, album_artist, album_title, NULL);
+            albumdir = parse_format(global_prefs->format_albumdir, 0, album_year, album_artist, album_title, genre, NULL);
             //~ musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, album_title, tracktitle);
-            musicfilename = parse_format(global_prefs->format_music, tracknum, album_year, trackartist, album_title, tracktitle);
+            musicfilename = parse_format(global_prefs->format_music, tracknum, album_year, trackartist, album_title, genre, tracktitle);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
             oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");

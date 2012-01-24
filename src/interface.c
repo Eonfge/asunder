@@ -451,8 +451,18 @@ create_prefs (void)
     gtk_widget_show (label);
     gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
-    gtk_misc_set_padding (GTK_MISC (label), 0, 7);
-
+    
+    label = gtk_label_new (_("%G - Genre"));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
+    
+    // problem is that the same albumdir is used (threads.c) for all formats
+    //~ label = gtk_label_new (_("%F - Format (e.g. FLAC)"));
+    //~ gtk_widget_show (label);
+    //~ gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
+    //~ gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
+    
     table1 = gtk_table_new (3, 2, FALSE);
     gtk_widget_show (table1);
     gtk_box_pack_start (GTK_BOX (vbox), table1, TRUE, TRUE, 0);
