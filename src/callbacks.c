@@ -169,7 +169,7 @@ on_album_genre_focus_out_event         (GtkWidget       *widget,
     trim_whitespace(text);
     
     if(text[0] == '\0')
-        gtk_entry_set_text(GTK_ENTRY(widget), "FOE Unknown");
+        gtk_entry_set_text(GTK_ENTRY(widget), "Unknown");
     else
         gtk_entry_set_text(GTK_ENTRY(widget), text);
     

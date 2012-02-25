@@ -27,6 +27,7 @@ Foundation; version 2 of the licence.
 #include "wrappers.h"
 #include "support.h"
 #include "interface.h"
+#include "completion.h"
 
 static GMutex * barrier = NULL;
 static GCond * available = NULL;
@@ -466,11 +467,14 @@ gpointer encode(gpointer data)
         gboolean single_artist = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_main, "single_artist")));
         gboolean single_genre  = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_main, "single_genre")));	// lnr
 
-        const char * temp_album_artist = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_artist")));
+        GtkWidget * album_artist_widget = lookup_widget(win_main, "album_artist");
+        const char * temp_album_artist = gtk_entry_get_text(GTK_ENTRY(album_artist_widget));
         album_artist = malloc(sizeof(char) * (strlen(temp_album_artist)+1));
         if (album_artist == NULL)
             fatalError("malloc(sizeof(char) * (strlen(temp_album_artist)+1)) failed. Out of memory.");
         strncpy(album_artist, temp_album_artist, strlen(temp_album_artist)+1);
+        add_completion(album_artist_widget);
+        save_completion(album_artist_widget);
         
         const char * temp_year = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_year")));
         album_year = malloc(sizeof(char) * (strlen(temp_year)+1));
@@ -478,17 +482,23 @@ gpointer encode(gpointer data)
             fatalError("malloc(sizeof(char) * (strlen(temp_year)+1)) failed. Out of memory.");
         strncpy(album_year, temp_year, strlen(temp_year)+1);
         
-        const char * temp_album_title = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_title")));
+        GtkWidget * album_title_widget = lookup_widget(win_main, "album_title");
+        const char * temp_album_title = gtk_entry_get_text(GTK_ENTRY(album_title_widget));
         album_title = malloc(sizeof(char) * (strlen(temp_album_title)+1));
         if (album_title == NULL)
             fatalError("malloc(sizeof(char) * (strlen(temp_album_title)+1)) failed. Out of memory.");
         strncpy(album_title, temp_album_title, strlen(temp_album_title)+1);
+        add_completion(album_title_widget);
+        save_completion(album_title_widget);
 
-        const char * temp_album_genre = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_genre")));	// lnr
+        GtkWidget * album_genre_widget = lookup_widget(win_main, "album_genre");
+        const char * temp_album_genre = gtk_entry_get_text(GTK_ENTRY(album_genre_widget));      // lnr
         album_genre = malloc(sizeof(char) * (strlen(temp_album_genre)+1));
         if (album_genre == NULL)
             fatalError("malloc(sizeof(char) * (strlen(temp_album_genre)+1)) failed. Out of memory.");
         strcpy( album_genre, temp_album_genre );
+        add_completion(album_genre_widget);
+        save_completion(album_genre_widget);
 
         gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
     gdk_threads_leave();

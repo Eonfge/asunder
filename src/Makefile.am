@@ -15,6 +15,7 @@ asunder_SOURCES = \
 	prefs.c prefs.h \
 	threads.c threads.h \
 	util.c util.h \
-	wrappers.c wrappers.h
+	wrappers.c wrappers.h \
+	completion.c completion.h
 
 asunder_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)

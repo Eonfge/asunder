@@ -28,6 +28,7 @@ Foundation; version 2 of the licence.
 #include "callbacks.h"
 #include "interface.h"
 #include "support.h"
+#include "completion.h"
 
 #define GLADE_HOOKUP_OBJECT(component,widget,name) \
     g_object_set_data_full (G_OBJECT (component), name, \
@@ -120,6 +121,7 @@ create_main (void)
     gtk_box_pack_start (GTK_BOX (vbox1), table2, FALSE, TRUE, 3);
 
     album_artist = gtk_entry_new ();
+    create_completion(album_artist, "album_artist");
     gtk_widget_show (album_artist);
     gtk_table_attach (GTK_TABLE (table2), album_artist, 1, 2, 1, 2,
                       (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
@@ -127,6 +129,7 @@ create_main (void)
 
     album_title = gtk_entry_new ();
     gtk_widget_show (album_title);
+    create_completion(album_title, "album_title");
     gtk_table_attach (GTK_TABLE (table2), album_title, 1, 2, 2, 3,
                       (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                       (GtkAttachOptions) (0), 0, 0);
@@ -137,6 +140,7 @@ create_main (void)
                       (GtkAttachOptions) (GTK_FILL), 0, 0);
 
     album_genre = gtk_entry_new();						// lnr
+    create_completion(album_genre, "album_genre");
     gtk_widget_show( album_genre );
     gtk_table_attach( GTK_TABLE( table2 ), album_genre, 1, 2, 3, 4,
                       (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
@@ -1382,6 +1386,9 @@ GBLauthors[2] = {
 "Richard Gill\n"
 "- Support for XDG_CONFIG_HOME.\n"
 "\n"
+"Hiroyuki Ito\n"
+"- Support for autocompletion in artist/album/genre fields.\n"
+"\n"
 "Packages:\n"
 "\n"
 "Toni Graffy\n"
@@ -1509,6 +1516,9 @@ GBLtranslators =
 "\n"
 "UTUMI Hirosi\n"
 "- ja (Japanese) translation of Asunder versions 1.0 - 1.5\n"
+"\n"
+"Hiroyuki Ito\n"
+"- ja (Japanese) translation of Asunder version 2.1\n"
 "\n"
 "Kristaps Kulis\n"
 "- lv (Latvian) translation of Asunder version 1.6\n"

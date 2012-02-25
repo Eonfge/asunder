@@ -47,7 +47,8 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_asunder_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) prefs.$(OBJEXT) \
-	threads.$(OBJEXT) util.$(OBJEXT) wrappers.$(OBJEXT)
+	threads.$(OBJEXT) util.$(OBJEXT) wrappers.$(OBJEXT) \
+	completion.$(OBJEXT)
 asunder_OBJECTS = $(am_asunder_OBJECTS)
 am__DEPENDENCIES_1 =
 asunder_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -186,7 +187,8 @@ asunder_SOURCES = \
 	prefs.c prefs.h \
 	threads.c threads.h \
 	util.c util.h \
-	wrappers.c wrappers.h
+	wrappers.c wrappers.h \
+	completion.c completion.h
 
 asunder_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 all: all-am
@@ -271,6 +273,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/callbacks.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/completion.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/interface.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prefs.Po@am__quote@
