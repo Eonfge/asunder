@@ -1349,7 +1349,7 @@ void enable_musepack_widgets(void)
 
 #if GTK_MINOR_VERSION >= 6
 static const char* 
-GBLprogramName = "Asunder 2.1";
+GBLprogramName = "Asunder 2.2";
 
 static const char* 
 GBLauthors[2] = {
@@ -1460,6 +1460,9 @@ GBLtranslators =
 "Emil Krumov\n"
 "- bg (Bulgarian) translation of Asunder versions 1.0.2 - 1.9\n"
 "\n"
+"Davor Buday\n"
+"- bs_BA (Bosnian / Bosnia and Herzegovina) translation of Asunder version 2.1\n"
+"\n"
 "Siegfried-Angel Gevatter Pujals\n"
 "- ca (Catalan) translation of Asunder versions 0.8.1 - 1.9\n"
 "\n"
@@ -1480,7 +1483,10 @@ GBLtranslators =
 "\n"
 "George Vlahavas\n"
 "- el (Greek) translation of Asunder version 1.5\n"
-"\n"   
+"\n"
+"Formiko\n"
+"- eo (Esperanto) translation of Asunder version 2.1\n"
+"\n"
 "Juan Garcia-Murga Monago\n"
 "- es (Spanish) translation of Asunder versions 0.8 - 1.9\n"
 "\n"
@@ -1552,7 +1558,10 @@ GBLtranslators =
 "\n"
 "Sergio Brandao Cipolla\n"
 "- pt_BR (Portuguese/Brazil) translation of Asunder version 1.9.1\n"
-"\n"       
+"\n"
+"Pedro Henrique\n"
+"- pt_BR (Portuguese/Brazil) translation of Asunder version 2.1\n"
+"\n"
 "Alexandre Prokoudine\n"
 "- ru (Russian) translation of Asunder version 1.9.2\n"
 "\n"

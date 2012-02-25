@@ -28,6 +28,12 @@ Pader Reszo
 Cyril Brulebois
 - A kFreeBSD fix.
 
+Richard Gill
+- Support for XDG_CONFIG_HOME.
+
+Hiroyuki Ito
+- Support for autocompletion in artist/album/genre fields.
+
 Packages:
 
 Toni Graffy
@@ -97,6 +103,9 @@ Ihar Hrachyshka
 Emil Krumov
 - bg (Bulgarian) translation of Asunder versions 1.0.2 - 1.9
 
+Davor Buday
+- bs_BA (Bosnian / Bosnia and Herzegovina) translation of Asunder version 2.1
+
 Siegfried-Angel Gevatter Pujals
 - ca (Catalan) translation of Asunder versions 0.8.1 - 1.9
 
@@ -117,6 +126,9 @@ Mike Kranidis
 
 George Vlahavas
 - el (Greek) translation of Asunder version 1.5
+
+Formiko
+- eo (Esperanto) translation of Asunder version 2.1
 
 Juan Garcia-Murga Monago
 - es (Spanish) translation of Asunder versions 0.8 - 1.9
@@ -154,6 +166,9 @@ Fabio Vergnani
 UTUMI Hirosi
 - ja (Japanese) translation of Asunder versions 1.0 - 1.5
 
+Hiroyuki Ito
+- ja (Japanese) translation of Asunder version 2.1
+
 Kristaps Kulis
 - lv (Latvian) translation of Asunder version 1.6
 
@@ -187,6 +202,9 @@ Flipe Augusto
 Sergio Brandao Cipolla
 - pt_BR (Portuguese/Brazil) translation of Asunder version 1.9.1
 
+Pedro Henrique
+- pt_BR (Portuguese/Brazil) translation of Asunder version 2.1
+
 Alexandre Prokoudine
 - ru (Russian) translation of Asunder version 1.9.2
 
@@ -200,7 +218,7 @@ Tomas Vadina
 - sk (Slovak) translation of Asunder version 1.6.3
 
 Uros Golob
-- sl (Slovenian) translation of Asunder version 1.9
+- sl (Slovenian) translation of Asunder versions 1.9 - 2.1
 
 Besnik Bleta
 - sq (Albanian) translation of Asunder versions 0.8 - 1.9

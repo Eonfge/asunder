@@ -1,3 +1,11 @@
+25 Feb 2012 - 2.2
+=================
+- Added Esperanto and Bosnian translation.
+- Updated Slovak, Italian, Portuguese, and Japanese translations.
+- From now on only ID3v2 tags are written, no more ID3v1.
+- Added support for XDG_CONFIG_HOME.
+- Added support for using Genere in file names.
+
 3 Jan 2011 - 2.1
 ================
 - Added Basque, Urdu translations
