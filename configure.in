@@ -4,6 +4,7 @@ AC_INIT(configure.in)
 AM_INIT_AUTOMAKE(asunder, 2.2)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
+IT_PROG_INTLTOOL([0.34.90])
 
 AC_ISC_POSIX
 AC_PROG_CC
@@ -19,8 +20,6 @@ GETTEXT_PACKAGE=asunder
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
-dnl Add the languages which your application supports here.
-ALL_LINGUAS="ar be@latin bg bs_BA ca cs da de el eo es eu fi fr hu hr it ja lv nb nl nn pl pt pt_BR ru sk sl sq sr sr@latin sv tr ur_PK zh_TW"
 AM_GLIB_GNU_GETTEXT
 
 CFLAGS="$CFLAGS -Wall -pedantic -std=gnu99 -Wundef -Wcast-align -W -Wpointer-arith -Wwrite-strings -Wno-unused-parameter"
