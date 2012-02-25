@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-04 00:04-0500\n"
+"POT-Creation-Date: 2012-02-25 03:57-0500\n"
 "PO-Revision-Date: 2009-08-24 09:30+0200\n"
 "Last-Translator: Mike Kranidis <mikek@openforall.com>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -15,32 +15,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: src/main.c:118 src/interface.c:231
+#: ../src/main.c:118 ../src/interface.c:235
 msgid "Rip"
 msgstr "Εξαγωγή"
 
-#: src/main.c:123
+#: ../src/main.c:123
 msgid "Track"
 msgstr "Κομμάτι"
 
-#: src/main.c:130
+#: ../src/main.c:130
 msgid "Artist"
 msgstr "Καλλιτέχνης"
 
-#: src/main.c:137
+#: ../src/main.c:137
 msgid "Title"
 msgstr "Τίτλος"
 
-#: src/main.c:144
+#: ../src/main.c:144
 #, fuzzy
 msgid "Genre"
 msgstr "Γενικά"
 
-#: src/main.c:149
+#: ../src/main.c:149
 msgid "Time"
 msgstr "Διάρκεια"
 
-#: src/main.c:175
+#: ../src/main.c:175
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -48,23 +48,23 @@ msgstr ""
 "Το 'cdparanoia' δε βρέθηκε στη διαδρομή του συστήματος σας. Το Asunder "
 "χρειάζεται το cdparanoia για να κάνει εξαγωγή των CDs."
 
-#: src/main.c:420
+#: ../src/main.c:420
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Παραλαμβάνω πληροφορίες του δίσκου από το  διαδίκτυο...</b>"
 
-#: src/callbacks.c:57 src/callbacks.c:261 src/callbacks.c:289
-#: src/callbacks.c:299 src/interface.c:591 src/interface.c:814
+#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
+#: ../src/callbacks.c:299 ../src/interface.c:605 ../src/interface.c:828
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
-#: src/callbacks.c:401
+#: ../src/callbacks.c:401
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Δεν υπάρχει CD. Παρακαλώ εισάγετε ένα CD στον οδηγό του CD-ROM"
 
-#: src/callbacks.c:420 src/callbacks.c:445 src/callbacks.c:470
-#: src/callbacks.c:495 src/callbacks.c:520 src/callbacks.c:545
-#: src/callbacks.c:570
+#: ../src/callbacks.c:420 ../src/callbacks.c:445 ../src/callbacks.c:470
+#: ../src/callbacks.c:495 ../src/callbacks.c:520 ../src/callbacks.c:545
+#: ../src/callbacks.c:570
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
@@ -73,64 +73,64 @@ msgstr ""
 "Το %s δε βρέθηκε στη διαδρομή του συστήματος σας. Το Asunder το χρειάζεται "
 "για να δημιουργεί τα %s αρχεία. Η %s  λειτουργία είναι ανενεργή."
 
-#: src/callbacks.c:667
+#: ../src/callbacks.c:667
 msgid "Select all for ripping"
 msgstr "Επιλογή όλων για εξαγωγή"
 
-#: src/callbacks.c:673
+#: ../src/callbacks.c:673
 msgid "Deselect all for ripping"
 msgstr "Αναίρεση επιλογής όλων για εξαγωγή"
 
-#: src/interface.c:96
+#: ../src/interface.c:97
 msgid "CDDB Lookup"
 msgstr "Κλείδωμα (κράτηση) CDDB"
 
-#: src/interface.c:145
+#: ../src/interface.c:149
 msgid "Disc:"
 msgstr "Δίσκος:"
 
-#: src/interface.c:151
+#: ../src/interface.c:155
 #, fuzzy
 msgid "Album Artist:"
 msgstr "Καλλιτέχνης άλμπουμ:"
 
-#: src/interface.c:158
+#: ../src/interface.c:162
 #, fuzzy
 msgid "Album Title:"
 msgstr "Τίτλος άλμπουμ:"
 
-#: src/interface.c:165
+#: ../src/interface.c:169
 #, fuzzy
 msgid "Single Artist"
 msgstr "Μοναδικός Καλλιτέχνης"
 
-#: src/interface.c:171
+#: ../src/interface.c:175
 #, fuzzy
 msgid "Genre / Year:"
 msgstr "Γενικά"
 
-#: src/interface.c:178
+#: ../src/interface.c:182
 #, fuzzy
 msgid "Single Genre"
 msgstr "Μοναδικός Καλλιτέχνης"
 
-#: src/interface.c:374
+#: ../src/interface.c:378
 msgid "Preferences"
 msgstr "Προτιμήσεις"
 
-#: src/interface.c:391 src/interface.c:397
+#: ../src/interface.c:395 ../src/interface.c:401
 msgid "Destination folder"
 msgstr "Φάκελος προορισμού"
 
-#: src/interface.c:401
+#: ../src/interface.c:405
 msgid "Create M3U playlist"
 msgstr "Δημιουργία M3U playlist"
 
-#: src/interface.c:409
+#: ../src/interface.c:413
 msgid "CD-ROM device: "
 msgstr "Συσκευή CD-ROM: "
 
-#: src/interface.c:418
+#: ../src/interface.c:422
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
@@ -140,15 +140,15 @@ msgstr ""
 "Άλλη πιθανή επιλογή: /dev/hdc\n"
 "Άλλη πιθανή επιλογή: /dev/sr0"
 
-#: src/interface.c:422
+#: ../src/interface.c:426
 msgid "Eject disc when finished"
 msgstr "Εξαγωγή του δίσκου μόλις τελειώσει"
 
-#: src/interface.c:430
+#: ../src/interface.c:434
 msgid "General"
 msgstr "Γενικά"
 
-#: src/interface.c:450
+#: ../src/interface.c:454
 #, fuzzy
 msgid ""
 "%A - Artist\n"
@@ -162,19 +162,24 @@ msgstr ""
 "%N - Αριθμός τραγουδιού (2-ψηφία)\n"
 "%T - Τίτλος τραγουδιού"
 
-#: src/interface.c:460
+#: ../src/interface.c:459
+#, fuzzy, c-format
+msgid "%G - Genre"
+msgstr "Γενικά"
+
+#: ../src/interface.c:474
 msgid "Album directory: "
 msgstr "Κατάλογος άλμπουμ: "
 
-#: src/interface.c:467 src/prefs.c:615
+#: ../src/interface.c:481 ../src/prefs.c:633
 msgid "Playlist file: "
 msgstr "Αρχείο Playlist: "
 
-#: src/interface.c:474 src/prefs.c:627 src/prefs.c:637
+#: ../src/interface.c:488 ../src/prefs.c:645 ../src/prefs.c:655
 msgid "Music file: "
 msgstr "Αρχείο Μουσικής: "
 
-#: src/interface.c:488
+#: ../src/interface.c:502
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -186,7 +191,7 @@ msgstr ""
 "Προεπιλογή: %A - %L\n"
 "Άλλο παράδειγμα: %A/%L"
 
-#: src/interface.c:500
+#: ../src/interface.c:514
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -196,7 +201,7 @@ msgstr ""
 "Μπορεί να είναι κενό.\n"
 "Προεπιλογή: %A - %L"
 
-#: src/interface.c:511
+#: ../src/interface.c:525
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -208,32 +213,32 @@ msgstr ""
 "Προεπιλογή: %A - %T\n"
 "Άλλο παράδειγμα: %N - %T"
 
-#: src/interface.c:516
+#: ../src/interface.c:530
 msgid "Filename formats"
 msgstr "Τύποι ονομάτων αρχείου"
 
-#: src/interface.c:521
+#: ../src/interface.c:535
 msgid "Filenames"
 msgstr "Ονόματα Αρχείων"
 
 #. WAV
-#: src/interface.c:540
+#: ../src/interface.c:554
 msgid "WAV (uncompressed)"
 msgstr "WAV (ασυμπίεστο)"
 
-#: src/interface.c:559
+#: ../src/interface.c:573
 msgid "Variable bit rate (VBR)"
 msgstr "Μεταβλητού ρυθμού δεδομένων (VBR)"
 
-#: src/interface.c:567
+#: ../src/interface.c:581
 msgid "Better quality for the same size."
 msgstr "Καλύτερης ποιότητας στο ίδιο μέγεθος (αρχείου)"
 
-#: src/interface.c:573 src/interface.c:749 src/interface.c:796
+#: ../src/interface.c:587 ../src/interface.c:763 ../src/interface.c:810
 msgid "Bitrate"
 msgstr "Ρυθμός δεδομένων"
 
-#: src/interface.c:588
+#: ../src/interface.c:602
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
@@ -241,50 +246,50 @@ msgstr ""
 "Ο Υψηλότερος ρυθμός δεδομένων δίνει καλύτερη ποιότητα αλλά με μεγαλύτερο "
 "μέγεθος αρχείου. Οι περισσότεροι χρησιμοποιούν 192Kbps."
 
-#: src/interface.c:597
+#: ../src/interface.c:611
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (συμπίεση με απώλειες)"
 
-#: src/interface.c:619 src/interface.c:907
+#: ../src/interface.c:633 ../src/interface.c:921
 msgid "Quality"
 msgstr "Ποιότητα"
 
-#: src/interface.c:630
+#: ../src/interface.c:644
 msgid "Higher quality means bigger file. Default is 6."
 msgstr "Υψηλότερη ποιότητα σημαίνει μεγαλύτερο αρχείο. Προεπιλογή είναι το 6. "
 
-#: src/interface.c:632
+#: ../src/interface.c:646
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (συμπίεση με απώλειες)"
 
-#: src/interface.c:654 src/interface.c:715 src/interface.c:852
+#: ../src/interface.c:668 ../src/interface.c:729 ../src/interface.c:866
 msgid "Compression level"
 msgstr "Βαθμός συμπίεσης"
 
-#: src/interface.c:665 src/interface.c:865
+#: ../src/interface.c:679 ../src/interface.c:879
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "Δεν επιδρά στη ποιότητα. Υψηλότερα νούμερα σημαίνουν μικρότερα αρχεία."
 
-#: src/interface.c:667
+#: ../src/interface.c:681
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (συμπίεση χωρίς απώλειες)"
 
-#: src/interface.c:686
+#: ../src/interface.c:700
 msgid "More formats"
 msgstr "Περισσότεροι τύποι αρχείων"
 
-#: src/interface.c:728
+#: ../src/interface.c:742
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
 msgstr ""
 "Αυτό δεν επιδρά στη ποιότητα. Υψηλότερα νούμερα σημαίνουν μικρότερα αρχεία."
 
-#: src/interface.c:734
+#: ../src/interface.c:748
 msgid "Hybrid compression"
 msgstr "Υβριδική συμπίεση"
 
-#: src/interface.c:743
+#: ../src/interface.c:757
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
@@ -292,133 +297,133 @@ msgstr ""
 "Η κωδικοποίηση είναι απωλεστική αλλά ένα αρχείο διορθώσεων δημιουργείται για "
 "την επαναφορά της μη-απωλεστικής πληροφορίας"
 
-#: src/interface.c:812
+#: ../src/interface.c:826
 msgid "Higher bitrate is better quality but also bigger file."
 msgstr ""
 "Ο Υψηλότερος ρυθμός δεδομένων δίνει καλύτερη ποιότητα αλλά με μεγαλύτερο "
 "μέγεθος αρχείου."
 
-#: src/interface.c:820
+#: ../src/interface.c:834
 msgid "Musepack (lossy compression)"
 msgstr "Musepack (συμπίεση με απώλειες)"
 
-#: src/interface.c:867
+#: ../src/interface.c:881
 msgid "Monkey's Audio (lossless compression)"
 msgstr "Monkey's Audio (συμπίεση χωρίς απώλειες)"
 
 #. END MONKEY
-#: src/interface.c:876
+#: ../src/interface.c:890
 msgid "Proprietary encoders"
 msgstr "Ιδιόκτητοι Κωδικοποιητές"
 
-#: src/interface.c:920
+#: ../src/interface.c:934
 msgid "Higher quality means bigger file. Default is 60."
 msgstr ""
 "Υψηλότερη ποιότητα σημαίνει μεγαλύτερο αρχείο. Η προεπιλογή είναι το 60. "
 
-#: src/interface.c:922
+#: ../src/interface.c:936
 msgid "AAC (lossy compression, Nero encoder)"
 msgstr "AAC (συμπίεση με απώλειες, Nero κωδικοποιητής)"
 
 #. END AAC
-#: src/interface.c:931
+#: ../src/interface.c:945
 msgid "Encode"
 msgstr "Κωδικοποίηση"
 
-#: src/interface.c:962
+#: ../src/interface.c:976
 msgid "Get disc info from the internet automatically"
 msgstr "Πάρτε τις πληροφορίες δίσκων από το Διαδίκτυο αυτόματα"
 
-#: src/interface.c:970 src/interface.c:1015
+#: ../src/interface.c:984 ../src/interface.c:1029
 msgid "Server: "
 msgstr "Εξυπηρετητής:"
 
-#: src/interface.c:980
+#: ../src/interface.c:994
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr ""
 "Ο CDDB εξυπηρετητής για άντληση πληροφοριών δίσκου (η προεπιλογή είναι "
 "freedb.freedb.org)"
 
-#: src/interface.c:986 src/interface.c:1028
+#: ../src/interface.c:1000 ../src/interface.c:1042
 msgid "Port: "
 msgstr "Πόρτα:"
 
-#: src/interface.c:996
+#: ../src/interface.c:1010
 msgid "The CDDB server port (default is 8880)"
 msgstr "Η πόρτα του CDDB εξυπηρετητή (η προεπιλογή είναι 8880)"
 
-#: src/interface.c:1002
+#: ../src/interface.c:1016
 msgid "Use an HTTP proxy to connect to the internet"
 msgstr "Με χρήση HTTP \"διαμεσολαβητή\" (proxy) για τη σύνδεση στο Διαδίκτυο"
 
-#: src/interface.c:1046
+#: ../src/interface.c:1060
 msgid "Advanced"
 msgstr "Προχωρημένα"
 
-#: src/interface.c:1117 src/interface.c:1153
+#: ../src/interface.c:1131 ../src/interface.c:1167
 msgid "Ripping"
 msgstr "Εξαγωγή"
 
-#: src/interface.c:1146
+#: ../src/interface.c:1160
 msgid "Total progress"
 msgstr "Συνολική πρόοδος"
 
-#: src/interface.c:1160
+#: ../src/interface.c:1174
 msgid "Encoding"
 msgstr "Κωδικοποίηση"
 
-#: src/interface.c:1573
+#: ../src/interface.c:1605
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 
-#: src/interface.c:1616
+#: ../src/interface.c:1648
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Το αρχείο %d δημιουργήθηκε με επιτυχία"
 msgstr[1] "Τα αρχεία %d δημιουργήθηκαν με επιτυχία"
 
-#: src/interface.c:1625
+#: ../src/interface.c:1657
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Υπήρξε ένα λάθος στη δημιουργία του αρχείου %d"
 msgstr[1] "Υπήρξε ένα λάθος στη δημιουργία των αρχείων %d"
 
-#: src/prefs.c:614 src/prefs.c:626
+#: ../src/prefs.c:632 ../src/prefs.c:644
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Άκυροι χαρακτήρες στο '%s' πεδίο"
 
-#: src/prefs.c:636
+#: ../src/prefs.c:654
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' δε μπορεί να είναι κενό"
 
-#: src/prefs.c:651
+#: ../src/prefs.c:669
 msgid "Invalid proxy port number"
 msgstr "Μη κανονικός αριθμός πόρτας του διαμεσολαβητή (proxy)"
 
-#: src/prefs.c:664
+#: ../src/prefs.c:682
 msgid "Invalid cddb server port number"
 msgstr "Μη κανονικός αριθμός πόρτας του cddb εξυπηρετητή"
 
-#: src/support.c:47
+#: ../src/support.c:47
 msgid "Overwrite?"
 msgstr "Επικάλυψη;"
 
-#: src/support.c:60
+#: ../src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
 msgstr "Το αρχείο '%s' υπάρχει. Θέλετε να το επικαλύψετε;\n"
 
-#: src/support.c:66
+#: ../src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Θυμηθείτε την απάντηση για _όλα τα αρχεία που γίνονται από αυτό το CD"
 
-#: src/threads.c:164
+#: ../src/threads.c:166
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -426,7 +431,7 @@ msgstr ""
 "Καμία μέθοδος απόσπασης/κωδικοποίησης δεν έχει επιλεχθεί. Παρακαλώ "
 "ενεργοποιήστε μια από το μενού των 'προτιμήσεων'."
 
-#: src/threads.c:193
+#: ../src/threads.c:195
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -434,7 +439,7 @@ msgstr ""
 "Κανένα κομμάτι δεν επιλέχτηκε για απόσπαση/κωδικοποίηση. Παρακαλώ επιλέξτε "
 "τουλάχιστον ένα."
 
-#: src/threads.c:903 src/threads.c:905 src/threads.c:909
+#: ../src/threads.c:915 ../src/threads.c:917 ../src/threads.c:921
 msgid "Waiting..."
 msgstr "Αναμονή..."
 
