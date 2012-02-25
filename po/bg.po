@@ -9,6 +9,7 @@ msgstr ""
 "PO-Revision-Date: 2009-08-28 20:09+0200\n"
 "Last-Translator: Emil Krumov <emil_dk@yahoo.com>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,8 +69,8 @@ msgstr "Няма зареден диск. Моля, заредете CD в CD-RO
 #: src/callbacks.c:570
 #, c-format
 msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All %"
-"s functionality is disabled."
+"%s was not found in your path. Asunder requires it to create %s files. All "
+"%s functionality is disabled."
 msgstr ""
 "%s не беше намерен в указаната пътека. Asunder го изисква, за да създаде %s "
 "файлове. Цялата %s функционалност е изключена."

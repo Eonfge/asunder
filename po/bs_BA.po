@@ -11,6 +11,7 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: DAVOR BUDAY <davor.buday@gmail.com>\n"
 "Language-Team: CROATIAN <codemaster@lavabit.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,8 +46,8 @@ msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
-"'cdparanoia' nije nađena na ovoj putanji. Asunder treba cdparanoia za ripanje "
-"CD-a."
+"'cdparanoia' nije nađena na ovoj putanji. Asunder treba cdparanoia za "
+"ripanje CD-a."
 
 #: src/main.c:420
 msgid "<b>Getting disc info from the internet...</b>"
@@ -67,11 +68,11 @@ msgstr "CD nije umetnut. Molim, umetnite CD u CD-ROM."
 #: src/callbacks.c:570
 #, c-format
 msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All %"
-"s functionality is disabled."
+"%s was not found in your path. Asunder requires it to create %s files. All "
+"%s functionality is disabled."
 msgstr ""
-"%s nije nađen na ovoj putanji. Asunder ga zahtijeva za kreiranje %s datoteka. Sva %s"
-"-a funkcionalnost je onemogućena."
+"%s nije nađen na ovoj putanji. Asunder ga zahtijeva za kreiranje %s "
+"datoteka. Sva %s-a funkcionalnost je onemogućena."
 
 #: src/callbacks.c:667
 msgid "Select all for ripping"
@@ -170,11 +171,12 @@ msgid "Music file: "
 msgstr "Glazbena datoteka"
 
 #: src/interface.c:488
+#, fuzzy
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
 "Default: %A - %L\n"
-"Drukčiji primjer: %A/%L"
+"Other example: %A/%L"
 msgstr ""
 "Relativna putanja do odredišne mape (od Opće kartice).\n"
 "Može biti prazno.\n"
@@ -273,8 +275,8 @@ msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
 msgstr ""
-"Ovo ne utječe na kvalitetu. Veći broj znači manju datoteku. Zadano "
-"je 1 (preporučeno)."
+"Ovo ne utječe na kvalitetu. Veći broj znači manju datoteku. Zadano je 1 "
+"(preporučeno)."
 
 #: src/interface.c:734
 msgid "Hybrid compression"
@@ -328,7 +330,8 @@ msgstr "server:"
 
 #: src/interface.c:980
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
-msgstr "CDDB server s kojeg će biti preuzet disk info (zadan je freedb.freedb.org)"
+msgstr ""
+"CDDB server s kojeg će biti preuzet disk info (zadan je freedb.freedb.org)"
 
 #: src/interface.c:986 src/interface.c:1028
 msgid "Port: "
@@ -364,7 +367,8 @@ msgid ""
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 "Aplikacija za spremanje pjesama s Audio CD-a \n"
-"kao WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, i/ili AAC datoteke."
+"kao WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, i/ili AAC "
+"datoteke."
 
 #: src/interface.c:1616
 #, c-format
@@ -416,16 +420,16 @@ msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
-"Nije odabrana metoda ripanja/enkodiranja. Molim, odaberite jednu iz "
-"menija 'Postavke'."
+"Nije odabrana metoda ripanja/enkodiranja. Molim, odaberite jednu iz menija "
+"'Postavke'."
 
 #: src/threads.c:193
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr ""
-"nijedna pjesma nije odabrana za ripanje/enkodiranje. Molim, odaberite barem jednu "
-"pjesmu."
+"nijedna pjesma nije odabrana za ripanje/enkodiranje. Molim, odaberite barem "
+"jednu pjesmu."
 
 #: src/threads.c:903 src/threads.c:905 src/threads.c:909
 msgid "Waiting..."
