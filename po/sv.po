@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-25 03:57-0500\n"
-"PO-Revision-Date: 2009-08-23 20:04+0100\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"PO-Revision-Date: 2012-03-26 20:38+0100\n"
+"Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: ../src/main.c:118 ../src/interface.c:235
+#: ../src/main.c:118
+#: ../src/interface.c:235
 msgid "Rip"
 msgstr "Extrahera"
 
@@ -34,28 +35,27 @@ msgid "Title"
 msgstr "Titel"
 
 #: ../src/main.c:144
-#, fuzzy
 msgid "Genre"
-msgstr "Allmänt"
+msgstr "Genre"
 
 #: ../src/main.c:149
 msgid "Time"
 msgstr "Tid"
 
 #: ../src/main.c:175
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
-msgstr ""
-"\"cdparanoia\" hittades inte i dina sökvägar. Asunder kräver cdparanoia för "
-"att extrahera cd-skivor."
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "\"cdparanoia\" hittades inte i dina sökvägar. Asunder kräver cdparanoia för att extrahera cd-skivor."
 
 #: ../src/main.c:420
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Hämtar skivinformation från Internet...</b>"
 
-#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
-#: ../src/callbacks.c:299 ../src/interface.c:605 ../src/interface.c:828
+#: ../src/callbacks.c:57
+#: ../src/callbacks.c:261
+#: ../src/callbacks.c:289
+#: ../src/callbacks.c:299
+#: ../src/interface.c:605
+#: ../src/interface.c:828
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -64,16 +64,16 @@ msgstr "%dKbps"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Ingen skiva är inmatad. Mata in en skiva i cd-rom-enheten."
 
-#: ../src/callbacks.c:420 ../src/callbacks.c:445 ../src/callbacks.c:470
-#: ../src/callbacks.c:495 ../src/callbacks.c:520 ../src/callbacks.c:545
+#: ../src/callbacks.c:420
+#: ../src/callbacks.c:445
+#: ../src/callbacks.c:470
+#: ../src/callbacks.c:495
+#: ../src/callbacks.c:520
+#: ../src/callbacks.c:545
 #: ../src/callbacks.c:570
 #, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All "
-"%s functionality is disabled."
-msgstr ""
-"%s hittades inte i dina sökvägar. Asunder kräver det för att skapa %s-filer. "
-"All %s-funktionalitet har inaktiverats."
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "%s hittades inte i dina sökvägar. Asunder kräver det för att skapa %s-filer. All %s-funktionalitet har inaktiverats."
 
 #: ../src/callbacks.c:667
 msgid "Select all for ripping"
@@ -92,35 +92,31 @@ msgid "Disc:"
 msgstr "Skiva:"
 
 #: ../src/interface.c:155
-#, fuzzy
 msgid "Album Artist:"
 msgstr "Albumartist:"
 
 #: ../src/interface.c:162
-#, fuzzy
 msgid "Album Title:"
 msgstr "Albumtitel:"
 
 #: ../src/interface.c:169
-#, fuzzy
 msgid "Single Artist"
-msgstr "En artist"
+msgstr "En Artist"
 
 #: ../src/interface.c:175
-#, fuzzy
 msgid "Genre / Year:"
-msgstr "Allmänt"
+msgstr "Genre / År:"
 
 #: ../src/interface.c:182
-#, fuzzy
 msgid "Single Genre"
-msgstr "En artist"
+msgstr "En Genre"
 
 #: ../src/interface.c:378
 msgid "Preferences"
 msgstr "Inställningar"
 
-#: ../src/interface.c:395 ../src/interface.c:401
+#: ../src/interface.c:395
+#: ../src/interface.c:401
 msgid "Destination folder"
 msgstr "Målmapp"
 
@@ -151,7 +147,6 @@ msgid "General"
 msgstr "Allmänt"
 
 #: ../src/interface.c:454
-#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -162,22 +157,26 @@ msgstr ""
 "%A - Artist\n"
 "%L - Album\n"
 "%N - Spårnummer (2-siffrigt)\n"
+"%Y - Årtal (4-siffrigt eller \"0\")\n"
 "%T - Låttitel"
 
 #: ../src/interface.c:459
-#, fuzzy, c-format
+#, c-format
 msgid "%G - Genre"
-msgstr "Allmänt"
+msgstr "%G - Genre"
 
 #: ../src/interface.c:474
 msgid "Album directory: "
 msgstr "Albumkatalog: "
 
-#: ../src/interface.c:481 ../src/prefs.c:633
+#: ../src/interface.c:481
+#: ../src/prefs.c:633
 msgid "Playlist file: "
 msgstr "Spellistfil: "
 
-#: ../src/interface.c:488 ../src/prefs.c:645 ../src/prefs.c:655
+#: ../src/interface.c:488
+#: ../src/prefs.c:645
+#: ../src/prefs.c:655
 msgid "Music file: "
 msgstr "Musikfil: "
 
@@ -236,23 +235,22 @@ msgstr "Variabel bitfrekvens (VBR)"
 msgid "Better quality for the same size."
 msgstr "Bättre kvalitet med samma storlek."
 
-#: ../src/interface.c:587 ../src/interface.c:763 ../src/interface.c:810
+#: ../src/interface.c:587
+#: ../src/interface.c:763
+#: ../src/interface.c:810
 msgid "Bitrate"
 msgstr "Bitfrekvens"
 
 #: ../src/interface.c:602
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"192Kbps."
-msgstr ""
-"Högre bitfrekvens ger bättre kvalitet men även en större fil. De flesta "
-"använder 192Kbps."
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "Högre bitfrekvens ger bättre kvalitet men även en större fil. De flesta använder 192Kbps."
 
 #: ../src/interface.c:611
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (förstörande komprimering)"
 
-#: ../src/interface.c:633 ../src/interface.c:921
+#: ../src/interface.c:633
+#: ../src/interface.c:921
 msgid "Quality"
 msgstr "Kvalitet"
 
@@ -264,11 +262,14 @@ msgstr "Högre kvalitet betyder större fil. Standard är 6."
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (förstörande komprimering)"
 
-#: ../src/interface.c:668 ../src/interface.c:729 ../src/interface.c:866
+#: ../src/interface.c:668
+#: ../src/interface.c:729
+#: ../src/interface.c:866
 msgid "Compression level"
 msgstr "Komprimeringsnivå"
 
-#: ../src/interface.c:679 ../src/interface.c:879
+#: ../src/interface.c:679
+#: ../src/interface.c:879
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "Det här påverkar inte kvaliteten. Högre tal betyder mindre fil."
 
@@ -281,24 +282,16 @@ msgid "More formats"
 msgstr "Fler format"
 
 #: ../src/interface.c:742
-msgid ""
-"This does not affect the quality. Higher number means smaller file. Default "
-"is 1 (recommended)."
-msgstr ""
-"Det här påverkar inte kvaliteten. Högre tal betyder mindre fil. Standard är "
-"1 (rekommenderat)."
+msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
+msgstr "Det här påverkar inte kvaliteten. Högre tal betyder mindre fil. Standard är 1 (rekommenderat)."
 
 #: ../src/interface.c:748
 msgid "Hybrid compression"
 msgstr "Hibrid-komprimering"
 
 #: ../src/interface.c:757
-msgid ""
-"The format is lossy but a correction file is created for restoring the "
-"lossless original."
-msgstr ""
-"Formatet är förstörande men en korrigeringsfil skapas för att återskapa det "
-"förlustfria originalet."
+msgid "The format is lossy but a correction file is created for restoring the lossless original."
+msgstr "Formatet är förstörande men en korrigeringsfil skapas för att återskapa det förlustfria originalet."
 
 #: ../src/interface.c:826
 msgid "Higher bitrate is better quality but also bigger file."
@@ -334,16 +327,17 @@ msgstr "Kodning"
 msgid "Get disc info from the internet automatically"
 msgstr "Hämta skivinformation automatiskt från Internet"
 
-#: ../src/interface.c:984 ../src/interface.c:1029
+#: ../src/interface.c:984
+#: ../src/interface.c:1029
 msgid "Server: "
 msgstr "Server: "
 
 #: ../src/interface.c:994
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
-msgstr ""
-"CDDB-servern att hämta skivinformation från (standard är freedb.freedb.org)"
+msgstr "CDDB-servern att hämta skivinformation från (standard är freedb.freedb.org)"
 
-#: ../src/interface.c:1000 ../src/interface.c:1042
+#: ../src/interface.c:1000
+#: ../src/interface.c:1042
 msgid "Port: "
 msgstr "Port: "
 
@@ -359,7 +353,8 @@ msgstr "Använd en HTTP-proxy för att ansluta till Internet"
 msgid "Advanced"
 msgstr "Avancerat"
 
-#: ../src/interface.c:1131 ../src/interface.c:1167
+#: ../src/interface.c:1131
+#: ../src/interface.c:1167
 msgid "Ripping"
 msgstr "Extrahering"
 
@@ -376,6 +371,8 @@ msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
+"Ett program för att spara spår från en ljud-CD \n"
+"som WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, och/eller AAC-filer."
 
 #: ../src/interface.c:1648
 #, c-format
@@ -391,7 +388,8 @@ msgid_plural "There was an error creating %d files"
 msgstr[0] "Det uppstod ett fel vid skapandet av %d fil"
 msgstr[1] "Det uppstod ett fel vid skapandet av %d filer"
 
-#: ../src/prefs.c:632 ../src/prefs.c:644
+#: ../src/prefs.c:632
+#: ../src/prefs.c:644
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Ogiltiga tecken i fältet \"%s\""
@@ -423,20 +421,16 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "Kom ihåg svaret för _alla filer skapade från denna skiva"
 
 #: ../src/threads.c:166
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
-msgstr ""
-"Ingen metod för extrahering/kodning har valts. Aktivera en från menyn "
-"\"Inställningar\"."
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgstr "Ingen metod för extrahering/kodning har valts. Aktivera en från menyn \"Inställningar\"."
 
 #: ../src/threads.c:195
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
 msgstr "Inga spår har markerats för extrahering/kodning. Välj minst ett spår."
 
-#: ../src/threads.c:915 ../src/threads.c:917 ../src/threads.c:921
+#: ../src/threads.c:915
+#: ../src/threads.c:917
+#: ../src/threads.c:921
 msgid "Waiting..."
 msgstr "Väntar..."
 
@@ -447,9 +441,8 @@ msgstr "Väntar..."
 #, fuzzy
 #~ msgid "Music file"
 #~ msgstr "Musikfil: "
-
 #~ msgid "Create directory for each album"
 #~ msgstr "Skapa katalog för varje album"
-
 #~ msgid "These characters will be removed from all filenames."
 #~ msgstr "Dessa tecken kommer att tas bort från alla filnamn."
+
