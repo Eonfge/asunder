@@ -2,13 +2,14 @@
 # This file is distributed under the same license as the Asunder package.
 # Copyright (C) 2007, 2009 Free Software Foundation, Inc.
 # Daniel Nylander <po@danielnylander.se>, 2007, 2009.
+# Andreas Rönnquist <gusnan@gusnan.se> 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-25 03:57-0500\n"
-"PO-Revision-Date: 2012-03-26 20:38+0100\n"
+"PO-Revision-Date: 2012-03-27 12:45+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -287,7 +288,7 @@ msgstr "Det här påverkar inte kvaliteten. Högre tal betyder mindre fil. Stand
 
 #: ../src/interface.c:748
 msgid "Hybrid compression"
-msgstr "Hibrid-komprimering"
+msgstr "Hybrid-komprimering"
 
 #: ../src/interface.c:757
 msgid "The format is lossy but a correction file is created for restoring the lossless original."
@@ -372,7 +373,7 @@ msgid ""
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 "Ett program för att spara spår från en ljud-CD \n"
-"som WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, och/eller AAC-filer."
+"som WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio och/eller AAC-filer."
 
 #: ../src/interface.c:1648
 #, c-format
