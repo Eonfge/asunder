@@ -315,9 +315,8 @@ static char *get_prefs_config_path(void)
 {
 	char *confdir;
 	char *file = NULL;
-	int len, flen;
+	int len;
 
-	flen = strlen(CONFIG_FILENAME);
 	confdir = getenv("XDG_CONFIG_HOME");
 	if (confdir == NULL || *confdir == '\0') {
 		confdir = getenv("HOME");

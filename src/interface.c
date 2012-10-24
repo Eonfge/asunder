@@ -44,7 +44,6 @@ create_main (void)
     GdkPixbuf *main_icon_pixbuf;
     GtkWidget *vbox1;
     GtkWidget *toolbar1;
-    gint tmp_toolbar_icon_size;
     GtkWidget *lookup;
     GtkWidget *preferences;
     GtkWidget *separatortoolitem1;
@@ -78,7 +77,7 @@ create_main (void)
     if (main_icon_pixbuf)
     {
         gtk_window_set_icon (GTK_WINDOW (main_win), main_icon_pixbuf);
-        gdk_pixbuf_unref (main_icon_pixbuf);
+        g_object_unref (main_icon_pixbuf);
     }
 
     vbox1 = gtk_vbox_new (FALSE, 0);
@@ -89,7 +88,6 @@ create_main (void)
     gtk_widget_show (toolbar1);
     gtk_box_pack_start (GTK_BOX (vbox1), toolbar1, FALSE, FALSE, 0);
     gtk_toolbar_set_style (GTK_TOOLBAR (toolbar1), GTK_TOOLBAR_BOTH_HORIZ);
-    tmp_toolbar_icon_size = gtk_toolbar_get_icon_size (GTK_TOOLBAR (toolbar1));
     
     GtkWidget* icon;
     icon = gtk_image_new_from_stock(GTK_STOCK_REFRESH, gtk_toolbar_get_icon_size(GTK_TOOLBAR(toolbar1)));
