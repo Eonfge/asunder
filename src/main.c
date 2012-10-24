@@ -63,7 +63,6 @@ int gbl_null_fd;
 
 int main(int argc, char *argv[])
 {
-    GtkTreeViewColumn *col;
     GtkCellRenderer *renderer;
     
 #ifdef ENABLE_NLS
@@ -117,33 +116,28 @@ int main(int argc, char *argv[])
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Rip"), renderer, "active", COL_RIPTRACK, NULL);
 
-    col = gtk_tree_view_column_new();
     renderer = gtk_cell_renderer_text_new();
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Track"), renderer, "text", COL_TRACKNUM, NULL);
 
-    col = gtk_tree_view_column_new();
     renderer = gtk_cell_renderer_text_new();
     g_object_set(renderer, "editable", TRUE, NULL);
     g_signal_connect(renderer, "edited", (GCallback) on_artist_edited, NULL);
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Artist"), renderer, "text", COL_TRACKARTIST, NULL);
 
-    col = gtk_tree_view_column_new();
     renderer = gtk_cell_renderer_text_new();
     g_object_set(renderer, "editable", TRUE, NULL);
     g_signal_connect(renderer, "edited", (GCallback) on_title_edited, NULL);
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Title"), renderer, "text", COL_TRACKTITLE, NULL);
 
-    col = gtk_tree_view_column_new();						// lnr
     renderer = gtk_cell_renderer_text_new();
     g_object_set(renderer, "editable", TRUE, NULL);
     g_signal_connect(renderer, "edited", (GCallback) on_genre_edited, NULL);
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Genre"), renderer, "text", COL_GENRE, NULL);
 
-    col = gtk_tree_view_column_new();
     renderer = gtk_cell_renderer_text_new();
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Time"), renderer, "text", COL_TRACKTIME, NULL);
