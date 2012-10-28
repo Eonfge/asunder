@@ -2,139 +2,134 @@
 # Czech translation for Asunder.
 # This file is distributed under the same license as the Asunder package.
 #
-# Schmaki <smallsmaky@seznam.cz>, 2007.
-# Roman Smakal <smallsmaky@seznam.cz>, 2009.
+# Schmaki <s@seznam.cz>, 2007.
+# Roman Smakal <s@seznam.cz>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: cs.po_[XwND8b]\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-25 03:57-0500\n"
-"PO-Revision-Date: 2009-08-24 13:01+0200\n"
-"Last-Translator: Roman Smakal <smallsmaky@seznam.cz>\n"
+"POT-Creation-Date: 2011-01-04 00:04-0500\n"
+"PO-Revision-Date: 2012-10-26 15:34+0100\n"
+"Last-Translator: Petr Šimáček <petr.simacek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 "X-Generator: Lokalize 1.0\n"
 
-#: ../src/main.c:118 ../src/interface.c:235
+#: src/main.c:118
+#: src/interface.c:231
 msgid "Rip"
 msgstr "Ripovat"
 
-#: ../src/main.c:123
+#: src/main.c:123
 msgid "Track"
 msgstr "Stopa"
 
-#: ../src/main.c:130
+#: src/main.c:130
 msgid "Artist"
 msgstr "Umělec"
 
-#: ../src/main.c:137
+#: src/main.c:137
 msgid "Title"
 msgstr "Název"
 
-#: ../src/main.c:144
-#, fuzzy
+#: src/main.c:144
 msgid "Genre"
-msgstr "Hlavní"
+msgstr "Styl"
 
-#: ../src/main.c:149
+#: src/main.c:149
 msgid "Time"
 msgstr "Čas"
 
-#: ../src/main.c:175
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
-msgstr ""
-"'cdparanoia' nebyl nalezen v proměnné $PATH. Asunder potřebuje program "
-"cdparanoia, aby mohl ripovat CD."
+#: src/main.c:175
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "'cdparanoia' nebyl nalezen v proměnné $PATH. Asunder potřebuje program cdparanoia, aby mohl ripovat CD."
 
-#: ../src/main.c:420
+#: src/main.c:420
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Získávání informací o disku z internetu</b>"
 
-#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
-#: ../src/callbacks.c:299 ../src/interface.c:605 ../src/interface.c:828
+#: src/callbacks.c:57
+#: src/callbacks.c:261
+#: src/callbacks.c:289
+#: src/callbacks.c:299
+#: src/interface.c:591
+#: src/interface.c:814
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
-#: ../src/callbacks.c:401
+#: src/callbacks.c:401
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Není vloženo CD. Prosím vložte CD-ROM do mechaniky."
 
-#: ../src/callbacks.c:420 ../src/callbacks.c:445 ../src/callbacks.c:470
-#: ../src/callbacks.c:495 ../src/callbacks.c:520 ../src/callbacks.c:545
-#: ../src/callbacks.c:570
+#: src/callbacks.c:420
+#: src/callbacks.c:445
+#: src/callbacks.c:470
+#: src/callbacks.c:495
+#: src/callbacks.c:520
+#: src/callbacks.c:545
+#: src/callbacks.c:570
 #, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All "
-"%s functionality is disabled."
-msgstr ""
-"%s nebyl nalezen v proměnné $PATH. Asunder ho potřebuje pro vytvoření "
-"souborů %s. Všechna funkcionalita %s je zakázána."
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "%s nebyl nalezen v proměnné $PATH. Asunder ho potřebuje pro vytvoření souborů %s. Všechna funkcionalita %s je zakázána."
 
-#: ../src/callbacks.c:667
+#: src/callbacks.c:667
 msgid "Select all for ripping"
 msgstr "Vybrat vše k ripování"
 
-#: ../src/callbacks.c:673
+#: src/callbacks.c:673
 msgid "Deselect all for ripping"
 msgstr "Zrušit výběr všeho pro ripování"
 
-#: ../src/interface.c:97
+#: src/interface.c:96
 msgid "CDDB Lookup"
 msgstr "Vyhledat v databázi CD"
 
-#: ../src/interface.c:149
+#: src/interface.c:145
 msgid "Disc:"
 msgstr "Disk:"
 
-#: ../src/interface.c:155
-#, fuzzy
+#: src/interface.c:151
 msgid "Album Artist:"
 msgstr "Umělec alba:"
 
-#: ../src/interface.c:162
-#, fuzzy
+#: src/interface.c:158
 msgid "Album Title:"
 msgstr "Název alba:"
 
-#: ../src/interface.c:169
-#, fuzzy
+#: src/interface.c:165
 msgid "Single Artist"
-msgstr "Jeden umělec"
+msgstr "Umělec"
 
-#: ../src/interface.c:175
-#, fuzzy
+#: src/interface.c:171
 msgid "Genre / Year:"
-msgstr "Hlavní"
+msgstr "Styl / Rok"
 
-#: ../src/interface.c:182
-#, fuzzy
+#: src/interface.c:178
 msgid "Single Genre"
-msgstr "Jeden umělec"
+msgstr "Jednotný žánr"
 
-#: ../src/interface.c:378
+#: src/interface.c:374
 msgid "Preferences"
 msgstr "Nastavení"
 
-#: ../src/interface.c:395 ../src/interface.c:401
+#: src/interface.c:391
+#: src/interface.c:397
 msgid "Destination folder"
 msgstr "Cílový adresář"
 
-#: ../src/interface.c:405
+#: src/interface.c:401
 msgid "Create M3U playlist"
 msgstr "Vytvořit playlist M3U"
 
-#: ../src/interface.c:413
+#: src/interface.c:409
 msgid "CD-ROM device: "
 msgstr "Zařízení CD-ROM: "
 
-#: ../src/interface.c:422
+#: src/interface.c:418
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
@@ -144,16 +139,15 @@ msgstr ""
 "Další příklad: /dev/hdc\n"
 "Další příklad: /dev/sr0"
 
-#: ../src/interface.c:426
+#: src/interface.c:422
 msgid "Eject disc when finished"
 msgstr "Vysunout disk po dokončení"
 
-#: ../src/interface.c:434
+#: src/interface.c:430
 msgid "General"
 msgstr "Hlavní"
 
-#: ../src/interface.c:454
-#, fuzzy
+#: src/interface.c:450
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -164,26 +158,25 @@ msgstr ""
 "%A - Umělec\n"
 "%L - Album\n"
 "%N - Číslo stopy (dvoumístné)\n"
+"%Y - Rok (4-digit nebo \"0\")\n"
 "%T - Název stopy"
 
-#: ../src/interface.c:459
-#, fuzzy, c-format
-msgid "%G - Genre"
-msgstr "Hlavní"
-
-#: ../src/interface.c:474
+#: src/interface.c:460
 msgid "Album directory: "
 msgstr "Adresář alba: "
 
-#: ../src/interface.c:481 ../src/prefs.c:633
+#: src/interface.c:467
+#: src/prefs.c:615
 msgid "Playlist file: "
 msgstr "Soubor seznamu skladeb: "
 
-#: ../src/interface.c:488 ../src/prefs.c:645 ../src/prefs.c:655
+#: src/interface.c:474
+#: src/prefs.c:627
+#: src/prefs.c:637
 msgid "Music file: "
 msgstr "Hudební soubor: "
 
-#: ../src/interface.c:502
+#: src/interface.c:488
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -195,7 +188,7 @@ msgstr ""
 "Výchozí:%A - %L\n"
 "Další příklad: %A/%L"
 
-#: ../src/interface.c:514
+#: src/interface.c:500
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -205,7 +198,7 @@ msgstr ""
 "Může být prázdný.\n"
 "Výchozí: %A - %L"
 
-#: ../src/interface.c:525
+#: src/interface.c:511
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -217,229 +210,223 @@ msgstr ""
 "Výchozí: %A - %T\n"
 "Další příklad: %N - %T"
 
-#: ../src/interface.c:530
+#: src/interface.c:516
 msgid "Filename formats"
 msgstr "Formáty názvu souboru"
 
-#: ../src/interface.c:535
+#: src/interface.c:521
 msgid "Filenames"
 msgstr "Názvy souborů"
 
 #. WAV
-#: ../src/interface.c:554
+#: src/interface.c:540
 msgid "WAV (uncompressed)"
 msgstr "WAV (bez komprese)"
 
-#: ../src/interface.c:573
+#: src/interface.c:559
 msgid "Variable bit rate (VBR)"
 msgstr "Variabilní datový tok (VBR)"
 
-#: ../src/interface.c:581
+#: src/interface.c:567
 msgid "Better quality for the same size."
 msgstr "Lepší kvalita při stejné velikosti."
 
-#: ../src/interface.c:587 ../src/interface.c:763 ../src/interface.c:810
+#: src/interface.c:573
+#: src/interface.c:749
+#: src/interface.c:796
 msgid "Bitrate"
 msgstr "Datový tok"
 
-#: ../src/interface.c:602
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"192Kbps."
-msgstr ""
-"Vyšší datový tok znamená lepší kvalitu, ale velikost souboru se zvětší. "
-"Většina lidí používá 192Kbps."
+#: src/interface.c:588
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "Vyšší datový tok znamená lepší kvalitu, ale velikost souboru se zvětší. Většina lidí používá 192Kbps."
 
-#: ../src/interface.c:611
+#: src/interface.c:597
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (ztrátová komprese)"
 
-#: ../src/interface.c:633 ../src/interface.c:921
+#: src/interface.c:619
+#: src/interface.c:907
 msgid "Quality"
 msgstr "Kvalita"
 
-#: ../src/interface.c:644
+#: src/interface.c:630
 msgid "Higher quality means bigger file. Default is 6."
 msgstr "Větší kvalita znamená větší soubor. Výchozí je 6."
 
-#: ../src/interface.c:646
+#: src/interface.c:632
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (ztrátová komprese)"
 
-#: ../src/interface.c:668 ../src/interface.c:729 ../src/interface.c:866
+#: src/interface.c:654
+#: src/interface.c:715
+#: src/interface.c:852
 msgid "Compression level"
 msgstr "Stupeň komprese"
 
-#: ../src/interface.c:679 ../src/interface.c:879
+#: src/interface.c:665
+#: src/interface.c:865
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "Toto nemá vliv na kvalitu. Větší čísla znamenají menší soubor."
 
-#: ../src/interface.c:681
+#: src/interface.c:667
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (bezztrátová komprese)"
 
-#: ../src/interface.c:700
+#: src/interface.c:686
 msgid "More formats"
 msgstr "Více formátů"
 
-#: ../src/interface.c:742
-msgid ""
-"This does not affect the quality. Higher number means smaller file. Default "
-"is 1 (recommended)."
-msgstr ""
-"Toto nemá vliv na kvalitu. Větší čísla znamenají menší soubor. Výchozí "
-"hodnota je 1 (doporučená)."
+#: src/interface.c:728
+msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
+msgstr "Toto nemá vliv na kvalitu. Větší čísla znamenají menší soubor. Výchozí hodnota je 1 (doporučená)."
 
-#: ../src/interface.c:748
+#: src/interface.c:734
 msgid "Hybrid compression"
 msgstr "Hybridní komprese"
 
-#: ../src/interface.c:757
-msgid ""
-"The format is lossy but a correction file is created for restoring the "
-"lossless original."
-msgstr ""
-"Formát je ztrátový, ale bude vytvořen korekční soubor pro obnovení "
-"bezztrátového originálu."
+#: src/interface.c:743
+msgid "The format is lossy but a correction file is created for restoring the lossless original."
+msgstr "Formát je ztrátový, ale bude vytvořen korekční soubor pro obnovení bezztrátového originálu."
 
-#: ../src/interface.c:826
+#: src/interface.c:812
 msgid "Higher bitrate is better quality but also bigger file."
-msgstr ""
-"Vyšší datový tok znamená lepší kvalitu, ale velikost souboru se zvětší."
+msgstr "Vyšší datový tok znamená lepší kvalitu, ale velikost souboru se zvětší."
 
-#: ../src/interface.c:834
+#: src/interface.c:820
 msgid "Musepack (lossy compression)"
 msgstr "Musepack (ztrátová komprese)"
 
-#: ../src/interface.c:881
+#: src/interface.c:867
 msgid "Monkey's Audio (lossless compression)"
 msgstr "Monkey's audio (bezztrátová komprese)"
 
 #. END MONKEY
-#: ../src/interface.c:890
+#: src/interface.c:876
 msgid "Proprietary encoders"
 msgstr "Proprietární enkodery"
 
-#: ../src/interface.c:934
+#: src/interface.c:920
 msgid "Higher quality means bigger file. Default is 60."
 msgstr "Větší kvalita znamená větší soubor. Výchozí je 60."
 
-#: ../src/interface.c:936
+#: src/interface.c:922
 msgid "AAC (lossy compression, Nero encoder)"
 msgstr "AAC (ztrátová komprese, enkóder z Nera)"
 
 #. END AAC
-#: ../src/interface.c:945
+#: src/interface.c:931
 msgid "Encode"
 msgstr "Překódovat"
 
-#: ../src/interface.c:976
+#: src/interface.c:962
 msgid "Get disc info from the internet automatically"
 msgstr "Získat informaci o disku z internetu automaticky"
 
-#: ../src/interface.c:984 ../src/interface.c:1029
+#: src/interface.c:970
+#: src/interface.c:1015
 msgid "Server: "
 msgstr "Server: "
 
-#: ../src/interface.c:994
+#: src/interface.c:980
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr "CDDB server pro získání informací (výchozí je freedb.freedb.org"
 
-#: ../src/interface.c:1000 ../src/interface.c:1042
+#: src/interface.c:986
+#: src/interface.c:1028
 msgid "Port: "
 msgstr "Port: "
 
-#: ../src/interface.c:1010
+#: src/interface.c:996
 msgid "The CDDB server port (default is 8880)"
 msgstr "Port CDDB serveru (výchozí je 8880)"
 
-#: ../src/interface.c:1016
+#: src/interface.c:1002
 msgid "Use an HTTP proxy to connect to the internet"
 msgstr "Použít HTTP proxy pro připojení k internetu"
 
-#: ../src/interface.c:1060
+#: src/interface.c:1046
 msgid "Advanced"
 msgstr "Pokročilé"
 
-#: ../src/interface.c:1131 ../src/interface.c:1167
+#: src/interface.c:1117
+#: src/interface.c:1153
 msgid "Ripping"
 msgstr "Ripování"
 
-#: ../src/interface.c:1160
+#: src/interface.c:1146
 msgid "Total progress"
 msgstr "Celkový průběh"
 
-#: ../src/interface.c:1174
+#: src/interface.c:1160
 msgid "Encoding"
 msgstr "Kódování"
 
-#: ../src/interface.c:1605
+#: src/interface.c:1573
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
+"Aplikace pro ukládání skladeb z Audio CD \n"
+"jako WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, a/nebo AAC files."
 
-#: ../src/interface.c:1648
+#: src/interface.c:1616
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d soubor úspěšně vytvořen"
 msgstr[1] "%d soubory úspěšně vytvořeny"
 
-#: ../src/interface.c:1657
+#: src/interface.c:1625
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Chyba při vytváření %d souboru"
 msgstr[1] "Chyba při vytváření %d souborů"
 
-#: ../src/prefs.c:632 ../src/prefs.c:644
+#: src/prefs.c:614
+#: src/prefs.c:626
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Neplatné znaky v poli '%s'"
 
-#: ../src/prefs.c:654
+#: src/prefs.c:636
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' nesmí být prázdné"
 
-#: ../src/prefs.c:669
+#: src/prefs.c:651
 msgid "Invalid proxy port number"
 msgstr "Neplatné číslo portu proxy"
 
-#: ../src/prefs.c:682
+#: src/prefs.c:664
 msgid "Invalid cddb server port number"
 msgstr "Neplatné číslo portu pro CDDB server"
 
-#: ../src/support.c:47
+#: src/support.c:47
 msgid "Overwrite?"
 msgstr "Přepsat?"
 
-#: ../src/support.c:60
+#: src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
 msgstr "Soubor '%s' již existuje. Přejete si ho přepsat?\n"
 
-#: ../src/support.c:66
+#: src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Zapamatovat si odpověď pro _všechny soubory vytvořené z tohoto CD"
 
-#: ../src/threads.c:166
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
-msgstr ""
-"Nebyla zvolena metoda ripování/kódování. Prosím, povolte jednu v menu "
-"'Nastavení'."
+#: src/threads.c:164
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgstr "Nebyla zvolena metoda ripování/kódování. Prosím, povolte jednu v menu 'Nastavení'."
 
-#: ../src/threads.c:195
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
-msgstr ""
-"Žádná stopa nebyla vybrána pro ripování/kódování. Prosím, vyberte alespoň "
-"jednu stopu."
+#: src/threads.c:193
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgstr "Žádná stopa nebyla vybrána pro ripování/kódování. Prosím, vyberte alespoň jednu stopu."
 
-#: ../src/threads.c:915 ../src/threads.c:917 ../src/threads.c:921
+#: src/threads.c:903
+#: src/threads.c:905
+#: src/threads.c:909
 msgid "Waiting..."
 msgstr "Čekám..."
+
