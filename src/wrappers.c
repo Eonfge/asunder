@@ -10,6 +10,8 @@ Foundation; version 2 of the licence.
 
 */
 
+#define _GNU_SOURCE
+
 #include <sys/types.h>
 #include <unistd.h>
 #include <gtk/gtk.h>
@@ -988,14 +990,22 @@ void musepack(char* wavfilename,
     }
 }
 
-void aac(char* wavfilename,
+void aac(int tracknum,
+         char * artist,
+         char * album,
+         char * title,
+         char * genre,
+         char * year,
+         char* wavfilename,
          char* aacfilename,
          int quality,
          double* progress)
 {
-    const char* args[8];
+    const char* args[9];
+    char* dynamic_args[6];
     int fd;
     int pos;
+    int dyn_pos;
     
     pos = 0;
     args[pos++] = "neroAacEnc";
@@ -1033,5 +1043,65 @@ void aac(char* wavfilename,
     {
         debugLog("w11 (%d)\n", aac_pid);
         usleep(100000);
+    }
+
+    /* Now add tags to the encoded track */
+
+    pos = 0;
+    args[pos++] = "neroAacTag";
+
+    args[pos++] = aacfilename;
+
+    dyn_pos = 0;
+    if (asprintf(&dynamic_args[dyn_pos], "-meta:artist=%s", artist) > 0)
+    {
+        args[pos++] = dynamic_args[dyn_pos++];
+    }
+    if (asprintf(&dynamic_args[dyn_pos], "-meta:title=%s", title) > 0)
+    {
+        args[pos++] = dynamic_args[dyn_pos++];
+    }
+    if (asprintf(&dynamic_args[dyn_pos], "-meta:album=%s", album) > 0)
+    {
+        args[pos++] = dynamic_args[dyn_pos++];
+    }
+    if (asprintf(&dynamic_args[dyn_pos], "-meta:year=%s", year) > 0)
+    {
+        args[pos++] = dynamic_args[dyn_pos++];
+    }
+    if (asprintf(&dynamic_args[dyn_pos], "-meta:genre=%s", genre) > 0)
+    {
+        args[pos++] = dynamic_args[dyn_pos++];
+    }
+    if (asprintf(&dynamic_args[dyn_pos], "-meta:track=%d", tracknum) > 0)
+    {
+        args[pos++] = dynamic_args[dyn_pos++];
+    }
+
+    args[pos++] = NULL;
+    
+    fd = exec_with_output(args, STDERR_FILENO, &aac_pid);
+    
+    do
+    {
+        /* The Nero tag writer doesn't take very long to run. Just slurp the output. */
+        size = read(fd, &buf[0], 256);
+        
+        if (size == -1 && errno == EINTR)
+        /* signal interrupted read(), try again */
+            size = 1;
+    } while (size > 0);
+    
+    close(fd);
+    /* don't go on until the signal for the previous call is handled */
+    while (aac_pid != 0)
+    {
+        debugLog("w11 (%d)\n", aac_pid);
+        usleep(100000);
+    }
+
+    while(dyn_pos)
+    {
+        free(dynamic_args[--dyn_pos]);
     }
 }

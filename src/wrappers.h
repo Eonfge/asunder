@@ -130,7 +130,13 @@ void musepack(char* wavfilename,
               int quality,
               double* progress);
 
-void aac(char* wavfilename,
+void aac(int tracknum,
+         char * artist,
+         char * album,
+         char * title,
+         char * genre,
+         char * year,
+         char* wavfilename,
          char* aacfilename,
          int quality,
          double* progress);

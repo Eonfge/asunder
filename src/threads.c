@@ -779,7 +779,8 @@ gpointer encode(gpointer data)
                 
                 if(doEncode)
                 {
-                    aac(wavfilename, aacfilename,
+                    aac(tracknum, trackartist, album_title, tracktitle, genre, album_year,
+                        wavfilename, aacfilename,
                         global_prefs->aac_quality, 
                         &aac_percent);
                 }
