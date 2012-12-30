@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: asunder 2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-04 00:04-0500\n"
-"PO-Revision-Date: 2012-07-21 18:56+0200\n"
+"PO-Revision-Date: 2012-12-20 10:05+0200\n"
 "Last-Translator: Isratine Citizen <genghiskhan@gmx.ca>\n"
 "Language-Team: Rahut <genghiskhan@gmx.ca>\n"
 "Language: he\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: src/main.c:118
 #: src/interface.c:231
 msgid "Rip"
-msgstr "תלישה"
+msgstr "תלוש"
 
 #: src/main.c:123
 msgid "Track"
@@ -38,7 +38,7 @@ msgstr "כותרת"
 
 #: src/main.c:144
 msgid "Genre"
-msgstr "ז'אנר"
+msgstr "ז׳אנר"
 
 #: src/main.c:149
 msgid "Time"
@@ -50,7 +50,7 @@ msgstr "‏'cdparanoia' לא נמצא בנתיבך. Asunder מצריך cdparanoi
 
 #: src/main.c:420
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>מאחזר כעת מידע תקליטור מן המרשתת...</b>"
+msgstr "<b>מאחזר כעת מידע תקליטור מן האינטרנט...</b>"
 
 #: src/callbacks.c:57
 #: src/callbacks.c:261
@@ -108,11 +108,12 @@ msgstr "אמן יחיד"
 
 #: src/interface.c:171
 msgid "Genre / Year:"
-msgstr "ז'אנר / שנה:"
+msgstr "ז׳אנר / שנה:"
 
+# בודד
 #: src/interface.c:178
 msgid "Single Genre"
-msgstr "ז'אנר יחיד"
+msgstr "ז׳אנר יחיד"
 
 #: src/interface.c:374
 msgid "Preferences"
@@ -125,7 +126,7 @@ msgstr "תיקיית יעד"
 
 #: src/interface.c:401
 msgid "Create M3U playlist"
-msgstr "יצירת רשימת השמעה מסוג M3U"
+msgstr "צור רשימת השמעה מטיפוס M3U"
 
 #: src/interface.c:409
 msgid "CD-ROM device: "
@@ -214,7 +215,7 @@ msgstr ""
 
 #: src/interface.c:516
 msgid "Filename formats"
-msgstr "תסדירי שמות קובץ"
+msgstr "פורמטים של שמות קובץ"
 
 #: src/interface.c:521
 msgid "Filenames"
@@ -231,7 +232,7 @@ msgstr "קצב סיביות משתנה (VBR)"
 
 #: src/interface.c:567
 msgid "Better quality for the same size."
-msgstr "איכו טובה יותר עבור אותו הגודל."
+msgstr "איכות טובה יותר עבור אותו הגודל."
 
 #: src/interface.c:573
 #: src/interface.c:749
@@ -278,7 +279,7 @@ msgstr "‏FLAC (דחיסה ללא אבדן נתונים)"
 
 #: src/interface.c:686
 msgid "More formats"
-msgstr "תסדירים נוספים"
+msgstr "פורמטים נוספים"
 
 #: src/interface.c:728
 msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
@@ -293,7 +294,7 @@ msgstr "דחיסה מעורבת"
 # the lossless original what?
 #: src/interface.c:743
 msgid "The format is lossy but a correction file is created for restoring the lossless original."
-msgstr "התסדיר הינו בר־אבדן ברם קובץ תיקון נוצר עבור שחזור הקובץ המקורי שלא איבד נתונים."
+msgstr "הפורמט הינו בר־אבדן אולם קובץ תיקון נוצר עבור שחזור הקובץ המקורי שלא איבד נתונים."
 
 # אך גם
 #: src/interface.c:812
@@ -306,7 +307,7 @@ msgstr "‏Musepack (דחיסה עם אבדן נתונים)"
 
 #: src/interface.c:867
 msgid "Monkey's Audio (lossless compression)"
-msgstr "שמע Monkey (דחיסה עם אבדן נתונים)"
+msgstr "‏Monkey's Audio (דחיסה עם אבדן נתונים)"
 
 #. END MONKEY
 #: src/interface.c:876
@@ -326,10 +327,9 @@ msgstr "‏AAC (דחיסה עם אבדן נתונים, מקודד Nero)"
 msgid "Encode"
 msgstr "קידוד"
 
-# קבלת מידע תקליטור אוטומטית מן המרשתת
 #: src/interface.c:962
 msgid "Get disc info from the internet automatically"
-msgstr "אחזור אוטומטי של מידע תקליטור מן המרשתת"
+msgstr "השג אוטומטית מידע תקליטור מן האינטרנט"
 
 #: src/interface.c:970
 #: src/interface.c:1015
@@ -343,15 +343,15 @@ msgstr "שרת CDDB כדי לאחזר מידע תקליטור ממנו (השרת
 #: src/interface.c:986
 #: src/interface.c:1028
 msgid "Port: "
-msgstr "פתחה: "
+msgstr "פורט: "
 
 #: src/interface.c:996
 msgid "The CDDB server port (default is 8880)"
-msgstr "פתחת שרת CDDB (הפתחה המשתמטת היא 8880)"
+msgstr "פורט שרת CDDB (הפורט המשתמט הוא 8880)"
 
 #: src/interface.c:1002
 msgid "Use an HTTP proxy to connect to the internet"
-msgstr "שימוש במתווך HTTP כדי להתחבר אל המרשתת"
+msgstr "השתמש בפרוקסי HTTP כדי להתחבר אל האינטרנט"
 
 #: src/interface.c:1046
 msgid "Advanced"
@@ -365,7 +365,7 @@ msgstr "תולש"
 
 #: src/interface.c:1146
 msgid "Total progress"
-msgstr "התקדמות סך הכל"
+msgstr "התקדמות כוללת"
 
 # מקודד כעת
 #: src/interface.c:1160
@@ -378,7 +378,7 @@ msgid ""
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
 "‏Asunder הינו יישום לשמירת רצועות מן תקליטור שמע \n"
-"כקבצי WAV, ‏MP3, ‏OGG, ‏FLAC, ‏Wavpack, ‏Musepack, שמע Monkey, או AAC."
+"כקבצי WAV, ‏MP3, ‏OGG, ‏FLAC, ‏Wavpack, ‏Musepack, ‏Monkey's Audio, ו/או AAC."
 
 #: src/interface.c:1616
 #, c-format
@@ -407,11 +407,11 @@ msgstr "‫'%s' לא יכול להיות ריק"
 
 #: src/prefs.c:651
 msgid "Invalid proxy port number"
-msgstr "מספר פתחת מתווך שגוי"
+msgstr "מספר פורט פרוקסי שגוי"
 
 #: src/prefs.c:664
 msgid "Invalid cddb server port number"
-msgstr "פתחת שרת cddb שגויה"
+msgstr "פורט שרת cddb שגוי"
 
 #: src/support.c:47
 msgid "Overwrite?"
