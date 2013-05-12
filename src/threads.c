@@ -147,8 +147,19 @@ void dorip()
     const char * albumtitle = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_title")));
     const char * albumyear = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_year")));
     const char * albumgenre = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_genre")));
-    char * albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist, albumtitle, albumgenre, NULL);
-    char * playlist = parse_format(global_prefs->format_playlist, 0, albumyear, albumartist, albumtitle, albumgenre, NULL);
+    
+    //Trimmed for use in filenames	//mrpl
+    char * albumartist_trimmed = strdup(albumartist);
+    trim_chars(albumartist_trimmed, BADCHARS);
+    char * albumtitle_trimmed = strdup(albumtitle);
+    trim_chars(albumtitle_trimmed, BADCHARS);
+    char * albumgenre_trimmed = strdup(albumgenre);
+    trim_chars(albumgenre_trimmed, BADCHARS);
+
+    //char * albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist, albumtitle, albumgenre, NULL);
+    //char * playlist = parse_format(global_prefs->format_playlist, 0, albumyear, albumartist, albumtitle, albumgenre, NULL);
+    char * albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist_trimmed, albumtitle_trimmed, albumgenre_trimmed, NULL);
+    char * playlist = parse_format(global_prefs->format_playlist, 0, albumyear, albumartist_trimmed, albumtitle_trimmed, albumgenre_trimmed, NULL);
     
     overwriteAll = false;
     overwriteNone = false;
@@ -298,6 +309,9 @@ void dorip()
     
     free(albumdir);
     free(playlist);
+    free(albumartist_trimmed);
+    free(albumtitle_trimmed);
+    free(albumgenre_trimmed);
     
     gtk_widget_show(win_ripping);
     
@@ -333,6 +347,8 @@ gpointer rip(gpointer data)
     int tracknum;
     const char * trackartist;
     const char * tracktitle;
+    char * trackartist_trimmed;
+    char * tracktitle_trimmed;
     
     char * albumdir = NULL;
     char * musicfilename = NULL;
@@ -348,6 +364,15 @@ gpointer rip(gpointer data)
         
         gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
     gdk_threads_leave();
+    
+    //Trimmed for use in filenames	//mrpl
+    char * albumartist_trimmed = strdup(albumartist);
+    trim_chars(albumartist_trimmed, BADCHARS);
+    char * albumtitle_trimmed = strdup(albumtitle);
+    trim_chars(albumtitle_trimmed, BADCHARS);
+    char * albumgenre_trimmed = strdup(albumgenre);
+    trim_chars(albumgenre_trimmed, BADCHARS);
+    
     while(rowsleft)
     {
         const char * trackyear = 0;
@@ -368,9 +393,17 @@ gpointer rip(gpointer data)
         
         if (riptrack)
         {
-            albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist, albumtitle, albumgenre, NULL);
-            //~ musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, albumtitle, tracktitle);
-            musicfilename = parse_format(global_prefs->format_music, tracknum, albumyear, trackartist, albumtitle, albumgenre, tracktitle);
+            //Trimmed for use in filenames	//mrpl
+            trackartist_trimmed = strdup(trackartist);
+            trim_chars(trackartist_trimmed, BADCHARS);
+            tracktitle_trimmed = strdup(tracktitle);
+            trim_chars(tracktitle_trimmed, BADCHARS);
+            
+            //~albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist, albumtitle, albumgenre, NULL);
+            //~musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, albumtitle, tracktitle);
+            //~musicfilename = parse_format(global_prefs->format_music, tracknum, albumyear, trackartist, albumtitle, albumgenre, tracktitle);            
+            albumdir = parse_format(global_prefs->format_albumdir, 0, albumyear, albumartist_trimmed, albumtitle_trimmed, albumgenre_trimmed, NULL);
+            musicfilename = parse_format(global_prefs->format_music, tracknum, albumyear, trackartist_trimmed, albumtitle_trimmed, albumgenre_trimmed, tracktitle_trimmed);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             
             debugLog("Ripping track %d to \"%s\"\n", tracknum, wavfilename);
@@ -396,10 +429,12 @@ gpointer rip(gpointer data)
             
             if(doRip)
                 cdparanoia(global_prefs->cdrom, tracknum, wavfilename, &rip_percent);
-
+            
             free(albumdir);
             free(musicfilename);
             free(wavfilename);
+            free(trackartist_trimmed);
+            free(tracktitle_trimmed);
             
             rip_percent = 0.0;
             rip_tracks_completed++;
@@ -417,6 +452,10 @@ gpointer rip(gpointer data)
             rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
         gdk_threads_leave();
     }
+    
+    free(albumartist_trimmed);
+    free(albumtitle_trimmed);
+    free(albumgenre_trimmed);
     
     // no more tracks to rip, safe to eject
     if (global_prefs->eject_on_done)
@@ -447,6 +486,13 @@ gpointer encode(gpointer data)
     char* album_title = NULL;
     char* album_genre = NULL;		// lnr
     char* album_year = NULL;
+    
+    char* album_artist_trimmed = NULL;
+    char* album_title_trimmed = NULL;
+    char* album_genre_trimmed = NULL;
+    char* trackartist_trimmed = NULL;
+    char* tracktitle_trimmed = NULL;
+    char* genre_trimmed = NULL;
     
     char* albumdir = NULL;
     char* musicfilename = NULL;
@@ -499,10 +545,18 @@ gpointer encode(gpointer data)
         strcpy( album_genre, temp_album_genre );
         add_completion(album_genre_widget);
         save_completion(album_genre_widget);
-
+        
         gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
     gdk_threads_leave();
-
+    
+    //Trimmed for use in filenames	//mrpl
+    album_artist_trimmed = strdup(album_artist);
+    trim_chars(album_artist_trimmed, BADCHARS);
+    album_title_trimmed = strdup(album_title);
+    trim_chars(album_title_trimmed, BADCHARS);
+    album_genre_trimmed = strdup(album_genre);
+    trim_chars(album_genre_trimmed, BADCHARS);
+    
     while(rowsleft)
     {
         g_mutex_lock(barrier);
@@ -537,9 +591,20 @@ gpointer encode(gpointer data)
         
         if (riptrack)
         {
-            albumdir = parse_format(global_prefs->format_albumdir, 0, album_year, album_artist, album_title, genre, NULL);
-            //~ musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, album_title, tracktitle);
-            musicfilename = parse_format(global_prefs->format_music, tracknum, album_year, trackartist, album_title, genre, tracktitle);
+            //Trimmed for use in filenames	//mrpl
+            trackartist_trimmed = strdup(trackartist);
+            trim_chars(trackartist_trimmed, BADCHARS);
+            tracktitle_trimmed = strdup(tracktitle);
+            trim_chars(tracktitle_trimmed, BADCHARS);
+            genre_trimmed = strdup(genre);
+            trim_chars(genre_trimmed, BADCHARS);
+            
+            //~albumdir = parse_format(global_prefs->format_albumdir, 0, album_year, album_artist, album_title, genre, NULL);
+            //~musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, album_title, tracktitle);
+            //~musicfilename = parse_format(global_prefs->format_music, tracknum, album_year, trackartist, album_title, genre, tracktitle);
+            albumdir = parse_format(global_prefs->format_albumdir, 0, album_year, album_artist_trimmed, album_title_trimmed, genre_trimmed, NULL);
+            musicfilename = parse_format(global_prefs->format_music, tracknum, album_year, trackartist_trimmed, album_title_trimmed, genre_trimmed, tracktitle_trimmed);
+            
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
             oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");
@@ -821,6 +886,9 @@ gpointer encode(gpointer data)
             free(monkeyfilename);
             free(musepackfilename);
             free(aacfilename);
+            free(trackartist_trimmed);
+            free(tracktitle_trimmed);
+            free(genre_trimmed);
             
             mp3_percent = 0.0;
             ogg_percent = 0.0;
@@ -842,6 +910,9 @@ gpointer encode(gpointer data)
     free(album_artist);
     free(album_title);
     free(album_genre);
+    free(album_artist_trimmed);
+    free(album_title_trimmed);
+    free(album_genre_trimmed);
     
     if (playlist_wav) fclose(playlist_wav);
     playlist_wav = NULL;

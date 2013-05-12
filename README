@@ -77,11 +77,11 @@ Please help me improve Asunder by sending me bug reports. The more of the follow
 - be able to reproduce the bug consistently
 - select "Log to /tmp/asunder.log" in the advanced preferences and send me the asunder.log file
 - if it only happens with one CD, tell me what it is and, if it's freely available, where I can get it
-- it's better to give me too much detail then too little
+- it's better to give me too much detail than too little
 
 Credits
 =======
-See the AUTHORS file or click About/Credits in Asnuder for a list of contributors.
+See the AUTHORS file or click About/Credits in Asunder for a list of contributors.
 
 License
 =======

@@ -34,6 +34,9 @@ Richard Gill
 Hiroyuki Ito
 - Support for autocompletion in artist/album/genre fields.
 
+Micah Lindström
+- Support for invalid filesystem characters in metadata
+
 Packages:
 
 Toni Graffy

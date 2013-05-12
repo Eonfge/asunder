@@ -310,11 +310,11 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
         snprintf(time, 6, "%02d:%02d", seconds/60, seconds%60);
         
         track_artist = (char*)cddb_track_get_artist(track);
-        trim_chars(track_artist, BADCHARS);		// lnr
+        //trim_chars(track_artist, BADCHARS);		// lnr	//Commented out by mrpl
         trim_whitespace(track_artist);
         
         track_title = (char*)cddb_track_get_title(track); //!! this returns const char*
-        trim_chars(track_title, BADCHARS);		// lnr
+        //trim_chars(track_title, BADCHARS);		// lnr	//Commented out by mrpl
         trim_whitespace(track_title);
         
         char year_str[5];
@@ -598,7 +598,7 @@ void update_tracklist(cddb_disc_t * disc)
     
     if (disc_artist != NULL)
     {
-        trim_chars(disc_artist, BADCHARS);			// lnr
+        //trim_chars(disc_artist, BADCHARS);			// lnr	//Commented out by mrpl
         trim_whitespace(disc_artist);
         gtk_entry_set_text(GTK_ENTRY(album_artist), disc_artist);
         
@@ -615,14 +615,14 @@ void update_tracklist(cddb_disc_t * disc)
     }
     if (disc_title != NULL)
     {
-        trim_chars(disc_title, BADCHARS);			// lnr
+        //trim_chars(disc_title, BADCHARS);			// lnr	//Commented out by mrpl
         trim_whitespace(disc_title);
         gtk_entry_set_text(GTK_ENTRY(album_title), disc_title);
     }
     
     if ( disc_genre )								// lnr
     {
-        trim_chars( disc_genre, BADCHARS);
+        //trim_chars( disc_genre, BADCHARS);			//Commented out by mrpl
         trim_whitespace( disc_genre );
 
         gtk_entry_set_text( GTK_ENTRY( album_genre ), disc_genre );

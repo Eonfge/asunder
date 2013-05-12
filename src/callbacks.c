@@ -91,7 +91,7 @@ on_album_artist_focus_out_event        (GtkWidget       *widget,
         fatalError("malloc(sizeof(gchar) * (strlen(ctext) + 1)) failed. Out of memory.");
     strncpy(text, ctext, strlen(ctext)+1);
     
-    trim_chars(text, BADCHARS);		// lnr
+    //trim_chars(text, BADCHARS);		// lnr	//Commented out by mrpl
     trim_whitespace(text);
     
     if(text[0] == '\0')
@@ -138,7 +138,7 @@ on_album_title_focus_out_event         (GtkWidget       *widget,
         fatalError("malloc(sizeof(gchar) * (strlen(ctext) + 1)) failed. Out of memory.");
     strncpy(text, ctext, strlen(ctext)+1);
     
-    trim_chars(text, BADCHARS);		// lnr
+    //trim_chars(text, BADCHARS);		// lnr	//Commented out by mrpl
     trim_whitespace(text);
     
     if(text[0] == '\0')
@@ -165,7 +165,7 @@ on_album_genre_focus_out_event         (GtkWidget       *widget,
 
     strncpy(text, ctext, strlen(ctext)+1);
     
-    trim_chars(text, BADCHARS);		// lnr
+    //trim_chars(text, BADCHARS);		// lnr	//Commented out by mrpl
     trim_whitespace(text);
     
     if(text[0] == '\0')
@@ -188,7 +188,7 @@ on_artist_edited                    (GtkCellRendererText *cell,
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
     
-    trim_chars(new_text, BADCHARS);		// lnr
+    //trim_chars(new_text, BADCHARS);		// lnr	//Commented out by mrpl
     trim_whitespace(new_text);
     
     gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
@@ -210,7 +210,7 @@ on_genre_edited                    (GtkCellRendererText *cell,
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
     
-    trim_chars(new_text, BADCHARS);
+    //trim_chars(new_text, BADCHARS);	//Commented out by mrpl
     trim_whitespace(new_text);
     
     gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
@@ -638,7 +638,7 @@ on_title_edited                    (GtkCellRendererText *cell,
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
     
-    trim_chars(new_text, BADCHARS);		// lnr
+    //trim_chars(new_text, BADCHARS);		// lnr	//Commented out by mrpl
     trim_whitespace(new_text);
     
     gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
@@ -679,7 +679,7 @@ on_tracklist_mouse_click               (GtkWidget* treeView,
         gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL,
                        event->button, gdk_event_get_time((GdkEvent*)event));
         
-        /* no need for signal to propagete */
+        /* no need for signal to propagate */
         return TRUE;
     }
     
