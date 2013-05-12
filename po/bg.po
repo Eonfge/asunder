@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: asunder-1.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-04 00:04-0500\n"
-"PO-Revision-Date: 2012-07-20 14:27+0200\n"
+"PO-Revision-Date: 2013-03-21 14:47+0200\n"
 "Last-Translator: Emil Krumov <emil_dk@yahoo.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgstr "Жанр"
 
 #: src/main.c:149
 msgid "Time"
-msgstr "Времетраене"
+msgstr "Продължителност"
 
 #: src/main.c:175
 msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
@@ -108,7 +108,7 @@ msgstr "Жанр / Година"
 
 #: src/interface.c:178
 msgid "Single Genre"
-msgstr "Жанр на сингъла"
+msgstr "Жанр на песен"
 
 #: src/interface.c:374
 msgid "Preferences"
@@ -155,8 +155,8 @@ msgid ""
 msgstr ""
 "%A - Изпълнител\n"
 "%L - Албум\n"
-"%N - Номер на песен (двуцифрен формат)\n"
-"%Y - Година (4-цифрен формат или \"0\")\n"
+"%N - Номер на песен (двуцифрен)\n"
+"%Y - Година (четири цифри или \"0\")\n"
 "%T - Име на песен"
 
 #: src/interface.c:460
@@ -181,7 +181,7 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
-"Това се отнася за работната папка (от табулатора \"Общи\").\n"
+"Това се отнася за работната папка (от табулатора Общи).\n"
 "Може да е празно.\n"
 "По подразбиране: %A - %L\n"
 "Друг пример: %A /%L"
@@ -204,7 +204,7 @@ msgid ""
 "Other example: %N - %T"
 msgstr ""
 "Ще бъде запазено в директорията на албума.\n"
-"Не може да остава празно.\n"
+"Не може да е празно.\n"
 "По подразбиране: %A - %T\n"
 "Друг пример: %N - %T"
 
@@ -302,7 +302,7 @@ msgstr "Monkey's Audio (компресиране без загуби)"
 #. END MONKEY
 #: src/interface.c:876
 msgid "Proprietary encoders"
-msgstr "Патентовани кодеци"
+msgstr "Патентовани енкодери"
 
 #: src/interface.c:920
 msgid "Higher quality means bigger file. Default is 60."
@@ -337,7 +337,7 @@ msgstr "Порт:"
 
 #: src/interface.c:996
 msgid "The CDDB server port (default is 8880)"
-msgstr "Порт на CDDB сървъра (по подразбиране е 8880)"
+msgstr "Порт на CDDB сървъра"
 
 #: src/interface.c:1002
 msgid "Use an HTTP proxy to connect to the internet"
@@ -354,7 +354,7 @@ msgstr "Рипване"
 
 #: src/interface.c:1146
 msgid "Total progress"
-msgstr "Общ напредък"
+msgstr "Цялостен напредък"
 
 #: src/interface.c:1160
 msgid "Encoding"
@@ -365,8 +365,8 @@ msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
-"Приложение за запис на музика от аудио CD \n"
-"във файлове с формат WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, и/или AAC "
+"Приложение за записване на музика от аудио CD \n"
+"във WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, и/или AAC файлове."
 
 #: src/interface.c:1616
 #, c-format
@@ -389,7 +389,7 @@ msgstr "Невалиден символ в полето '%s'"
 #: src/prefs.c:636
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr "Полето '%s' не може да остава празно."
+msgstr "'%s' не може да бъде празно"
 
 #: src/prefs.c:651
 msgid "Invalid proxy port number"
@@ -401,7 +401,7 @@ msgstr "Невалиден порт на CDDB сървъра"
 
 #: src/support.c:47
 msgid "Overwrite?"
-msgstr "Да бъде ли презаписан?"
+msgstr "Презаписване?"
 
 #: src/support.c:60
 #, c-format
