@@ -40,6 +40,8 @@ typedef struct _prefs
     int musepack_bitrate;
     int more_formats_expanded;
     int proprietary_formats_expanded;
+    int rip_opus;
+    int opus_bitrate;
     
 } prefs;
 

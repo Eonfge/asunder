@@ -32,6 +32,7 @@ Foundation; version 2 of the licence.
 pid_t cdparanoia_pid;
 pid_t lame_pid;
 pid_t oggenc_pid;
+pid_t opusenc_pid;
 pid_t flac_pid;
 pid_t wavpack_pid;
 pid_t monkey_pid;
@@ -41,6 +42,7 @@ pid_t aac_pid;
 int numCdparanoiaFailed;
 int numLameFailed;
 int numOggFailed;
+int numOpusFailed;
 int numFlacFailed;
 int numWavpackFailed;
 int numMonkeyFailed;
@@ -50,6 +52,7 @@ int numAacFailed;
 int numCdparanoiaOk;
 int numLameOk;
 int numOggOk;
+int numOpusOk;
 int numFlacOk;
 int numWavpackOk;
 int numMonkeyOk;
@@ -87,6 +90,7 @@ void unblockSigChld(void)
 extern pid_t cdparanoia_pid;
 extern pid_t lame_pid;
 extern pid_t oggenc_pid;
+extern pid_t opusenc_pid;
 extern pid_t flac_pid;
 extern pid_t wavpack_pid;
 extern pid_t monkey_pid;
@@ -105,9 +109,9 @@ void sigchld(int signum)
     
     pid = wait(&status);
     
-    debugLog("sigchld for %d (know about wav %d, mp3 %d, ogg %d, flac %d, "
+    debugLog("sigchld for %d (know about wav %d, mp3 %d, ogg %d, opus, %d, flac %d, "
              "wv %d, ape %d, mpc %d, m4a %d\n",
-             pid, cdparanoia_pid, lame_pid, oggenc_pid, flac_pid, 
+             pid, cdparanoia_pid, lame_pid, oggenc_pid, opusenc_pid, flac_pid,
              wavpack_pid, monkey_pid, musepack_pid, aac_pid);
     
     /* this is because i can't seem to be able to block sigchld: */
@@ -117,7 +121,7 @@ void sigchld(int signum)
         usleep(100);
     }
     
-    if (pid != cdparanoia_pid && pid != lame_pid && pid != oggenc_pid && 
+    if (pid != cdparanoia_pid && pid != lame_pid && pid != oggenc_pid && pid != opusenc_pid &&
         pid != flac_pid && pid != wavpack_pid && pid != monkey_pid &&
         pid != musepack_pid && pid != aac_pid)
     {
@@ -151,6 +155,11 @@ void sigchld(int signum)
         {
             oggenc_pid = 0;
             numOggFailed++;
+        }
+        else if (pid == opusenc_pid)
+        {
+            opusenc_pid = 0;
+            numOpusFailed++;
         }
         else if (pid == flac_pid)
         {
@@ -195,6 +204,11 @@ void sigchld(int signum)
         {
             oggenc_pid = 0;
             numOggOk++;
+        }
+        else if (pid == opusenc_pid)
+        {
+            opusenc_pid = 0;
+            numOpusOk++;
         }
         else if (pid == flac_pid)
         {
@@ -610,6 +624,109 @@ void oggenc(int tracknum,
         usleep(100000);
     }
 }
+
+// uses opusenc to encode a WAV file into a OGG and tag it
+//
+// tracknum - the track number
+// artist - the artist's name
+// album - the album the song came from
+// title - the name of the song
+// wavfilename - the path to the WAV file to encode
+// opusfilename - the path to the output OPUS file
+// bitrate - the bitrate to encode at
+// progress - the percent done
+void opusenc(int tracknum,
+            char * artist,
+            char * album,
+            char * title,
+            char * year,
+            char * genre,
+            char * wavfilename,
+            char * opusfilename,
+            int bitrate,
+            double * progress)
+{
+    int fd;
+
+    int size;
+    int pos;
+    char bitrate_text[4];
+    char tracknum_text[16];
+    char album_text[128];
+    char year_text[32];
+    char genre_text[64];
+    const char * args[19];
+
+    snprintf(bitrate_text, 4, "%d", int_to_bitrate(bitrate,FALSE));
+
+    pos = 0;
+    args[pos++] = "opusenc";
+    args[pos++] = "--bitrate";
+    args[pos++] = bitrate_text;
+
+    if ((tracknum > 0) && (tracknum < 100))
+    {
+        snprintf(tracknum_text,16,"TRACKNUMBER=%d",tracknum);
+        args[pos++] = "--comment";
+        args[pos++] = tracknum_text;
+    }
+    if ((artist != NULL) && (strlen(artist) > 0))
+    {
+        args[pos++] = "--artist";
+        args[pos++] = artist;
+    }
+    if ((album != NULL) && (strlen(album) > 0))
+    {
+        snprintf(album_text,128,"ALBUM=%s",album);
+        args[pos++] = "--comment";
+        args[pos++] = album_text;
+    }
+    if ((title != NULL) && (strlen(title) > 0))
+    {
+        args[pos++] = "--title";
+        args[pos++] = title;
+    }
+    if ((year != NULL) && (strlen(year) > 0))
+    {
+        snprintf(year_text,32,"DATE=%s",year);
+        args[pos++] = "--comment";
+        args[pos++] = year_text;
+    }
+    if ((genre != NULL) && (strlen(genre) > 0))
+    {
+        snprintf(genre_text,64,"GENRE=%s",genre);
+        args[pos++] = "--comment";
+        args[pos++] = genre_text;
+    }
+    args[pos++] = wavfilename;
+    args[pos++] = opusfilename;
+    args[pos++] = NULL;
+
+    fd = exec_with_output(args, STDERR_FILENO, &oggenc_pid);
+
+    int opussize;
+    char opusbuf[256];
+    do
+    {
+        /* The opus encoder doesn't give me an estimate for completion
+        * or any way to estimate it myself, just the number of seconds
+        * done. So just sit in here until the program exits */
+        opussize = read(fd, &opusbuf[0], 256);
+
+        if (opussize == -1 && errno == EINTR)
+        /* signal interrupted read(), try again */
+            opussize = 1;
+    } while (opussize > 0);
+
+    close(fd);
+    /* don't go on until the signal for the previous call is handled */
+    while (oggenc_pid != 0)
+    {
+        debugLog("w12\n");
+        usleep(100000);
+    }
+}
+
 
 // uses the FLAC reference encoder to encode a WAV file into a FLAC and tag it
 //

@@ -11,6 +11,8 @@ void disable_mp3_widgets(void);
 void enable_mp3_widgets(void);
 void disable_ogg_widgets(void);
 void enable_ogg_widgets(void);
+void disable_opus_widgets(void);
+void enable_opus_widgets(void);
 void disable_wavpack_widgets(void);
 void enable_wavpack_widgets(void);
 void disable_monkey_widgets(void);

@@ -102,6 +102,10 @@ on_mp3bitrate_value_changed            (GtkRange        *range,
                                         gpointer         user_data);
 
 void
+on_opusrate_value_changed               (GtkRange       *range,
+                                         gpointer        user_data);
+
+void
 on_musepackbitrate_value_changed            (GtkRange        *range,
                                              gpointer         user_data);
 
@@ -152,6 +156,9 @@ on_single_genre_toggled               (GtkToggleButton *togglebutton,
 
 void
 on_rip_ogg_toggled                     (GtkToggleButton *togglebutton,
+                                        gpointer         user_data);
+void
+on_rip_opus_toggled                    (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
 
 void

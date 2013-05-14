@@ -291,6 +291,15 @@ on_mp3bitrate_value_changed            (GtkRange        *range,
 }
 
 void
+on_opusrate_value_changed           (GtkRange   *range,
+                                     gpointer   user_data)
+{
+    char bitrate[8];
+    snprintf(bitrate, 8, _("%dKbps"), int_to_bitrate((int)gtk_range_get_value(range), FALSE));
+    gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "bitrate_lbl_4")), bitrate);
+}
+
+void
 on_musepackbitrate_value_changed            (GtkRange        *range,
                                              gpointer         user_data)
 {
@@ -481,6 +490,32 @@ on_rip_ogg_toggled                     (GtkToggleButton *togglebutton,
         disable_ogg_widgets();
     else
         enable_ogg_widgets();
+}
+
+void
+on_rip_opus_toggled                     (GtkToggleButton *togglebutton,
+                                        gpointer user_data)
+{
+    if (gtk_toggle_button_get_active(togglebutton) && !program_exists("opusenc"))
+    {
+        GtkWidget *dialog;
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
+                                        _("%s was not found in your path. Asunder requires it to create %s files."
+                                          "All %s functionality is disabled."),
+                                        "'opusenc'", "OPUS", "opus");
+        gtk_dialog_run (GTK_DIALOG(dialog));
+        gtk_widget_destroy(dialog);
+
+        global_prefs->rip_opus=0;
+        gtk_toggle_button_set_active(togglebutton, global_prefs->rip_opus);
+
+    }
+
+    if (!gtk_toggle_button_get_active(togglebutton))
+        disable_opus_widgets();
+    else
+        enable_opus_widgets();
 }
 
 void

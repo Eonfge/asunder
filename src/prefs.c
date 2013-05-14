@@ -128,6 +128,8 @@ prefs * get_default_prefs()
     p->aac_quality = 60;
     p->rip_musepack = 0;
     p->musepack_bitrate = 2;
+    p->rip_opus = 0;
+    p->opus_bitrate = 9;
     
     p->main_window_width = 600;
     p->main_window_height = 450;
@@ -190,6 +192,8 @@ void set_widgets_from_prefs(prefs * p)
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "aac_quality_slider")), p->aac_quality);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_musepack")), p->rip_musepack);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "musepack_bitrate_slider")), p->musepack_bitrate);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_opus")), p->rip_opus);
+    gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "opusrate")), p->opus_bitrate);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")), p->eject_on_done);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_cddb_updates")), p->do_cddb_updates);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "use_proxy")), p->use_proxy);
@@ -222,6 +226,8 @@ void set_widgets_from_prefs(prefs * p)
         disable_aac_widgets();
     if( !(p->rip_musepack) )
         disable_musepack_widgets();
+    if (!(p->rip_opus))
+        disable_opus_widgets();
 }
 
 // populates a prefs struct from the current state of the widgets
@@ -281,6 +287,8 @@ void get_prefs_from_widgets(prefs * p)
     p->aac_quality = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "aac_quality_slider")));
     p->rip_musepack = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_musepack")));
     p->musepack_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "musepack_bitrate_slider")));
+    p->rip_opus = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_opus")));
+    p->opus_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "opusrate")));
     
     p->eject_on_done = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")));
     
@@ -390,6 +398,8 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->musepack_bitrate);
         fprintf(config, "%d\n", p->more_formats_expanded);
         fprintf(config, "%d\n", p->proprietary_formats_expanded);
+        fprintf(config, "%d\n", p->rip_opus);
+        fprintf(config, "%d\n", p->opus_bitrate);
         
         fclose(config);
     } else {
@@ -465,7 +475,7 @@ void load_prefs(prefs * p)
         
         // this one can be 0
         p->rip_ogg = read_line_num(fd);
-        
+
         // this one can be 0
         p->rip_flac = read_line_num(fd);
         
@@ -570,6 +580,13 @@ void load_prefs(prefs * p)
         
         // this one can be 0
         p->proprietary_formats_expanded = read_line_num(fd);
+        
+        // this one can be 0
+        p->rip_opus = read_line_num(fd);
+        
+        anInt = read_line_num(fd);
+        if (anInt != 0)
+            p->opus_bitrate = anInt;
         
         close(fd);
     } else {

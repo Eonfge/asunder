@@ -4,6 +4,7 @@
 extern pid_t cdparanoia_pid;
 extern pid_t lame_pid;
 extern pid_t oggenc_pid;
+extern pid_t opusenc_pid;
 extern pid_t flac_pid;
 extern pid_t wavpack_pid;
 extern pid_t monkey_pid;
@@ -13,6 +14,7 @@ extern pid_t aac_pid;
 extern int numCdparanoiaFailed;
 extern int numLameFailed;
 extern int numOggFailed;
+extern int numOpusFailed;
 extern int numFlacFailed;
 extern int numWavpackFailed;
 extern int numMonkeyFailed;
@@ -22,6 +24,7 @@ extern int numAacFailed;
 extern int numCdparanoiaOk;
 extern int numLameOk;
 extern int numOggOk;
+extern int numOpusOk;
 extern int numFlacOk;
 extern int numWavpackOk;
 extern int numMonkeyOk;
@@ -90,6 +93,27 @@ void oggenc(int tracknum,
             char * wavfilename,
             char * oggfilename,
             int quality_level,
+            double * progress);
+
+// uses opusenc to encode a WAV file into a OGG and tag it
+//
+// tracknum - the track number
+// artist - the artist's name
+// album - the album the song came from
+// title - the name of the song
+// wavfilename - the path to the WAV file to encode
+// opusfilename - the path to the output OPUS file
+// bitrate - the bitrate to encode at
+// progress - the percent done
+void opusenc(int tracknum,
+            char * artist,
+            char * album,
+            char * title,
+            char * year,
+            char * genre,
+            char * wavfilename,
+            char * opusfilename,
+            int bitrate,
             double * progress);
 
 // uses the FLAC reference encoder to encode a WAV file into a FLAC and tag it
