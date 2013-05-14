@@ -67,4 +67,5 @@ void trim_chars(char * str, const char * bad);
 // LNR - It's possible that some files may end up on a MS file system,
 // so it's best to disallow MS invalid chars as well. I also disallow
 // period (dot) because it screws up my file name database software. YMMV
-#define	BADCHARS	"./?*|><:\"\\"
+// 13may2013: removed '.' from the list, it's a valid character.
+#define	BADCHARS	"/?*|><:\"\\"
