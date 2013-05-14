@@ -676,7 +676,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX(opushbox), opusLbl, FALSE, FALSE,0);
     GLADE_HOOKUP_OBJECT (prefs, opusLbl, "opus_lbl");
 
-    opusrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 14, 1, 1, 1)));
+    opusrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 13, 1, 1, 1)));
     gtk_widget_show(opusrate);
     gtk_box_pack_start(GTK_BOX(opushbox), opusrate, TRUE, TRUE, 5);
     gtk_scale_set_draw_value (GTK_SCALE (opusrate), FALSE);
