@@ -648,7 +648,6 @@ void opusenc(int tracknum,
 {
     int fd;
 
-    int size;
     int pos;
     char bitrate_text[4];
     char tracknum_text[16];

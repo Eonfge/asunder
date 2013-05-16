@@ -24,6 +24,9 @@ AM_GLIB_GNU_GETTEXT
 
 CFLAGS="$CFLAGS -Wall -pedantic -std=gnu99 -Wundef -Wcast-align -W -Wpointer-arith -Wwrite-strings -Wno-unused-parameter"
 
+# GTK-2.3.1 deprecated the thread API but I am not going to drop support for everything older than that (pretty much all of GTK2!). Just silence the warnings and hopefully I won't miss anything important.
+CFLAGS="$CFLAGS -Wno-deprecated-declarations"
+
 AC_OUTPUT([
 Makefile
 src/Makefile
