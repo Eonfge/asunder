@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-25 03:57-0500\n"
+"POT-Creation-Date: 2013-05-16 16:20-0400\n"
 "PO-Revision-Date: 2010-12-27 21:26+0200\n"
 "Last-Translator: Muhammad Ali Makki <makkiabufaris@aol.com>\n"
 "Language-Team: Urdu <makkiabufaris@aol.com>\n"
@@ -20,31 +20,31 @@ msgstr ""
 "X-Poedit-Country: PAKISTAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../src/main.c:118 ../src/interface.c:235
+#: ../src/main.c:117 ../src/interface.c:233
 msgid "Rip"
 msgstr "رِپ کریں"
 
-#: ../src/main.c:123
+#: ../src/main.c:121
 msgid "Track"
 msgstr "ٹریک"
 
-#: ../src/main.c:130
+#: ../src/main.c:127
 msgid "Artist"
 msgstr "فنکار"
 
-#: ../src/main.c:137
+#: ../src/main.c:133
 msgid "Title"
 msgstr "عُنوان"
 
-#: ../src/main.c:144
+#: ../src/main.c:139
 msgid "Genre"
 msgstr "نوع"
 
-#: ../src/main.c:149
+#: ../src/main.c:143
 msgid "Time"
 msgstr "وقت"
 
-#: ../src/main.c:175
+#: ../src/main.c:169
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -52,24 +52,25 @@ msgstr ""
 "سیڈیوں کو رِپ rip کرنے کے لیے اسنڈر کو 'cdparanoia' درکار ہے جو آپ کے پاتھ پر "
 "نہیں پایا گیا."
 
-#: ../src/main.c:420
+#: ../src/main.c:418
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>انٹرنیٹ سے ڈسک کی معلومات حاصل کی جارہی ہے...</b>"
 
 #: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
-#: ../src/callbacks.c:299 ../src/interface.c:605 ../src/interface.c:828
+#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
+#: ../src/interface.c:690 ../src/interface.c:879
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
-#: ../src/callbacks.c:401
+#: ../src/callbacks.c:410
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr ""
 "کوئی سی ڈی داخل نہیں کی گئی. ازراہِ کرم سی ڈی روم ڈرائیو میں سی ڈی داخل کریں."
 
-#: ../src/callbacks.c:420 ../src/callbacks.c:445 ../src/callbacks.c:470
-#: ../src/callbacks.c:495 ../src/callbacks.c:520 ../src/callbacks.c:545
-#: ../src/callbacks.c:570
+#: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
+#: ../src/callbacks.c:530 ../src/callbacks.c:555 ../src/callbacks.c:580
+#: ../src/callbacks.c:605
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
@@ -78,60 +79,69 @@ msgstr ""
 "%s آپ کے پاتھ پر نہیں پایا گیا. اسنڈر کو %s فائلیں بنانے کے لیے اس کی ضرورت "
 "ہے. تمام %s فعلیت معطل کردی گئی ہے."
 
-#: ../src/callbacks.c:667
+#: ../src/callbacks.c:504
+#, fuzzy, c-format
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files.All %s "
+"functionality is disabled."
+msgstr ""
+"%s آپ کے پاتھ پر نہیں پایا گیا. اسنڈر کو %s فائلیں بنانے کے لیے اس کی ضرورت "
+"ہے. تمام %s فعلیت معطل کردی گئی ہے."
+
+#: ../src/callbacks.c:702
 msgid "Select all for ripping"
 msgstr "رِپنگ کے لیے سب کو منتخب کریں"
 
-#: ../src/callbacks.c:673
+#: ../src/callbacks.c:708
 msgid "Deselect all for ripping"
 msgstr "رِپنگ کے لیے سب کو نامنتخب کریں"
 
-#: ../src/interface.c:97
+#: ../src/interface.c:95
 msgid "CDDB Lookup"
 msgstr "CDDB مشاہدہ"
 
-#: ../src/interface.c:149
+#: ../src/interface.c:147
 msgid "Disc:"
 msgstr "ڈسک:"
 
-#: ../src/interface.c:155
+#: ../src/interface.c:153
 msgid "Album Artist:"
 msgstr "ایلبم کا فنکار:"
 
-#: ../src/interface.c:162
+#: ../src/interface.c:160
 msgid "Album Title:"
 msgstr "ایلبم کا عُنوان:"
 
-#: ../src/interface.c:169
+#: ../src/interface.c:167
 msgid "Single Artist"
 msgstr "ایک فنکار:"
 
-#: ../src/interface.c:175
+#: ../src/interface.c:173
 #, fuzzy
 msgid "Genre / Year:"
 msgstr "نوع:"
 
-#: ../src/interface.c:182
+#: ../src/interface.c:180
 msgid "Single Genre"
 msgstr "ایک نوع:"
 
-#: ../src/interface.c:378
+#: ../src/interface.c:376
 msgid "Preferences"
 msgstr "ترجیحات"
 
-#: ../src/interface.c:395 ../src/interface.c:401
+#: ../src/interface.c:393 ../src/interface.c:399
 msgid "Destination folder"
 msgstr "سمت فولڈر"
 
-#: ../src/interface.c:405
+#: ../src/interface.c:403
 msgid "Create M3U playlist"
 msgstr "M3U چلانے کی فہرست بنائیں"
 
-#: ../src/interface.c:413
+#: ../src/interface.c:411
 msgid "CD-ROM device: "
 msgstr "سی ڈی روم آلہ:"
 
-#: ../src/interface.c:422
+#: ../src/interface.c:420
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
@@ -141,15 +151,15 @@ msgstr ""
 "دوسری مثال: /dev/hdc\n"
 "دوسری مثال: /dev/sr0"
 
-#: ../src/interface.c:426
+#: ../src/interface.c:424
 msgid "Eject disc when finished"
 msgstr "ختم ہونے پر ڈسک خارج کریں"
 
-#: ../src/interface.c:434
+#: ../src/interface.c:432
 msgid "General"
 msgstr "عام"
 
-#: ../src/interface.c:454
+#: ../src/interface.c:452
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -163,24 +173,24 @@ msgstr ""
 "%Y - سال (4-عدد یا \"0\")\n"
 "%T - گانے کا عنوان"
 
-#: ../src/interface.c:459
+#: ../src/interface.c:457
 #, fuzzy, c-format
 msgid "%G - Genre"
 msgstr "نوع"
 
-#: ../src/interface.c:474
+#: ../src/interface.c:472
 msgid "Album directory: "
 msgstr "ایلبم کی دائریکٹری:"
 
-#: ../src/interface.c:481 ../src/prefs.c:633
+#: ../src/interface.c:479 ../src/prefs.c:649
 msgid "Playlist file: "
 msgstr "چلانے کی فہرست کی فائل:"
 
-#: ../src/interface.c:488 ../src/prefs.c:645 ../src/prefs.c:655
+#: ../src/interface.c:486 ../src/prefs.c:661 ../src/prefs.c:671
 msgid "Music file: "
 msgstr "موسیقی فائل:"
 
-#: ../src/interface.c:502
+#: ../src/interface.c:500
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -192,7 +202,7 @@ msgstr ""
 "طے شُدہ: %A - %L\n"
 "دوسری مثال: %A/%L"
 
-#: ../src/interface.c:514
+#: ../src/interface.c:512
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -202,7 +212,7 @@ msgstr ""
 "خالی ہوسکتا ہے.\n"
 "طے شُدہ: %A - %L"
 
-#: ../src/interface.c:525
+#: ../src/interface.c:523
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -214,32 +224,33 @@ msgstr ""
 "طے شُدہ: %A - %T\n"
 "دوسری مثال: %N - %T"
 
-#: ../src/interface.c:530
+#: ../src/interface.c:528
 msgid "Filename formats"
 msgstr "فائلوں کے نام کی ساختیں"
 
-#: ../src/interface.c:535
+#: ../src/interface.c:533
 msgid "Filenames"
 msgstr "فائلوں کے نام"
 
 #. WAV
-#: ../src/interface.c:554
+#: ../src/interface.c:552
 msgid "WAV (uncompressed)"
 msgstr "WAV (غیر دبا ہوا)"
 
-#: ../src/interface.c:573
+#: ../src/interface.c:571
 msgid "Variable bit rate (VBR)"
 msgstr "مُتغیرہ بِٹ شرح (VBR)"
 
-#: ../src/interface.c:581
+#: ../src/interface.c:579
 msgid "Better quality for the same size."
 msgstr "اسی حجم کے لیے بہترین معیار."
 
-#: ../src/interface.c:587 ../src/interface.c:763 ../src/interface.c:810
+#: ../src/interface.c:585 ../src/interface.c:674 ../src/interface.c:814
+#: ../src/interface.c:861
 msgid "Bitrate"
 msgstr "بِٹ شرح"
 
-#: ../src/interface.c:602
+#: ../src/interface.c:600
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
@@ -247,39 +258,53 @@ msgstr ""
 "بُلند بِٹ شرح بہترین معیار ہے مگر بڑی فائل بھی ہے. لوگ زیادہ تر 192 کلو بائٹ "
 "فی سیکنڈ استعمال کرتے ہیں."
 
-#: ../src/interface.c:611
+#: ../src/interface.c:609
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (بالضیاع دباؤ)"
 
-#: ../src/interface.c:633 ../src/interface.c:921
+#: ../src/interface.c:631 ../src/interface.c:972
 msgid "Quality"
 msgstr "معیار"
 
-#: ../src/interface.c:644
+#: ../src/interface.c:642
 msgid "Higher quality means bigger file. Default is 6."
 msgstr "بُلند معیار کا مطلب بڑی فائل ہے. طے شُدہ 6 ہے."
 
-#: ../src/interface.c:646
+#: ../src/interface.c:644
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (بالضیاع دباؤ)"
 
-#: ../src/interface.c:668 ../src/interface.c:729 ../src/interface.c:866
+#: ../src/interface.c:688
+#, fuzzy
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"160Kbps."
+msgstr ""
+"بُلند بِٹ شرح بہترین معیار ہے مگر بڑی فائل بھی ہے. لوگ زیادہ تر 192 کلو بائٹ "
+"فی سیکنڈ استعمال کرتے ہیں."
+
+#: ../src/interface.c:696
+#, fuzzy
+msgid "OPUS (lossy compression"
+msgstr "MP3 (بالضیاع دباؤ)"
+
+#: ../src/interface.c:719 ../src/interface.c:780 ../src/interface.c:917
 msgid "Compression level"
 msgstr "دباؤ کی سطح"
 
-#: ../src/interface.c:679 ../src/interface.c:879
+#: ../src/interface.c:730 ../src/interface.c:930
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "اس سے معیار پر کوئی اثر نہیں پڑے گا. بڑے عدد کا مطلب چھوٹی تر فائل ہے."
 
-#: ../src/interface.c:681
+#: ../src/interface.c:732
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (بلا ضیاع دباؤ)"
 
-#: ../src/interface.c:700
+#: ../src/interface.c:751
 msgid "More formats"
 msgstr "مزید ساختیں"
 
-#: ../src/interface.c:742
+#: ../src/interface.c:793
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
@@ -287,11 +312,11 @@ msgstr ""
 "اس سے معیار پر کوئی اثر نہیں پڑے گا. بڑے عدد کا مطلب چھوٹر تر فائل ہے. طے "
 "شدہ 1 ہے (تجویز دی جاتی ہے)."
 
-#: ../src/interface.c:748
+#: ../src/interface.c:799
 msgid "Hybrid compression"
 msgstr "ہائبرڈ دباؤ"
 
-#: ../src/interface.c:757
+#: ../src/interface.c:808
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
@@ -299,79 +324,79 @@ msgstr ""
 "‫یہ ساخت بالضیاع ہے لیکن بلا ضیاع اصل مواد کو واپس حاصل کرنے کے لیے ایک "
 "تصحیحی فائل بنائی جاتی ہے۔"
 
-#: ../src/interface.c:826
+#: ../src/interface.c:877
 msgid "Higher bitrate is better quality but also bigger file."
 msgstr "بُلند بِٹ شرح بہترین معیار ہے مگر بڑی فائل بھی."
 
-#: ../src/interface.c:834
+#: ../src/interface.c:885
 msgid "Musepack (lossy compression)"
 msgstr "ماؤس پیک (بالضیاع دباؤ)"
 
-#: ../src/interface.c:881
+#: ../src/interface.c:932
 msgid "Monkey's Audio (lossless compression)"
 msgstr "منکی کا آڈیو (بلا ضیاع دباؤ)"
 
 #. END MONKEY
-#: ../src/interface.c:890
+#: ../src/interface.c:941
 msgid "Proprietary encoders"
 msgstr "ملکیتی انکوڈر"
 
-#: ../src/interface.c:934
+#: ../src/interface.c:985
 msgid "Higher quality means bigger file. Default is 60."
 msgstr "بُلند معیار کا مطلب بڑی فائل ہے. طے شُدہ 60 ہے."
 
-#: ../src/interface.c:936
+#: ../src/interface.c:987
 msgid "AAC (lossy compression, Nero encoder)"
 msgstr "AAC (بالضیاع دباؤ، نیرو انکوڈر)"
 
 #. END AAC
-#: ../src/interface.c:945
+#: ../src/interface.c:996
 msgid "Encode"
 msgstr "انکوڈ کریں"
 
-#: ../src/interface.c:976
+#: ../src/interface.c:1027
 msgid "Get disc info from the internet automatically"
 msgstr "انٹرنیٹ سے ڈسک کی معلومات خودکار طور پر حاصل کریں"
 
-#: ../src/interface.c:984 ../src/interface.c:1029
+#: ../src/interface.c:1035 ../src/interface.c:1080
 msgid "Server: "
 msgstr "سرور:"
 
-#: ../src/interface.c:994
+#: ../src/interface.c:1045
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr ""
 "ڈسک کی معلومات حاصل کرنے کے لیے CDDB سرور (طے شُدہ freedb.freedb.org ہے)"
 
-#: ../src/interface.c:1000 ../src/interface.c:1042
+#: ../src/interface.c:1051 ../src/interface.c:1093
 msgid "Port: "
 msgstr "پورٹ:"
 
-#: ../src/interface.c:1010
+#: ../src/interface.c:1061
 #, fuzzy
 msgid "The CDDB server port (default is 8880)"
 msgstr "سرور پورٹ برائے CDDB سرور (طے شُدہ 8880 ہے)"
 
-#: ../src/interface.c:1016
+#: ../src/interface.c:1067
 msgid "Use an HTTP proxy to connect to the internet"
 msgstr "انٹرنیٹ سے اتصال کے لیے HTTP پراکسی کا استعمال کریں"
 
-#: ../src/interface.c:1060
+#: ../src/interface.c:1111
 msgid "Advanced"
 msgstr "اعلی"
 
-#: ../src/interface.c:1131 ../src/interface.c:1167
+#: ../src/interface.c:1182 ../src/interface.c:1218
 msgid "Ripping"
 msgstr "رِپنگ"
 
-#: ../src/interface.c:1160
+#: ../src/interface.c:1211
 msgid "Total progress"
 msgstr "مجموعی پیش رفت"
 
-#: ../src/interface.c:1174
+#: ../src/interface.c:1225
 msgid "Encoding"
 msgstr "انکوڈنگ"
 
-#: ../src/interface.c:1605
+#: ../src/interface.c:1709
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
@@ -380,35 +405,35 @@ msgstr ""
 "جیسے WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "فائلیں."
 
-#: ../src/interface.c:1648
+#: ../src/interface.c:1752
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d فائل کامیابی سے بنا دی گئی"
 msgstr[1] "%d فائلیں کامیابی سے بنا دی گئی ہیں"
 
-#: ../src/interface.c:1657
+#: ../src/interface.c:1761
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "%d فائل کو بناتے ہوئے غلطی ہوئی ہے"
 msgstr[1] "%d فائلوں کو بناتے ہوئے غلطی ہوئی ہے"
 
-#: ../src/prefs.c:632 ../src/prefs.c:644
+#: ../src/prefs.c:648 ../src/prefs.c:660
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "ناموزوں کریکٹر '%s' کے قطعہ میں"
 
-#: ../src/prefs.c:654
+#: ../src/prefs.c:670
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' خالی نہیں کی جاسکتا"
 
-#: ../src/prefs.c:669
+#: ../src/prefs.c:685
 msgid "Invalid proxy port number"
 msgstr "ناموزوں پراکسی پورٹ نمبر"
 
-#: ../src/prefs.c:682
+#: ../src/prefs.c:698
 msgid "Invalid cddb server port number"
 msgstr "ناموزوں cddb سرور پورٹ نمبر"
 
@@ -425,7 +450,7 @@ msgstr "فائل '%s' پہلے ہی موجود ہے. کیا آپ اس کے او�
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "اس سی ڈی سے بنائی جانی والی _تمام فائلوں کے لیے جواب یاد رکھیں"
 
-#: ../src/threads.c:166
+#: ../src/threads.c:182
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -433,7 +458,7 @@ msgstr ""
 "رِپنگ/انکوڈنگ کے لیے کوئی طریقہ منتخب نہیں کیا گیا. ازراہِ کرم 'ترجیحات' کی "
 "فہرست سے ایک فعال کریں."
 
-#: ../src/threads.c:195
+#: ../src/threads.c:211
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -441,6 +466,6 @@ msgstr ""
 "رِپنگ/انکوڈنگ کے لیے کوئی ٹریک منتخب نہیں کئے گئے. ازراہِ کرم کم سے کم ایک "
 "ٹریک منتخب کریں."
 
-#: ../src/threads.c:915 ../src/threads.c:917 ../src/threads.c:921
+#: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
 msgid "Waiting..."
 msgstr "انتظار..."

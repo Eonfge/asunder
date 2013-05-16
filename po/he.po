@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder 2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-04 00:04-0500\n"
+"POT-Creation-Date: 2013-05-16 16:20-0400\n"
 "PO-Revision-Date: 2012-12-20 10:05+0200\n"
 "Last-Translator: Isratine Citizen <genghiskhan@gmx.ca>\n"
 "Language-Team: Rahut <genghiskhan@gmx.ca>\n"
@@ -19,120 +19,127 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Poedit-Language: Hebrew\n"
 
-#: src/main.c:118
-#: src/interface.c:231
+#: ../src/main.c:117 ../src/interface.c:233
 msgid "Rip"
 msgstr "תלוש"
 
-#: src/main.c:123
+#: ../src/main.c:121
 msgid "Track"
 msgstr "רצועה"
 
-#: src/main.c:130
+#: ../src/main.c:127
 msgid "Artist"
 msgstr "אמן"
 
-#: src/main.c:137
+#: ../src/main.c:133
 msgid "Title"
 msgstr "כותרת"
 
-#: src/main.c:144
+#: ../src/main.c:139
 msgid "Genre"
 msgstr "ז׳אנר"
 
-#: src/main.c:149
+#: ../src/main.c:143
 msgid "Time"
 msgstr "זמן"
 
-#: src/main.c:175
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "‏'cdparanoia' לא נמצא בנתיבך. Asunder מצריך cdparanoia כדי לתלוש מן תקליטורים."
+#: ../src/main.c:169
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"‏'cdparanoia' לא נמצא בנתיבך. Asunder מצריך cdparanoia כדי לתלוש מן תקליטורים."
 
-#: src/main.c:420
+#: ../src/main.c:418
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>מאחזר כעת מידע תקליטור מן האינטרנט...</b>"
 
-#: src/callbacks.c:57
-#: src/callbacks.c:261
-#: src/callbacks.c:289
-#: src/callbacks.c:299
-#: src/interface.c:591
-#: src/interface.c:814
+#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
+#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
+#: ../src/interface.c:690 ../src/interface.c:879
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
 # אין תקליטור מוכנס
-#: src/callbacks.c:401
+#: ../src/callbacks.c:410
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "לא הוכנס תקליטור. נא להכניס תקליטור אל תקן CD-ROM."
 
-#: src/callbacks.c:420
-#: src/callbacks.c:445
-#: src/callbacks.c:470
-#: src/callbacks.c:495
-#: src/callbacks.c:520
-#: src/callbacks.c:545
-#: src/callbacks.c:570
+#: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
+#: ../src/callbacks.c:530 ../src/callbacks.c:555 ../src/callbacks.c:580
+#: ../src/callbacks.c:605
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "‫%s לא נמצא בנתיבך. Asunder זקוק לו כדי ליצור קבצי %s. כל תפקודיות %s מנוטרלת כעת."
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All "
+"%s functionality is disabled."
+msgstr ""
+"‫%s לא נמצא בנתיבך. Asunder זקוק לו כדי ליצור קבצי %s. כל תפקודיות %s מנוטרלת "
+"כעת."
 
-#: src/callbacks.c:667
+#: ../src/callbacks.c:504
+#, fuzzy, c-format
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files.All %s "
+"functionality is disabled."
+msgstr ""
+"‫%s לא נמצא בנתיבך. Asunder זקוק לו כדי ליצור קבצי %s. כל תפקודיות %s מנוטרלת "
+"כעת."
+
+#: ../src/callbacks.c:702
 msgid "Select all for ripping"
 msgstr "בחירה מוחלטת עבור תלישה"
 
-#: src/callbacks.c:673
+#: ../src/callbacks.c:708
 msgid "Deselect all for ripping"
 msgstr "ביטול בחירה מוחלט עבור תלישה"
 
-#: src/interface.c:96
+#: ../src/interface.c:95
 msgid "CDDB Lookup"
 msgstr "חיפוש CDDB"
 
-#: src/interface.c:145
+#: ../src/interface.c:147
 msgid "Disc:"
 msgstr "תקליטור:"
 
-#: src/interface.c:151
+#: ../src/interface.c:153
 msgid "Album Artist:"
 msgstr "אמן אלבום:"
 
-#: src/interface.c:158
+#: ../src/interface.c:160
 msgid "Album Title:"
 msgstr "כותרת אלבום:"
 
-#: src/interface.c:165
+#: ../src/interface.c:167
 msgid "Single Artist"
 msgstr "אמן יחיד"
 
-#: src/interface.c:171
+#: ../src/interface.c:173
 msgid "Genre / Year:"
 msgstr "ז׳אנר / שנה:"
 
 # בודד
-#: src/interface.c:178
+#: ../src/interface.c:180
 msgid "Single Genre"
 msgstr "ז׳אנר יחיד"
 
-#: src/interface.c:374
+#: ../src/interface.c:376
 msgid "Preferences"
 msgstr "העדפות"
 
-#: src/interface.c:391
-#: src/interface.c:397
+#: ../src/interface.c:393 ../src/interface.c:399
 msgid "Destination folder"
 msgstr "תיקיית יעד"
 
-#: src/interface.c:401
+#: ../src/interface.c:403
 msgid "Create M3U playlist"
 msgstr "צור רשימת השמעה מטיפוס M3U"
 
-#: src/interface.c:409
+#: ../src/interface.c:411
 msgid "CD-ROM device: "
 msgstr "תקן CD-ROM: "
 
-#: src/interface.c:418
+#: ../src/interface.c:420
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
@@ -142,15 +149,15 @@ msgstr ""
 "דןגמא אחרת: ‎/dev/hdc\n"
 "דוגמא אחרת: ‎/dev/sr0"
 
-#: src/interface.c:422
+#: ../src/interface.c:424
 msgid "Eject disc when finished"
 msgstr "פלוט תקליטור בעת סיום"
 
-#: src/interface.c:430
+#: ../src/interface.c:432
 msgid "General"
 msgstr "כללי"
 
-#: src/interface.c:450
+#: ../src/interface.c:452
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -164,22 +171,24 @@ msgstr ""
 "‏%Y - שנה (4-ספרות או \"0\")\n"
 "‏%T - כותרת שיר"
 
-#: src/interface.c:460
+#: ../src/interface.c:457
+#, fuzzy, c-format
+msgid "%G - Genre"
+msgstr "ז׳אנר"
+
+#: ../src/interface.c:472
 msgid "Album directory: "
 msgstr "מדור אלבום: "
 
-#: src/interface.c:467
-#: src/prefs.c:615
+#: ../src/interface.c:479 ../src/prefs.c:649
 msgid "Playlist file: "
 msgstr "קובץ רשימת השמעה: "
 
-#: src/interface.c:474
-#: src/prefs.c:627
-#: src/prefs.c:637
+#: ../src/interface.c:486 ../src/prefs.c:661 ../src/prefs.c:671
 msgid "Music file: "
 msgstr "קובץ מוזיקה: "
 
-#: src/interface.c:488
+#: ../src/interface.c:500
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -191,7 +200,7 @@ msgstr ""
 "ברירת מחדל: %A - %L\n"
 "דוגמא אחרת: %A/%L"
 
-#: src/interface.c:500
+#: ../src/interface.c:512
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -201,7 +210,7 @@ msgstr ""
 "אפשרי שיהיה ריק.\n"
 "ברירת מחדל: %A - %L"
 
-#: src/interface.c:511
+#: ../src/interface.c:523
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -213,166 +222,187 @@ msgstr ""
 "ברירת מחדל: %A - %T\n"
 "דוגמא אחרת: %N - %T"
 
-#: src/interface.c:516
+#: ../src/interface.c:528
 msgid "Filename formats"
 msgstr "פורמטים של שמות קובץ"
 
-#: src/interface.c:521
+#: ../src/interface.c:533
 msgid "Filenames"
 msgstr "שמות קובץ"
 
 #. WAV
-#: src/interface.c:540
+#: ../src/interface.c:552
 msgid "WAV (uncompressed)"
 msgstr "‏WAV (ללא דחיסה)"
 
-#: src/interface.c:559
+#: ../src/interface.c:571
 msgid "Variable bit rate (VBR)"
 msgstr "קצב סיביות משתנה (VBR)"
 
-#: src/interface.c:567
+#: ../src/interface.c:579
 msgid "Better quality for the same size."
 msgstr "איכות טובה יותר עבור אותו הגודל."
 
-#: src/interface.c:573
-#: src/interface.c:749
-#: src/interface.c:796
+#: ../src/interface.c:585 ../src/interface.c:674 ../src/interface.c:814
+#: ../src/interface.c:861
 msgid "Bitrate"
 msgstr "קצב סיביות"
 
-#: src/interface.c:588
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "קצב סיביות גבוה יותר הינו איכות טובה יותר ובאותה העת גם קובץ גדול יותר. רוב האנשים עושים שימוש בקצב סיביות של 192Kbps."
+#: ../src/interface.c:600
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"קצב סיביות גבוה יותר הינו איכות טובה יותר ובאותה העת גם קובץ גדול יותר. רוב "
+"האנשים עושים שימוש בקצב סיביות של 192Kbps."
 
-#: src/interface.c:597
+#: ../src/interface.c:609
 msgid "MP3 (lossy compression)"
 msgstr "‏MP3 (דחיסה עם אבדן נתונים)"
 
-#: src/interface.c:619
-#: src/interface.c:907
+#: ../src/interface.c:631 ../src/interface.c:972
 msgid "Quality"
 msgstr "איכות"
 
 # איכות גבוהה יותר משמעותה קובץ גדול יותר
-#: src/interface.c:630
+#: ../src/interface.c:642
 msgid "Higher quality means bigger file. Default is 6."
 msgstr "המשמעות של איכות גבוהה יותר היא קובץ גדול יותר. האיכות המשתמטת הינה 6."
 
-#: src/interface.c:632
+#: ../src/interface.c:644
 msgid "OGG Vorbis (lossy compression)"
 msgstr "‏OGG Vorbis (דחיסה עם אבדן נתונים)"
 
-#: src/interface.c:654
-#: src/interface.c:715
-#: src/interface.c:852
+#: ../src/interface.c:688
+#, fuzzy
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"160Kbps."
+msgstr ""
+"קצב סיביות גבוה יותר הינו איכות טובה יותר ובאותה העת גם קובץ גדול יותר. רוב "
+"האנשים עושים שימוש בקצב סיביות של 192Kbps."
+
+#: ../src/interface.c:696
+#, fuzzy
+msgid "OPUS (lossy compression"
+msgstr "‏MP3 (דחיסה עם אבדן נתונים)"
+
+#: ../src/interface.c:719 ../src/interface.c:780 ../src/interface.c:917
 msgid "Compression level"
 msgstr "רמת דחיסה"
 
-#: src/interface.c:665
-#: src/interface.c:865
+#: ../src/interface.c:730 ../src/interface.c:930
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "אין לכך השפעה על האיכות. המשמעות של מספר גבוה יותר היא קובץ קטן יותר."
 
-#: src/interface.c:667
+#: ../src/interface.c:732
 msgid "FLAC (lossless compression)"
 msgstr "‏FLAC (דחיסה ללא אבדן נתונים)"
 
-#: src/interface.c:686
+#: ../src/interface.c:751
 msgid "More formats"
 msgstr "פורמטים נוספים"
 
-#: src/interface.c:728
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
-msgstr "אין לכך השפעה על האיכות. המשמעות של מספר גבוה יותר היא קובץ קטן יותר. המספר המשתמט הינו 1 (מומלץ)."
+#: ../src/interface.c:793
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"אין לכך השפעה על האיכות. המשמעות של מספר גבוה יותר היא קובץ קטן יותר. המספר "
+"המשתמט הינו 1 (מומלץ)."
 
 # בת כלאיים, מוצלבת
-#: src/interface.c:734
+#: ../src/interface.c:799
 msgid "Hybrid compression"
 msgstr "דחיסה מעורבת"
 
 # ERROR: is (currently) created < it is not necessarily occurs now.
 # the lossless original what?
-#: src/interface.c:743
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
-msgstr "הפורמט הינו בר־אבדן אולם קובץ תיקון נוצר עבור שחזור הקובץ המקורי שלא איבד נתונים."
+#: ../src/interface.c:808
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+"הפורמט הינו בר־אבדן אולם קובץ תיקון נוצר עבור שחזור הקובץ המקורי שלא איבד "
+"נתונים."
 
 # אך גם
-#: src/interface.c:812
+#: ../src/interface.c:877
 msgid "Higher bitrate is better quality but also bigger file."
-msgstr "קצב סיביות גבוה יותר הינו איכות טובה יותר ובאותה העת גם קובץ גדול יותר."
+msgstr ""
+"קצב סיביות גבוה יותר הינו איכות טובה יותר ובאותה העת גם קובץ גדול יותר."
 
-#: src/interface.c:820
+#: ../src/interface.c:885
 msgid "Musepack (lossy compression)"
 msgstr "‏Musepack (דחיסה עם אבדן נתונים)"
 
-#: src/interface.c:867
+#: ../src/interface.c:932
 msgid "Monkey's Audio (lossless compression)"
 msgstr "‏Monkey's Audio (דחיסה עם אבדן נתונים)"
 
 #. END MONKEY
-#: src/interface.c:876
+#: ../src/interface.c:941
 msgid "Proprietary encoders"
 msgstr "מקודדים קנייניים"
 
-#: src/interface.c:920
+#: ../src/interface.c:985
 msgid "Higher quality means bigger file. Default is 60."
-msgstr "המשמעות של איכות גבוהה יותר היא קובץ גדול יותר. האיכות המשתמטת הינה 60."
+msgstr ""
+"המשמעות של איכות גבוהה יותר היא קובץ גדול יותר. האיכות המשתמטת הינה 60."
 
-#: src/interface.c:922
+#: ../src/interface.c:987
 msgid "AAC (lossy compression, Nero encoder)"
 msgstr "‏AAC (דחיסה עם אבדן נתונים, מקודד Nero)"
 
 #. END AAC
-#: src/interface.c:931
+#: ../src/interface.c:996
 msgid "Encode"
 msgstr "קידוד"
 
-#: src/interface.c:962
+#: ../src/interface.c:1027
 msgid "Get disc info from the internet automatically"
 msgstr "השג אוטומטית מידע תקליטור מן האינטרנט"
 
-#: src/interface.c:970
-#: src/interface.c:1015
+#: ../src/interface.c:1035 ../src/interface.c:1080
 msgid "Server: "
 msgstr "שרת: "
 
-#: src/interface.c:980
+#: ../src/interface.c:1045
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
-msgstr "שרת CDDB כדי לאחזר מידע תקליטור ממנו (השרת המשתמט הוא freedb.freedb.org)"
+msgstr ""
+"שרת CDDB כדי לאחזר מידע תקליטור ממנו (השרת המשתמט הוא freedb.freedb.org)"
 
-#: src/interface.c:986
-#: src/interface.c:1028
+#: ../src/interface.c:1051 ../src/interface.c:1093
 msgid "Port: "
 msgstr "פורט: "
 
-#: src/interface.c:996
+#: ../src/interface.c:1061
 msgid "The CDDB server port (default is 8880)"
 msgstr "פורט שרת CDDB (הפורט המשתמט הוא 8880)"
 
-#: src/interface.c:1002
+#: ../src/interface.c:1067
 msgid "Use an HTTP proxy to connect to the internet"
 msgstr "השתמש בפרוקסי HTTP כדי להתחבר אל האינטרנט"
 
-#: src/interface.c:1046
+#: ../src/interface.c:1111
 msgid "Advanced"
 msgstr "מתקדם"
 
 # תולש כעת
-#: src/interface.c:1117
-#: src/interface.c:1153
+#: ../src/interface.c:1182 ../src/interface.c:1218
 msgid "Ripping"
 msgstr "תולש"
 
-#: src/interface.c:1146
+#: ../src/interface.c:1211
 msgid "Total progress"
 msgstr "התקדמות כוללת"
 
 # מקודד כעת
-#: src/interface.c:1160
+#: ../src/interface.c:1225
 msgid "Encoding"
 msgstr "מקודד"
 
-#: src/interface.c:1573
+#: ../src/interface.c:1709
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
@@ -380,63 +410,63 @@ msgstr ""
 "‏Asunder הינו יישום לשמירת רצועות מן תקליטור שמע \n"
 "כקבצי WAV, ‏MP3, ‏OGG, ‏FLAC, ‏Wavpack, ‏Musepack, ‏Monkey's Audio, ו/או AAC."
 
-#: src/interface.c:1616
+#: ../src/interface.c:1752
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "קובץ %d נוצר בהצלחה"
 msgstr[1] "%d קבצים נוצרו בהצלחה"
 
-#: src/interface.c:1625
+#: ../src/interface.c:1761
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "ארעה שגיאה בעת יצירת קובץ %d"
 msgstr[1] "ארעה שגיאה בעת יצירת %d קבצים"
 
-#: src/prefs.c:614
-#: src/prefs.c:626
+#: ../src/prefs.c:648 ../src/prefs.c:660
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "תווים שגויים בשדה '%s'"
 
-#: src/prefs.c:636
+#: ../src/prefs.c:670
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "‫'%s' לא יכול להיות ריק"
 
-#: src/prefs.c:651
+#: ../src/prefs.c:685
 msgid "Invalid proxy port number"
 msgstr "מספר פורט פרוקסי שגוי"
 
-#: src/prefs.c:664
+#: ../src/prefs.c:698
 msgid "Invalid cddb server port number"
 msgstr "פורט שרת cddb שגוי"
 
-#: src/support.c:47
+#: ../src/support.c:47
 msgid "Overwrite?"
 msgstr "האם לרשום על הקיים?"
 
-#: src/support.c:60
+#: ../src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
 msgstr "הקבץ '%s' כבר קיים. האם ברצונך להחליפו?\n"
 
-#: src/support.c:66
+#: ../src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "זכור את התשובה עבור _כל הקבצים שנוצרים מן תקליטור זה"
 
-#: src/threads.c:164
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+#: ../src/threads.c:182
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
 msgstr "לא נבחרה שיטת תלישה/קידוד. נא לאפשר אחת מן התפריט 'העדפות'."
 
-#: src/threads.c:193
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+#: ../src/threads.c:211
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
 msgstr "לא נבחרו רצועות עבור תלישה/קידוד. נא לבחור לפחות רצועה אחת."
 
-#: src/threads.c:903
-#: src/threads.c:905
-#: src/threads.c:909
+#: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
 msgid "Waiting..."
 msgstr "ממתין..."
-

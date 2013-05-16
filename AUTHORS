@@ -34,8 +34,11 @@ Richard Gill
 Hiroyuki Ito
 - Support for autocompletion in artist/album/genre fields.
 
-Micah Lindström
-- Support for invalid filesystem characters in metadata
+Micah Lindstrom
+- Support for invalid filesystem characters in metadata.
+
+Tim Allen
+- Fix to make the MusicBrainz CDDB gateway work with Asunder.
 
 Packages:
 
@@ -151,6 +154,9 @@ Christophe Legras
 Fabrice Le Goff
 - fr (French) translation of Asunder version 1.6
 
+Clement Raievsky
+- fr (French) translation of Asunder version 2.1
+
 Peter Polonkai
 - hu (Hungarian) translation of Asunder versions 0.8 - 1.9
 
@@ -208,6 +214,9 @@ Sergio Brandao Cipolla
 Pedro Henrique
 - pt_BR (Portuguese/Brazil) translation of Asunder version 2.1
 
+Neliton Pereira Jr
+- pt_BR (Portuguese/Brazil) translation of Asunder version 2.2
+
 Alexandre Prokoudine
 - ru (Russian) translation of Asunder version 1.9.2
 
@@ -244,3 +253,4 @@ http://makki.urducoder.com/
 
 Cheng-Wei Chien
 - zh_TW (Chineese/Taiwan) translation of Asunder versions 0.8 - 1.9
+

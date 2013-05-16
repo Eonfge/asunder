@@ -1,7 +1,12 @@
-21 Apr 2013 - 2.2.1
+16 May 2013 - 2.3
 ================
-- Allow metadata to contain invalid filesystem characters (e.g. "Artist" can contain punctuation like "J. S. Bach")
-- Fixed two typos in the README
+- Can now encode into OPUS.
+- Allow metadata to contain invalid filesystem characters (e.g. "Artist" can contain punctuation like "J. S. Bach").
+- AAC files are now tagged using neroAacTag (instead of no tags at all).
+- Dots are now allowed in filenames.
+- Added the application to the list of apps for audio CDs in Gnome.
+- Updated Bulgarian, Czeck, Finnish, French, Portuguese, Spanish, and Sweedish translations.
+- Added Galician translation.
 
 25 Feb 2012 - 2.2
 =================
