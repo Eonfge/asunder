@@ -282,18 +282,16 @@ msgid "More formats"
 msgstr "Daha fazla biçim"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "Daha yüksek bit oranı, daha kaliteli olmakla beraber daha büyük dosya "
-"demektir. Çoğu insan 192Kbps değerini kullanır."
+"demektir. Çoğu insan 160Kbps değerini kullanır."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (kayıplı sıkıştırma)"
+msgstr "OPUS (kayıplı sıkıştırma)"
 
 #: ../src/interface.c:793
 msgid ""

@@ -278,18 +278,16 @@ msgid "More formats"
 msgstr "Fler format"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "Högre bitfrekvens ger bättre kvalitet men även en större fil. De flesta "
-"använder 192Kbps."
+"använder 160Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (förstörande komprimering)"
+msgstr "OPUS (förstörande komprimering)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -383,14 +381,13 @@ msgid "Encoding"
 msgstr "Kodning"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "Ett program för att spara spår från en ljud-CD \n"
-"som WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio och/eller AAC-"
+"som WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio och/eller AAC-"
 "filer."
 
 #: ../src/interface.c:1752

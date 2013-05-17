@@ -277,18 +277,16 @@ msgid "More formats"
 msgstr "Lisää pakkausmuotoja"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "Korkeampi bittivirta tarkoittaa parempaa laatua, mutta myös isompaa "
-"tiedostoa. Useimmiten käytetään 192Kbps."
+"tiedostoa. Useimmiten käytetään 160Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (häviöllinen pakkaus)"
+msgstr "OPUS (häviöllinen pakkaus)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -384,14 +382,13 @@ msgid "Encoding"
 msgstr "Koodaa"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "Audio CD:n raitojen tallentamiseen tarkoitettu ohjelma.\n"
-"Tuetut pakkaustavat: WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio "
+"Tuetut pakkaustavat: WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio "
 "ja  AAC."
 
 #: ../src/interface.c:1752

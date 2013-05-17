@@ -277,18 +277,16 @@ msgid "More formats"
 msgstr "Altri formati dei file"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "Un bitrate più alto migliora la qualità, ma genera file più grandi. Di "
-"solito si usa 192Kbps."
+"solito si usa 160Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (compressione lossy)"
+msgstr "OPUS (compressione lossy)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -383,14 +381,13 @@ msgid "Encoding"
 msgstr "Codifica"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "Una comoda applicazione che converte le tracce audio di un CD\n"
-"in file WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, e/o files "
+"in file WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, e/o files "
 "AAC."
 
 #: ../src/interface.c:1752

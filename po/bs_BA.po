@@ -177,7 +177,6 @@ msgid "Music file: "
 msgstr "Glazbena datoteka"
 
 #: ../src/interface.c:500
-#, fuzzy
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -278,18 +277,16 @@ msgid "More formats"
 msgstr "Više formata"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "Viši bitrate znači bolju kvalitetu, ali i veću datoteku. Većina koristi "
-"192Kbps."
+"160Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (kompresija s gubitkom kvalitete)"
+msgstr "OPUS (kompresija s gubitkom kvalitete)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -383,14 +380,13 @@ msgid "Encoding"
 msgstr "Enkodiranje"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "Aplikacija za spremanje pjesama s Audio CD-a \n"
-"kao WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, i/ili AAC "
+"kao WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, i/ili AAC "
 "datoteke."
 
 #: ../src/interface.c:1752

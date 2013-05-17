@@ -280,18 +280,16 @@ msgid "More formats"
 msgstr "További formátumok"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "A magasabb bitráta jobb minőségű, de nagyobb fájlt eredményez. Ajánlott a "
-"192 Kbps."
+"160 Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (veszteséges tömörítés)"
+msgstr "OPUS (veszteséges tömörítés)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -384,13 +382,12 @@ msgid "Encoding"
 msgstr "Kódolás"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
-"Audio CD hangsávjait WAV, MP3, OGG, FLAC, Wavpack, Musepack,\n"
+"Audio CD hangsávjait WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack,\n"
 "Monkey's Audio és/vagy AAC formátumba kódoló program."
 
 #: ../src/interface.c:1752

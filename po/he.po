@@ -281,18 +281,16 @@ msgid "More formats"
 msgstr "פורמטים נוספים"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "קצב סיביות גבוה יותר הינו איכות טובה יותר ובאותה העת גם קובץ גדול יותר. רוב "
-"האנשים עושים שימוש בקצב סיביות של 192Kbps."
+"האנשים עושים שימוש בקצב סיביות של 160Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "‏MP3 (דחיסה עם אבדן נתונים)"
+msgstr "‏OPUS (דחיסה עם אבדן נתונים)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -394,14 +392,13 @@ msgid "Encoding"
 msgstr "מקודד"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "‏Asunder הינו יישום לשמירת רצועות מן תקליטור שמע \n"
-"כקבצי WAV, ‏MP3, ‏OGG, ‏FLAC, ‏Wavpack, ‏Musepack, ‏Monkey's Audio, ו/או AAC."
+"כקבצי WAV, ‏MP3, ‏OGG, ‏FLAC,  ‏Opus, ‏Wavpack, ‏Musepack, ‏Monkey's Audio, ו/או AAC."
 
 #: ../src/interface.c:1752
 #, c-format

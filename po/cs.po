@@ -279,18 +279,16 @@ msgid "More formats"
 msgstr "Více formátů"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "Vyšší datový tok znamená lepší kvalitu, ale velikost souboru se zvětší. "
-"Většina lidí používá 192Kbps."
+"Většina lidí používá 160Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (ztrátová komprese)"
+msgstr "OPUS (ztrátová komprese)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -384,14 +382,13 @@ msgid "Encoding"
 msgstr "Kódování"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "Aplikace pro ukládání skladeb z Audio CD \n"
-"jako WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, a/nebo AAC "
+"jako WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, a/nebo AAC "
 "files."
 
 #: ../src/interface.c:1752

@@ -276,18 +276,16 @@ msgid "More formats"
 msgstr "他の形式"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "ビットレートを高くすると音質は良くなるがサイズが大きくなる。多くのユーザは "
-"192Kbps にしています。"
+"160Kbps にしています。"
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (ロスあり圧縮)"
+msgstr "OPUS (ロスあり圧縮)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -381,13 +379,12 @@ msgid "Encoding"
 msgstr "エンコーディング"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
-"音楽 CD を WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio,\n"
+"音楽 CD を WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio,\n"
 "または AAC ファイルに保存するためのアプリケーション"
 
 #: ../src/interface.c:1752

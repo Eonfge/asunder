@@ -282,18 +282,16 @@ msgid "More formats"
 msgstr "مزید ساختیں"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
-"بُلند بِٹ شرح بہترین معیار ہے مگر بڑی فائل بھی ہے. لوگ زیادہ تر 192 کلو بائٹ "
+"بُلند بِٹ شرح بہترین معیار ہے مگر بڑی فائل بھی ہے. لوگ زیادہ تر 160 کلو بائٹ "
 "فی سیکنڈ استعمال کرتے ہیں."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (بالضیاع دباؤ)"
+msgstr "OPUS (بالضیاع دباؤ)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -388,14 +386,13 @@ msgid "Encoding"
 msgstr "انکوڈنگ"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "صوتی سیڈیوں سے ٹریک محفوظ کرنے کا اطلاقیہ \n"
-"جیسے WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"جیسے WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "فائلیں."
 
 #: ../src/interface.c:1752

@@ -282,18 +282,16 @@ msgid "More formats"
 msgstr "Más formatos"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "Mayor tasa de bits supone mayor calidad pero también un archivo de mayor "
-"tamaño. La mayoría de la gente suele usar 192Kbps."
+"tamaño. La mayoría de la gente suele usar 160Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (compresión con pérdida)"
+msgstr "OPUS (compresión con pérdida)"
 
 #: ../src/interface.c:793
 msgid ""

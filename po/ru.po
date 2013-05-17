@@ -108,9 +108,8 @@ msgid "Single Artist"
 msgstr "Один исполнитель"
 
 #: ../src/interface.c:173
-#, fuzzy
 msgid "Genre / Year:"
-msgstr "Жанр:"
+msgstr "Жанр / Год:"
 
 #: ../src/interface.c:180
 msgid "Single Genre"
@@ -165,9 +164,9 @@ msgstr ""
 "%T - Название песни"
 
 #: ../src/interface.c:457
-#, fuzzy, c-format
+#, c-format
 msgid "%G - Genre"
-msgstr "Жанр"
+msgstr "%G - Жанр"
 
 #: ../src/interface.c:472
 msgid "Album directory: "
@@ -282,18 +281,16 @@ msgid "More formats"
 msgstr "Больше форматов"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "Более высокая скорость потока означает больший размер файла. Большинство "
-"использует 192Кбит/с."
+"использует 160Кбит/с."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (сжатие с потерями)"
+msgstr "OPUS (сжатие с потерями)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -390,14 +387,13 @@ msgid "Encoding"
 msgstr "Кодирование"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "Приложение для извлечения дорожек из Audio CD и сохранения в файлах форматов "
-"WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, и/или AAC."
+"WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, и/или AAC."
 
 #: ../src/interface.c:1752
 #, c-format

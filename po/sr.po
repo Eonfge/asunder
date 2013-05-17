@@ -278,18 +278,16 @@ msgid "More formats"
 msgstr "Додатни формати"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "Већи битрејт резултује бољим квалитетом, али и већом датотеком. Већина "
-"корисника употребљава 192Kbps."
+"корисника употребљава 160Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (компресија са малим губитком квалитета)"
+msgstr "OPUS (компресија са малим губитком квалитета)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -352,10 +350,9 @@ msgid "Server: "
 msgstr "Сервер:"
 
 #: ../src/interface.c:1045
-#, fuzzy
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr ""
-"CDDB сервер за преузимање информација о диску (фабричка вредност је \"freedb."
+"CDDB сервер за преузимање информација о диску (фабричка вредност је \"freedb.freedb."
 "org\")"
 
 #: ../src/interface.c:1051 ../src/interface.c:1093
@@ -363,9 +360,8 @@ msgid "Port: "
 msgstr "Порт:"
 
 #: ../src/interface.c:1061
-#, fuzzy
 msgid "The CDDB server port (default is 8880)"
-msgstr "Порт CDDB сервера (фабричка вредност је 888)"
+msgstr "Порт CDDB сервера (фабричка вредност је 8880)"
 
 #: ../src/interface.c:1067
 msgid "Use an HTTP proxy to connect to the internet"
@@ -388,14 +384,13 @@ msgid "Encoding"
 msgstr "Кодирање"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "Апликација која чува песме са аудио CD-а \n"
-"као WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio и/или AAC "
+"као WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio и/или AAC "
 "датотеке."
 
 #: ../src/interface.c:1752

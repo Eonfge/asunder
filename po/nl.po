@@ -290,18 +290,16 @@ msgid "More formats"
 msgstr "Meer formaten"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "Hogere bitrate geeft een betere kwaliteit, maar zorgt ook voor een groter "
-"bestand. Meest gangbaar is 192Kbps."
+"bestand. Meest gangbaar is 160Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (met kwaliteitsverlies)"
+msgstr "OPUS (met kwaliteitsverlies)"
 
 #: ../src/interface.c:793
 msgid ""

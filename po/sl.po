@@ -285,18 +285,16 @@ msgid "More formats"
 msgstr "Več oblik zapisa"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "Višja hitna hitrost je boljša kvaliteta ampak tudi večka datoteka. Večino se "
-"uporablja 192Kbps."
+"uporablja 160Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (izgubno stiskanje)"
+msgstr "OPUS (izgubno stiskanje)"
 
 #: ../src/interface.c:793
 msgid ""

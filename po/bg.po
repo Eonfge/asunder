@@ -277,18 +277,16 @@ msgid "More formats"
 msgstr "Още формати"
 
 #: ../src/interface.c:743
-#, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
 "По-висок битрейт осигурява по-добро качество, но и по-голям файл. Повечето "
-"потребители използват 192 Kbps."
+"потребители използват 160 Kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (компресиране със загуби)"
+msgstr "OPUS (компресиране със загуби)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -383,14 +381,13 @@ msgid "Encoding"
 msgstr "Кодиране"
 
 #: ../src/interface.c:1709
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "Приложение за записване на музика от аудио CD \n"
-"във WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, и/или AAC "
+"във WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, и/или AAC "
 "файлове."
 
 #: ../src/interface.c:1752
