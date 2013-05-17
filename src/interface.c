@@ -649,59 +649,6 @@ create_prefs (void)
                                         NULL);
     /* END OGG */
 
-    /* OPUS */
-    GtkWidget *opusLbl;
-    GtkWidget *opusrate;
-    GtkWidget *rip_opus;
-    GtkWidget *opus_frame;
-    GtkWidget *opushbox;
-    GtkWidget *opusalignment;
-    char opus_kbps[10];
-
-    opus_frame = gtk_frame_new(NULL);
-    gtk_widget_show (opus_frame);
-    gtk_box_pack_start (GTK_BOX(vbox), opus_frame, FALSE, FALSE, 0);
-
-    opusalignment = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show(opusalignment);
-    gtk_container_add (GTK_CONTAINER(opus_frame),opusalignment);
-    gtk_alignment_set_padding (GTK_ALIGNMENT(opusalignment), 2, 2, 12, 2);
-
-    opushbox = gtk_hbox_new(FALSE,0);
-    gtk_widget_show (opushbox);
-    gtk_container_add (GTK_CONTAINER(opusalignment), opushbox);
-
-    opusLbl = gtk_label_new (_("Bitrate"));
-    gtk_widget_show(opusLbl);
-    gtk_box_pack_start (GTK_BOX(opushbox), opusLbl, FALSE, FALSE,0);
-    GLADE_HOOKUP_OBJECT (prefs, opusLbl, "opus_lbl");
-
-    opusrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 13, 1, 1, 1)));
-    gtk_widget_show(opusrate);
-    gtk_box_pack_start(GTK_BOX(opushbox), opusrate, TRUE, TRUE, 5);
-    gtk_scale_set_draw_value (GTK_SCALE (opusrate), FALSE);
-    gtk_scale_set_digits (GTK_SCALE (opusrate), 0);
-    g_signal_connect ((gpointer) opusrate, "value_changed",
-                                        G_CALLBACK (on_opusrate_value_changed),
-                                        NULL);
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, opusrate, _("Higher bitrate is better quality but also bigger file. Most people use 160Kbps."), NULL);
-    GLADE_HOOKUP_OBJECT (prefs, opusrate, "opusrate");
-    snprintf(opus_kbps, 10, _("%dKbps"), 32);
-    label = gtk_label_new (kbps_text);
-    gtk_widget_show (label);
-    gtk_box_pack_start (GTK_BOX (opushbox), label, FALSE, FALSE, 0);
-    GLADE_HOOKUP_OBJECT (prefs, label, "bitrate_lbl_4");
-
-    rip_opus = gtk_check_button_new_with_mnemonic (_("OPUS (lossy compression"));
-    gtk_widget_show (rip_opus);
-    gtk_frame_set_label_widget(GTK_FRAME(opus_frame), rip_opus);
-    g_signal_connect((gpointer) rip_opus, "toggled",
-                     G_CALLBACK (on_rip_opus_toggled),
-                     NULL);
-    GLADE_HOOKUP_OBJECT (prefs, rip_opus, "rip_opus");
-    /* END OPUS */
-
     /* FLAC */
     frame5 = gtk_frame_new (NULL);
     gtk_widget_show (frame5);
@@ -757,6 +704,59 @@ create_prefs (void)
     gtk_widget_show (hiddenbox);
     gtk_container_add (GTK_CONTAINER (expander), hiddenbox);
     
+    /* OPUS */
+    GtkWidget *opusLbl;
+    GtkWidget *opusrate;
+    GtkWidget *rip_opus;
+    GtkWidget *opus_frame;
+    GtkWidget *opushbox;
+    GtkWidget *opusalignment;
+    char opus_kbps[10];
+
+    opus_frame = gtk_frame_new(NULL);
+    gtk_widget_show (opus_frame);
+    gtk_box_pack_start (GTK_BOX(hiddenbox), opus_frame, FALSE, FALSE, 0);
+
+    opusalignment = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_show(opusalignment);
+    gtk_container_add (GTK_CONTAINER(opus_frame),opusalignment);
+    gtk_alignment_set_padding (GTK_ALIGNMENT(opusalignment), 2, 2, 12, 2);
+
+    opushbox = gtk_hbox_new(FALSE,0);
+    gtk_widget_show (opushbox);
+    gtk_container_add (GTK_CONTAINER(opusalignment), opushbox);
+
+    opusLbl = gtk_label_new (_("Bitrate"));
+    gtk_widget_show(opusLbl);
+    gtk_box_pack_start (GTK_BOX(opushbox), opusLbl, FALSE, FALSE,0);
+    GLADE_HOOKUP_OBJECT (prefs, opusLbl, "opus_lbl");
+
+    opusrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 13, 1, 1, 1)));
+    gtk_widget_show(opusrate);
+    gtk_box_pack_start(GTK_BOX(opushbox), opusrate, TRUE, TRUE, 5);
+    gtk_scale_set_draw_value (GTK_SCALE (opusrate), FALSE);
+    gtk_scale_set_digits (GTK_SCALE (opusrate), 0);
+    g_signal_connect ((gpointer) opusrate, "value_changed",
+                                        G_CALLBACK (on_opusrate_value_changed),
+                                        NULL);
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, opusrate, _("Higher bitrate is better quality but also bigger file. Most people use 160Kbps."), NULL);
+    GLADE_HOOKUP_OBJECT (prefs, opusrate, "opusrate");
+    snprintf(opus_kbps, 10, _("%dKbps"), 32);
+    label = gtk_label_new (kbps_text);
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (opushbox), label, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, label, "bitrate_lbl_4");
+
+    rip_opus = gtk_check_button_new_with_mnemonic (_("OPUS (lossy compression"));
+    gtk_widget_show (rip_opus);
+    gtk_frame_set_label_widget(GTK_FRAME(opus_frame), rip_opus);
+    g_signal_connect((gpointer) rip_opus, "toggled",
+                     G_CALLBACK (on_rip_opus_toggled),
+                     NULL);
+    GLADE_HOOKUP_OBJECT (prefs, rip_opus, "rip_opus");
+    /* END OPUS */
+
     /* WAVPACK */
     GtkWidget* flacVbox;
     
