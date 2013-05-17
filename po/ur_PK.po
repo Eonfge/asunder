@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 16:20-0400\n"
+"POT-Creation-Date: 2013-05-17 00:01-0400\n"
 "PO-Revision-Date: 2010-12-27 21:26+0200\n"
 "Last-Translator: Muhammad Ali Makki <makkiabufaris@aol.com>\n"
 "Language-Team: Urdu <makkiabufaris@aol.com>\n"
@@ -58,7 +58,7 @@ msgstr "<b>انٹرنیٹ سے ڈسک کی معلومات حاصل کی جارہ
 
 #: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
 #: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
-#: ../src/interface.c:690 ../src/interface.c:879
+#: ../src/interface.c:745 ../src/interface.c:879
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -69,21 +69,12 @@ msgstr ""
 "کوئی سی ڈی داخل نہیں کی گئی. ازراہِ کرم سی ڈی روم ڈرائیو میں سی ڈی داخل کریں."
 
 #: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:530 ../src/callbacks.c:555 ../src/callbacks.c:580
-#: ../src/callbacks.c:605
+#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
+#: ../src/callbacks.c:580 ../src/callbacks.c:605
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
-msgstr ""
-"%s آپ کے پاتھ پر نہیں پایا گیا. اسنڈر کو %s فائلیں بنانے کے لیے اس کی ضرورت "
-"ہے. تمام %s فعلیت معطل کردی گئی ہے."
-
-#: ../src/callbacks.c:504
-#, fuzzy, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files.All %s "
-"functionality is disabled."
 msgstr ""
 "%s آپ کے پاتھ پر نہیں پایا گیا. اسنڈر کو %s فائلیں بنانے کے لیے اس کی ضرورت "
 "ہے. تمام %s فعلیت معطل کردی گئی ہے."
@@ -245,7 +236,7 @@ msgstr "مُتغیرہ بِٹ شرح (VBR)"
 msgid "Better quality for the same size."
 msgstr "اسی حجم کے لیے بہترین معیار."
 
-#: ../src/interface.c:585 ../src/interface.c:674 ../src/interface.c:814
+#: ../src/interface.c:585 ../src/interface.c:729 ../src/interface.c:814
 #: ../src/interface.c:861
 msgid "Bitrate"
 msgstr "بِٹ شرح"
@@ -274,7 +265,23 @@ msgstr "بُلند معیار کا مطلب بڑی فائل ہے. طے شُدہ 
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (بالضیاع دباؤ)"
 
-#: ../src/interface.c:688
+#: ../src/interface.c:666 ../src/interface.c:780 ../src/interface.c:917
+msgid "Compression level"
+msgstr "دباؤ کی سطح"
+
+#: ../src/interface.c:677 ../src/interface.c:930
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr "اس سے معیار پر کوئی اثر نہیں پڑے گا. بڑے عدد کا مطلب چھوٹی تر فائل ہے."
+
+#: ../src/interface.c:679
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (بلا ضیاع دباؤ)"
+
+#: ../src/interface.c:698
+msgid "More formats"
+msgstr "مزید ساختیں"
+
+#: ../src/interface.c:743
 #, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
@@ -283,26 +290,10 @@ msgstr ""
 "بُلند بِٹ شرح بہترین معیار ہے مگر بڑی فائل بھی ہے. لوگ زیادہ تر 192 کلو بائٹ "
 "فی سیکنڈ استعمال کرتے ہیں."
 
-#: ../src/interface.c:696
-#, fuzzy
-msgid "OPUS (lossy compression"
-msgstr "MP3 (بالضیاع دباؤ)"
-
-#: ../src/interface.c:719 ../src/interface.c:780 ../src/interface.c:917
-msgid "Compression level"
-msgstr "دباؤ کی سطح"
-
-#: ../src/interface.c:730 ../src/interface.c:930
-msgid "This does not affect the quality. Higher number means smaller file."
-msgstr "اس سے معیار پر کوئی اثر نہیں پڑے گا. بڑے عدد کا مطلب چھوٹی تر فائل ہے."
-
-#: ../src/interface.c:732
-msgid "FLAC (lossless compression)"
-msgstr "FLAC (بلا ضیاع دباؤ)"
-
 #: ../src/interface.c:751
-msgid "More formats"
-msgstr "مزید ساختیں"
+#, fuzzy
+msgid "OPUS (lossy compression)"
+msgstr "MP3 (بالضیاع دباؤ)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -397,9 +388,11 @@ msgid "Encoding"
 msgstr "انکوڈنگ"
 
 #: ../src/interface.c:1709
+#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"files."
 msgstr ""
 "صوتی سیڈیوں سے ٹریک محفوظ کرنے کا اطلاقیہ \n"
 "جیسے WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -469,3 +462,11 @@ msgstr ""
 #: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
 msgid "Waiting..."
 msgstr "انتظار..."
+
+#, fuzzy
+#~ msgid ""
+#~ "%s was not found in your path. Asunder requires it to create %s files.All "
+#~ "%s functionality is disabled."
+#~ msgstr ""
+#~ "%s آپ کے پاتھ پر نہیں پایا گیا. اسنڈر کو %s فائلیں بنانے کے لیے اس کی "
+#~ "ضرورت ہے. تمام %s فعلیت معطل کردی گئی ہے."

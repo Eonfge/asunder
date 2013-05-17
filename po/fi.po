@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 16:20-0400\n"
+"POT-Creation-Date: 2013-05-17 00:01-0400\n"
 "PO-Revision-Date: 2012-04-15 12:00+0200\n"
 "Last-Translator: Eero Salokannel <eero@salokannel.net>\n"
 "Language-Team: Finnish\n"
@@ -54,7 +54,7 @@ msgstr "<b>Haetaan levyn tietoja internetistä...</b>"
 
 #: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
 #: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
-#: ../src/interface.c:690 ../src/interface.c:879
+#: ../src/interface.c:745 ../src/interface.c:879
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -64,21 +64,12 @@ msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Ei CD-levyä asemassa. Aseta levy asemaan."
 
 #: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:530 ../src/callbacks.c:555 ../src/callbacks.c:580
-#: ../src/callbacks.c:605
+#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
+#: ../src/callbacks.c:580 ../src/callbacks.c:605
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
-msgstr ""
-"%s ei löytynyt. Asunder tarvitsee sen tehdäkseen %s tiedostoja. Kaikki %s "
-"toiminnot on poistettu käytöstä."
-
-#: ../src/callbacks.c:504
-#, fuzzy, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files.All %s "
-"functionality is disabled."
 msgstr ""
 "%s ei löytynyt. Asunder tarvitsee sen tehdäkseen %s tiedostoja. Kaikki %s "
 "toiminnot on poistettu käytöstä."
@@ -239,7 +230,7 @@ msgstr "Muuttuva bittivirta (VBR)"
 msgid "Better quality for the same size."
 msgstr "Parempi laatu samaan tilaan."
 
-#: ../src/interface.c:585 ../src/interface.c:674 ../src/interface.c:814
+#: ../src/interface.c:585 ../src/interface.c:729 ../src/interface.c:814
 #: ../src/interface.c:861
 msgid "Bitrate"
 msgstr "Bittinopeus"
@@ -268,7 +259,24 @@ msgstr "Korkeampi laatu tarkoittaa isompaa tiedostoa. Oletus on 6."
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (häviöllinen pakkaus)"
 
-#: ../src/interface.c:688
+#: ../src/interface.c:666 ../src/interface.c:780 ../src/interface.c:917
+msgid "Compression level"
+msgstr "Pakkaustaso"
+
+#: ../src/interface.c:677 ../src/interface.c:930
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr ""
+"Tämä ei vaikuta laatuun. Korkeampi luku tarkoittaa pienempää tiedostoa."
+
+#: ../src/interface.c:679
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (häviötön pakkaus)"
+
+#: ../src/interface.c:698
+msgid "More formats"
+msgstr "Lisää pakkausmuotoja"
+
+#: ../src/interface.c:743
 #, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
@@ -277,27 +285,10 @@ msgstr ""
 "Korkeampi bittivirta tarkoittaa parempaa laatua, mutta myös isompaa "
 "tiedostoa. Useimmiten käytetään 192Kbps."
 
-#: ../src/interface.c:696
-#, fuzzy
-msgid "OPUS (lossy compression"
-msgstr "MP3 (häviöllinen pakkaus)"
-
-#: ../src/interface.c:719 ../src/interface.c:780 ../src/interface.c:917
-msgid "Compression level"
-msgstr "Pakkaustaso"
-
-#: ../src/interface.c:730 ../src/interface.c:930
-msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
-"Tämä ei vaikuta laatuun. Korkeampi luku tarkoittaa pienempää tiedostoa."
-
-#: ../src/interface.c:732
-msgid "FLAC (lossless compression)"
-msgstr "FLAC (häviötön pakkaus)"
-
 #: ../src/interface.c:751
-msgid "More formats"
-msgstr "Lisää pakkausmuotoja"
+#, fuzzy
+msgid "OPUS (lossy compression)"
+msgstr "MP3 (häviöllinen pakkaus)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -393,9 +384,11 @@ msgid "Encoding"
 msgstr "Koodaa"
 
 #: ../src/interface.c:1709
+#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"files."
 msgstr ""
 "Audio CD:n raitojen tallentamiseen tarkoitettu ohjelma.\n"
 "Tuetut pakkaustavat: WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio "
@@ -461,6 +454,14 @@ msgstr "Ei valittuja raitoja. Valitse vähintään yksi raita."
 #: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
 msgid "Waiting..."
 msgstr "Odottaa..."
+
+#, fuzzy
+#~ msgid ""
+#~ "%s was not found in your path. Asunder requires it to create %s files.All "
+#~ "%s functionality is disabled."
+#~ msgstr ""
+#~ "%s ei löytynyt. Asunder tarvitsee sen tehdäkseen %s tiedostoja. Kaikki %s "
+#~ "toiminnot on poistettu käytöstä."
 
 #, fuzzy
 #~ msgid "Playlist file"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 16:20-0400\n"
+"POT-Creation-Date: 2013-05-17 00:01-0400\n"
 "PO-Revision-Date: 2009-08-30 18:49+0100\n"
 "Last-Translator: Stephen Brandt <stephen at stephenbrandt dot com>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgstr ""
 
 #: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
 #: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
-#: ../src/interface.c:690 ../src/interface.c:879
+#: ../src/interface.c:745 ../src/interface.c:879
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -65,21 +65,12 @@ msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Geen cd geplaatst. Plaats een cd in de cd-romspeler."
 
 #: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:530 ../src/callbacks.c:555 ../src/callbacks.c:580
-#: ../src/callbacks.c:605
+#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
+#: ../src/callbacks.c:580 ../src/callbacks.c:605
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
-msgstr ""
-"%s kon niet worden gevonden in het opgegeven pad. Asunder heeft dit nodig om "
-"%s bestanden aan te maken. Alle %s functionaliteit is uitgeschakeld."
-
-#: ../src/callbacks.c:504
-#, fuzzy, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files.All %s "
-"functionality is disabled."
 msgstr ""
 "%s kon niet worden gevonden in het opgegeven pad. Asunder heeft dit nodig om "
 "%s bestanden aan te maken. Alle %s functionaliteit is uitgeschakeld."
@@ -250,7 +241,7 @@ msgstr "Variabele bitrate (VBR)"
 msgid "Better quality for the same size."
 msgstr "Betere kwaliteit voor dezelfde grootte."
 
-#: ../src/interface.c:585 ../src/interface.c:674 ../src/interface.c:814
+#: ../src/interface.c:585 ../src/interface.c:729 ../src/interface.c:814
 #: ../src/interface.c:861
 msgid "Bitrate"
 msgstr "Bitrate"
@@ -280,7 +271,25 @@ msgstr ""
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (met kwaliteitsverlies)"
 
-#: ../src/interface.c:688
+#: ../src/interface.c:666 ../src/interface.c:780 ../src/interface.c:917
+msgid "Compression level"
+msgstr "Compressieniveau"
+
+#: ../src/interface.c:677 ../src/interface.c:930
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr ""
+"Dit heeft geen invloed op de kwaliteit. Een hoger getal zorgt voor een "
+"kleiner bestand."
+
+#: ../src/interface.c:679
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (zonder kwaliteitsverlies)"
+
+#: ../src/interface.c:698
+msgid "More formats"
+msgstr "Meer formaten"
+
+#: ../src/interface.c:743
 #, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
@@ -289,28 +298,10 @@ msgstr ""
 "Hogere bitrate geeft een betere kwaliteit, maar zorgt ook voor een groter "
 "bestand. Meest gangbaar is 192Kbps."
 
-#: ../src/interface.c:696
-#, fuzzy
-msgid "OPUS (lossy compression"
-msgstr "MP3 (met kwaliteitsverlies)"
-
-#: ../src/interface.c:719 ../src/interface.c:780 ../src/interface.c:917
-msgid "Compression level"
-msgstr "Compressieniveau"
-
-#: ../src/interface.c:730 ../src/interface.c:930
-msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
-"Dit heeft geen invloed op de kwaliteit. Een hoger getal zorgt voor een "
-"kleiner bestand."
-
-#: ../src/interface.c:732
-msgid "FLAC (lossless compression)"
-msgstr "FLAC (zonder kwaliteitsverlies)"
-
 #: ../src/interface.c:751
-msgid "More formats"
-msgstr "Meer formaten"
+#, fuzzy
+msgid "OPUS (lossy compression)"
+msgstr "MP3 (met kwaliteitsverlies)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -411,7 +402,8 @@ msgstr "Encoderen"
 #: ../src/interface.c:1709
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"files."
 msgstr ""
 
 #: ../src/interface.c:1752
@@ -478,6 +470,14 @@ msgstr ""
 #: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
 msgid "Waiting..."
 msgstr "Aan het wachten..."
+
+#, fuzzy
+#~ msgid ""
+#~ "%s was not found in your path. Asunder requires it to create %s files.All "
+#~ "%s functionality is disabled."
+#~ msgstr ""
+#~ "%s kon niet worden gevonden in het opgegeven pad. Asunder heeft dit nodig "
+#~ "om %s bestanden aan te maken. Alle %s functionaliteit is uitgeschakeld."
 
 #, fuzzy
 #~ msgid "Playlist file"

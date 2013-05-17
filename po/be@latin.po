@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 16:20-0400\n"
+"POT-Creation-Date: 2013-05-17 00:01-0400\n"
 "PO-Revision-Date: 2008-01-06 01:33+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: i18n@mova.org <i18n@mova.org>\n"
@@ -58,7 +58,7 @@ msgstr "<b>Atrymańnie źviestak ab dysku ź sieciva...</b>"
 
 #: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
 #: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
-#: ../src/interface.c:690 ../src/interface.c:879
+#: ../src/interface.c:745 ../src/interface.c:879
 #, fuzzy, c-format
 msgid "%dKbps"
 msgstr "32Kbps"
@@ -68,21 +68,12 @@ msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Dysk nia ŭstaŭleny. Kali łaska, ustaŭ dysk u pryładu CD-ROM."
 
 #: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:530 ../src/callbacks.c:555 ../src/callbacks.c:580
-#: ../src/callbacks.c:605
+#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
+#: ../src/callbacks.c:580 ../src/callbacks.c:605
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
-msgstr ""
-"%s nia znojdzienaja ŭ ściežcy. Asunder vymahaje jaje, kab stvarać fajły %s. "
-"Usie funkcyi %s vyklučanyja."
-
-#: ../src/callbacks.c:504
-#, fuzzy, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files.All %s "
-"functionality is disabled."
 msgstr ""
 "%s nia znojdzienaja ŭ ściežcy. Asunder vymahaje jaje, kab stvarać fajły %s. "
 "Usie funkcyi %s vyklučanyja."
@@ -248,7 +239,7 @@ msgstr "Źmiennaja častata bitaŭ (VBR)"
 msgid "Better quality for the same size."
 msgstr "Lepšaja jakaść dla takoha samaha pamieru."
 
-#: ../src/interface.c:585 ../src/interface.c:674 ../src/interface.c:814
+#: ../src/interface.c:585 ../src/interface.c:729 ../src/interface.c:814
 #: ../src/interface.c:861
 msgid "Bitrate"
 msgstr "Častata bitaŭ"
@@ -277,7 +268,23 @@ msgstr "Vyšejšaja jakaść aznačaje bolšyja fajły. Zmoŭčanaja vartaść 6
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (stratnaja kampresija)"
 
-#: ../src/interface.c:688
+#: ../src/interface.c:666 ../src/interface.c:780 ../src/interface.c:917
+msgid "Compression level"
+msgstr "Uzrovień kampresii"
+
+#: ../src/interface.c:677 ../src/interface.c:930
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr "Heta nie ŭpłyvaje na jakaść. Bolšaja vartaść aznačaje mienšy fajł."
+
+#: ../src/interface.c:679
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (biasstratnaja kampresija)"
+
+#: ../src/interface.c:698
+msgid "More formats"
+msgstr "Bolej farmataŭ"
+
+#: ../src/interface.c:743
 #, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
@@ -286,26 +293,10 @@ msgstr ""
 "Vyšejšaja častata bitaŭ aznačaje lepšuju jakaść, ale i bolšy pamier. Bolšaść "
 "ludziej vykarystoŭvaje 192Kbps."
 
-#: ../src/interface.c:696
-#, fuzzy
-msgid "OPUS (lossy compression"
-msgstr "MP3 (stratnaja kampresija)"
-
-#: ../src/interface.c:719 ../src/interface.c:780 ../src/interface.c:917
-msgid "Compression level"
-msgstr "Uzrovień kampresii"
-
-#: ../src/interface.c:730 ../src/interface.c:930
-msgid "This does not affect the quality. Higher number means smaller file."
-msgstr "Heta nie ŭpłyvaje na jakaść. Bolšaja vartaść aznačaje mienšy fajł."
-
-#: ../src/interface.c:732
-msgid "FLAC (lossless compression)"
-msgstr "FLAC (biasstratnaja kampresija)"
-
 #: ../src/interface.c:751
-msgid "More formats"
-msgstr "Bolej farmataŭ"
+#, fuzzy
+msgid "OPUS (lossy compression)"
+msgstr "MP3 (stratnaja kampresija)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -408,7 +399,8 @@ msgstr "Kadavańnie"
 #: ../src/interface.c:1709
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"files."
 msgstr ""
 
 #: ../src/interface.c:1752
@@ -478,3 +470,11 @@ msgstr ""
 #: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
 msgid "Waiting..."
 msgstr "Čakańnie..."
+
+#, fuzzy
+#~ msgid ""
+#~ "%s was not found in your path. Asunder requires it to create %s files.All "
+#~ "%s functionality is disabled."
+#~ msgstr ""
+#~ "%s nia znojdzienaja ŭ ściežcy. Asunder vymahaje jaje, kab stvarać fajły "
+#~ "%s. Usie funkcyi %s vyklučanyja."

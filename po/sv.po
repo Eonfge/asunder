@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 16:20-0400\n"
+"POT-Creation-Date: 2013-05-17 00:01-0400\n"
 "PO-Revision-Date: 2012-03-27 12:45+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -56,7 +56,7 @@ msgstr "<b>Hämtar skivinformation från Internet...</b>"
 
 #: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
 #: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
-#: ../src/interface.c:690 ../src/interface.c:879
+#: ../src/interface.c:745 ../src/interface.c:879
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -66,21 +66,12 @@ msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Ingen skiva är inmatad. Mata in en skiva i cd-rom-enheten."
 
 #: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:530 ../src/callbacks.c:555 ../src/callbacks.c:580
-#: ../src/callbacks.c:605
+#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
+#: ../src/callbacks.c:580 ../src/callbacks.c:605
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
-msgstr ""
-"%s hittades inte i dina sökvägar. Asunder kräver det för att skapa %s-filer. "
-"All %s-funktionalitet har inaktiverats."
-
-#: ../src/callbacks.c:504
-#, fuzzy, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files.All %s "
-"functionality is disabled."
 msgstr ""
 "%s hittades inte i dina sökvägar. Asunder kräver det för att skapa %s-filer. "
 "All %s-funktionalitet har inaktiverats."
@@ -241,7 +232,7 @@ msgstr "Variabel bitfrekvens (VBR)"
 msgid "Better quality for the same size."
 msgstr "Bättre kvalitet med samma storlek."
 
-#: ../src/interface.c:585 ../src/interface.c:674 ../src/interface.c:814
+#: ../src/interface.c:585 ../src/interface.c:729 ../src/interface.c:814
 #: ../src/interface.c:861
 msgid "Bitrate"
 msgstr "Bitfrekvens"
@@ -270,7 +261,23 @@ msgstr "Högre kvalitet betyder större fil. Standard är 6."
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (förstörande komprimering)"
 
-#: ../src/interface.c:688
+#: ../src/interface.c:666 ../src/interface.c:780 ../src/interface.c:917
+msgid "Compression level"
+msgstr "Komprimeringsnivå"
+
+#: ../src/interface.c:677 ../src/interface.c:930
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr "Det här påverkar inte kvaliteten. Högre tal betyder mindre fil."
+
+#: ../src/interface.c:679
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (förlustfri komprimering)"
+
+#: ../src/interface.c:698
+msgid "More formats"
+msgstr "Fler format"
+
+#: ../src/interface.c:743
 #, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
@@ -279,26 +286,10 @@ msgstr ""
 "Högre bitfrekvens ger bättre kvalitet men även en större fil. De flesta "
 "använder 192Kbps."
 
-#: ../src/interface.c:696
-#, fuzzy
-msgid "OPUS (lossy compression"
-msgstr "MP3 (förstörande komprimering)"
-
-#: ../src/interface.c:719 ../src/interface.c:780 ../src/interface.c:917
-msgid "Compression level"
-msgstr "Komprimeringsnivå"
-
-#: ../src/interface.c:730 ../src/interface.c:930
-msgid "This does not affect the quality. Higher number means smaller file."
-msgstr "Det här påverkar inte kvaliteten. Högre tal betyder mindre fil."
-
-#: ../src/interface.c:732
-msgid "FLAC (lossless compression)"
-msgstr "FLAC (förlustfri komprimering)"
-
 #: ../src/interface.c:751
-msgid "More formats"
-msgstr "Fler format"
+#, fuzzy
+msgid "OPUS (lossy compression)"
+msgstr "MP3 (förstörande komprimering)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -392,9 +383,11 @@ msgid "Encoding"
 msgstr "Kodning"
 
 #: ../src/interface.c:1709
+#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"files."
 msgstr ""
 "Ett program för att spara spår från en ljud-CD \n"
 "som WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio och/eller AAC-"
@@ -462,6 +455,14 @@ msgstr "Inga spår har markerats för extrahering/kodning. Välj minst ett spår
 #: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
 msgid "Waiting..."
 msgstr "Väntar..."
+
+#, fuzzy
+#~ msgid ""
+#~ "%s was not found in your path. Asunder requires it to create %s files.All "
+#~ "%s functionality is disabled."
+#~ msgstr ""
+#~ "%s hittades inte i dina sökvägar. Asunder kräver det för att skapa %s-"
+#~ "filer. All %s-funktionalitet har inaktiverats."
 
 #, fuzzy
 #~ msgid "Playlist file"

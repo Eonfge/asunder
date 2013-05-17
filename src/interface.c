@@ -748,7 +748,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (opushbox), label, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, label, "bitrate_lbl_4");
 
-    rip_opus = gtk_check_button_new_with_mnemonic (_("OPUS (lossy compression"));
+    rip_opus = gtk_check_button_new_with_mnemonic (_("OPUS (lossy compression)"));
     gtk_widget_show (rip_opus);
     gtk_frame_set_label_widget(GTK_FRAME(opus_frame), rip_opus);
     g_signal_connect((gpointer) rip_opus, "toggled",

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 16:20-0400\n"
+"POT-Creation-Date: 2013-05-17 00:01-0400\n"
 "PO-Revision-Date: 2009-08-27 18:55+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -54,7 +54,7 @@ msgstr "<b>Po marr të dhëna disku prej interneti...</b>"
 
 #: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
 #: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
-#: ../src/interface.c:690 ../src/interface.c:879
+#: ../src/interface.c:745 ../src/interface.c:879
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -64,21 +64,12 @@ msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Nuk është futur CD. Ju lutem fusni një CD te pajisja CD-ROM."
 
 #: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:530 ../src/callbacks.c:555 ../src/callbacks.c:580
-#: ../src/callbacks.c:605
+#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
+#: ../src/callbacks.c:580 ../src/callbacks.c:605
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
-msgstr ""
-"%s nuk u gjet në shtegun tuaj. Asunder-i e ka të nevojshme që të krijojë "
-"kartela %s. Gjithë ana %s është çaktivizuar."
-
-#: ../src/callbacks.c:504
-#, fuzzy, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files.All %s "
-"functionality is disabled."
 msgstr ""
 "%s nuk u gjet në shtegun tuaj. Asunder-i e ka të nevojshme që të krijojë "
 "kartela %s. Gjithë ana %s është çaktivizuar."
@@ -244,7 +235,7 @@ msgstr "Bitrate i ndryshueshëm (VBR)"
 msgid "Better quality for the same size."
 msgstr "Cilësi më e mirë për të njëjtën madhësi."
 
-#: ../src/interface.c:585 ../src/interface.c:674 ../src/interface.c:814
+#: ../src/interface.c:585 ../src/interface.c:729 ../src/interface.c:814
 #: ../src/interface.c:861
 msgid "Bitrate"
 msgstr "Bitrate"
@@ -274,7 +265,23 @@ msgstr ""
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (ngjeshje me humbje)"
 
-#: ../src/interface.c:688
+#: ../src/interface.c:666 ../src/interface.c:780 ../src/interface.c:917
+msgid "Compression level"
+msgstr "Nivel ngjeshjeje"
+
+#: ../src/interface.c:677 ../src/interface.c:930
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr "Kjo nuk prek cilësinë. Numër më i madh do të thotë kartelë më e vogël."
+
+#: ../src/interface.c:679
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (Ngjeshje pa humbje)"
+
+#: ../src/interface.c:698
+msgid "More formats"
+msgstr "Më tepër formate"
+
+#: ../src/interface.c:743
 #, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
@@ -283,26 +290,10 @@ msgstr ""
 "Bitrate më i lartë do të thotë cilësi më e mirë por gjithashtu një kartelë "
 "më e madhe. Shumica e njerëzve përdorin 192Kbps."
 
-#: ../src/interface.c:696
-#, fuzzy
-msgid "OPUS (lossy compression"
-msgstr "MP3 (ngjeshje me humbje)"
-
-#: ../src/interface.c:719 ../src/interface.c:780 ../src/interface.c:917
-msgid "Compression level"
-msgstr "Nivel ngjeshjeje"
-
-#: ../src/interface.c:730 ../src/interface.c:930
-msgid "This does not affect the quality. Higher number means smaller file."
-msgstr "Kjo nuk prek cilësinë. Numër më i madh do të thotë kartelë më e vogël."
-
-#: ../src/interface.c:732
-msgid "FLAC (lossless compression)"
-msgstr "FLAC (Ngjeshje pa humbje)"
-
 #: ../src/interface.c:751
-msgid "More formats"
-msgstr "Më tepër formate"
+#, fuzzy
+msgid "OPUS (lossy compression)"
+msgstr "MP3 (ngjeshje me humbje)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -402,7 +393,8 @@ msgstr "Kodim"
 #: ../src/interface.c:1709
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"files."
 msgstr ""
 
 #: ../src/interface.c:1752
@@ -469,6 +461,14 @@ msgstr ""
 #: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
 msgid "Waiting..."
 msgstr "Po pres..."
+
+#, fuzzy
+#~ msgid ""
+#~ "%s was not found in your path. Asunder requires it to create %s files.All "
+#~ "%s functionality is disabled."
+#~ msgstr ""
+#~ "%s nuk u gjet në shtegun tuaj. Asunder-i e ka të nevojshme që të krijojë "
+#~ "kartela %s. Gjithë ana %s është çaktivizuar."
 
 #, fuzzy
 #~ msgid "Playlist file"

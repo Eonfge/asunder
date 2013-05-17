@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 16:20-0400\n"
+"POT-Creation-Date: 2013-05-17 00:01-0400\n"
 "PO-Revision-Date: 2011-10-05 14:29+0100\n"
 "Last-Translator: Valerio Guaglianone <valpenguin@gmail.com>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "<b>Sto scaricando le informazioni sul disco da internet...</b>"
 
 #: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
 #: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
-#: ../src/interface.c:690 ../src/interface.c:879
+#: ../src/interface.c:745 ../src/interface.c:879
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -63,21 +63,12 @@ msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Nessun CD inserito. Per favore inserisci un CD nel drive CD-ROM."
 
 #: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:530 ../src/callbacks.c:555 ../src/callbacks.c:580
-#: ../src/callbacks.c:605
+#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
+#: ../src/callbacks.c:580 ../src/callbacks.c:605
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
-msgstr ""
-"%s non è nel tuo path. Asunder lo richiede per creare i files %s. Tutte le "
-"funzionalità %s verranno disabilitate."
-
-#: ../src/callbacks.c:504
-#, fuzzy, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files.All %s "
-"functionality is disabled."
 msgstr ""
 "%s non è nel tuo path. Asunder lo richiede per creare i files %s. Tutte le "
 "funzionalità %s verranno disabilitate."
@@ -238,7 +229,7 @@ msgstr "Bit Rate Variabile (VBR)"
 msgid "Better quality for the same size."
 msgstr "Migliore qualità con la stessa dimensione."
 
-#: ../src/interface.c:585 ../src/interface.c:674 ../src/interface.c:814
+#: ../src/interface.c:585 ../src/interface.c:729 ../src/interface.c:814
 #: ../src/interface.c:861
 msgid "Bitrate"
 msgstr "Bitrate"
@@ -267,7 +258,25 @@ msgstr "Qualità più alta genera file più grandi. Il valore di default è 6."
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (compressione lossy)"
 
-#: ../src/interface.c:688
+#: ../src/interface.c:666 ../src/interface.c:780 ../src/interface.c:917
+msgid "Compression level"
+msgstr "Livello compressione"
+
+#: ../src/interface.c:677 ../src/interface.c:930
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr ""
+"Questo non ha effetto sulla qualità. Un numero più alto significa un file "
+"più piccolo."
+
+#: ../src/interface.c:679
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (compressione lossless)"
+
+#: ../src/interface.c:698
+msgid "More formats"
+msgstr "Altri formati dei file"
+
+#: ../src/interface.c:743
 #, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
@@ -276,28 +285,10 @@ msgstr ""
 "Un bitrate più alto migliora la qualità, ma genera file più grandi. Di "
 "solito si usa 192Kbps."
 
-#: ../src/interface.c:696
-#, fuzzy
-msgid "OPUS (lossy compression"
-msgstr "MP3 (compressione lossy)"
-
-#: ../src/interface.c:719 ../src/interface.c:780 ../src/interface.c:917
-msgid "Compression level"
-msgstr "Livello compressione"
-
-#: ../src/interface.c:730 ../src/interface.c:930
-msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
-"Questo non ha effetto sulla qualità. Un numero più alto significa un file "
-"più piccolo."
-
-#: ../src/interface.c:732
-msgid "FLAC (lossless compression)"
-msgstr "FLAC (compressione lossless)"
-
 #: ../src/interface.c:751
-msgid "More formats"
-msgstr "Altri formati dei file"
+#, fuzzy
+msgid "OPUS (lossy compression)"
+msgstr "MP3 (compressione lossy)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -392,9 +383,11 @@ msgid "Encoding"
 msgstr "Codifica"
 
 #: ../src/interface.c:1709
+#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"files."
 msgstr ""
 "Una comoda applicazione che converte le tracce audio di un CD\n"
 "in file WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, e/o files "
@@ -464,6 +457,14 @@ msgstr ""
 #: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
 msgid "Waiting..."
 msgstr "Attendi..."
+
+#, fuzzy
+#~ msgid ""
+#~ "%s was not found in your path. Asunder requires it to create %s files.All "
+#~ "%s functionality is disabled."
+#~ msgstr ""
+#~ "%s non è nel tuo path. Asunder lo richiede per creare i files %s. Tutte "
+#~ "le funzionalità %s verranno disabilitate."
 
 #, fuzzy
 #~ msgid "Playlist file"

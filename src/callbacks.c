@@ -501,7 +501,7 @@ on_rip_opus_toggled                     (GtkToggleButton *togglebutton,
         GtkWidget *dialog;
         dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
                                         GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
-                                        _("%s was not found in your path. Asunder requires it to create %s files."
+                                        _("%s was not found in your path. Asunder requires it to create %s files. "
                                           "All %s functionality is disabled."),
                                         "'opusenc'", "OPUS", "opus");
         gtk_dialog_run (GTK_DIALOG(dialog));
