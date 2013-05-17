@@ -1707,7 +1707,7 @@ GBLtranslators =
 static const char* 
 GBLcomments = 
 N_("An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or "
+"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or "
 "AAC files.");
 
 static const char* 

@@ -29,6 +29,10 @@ CFLAGS="$CFLAGS -Wall -pedantic -std=gnu99 -Wundef -Wcast-align -W -Wpointer-ari
 # warnings and hopefully I won't miss anything important.
 CFLAGS="$CFLAGS -Wno-deprecated-declarations"
 
+# The translator credits string is longer than 4095 bytes, so put this in to 
+# prevent the warning from triggering.
+CFLAGS="$CFLAGS -Wno-overlength-strings"
+
 AC_OUTPUT([
 Makefile
 src/Makefile

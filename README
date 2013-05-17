@@ -6,7 +6,7 @@ Asunder is a graphical Audio CD ripper and encoder. You can use it to save track
 
 Features
 ========
-* Supports WAV, MP3, Ogg Vorbis, FLAC, Wavpack, Musepack, AAC, and Monkey's audio files
+* Supports WAV, MP3, Ogg Vorbis, FLAC, Opus, Wavpack, Musepack, AAC, and Monkey's audio files
 * Uses CDDB to name and tag each track
 * Can encode to multiple formats in one session
 * Creates M3U playlists
@@ -27,6 +27,8 @@ Requirements
   http://www.vorbis.com/
 * FLAC (optional for FLAC support)
   http://flac.sourceforge.net/
+* Opus (optional for Opus support)
+  http://opus-codec.org/
 * Wavpack (optional for wavpack support)
   http://www.wavpack.com/
 * mpcenc (optional for Musepack support)
