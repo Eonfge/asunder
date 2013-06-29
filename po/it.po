@@ -6,14 +6,14 @@ msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-17 00:01-0400\n"
-"PO-Revision-Date: 2011-10-05 14:29+0100\n"
-"Last-Translator: Valerio Guaglianone <valpenguin@gmail.com>\n"
+"PO-Revision-Date: 2013-06-16 16:41+0100\n"
+"Last-Translator: Fabio <fbmail74-abc@yahoo.it>\n"
 "Language-Team:  <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
+"X-Generator: Poedit 1.5.5\n"
 
 #: ../src/main.c:117 ../src/interface.c:233
 msgid "Rip"
@@ -44,8 +44,8 @@ msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
-"'cdparanoia' non è stato trovato nel tuo path. Asunder richiede cdparanoia "
-"per estrarre tracce da CD."
+"'cdparanoia' non è stato trovato nel suo percorso. Asunder richiede "
+"cdparanoia per estrarre tracce da CD."
 
 #: ../src/main.c:418
 msgid "<b>Getting disc info from the internet...</b>"
@@ -70,8 +70,8 @@ msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
 msgstr ""
-"%s non è nel tuo path. Asunder lo richiede per creare i files %s. Tutte le "
-"funzionalità %s verranno disabilitate."
+"%s non è nel suo percorso. Asunder lo richiede per creare i file %s. Tutte "
+"le funzionalità %s verranno disabilitate."
 
 #: ../src/callbacks.c:702
 msgid "Select all for ripping"
@@ -83,7 +83,7 @@ msgstr "Deseleziona tutto per l'estrazione"
 
 #: ../src/interface.c:95
 msgid "CDDB Lookup"
-msgstr "ricerca CDDB"
+msgstr "Ricerca CDDB"
 
 #: ../src/interface.c:147
 msgid "Disc:"
@@ -214,7 +214,7 @@ msgstr "Formati nome file"
 
 #: ../src/interface.c:533
 msgid "Filenames"
-msgstr "Nomi files"
+msgstr "Nomi file"
 
 #. WAV
 #: ../src/interface.c:552
@@ -239,8 +239,8 @@ msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
 msgstr ""
-"Un bitrate più alto migliora la qualità, ma genera file più grandi. Di "
-"solito si usa 192Kbps."
+"Un bitrate più alto migliora la qualità, ma genera file più grandi. Molte "
+"persone usano 192Kbps."
 
 #: ../src/interface.c:609
 msgid "MP3 (lossy compression)"
@@ -281,8 +281,8 @@ msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
-"Un bitrate più alto migliora la qualità, ma genera file più grandi. Di "
-"solito si usa 160Kbps."
+"Un bitrate più alto migliora la qualità, ma genera file più grandi. Molte "
+"persone usano 160Kbps."
 
 #: ../src/interface.c:751
 msgid "OPUS (lossy compression)"
@@ -293,8 +293,8 @@ msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
 msgstr ""
-"Questo non ha effetto sulla qualità. Un numero più alto significa solo un "
-"file più piccolo."
+"Questo non ha effetto sulla qualità. Un numero più alto significa un file "
+"più piccolo. Valore di default 1 (raccomandato)"
 
 #: ../src/interface.c:799
 msgid "Hybrid compression"
@@ -306,7 +306,7 @@ msgid ""
 "lossless original."
 msgstr ""
 "Il formato è di tipo lossy, ma una correzione del file viene effettuata per "
-"il ripristino della perdita di originale."
+"il ripristino della perdita dall'originale."
 
 #: ../src/interface.c:877
 msgid "Higher bitrate is better quality but also bigger file."
@@ -318,7 +318,7 @@ msgstr "Musepack (compressione lossy)"
 
 #: ../src/interface.c:932
 msgid "Monkey's Audio (lossless compression)"
-msgstr "Monkey's audio (compressione lossless)"
+msgstr "Audio Monkey (compressione lossless)"
 
 #. END MONKEY
 #: ../src/interface.c:941
@@ -362,7 +362,7 @@ msgstr "Porta del server CDDB (valore di default 8880)"
 
 #: ../src/interface.c:1067
 msgid "Use an HTTP proxy to connect to the internet"
-msgstr "Usa un server proxy per connetterti ad internet"
+msgstr "Usa un proxy HTTP per connetterti ad internet"
 
 #: ../src/interface.c:1111
 msgid "Advanced"
@@ -386,23 +386,23 @@ msgid ""
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
-"Una comoda applicazione che converte le tracce audio di un CD\n"
-"in file WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, e/o files "
-"AAC."
+"Una applicazione che converte le tracce audio di un CD\n"
+"in file WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, e/o "
+"files AAC."
 
 #: ../src/interface.c:1752
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "% d file creato con successo"
-msgstr[1] "%d files creati con successo"
+msgstr[1] "%d file creati con successo"
 
 #: ../src/interface.c:1761
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Errore nella creazione di %d file"
-msgstr[1] "Errore nella creazione di %d files"
+msgstr[1] "Errore nella creazione di %d file"
 
 #: ../src/prefs.c:648 ../src/prefs.c:660
 #, c-format
