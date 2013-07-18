@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder-2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 16:20-0400\n"
+"POT-Creation-Date: 2013-07-18 09:33-0400\n"
 "PO-Revision-Date: 2013-07-17 04:47+0530\n"
 "Last-Translator: Rajib Lochan Dhibar <rajib.lochan.dhibar@gmail.com>\n"
 "Language-Team: Rajib Lochan Dhibar <rajib.lochan.dhibar@gmail.com>\n"
@@ -19,8 +19,7 @@ msgstr ""
 "X-Poedit-Country: INDIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../src/main.c:117
-#: ../src/interface.c:233
+#: ../src/main.c:117 ../src/interface.c:233
 msgid "Rip"
 msgstr "রিপ্"
 
@@ -45,21 +44,20 @@ msgid "Time"
 msgstr "সময়"
 
 #: ../src/main.c:169
-msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
-msgstr "সিস্টেম পাথের মদ্ধ্যে 'cdparanoia' পাওয়া যায় নি। সিডি রিপ্ করতে অসুন্ডারের 'cdparanoia' দরকার।"
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"সিস্টেম পাথের মদ্ধ্যে 'cdparanoia' পাওয়া যায় নি। সিডি রিপ্ করতে অসুন্ডারের "
+"'cdparanoia' দরকার।"
 
 #: ../src/main.c:418
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>ইন্টারনেট্ থেকে ডিস্কের তথ্য নেওয়া হচ্ছে...</b>"
 
-#: ../src/callbacks.c:57
-#: ../src/callbacks.c:261
-#: ../src/callbacks.c:289
-#: ../src/callbacks.c:298
-#: ../src/callbacks.c:308
-#: ../src/interface.c:603
-#: ../src/interface.c:690
-#: ../src/interface.c:879
+#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
+#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
+#: ../src/interface.c:745 ../src/interface.c:879
 #, c-format
 msgid "%dKbps"
 msgstr "%dকেবিপিএস"
@@ -68,21 +66,16 @@ msgstr "%dকেবিপিএস"
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "কোন সিডি ঢোকানো হয় নি। অনুগ্রহ করে সিডি-রম ড্রাইভে সিডি ঢোকান।"
 
-#: ../src/callbacks.c:429
-#: ../src/callbacks.c:454
-#: ../src/callbacks.c:479
-#: ../src/callbacks.c:530
-#: ../src/callbacks.c:555
-#: ../src/callbacks.c:580
-#: ../src/callbacks.c:605
+#: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
+#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
+#: ../src/callbacks.c:580 ../src/callbacks.c:605
 #, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
-msgstr "সিস্টেম পাথের মদ্ধে %s পাওয়া যায় নি। %s ফাইল তৈরি করতে অসুন্ডারের এটি দরকার। সমস্ত %s কাজকর্ম অকেজ হল।"
-
-#: ../src/callbacks.c:504
-#, c-format
-msgid "%s was not found in your path. Asunder requires it to create %s files.All %s functionality is disabled."
-msgstr "সিস্টেম পাথের মদ্ধে %s পাওয়া যায় নি। %s ফাইল তৈরি করতে অসুন্ডারের এটি দরকার। সমস্ত %s কাজকর্ম অকেজ হল।"
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All "
+"%s functionality is disabled."
+msgstr ""
+"সিস্টেম পাথের মদ্ধে %s পাওয়া যায় নি। %s ফাইল তৈরি করতে অসুন্ডারের এটি দরকার। "
+"সমস্ত %s কাজকর্ম অকেজ হল।"
 
 #: ../src/callbacks.c:702
 msgid "Select all for ripping"
@@ -124,8 +117,7 @@ msgstr "একটি বিভাগ"
 msgid "Preferences"
 msgstr "পছন্দতালিকা"
 
-#: ../src/interface.c:393
-#: ../src/interface.c:399
+#: ../src/interface.c:393 ../src/interface.c:399
 msgid "Destination folder"
 msgstr "গন্তব্য ফোল্ডার"
 
@@ -178,14 +170,11 @@ msgstr "%G - বিভাগ"
 msgid "Album directory: "
 msgstr "এলবামের ফোল্ডার: "
 
-#: ../src/interface.c:479
-#: ../src/prefs.c:649
+#: ../src/interface.c:479 ../src/prefs.c:649
 msgid "Playlist file: "
 msgstr "প্লে-লিস্টের ফাইল: "
 
-#: ../src/interface.c:486
-#: ../src/prefs.c:661
-#: ../src/prefs.c:671
+#: ../src/interface.c:486 ../src/prefs.c:661 ../src/prefs.c:671
 msgid "Music file: "
 msgstr "গানের ফাইল: "
 
@@ -244,23 +233,24 @@ msgstr "ভেরিয়েবল বিট রেট (VBR)"
 msgid "Better quality for the same size."
 msgstr "একই সাইজের জন্য উন্নতমানের।"
 
-#: ../src/interface.c:585
-#: ../src/interface.c:674
-#: ../src/interface.c:814
+#: ../src/interface.c:585 ../src/interface.c:729 ../src/interface.c:814
 #: ../src/interface.c:861
 msgid "Bitrate"
 msgstr "বিটরেট্"
 
 #: ../src/interface.c:600
-msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
-msgstr "বিটরেট্ বেশী হলে উন্নতমানের হবে, আবার ফাইল সাইজও বাড়বে। অনেকেই ১৯২-কেবিপিএস্ ব্যবহার করেন।"
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"বিটরেট্ বেশী হলে উন্নতমানের হবে, আবার ফাইল সাইজও বাড়বে। অনেকেই ১৯২-কেবিপিএস্ "
+"ব্যবহার করেন।"
 
 #: ../src/interface.c:609
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (ক্ষতিকারক সঙ্কোচন)"
 
-#: ../src/interface.c:631
-#: ../src/interface.c:972
+#: ../src/interface.c:631 ../src/interface.c:972
 msgid "Quality"
 msgstr "গুনমান"
 
@@ -272,44 +262,52 @@ msgstr "গুনমান ভালো হলে ফাইল সাইজ ব�
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG ভরবিস্ (ক্ষতিকারক সঙ্কোচন)"
 
-#: ../src/interface.c:688
-msgid "Higher bitrate is better quality but also bigger file. Most people use 160Kbps."
-msgstr "বিটরেট্ বেশী হলে উন্নতমানের হবে, আবার ফাইল সাইজও বাড়বে। অনেকেই ১৬০-কেবিপিএস্ ব্যবহার করেন।"
-
-#: ../src/interface.c:696
-msgid "OPUS (lossy compression"
-msgstr "OPUS (ক্ষতিকারক সঙ্কোচন)"
-
-#: ../src/interface.c:719
-#: ../src/interface.c:780
-#: ../src/interface.c:917
+#: ../src/interface.c:666 ../src/interface.c:780 ../src/interface.c:917
 msgid "Compression level"
 msgstr "সঙ্কোচনের মাত্রা"
 
-#: ../src/interface.c:730
-#: ../src/interface.c:930
+#: ../src/interface.c:677 ../src/interface.c:930
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "এটি গুনমানে প্রভাব ফেলবে না। উচ্চ সংখ্যা মানে ছোট ফাইল।"
 
-#: ../src/interface.c:732
+#: ../src/interface.c:679
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (অক্ষতিকারক সঙ্কোচন)"
 
-#: ../src/interface.c:751
+#: ../src/interface.c:698
 msgid "More formats"
 msgstr "অারও কিছু ফরমাট্"
 
+#: ../src/interface.c:743
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"160Kbps."
+msgstr ""
+"বিটরেট্ বেশী হলে উন্নতমানের হবে, আবার ফাইল সাইজও বাড়বে। অনেকেই ১৬০-কেবিপিএস্ "
+"ব্যবহার করেন।"
+
+#: ../src/interface.c:751
+msgid "OPUS (lossy compression)"
+msgstr "OPUS (ক্ষতিকারক সঙ্কোচন)"
+
 #: ../src/interface.c:793
-msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
-msgstr "এটি গুনমানে প্রভাব ফেলবে না। উচ্চ সংখ্যা মানে ছোট ফাইল। ১-হলো ডিফল্ট (প্রস্তাবিত)।"
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"এটি গুনমানে প্রভাব ফেলবে না। উচ্চ সংখ্যা মানে ছোট ফাইল। ১-হলো ডিফল্ট (প্রস্তাবিত)।"
 
 #: ../src/interface.c:799
 msgid "Hybrid compression"
 msgstr "সঙ্করায়িত সঙ্কোচন"
 
 #: ../src/interface.c:808
-msgid "The format is lossy but a correction file is created for restoring the lossless original."
-msgstr "এই ফরমাটটি ক্ষয়কারি, কিন্তু অপচয়হীন অাসলটিকে পুনরুদ্ধার করার জন্য একটি সংশোধন ফাইল তৈরী করা হয়েছে।"
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+"এই ফরমাটটি ক্ষয়কারি, কিন্তু অপচয়হীন অাসলটিকে পুনরুদ্ধার করার জন্য একটি সংশোধন ফাইল "
+"তৈরী করা হয়েছে।"
 
 #: ../src/interface.c:877
 msgid "Higher bitrate is better quality but also bigger file."
@@ -345,17 +343,17 @@ msgstr "এনকোড্"
 msgid "Get disc info from the internet automatically"
 msgstr "সয়ংক্রিয়ভাবে ইন্টারনেট্ থেকে ডিস্কের তথ্য নেওয়া হোক্"
 
-#: ../src/interface.c:1035
-#: ../src/interface.c:1080
+#: ../src/interface.c:1035 ../src/interface.c:1080
 msgid "Server: "
 msgstr "সার্ভার:"
 
 #: ../src/interface.c:1045
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
-msgstr "সিডিডিবি সার্ভার, যেখান থেকে ডিস্কের তথ্য নেওয়া হবে (ডিফল্ট হলো freedb.freedb.org)"
+msgstr ""
+"সিডিডিবি সার্ভার, যেখান থেকে ডিস্কের তথ্য নেওয়া হবে (ডিফল্ট হলো freedb.freedb."
+"org)"
 
-#: ../src/interface.c:1051
-#: ../src/interface.c:1093
+#: ../src/interface.c:1051 ../src/interface.c:1093
 msgid "Port: "
 msgstr "পোর্ট:"
 
@@ -371,8 +369,7 @@ msgstr "ইন্টারনেটে সংযোগ করতে HTTP প্�
 msgid "Advanced"
 msgstr "উন্নততর"
 
-#: ../src/interface.c:1182
-#: ../src/interface.c:1218
+#: ../src/interface.c:1182 ../src/interface.c:1218
 msgid "Ripping"
 msgstr "রিপিং"
 
@@ -387,7 +384,8 @@ msgstr "এনকোডিং"
 #: ../src/interface.c:1709
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"files."
 msgstr ""
 "একটি ব্যবহারিক সফট্ওয়ার যা অডিও সিডি থেকে ট্রাকগুলিকে সেভ করে WAV,\n"
 "MP3, OGG, FLAC, ওয়্যাভপ্যাক, মিউজপ্যাক, মাঙ্কিস্ অডিও, এবং/অথবা AAC ফাইলে।"
@@ -395,21 +393,18 @@ msgstr ""
 #: ../src/interface.c:1752
 #, c-format
 msgid "%d file created successfully"
-msgstr "%d ফাইল সফলভাবে তৈরি হয়েছে"
-
-msgid "%d files created successfully"
-msgstr "%d ফাইলগুলি সফলভাবে তৈরি হয়েছে"
+msgid_plural "%d files created successfully"
+msgstr[0] "%d ফাইল সফলভাবে তৈরি হয়েছে"
+msgstr[1] "%d ফাইলগুলি সফলভাবে তৈরি হয়েছে"
 
 #: ../src/interface.c:1761
 #, c-format
 msgid "There was an error creating %d file"
-msgstr "%d ফাইল তৈরি করার সময় একটি ত্রুটি ছিল"
+msgid_plural "There was an error creating %d files"
+msgstr[0] "%d ফাইল তৈরি করার সময় একটি ত্রুটি ছিল"
+msgstr[1] "%d ফাইলগুলি তৈরি করার সময় একটি ত্রুটি ছিল"
 
-msgid "There was an error creating %d files"
-msgstr "%d ফাইলগুলি তৈরি করার সময় একটি ত্রুটি ছিল"
-
-#: ../src/prefs.c:648
-#: ../src/prefs.c:660
+#: ../src/prefs.c:648 ../src/prefs.c:660
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "'%s' অঞ্চলের মদ্ধ্যে অবৈধ অক্ষর অাছে"
@@ -441,16 +436,32 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr "উত্তরটি মনে রাখা দরকার। সমস্ত ফাইল এই সিডি থেকে তৈরি হয়েছে।"
 
 #: ../src/threads.c:182
-msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
-msgstr "কোন রিপিং/এনকোডিং পদ্ধতি বাছা হয় নি। 'পছন্দতালিকা' থেকে যেকোন একটিকে সক্রিয় করুন।"
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"কোন রিপিং/এনকোডিং পদ্ধতি বাছা হয় নি। 'পছন্দতালিকা' থেকে যেকোন একটিকে সক্রিয় করুন।"
 
 #: ../src/threads.c:211
-msgid "No tracks were selected for ripping/encoding. Please select at least one track."
-msgstr "রিপিং/এনকোডিং-এর জন্য কোন ট্রাক্ বাছা হয়নি। অনুগ্রহ করে অন্তত একটি ট্রাক্ বেছে নিন।"
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr ""
+"রিপিং/এনকোডিং-এর জন্য কোন ট্রাক্ বাছা হয়নি। অনুগ্রহ করে অন্তত একটি ট্রাক্ বেছে নিন।"
 
-#: ../src/threads.c:1042
-#: ../src/threads.c:1044
-#: ../src/threads.c:1048
+#: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
 msgid "Waiting..."
 msgstr "প্রতীক্ষায় অাছি..."
 
+#~ msgid ""
+#~ "%s was not found in your path. Asunder requires it to create %s files.All "
+#~ "%s functionality is disabled."
+#~ msgstr ""
+#~ "সিস্টেম পাথের মদ্ধে %s পাওয়া যায় নি। %s ফাইল তৈরি করতে অসুন্ডারের এটি দরকার। "
+#~ "সমস্ত %s কাজকর্ম অকেজ হল।"
+
+#~ msgid "%d files created successfully"
+#~ msgstr "%d ফাইলগুলি সফলভাবে তৈরি হয়েছে"
+
+#~ msgid "There was an error creating %d files"
+#~ msgstr "%d ফাইলগুলি তৈরি করার সময় একটি ত্রুটি ছিল"

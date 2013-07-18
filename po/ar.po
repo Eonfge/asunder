@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-17 00:01-0400\n"
+"POT-Creation-Date: 2013-07-18 09:33-0400\n"
 "PO-Revision-Date: 2010-12-27 22:54+0200\n"
 "Last-Translator: Muhammad Ali Makki <makkiabufaris@aol.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -384,7 +384,8 @@ msgid ""
 "files."
 msgstr ""
 "برنامج لحفظ المقطوعات من الأقراص الصوتية \n"
-"مثل WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, و/أو ملفات AAC."
+"مثل WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, و/أو ملفات "
+"AAC."
 
 #: ../src/interface.c:1752
 #, c-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.93\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-17 00:01-0400\n"
+"POT-Creation-Date: 2013-07-18 09:33-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Petar Kulić <cooleech@gmail.com>\n"
 "Language-Team: Hrvatski <LL@li.org>\n"
@@ -386,7 +386,8 @@ msgid ""
 "files."
 msgstr ""
 "Aplikacija za spremanje zapisa sa Audio CD-a \n"
-"u WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey Audio, i/ili AAC datoteke."
+"u WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey Audio, i/ili AAC "
+"datoteke."
 
 #: ../src/interface.c:1752
 #, c-format

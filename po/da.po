@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-17 00:01-0400\n"
+"POT-Creation-Date: 2013-07-18 09:33-0400\n"
 "PO-Revision-Date: 2010-08-18 23:00+2000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -358,7 +358,8 @@ msgstr "Server: "
 
 #: ../src/interface.c:1045
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
-msgstr "CDDB-serveren som cd-infoen skal hentes fra (standard er freedb.freedb.org)"
+msgstr ""
+"CDDB-serveren som cd-infoen skal hentes fra (standard er freedb.freedb.org)"
 
 #: ../src/interface.c:1051 ../src/interface.c:1093
 msgid "Port: "
@@ -395,7 +396,8 @@ msgid ""
 "files."
 msgstr ""
 "Et program til at gemme numre fra en lyd-cd \n"
-"som WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkeys Audio og/eller AAC-filer."
+"som WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkeys Audio og/eller AAC-"
+"filer."
 
 #: ../src/interface.c:1752
 #, c-format

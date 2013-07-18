@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-17 00:01-0400\n"
+"POT-Creation-Date: 2013-07-18 09:33-0400\n"
 "PO-Revision-Date: 2012-06-19 12:23+0100\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -394,7 +394,8 @@ msgid ""
 "files."
 msgstr ""
 "Un aplicativo para gardar pistas desde un CD de son \n"
-"como WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, e/o AAC files."
+"como WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, e/o AAC "
+"files."
 
 #: ../src/interface.c:1752
 #, c-format

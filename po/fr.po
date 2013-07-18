@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder v1.6.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-17 00:01-0400\n"
+"POT-Creation-Date: 2013-07-18 09:33-0400\n"
 "PO-Revision-Date: 2012-05-28 15:10+0100\n"
 "Last-Translator: Clément Raïevsky <c.raievsky@gmail.com>\n"
 "Language-Team: \n"
@@ -392,7 +392,8 @@ msgid ""
 "files."
 msgstr ""
 "Une application pour enregistrer les pistes d'un CD audio \n"
-"aux formats WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio et AAC."
+"aux formats WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio et "
+"AAC."
 
 #: ../src/interface.c:1752
 #, c-format
