@@ -336,10 +336,13 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
     return GTK_TREE_MODEL(store);
 }
 
-
+// The original code only worked on Linux, commented it out to work 
+// on BSD as well.
+// The new code will hopefully work everywhere, but left the old two
+// here for posterity's reference.
 void eject_disc(char * cdrom)
 {
-    int fd;
+    /*int fd;
     
     // open the device
     fd = open(cdrom, O_RDONLY | O_NONBLOCK);
@@ -361,7 +364,17 @@ void eject_disc(char * cdrom)
 #endif
     //~ }
     
-    close(fd);
+    close(fd);*/
+    
+    if (!fork())
+    {
+        char* args[] = {"eject", cdrom, NULL};
+        execvp(args[0], args);
+        
+        printf("Should never see this, why did the call to 'eject' fail?\n");
+        debugLog("Should never see this, why did the call to 'eject' fail?\n");
+        exit(1);
+    }
 }
 
 static GThread * gbl_cddb_query_thread;
