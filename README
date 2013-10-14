@@ -48,7 +48,7 @@ mpcenc, neroAacEnc, and mac are also not required and may be difficult to instal
 
 Then run:
 
-./configure # If you don't see a 'configure' file, run './autogen.sh' first.
+./configure # If you don't see a 'configure' file, run './autogen.sh' first. 
 
 If you get errors, it's probably a missing dependency. Afterwards, run:
 
