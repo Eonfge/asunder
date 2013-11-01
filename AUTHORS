@@ -34,11 +34,20 @@ Richard Gill
 Hiroyuki Ito
 - Support for autocompletion in artist/album/genre fields.
 
+Jonathan 'theJPster' Pallant
+- Tag AAC files using neroAacTag.
+
 Micah Lindstrom
 - Support for invalid filesystem characters in metadata.
 
 Tim Allen
 - Fix to make the MusicBrainz CDDB gateway work with Asunder.
+
+Tudor
+- Desktop file trick to add Asunder to the list of audio CD apps in Gnome.
+
+Felix Braun
+- Support for encoding into OPUS.
 
 Packages:
 
@@ -91,7 +100,6 @@ Christophe Lincoln
 
 coolpup
 - Puppy package of Asunder, version 1.6.2
-
 
 Translators:
 
