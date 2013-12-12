@@ -10,10 +10,28 @@
 #define COMPLETION_MAX 4000
 #define COMPLETION_NAME_KEY "completion_name"
 
+static char * completion_filename(const char * name, int create_dirs)
+{
+	const char * cache = g_getenv("XDG_CACHE_HOME");
+	char * file;
+	if (cache == NULL) {
+		file = g_strdup_printf("%s/.asunder_%s", g_getenv("HOME"), name);
+	}
+	else {
+		file = g_strdup_printf("%s/asunder/%s", cache, name);
+		if (create_dirs) {
+			char * dir = g_strdup_printf("%s/asunder", cache);
+			recursive_mkdir(dir, S_IRWXU|S_IRWXG|S_IRWXO);
+			g_free(dir);
+		}
+	}
+	debugLog("using completion file name: %s\n", file);
+	return file;
+}
+
 static void
 read_completion_file(GtkListStore * list, const char * name)
 {
-    const char * home = g_getenv("HOME");
     char buf[1024];
     char * file;
     char * ptr;
@@ -21,7 +39,7 @@ read_completion_file(GtkListStore * list, const char * name)
     GtkTreeIter iter;
     int i;
 
-    file = g_strdup_printf("%s/.asunder_%s", home, name);
+    file = completion_filename(name, false);
     if (file == NULL)
       fatalError("g_strdup_printf() failed. Out of memory.");
 
@@ -113,7 +131,6 @@ void
 save_completion(GtkWidget * entry)
 {
     GtkTreeModel * model;
-    const gchar * home;
     const gchar * name;
     char * file;
     FILE * data;
@@ -126,9 +143,7 @@ save_completion(GtkWidget * entry)
     if (name == NULL)
       return;
 
-    home = g_getenv("HOME");
-
-    file = g_strdup_printf("%s/.asunder_%s", home, name);
+    file = completion_filename(name, 1);
     if (file == NULL)
       fatalError("g_strdup_printf() failed. Out of memory.");
 
