@@ -1704,6 +1704,9 @@ GBLtranslators =
 "http://makki.urducoder.com/\n"
 "- ur_PK (Urdu/Pakistan) translation of Asunder version 2.0\n"
 "\n"
+"Tiansworld\n"
+"- zh_CN (Simplified Chineese) translation of Asunder version 2.3\n"
+"\n"
 "Cheng-Wei Chien\n"
 "- zh_TW (Chineese/Taiwan) translation of Asunder versions 0.8 - 1.9\n"
 "\n";

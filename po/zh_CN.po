@@ -1,0 +1,449 @@
+# Simplified Chinese translation of asunder
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Tiansworld   <tiansworld@fedoraproject.org>, 2013
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: asunder zh_CN translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-16 16:20-0400\n"
+"PO-Revision-Date: 2013-11-21 20:48+0800\n"
+"Last-Translator: Tiansworld <tiansworld@fedoraproject.org>\n"
+"Language-Team: LANGUAGE <tiansworld@fedoraproject.org>\n"
+"Language: Simplified Chinese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: ../src/main.c:117 ../src/interface.c:233
+msgid "Rip"
+msgstr "抓取"
+
+#: ../src/main.c:121
+msgid "Track"
+msgstr "曲目"
+
+#: ../src/main.c:127
+msgid "Artist"
+msgstr "艺术家"
+
+#: ../src/main.c:133
+msgid "Title"
+msgstr "标题"
+
+#: ../src/main.c:139
+msgid "Genre"
+msgstr "类型"
+
+#: ../src/main.c:143
+msgid "Time"
+msgstr "时间"
+
+#: ../src/main.c:169
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"在您的工作路径中未找到“cdparanoia”。Asunder 需要 cdparanoia 来抓取 CD。"
+
+#: ../src/main.c:418
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr "<b>正在从互联网获取碟片信息...</b>"
+
+#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
+#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
+#: ../src/interface.c:690 ../src/interface.c:879
+#, c-format
+msgid "%dKbps"
+msgstr "%dKbps"
+
+#: ../src/callbacks.c:410
+msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
+msgstr "未插入 CD。请将 CD 插入 CD-ROM 驱动器。"
+
+#: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
+#: ../src/callbacks.c:530 ../src/callbacks.c:555 ../src/callbacks.c:580
+#: ../src/callbacks.c:605
+#, c-format
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All "
+"%s functionality is disabled."
+msgstr ""
+"在您的工作路径中未找到 %s。Asunder 需要它来创建 %s 文件。所有 %s 的功能都已禁"
+"用。"
+
+#: ../src/callbacks.c:504
+#, c-format
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files.All %s "
+"functionality is disabled."
+msgstr ""
+"在您的工作路径中未找到 %s。Asunder 需要它来创建 %s 文件。所有 %s 的功能都已禁"
+"用。"
+
+#: ../src/callbacks.c:702
+msgid "Select all for ripping"
+msgstr "选择所有内容进行抓取"
+
+#: ../src/callbacks.c:708
+msgid "Deselect all for ripping"
+msgstr "取消选择所有要抓取的内容"
+
+#: ../src/interface.c:95
+msgid "CDDB Lookup"
+msgstr "CDDB 查找"
+
+#: ../src/interface.c:147
+msgid "Disc:"
+msgstr "光盘："
+
+#: ../src/interface.c:153
+msgid "Album Artist:"
+msgstr "专辑艺术家："
+
+#: ../src/interface.c:160
+msgid "Album Title:"
+msgstr "专辑名称："
+
+#: ../src/interface.c:167
+msgid "Single Artist"
+msgstr "单个艺术家"
+
+#: ../src/interface.c:173
+msgid "Genre / Year:"
+msgstr "类型/年代："
+
+#: ../src/interface.c:180
+msgid "Single Genre"
+msgstr "单个类型"
+
+#: ../src/interface.c:376
+msgid "Preferences"
+msgstr "偏好设置"
+
+#: ../src/interface.c:393 ../src/interface.c:399
+msgid "Destination folder"
+msgstr "目标文件夹"
+
+#: ../src/interface.c:403
+msgid "Create M3U playlist"
+msgstr "创建 M3U 播放列表"
+
+#: ../src/interface.c:411
+msgid "CD-ROM device: "
+msgstr "CD-ROM 设备："
+
+#: ../src/interface.c:420
+msgid ""
+"Default: /dev/cdrom\n"
+"Other example: /dev/hdc\n"
+"Other example: /dev/sr0"
+msgstr ""
+"默认：/dev/cdrom\n"
+"其它示例：/dev/hdc\n"
+"其它示例：/dev/sr0"
+
+#: ../src/interface.c:424
+msgid "Eject disc when finished"
+msgstr "完成后弹出光盘"
+
+#: ../src/interface.c:432
+msgid "General"
+msgstr "通用"
+
+#: ../src/interface.c:452
+msgid ""
+"%A - Artist\n"
+"%L - Album\n"
+"%N - Track number (2-digit)\n"
+"%Y - Year (4-digit or \"0\")\n"
+"%T - Song title"
+msgstr ""
+"%A - 艺术家\n"
+"%L - 专辑\n"
+"%N - 曲目编号 (2 位)\n"
+"%Y - 年代 (4 位或“0”)\n"
+"%T - 歌曲名称"
+
+#: ../src/interface.c:457
+#, c-format
+msgid "%G - Genre"
+msgstr "%G - 类型"
+
+#: ../src/interface.c:472
+msgid "Album directory: "
+msgstr "专辑目录："
+
+#: ../src/interface.c:479 ../src/prefs.c:649
+msgid "Playlist file: "
+msgstr "播放列表文件："
+
+#: ../src/interface.c:486 ../src/prefs.c:661 ../src/prefs.c:671
+msgid "Music file: "
+msgstr "音乐文件："
+
+#: ../src/interface.c:500
+msgid ""
+"This is relative to the destination folder (from the General tab).\n"
+"Can be blank.\n"
+"Default: %A - %L\n"
+"Other example: %A/%L"
+msgstr ""
+"相对于目标文件夹 (来自通用菜单)。\n"
+"可留空白。\n"
+"默认：%A - %L\n"
+"其它示例：%A/%L"
+
+#: ../src/interface.c:512
+msgid ""
+"This will be stored in the album directory.\n"
+"Can be blank.\n"
+"Default: %A - %L"
+msgstr ""
+"这将会保存到专辑目录下。\n"
+"可留空白。\n"
+"默认：%A - %L"
+
+#: ../src/interface.c:523
+msgid ""
+"This will be stored in the album directory.\n"
+"Cannot be blank.\n"
+"Default: %A - %T\n"
+"Other example: %N - %T"
+msgstr ""
+"这将会保存到专辑目录下。\n"
+"不能空白。\n"
+"默认： %A - %T\n"
+"其它示例：%N - %T"
+
+#: ../src/interface.c:528
+msgid "Filename formats"
+msgstr "文件名称格式"
+
+#: ../src/interface.c:533
+msgid "Filenames"
+msgstr "文件名称"
+
+#. WAV
+#: ../src/interface.c:552
+msgid "WAV (uncompressed)"
+msgstr "WAV (无压缩)"
+
+#: ../src/interface.c:571
+msgid "Variable bit rate (VBR)"
+msgstr "可变比特率 (VBR)"
+
+#: ../src/interface.c:579
+msgid "Better quality for the same size."
+msgstr "相同文件大小时品质更好。"
+
+#: ../src/interface.c:585 ../src/interface.c:674 ../src/interface.c:814
+#: ../src/interface.c:861
+msgid "Bitrate"
+msgstr "比特率"
+
+#: ../src/interface.c:600
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr "比特率越高品质越好，文件也更大。多数人使用 192Kbps。"
+
+#: ../src/interface.c:609
+msgid "MP3 (lossy compression)"
+msgstr "MP3 (有损压缩)"
+
+#: ../src/interface.c:631 ../src/interface.c:972
+msgid "Quality"
+msgstr "品质"
+
+#: ../src/interface.c:642
+msgid "Higher quality means bigger file. Default is 6."
+msgstr "更高的品质意味着文件会更大。默认为 6。"
+
+#: ../src/interface.c:644
+msgid "OGG Vorbis (lossy compression)"
+msgstr "OGG Vorbis (有损压缩)"
+
+#: ../src/interface.c:688
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"160Kbps."
+msgstr "比特率越高品质越好，文件也更大。多数人使用 160Kbps。"
+
+#: ../src/interface.c:696
+msgid "OPUS (lossy compression"
+msgstr "OPUS (有损压缩"
+
+#: ../src/interface.c:719 ../src/interface.c:780 ../src/interface.c:917
+msgid "Compression level"
+msgstr "压缩级别"
+
+#: ../src/interface.c:730 ../src/interface.c:930
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr "并不会影响品质。设置数值越高文件越小。"
+
+#: ../src/interface.c:732
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (无损压缩)"
+
+#: ../src/interface.c:751
+msgid "More formats"
+msgstr "更多选项"
+
+#: ../src/interface.c:793
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr "不影响品质。数值越高文件越小。默认是 1 (推荐)。"
+
+#: ../src/interface.c:799
+msgid "Hybrid compression"
+msgstr "混合压缩"
+
+#: ../src/interface.c:808
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr "此格式是有损格式，但会创建一个修正文件用于恢复无损原始文件。"
+
+#: ../src/interface.c:877
+msgid "Higher bitrate is better quality but also bigger file."
+msgstr "比特率越高品质越好，但文件也更大。"
+
+#: ../src/interface.c:885
+msgid "Musepack (lossy compression)"
+msgstr "Musepack (有损压缩)"
+
+#: ../src/interface.c:932
+msgid "Monkey's Audio (lossless compression)"
+msgstr "Monkey's Audio (有损压缩)"
+
+#. END MONKEY
+#: ../src/interface.c:941
+msgid "Proprietary encoders"
+msgstr "私有编码器"
+
+#: ../src/interface.c:985
+msgid "Higher quality means bigger file. Default is 60."
+msgstr "品质越高文件越大。默认为 60。"
+
+#: ../src/interface.c:987
+msgid "AAC (lossy compression, Nero encoder)"
+msgstr "AAC (有损压缩，Nero 编码器)"
+
+#. END AAC
+#: ../src/interface.c:996
+msgid "Encode"
+msgstr "编码"
+
+#: ../src/interface.c:1027
+msgid "Get disc info from the internet automatically"
+msgstr "自动从互联网获取光盘信息"
+
+#: ../src/interface.c:1035 ../src/interface.c:1080
+msgid "Server: "
+msgstr "服务器："
+
+#: ../src/interface.c:1045
+msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
+msgstr "要从中获取光盘信息的 CDDB 服务器 (默认为 freedb.freedb.org)"
+
+#: ../src/interface.c:1051 ../src/interface.c:1093
+msgid "Port: "
+msgstr "端口："
+
+#: ../src/interface.c:1061
+msgid "The CDDB server port (default is 8880)"
+msgstr "CDDB 服务器端口 (默认为 8880)"
+
+#: ../src/interface.c:1067
+msgid "Use an HTTP proxy to connect to the internet"
+msgstr "使用 HTTP 代理连接到互联网"
+
+#: ../src/interface.c:1111
+msgid "Advanced"
+msgstr "高级"
+
+#: ../src/interface.c:1182 ../src/interface.c:1218
+msgid "Ripping"
+msgstr "抓取中"
+
+#: ../src/interface.c:1211
+msgid "Total progress"
+msgstr "总进度"
+
+#: ../src/interface.c:1225
+msgid "Encoding"
+msgstr "编码中"
+
+#: ../src/interface.c:1709
+msgid ""
+"An application to save tracks from an Audio CD \n"
+"as WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
+msgstr ""
+"一个用于从音频 CD 提取曲目并保存为 \n"
+"WAV、MP3、OGG、FLAC、Wavpack、MusePack、Mounkey's Audio 及/或 AAC 等文件的程"
+"序。"
+
+#: ../src/interface.c:1752
+#, c-format
+msgid "%d file created successfully"
+msgid_plural "%d files created successfully"
+msgstr[0] "已成功创建 %d 个文件"
+
+#: ../src/interface.c:1761
+#, c-format
+msgid "There was an error creating %d file"
+msgid_plural "There was an error creating %d files"
+msgstr[0] "创建 %d 文件时出错"
+
+#: ../src/prefs.c:648 ../src/prefs.c:660
+#, c-format
+msgid "Invalid characters in the '%s' field"
+msgstr "”%s“中有无效字符"
+
+#: ../src/prefs.c:670
+#, c-format
+msgid "'%s' cannot be empty"
+msgstr "“%s”不能为空"
+
+#: ../src/prefs.c:685
+msgid "Invalid proxy port number"
+msgstr "无效代理端口"
+
+#: ../src/prefs.c:698
+msgid "Invalid cddb server port number"
+msgstr "无效 cddb 服务器端口"
+
+#: ../src/support.c:47
+msgid "Overwrite?"
+msgstr "覆盖吗？"
+
+#: ../src/support.c:60
+#, c-format
+msgid "The file '%s' already exists. Do you want to overwrite it?\n"
+msgstr "文件“%s”已存在。您想覆盖吗？\n"
+
+#: ../src/support.c:66
+msgid "Remember the answer for _all the files made from this CD"
+msgstr "为来自此 CD 的所有文件记住此回答(_A)"
+
+#: ../src/threads.c:182
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr "未选择抓取/编码方案。请从“偏好设置”内启用一个。"
+
+#: ../src/threads.c:211
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr "未选择抓取/编码的曲目。请至少选择一个曲目。"
+
+#: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
+msgid "Waiting..."
+msgstr "等待中..."
