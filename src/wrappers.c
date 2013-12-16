@@ -323,12 +323,12 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     int start;
     int end;
     int code;
-    char type[20];
+    char type[200];
     int sector;
     
-    char trackstring[3];
+    char trackstring[4];
     
-    snprintf(trackstring, 3, "%d", tracknum);
+    snprintf(trackstring, 4, "%d", tracknum);
     
     const char * args[] = { "cdparanoia", "-e", "-d", cdrom, trackstring, filename, NULL };
     
@@ -340,6 +340,7 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     do
     {
         pos = -1;
+        bool interrupted = FALSE;
         do
         {
             pos++;
@@ -349,10 +350,10 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
             /* signal interrupted read(), try again */
             {
                 pos--;
-                size = 1;
+                interrupted = TRUE;
             }
             
-        } while ((buf[pos] != '\n') && (size > 0) && (pos < 256));
+        } while ((size > 0 && pos < 255 && buf[pos] != '\n') || interrupted);
         buf[pos] = '\0';
 
         if ((buf[0] == 'R') && (buf[1] == 'i'))
@@ -412,13 +413,13 @@ void lame(int tracknum,
     int sector;
     int end;
     
-    char tracknum_text[3];
+    char tracknum_text[4];
     char bitrate_text[4];
     const char * args[19];
 
 //    fprintf( stderr, " lame()   Genre: %s Artist: %s Title: %s\n", genre, artist, title );	// lnr
 
-    snprintf(tracknum_text, 3, "%d", tracknum);
+    snprintf(tracknum_text, 4, "%d", tracknum);
     
     pos = 0;
     args[pos++] = "lame";
@@ -478,6 +479,7 @@ void lame(int tracknum,
     do
     {
         pos = -1;
+        bool interrupted = FALSE;
         do
         {
             pos++;
@@ -486,11 +488,11 @@ void lame(int tracknum,
             if (size == -1 && errno == EINTR)
             /* signal interrupted read(), try again */
             {
-                pos--;
                 size = 1;
+                interrupted = TRUE;
             }
             
-        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 256));
+        } while ((size > 0 && pos < 255 && buf[pos] != '\r' && buf[pos] != '\n') || interrupted);
         buf[pos] = '\0';
         
         if (sscanf(buf, "%d/%d", &sector, &end) == 2)
@@ -539,11 +541,11 @@ void oggenc(int tracknum,
     int sector;
     int end;
 
-    char tracknum_text[3];
+    char tracknum_text[4];
     char quality_level_text[3];
     const char * args[19];
 
-    snprintf(tracknum_text, 3, "%d", tracknum);
+    snprintf(tracknum_text, 4, "%d", tracknum);
     snprintf(quality_level_text, 3, "%d", quality_level);
     
     pos = 0;
@@ -591,6 +593,7 @@ void oggenc(int tracknum,
     do
     {
         pos = -1;
+        bool interrupted = FALSE;
         do
         {
             pos++;
@@ -600,10 +603,10 @@ void oggenc(int tracknum,
             /* signal interrupted read(), try again */
             {
                 pos--;
-                size = 1;
+                interrupted = TRUE;
             }
             
-        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 256));
+        } while ((size > 0 && pos < 255 && buf[pos] != '\r' && buf[pos] != '\n') || interrupted);
         buf[pos] = '\0';
 
         if (sscanf(buf, "\t[\t%d.%d%%]", &sector, &end) == 2)
@@ -756,7 +759,7 @@ void flac(int tracknum,
     
     int sector;
     
-    char tracknum_text[19];
+    char tracknum_text[16];
     char * artist_text = NULL;
     char * album_text = NULL;
     char * title_text = NULL;
@@ -765,7 +768,7 @@ void flac(int tracknum,
     char compression_level_text[3];
     const char * args[19];
     
-    snprintf(tracknum_text, 15, "TRACKNUMBER=%d", tracknum);
+    snprintf(tracknum_text, 16, "TRACKNUMBER=%d", tracknum);
     
     if(artist != NULL)
     {
@@ -853,10 +856,13 @@ void flac(int tracknum,
     free(artist_text);
     free(album_text);
     free(title_text);
+    free(genre_text);
+    free(year_text);
     
     do
     {
         pos = -1;
+        bool interrupted = FALSE;
         do
         {
             pos++;
@@ -866,10 +872,10 @@ void flac(int tracknum,
             /* signal interrupted read(), try again */
             {
                 pos--;
-                size = 1;
+                interrupted = TRUE;
             }
             
-        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 256));
+        } while ((size > 0 && pos < 255 && buf[pos] != '\r' && buf[pos] != '\n') || interrupted);
         buf[pos] = '\0';
 
         for (; pos>0; pos--)
@@ -904,7 +910,7 @@ void wavpack(int tracknum,
              int bitrate,
              double* progress)
 {
-    const char* args[8];
+    const char* args[10];
     int fd;
     int pos;
     int size;
@@ -941,6 +947,7 @@ void wavpack(int tracknum,
     do
     {
         pos = -1;
+        bool interrupted = FALSE;
         do
         {
             pos++;
@@ -950,9 +957,9 @@ void wavpack(int tracknum,
             /* signal interrupted read(), try again */
             {
                 pos--;
-                size = 1;
+                interrupted = TRUE;
             }
-        } while ((buf[pos] != '\b') && (size > 0) && (pos < 256));
+        } while ((size > 0 && pos < 255 && buf[pos] != '\b') || interrupted);
         
         buf[pos] = '\0';
         
@@ -1060,8 +1067,8 @@ void musepack(char* wavfilename,
     args[pos++] = "--overwrite";
     
     args[pos++] = "--quality";
-    char qualityParam[5];
-    snprintf(qualityParam, 5, "%d.00", quality);
+    char qualityParam[6];
+    snprintf(qualityParam, 6, "%d.00", quality);
     args[pos++] = qualityParam;
     
     args[pos++] = wavfilename;
@@ -1075,6 +1082,7 @@ void musepack(char* wavfilename,
     do
     {
         pos = -1;
+        bool interrupted = FALSE;
         do
         {
             pos++;
@@ -1084,10 +1092,10 @@ void musepack(char* wavfilename,
             /* signal interrupted read(), try again */
             {
                 pos--;
-                size = 1;
+                interrupted = TRUE;
             }
             
-        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 256));
+        } while ((size > 0 && pos < 256 && buf[pos] != '\r' && buf[pos] != '\n') || interrupted);
         buf[pos] = '\0';
         
         double percent;
@@ -1212,7 +1220,7 @@ void aac(int tracknum,
     /* don't go on until the signal for the previous call is handled */
     while (aac_pid != 0)
     {
-        debugLog("w11 (%d)\n", aac_pid);
+        debugLog("w12 (%d)\n", aac_pid);
         usleep(100000);
     }
 
