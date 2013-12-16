@@ -961,6 +961,7 @@ gpointer encode(gpointer data)
     free(album_artist);
     free(album_title);
     free(album_genre);
+    free(album_year);
     free(album_artist_trimmed);
     free(album_title_trimmed);
     free(album_genre_trimmed);
