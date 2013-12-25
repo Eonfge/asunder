@@ -106,13 +106,11 @@ create_main (void)
     gtk_widget_show (separatortoolitem1);
     gtk_container_add (GTK_CONTAINER (toolbar1), separatortoolitem1);
 
-#if GTK_MINOR_VERSION >= 6
     GtkWidget *about;
     about = (GtkWidget*) gtk_tool_button_new_from_stock ("gtk-about");
     gtk_widget_show (about);
     gtk_container_add (GTK_CONTAINER (toolbar1), about);
     gtk_tool_item_set_is_important (GTK_TOOL_ITEM (about), TRUE);
-#endif
     
     table2 = gtk_table_new (3, 3, FALSE);
     gtk_widget_show (table2);
@@ -248,11 +246,9 @@ create_main (void)
     g_signal_connect ((gpointer) preferences, "clicked",
                                         G_CALLBACK (on_preferences_clicked),
                                         NULL);
-#if GTK_MINOR_VERSION >= 6
     g_signal_connect ((gpointer) about, "clicked",
                                         G_CALLBACK (on_about_clicked),
                                         NULL);
-#endif
     g_signal_connect ((gpointer) album_artist, "focus_out_event",
                                         G_CALLBACK (on_album_artist_focus_out_event),
                                         NULL);
@@ -307,9 +303,7 @@ create_main (void)
     GLADE_HOOKUP_OBJECT (main_win, lookup, "lookup");
     GLADE_HOOKUP_OBJECT (main_win, preferences, "preferences");
     GLADE_HOOKUP_OBJECT (main_win, separatortoolitem1, "separatortoolitem1");
-#if GTK_MINOR_VERSION >= 6
     GLADE_HOOKUP_OBJECT (main_win, about, "about");
-#endif
     GLADE_HOOKUP_OBJECT (main_win, table2, "table2");
     GLADE_HOOKUP_OBJECT (main_win, album_artist, "album_artist");
     GLADE_HOOKUP_OBJECT (main_win, album_title, "album_title");
@@ -1415,117 +1409,83 @@ void enable_musepack_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "musepack_bitrate_slider"), TRUE);
 }
 
-#if GTK_MINOR_VERSION >= 6
 static const char* 
 GBLprogramName = "Asunder 2.3";
 
 static const char* 
-GBLauthors[2] = {
-"Many thanks to all the following people:\n"
-"\n"
+GBLauthors[] = {
 "Andrew Smith\n"
 "http://littlesvr.ca/misc/contactandrew.php\n"
 "Summer 2005 - 2009\n"
-"- maintainer\n"
-"\n"
+"- maintainer",
 "Eric Lathrop\n"
 "http://ericlathrop.com/\n"
 "- original author\n"
-"- 'eject when finished' feature\n"
-"\n"
+"- 'eject when finished' feature",
 "Fraser Tweedale\n"
-"- FreeBSD port\n"
-"\n"
+"- FreeBSD port",
 "Lorraine Reed, aka Lightning Rose\n"
 "http://www.lightning-rose.com/\n"
 "- Editable genre feature to version 1.9.2\n"
-"- Added invalid MS file chars to trim_chars()\n"
-"\n"
+"- Added invalid MS file chars to trim_chars()",
 "Radu Potop\n"
 "http://wooptoo.com/\n"
-"- The new Asunder icon\n"
-"\n"
+"- The new Asunder icon",
 "Pader Reszo\n"
-"- Made the about description translatable\n"
-"\n"
+"- Made the about description translatable",
 "Cyril Brulebois\n"
-"- A kFreeBSD fix.\n"
-"\n"
+"- A kFreeBSD fix.",
 "Richard Gill\n"
 "- Support for XDG_CONFIG_HOME\n"
-"- Support for XDG_CACHE_HOME\n"
-"\n"
+"- Support for XDG_CACHE_HOME",
 "Hiroyuki Ito\n"
-"- Support for autocompletion in artist/album/genre fields.\n"
-"\n"
+"- Support for autocompletion in artist/album/genre fields.",
 "Jonathan 'theJPster' Pallant\n"
-"- Tag AAC files using neroAacTag.\n"
-"\n"
+"- Tag AAC files using neroAacTag.",
 "Micah Lindstrom\n"
-"- Support for invalid filesystem characters in metadata.\n"
-"\n"
+"- Support for invalid filesystem characters in metadata.",
 "Tim Allen\n"
-"- Fix to make the MusicBrainz CDDB gateway work with Asunder.\n"
-"\n"
+"- Fix to make the MusicBrainz CDDB gateway work with Asunder.",
 "Tudor\n"
-"- Desktop file trick to add Asunder to the list of audio CD apps in Gnome.\n"
-"\n"
+"- Desktop file trick to add Asunder to the list of audio CD apps in Gnome.",
 "Felix Braun\n"
-"- Support for encoding into OPUS.\n"
-"\n"
-"Packages:\n"
-"\n"
+"- Support for encoding into OPUS.\n",
+"Packages:",
 "Toni Graffy\n"
 "Maintainer of many SuSE packages at PackMan\n"
-"- SuSE packages of Asunder, versions 0.1 - 1.6\n"
-"\n"
+"- SuSE packages of Asunder, versions 0.1 - 1.6",
 "Joao Pinto\n"
-"- 64bit Debian and Ubuntu packages of Asunder, versions 1.0.1 - 1.0.2, 1.6\n"
-"\n"
+"- 64bit Debian and Ubuntu packages of Asunder, versions 1.0.1 - 1.0.2, 1.6",
 "Trent Weddington\n"
 "http://rtfm.insomnia.org/~qg/\n"
-"- Debian packages of Asunder, versions 0.8 - 1.0.1\n"
-"\n"
+"- Debian packages of Asunder, versions 0.8 - 1.0.1",
 "Daniel Baumann\n"
-"- Debian maintainer for Asunder, version 1.6.2\n"
-"\n"
+"- Debian maintainer for Asunder, version 1.6.2",
 "Marcin Zajaczkowski (Szpak)\n"
 "http://timeoff.wsisiz.edu.pl/rpms.html\n"
-"- Fedora packages of Asunder, versions 0.8.1 - 1.6\n"
-"\n"
+"- Fedora packages of Asunder, versions 0.8.1 - 1.6",
 "Adam Williamson\n"
 "http://www.happyassassin.net/\n"
-"- Mandriva packages of Asunder, versions 0.9 - 1.6\n"
-"\n"
+"- Mandriva packages of Asunder, versions 0.9 - 1.6",
 "Tom Nardi\n"
-"- Slackware packages of Asunder, versions 0.8.1 - 1.6\n"
-"\n"
+"- Slackware packages of Asunder, versions 0.8.1 - 1.6",
 "vktgz\n"
 "http://www.vktgz.homelinux.net/\n"
-"- Gentoo ebuilds for Asunder, versions 0.8 - 0.8.1, 1.6\n"
-"\n"
+"- Gentoo ebuilds for Asunder, versions 0.8 - 0.8.1, 1.6",
 "Ronald van Haren\n"
-"- Arch package of Asunder, versions 1.5 - 1.6\n"
-"\n"
+"- Arch package of Asunder, versions 1.5 - 1.6",
 "Sebastien Piccand\n"
-"- Arch packages of Asunder, versions 0.8.1 - 1.0.2\n"
-"\n"
+"- Arch packages of Asunder, versions 0.8.1 - 1.0.2",
 "Alexey Rusakov\n"
-"- ALT packages of Asunder, versions 0.8.1 - 1.5\n"
-"\n"
+"- ALT packages of Asunder, versions 0.8.1 - 1.5",
 "Fraser Tweedale\n"
-"- FreeBSD ports of Asunder, versions 0.8.1 - 0.9\n"
-"\n"
+"- FreeBSD ports of Asunder, versions 0.8.1 - 0.9",
 "Philip Muller\n"
-"- Paldo package of Asunder, version 0.8.1\n"
-"\n"
+"- Paldo package of Asunder, version 0.8.1",
 "Christophe Lincoln\n"
-"- Slitaz package of Asunder, version 1.0.2\n"
-"\n"
+"- Slitaz package of Asunder, version 1.0.2",
 "coolpup\n"
-"- Puppy package of Asunder, version 1.6.2\n"
-"\n"
-,
+"- Puppy package of Asunder, version 1.6.2",
 NULL};
 
 static const char* 
@@ -1723,7 +1683,7 @@ N_("An application to save tracks from an Audio CD \n"
 static const char* 
 GBLcopyright = 
 "Copyright 2005 Eric Lathrop\n"
-"Copyright 2007 - 2012 Andrew Smith";
+"Copyright 2007 - 2014 Andrew Smith";
 
 static const char* 
 GBLwebsite = "http://littlesvr.ca/asunder/";
@@ -1738,9 +1698,7 @@ show_aboutbox (void)
 {
     gtk_show_about_dialog(GTK_WINDOW(lookup_widget(win_main, "main")), 
                           "name", GBLprogramName,
-#if GTK_MINOR_VERSION >= 12
                           "program-name", GBLprogramName,
-#endif
                           "authors", GBLauthors,
                           "translator-credits", GBLtranslators,
                           "comments", _(GBLcomments),
@@ -1749,7 +1707,6 @@ show_aboutbox (void)
                           "website", GBLwebsite,
                           NULL);
 }
-#endif
 
 void show_completed_dialog(int numOk, int numFailed)
 {
