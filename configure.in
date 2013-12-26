@@ -11,7 +11,7 @@ AC_PROG_CC
 AM_PROG_CC_STDC
 AC_HEADER_STDC
 
-pkg_modules="gtk+-3.0 >= 3.0.0, gthread-2.0 >= 2.4.0, libcddb >= 0.9.5"
+pkg_modules="gtk+-2.0 >= 2.4.0, gthread-2.0 >= 2.4.0, libcddb >= 0.9.5"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
@@ -22,12 +22,11 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
 AM_GLIB_GNU_GETTEXT
 
-CFLAGS="$CFLAGS -Wall -Wno-unused-parameter"
+CFLAGS="$CFLAGS -Wall -pedantic -std=gnu99 -Wundef -Wcast-align -W -Wpointer-arith -Wwrite-strings -Wno-unused-parameter"
 
-# GTK-2.3.1 deprecated the thread API but there is no simple way to replace it.
-# Also it looks like boxes and tables have been deprecated in 3.?
-# I'll be damned if I'm going to bother playing catchup with these retarded
-# changes.
+# GTK-2.3.1 deprecated the thread API but I am not going to drop support for 
+# everything older than that (pretty much all of GTK2!). Just silence the 
+# warnings and hopefully I won't miss anything important.
 CFLAGS="$CFLAGS -Wno-deprecated-declarations"
 
 # The translator credits string is longer than 4095 bytes, so put this in to 

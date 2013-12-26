@@ -32,7 +32,7 @@ Foundation; version 2 of the licence.
 
 #define GLADE_HOOKUP_OBJECT(component,widget,name) \
     g_object_set_data_full (G_OBJECT (component), name, \
-        g_object_ref (widget), (GDestroyNotify) g_object_unref)
+        gtk_widget_ref (widget), (GDestroyNotify) gtk_widget_unref)
 
 #define GLADE_HOOKUP_OBJECT_NO_REF(component,widget,name) \
     g_object_set_data (G_OBJECT (component), name, widget)
@@ -106,11 +106,13 @@ create_main (void)
     gtk_widget_show (separatortoolitem1);
     gtk_container_add (GTK_CONTAINER (toolbar1), separatortoolitem1);
 
+#if GTK_MINOR_VERSION >= 6
     GtkWidget *about;
     about = (GtkWidget*) gtk_tool_button_new_from_stock ("gtk-about");
     gtk_widget_show (about);
     gtk_container_add (GTK_CONTAINER (toolbar1), about);
     gtk_tool_item_set_is_important (GTK_TOOL_ITEM (about), TRUE);
+#endif
     
     table2 = gtk_table_new (3, 3, FALSE);
     gtk_widget_show (table2);
@@ -246,9 +248,11 @@ create_main (void)
     g_signal_connect ((gpointer) preferences, "clicked",
                                         G_CALLBACK (on_preferences_clicked),
                                         NULL);
+#if GTK_MINOR_VERSION >= 6
     g_signal_connect ((gpointer) about, "clicked",
                                         G_CALLBACK (on_about_clicked),
                                         NULL);
+#endif
     g_signal_connect ((gpointer) album_artist, "focus_out_event",
                                         G_CALLBACK (on_album_artist_focus_out_event),
                                         NULL);
@@ -303,7 +307,9 @@ create_main (void)
     GLADE_HOOKUP_OBJECT (main_win, lookup, "lookup");
     GLADE_HOOKUP_OBJECT (main_win, preferences, "preferences");
     GLADE_HOOKUP_OBJECT (main_win, separatortoolitem1, "separatortoolitem1");
+#if GTK_MINOR_VERSION >= 6
     GLADE_HOOKUP_OBJECT (main_win, about, "about");
+#endif
     GLADE_HOOKUP_OBJECT (main_win, table2, "table2");
     GLADE_HOOKUP_OBJECT (main_win, album_artist, "album_artist");
     GLADE_HOOKUP_OBJECT (main_win, album_title, "album_title");
@@ -362,6 +368,7 @@ create_prefs (void)
     GtkWidget *cancelbutton1;
     GtkWidget *okbutton1;
     GtkWidget *eject_on_done;
+    GtkTooltips *tooltips;
     GtkWidget* hboxFill;
     
     prefs = gtk_dialog_new ();
@@ -370,7 +377,7 @@ create_prefs (void)
     gtk_window_set_modal (GTK_WINDOW (prefs), TRUE);
     gtk_window_set_type_hint (GTK_WINDOW (prefs), GDK_WINDOW_TYPE_HINT_DIALOG);
     
-    vbox = gtk_dialog_get_content_area(GTK_DIALOG(prefs));
+    vbox = GTK_DIALOG (prefs)->vbox;
     gtk_widget_show (vbox);
 
     notebook1 = gtk_notebook_new ();
@@ -409,9 +416,10 @@ create_prefs (void)
     gtk_widget_show (cdrom);
     gtk_box_pack_start (GTK_BOX (hbox12), cdrom, TRUE, TRUE, 0);
     
-    gtk_widget_set_tooltip_text(cdrom, _("Default: /dev/cdrom\n"
-                                         "Other example: /dev/hdc\n"
-                                         "Other example: /dev/sr0"));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, cdrom, _("Default: /dev/cdrom\n"
+                                              "Other example: /dev/hdc\n"
+                                              "Other example: /dev/sr0"), NULL);
     
     eject_on_done = gtk_check_button_new_with_mnemonic (_("Eject disc when finished"));
     gtk_widget_show (eject_on_done);
@@ -488,10 +496,11 @@ create_prefs (void)
                                         (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
     
-    gtk_widget_set_tooltip_text(format_albumdir, _("This is relative to the destination folder (from the General tab).\n"
-                                                   "Can be blank.\n"
-                                                   "Default: %A - %L\n"
-                                                   "Other example: %A/%L"));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, format_albumdir, _("This is relative to the destination folder (from the General tab).\n"
+                                                        "Can be blank.\n"
+                                                        "Default: %A - %L\n"
+                                                        "Other example: %A/%L"), NULL);
     
     format_playlist = gtk_entry_new ();
     gtk_widget_show (format_playlist);
@@ -499,9 +508,10 @@ create_prefs (void)
                                         (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
 
-    gtk_widget_set_tooltip_text(format_playlist, _("This will be stored in the album directory.\n"
-                                                   "Can be blank.\n"
-                                                   "Default: %A - %L"));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, format_playlist, _("This will be stored in the album directory.\n"
+                                                        "Can be blank.\n"
+                                                        "Default: %A - %L"), NULL);
     
     format_music = gtk_entry_new ();
     gtk_widget_show (format_music);
@@ -509,10 +519,11 @@ create_prefs (void)
                                         (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
 
-    gtk_widget_set_tooltip_text(format_music, _("This will be stored in the album directory.\n"
-                                                "Cannot be blank.\n"
-                                                "Default: %A - %T\n"
-                                                "Other example: %N - %T"));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, format_music, _("This will be stored in the album directory.\n"
+                                                     "Cannot be blank.\n"
+                                                     "Default: %A - %T\n"
+                                                     "Other example: %N - %T"), NULL);
     
     label = gtk_label_new (_("Filename formats"));
     gtk_widget_show (label);
@@ -564,7 +575,8 @@ create_prefs (void)
                                         G_CALLBACK (on_vbr_toggled),
                                         NULL);
     
-    gtk_widget_set_tooltip_text(mp3_vbr, _("Better quality for the same size."));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, mp3_vbr, _("Better quality for the same size."), NULL);
     
     hbox9 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox9);
@@ -584,9 +596,8 @@ create_prefs (void)
                                         G_CALLBACK (on_mp3bitrate_value_changed),
                                         NULL);
     
-    gtk_widget_set_tooltip_text(mp3bitrate, _("Higher bitrate is better "
-                                              "quality but also bigger file. "
-                                              "Most people use 192Kbps."));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, mp3bitrate, _("Higher bitrate is better quality but also bigger file. Most people use 192Kbps."), NULL);
     
     char kbps_text[10];
     snprintf(kbps_text, 10, _("%dKbps"), 32);
@@ -627,8 +638,8 @@ create_prefs (void)
     gtk_scale_set_value_pos (GTK_SCALE (oggquality), GTK_POS_RIGHT);
     gtk_scale_set_digits (GTK_SCALE (oggquality), 0);
     
-    gtk_widget_set_tooltip_text(oggquality, _("Higher quality means bigger "
-                                              "file. Default is 6."));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, oggquality, _("Higher quality means bigger file. Default is 6."), NULL);
     
     rip_ogg = gtk_check_button_new_with_mnemonic (_("OGG Vorbis (lossy compression)"));
     gtk_widget_show (rip_ogg);
@@ -662,9 +673,8 @@ create_prefs (void)
     gtk_scale_set_value_pos (GTK_SCALE (flaccompression), GTK_POS_RIGHT);
     gtk_scale_set_digits (GTK_SCALE (flaccompression), 0);
 
-    gtk_widget_set_tooltip_text(flaccompression, _("This does not affect the "
-                                                   "quality. Higher number "
-                                                   "means smaller file."));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, flaccompression, _("This does not affect the quality. Higher number means smaller file."), NULL);
     
     rip_flac = gtk_check_button_new_with_mnemonic (_("FLAC (lossless compression)"));
     gtk_widget_show (rip_flac);
@@ -729,9 +739,8 @@ create_prefs (void)
     g_signal_connect ((gpointer) opusrate, "value_changed",
                                         G_CALLBACK (on_opusrate_value_changed),
                                         NULL);
-    gtk_widget_set_tooltip_text(opusrate, _("Higher bitrate is better quality "
-                                            "but also bigger file. Most people "
-                                            "use 160Kbps."));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, opusrate, _("Higher bitrate is better quality but also bigger file. Most people use 160Kbps."), NULL);
     GLADE_HOOKUP_OBJECT (prefs, opusrate, "opusrate");
     snprintf(opus_kbps, 10, _("%dKbps"), 32);
     label = gtk_label_new (kbps_text);
@@ -780,10 +789,8 @@ create_prefs (void)
     gtk_scale_set_value_pos (GTK_SCALE (wavpackcompression), GTK_POS_RIGHT);
     GLADE_HOOKUP_OBJECT (prefs, wavpackcompression, "wavpack_compression");
     
-    gtk_widget_set_tooltip_text(wavpackcompression, _("This does not affect the "
-                                                      "quality. Higher number "
-                                                      "means smaller file. "
-                                                      "Default is 1 (recommended)."));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, wavpackcompression, _("This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."), NULL);
     
     frame7 = gtk_frame_new (NULL);
     gtk_widget_show (frame7);
@@ -797,10 +804,8 @@ create_prefs (void)
                                         G_CALLBACK (on_hybrid_toggled),
                                         NULL);
     
-    gtk_widget_set_tooltip_text(hybridwavpack, _("The format is lossy but a "
-                                                 "correction file is created "
-                                                 "for restoring the lossless "
-                                                 "original."));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, hybridwavpack, _("The format is lossy but a correction file is created for restoring the lossless original."), NULL);
     
     hbox9 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox9);
@@ -868,8 +873,8 @@ create_prefs (void)
                                         NULL);
     GLADE_HOOKUP_OBJECT (prefs, musepackBitrate, "musepack_bitrate_slider");
     
-    gtk_widget_set_tooltip_text(musepackBitrate, _("Higher bitrate is better "
-                                                   "quality but also bigger file."));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, musepackBitrate, _("Higher bitrate is better quality but also bigger file."), NULL);
     
     snprintf(kbps_text, 10, _("%dKbps"), 90);
     label = gtk_label_new (kbps_text);
@@ -921,9 +926,8 @@ create_prefs (void)
     gtk_scale_set_digits (GTK_SCALE (monkeyCompression), 0);
     GLADE_HOOKUP_OBJECT (prefs, monkeyCompression, "monkey_compression_slider");
     
-    gtk_widget_set_tooltip_text(monkeyCompression, _("This does not affect the "
-                                                     "quality. Higher number "
-                                                     "means smaller file."));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, monkeyCompression, _("This does not affect the quality. Higher number means smaller file."), NULL);
     
     rip_monkey = gtk_check_button_new_with_mnemonic (_("Monkey's Audio (lossless compression)"));
     gtk_widget_show (rip_monkey);
@@ -977,8 +981,8 @@ create_prefs (void)
     gtk_scale_set_digits (GTK_SCALE (aacQuality), 0);
     GLADE_HOOKUP_OBJECT (prefs, aacQuality, "aac_quality_slider");
     
-    gtk_widget_set_tooltip_text(aacQuality, _("Higher quality means bigger file. "
-                                              "Default is 60."));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, aacQuality, _("Higher quality means bigger file. Default is 60."), NULL);
     
     rip_aac = gtk_check_button_new_with_mnemonic (_("AAC (lossy compression, Nero encoder)"));
     gtk_widget_show (rip_aac);
@@ -1037,9 +1041,8 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox), cddbServerName, TRUE, TRUE, 5);
     GLADE_HOOKUP_OBJECT (prefs, cddbServerName, "cddb_server_name");
     
-    gtk_widget_set_tooltip_text(cddbServerName, _("The CDDB server to get disc "
-                                                  "info from (default is "
-                                                  "freedb.freedb.org)"));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, cddbServerName, _("The CDDB server to get disc info from (default is freedb.freedb.org)"), NULL);
     
     hbox = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox);
@@ -1054,8 +1057,8 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox), cddbPortNum, TRUE, TRUE, 5);
     GLADE_HOOKUP_OBJECT (prefs, cddbPortNum, "cddb_port_number");
     
-    gtk_widget_set_tooltip_text(cddbPortNum, _("The CDDB server port "
-                                               "(default is 8880)"));
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, cddbPortNum, _("The CDDB server port (default is 8880)"), NULL);
     
     frame = gtk_frame_new (NULL);
     gtk_widget_show (frame);
@@ -1110,19 +1113,19 @@ create_prefs (void)
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 3), label);
     /* END ADVANCED tab */
 
-    dialog_action_area1 = gtk_dialog_get_action_area(GTK_DIALOG(prefs));
+    dialog_action_area1 = GTK_DIALOG (prefs)->action_area;
     gtk_widget_show (dialog_action_area1);
     gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area1), GTK_BUTTONBOX_END);
 
     cancelbutton1 = gtk_button_new_from_stock ("gtk-cancel");
     gtk_widget_show (cancelbutton1);
     gtk_dialog_add_action_widget (GTK_DIALOG (prefs), cancelbutton1, GTK_RESPONSE_CANCEL);
-    gtk_widget_set_can_default(cancelbutton1, TRUE);
+    GTK_WIDGET_SET_FLAGS (cancelbutton1, GTK_CAN_DEFAULT);
 
     okbutton1 = gtk_button_new_from_stock ("gtk-ok");
     gtk_widget_show (okbutton1);
     gtk_dialog_add_action_widget (GTK_DIALOG (prefs), okbutton1, GTK_RESPONSE_OK);
-    gtk_widget_set_can_default(okbutton1, TRUE);
+    GTK_WIDGET_SET_FLAGS (okbutton1, GTK_CAN_DEFAULT);
 
     g_signal_connect ((gpointer) prefs, "response",
                                         G_CALLBACK (on_prefs_response),
@@ -1180,7 +1183,7 @@ create_ripping (void)
     gtk_window_set_modal (GTK_WINDOW (ripping), TRUE);
     gtk_window_set_type_hint (GTK_WINDOW (ripping), GDK_WINDOW_TYPE_HINT_DIALOG);
 
-    dialog_vbox2 = gtk_dialog_get_content_area(GTK_DIALOG(ripping));
+    dialog_vbox2 = GTK_DIALOG (ripping)->vbox;
     gtk_widget_show (dialog_vbox2);
 
     table3 = gtk_table_new (3, 2, FALSE);
@@ -1226,14 +1229,14 @@ create_ripping (void)
                                         (GtkAttachOptions) (0), 5, 0);
     gtk_misc_set_alignment (GTK_MISC (label27), 0, 0.5);
 
-    dialog_action_area2 = gtk_dialog_get_action_area(GTK_DIALOG(ripping));
+    dialog_action_area2 = GTK_DIALOG (ripping)->action_area;
     gtk_widget_show (dialog_action_area2);
     gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area2), GTK_BUTTONBOX_END);
 
     cancel = gtk_button_new_from_stock ("gtk-cancel");
     gtk_widget_show (cancel);
     gtk_dialog_add_action_widget (GTK_DIALOG (ripping), cancel, GTK_RESPONSE_CANCEL);
-    gtk_widget_set_can_default(cancel, TRUE);
+    GTK_WIDGET_SET_FLAGS (cancel, GTK_CAN_DEFAULT);
 
     g_signal_connect ((gpointer) cancel, "clicked",
                                         G_CALLBACK (on_cancel_clicked),
@@ -1409,83 +1412,117 @@ void enable_musepack_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "musepack_bitrate_slider"), TRUE);
 }
 
+#if GTK_MINOR_VERSION >= 6
 static const char* 
 GBLprogramName = "Asunder 2.3";
 
 static const char* 
-GBLauthors[] = {
+GBLauthors[2] = {
+"Many thanks to all the following people:\n"
+"\n"
 "Andrew Smith\n"
 "http://littlesvr.ca/misc/contactandrew.php\n"
 "Summer 2005 - 2009\n"
-"- maintainer",
+"- maintainer\n"
+"\n"
 "Eric Lathrop\n"
 "http://ericlathrop.com/\n"
 "- original author\n"
-"- 'eject when finished' feature",
+"- 'eject when finished' feature\n"
+"\n"
 "Fraser Tweedale\n"
-"- FreeBSD port",
+"- FreeBSD port\n"
+"\n"
 "Lorraine Reed, aka Lightning Rose\n"
 "http://www.lightning-rose.com/\n"
 "- Editable genre feature to version 1.9.2\n"
-"- Added invalid MS file chars to trim_chars()",
+"- Added invalid MS file chars to trim_chars()\n"
+"\n"
 "Radu Potop\n"
 "http://wooptoo.com/\n"
-"- The new Asunder icon",
+"- The new Asunder icon\n"
+"\n"
 "Pader Reszo\n"
-"- Made the about description translatable",
+"- Made the about description translatable\n"
+"\n"
 "Cyril Brulebois\n"
-"- A kFreeBSD fix.",
+"- A kFreeBSD fix.\n"
+"\n"
 "Richard Gill\n"
 "- Support for XDG_CONFIG_HOME\n"
-"- Support for XDG_CACHE_HOME",
+"- Support for XDG_CACHE_HOME\n"
+"\n"
 "Hiroyuki Ito\n"
-"- Support for autocompletion in artist/album/genre fields.",
+"- Support for autocompletion in artist/album/genre fields.\n"
+"\n"
 "Jonathan 'theJPster' Pallant\n"
-"- Tag AAC files using neroAacTag.",
+"- Tag AAC files using neroAacTag.\n"
+"\n"
 "Micah Lindstrom\n"
-"- Support for invalid filesystem characters in metadata.",
+"- Support for invalid filesystem characters in metadata.\n"
+"\n"
 "Tim Allen\n"
-"- Fix to make the MusicBrainz CDDB gateway work with Asunder.",
+"- Fix to make the MusicBrainz CDDB gateway work with Asunder.\n"
+"\n"
 "Tudor\n"
-"- Desktop file trick to add Asunder to the list of audio CD apps in Gnome.",
+"- Desktop file trick to add Asunder to the list of audio CD apps in Gnome.\n"
+"\n"
 "Felix Braun\n"
-"- Support for encoding into OPUS.\n",
-"Packages:",
+"- Support for encoding into OPUS.\n"
+"\n"
+"Packages:\n"
+"\n"
 "Toni Graffy\n"
 "Maintainer of many SuSE packages at PackMan\n"
-"- SuSE packages of Asunder, versions 0.1 - 1.6",
+"- SuSE packages of Asunder, versions 0.1 - 1.6\n"
+"\n"
 "Joao Pinto\n"
-"- 64bit Debian and Ubuntu packages of Asunder, versions 1.0.1 - 1.0.2, 1.6",
+"- 64bit Debian and Ubuntu packages of Asunder, versions 1.0.1 - 1.0.2, 1.6\n"
+"\n"
 "Trent Weddington\n"
 "http://rtfm.insomnia.org/~qg/\n"
-"- Debian packages of Asunder, versions 0.8 - 1.0.1",
+"- Debian packages of Asunder, versions 0.8 - 1.0.1\n"
+"\n"
 "Daniel Baumann\n"
-"- Debian maintainer for Asunder, version 1.6.2",
+"- Debian maintainer for Asunder, version 1.6.2\n"
+"\n"
 "Marcin Zajaczkowski (Szpak)\n"
 "http://timeoff.wsisiz.edu.pl/rpms.html\n"
-"- Fedora packages of Asunder, versions 0.8.1 - 1.6",
+"- Fedora packages of Asunder, versions 0.8.1 - 1.6\n"
+"\n"
 "Adam Williamson\n"
 "http://www.happyassassin.net/\n"
-"- Mandriva packages of Asunder, versions 0.9 - 1.6",
+"- Mandriva packages of Asunder, versions 0.9 - 1.6\n"
+"\n"
 "Tom Nardi\n"
-"- Slackware packages of Asunder, versions 0.8.1 - 1.6",
+"- Slackware packages of Asunder, versions 0.8.1 - 1.6\n"
+"\n"
 "vktgz\n"
 "http://www.vktgz.homelinux.net/\n"
-"- Gentoo ebuilds for Asunder, versions 0.8 - 0.8.1, 1.6",
+"- Gentoo ebuilds for Asunder, versions 0.8 - 0.8.1, 1.6\n"
+"\n"
 "Ronald van Haren\n"
-"- Arch package of Asunder, versions 1.5 - 1.6",
+"- Arch package of Asunder, versions 1.5 - 1.6\n"
+"\n"
 "Sebastien Piccand\n"
-"- Arch packages of Asunder, versions 0.8.1 - 1.0.2",
+"- Arch packages of Asunder, versions 0.8.1 - 1.0.2\n"
+"\n"
 "Alexey Rusakov\n"
-"- ALT packages of Asunder, versions 0.8.1 - 1.5",
+"- ALT packages of Asunder, versions 0.8.1 - 1.5\n"
+"\n"
 "Fraser Tweedale\n"
-"- FreeBSD ports of Asunder, versions 0.8.1 - 0.9",
+"- FreeBSD ports of Asunder, versions 0.8.1 - 0.9\n"
+"\n"
 "Philip Muller\n"
-"- Paldo package of Asunder, version 0.8.1",
+"- Paldo package of Asunder, version 0.8.1\n"
+"\n"
 "Christophe Lincoln\n"
-"- Slitaz package of Asunder, version 1.0.2",
+"- Slitaz package of Asunder, version 1.0.2\n"
+"\n"
 "coolpup\n"
-"- Puppy package of Asunder, version 1.6.2",
+"- Puppy package of Asunder, version 1.6.2\n"
+"\n"
+,
 NULL};
 
 static const char* 
@@ -1683,7 +1720,7 @@ N_("An application to save tracks from an Audio CD \n"
 static const char* 
 GBLcopyright = 
 "Copyright 2005 Eric Lathrop\n"
-"Copyright 2007 - 2014 Andrew Smith";
+"Copyright 2007 - 2012 Andrew Smith";
 
 static const char* 
 GBLwebsite = "http://littlesvr.ca/asunder/";
@@ -1698,7 +1735,9 @@ show_aboutbox (void)
 {
     gtk_show_about_dialog(GTK_WINDOW(lookup_widget(win_main, "main")), 
                           "name", GBLprogramName,
+#if GTK_MINOR_VERSION >= 12
                           "program-name", GBLprogramName,
+#endif
                           "authors", GBLauthors,
                           "translator-credits", GBLtranslators,
                           "comments", _(GBLcomments),
@@ -1707,6 +1746,7 @@ show_aboutbox (void)
                           "website", GBLwebsite,
                           NULL);
 }
+#endif
 
 void show_completed_dialog(int numOk, int numFailed)
 {

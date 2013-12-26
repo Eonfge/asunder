@@ -35,7 +35,6 @@ bool confirmOverwrite(const char* pathAndName)
     GtkWidget* dialog;
     GtkWidget* label;
     GtkWidget* checkbox;
-    GtkBox* contentArea;
     char* lastSlash;
     int rc;
     char msgStr[1024];
@@ -54,21 +53,19 @@ bool confirmOverwrite(const char* pathAndName)
                                          GTK_RESPONSE_REJECT,
                                          NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_REJECT);
-    contentArea = GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(dialog)));
     
     lastSlash = strrchr(pathAndName, '/');
     lastSlash++;
     
-    snprintf(msgStr, 1024, _("The file '%s' already exists. Do you want to "
-                             "overwrite it?\n"), lastSlash);
+    snprintf(msgStr, 1024, _("The file '%s' already exists. Do you want to overwrite it?\n"), lastSlash);
     
     label = gtk_label_new(msgStr);
     gtk_widget_show(label);
-    gtk_box_pack_start(contentArea, label, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), label, TRUE, TRUE, 0);
     
     checkbox = gtk_check_button_new_with_mnemonic(_("Remember the answer for _all the files made from this CD"));
     gtk_widget_show(checkbox);
-    gtk_box_pack_start(contentArea, checkbox, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), checkbox, TRUE, TRUE, 0);
     
     rc = gtk_dialog_run(GTK_DIALOG(dialog));
     
@@ -99,7 +96,7 @@ lookup_widget                          (GtkWidget       *widget,
       if (GTK_IS_MENU (widget))
         parent = gtk_menu_get_attach_widget (GTK_MENU (widget));
       else
-        parent = gtk_widget_get_parent(widget);
+        parent = widget->parent;
       if (!parent)
         parent = (GtkWidget*) g_object_get_data (G_OBJECT (widget), "GladeParentKey");
       if (parent == NULL)
