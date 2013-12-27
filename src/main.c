@@ -368,8 +368,9 @@ void eject_disc(char * cdrom)
     
     if (!fork())
     {
-        char* args[] = {"eject", cdrom, NULL};
-        execvp(args[0], args);
+        // Wonderful const magic to make compiler happy
+        const char* const args[] = {"eject", cdrom, NULL};
+        execvp(args[0], (char*const*)args);
         
         printf("Should never see this, why did the call to 'eject' fail?\n");
         debugLog("Should never see this, why did the call to 'eject' fail?\n");
@@ -382,12 +383,34 @@ static int gbl_cddb_query_thread_running;
 static cddb_conn_t * gbl_cddb_query_thread_conn;
 static cddb_disc_t * gbl_cddb_query_thread_disc;
 static int gbl_cddb_query_thread_num_matches;
+static GList * gbl_matches = NULL;
 
 gpointer cddb_query_thread_run(gpointer data)
 {
+    int i;
+    
     gbl_cddb_query_thread_num_matches = cddb_query(gbl_cddb_query_thread_conn, gbl_cddb_query_thread_disc);
     if(gbl_cddb_query_thread_num_matches == -1)
         gbl_cddb_query_thread_num_matches = 0;
+    
+    // make a list of all the matches
+    for (i = 0; i < gbl_cddb_query_thread_num_matches; i++)
+    {
+        cddb_disc_t * possible_match = cddb_disc_clone(gbl_cddb_query_thread_disc);
+        if (cddb_read(gbl_cddb_query_thread_conn, possible_match) == 1)
+        {
+            gbl_matches = g_list_append(gbl_matches, possible_match);
+            
+            // move to next match
+            if (i < gbl_cddb_query_thread_num_matches - 1)
+            {
+                if (!cddb_query_next(gbl_cddb_query_thread_conn, gbl_cddb_query_thread_disc))
+                    fatalError("Query index out of bounds.");
+            }
+        }
+        else
+            printf("Failed to cddb_read()\n");
+    }
     
     g_atomic_int_set(&gbl_cddb_query_thread_running, 0);
     
@@ -396,9 +419,6 @@ gpointer cddb_query_thread_run(gpointer data)
 
 GList * lookup_disc(cddb_disc_t * disc)
 {
-    int i;
-    GList * matches = NULL;
-    
     // set up the connection to the cddb server
     gbl_cddb_query_thread_conn = cddb_new();
     if (gbl_cddb_query_thread_conn == NULL)
@@ -443,28 +463,9 @@ GList * lookup_disc(cddb_disc_t * disc)
         enable_all_main_widgets();
     gdk_threads_leave();
     
-    // make a list of all the matches
-    for (i = 0; i < gbl_cddb_query_thread_num_matches; i++)
-    {
-        cddb_disc_t * possible_match = cddb_disc_clone(disc);
-        if (!cddb_read(gbl_cddb_query_thread_conn, possible_match))
-        {
-            cddb_error_print(cddb_errno(gbl_cddb_query_thread_conn));
-            fatalError("cddb_read() failed.");
-        }
-        matches = g_list_append(matches, possible_match);
-        
-        // move to next match
-        if (i < gbl_cddb_query_thread_num_matches - 1)
-        {
-            if (!cddb_query_next(gbl_cddb_query_thread_conn, disc))
-                fatalError("Query index out of bounds.");
-        }
-    }
-    
     cddb_destroy(gbl_cddb_query_thread_conn);
     
-    return matches;
+    return gbl_matches;
 }
 
 
