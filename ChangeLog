@@ -1,3 +1,11 @@
+27 Dec 2013 - 2.4
+=================
+- Added Bengali, Traditional Chinese translations.
+- Updated Hungarian, Italian translations.
+- Fixed the eject functionality to be more reliable.
+- Added support for XDG_CACHE_HOME
+- Fixed some memory corruption bugs that may have caused crashes and undefined behaviour.
+
 16 May 2013 - 2.3
 ================
 - Can now encode into OPUS.

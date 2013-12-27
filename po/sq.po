@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-18 09:33-0400\n"
+"POT-Creation-Date: 2013-12-27 09:02-0500\n"
 "PO-Revision-Date: 2009-08-27 18:55+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team:  <LL@li.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 "'cdparanoia' nuk u gjet te shtegu juaj. Asunder-i lyp cdparanoia-an për "
 "përftim CD-sh."
 
-#: ../src/main.c:418
+#: ../src/main.c:451
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Po marr të dhëna disku prej interneti...</b>"
 
@@ -388,21 +388,21 @@ msgstr "Ecuri gjithsej"
 msgid "Encoding"
 msgstr "Kodim"
 
-#: ../src/interface.c:1709
+#: ../src/interface.c:1719
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 
-#: ../src/interface.c:1752
+#: ../src/interface.c:1762
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "u krijua me sukses %d kartelë "
 msgstr[1] "u krijuan me sukses %d kartela"
 
-#: ../src/interface.c:1761
+#: ../src/interface.c:1771
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -456,7 +456,7 @@ msgstr ""
 "Nuk janë përzgjedhur gjurmë për përftim/kodim. Ju lutem përzgjidhni të "
 "paktën një gjurmë."
 
-#: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
+#: ../src/threads.c:1043 ../src/threads.c:1045 ../src/threads.c:1049
 msgid "Waiting..."
 msgstr "Po pres..."
 

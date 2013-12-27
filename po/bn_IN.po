@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder-2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-18 09:33-0400\n"
+"POT-Creation-Date: 2013-12-27 09:02-0500\n"
 "PO-Revision-Date: 2013-07-17 04:47+0530\n"
 "Last-Translator: Rajib Lochan Dhibar <rajib.lochan.dhibar@gmail.com>\n"
 "Language-Team: Rajib Lochan Dhibar <rajib.lochan.dhibar@gmail.com>\n"
@@ -52,7 +52,7 @@ msgstr ""
 "সিস্টেম পাথের মদ্ধ্যে 'cdparanoia' পাওয়া যায় নি। সিডি রিপ্ করতে অসুন্ডারের "
 "'cdparanoia' দরকার।"
 
-#: ../src/main.c:418
+#: ../src/main.c:451
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>ইন্টারনেট্ থেকে ডিস্কের তথ্য নেওয়া হচ্ছে...</b>"
 
@@ -382,7 +382,7 @@ msgstr "সর্বমোট অগ্রগতি"
 msgid "Encoding"
 msgstr "এনকোডিং"
 
-#: ../src/interface.c:1709
+#: ../src/interface.c:1719
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -391,14 +391,14 @@ msgstr ""
 "একটি ব্যবহারিক সফট্ওয়ার যা অডিও সিডি থেকে ট্রাকগুলিকে সেভ করে WAV,\n"
 "MP3, OGG, FLAC, ওয়্যাভপ্যাক, মিউজপ্যাক, মাঙ্কিস্ অডিও, এবং/অথবা AAC ফাইলে।"
 
-#: ../src/interface.c:1752
+#: ../src/interface.c:1762
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d ফাইল সফলভাবে তৈরি হয়েছে"
 msgstr[1] "%d ফাইলগুলি সফলভাবে তৈরি হয়েছে"
 
-#: ../src/interface.c:1761
+#: ../src/interface.c:1771
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -450,7 +450,7 @@ msgid ""
 msgstr ""
 "রিপিং/এনকোডিং-এর জন্য কোন ট্রাক্ বাছা হয়নি। অনুগ্রহ করে অন্তত একটি ট্রাক্ বেছে নিন।"
 
-#: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
+#: ../src/threads.c:1043 ../src/threads.c:1045 ../src/threads.c:1049
 msgid "Waiting..."
 msgstr "প্রতীক্ষায় অাছি..."
 

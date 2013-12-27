@@ -29,7 +29,8 @@ Cyril Brulebois
 - A kFreeBSD fix.
 
 Richard Gill
-- Support for XDG_CONFIG_HOME.
+- Support for XDG_CONFIG_HOME
+- Support for XDG_CACHE_HOME
 
 Hiroyuki Ito
 - Support for autocompletion in artist/album/genre fields.
@@ -100,6 +101,7 @@ Christophe Lincoln
 
 coolpup
 - Puppy package of Asunder, version 1.6.2
+
 
 Translators:
 
@@ -187,13 +189,16 @@ Petar Kulic
 - hr (Croatian) translation of Asunder version 1.9
 
 Pader Rezso
-- hu (Hungarian) translation of Asunder version 1.9.2
+- hu (Hungarian) translation of Asunder versions 1.9.2 - 2.3
 
 Valerio Guaglianone
 - it (Italian) translation of Asunder versions 0.8 - 0.8.1, 1.6 - 1.9
 
 Fabio Vergnani
 - it (Italian) translation of Asunder version 1.0
+
+Fabio Boccaletti
+- it (Italian) translation of Asunder version 2.3
 
 UTUMI Hirosi
 - ja (Japanese) translation of Asunder versions 1.0 - 1.5
@@ -280,6 +285,8 @@ Muhammad Ali Makki
 http://makki.urducoder.com/
 - ur_PK (Urdu/Pakistan) translation of Asunder version 2.0
 
+Tiansworld
+- zh_CN (Simplified Chineese) translation of Asunder version 2.3
+
 Cheng-Wei Chien
 - zh_TW (Chineese/Taiwan) translation of Asunder versions 0.8 - 1.9
-

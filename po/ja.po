@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-18 09:33-0400\n"
+"POT-Creation-Date: 2013-12-27 09:02-0500\n"
 "PO-Revision-Date: 2012-02-19 14:59+0900\n"
 "Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "cdparanoia が見つかりません。Asunder で CD を吸い出すには cdparanoia が必要で"
 "す。"
 
-#: ../src/main.c:418
+#: ../src/main.c:451
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>ディスクの情報をインターネットから取得...</b>"
 
@@ -378,7 +378,7 @@ msgstr "全体の進行"
 msgid "Encoding"
 msgstr "エンコーディング"
 
-#: ../src/interface.c:1709
+#: ../src/interface.c:1719
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -387,13 +387,13 @@ msgstr ""
 "音楽 CD を WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio,\n"
 "または AAC ファイルに保存するためのアプリケーション"
 
-#: ../src/interface.c:1752
+#: ../src/interface.c:1762
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d 個のファイルを作成しました"
 
-#: ../src/interface.c:1761
+#: ../src/interface.c:1771
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -446,7 +446,7 @@ msgstr ""
 "吸い出す/エンコーディングするトラックを選んでいません。最低１つは選んでくださ"
 "い。"
 
-#: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
+#: ../src/threads.c:1043 ../src/threads.c:1045 ../src/threads.c:1049
 msgid "Waiting..."
 msgstr "待機中..."
 

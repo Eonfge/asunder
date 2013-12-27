@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-18 09:33-0400\n"
+"POT-Creation-Date: 2013-12-27 09:02-0500\n"
 "PO-Revision-Date: 2010-07-23 21:29-0500\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "\n"
 "Das Importieren von CDs ist daher nicht möglich."
 
-#: ../src/main.c:418
+#: ../src/main.c:451
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>CD-Info aus dem Internet abrufen...</b>"
 
@@ -433,7 +433,7 @@ msgstr "Gesamt"
 msgid "Encoding"
 msgstr "Komprimieren"
 
-#: ../src/interface.c:1709
+#: ../src/interface.c:1719
 #, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
@@ -443,14 +443,14 @@ msgstr ""
 "Eine Anwendung, um Daten einer Audio-CD als WAV, MP3, OGG, FLAC, Wavpack, "
 "Musepack, Monkey's Audio und/oder AAC zu speichern."
 
-#: ../src/interface.c:1752
+#: ../src/interface.c:1762
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d Datei erfolgreich erstellt."
 msgstr[1] "%d Dateien erfolgreich erstellt."
 
-#: ../src/interface.c:1761
+#: ../src/interface.c:1771
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -520,7 +520,7 @@ msgstr ""
 "\n"
 "Markieren Sie bitte mindestens einen Titel."
 
-#: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
+#: ../src/threads.c:1043 ../src/threads.c:1045 ../src/threads.c:1049
 msgid "Waiting..."
 msgstr "Warten..."
 

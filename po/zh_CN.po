@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder zh_CN translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-18 09:33-0400\n"
+"POT-Creation-Date: 2013-12-27 09:02-0500\n"
 "PO-Revision-Date: 2013-11-21 20:48+0800\n"
 "Last-Translator: Tiansworld <tiansworld@fedoraproject.org>\n"
 "Language-Team: LANGUAGE <tiansworld@fedoraproject.org>\n"
@@ -50,7 +50,7 @@ msgid ""
 msgstr ""
 "在您的工作路径中未找到“cdparanoia”。Asunder 需要 cdparanoia 来抓取 CD。"
 
-#: ../src/main.c:418
+#: ../src/main.c:451
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>正在从互联网获取碟片信息...</b>"
 
@@ -372,7 +372,7 @@ msgstr "总进度"
 msgid "Encoding"
 msgstr "编码中"
 
-#: ../src/interface.c:1709
+#: ../src/interface.c:1719
 #, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
@@ -383,13 +383,13 @@ msgstr ""
 "WAV、MP3、OGG、FLAC、Wavpack、MusePack、Mounkey's Audio 及/或 AAC 等文件的程"
 "序。"
 
-#: ../src/interface.c:1752
+#: ../src/interface.c:1762
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "已成功创建 %d 个文件"
 
-#: ../src/interface.c:1761
+#: ../src/interface.c:1771
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -438,7 +438,7 @@ msgid ""
 "track."
 msgstr "未选择抓取/编码的曲目。请至少选择一个曲目。"
 
-#: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
+#: ../src/threads.c:1043 ../src/threads.c:1045 ../src/threads.c:1049
 msgid "Waiting..."
 msgstr "等待中..."
 

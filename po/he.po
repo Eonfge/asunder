@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder 2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-18 09:33-0400\n"
+"POT-Creation-Date: 2013-12-27 09:02-0500\n"
 "PO-Revision-Date: 2012-12-20 10:05+0200\n"
 "Last-Translator: Isratine Citizen <genghiskhan@gmx.ca>\n"
 "Language-Team: Rahut <genghiskhan@gmx.ca>\n"
@@ -50,7 +50,7 @@ msgid ""
 msgstr ""
 "‏'cdparanoia' לא נמצא בנתיבך. Asunder מצריך cdparanoia כדי לתלוש מן תקליטורים."
 
-#: ../src/main.c:418
+#: ../src/main.c:451
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>מאחזר כעת מידע תקליטור מן האינטרנט...</b>"
 
@@ -391,7 +391,7 @@ msgstr "התקדמות כוללת"
 msgid "Encoding"
 msgstr "מקודד"
 
-#: ../src/interface.c:1709
+#: ../src/interface.c:1719
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -401,14 +401,14 @@ msgstr ""
 "כקבצי WAV, ‏MP3, ‏OGG, ‏FLAC,  ‏Opus, ‏Wavpack, ‏Musepack, ‏Monkey's Audio, ו/או "
 "AAC."
 
-#: ../src/interface.c:1752
+#: ../src/interface.c:1762
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "קובץ %d נוצר בהצלחה"
 msgstr[1] "%d קבצים נוצרו בהצלחה"
 
-#: ../src/interface.c:1761
+#: ../src/interface.c:1771
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -458,7 +458,7 @@ msgid ""
 "track."
 msgstr "לא נבחרו רצועות עבור תלישה/קידוד. נא לבחור לפחות רצועה אחת."
 
-#: ../src/threads.c:1042 ../src/threads.c:1044 ../src/threads.c:1048
+#: ../src/threads.c:1043 ../src/threads.c:1045 ../src/threads.c:1049
 msgid "Waiting..."
 msgstr "ממתין..."
 
