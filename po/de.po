@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-27 09:02-0500\n"
-"PO-Revision-Date: 2010-07-23 21:29-0500\n"
+"PO-Revision-Date: 2013-12-30 00:05+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
 "Language: \n"
@@ -321,7 +321,7 @@ msgstr ""
 #: ../src/interface.c:751
 #, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (verlustbehaftete Komprimierung)"
+msgstr "Opus (verlustbehaftete Komprimierung)"
 
 #: ../src/interface.c:793
 msgid ""
@@ -355,11 +355,7 @@ msgstr ""
 
 #: ../src/interface.c:877
 msgid "Higher bitrate is better quality but also bigger file."
-msgstr ""
-"Eine höhere Bitrate bewirkt bessere Qualität bei höherem Platzbedarf der "
-"Audio-Daten.\n"
-"\n"
-"Vorgabe: 192kbps"
+msgstr "Eine höhere Bitrate bewirkt bessere Qualität bei höherem Platzbedarf der Audio-Daten."
 
 #: ../src/interface.c:885
 msgid "Musepack (lossy compression)"
@@ -440,8 +436,9 @@ msgid ""
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
-"Eine Anwendung, um Daten einer Audio-CD als WAV, MP3, OGG, FLAC, Wavpack, "
-"Musepack, Monkey's Audio und/oder AAC zu speichern."
+"Eine Anwendung, um Daten einer Audio-CD als WAV, MP3, OGG, FLAC,\n"
+"Opus,\n"
+"Wavpack, Musepack, Monkey's Audio und/oder AAC zu speichern."
 
 #: ../src/interface.c:1762
 #, c-format
