@@ -135,8 +135,10 @@ void sigchld(int signum)
         debugLog("killed by signal %d\n", WTERMSIG(status));
     else if (WIFSTOPPED(status))
         debugLog("stopped by signal %d\n", WSTOPSIG(status));
+#if !defined(__NetBSD__)
     else if (WIFCONTINUED(status))
         debugLog("continued\n");
+#endif
 
     if (status != 0)
     {
