@@ -1099,7 +1099,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox), portNum, TRUE, TRUE, 5);
     GLADE_HOOKUP_OBJECT (prefs, portNum, "port_number");
     
-    do_log = gtk_check_button_new_with_label ("Log to "LOG_FILE);
+    do_log = gtk_check_button_new_with_label ("Log to /var/log/asunder.log");
     gtk_widget_show (do_log);
     gtk_box_pack_start (GTK_BOX (vbox), do_log, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, do_log, "do_log");
@@ -1413,7 +1413,7 @@ void enable_musepack_widgets(void)
 }
 
 #if GTK_MINOR_VERSION >= 6
-static const char* 
+const char* 
 GBLprogramName = "Asunder 2.4";
 
 static const char* 

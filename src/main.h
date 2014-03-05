@@ -2,8 +2,6 @@
 #include <cddb/cddb.h>
 #include <stdbool.h>
 
-#define LOG_FILE "/tmp/asunder.log"
-
 // LNR - I think the editable genre column should come before the static track time,
 // but it could arguably come between artist and title so the two editable columns
 // would be together. 

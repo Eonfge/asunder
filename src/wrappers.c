@@ -97,49 +97,20 @@ extern pid_t monkey_pid;
 extern pid_t musepack_pid;
 extern pid_t aac_pid;
 
-// signal handler to find out when our child has exited
+// Signal handler to find out when our child has exited.
+// Do not pot any printf or syslog into here, it causes a deadlock.
+//
 void sigchld(int signum)
 {
     int status;
     pid_t pid;
     
-    if(global_prefs == NULL)
-    // Cannot call debugLog at this point
-        return;
-    
     pid = wait(&status);
-    
-    debugLog("sigchld for %d (know about wav %d, mp3 %d, ogg %d, opus, %d, flac %d, "
-             "wv %d, ape %d, mpc %d, m4a %d\n",
-             pid, cdparanoia_pid, lame_pid, oggenc_pid, opusenc_pid, flac_pid,
-             wavpack_pid, monkey_pid, musepack_pid, aac_pid);
     
     /* this is because i can't seem to be able to block sigchld: */
     while(waitBeforeSigchld)
-    {
-        debugLog("waiting in sigchld()\n");
         usleep(100);
-    }
     
-    if (pid != cdparanoia_pid && pid != lame_pid && pid != oggenc_pid && pid != opusenc_pid &&
-        pid != flac_pid && pid != wavpack_pid && pid != monkey_pid &&
-        pid != musepack_pid && pid != aac_pid)
-    {
-        printf("SIGCHLD for unknown pid, report bug please");
-    }
-    
-    debugLog("%d exited with %d: ", pid, status);
-    if (WIFEXITED(status))
-        debugLog("exited, status=%d\n", WEXITSTATUS(status));
-    else if (WIFSIGNALED(status))
-        debugLog("killed by signal %d\n", WTERMSIG(status));
-    else if (WIFSTOPPED(status))
-        debugLog("stopped by signal %d\n", WSTOPSIG(status));
-#if !defined(__NetBSD__)
-    else if (WIFCONTINUED(status))
-        debugLog("continued\n");
-#endif
-
     if (status != 0)
     {
         if (pid == cdparanoia_pid)
@@ -238,8 +209,6 @@ void sigchld(int signum)
             numAacOk++;
         }
     }
-    
-    debugLog("sigchld completed\n");
 }
 
 // fork() and exec() the file listed in "args"
@@ -251,6 +220,7 @@ void sigchld(int signum)
 // returns - a file descriptor that reads whatever the program outputs on "toread"
 int exec_with_output(const char * args[], int toread, pid_t * p)
 {
+    char logStr[1024];
     int pipefd[2];
     
     blockSigChld();
@@ -293,10 +263,10 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
     }
     
     int count;
-    debugLog("%d started: %s ", *p, args[0]);
+    snprintf(logStr, 1024, "%d started: %s ", *p, args[0]);
     for (count = 1; args[count] != NULL; count++)
-        debugLog("%s ", args[count]);
-    debugLog("\n");
+        strncat(logStr, args[count], 1024);
+    debugLog(logStr);
     
     // i'm the parent, get ready to wait for children
     numchildren++;
@@ -317,6 +287,7 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
 // progress - the percent done
 void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
 {
+    char logStr[1024];
     int fd;
     char buf[256];
     int size;
@@ -342,9 +313,11 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     do
     {
         pos = -1;
-        bool interrupted = FALSE;
+        bool interrupted;
         do
         {
+            interrupted = FALSE;
+            
             pos++;
             size = read(fd, &buf[pos], 1);
             
@@ -352,9 +325,9 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
             /* signal interrupted read(), try again */
             {
                 pos--;
+                debugLog("cdparanoia() interrupted");
                 interrupted = TRUE;
             }
-            
         } while ((size > 0 && pos < 255 && buf[pos] != '\n') || interrupted);
         buf[pos] = '\0';
 
@@ -372,6 +345,9 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
             }
         }
     } while (size > 0);
+    
+    snprintf(logStr, 1024, "Ripping %s finished\n", trackstring);
+    debugLog(logStr);
     
     close(fd);
     /* don't go on until the signal for the previous call is handled */
@@ -481,9 +457,11 @@ void lame(int tracknum,
     do
     {
         pos = -1;
-        bool interrupted = FALSE;
+        bool interrupted;
         do
         {
+            interrupted = FALSE;
+            
             pos++;
             size = read(fd, &buf[pos], 1);
             
@@ -491,6 +469,7 @@ void lame(int tracknum,
             /* signal interrupted read(), try again */
             {
                 size = 1;
+                debugLog("lame() interrupted");
                 interrupted = TRUE;
             }
             
@@ -595,9 +574,11 @@ void oggenc(int tracknum,
     do
     {
         pos = -1;
-        bool interrupted = FALSE;
+        bool interrupted;
         do
         {
+            interrupted = FALSE;
+            
             pos++;
             size = read(fd, &buf[pos], 1);
             
@@ -605,6 +586,7 @@ void oggenc(int tracknum,
             /* signal interrupted read(), try again */
             {
                 pos--;
+                debugLog("oggenc() interrupted");
                 interrupted = TRUE;
             }
             
@@ -864,9 +846,11 @@ void flac(int tracknum,
     do
     {
         pos = -1;
-        bool interrupted = FALSE;
+        bool interrupted;
         do
         {
+            interrupted = FALSE;
+            
             pos++;
             size = read(fd, &buf[pos], 1);
             
@@ -874,6 +858,7 @@ void flac(int tracknum,
             /* signal interrupted read(), try again */
             {
                 pos--;
+                debugLog("flac() interrupted");
                 interrupted = TRUE;
             }
             
@@ -949,9 +934,11 @@ void wavpack(int tracknum,
     do
     {
         pos = -1;
-        bool interrupted = FALSE;
+        bool interrupted;
         do
         {
+            interrupted = FALSE;
+            
             pos++;
             size = read(fd, &buf[pos], 1);
             
@@ -959,6 +946,7 @@ void wavpack(int tracknum,
             /* signal interrupted read(), try again */
             {
                 pos--;
+                debugLog("wavpack() interrupted");
                 interrupted = TRUE;
             }
         } while ((size > 0 && pos < 255 && buf[pos] != '\b') || interrupted);
@@ -1050,7 +1038,7 @@ void mac(char* wavfilename,
     /* don't go on until the signal for the previous call is handled */
     while (monkey_pid != 0)
     {
-        debugLog("w9 (%d)\n", monkey_pid);
+        debugLog("w9\n");
         usleep(100000);
     }
 }
@@ -1084,9 +1072,11 @@ void musepack(char* wavfilename,
     do
     {
         pos = -1;
-        bool interrupted = FALSE;
+        bool interrupted;
         do
         {
+            interrupted = FALSE;
+            
             pos++;
             size = read(fd, &buf[pos], 1);
             
@@ -1094,6 +1084,7 @@ void musepack(char* wavfilename,
             /* signal interrupted read(), try again */
             {
                 pos--;
+                debugLog("musepack() interrupted");
                 interrupted = TRUE;
             }
             
@@ -1111,7 +1102,7 @@ void musepack(char* wavfilename,
     /* don't go on until the signal for the previous call is handled */
     while (musepack_pid != 0)
     {
-        debugLog("w10 (%d)\n", musepack_pid);
+        debugLog("w10\n");
         usleep(100000);
     }
 }
@@ -1167,7 +1158,7 @@ void aac(int tracknum,
     /* don't go on until the signal for the previous call is handled */
     while (aac_pid != 0)
     {
-        debugLog("w11 (%d)\n", aac_pid);
+        debugLog("w11\n");
         usleep(100000);
     }
 
@@ -1222,7 +1213,7 @@ void aac(int tracknum,
     /* don't go on until the signal for the previous call is handled */
     while (aac_pid != 0)
     {
-        debugLog("w12 (%d)\n", aac_pid);
+        debugLog("w12\n");
         usleep(100000);
     }
 

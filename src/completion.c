@@ -12,21 +12,23 @@
 
 static char * completion_filename(const char * name, int create_dirs)
 {
-	const char * cache = g_getenv("XDG_CACHE_HOME");
-	char * file;
-	if (cache == NULL) {
-		file = g_strdup_printf("%s/.asunder_%s", g_getenv("HOME"), name);
-	}
-	else {
-		file = g_strdup_printf("%s/asunder/%s", cache, name);
-		if (create_dirs) {
-			char * dir = g_strdup_printf("%s/asunder", cache);
-			recursive_mkdir(dir, S_IRWXU|S_IRWXG|S_IRWXO);
-			g_free(dir);
-		}
-	}
-	debugLog("using completion file name: %s\n", file);
-	return file;
+    char logStr[1024];
+    const char * cache = g_getenv("XDG_CACHE_HOME");
+    char * file;
+    if (cache == NULL) {
+        file = g_strdup_printf("%s/.asunder_%s", g_getenv("HOME"), name);
+    }
+    else {
+        file = g_strdup_printf("%s/asunder/%s", cache, name);
+        if (create_dirs) {
+            char * dir = g_strdup_printf("%s/asunder", cache);
+            recursive_mkdir(dir, S_IRWXU|S_IRWXG|S_IRWXO);
+            g_free(dir);
+        }
+    }
+    snprintf(logStr, 1024, "using completion file name: %s\n", file);
+    debugLog(logStr);
+    return file;
 }
 
 static void

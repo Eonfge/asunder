@@ -1,6 +1,6 @@
 #include <stdbool.h>
 
-void debugLog(const char* format, ...);
+void debugLog(const char* msg);
 
 void fatalError(const char* message);
 

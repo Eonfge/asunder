@@ -27,6 +27,7 @@ Foundation; version 2 of the licence.
 #include <string.h>
 #include <stdbool.h>
 #include <signal.h>
+#include <syslog.h>
 
 #if defined(__FreeBSD__) || defined(__FreeBSD_kernel__) || defined(__NetBSD__)
     #include <sys/cdio.h>
@@ -59,10 +60,13 @@ GtkWidget * album_year;
 GtkWidget * tracklist;
 GtkWidget * pick_disc;
 
+extern const char* GBLprogramName;
+
 int gbl_null_fd;
 
 int main(int argc, char *argv[])
 {
+    char logStr[1024];
     GtkCellRenderer *renderer;
     
 #ifdef ENABLE_NLS
@@ -98,8 +102,13 @@ int main(int argc, char *argv[])
     global_prefs = get_default_prefs();
     load_prefs(global_prefs);
     
+    openlog("asunder", 0, LOG_USER);
+    snprintf(logStr, 1024, "Starting %s", GBLprogramName);
+    debugLog(logStr);
+    
     add_pixmap_directory(PACKAGE_DATA_DIR "/pixmaps");
-    debugLog("Pixmap dir: " PACKAGE_DATA_DIR "/pixmaps\n");
+    snprintf(logStr, 1024, "Pixmap dir: "PACKAGE_DATA_DIR "/pixmaps\n");
+    debugLog(logStr);
     
     win_main = create_main();
     album_artist = lookup_widget(win_main, "album_artist");
@@ -372,7 +381,6 @@ void eject_disc(char * cdrom)
         const char* const args[] = {"eject", cdrom, NULL};
         execvp(args[0], (char*const*)args);
         
-        printf("Should never see this, why did the call to 'eject' fail?\n");
         debugLog("Should never see this, why did the call to 'eject' fail?\n");
         exit(1);
     }
@@ -471,6 +479,7 @@ GList * lookup_disc(cddb_disc_t * disc)
 
 cddb_disc_t * read_disc(char * cdrom)
 {
+    char logStr[1024];
     int fd;
     int status;
     int i;
@@ -516,8 +525,8 @@ cddb_disc_t * read_disc(char * cdrom)
         // see if we can read the disc's table of contents (TOC).
         if (ioctl(fd, CDIOREADTOCHEADER, &th) == 0)
         {
-            debugLog("starting track: %d\n", th.starting_track);
-            debugLog("ending track: %d\n", th.ending_track);
+            snprintf(logStr. 1024, "starting track: %d, ending track: %d\n", th.starting_track, th.ending_track);
+            debugLog(logStr);
             
             disc = cddb_disc_new();
             if (disc == NULL)
@@ -568,8 +577,8 @@ cddb_disc_t * read_disc(char * cdrom)
         // see if we can read the disc's table of contents (TOC).
         if (ioctl(fd, CDIOREADTOCHEADER, &th) == 0)
         {
-            debugLog("starting track: %d\n", th.starting_track);
-            debugLog("ending track: %d\n", th.ending_track);
+            snprintf(logStr. 1024, "starting track: %d, ending track: %d\n", th.starting_track, th.ending_track);
+            debugLog(logStr);
             
             disc = cddb_disc_new();
             if (disc == NULL)
@@ -617,8 +626,8 @@ cddb_disc_t * read_disc(char * cdrom)
         // see if we can read the disc's table of contents (TOC).
         if (ioctl(fd, CDROMREADTOCHDR, &th) == 0)
         {
-            debugLog("starting track: %d\n", th.cdth_trk0);
-            debugLog("ending track: %d\n", th.cdth_trk1);
+            snprintf(logStr, 1024, "starting track: %d, ending track: %d\n", th.cdth_trk0, th.cdth_trk1);
+            debugLog(logStr);
             
             disc = cddb_disc_new();
             if (disc == NULL)

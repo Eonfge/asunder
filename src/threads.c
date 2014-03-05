@@ -126,6 +126,7 @@ void abort_threads()
 // spawn needed threads and begin ripping
 void dorip()
 {
+    char logStr[1024];
     working = true;
     aborted = false;
     allDone = false;
@@ -219,7 +220,9 @@ void dorip()
     
     /* CREATE the album directory */
     char * dirpath = make_filename(prefs_get_music_dir(global_prefs), albumdir, NULL, NULL);
-    debugLog("Making album directory '%s'\n", dirpath);
+    
+    snprintf(logStr, 1024, "Making album directory '%s'\n", dirpath);
+    debugLog(logStr);
     
     if ( recursive_mkdir(dirpath, S_IRWXU|S_IRWXG|S_IRWXO) != 0 && 
          errno != EEXIST )
@@ -356,8 +359,9 @@ void dorip()
 // the thread that handles ripping tracks to WAV files
 gpointer rip(gpointer data)
 {
+    char logStr[1024];
     GtkTreeIter iter;
-
+    
     int riptrack;
     int tracknum;
     const char * trackartist;
@@ -421,7 +425,8 @@ gpointer rip(gpointer data)
             musicfilename = parse_format(global_prefs->format_music, tracknum, albumyear, trackartist_trimmed, albumtitle_trimmed, albumgenre_trimmed, tracktitle_trimmed);
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
             
-            debugLog("Ripping track %d to \"%s\"\n", tracknum, wavfilename);
+            snprintf(logStr, 1024, "Ripping track %d to \"%s\"\n", tracknum, wavfilename);
+            debugLog(logStr);
             
             if (aborted) g_thread_exit(NULL);
             
@@ -454,10 +459,13 @@ gpointer rip(gpointer data)
             rip_percent = 0.0;
             rip_tracks_completed++;
         }
-
+        
+        debugLog("rip() waiting for barrier\n");
         g_mutex_lock(barrier);
         counter++;
+        debugLog("rip() done waiting\n");
         g_mutex_unlock(barrier);
+        debugLog("rip() signaling available\n");
         g_cond_signal(available);
         
         if (aborted)
@@ -484,6 +492,7 @@ gpointer rip(gpointer data)
 // the thread that handles encoding WAV files to all other formats
 gpointer encode(gpointer data)
 {
+    char logStr[1024];
     GtkTreeIter iter;
 
     int riptrack;
@@ -575,12 +584,16 @@ gpointer encode(gpointer data)
     
     while(rowsleft)
     {
+        debugLog("encode() waiting for 'barrier'\n");
         g_mutex_lock(barrier);
         while ((counter < 1) && (!aborted))
         {
+            debugLog("encode() waiting for 'available'\n");
             g_cond_wait(available, barrier);
         }
         counter--;
+        snprintf(logStr, 1024, "encode() done waiting, counter is now %d\n", counter);
+        debugLog(logStr);
         g_mutex_unlock(barrier);
         if (aborted) g_thread_exit(NULL);
         
@@ -634,7 +647,8 @@ gpointer encode(gpointer data)
             
             if (global_prefs->rip_mp3)
             {
-                debugLog("Encoding track %d to \"%s\"\n", tracknum, mp3filename);
+                snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, mp3filename);
+                debugLog(logStr);
                 
                 if (aborted) g_thread_exit(NULL);
                 
@@ -668,7 +682,8 @@ gpointer encode(gpointer data)
             }
             if (global_prefs->rip_ogg)
             {
-                debugLog("Encoding track %d to \"%s\"\n", tracknum, oggfilename);
+                snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, oggfilename);
+                debugLog(logStr);
                 
                 if (aborted) g_thread_exit(NULL);
                 
@@ -686,11 +701,10 @@ gpointer encode(gpointer data)
                     doEncode = true;
                 
                 if(doEncode)
-                    //~ oggenc(tracknum, trackartist, album_title, tracktitle, trackyear, genre, wavfilename, 
-                           //~ oggfilename, global_prefs->ogg_quality, &ogg_percent);
+                {
                     oggenc(tracknum, trackartist, album_title, tracktitle, album_year, genre, wavfilename, 
                            oggfilename, global_prefs->ogg_quality, &ogg_percent);
-                
+                }
                 if (aborted) g_thread_exit(NULL);
 
                 if (playlist_ogg)
@@ -702,7 +716,8 @@ gpointer encode(gpointer data)
             }
             if (global_prefs->rip_opus)
             {
-                debugLog("Encoding track %d to \"%s\"\n", tracknum, opusfilename);
+                snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, opusfilename);
+                debugLog(logStr);
 
                 if (aborted) g_thread_exit(NULL);
 
@@ -734,7 +749,8 @@ gpointer encode(gpointer data)
             }
             if (global_prefs->rip_flac)
             {
-                debugLog("Encoding track %d to \"%s\"\n", tracknum, flacfilename);
+                snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, flacfilename);
+                debugLog(logStr);
                 
                 if (aborted) g_thread_exit(NULL);
                 
@@ -768,7 +784,8 @@ gpointer encode(gpointer data)
             }
             if (global_prefs->rip_wavpack)
             {
-                debugLog("Encoding track %d to \"%s\"\n", tracknum, wavpackfilename);
+                snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, wavpackfilename);
+                debugLog(logStr);
                 
                 if (aborted) g_thread_exit(NULL);
                 
@@ -804,7 +821,8 @@ gpointer encode(gpointer data)
             }
             if (global_prefs->rip_monkey)
             {
-                debugLog("Encoding track %d to \"%s\"\n", tracknum, monkeyfilename);
+                snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, monkeyfilename);
+                debugLog(logStr);
                 
                 if (aborted) g_thread_exit(NULL);
                 
@@ -839,7 +857,8 @@ gpointer encode(gpointer data)
             }
             if (global_prefs->rip_musepack)
             {
-                debugLog("Encoding track %d to \"%s\"\n", tracknum, musepackfilename);
+                snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, musepackfilename);
+                debugLog(logStr);
                 
                 if (aborted) g_thread_exit(NULL);
                 
@@ -874,7 +893,8 @@ gpointer encode(gpointer data)
             }
             if (global_prefs->rip_aac)
             {
-                debugLog("Encoding track %d to \"%s\"\n", tracknum, aacfilename);
+                snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, aacfilename);
+                debugLog(logStr);
                 
                 if (aborted) g_thread_exit(NULL);
                 
@@ -910,11 +930,13 @@ gpointer encode(gpointer data)
             }
             if (!global_prefs->rip_wav)
             {
-                debugLog("Removing track %d WAV file\n", tracknum);
+                snprintf(logStr, 1024, "Removing track %d WAV file\n", tracknum);
+                debugLog(logStr);
                 
                 if (unlink(wavfilename) != 0)
                 {
-                    printf("Unable to delete WAV file \"%s\": %s\n", wavfilename, strerror(errno));
+                    snprintf(logStr, 1024, "Unable to delete WAV file \"%s\": %s\n", wavfilename, strerror(errno));
+                    debugLog(logStr);
                 }
             } else {
                 if (playlist_wav)
@@ -1016,6 +1038,7 @@ gpointer encode(gpointer data)
 // the thread that calculates the progress of the other threads and updates the progress bars
 gpointer track(gpointer data)
 {
+    char logStr[1024];
     int parts = 1;
     if(global_prefs->rip_mp3) 
         parts++;
@@ -1065,12 +1088,13 @@ gpointer track(gpointer data)
     {
         if (aborted) g_thread_exit(NULL);
         
-        debugLog("completed tracks %d, rip %.2lf%%; encoded tracks %d, "
+        snprintf(logStr, 1024, "completed tracks %d, rip %.2lf%%; encoded tracks %d, "
                  "mp3 %.2lf%% ogg %.2lf%% opus %.2lf%% flac %.2lf%% wavpack %.2lf%% "
-                 "monkey %.2lf%% musepack %.2lf%% aac %.2lf%%\n\n", 
+                 "monkey %.2lf%% musepack %.2lf%% aac %.2lf%%\n", 
                  rip_tracks_completed, rip_percent*100, encode_tracks_completed, 
                  mp3_percent*100, ogg_percent*100, opus_percent*100, flac_percent*100, wavpack_percent*100,
                  monkey_percent*100,musepack_percent*100,aac_percent*100);
+        debugLog(logStr);
         
         prip = (rip_tracks_completed+rip_percent) / tracks_to_rip;
         snprintf(srip, 13, "%d%% (%d/%d)", (int)(prip*100),
