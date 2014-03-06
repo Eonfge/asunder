@@ -395,11 +395,17 @@ static GList * gbl_matches = NULL;
 
 gpointer cddb_query_thread_run(gpointer data)
 {
+    char logStr[1024];
     int i;
     
     gbl_cddb_query_thread_num_matches = cddb_query(gbl_cddb_query_thread_conn, gbl_cddb_query_thread_disc);
     if(gbl_cddb_query_thread_num_matches == -1)
         gbl_cddb_query_thread_num_matches = 0;
+    
+    snprintf(logStr, 1024, "Found %d CDDB matches", gbl_cddb_query_thread_num_matches);
+    debugLog(logStr);
+    
+    gbl_matches = NULL;
     
     // make a list of all the matches
     for (i = 0; i < gbl_cddb_query_thread_num_matches; i++)
@@ -525,7 +531,7 @@ cddb_disc_t * read_disc(char * cdrom)
         // see if we can read the disc's table of contents (TOC).
         if (ioctl(fd, CDIOREADTOCHEADER, &th) == 0)
         {
-            snprintf(logStr. 1024, "starting track: %d, ending track: %d\n", th.starting_track, th.ending_track);
+            snprintf(logStr, 1024, "starting track: %d, ending track: %d\n", th.starting_track, th.ending_track);
             debugLog(logStr);
             
             disc = cddb_disc_new();
@@ -577,7 +583,7 @@ cddb_disc_t * read_disc(char * cdrom)
         // see if we can read the disc's table of contents (TOC).
         if (ioctl(fd, CDIOREADTOCHEADER, &th) == 0)
         {
-            snprintf(logStr. 1024, "starting track: %d, ending track: %d\n", th.starting_track, th.ending_track);
+            snprintf(logStr, 1024, "starting track: %d, ending track: %d\n", th.starting_track, th.ending_track);
             debugLog(logStr);
             
             disc = cddb_disc_new();
@@ -682,7 +688,10 @@ void update_tracklist(cddb_disc_t * disc)
     unsigned disc_year = cddb_disc_get_year(disc);
     cddb_track_t * track;
     bool singleartist;
+    char logStr[1024];
     
+    sprintf(logStr, "update_tracklist() disk %X '%s' '%s' '%s'\n", disc, disc_artist, disc_title, disc_genre);
+    debugLog(logStr);
     if (disc_artist != NULL)
     {
         //trim_chars(disc_artist, BADCHARS);			// lnr	//Commented out by mrpl
