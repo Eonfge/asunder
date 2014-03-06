@@ -16,5 +16,5 @@ desktop_DATA = asunder.desktop
 install-data-hook:
 	cd syslogng && $(MAKE) install
 
-uninstall-hook:
+uninstall-hook: 
 	cd syslogng && $(MAKE) uninstall
