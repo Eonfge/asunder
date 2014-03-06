@@ -21,7 +21,5 @@ void disable_aac_widgets(void);
 void enable_aac_widgets(void);
 void disable_musepack_widgets(void);
 void enable_musepack_widgets(void);
-#if GTK_MINOR_VERSION >= 6
 void show_aboutbox (void);
-#endif
 void show_completed_dialog(int numOk, int numFailed);

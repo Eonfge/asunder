@@ -106,13 +106,11 @@ create_main (void)
     gtk_widget_show (separatortoolitem1);
     gtk_container_add (GTK_CONTAINER (toolbar1), separatortoolitem1);
 
-#if GTK_MINOR_VERSION >= 6
     GtkWidget *about;
     about = (GtkWidget*) gtk_tool_button_new_from_stock ("gtk-about");
     gtk_widget_show (about);
     gtk_container_add (GTK_CONTAINER (toolbar1), about);
     gtk_tool_item_set_is_important (GTK_TOOL_ITEM (about), TRUE);
-#endif
     
     table2 = gtk_table_new (3, 3, FALSE);
     gtk_widget_show (table2);
@@ -248,11 +246,9 @@ create_main (void)
     g_signal_connect ((gpointer) preferences, "clicked",
                                         G_CALLBACK (on_preferences_clicked),
                                         NULL);
-#if GTK_MINOR_VERSION >= 6
     g_signal_connect ((gpointer) about, "clicked",
                                         G_CALLBACK (on_about_clicked),
                                         NULL);
-#endif
     g_signal_connect ((gpointer) album_artist, "focus_out_event",
                                         G_CALLBACK (on_album_artist_focus_out_event),
                                         NULL);
@@ -307,9 +303,7 @@ create_main (void)
     GLADE_HOOKUP_OBJECT (main_win, lookup, "lookup");
     GLADE_HOOKUP_OBJECT (main_win, preferences, "preferences");
     GLADE_HOOKUP_OBJECT (main_win, separatortoolitem1, "separatortoolitem1");
-#if GTK_MINOR_VERSION >= 6
     GLADE_HOOKUP_OBJECT (main_win, about, "about");
-#endif
     GLADE_HOOKUP_OBJECT (main_win, table2, "table2");
     GLADE_HOOKUP_OBJECT (main_win, album_artist, "album_artist");
     GLADE_HOOKUP_OBJECT (main_win, album_title, "album_title");
@@ -1412,9 +1406,8 @@ void enable_musepack_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "musepack_bitrate_slider"), TRUE);
 }
 
-#if GTK_MINOR_VERSION >= 6
 const char* 
-GBLprogramName = "Asunder 2.4";
+GBLprogramName = "Asunder 2.5";
 
 static const char* 
 GBLauthors[2] = {
@@ -1738,9 +1731,7 @@ show_aboutbox (void)
 {
     gtk_show_about_dialog(GTK_WINDOW(lookup_widget(win_main, "main")), 
                           "name", GBLprogramName,
-#if GTK_MINOR_VERSION >= 12
                           "program-name", GBLprogramName,
-#endif
                           "authors", GBLauthors,
                           "translator-credits", GBLtranslators,
                           "comments", _(GBLcomments),
@@ -1749,7 +1740,6 @@ show_aboutbox (void)
                           "website", GBLwebsite,
                           NULL);
 }
-#endif
 
 void show_completed_dialog(int numOk, int numFailed)
 {
