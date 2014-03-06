@@ -31,7 +31,7 @@ Foundation; version 2 of the licence.
 void debugLog(const char* msg)
 {
     if(global_prefs->do_log)
-        syslog(LOG_USER|LOG_INFO, msg);
+        syslog(LOG_USER|LOG_INFO, "%s", msg);
 }
 
 void fatalError(const char* message)

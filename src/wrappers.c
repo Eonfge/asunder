@@ -265,7 +265,10 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
     int count;
     snprintf(logStr, 1024, "%d started: %s ", *p, args[0]);
     for (count = 1; args[count] != NULL; count++)
-        strncat(logStr, args[count], 1024);
+    {
+        if (strlen(logStr) + strlen(args[count]) < 1024)
+            strcat(logStr, args[count]);
+    }
     debugLog(logStr);
     
     // i'm the parent, get ready to wait for children

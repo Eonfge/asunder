@@ -12,3 +12,9 @@ ACLOCAL_AMFLAGS = -I m4
 desktopdir=$(datadir)/applications
 
 desktop_DATA = asunder.desktop
+
+install-data-hook:
+	cd syslogng && $(MAKE) install
+
+uninstall-hook:
+	cd syslogng && $(MAKE) uninstall

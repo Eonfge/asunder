@@ -1,3 +1,11 @@
+6 Mar 2014 - 2.5
+================
+- Fixed two major bugs that caused Asunder to hang while ripping.
+- Fixed a bug where the CDDB info from a removed disk still showed up in a newly inserted disk.
+- Added NetBSD support.
+- Now logging to /var/log/asunder.log via syslog-ng instead of /tmp/asunder.log
+- Updated German and Spanish translations.
+
 27 Dec 2013 - 2.4
 =================
 - Added Bengali, Traditional Chinese translations.

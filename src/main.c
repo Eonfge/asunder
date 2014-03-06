@@ -690,7 +690,7 @@ void update_tracklist(cddb_disc_t * disc)
     bool singleartist;
     char logStr[1024];
     
-    sprintf(logStr, "update_tracklist() disk %X '%s' '%s' '%s'\n", disc, disc_artist, disc_title, disc_genre);
+    sprintf(logStr, "update_tracklist() disk '%s' '%s' '%s'\n", disc_artist, disc_title, disc_genre);
     debugLog(logStr);
     if (disc_artist != NULL)
     {
