@@ -5,7 +5,7 @@ SUBDIRS = src po
 pixdir = $(datadir)/pixmaps
 pix_DATA = pixmaps/asunder.png
 
-EXTRA_DIST = asunder.desktop pixmaps/asunder.png
+EXTRA_DIST = asunder.desktop pixmaps/asunder.png syslogng
 
 ACLOCAL_AMFLAGS = -I m4
 
