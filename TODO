@@ -1,7 +1,9 @@
-- bug: multiple cddb records come up only once? else need to blow away cddb cache (email). test with Michael Jackson Greatest Hits HIStory. Seems to be a libcddb bug.
+- Command-line param to choose device so that can use with multiple devices.
+- Change the display of kbps for VBR in the preferences - should be a range instead of a static number.
+- Bug: multiple cddb records come up only once? else need to blow away cddb cache (email). test with Michael Jackson Greatest Hits HIStory. Seems to be a libcddb bug.
 - A slider for WavPack looks strange when moved (see attachment).
-- links from encoder pages (cdparanoia, lame, vorbis-tools, flac, mac)
-- link from cddb page
+- Links from encoder pages (cdparanoia, lame, vorbis-tools, flac, mac)
+- Link from cddb page
 
 Low Priority
 ============
