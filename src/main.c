@@ -748,6 +748,7 @@ void update_tracklist(cddb_disc_t * disc)
 
 void refresh(char * cdrom, int force)
 {
+    static unsigned int last_disc_id = 0;
     cddb_disc_t * disc;
     //GList * curr;
     
@@ -756,17 +757,23 @@ void refresh(char * cdrom, int force)
         return;
     
     if (check_disc(cdrom) || force)
-    {
+    {printf("%d\n", last_disc_id);
         disc = read_disc(cdrom);
         if (disc == NULL)
             return;
         
-        gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), TRUE);
+        if (last_disc_id != cddb_disc_get_discid(disc))
+        {
+            /* only trash the user's inputs when the disc is new */
+            last_disc_id = cddb_disc_get_discid(disc);
+
+            gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), TRUE);
         
-        // show the temporary info
-        gtk_entry_set_text(GTK_ENTRY(album_artist), "Unknown Artist");
-        gtk_entry_set_text(GTK_ENTRY(album_title), "Unknown Album");
-        update_tracklist(disc);
+            // show the temporary info
+            gtk_entry_set_text(GTK_ENTRY(album_artist), "Unknown Artist");
+            gtk_entry_set_text(GTK_ENTRY(album_title), "Unknown Album");
+            update_tracklist(disc);
+        }
         
         // clear out the previous list of matches
         /* this causes a segfault in the following scenario:
