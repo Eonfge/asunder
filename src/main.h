@@ -28,11 +28,6 @@ void eject_disc(char * cdrom);
 // looks up the given cddb_disc_t in the online database, and fills in the values
 GList * lookup_disc(cddb_disc_t * disc);
 
-// reads the TOC of a cdrom into a CDDB struct
-// returns the filled out struct
-// so we can send it over the internet to lookup the disc
-cddb_disc_t * read_disc(char * cdrom);
-
 // the main logic for scanning the discs
 void refresh(char * cdrom, int force);
 

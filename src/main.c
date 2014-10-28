@@ -488,7 +488,9 @@ GList * lookup_disc(cddb_disc_t * disc)
     return gbl_matches;
 }
 
-
+// reads the TOC of a cdrom into a CDDB struct
+// returns the filled out struct
+// so we can send it over the internet to lookup the disc
 cddb_disc_t * read_disc(char * cdrom)
 {
     char logStr[1024];
