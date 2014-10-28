@@ -196,7 +196,9 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-
+// scan the cdrom device for a disc
+// returns True if a disc is present and
+//   is different from the last time this was called
 bool check_disc(char * cdrom)
 {
     int fd;

@@ -17,11 +17,6 @@ enum
     NUM_COLS
 };
 
-// scan the cdrom device for a disc
-// returns True if a disc is present and
-//   is different from the last time this was called
-bool check_disc(char * cdrom);
-
 void clear_widgets();
 
 // creates a tree model that represents the data in the cddb_disc_t
