@@ -674,6 +674,11 @@ cddb_disc_t * read_disc(char * cdrom)
     }
 #endif
     close(fd);
+    
+    /* These two lines from Nicolas Léveillé
+    * "let us have a discid for each read disc" */
+    if (disc)
+        cddb_disc_calc_discid(disc);
 
     return disc;
 }
