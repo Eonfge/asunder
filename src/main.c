@@ -44,6 +44,8 @@ Foundation; version 2 of the licence.
 #include "wrappers.h"
 #include "threads.h"
 
+static unsigned int gbl_current_discid = 0;
+
 GList * gbl_disc_matches = NULL;
 gboolean track_format[100];
 
@@ -275,6 +277,8 @@ bool check_disc(char * cdrom)
 
 void clear_widgets()
 {
+    gbl_current_discid = 0;
+
     // hide the widgets for multiple albums
     gtk_widget_hide(lookup_widget(win_main, "disc"));
     gtk_widget_hide(lookup_widget(win_main, "pick_disc"));
@@ -695,6 +699,8 @@ void update_tracklist(cddb_disc_t * disc)
     bool singleartist;
     char logStr[1024];
     
+    gbl_current_discid = cddb_disc_get_discid(disc);
+
     sprintf(logStr, "update_tracklist() disk '%s' '%s' '%s'\n", disc_artist, disc_title, disc_genre);
     debugLog(logStr);
     if (disc_artist != NULL)
@@ -748,7 +754,6 @@ void update_tracklist(cddb_disc_t * disc)
 
 void refresh(char * cdrom, int force)
 {
-    static unsigned int last_disc_id = 0;
     cddb_disc_t * disc;
     //GList * curr;
     
@@ -757,16 +762,15 @@ void refresh(char * cdrom, int force)
         return;
     
     if (check_disc(cdrom) || force)
-    {printf("%d\n", last_disc_id);
+    {
         disc = read_disc(cdrom);
         if (disc == NULL)
             return;
         
-        if (last_disc_id != cddb_disc_get_discid(disc))
+        if (gbl_current_discid != cddb_disc_get_discid(disc))
         {
             /* only trash the user's inputs when the disc is new */
-            last_disc_id = cddb_disc_get_discid(disc);
-
+            
             gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), TRUE);
         
             // show the temporary info
