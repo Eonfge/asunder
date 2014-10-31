@@ -17,8 +17,6 @@ enum
     NUM_COLS
 };
 
-void clear_widgets();
-
 // creates a tree model that represents the data in the cddb_disc_t
 GtkTreeModel * create_model_from_disc(cddb_disc_t * disc);
 
