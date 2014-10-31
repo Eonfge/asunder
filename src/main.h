@@ -32,6 +32,8 @@ void refresh(char * cdrom, int force);
 // updates all the necessary widgets with the data for the given cddb_disc_t
 void update_tracklist(cddb_disc_t * disc);
 
+void clear_widgets();
+
 extern GList * gbl_disc_matches;
 
 extern GtkWidget * win_main;
