@@ -6,22 +6,23 @@ msgstr ""
 "Project-Id-Version: ISO Master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-27 09:02-0500\n"
-"PO-Revision-Date: 2008-10-14 18:53-0500\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2014-11-18 08:18+0100\n"
+"Last-Translator: Åka Sikrom <a4NOSPAMPLEASETHANKYOU@hush.com>\n"
 "Language-Team: Ubuntu Norwegian Translators <oversettelse@ubuntu.no>\n"
-"Language: \n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: ../src/main.c:117 ../src/interface.c:233
+#: ../src/main.c:117
+#: ../src/interface.c:233
 msgid "Rip"
 msgstr "Hent ut"
 
 #: ../src/main.c:121
 msgid "Track"
-msgstr "Lydspor"
+msgstr "Spor"
 
 #: ../src/main.c:127
 msgid "Artist"
@@ -32,47 +33,48 @@ msgid "Title"
 msgstr "Tittel"
 
 #: ../src/main.c:139
-#, fuzzy
 msgid "Genre"
-msgstr "Generelt"
+msgstr "Sjanger"
 
 #: ../src/main.c:143
 msgid "Time"
 msgstr "Tid"
 
 #: ../src/main.c:169
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
-msgstr ""
-"'cdparanoia' ble ikke funnet i søkestien din. Asunder trenger cdparanoia for "
-"å hente musikk fra CDer."
+msgid "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip CDs."
+msgstr "Fant ikke «cdparanoia» i søkestien din. Asunder trenger cdparanoia for å hente musikk fra CD-er."
 
 #: ../src/main.c:451
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>Henter plate informasjon fra internett...</b>"
+msgstr "<b>Henter plateinformasjon fra Internett …</b>"
 
-#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
-#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
-#: ../src/interface.c:745 ../src/interface.c:879
-#, fuzzy, c-format
+#: ../src/callbacks.c:57
+#: ../src/callbacks.c:261
+#: ../src/callbacks.c:289
+#: ../src/callbacks.c:298
+#: ../src/callbacks.c:308
+#: ../src/interface.c:603
+#: ../src/interface.c:745
+#: ../src/interface.c:879
+#, c-format
 msgid "%dKbps"
-msgstr "32Kbps"
+msgstr "%dKbps"
 
 #: ../src/callbacks.c:410
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr "Ingen CD funnet. Vær snill å legg en CD i CD-ROM stasjonen."
+msgstr "Ingen CD er satt inn. Sett inn en CD i CD-ROM-stasjonen."
 
-#: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
-#: ../src/callbacks.c:580 ../src/callbacks.c:605
+#: ../src/callbacks.c:429
+#: ../src/callbacks.c:454
+#: ../src/callbacks.c:479
+#: ../src/callbacks.c:504
+#: ../src/callbacks.c:530
+#: ../src/callbacks.c:555
+#: ../src/callbacks.c:580
+#: ../src/callbacks.c:605
 #, c-format
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All "
-"%s functionality is disabled."
-msgstr ""
-"%s ble ikke funnet i stien din. Asunder trenger det for å opprette %s filer. "
-"Alle %s funksjoner er slått av."
+msgid "%s was not found in your path. Asunder requires it to create %s files. All %s functionality is disabled."
+msgstr "Fant ikke %s i stien din. Asunder trenger dette for å lage %s-filer. Alle %s-funksjoner er slått av."
 
 #: ../src/callbacks.c:702
 msgid "Select all for ripping"
@@ -84,52 +86,48 @@ msgstr "Velg bort alle"
 
 #: ../src/interface.c:95
 msgid "CDDB Lookup"
-msgstr "CDDB søk"
+msgstr "CDDB-søk"
 
 #: ../src/interface.c:147
 msgid "Disc:"
-msgstr "Disk"
+msgstr "Plate"
 
 #: ../src/interface.c:153
-#, fuzzy
 msgid "Album Artist:"
-msgstr "Album artist:"
+msgstr "Album-artist:"
 
 #: ../src/interface.c:160
-#, fuzzy
 msgid "Album Title:"
-msgstr "Album tittel:"
+msgstr "Albumtittel:"
 
 #: ../src/interface.c:167
-#, fuzzy
 msgid "Single Artist"
-msgstr "Singel artist"
+msgstr "Én artist"
 
 #: ../src/interface.c:173
-#, fuzzy
 msgid "Genre / Year:"
-msgstr "Generelt"
+msgstr "Sjanger / år:"
 
 #: ../src/interface.c:180
-#, fuzzy
 msgid "Single Genre"
-msgstr "Singel artist"
+msgstr "Én sjanger"
 
 #: ../src/interface.c:376
 msgid "Preferences"
 msgstr "Innstillinger"
 
-#: ../src/interface.c:393 ../src/interface.c:399
+#: ../src/interface.c:393
+#: ../src/interface.c:399
 msgid "Destination folder"
 msgstr "Målmappe"
 
 #: ../src/interface.c:403
 msgid "Create M3U playlist"
-msgstr "Opprett M3U spilleliste"
+msgstr "Opprett M3U-spilleliste"
 
 #: ../src/interface.c:411
 msgid "CD-ROM device: "
-msgstr "CD-ROM enhet: "
+msgstr "CD-ROM-enhet: "
 
 #: ../src/interface.c:420
 msgid ""
@@ -150,7 +148,6 @@ msgid "General"
 msgstr "Generelt"
 
 #: ../src/interface.c:452
-#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -158,25 +155,29 @@ msgid ""
 "%Y - Year (4-digit or \"0\")\n"
 "%T - Song title"
 msgstr ""
-"%A - Artist\n"
-"%L - Album\n"
-"%N - Spornummer (2-tall)\n"
-"%T - Tittel"
+"%A - artist\n"
+"%L - album\n"
+"%N - spornummer (2-sifret)\n"
+"%Y - år (4 sifre eller «0»)\n"
+"%T - låttittel"
 
 #: ../src/interface.c:457
-#, fuzzy, c-format
+#, c-format
 msgid "%G - Genre"
-msgstr "Generelt"
+msgstr "%G - sjanger"
 
 #: ../src/interface.c:472
 msgid "Album directory: "
-msgstr "Album mappe: "
+msgstr "Albummappe: "
 
-#: ../src/interface.c:479 ../src/prefs.c:649
+#: ../src/interface.c:479
+#: ../src/prefs.c:649
 msgid "Playlist file: "
 msgstr "Spillelistefil: "
 
-#: ../src/interface.c:486 ../src/prefs.c:661 ../src/prefs.c:671
+#: ../src/interface.c:486
+#: ../src/prefs.c:661
+#: ../src/prefs.c:671
 msgid "Music file: "
 msgstr "Musikkfil: "
 
@@ -187,11 +188,10 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
-"Dette er relativt til destinasjons mappen (fra Generelt fanen).\n"
-"Kan være tom.\n"
-".Standard: %A - %L\n"
-"Annet eksempel: %A/%LKan være blank.\n"
-"."
+"Dette er relativt til målmappa (fra Generelt-fanen).\n"
+"Feltet kan stå tomt.\n"
+"Standard: %A - %L\n"
+"Annet eksempel: %A/%L"
 
 #: ../src/interface.c:512
 msgid ""
@@ -199,8 +199,8 @@ msgid ""
 "Can be blank.\n"
 "Default: %A - %L"
 msgstr ""
-"Dette vil bli lagret i album mappen.\n"
-"Kan være tom.\n"
+"Dette lagres i album-mappa.\n"
+"Feltet kan stå tomt.\n"
 "Standard: %A - %L"
 
 #: ../src/interface.c:523
@@ -210,14 +210,14 @@ msgid ""
 "Default: %A - %T\n"
 "Other example: %N - %T"
 msgstr ""
-"Dette vil bli lagret i album mappen.\n"
-"Kan ikke være tom.\n"
+"Dette lagres i album-mappa.\n"
+"Feltet kan ikke stå tomt.\n"
 "Standard:  %A - %T\n"
-"Annet eksemple:  %N - %T"
+"Annet eksempel:  %N - %T"
 
 #: ../src/interface.c:528
 msgid "Filename formats"
-msgstr "Filnavn formater"
+msgstr "Filnavn-formater"
 
 #: ../src/interface.c:533
 msgid "Filenames"
@@ -230,30 +230,29 @@ msgstr "WAV (ukomprimert)"
 
 #: ../src/interface.c:571
 msgid "Variable bit rate (VBR)"
-msgstr "Variabel bitrate (VBR)"
+msgstr "Variabel bitfrekvens (VBR)"
 
 #: ../src/interface.c:579
 msgid "Better quality for the same size."
-msgstr "Bedere kvalitet med for samme størrelse"
+msgstr "Bedere kvalitet med samme filstørrelse."
 
-#: ../src/interface.c:585 ../src/interface.c:729 ../src/interface.c:814
+#: ../src/interface.c:585
+#: ../src/interface.c:729
+#: ../src/interface.c:814
 #: ../src/interface.c:861
 msgid "Bitrate"
-msgstr "Bitrate"
+msgstr "Bitfrekvens"
 
 #: ../src/interface.c:600
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"192Kbps."
-msgstr ""
-"Høyere bitrate gir bedre kvalitet, men også større filer. De fleste bruker "
-"192Kbps"
+msgid "Higher bitrate is better quality but also bigger file. Most people use 192Kbps."
+msgstr "Høyere bitrate gir bedre kvalitet, men også større filer. De fleste klarer seg med 192Kbps."
 
 #: ../src/interface.c:609
 msgid "MP3 (lossy compression)"
-msgstr "MP3 (lossy kompresjon)"
+msgstr "MP3 (komprimering med kvalitetstap)"
 
-#: ../src/interface.c:631 ../src/interface.c:972
+#: ../src/interface.c:631
+#: ../src/interface.c:972
 msgid "Quality"
 msgstr "Kvalitet"
 
@@ -263,89 +262,71 @@ msgstr "Høyere kvalitet gir større filer. Standard er 6."
 
 #: ../src/interface.c:644
 msgid "OGG Vorbis (lossy compression)"
-msgstr "OGG Vorbis (lossy kompresjon)"
+msgstr "OGG Vorbis (komprimering med kvalitetstap)"
 
-#: ../src/interface.c:666 ../src/interface.c:780 ../src/interface.c:917
+#: ../src/interface.c:666
+#: ../src/interface.c:780
+#: ../src/interface.c:917
 msgid "Compression level"
-msgstr "Komprimeringsstyrke"
+msgstr "Komprimeringsnivå"
 
-#: ../src/interface.c:677 ../src/interface.c:930
+#: ../src/interface.c:677
+#: ../src/interface.c:930
 msgid "This does not affect the quality. Higher number means smaller file."
-msgstr "Dette affekterer ikke kvaliteten. Høyere nummer gir mindre fil."
+msgstr "Dette påvirker ikke kvaliteten. Høyere tall gir mindre fil."
 
 #: ../src/interface.c:679
 msgid "FLAC (lossless compression)"
-msgstr "FLAC (lossless kompresjon)"
+msgstr "FLAC (tapsfri komprimering)"
 
 #: ../src/interface.c:698
 msgid "More formats"
 msgstr "Flere formater"
 
 #: ../src/interface.c:743
-#, fuzzy
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"160Kbps."
-msgstr ""
-"Høyere bitrate gir bedre kvalitet, men også større filer. De fleste bruker "
-"192Kbps"
+msgid "Higher bitrate is better quality but also bigger file. Most people use 160Kbps."
+msgstr "Høyere bitfrekvens gir bedre lydkvalitet, men også større filer. De fleste klarer seg med 160kbps."
 
 #: ../src/interface.c:751
-#, fuzzy
 msgid "OPUS (lossy compression)"
-msgstr "MP3 (lossy kompresjon)"
+msgstr "OPUS (komprimering med kvalitetstap)"
 
 #: ../src/interface.c:793
-msgid ""
-"This does not affect the quality. Higher number means smaller file. Default "
-"is 1 (recommended)."
-msgstr ""
-"Dette affekterer ikke kvaliteten. Høyere nummer gir mindre fil. Standard er "
-"1 (anbefalt)."
+msgid "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
+msgstr "Dette påvirker ikke kvaliteten. Høyere tall gir mindre fil. Standard er 1 (anbefalt)."
 
 #: ../src/interface.c:799
 msgid "Hybrid compression"
-msgstr "Hybrid kompresjon"
+msgstr "Hybrid-komprimering"
 
 #: ../src/interface.c:808
-msgid ""
-"The format is lossy but a correction file is created for restoring the "
-"lossless original."
-msgstr ""
-"Formatet er lossy, men en rettefil vil bli laget for gjenoppretting av "
-"orginalen."
+msgid "The format is lossy but a correction file is created for restoring the lossless original."
+msgstr "Formatet gir kvalitetstap, men det blir lagret en rettefil for gjenoppretting av originalen."
 
 #: ../src/interface.c:877
-#, fuzzy
 msgid "Higher bitrate is better quality but also bigger file."
-msgstr ""
-"Høyere bitrate gir bedre kvalitet, men også større filer. De fleste bruker "
-"192Kbps"
+msgstr "Høyere bitfrekvens gir bedre lydkvalitet, men også større filer."
 
 #: ../src/interface.c:885
-#, fuzzy
 msgid "Musepack (lossy compression)"
-msgstr "MP3 (lossy kompresjon)"
+msgstr "Musepack (komprimering med kvalitetstap)"
 
 #: ../src/interface.c:932
-#, fuzzy
 msgid "Monkey's Audio (lossless compression)"
-msgstr "FLAC (lossless kompresjon)"
+msgstr "Monkey's Audio (tapsfri komprimering)"
 
 #. END MONKEY
 #: ../src/interface.c:941
 msgid "Proprietary encoders"
-msgstr ""
+msgstr "Produsenteide lydkodere"
 
 #: ../src/interface.c:985
-#, fuzzy
 msgid "Higher quality means bigger file. Default is 60."
-msgstr "Høyere kvalitet gir større filer. Standard er 6."
+msgstr "Høyere kvalitet gir større filer. Standard er 60."
 
 #: ../src/interface.c:987
-#, fuzzy
 msgid "AAC (lossy compression, Nero encoder)"
-msgstr "MP3 (lossy kompresjon)"
+msgstr "AAC (komprimering med kvalitetstap, Nero-koding)"
 
 #. END AAC
 #: ../src/interface.c:996
@@ -354,40 +335,42 @@ msgstr "Kode"
 
 #: ../src/interface.c:1027
 msgid "Get disc info from the internet automatically"
-msgstr "Hent album informasjon automatisk fra internett"
+msgstr "Hent plateinformasjon fra Internett automatisk"
 
-#: ../src/interface.c:1035 ../src/interface.c:1080
+#: ../src/interface.c:1035
+#: ../src/interface.c:1080
 msgid "Server: "
-msgstr "Server: "
+msgstr "Tjener: "
 
 #: ../src/interface.c:1045
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
-msgstr ""
+msgstr "CDDB-tjeneren som plateinformasjon skal hentes fra (standard: freedb.freedb.org)"
 
-#: ../src/interface.c:1051 ../src/interface.c:1093
+#: ../src/interface.c:1051
+#: ../src/interface.c:1093
 msgid "Port: "
 msgstr "Port: "
 
 #: ../src/interface.c:1061
 msgid "The CDDB server port (default is 8880)"
-msgstr ""
+msgstr "CDDB-tjenerporten (standard: 8880)"
 
 #: ../src/interface.c:1067
-#, fuzzy
 msgid "Use an HTTP proxy to connect to the internet"
-msgstr "Bruk en HTTP proxy for tilkobling til internett"
+msgstr "Bruk en HTTP-mellomtjener for å koble til Internett"
 
 #: ../src/interface.c:1111
 msgid "Advanced"
 msgstr "Avansert"
 
-#: ../src/interface.c:1182 ../src/interface.c:1218
+#: ../src/interface.c:1182
+#: ../src/interface.c:1218
 msgid "Ripping"
 msgstr "Henting"
 
 #: ../src/interface.c:1211
 msgid "Total progress"
-msgstr "Total fremgang"
+msgstr "Total framdrift"
 
 #: ../src/interface.c:1225
 msgid "Encoding"
@@ -396,71 +379,70 @@ msgstr "Koding"
 #: ../src/interface.c:1719
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
-"files."
+"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC files."
 msgstr ""
+"Et program som henter spor fra en lyd-CD \n"
+"i WAV-, MP3-, OGG-, FLAC-, Opus-, Wavpack-, Musepack-, Monkey's Audio- og/eller AAC-format."
 
 #: ../src/interface.c:1762
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
-msgstr[0] "%d filen ble laget suksessfullt"
-msgstr[1] "%d filene ble laget suksessfullt"
+msgstr[0] "%d fil er importert og lagret"
+msgstr[1] "%d filer er importert og lagret"
 
 #: ../src/interface.c:1771
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
-msgstr[0] "Det oppstod en feil med å lage %d filen"
-msgstr[1] "Det oppstod en feil med å lage %d filene"
+msgstr[0] "Det oppstod en feil ved importering eller koding av %d fil"
+msgstr[1] "Det oppstod en feil ved importering eller koding av %d filer"
 
-#: ../src/prefs.c:648 ../src/prefs.c:660
+#: ../src/prefs.c:648
+#: ../src/prefs.c:660
 #, c-format
 msgid "Invalid characters in the '%s' field"
-msgstr "Ugyldig tegn i '%s' feltet"
+msgstr "Ugyldig(e) tegn i feltet «%s»"
 
 #: ../src/prefs.c:670
 #, c-format
 msgid "'%s' cannot be empty"
-msgstr "'%s' kan ikke være tom"
+msgstr "«%s» kan ikke stå tomt"
 
 #: ../src/prefs.c:685
 msgid "Invalid proxy port number"
-msgstr "Ugyldig proxy port nummer"
+msgstr "Ugyldig mellomtjener-portnummer"
 
 #: ../src/prefs.c:698
-#, fuzzy
 msgid "Invalid cddb server port number"
-msgstr "Ugyldig proxy port nummer"
+msgstr "Ugyldig portnummer for cddb-tjener"
 
 #: ../src/support.c:47
 msgid "Overwrite?"
-msgstr "Overskrive?"
+msgstr "Vil du overskrive?"
 
 #: ../src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr "Filen '%s' finnes allerede. Vil du overskrive den?\n"
+msgstr "Fila «%s» finnes allerede. Vil du overskrive den?\n"
 
 #: ../src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
-msgstr "Husk svaret for _alle filene laget til denne CD platen"
+msgstr "Bruk dette på _alle filer som importeres fra denne CD-plata"
 
 #: ../src/threads.c:182
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
-msgstr "Ingen hente/kode metode er valgt. Velg en fra 'Innstillinger' menyen."
+msgid "No ripping/encoding method selected. Please enable one from the 'Preferences' menu."
+msgstr "Ingen hente-/kodemetode er valgt. Velg en fra «Innstillinger»-menyen."
 
 #: ../src/threads.c:211
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
-msgstr "Ingen lydspor er valgt til henting/koding. Velg minst et lydspor."
+msgid "No tracks were selected for ripping/encoding. Please select at least one track."
+msgstr "Ingen lydspor er valgt ut til henting/koding. Velg minst ett lydspor."
 
-#: ../src/threads.c:1043 ../src/threads.c:1045 ../src/threads.c:1049
+#: ../src/threads.c:1043
+#: ../src/threads.c:1045
+#: ../src/threads.c:1049
 msgid "Waiting..."
-msgstr "Venter..."
+msgstr "Venter …"
 
 #, fuzzy
 #~ msgid ""
