@@ -1407,7 +1407,7 @@ void enable_musepack_widgets(void)
 }
 
 const char* 
-GBLprogramName = "Asunder 2.5";
+GBLprogramName = "Asunder 2.6";
 
 static const char* 
 GBLauthors[2] = {
@@ -1465,6 +1465,9 @@ GBLauthors[2] = {
 "\n"
 "Felix Braun\n"
 "- Support for encoding into OPUS.\n"
+"\n"
+"Nicolas Leveille\n"
+"- Fix for: don't reset the track info edited by the user by doing an unnecessary CDDB lookup.\n"
 "\n"
 "Packages:\n"
 "\n"
@@ -1550,7 +1553,7 @@ GBLtranslators =
 "- cs (Czeck) translation of Asunder versions 0.8 - 1.0, 1.9\n"
 "\n"
 "Petr Simacek\n"
-"- cs (Czeck) translation of Asunder version 2.2\n"
+"- cs (Czeck) translation of Asunder versions 2.2, 2.5\n"
 "\n"
 "Joe Hansen\n"
 "- da (Danish) translation of Asunder version 1.9\n"
@@ -1595,10 +1598,10 @@ GBLtranslators =
 "- fr (French) translation of Asunder versions 2.1 - 2.2\n"
 "\n"
 "Miguel Anxo Bouzada\n"
-" - gl (Galician) translation of Asunder version 2.2\n"
+"- gl (Galician) translation of Asunder version 2.2\n"
 "\n"
 "Genghis Khan\n"
-" - he (Hebrew) translation of Asunder version 2.2\n"
+"- he (Hebrew) translation of Asunder version 2.2\n"
 "\n"
 "Peter Polonkai\n"
 "- hu (Hungarian) translation of Asunder versions 0.8 - 1.9\n"
@@ -1708,6 +1711,9 @@ GBLtranslators =
 "\n"
 "Tiansworld\n"
 "- zh_CN (Simplified Chineese) translation of Asunder version 2.3\n"
+"\n"
+"Jeff Bai\n"
+"- zh_CN (Simplified Chineese) translation of Asunder version 2.5\n"
 "\n"
 "Cheng-Wei Chien\n"
 "- zh_TW (Chineese/Taiwan) translation of Asunder versions 0.8 - 1.9\n"

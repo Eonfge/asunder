@@ -13,6 +13,9 @@ http://ericlathrop.com/
 Fraser Tweedale
 - FreeBSD port
 
+Dave Tyson
+- NetBSD port
+
 Lorraine Reed, aka Lightning Rose
 http://www.lightning-rose.com/
 - Editable genre feature to version 1.9.2
@@ -49,6 +52,9 @@ Tudor
 
 Felix Braun
 - Support for encoding into OPUS.
+
+Nicolas Leveille
+- Fix for: don't reset the track info edited by the user by doing an unnecessary CDDB lookup.
 
 Packages:
 
@@ -132,7 +138,7 @@ Schmaki
 - cs (Czeck) translation of Asunder versions 0.8 - 1.0, 1.9
 
 Petr Simacek
-- cs (Czeck) translation of Asunder version 2.2
+- cs (Czeck) translation of Asunder versions 2.2, 2.5
 
 Joe Hansen
 - da (Danish) translation of Asunder version 1.9
@@ -156,10 +162,10 @@ Juan Garcia-Murga Monago
 - es (Spanish) translation of Asunder versions 0.8 - 1.9
 
 Marco Antonio
-- es (Spanish) translation of Asunder version 1.9.3
+- es (Spanish) translation of Asunder versions 1.9.3 - 2.2
 
-Marco Antonio Frias B
-- es (Spanish) translation of Asunder version 2.2
+Esteban Samela
+- es (Spanish) translation of Asunder version 2.4
 
 Guillermo Gras
 - eu (Basque) translation of Asunder version 2.0
@@ -177,10 +183,10 @@ Clement Raievsky
 - fr (French) translation of Asunder versions 2.1 - 2.2
 
 Miguel Anxo Bouzada
- - gl (Galician) translation of Asunder version 2.2
+- gl (Galician) translation of Asunder version 2.2
 
 Genghis Khan
- - he (Hebrew) translation of Asunder version 2.2
+- he (Hebrew) translation of Asunder version 2.2
 
 Peter Polonkai
 - hu (Hungarian) translation of Asunder versions 0.8 - 1.9
@@ -211,6 +217,9 @@ Kristaps Kulis
 
 Robert Groenning
 - nb (Norwegian Bokmal) translation of Asunder version 0.8
+
+Aka Sikrom
+- nb (Norwegian Bokmal) translation of Asunder version 2.5
 
 Wolven
 - nb (Norwegian Bokmal) translation of Asunder version 1.6
@@ -287,6 +296,9 @@ http://makki.urducoder.com/
 
 Tiansworld
 - zh_CN (Simplified Chineese) translation of Asunder version 2.3
+
+Jeff Bai
+- zh_CN (Simplified Chineese) translation of Asunder version 2.5
 
 Cheng-Wei Chien
 - zh_TW (Chineese/Taiwan) translation of Asunder versions 0.8 - 1.9

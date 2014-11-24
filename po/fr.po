@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder v1.6.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-27 09:02-0500\n"
+"POT-Creation-Date: 2014-11-23 23:23-0500\n"
 "PO-Revision-Date: 2012-05-28 15:10+0100\n"
 "Last-Translator: Clément Raïevsky <c.raievsky@gmail.com>\n"
 "Language-Team: \n"
@@ -18,31 +18,31 @@ msgstr ""
 "X-Poedit-Country: FRANCE\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../src/main.c:117 ../src/interface.c:233
+#: ../src/main.c:128 ../src/interface.c:231
 msgid "Rip"
 msgstr "Extraire"
 
-#: ../src/main.c:121
+#: ../src/main.c:132
 msgid "Track"
 msgstr "Piste"
 
-#: ../src/main.c:127
+#: ../src/main.c:138
 msgid "Artist"
 msgstr "Artiste"
 
-#: ../src/main.c:133
+#: ../src/main.c:144
 msgid "Title"
 msgstr "Titre"
 
-#: ../src/main.c:139
+#: ../src/main.c:150
 msgid "Genre"
 msgstr "Genre"
 
-#: ../src/main.c:143
+#: ../src/main.c:154
 msgid "Time"
 msgstr "Durée"
 
-#: ../src/main.c:169
+#: ../src/main.c:180
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -50,13 +50,13 @@ msgstr ""
 "'cdparanoia' n'a pas été trouvé dans votre PATH. Asunder a besoin de "
 "cdparanoia pour extraire les CDs."
 
-#: ../src/main.c:451
+#: ../src/main.c:471
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Obtention des informations du disque à partir d'internet...</b>"
 
 #: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
-#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:603
-#: ../src/interface.c:745 ../src/interface.c:879
+#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:597
+#: ../src/interface.c:739 ../src/interface.c:873
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
@@ -88,47 +88,47 @@ msgstr "Tout désélectionner pour l'extraction"
 msgid "CDDB Lookup"
 msgstr "Recherche CDDB"
 
-#: ../src/interface.c:147
+#: ../src/interface.c:145
 msgid "Disc:"
 msgstr "Disque :"
 
-#: ../src/interface.c:153
+#: ../src/interface.c:151
 msgid "Album Artist:"
 msgstr "Artiste de l'album :"
 
-#: ../src/interface.c:160
+#: ../src/interface.c:158
 msgid "Album Title:"
 msgstr "Nom de l'album :"
 
-#: ../src/interface.c:167
+#: ../src/interface.c:165
 msgid "Single Artist"
 msgstr "Un seul artiste"
 
-#: ../src/interface.c:173
+#: ../src/interface.c:171
 msgid "Genre / Year:"
 msgstr "Genre / Année :"
 
-#: ../src/interface.c:180
+#: ../src/interface.c:178
 msgid "Single Genre"
 msgstr "Genre unique"
 
-#: ../src/interface.c:376
+#: ../src/interface.c:370
 msgid "Preferences"
 msgstr "Préférences"
 
-#: ../src/interface.c:393 ../src/interface.c:399
+#: ../src/interface.c:387 ../src/interface.c:393
 msgid "Destination folder"
 msgstr "Dossier de destination"
 
-#: ../src/interface.c:403
+#: ../src/interface.c:397
 msgid "Create M3U playlist"
 msgstr "Créer une liste de lecture M3U"
 
-#: ../src/interface.c:411
+#: ../src/interface.c:405
 msgid "CD-ROM device: "
 msgstr "Lecteur de CD-ROM : "
 
-#: ../src/interface.c:420
+#: ../src/interface.c:414
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
@@ -138,15 +138,15 @@ msgstr ""
 "Autre exemple : /dev/hdc\n"
 "Autre exemple : /dev/sr0"
 
-#: ../src/interface.c:424
+#: ../src/interface.c:418
 msgid "Eject disc when finished"
 msgstr "Éjecter le disque à la fin"
 
-#: ../src/interface.c:432
+#: ../src/interface.c:426
 msgid "General"
 msgstr "Général"
 
-#: ../src/interface.c:452
+#: ../src/interface.c:446
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -160,24 +160,24 @@ msgstr ""
 "%Y - Année (sur 4 chiffres ou \"0\")\n"
 "%T - Titre de la chanson"
 
-#: ../src/interface.c:457
+#: ../src/interface.c:451
 #, fuzzy, c-format
 msgid "%G - Genre"
 msgstr "Genre"
 
-#: ../src/interface.c:472
+#: ../src/interface.c:466
 msgid "Album directory: "
 msgstr "Répertoire de l'album : "
 
-#: ../src/interface.c:479 ../src/prefs.c:649
+#: ../src/interface.c:473 ../src/prefs.c:649
 msgid "Playlist file: "
 msgstr "Liste de lecture : "
 
-#: ../src/interface.c:486 ../src/prefs.c:661 ../src/prefs.c:671
+#: ../src/interface.c:480 ../src/prefs.c:661 ../src/prefs.c:671
 msgid "Music file: "
 msgstr "Fichier musique : "
 
-#: ../src/interface.c:500
+#: ../src/interface.c:494
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -189,7 +189,7 @@ msgstr ""
 "Défaut : %A - %L\n"
 "Autre exemple : %A/%L"
 
-#: ../src/interface.c:512
+#: ../src/interface.c:506
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -199,7 +199,7 @@ msgstr ""
 "Peut être vide.\n"
 "Défaut : %A - %L"
 
-#: ../src/interface.c:523
+#: ../src/interface.c:517
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -211,33 +211,33 @@ msgstr ""
 "Défaut : %A - %T\n"
 "Autre exemple : %N - %T"
 
-#: ../src/interface.c:528
+#: ../src/interface.c:522
 msgid "Filename formats"
 msgstr "Formats du nom de fichier"
 
-#: ../src/interface.c:533
+#: ../src/interface.c:527
 msgid "Filenames"
 msgstr "Noms de fichier"
 
 #. WAV
-#: ../src/interface.c:552
+#: ../src/interface.c:546
 msgid "WAV (uncompressed)"
 msgstr "WAV (non compressé)"
 
-#: ../src/interface.c:571
+#: ../src/interface.c:565
 msgid "Variable bit rate (VBR)"
 msgstr "Débit variable (VBR)"
 
-#: ../src/interface.c:579
+#: ../src/interface.c:573
 msgid "Better quality for the same size."
 msgstr "Meilleure qualité pour une taille identique."
 
-#: ../src/interface.c:585 ../src/interface.c:729 ../src/interface.c:814
-#: ../src/interface.c:861
+#: ../src/interface.c:579 ../src/interface.c:723 ../src/interface.c:808
+#: ../src/interface.c:855
 msgid "Bitrate"
 msgstr "Débit"
 
-#: ../src/interface.c:600
+#: ../src/interface.c:594
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
@@ -245,41 +245,41 @@ msgstr ""
 "Un débit supérieur permet une meilleure qualité mais aussi un plus gros "
 "fichier. La plupart des gens utilisent 192Kbps."
 
-#: ../src/interface.c:609
+#: ../src/interface.c:603
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (compression avec perte)"
 
-#: ../src/interface.c:631 ../src/interface.c:972
+#: ../src/interface.c:625 ../src/interface.c:966
 msgid "Quality"
 msgstr "Qualité"
 
-#: ../src/interface.c:642
+#: ../src/interface.c:636
 msgid "Higher quality means bigger file. Default is 6."
 msgstr "Une meilleure qualité engendre un fichier plus gros. Par défault 6."
 
-#: ../src/interface.c:644
+#: ../src/interface.c:638
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (compression avec perte)"
 
-#: ../src/interface.c:666 ../src/interface.c:780 ../src/interface.c:917
+#: ../src/interface.c:660 ../src/interface.c:774 ../src/interface.c:911
 msgid "Compression level"
 msgstr "Niveau de compression"
 
-#: ../src/interface.c:677 ../src/interface.c:930
+#: ../src/interface.c:671 ../src/interface.c:924
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr ""
 "Ceci ne modifie pas la qualité. Un nombre plus grand produit un fichier plus "
 "petit."
 
-#: ../src/interface.c:679
+#: ../src/interface.c:673
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (compression sans perte)"
 
-#: ../src/interface.c:698
+#: ../src/interface.c:692
 msgid "More formats"
 msgstr "Plus de formats"
 
-#: ../src/interface.c:743
+#: ../src/interface.c:737
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
@@ -287,11 +287,11 @@ msgstr ""
 "Un débit supérieur permet une meilleure qualité mais aussi un plus gros "
 "fichier. La plupart des gens utilisent 160Kbps."
 
-#: ../src/interface.c:751
+#: ../src/interface.c:745
 msgid "OPUS (lossy compression)"
 msgstr "OPUS (compression avec perte)"
 
-#: ../src/interface.c:793
+#: ../src/interface.c:787
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
@@ -299,11 +299,11 @@ msgstr ""
 "Ceci ne modifie pas la qualité. Un nombre plus grand produit un fichier plus "
 "petit. Par défaut 1 (recommandé)"
 
-#: ../src/interface.c:799
+#: ../src/interface.c:793
 msgid "Hybrid compression"
 msgstr "Compression hybride"
 
-#: ../src/interface.c:808
+#: ../src/interface.c:802
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
@@ -311,81 +311,81 @@ msgstr ""
 "Le format est avec perte mais un fichier de correction est créé pour "
 "restaurer l'original sans perte."
 
-#: ../src/interface.c:877
+#: ../src/interface.c:871
 msgid "Higher bitrate is better quality but also bigger file."
 msgstr ""
 "Un débit supérieur permet une meilleure qualité mais aussi un plus gros "
 "fichier."
 
-#: ../src/interface.c:885
+#: ../src/interface.c:879
 msgid "Musepack (lossy compression)"
 msgstr "Musepack (compression avec perte)"
 
-#: ../src/interface.c:932
+#: ../src/interface.c:926
 msgid "Monkey's Audio (lossless compression)"
 msgstr "Monkey's Audio (compression sans perte)"
 
 #. END MONKEY
-#: ../src/interface.c:941
+#: ../src/interface.c:935
 msgid "Proprietary encoders"
 msgstr "Encodeurs Propriétaires"
 
-#: ../src/interface.c:985
+#: ../src/interface.c:979
 msgid "Higher quality means bigger file. Default is 60."
 msgstr "Une meilleure qualité engendre un fichier plus gros. Par défaut 60."
 
-#: ../src/interface.c:987
+#: ../src/interface.c:981
 msgid "AAC (lossy compression, Nero encoder)"
 msgstr "AAC (compression avec perte, encodeur Nero)"
 
 #. END AAC
-#: ../src/interface.c:996
+#: ../src/interface.c:990
 msgid "Encode"
 msgstr "Encodeur"
 
-#: ../src/interface.c:1027
+#: ../src/interface.c:1021
 msgid "Get disc info from the internet automatically"
 msgstr "Obtenir les informations du disque à partir d'internet automatiquement"
 
-#: ../src/interface.c:1035 ../src/interface.c:1080
+#: ../src/interface.c:1029 ../src/interface.c:1074
 msgid "Server: "
 msgstr "Serveur :"
 
-#: ../src/interface.c:1045
+#: ../src/interface.c:1039
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr ""
 "Le serveur CDDB pour obtenir les informations du disque (par défaut freedb."
 "freedb.org)"
 
-#: ../src/interface.c:1051 ../src/interface.c:1093
+#: ../src/interface.c:1045 ../src/interface.c:1087
 msgid "Port: "
 msgstr "Port : "
 
-#: ../src/interface.c:1061
+#: ../src/interface.c:1055
 msgid "The CDDB server port (default is 8880)"
 msgstr "Le port du serveur CDDB (par défaut 8880)"
 
-#: ../src/interface.c:1067
+#: ../src/interface.c:1061
 msgid "Use an HTTP proxy to connect to the internet"
 msgstr "Utiliser un proxy HTTP pour se connecter à internet"
 
-#: ../src/interface.c:1111
+#: ../src/interface.c:1105
 msgid "Advanced"
 msgstr "Avancé"
 
-#: ../src/interface.c:1182 ../src/interface.c:1218
+#: ../src/interface.c:1176 ../src/interface.c:1212
 msgid "Ripping"
 msgstr "Extraction"
 
-#: ../src/interface.c:1211
+#: ../src/interface.c:1205
 msgid "Total progress"
 msgstr "Progression totale"
 
-#: ../src/interface.c:1225
+#: ../src/interface.c:1219
 msgid "Encoding"
 msgstr "Encodage"
 
-#: ../src/interface.c:1719
+#: ../src/interface.c:1724
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -395,14 +395,14 @@ msgstr ""
 "aux formats WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio et "
 "AAC."
 
-#: ../src/interface.c:1762
+#: ../src/interface.c:1764
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fichier a été créé avec succès"
 msgstr[1] "%d fichiers ont été créés avec succès"
 
-#: ../src/interface.c:1771
+#: ../src/interface.c:1773
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -441,7 +441,7 @@ msgid "Remember the answer for _all the files made from this CD"
 msgstr ""
 "Se rappeler de la réponse pour tous les fichiers créés à partir de ce CD"
 
-#: ../src/threads.c:182
+#: ../src/threads.c:183
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -449,7 +449,7 @@ msgstr ""
 "Pas de méthode d'extraction/d'encodage sélectionnée. Veuillez en activer une "
 "dans le menu 'Préférences'."
 
-#: ../src/threads.c:211
+#: ../src/threads.c:212
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -457,7 +457,7 @@ msgstr ""
 "Pas de pistes sélectionnées pour l'extraction/l'encodage. Veuillez en "
 "sélectionner au moins une."
 
-#: ../src/threads.c:1043 ../src/threads.c:1045 ../src/threads.c:1049
+#: ../src/threads.c:1066 ../src/threads.c:1068 ../src/threads.c:1072
 msgid "Waiting..."
 msgstr "Patientez..."
 
