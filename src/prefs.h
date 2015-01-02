@@ -42,6 +42,7 @@ typedef struct _prefs
     int proprietary_formats_expanded;
     int rip_opus;
     int opus_bitrate;
+    int do_fast_rip;
     
 } prefs;
 

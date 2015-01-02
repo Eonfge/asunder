@@ -536,6 +536,7 @@ create_prefs (void)
     GtkWidget *rip_ogg;
     GtkWidget *flacLbl;
     GtkWidget *flaccompression;
+    GtkWidget* do_fast_rip;
     
     vbox = gtk_vbox_new (FALSE, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
@@ -543,13 +544,33 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER (notebook1), vbox);
     
     /* WAV */
+    frame3 = gtk_frame_new (NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(frame3), GTK_SHADOW_IN);
+    gtk_widget_show (frame3);
+    gtk_box_pack_start (GTK_BOX (vbox), frame3, FALSE, FALSE, 0);
+    
+    alignment8 = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_show (alignment8);
+    gtk_container_add (GTK_CONTAINER (frame3), alignment8);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8), 2, 2, 12, 2);
+    
+    vbox2 = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (vbox2);
+    gtk_container_add (GTK_CONTAINER (alignment8), vbox2);
+    
     rip_wav = gtk_check_button_new_with_mnemonic (_("WAV (uncompressed)"));
     gtk_widget_show (rip_wav);
-    gtk_box_pack_start (GTK_BOX (vbox), rip_wav, FALSE, FALSE, 0);
+    gtk_frame_set_label_widget (GTK_FRAME (frame3), rip_wav);
+    
+    do_fast_rip = gtk_check_button_new_with_label (_("Faster ripping (less accurate)"));
+    gtk_widget_show (do_fast_rip);
+    gtk_box_pack_start (GTK_BOX (vbox2), do_fast_rip, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, do_fast_rip, "do_fast_rip");
     /* END WAV */
     
     /* MP3 */
     frame3 = gtk_frame_new (NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(frame3), GTK_SHADOW_IN);
     gtk_widget_show (frame3);
     gtk_box_pack_start (GTK_BOX (vbox), frame3, FALSE, FALSE, 0);
 
@@ -610,6 +631,7 @@ create_prefs (void)
     
     /* OGG */
     frame4 = gtk_frame_new (NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(frame4), GTK_SHADOW_IN);
     gtk_widget_show (frame4);
     gtk_box_pack_start (GTK_BOX (vbox), frame4, FALSE, FALSE, 0);
 
@@ -645,6 +667,7 @@ create_prefs (void)
 
     /* FLAC */
     frame5 = gtk_frame_new (NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(frame5), GTK_SHADOW_IN);
     gtk_widget_show (frame5);
     gtk_box_pack_start (GTK_BOX (vbox), frame5, FALSE, FALSE, 0);
 
@@ -708,6 +731,7 @@ create_prefs (void)
     char opus_kbps[10];
 
     opus_frame = gtk_frame_new(NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(opus_frame), GTK_SHADOW_IN);
     gtk_widget_show (opus_frame);
     gtk_box_pack_start (GTK_BOX(hiddenbox), opus_frame, FALSE, FALSE, 0);
 
@@ -755,6 +779,7 @@ create_prefs (void)
     GtkWidget* flacVbox;
     
     frame6 = gtk_frame_new (NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(frame6), GTK_SHADOW_IN);
     gtk_widget_show (frame6);
     gtk_box_pack_start (GTK_BOX (hiddenbox), frame6, FALSE, FALSE, 0);
     
@@ -836,6 +861,7 @@ create_prefs (void)
     GtkWidget* musepackVbox;
     
     frame9 = gtk_frame_new (NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(frame9), GTK_SHADOW_IN);
     gtk_widget_show (frame9);
     gtk_box_pack_start (GTK_BOX (hiddenbox), frame9, FALSE, FALSE, 0);
     
@@ -892,6 +918,7 @@ create_prefs (void)
     GtkWidget* monkeyVbox;
     
     frame8 = gtk_frame_new (NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(frame8), GTK_SHADOW_IN);
     gtk_widget_show (frame8);
     gtk_box_pack_start (GTK_BOX (hiddenbox), frame8, FALSE, FALSE, 0);
     
@@ -947,6 +974,7 @@ create_prefs (void)
     GtkWidget* aacVbox;
     
     frame8 = gtk_frame_new (NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(frame8), GTK_SHADOW_IN);
     gtk_widget_show (frame8);
     gtk_box_pack_start (GTK_BOX (hiddenbox), frame8, FALSE, FALSE, 0);
     
@@ -1010,6 +1038,7 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER (notebook1), vbox);
     
     frame = gtk_frame_new (NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_IN);
     gtk_frame_set_label(GTK_FRAME(frame), "CDDB");
     gtk_widget_show (frame);
     gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
@@ -1055,6 +1084,7 @@ create_prefs (void)
     gtk_tooltips_set_tip (tooltips, cddbPortNum, _("The CDDB server port (default is 8880)"), NULL);
     
     frame = gtk_frame_new (NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_IN);
     gtk_widget_show (frame);
     gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
     
@@ -1093,7 +1123,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox), portNum, TRUE, TRUE, 5);
     GLADE_HOOKUP_OBJECT (prefs, portNum, "port_number");
     
-    do_log = gtk_check_button_new_with_label ("Log to /var/log/asunder.log");
+    do_log = gtk_check_button_new_with_label (_("Log to /var/log/asunder.log"));
     gtk_widget_show (do_log);
     gtk_box_pack_start (GTK_BOX (vbox), do_log, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, do_log, "do_log");

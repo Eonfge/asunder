@@ -266,8 +266,11 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
     snprintf(logStr, 1024, "%d started: %s ", *p, args[0]);
     for (count = 1; args[count] != NULL; count++)
     {
-        if (strlen(logStr) + strlen(args[count]) < 1024)
+        if (strlen(logStr) + 1 + strlen(args[count]) < 1024)
+        {
+            strcat(logStr, " ");
             strcat(logStr, args[count]);
+        }
     }
     debugLog(logStr);
     
@@ -290,11 +293,12 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
 // progress - the percent done
 void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
 {
+    const char * args[9];
+    int pos;
     char logStr[1024];
     int fd;
     char buf[256];
     int size;
-    int pos;
     
     int start;
     int end;
@@ -306,7 +310,19 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     
     snprintf(trackstring, 4, "%d", tracknum);
     
-    const char * args[] = { "cdparanoia", "-e", "-d", cdrom, trackstring, filename, NULL };
+    pos = 0;
+    args[pos++] = "cdparanoia";
+    args[pos++] = "-e";
+    args[pos++] = "-d";
+    args[pos++] = cdrom;
+    args[pos++] = trackstring;
+    args[pos++] = filename;
+    if (global_prefs->do_fast_rip)
+    {
+        args[pos++] = "-Y";
+        args[pos++] = "-Z";
+    }
+    args[pos++] = NULL;
     
     fd = exec_with_output(args, STDERR_FILENO, &cdparanoia_pid);
     

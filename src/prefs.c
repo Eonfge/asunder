@@ -111,6 +111,7 @@ prefs * get_default_prefs()
     strncpy(p->format_albumdir, "%A - %L", 8);
     
     p->rip_wav = 0;
+    p->do_fast_rip = 0;
     p->rip_mp3 = 0;
     p->rip_ogg = 1;
     p->rip_flac = 0;
@@ -175,6 +176,7 @@ void set_widgets_from_prefs(prefs * p)
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_playlist")), p->format_playlist);
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "format_albumdir")), p->format_albumdir);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_wav")), p->rip_wav);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_fast_rip")), p->do_fast_rip);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_mp3")), p->rip_mp3);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_ogg")), p->rip_ogg);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_flac")), p->rip_flac);
@@ -270,6 +272,7 @@ void get_prefs_from_widgets(prefs * p)
     strncpy(p->format_albumdir, tocopyc, strlen(tocopyc)+1);
 
     p->rip_wav = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_wav")));
+    p->do_fast_rip = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_fast_rip")));
     p->rip_mp3 = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_mp3")));
     p->rip_ogg = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_ogg")));
     p->rip_flac = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_flac")));
@@ -400,6 +403,7 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->proprietary_formats_expanded);
         fprintf(config, "%d\n", p->rip_opus);
         fprintf(config, "%d\n", p->opus_bitrate);
+        fprintf(config, "%d\n", p->do_fast_rip);
         
         fclose(config);
     } else {
@@ -587,6 +591,9 @@ void load_prefs(prefs * p)
         anInt = read_line_num(fd);
         if (anInt != 0)
             p->opus_bitrate = anInt;
+        
+        // this one can be 0
+        p->do_fast_rip = read_line_num(fd);
         
         close(fd);
     } else {
