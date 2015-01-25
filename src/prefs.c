@@ -159,6 +159,7 @@ prefs * get_default_prefs()
     
     p->more_formats_expanded = 0;
     p->proprietary_formats_expanded = 0;
+    p->do_fast_rip = 1;
     
     return p;
 }

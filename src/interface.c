@@ -536,7 +536,6 @@ create_prefs (void)
     GtkWidget *rip_ogg;
     GtkWidget *flacLbl;
     GtkWidget *flaccompression;
-    GtkWidget* do_fast_rip;
     
     vbox = gtk_vbox_new (FALSE, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
@@ -544,28 +543,24 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER (notebook1), vbox);
     
     /* WAV */
-    frame3 = gtk_frame_new (NULL);
-    gtk_frame_set_shadow_type(GTK_FRAME(frame3), GTK_SHADOW_IN);
-    gtk_widget_show (frame3);
-    gtk_box_pack_start (GTK_BOX (vbox), frame3, FALSE, FALSE, 0);
+    //frame3 = gtk_frame_new (NULL);
+    //gtk_frame_set_shadow_type(GTK_FRAME(frame3), GTK_SHADOW_IN);
+    //gtk_widget_show (frame3);
+    //gtk_box_pack_start (GTK_BOX (vbox), frame3, FALSE, FALSE, 0);
     
-    alignment8 = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment8);
-    gtk_container_add (GTK_CONTAINER (frame3), alignment8);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8), 2, 2, 12, 2);
+    //alignment8 = gtk_alignment_new (0.5, 0.5, 1, 1);
+    //gtk_widget_show (alignment8);
+    //gtk_container_add (GTK_CONTAINER (frame3), alignment8);
+    //gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8), 2, 2, 12, 2);
     
-    vbox2 = gtk_vbox_new (FALSE, 0);
-    gtk_widget_show (vbox2);
-    gtk_container_add (GTK_CONTAINER (alignment8), vbox2);
+    //vbox2 = gtk_vbox_new (FALSE, 0);
+    //gtk_widget_show (vbox2);
+    //gtk_container_add (GTK_CONTAINER (alignment8), vbox2);
     
     rip_wav = gtk_check_button_new_with_mnemonic (_("WAV (uncompressed)"));
     gtk_widget_show (rip_wav);
-    gtk_frame_set_label_widget (GTK_FRAME (frame3), rip_wav);
-    
-    do_fast_rip = gtk_check_button_new_with_label (_("Faster ripping (less accurate)"));
-    gtk_widget_show (do_fast_rip);
-    gtk_box_pack_start (GTK_BOX (vbox2), do_fast_rip, FALSE, FALSE, 0);
-    GLADE_HOOKUP_OBJECT (prefs, do_fast_rip, "do_fast_rip");
+    gtk_box_pack_start (GTK_BOX (vbox), rip_wav, FALSE, FALSE, 0);
+    //gtk_frame_set_label_widget (GTK_FRAME (frame3), rip_wav);
     /* END WAV */
     
     /* MP3 */
@@ -1031,6 +1026,7 @@ create_prefs (void)
     GtkWidget* portNum;
     GtkWidget* frameVbox;
     GtkWidget* do_log;
+    GtkWidget* do_fast_rip;
     
     vbox = gtk_vbox_new (FALSE, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
@@ -1127,6 +1123,11 @@ create_prefs (void)
     gtk_widget_show (do_log);
     gtk_box_pack_start (GTK_BOX (vbox), do_log, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, do_log, "do_log");
+    
+    do_fast_rip = gtk_check_button_new_with_label (_("Faster ripping (no error correction)"));
+    gtk_widget_show (do_fast_rip);
+    gtk_box_pack_start (GTK_BOX (vbox), do_fast_rip, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, do_fast_rip, "do_fast_rip");
     
     hboxFill = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hboxFill);

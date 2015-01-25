@@ -293,7 +293,7 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
 // progress - the percent done
 void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
 {
-    const char * args[9];
+    const char * args[8];
     int pos;
     char logStr[1024];
     int fd;
@@ -312,16 +312,13 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     
     pos = 0;
     args[pos++] = "cdparanoia";
+    if (global_prefs->do_fast_rip)
+        args[pos++] = "-Z";
     args[pos++] = "-e";
     args[pos++] = "-d";
     args[pos++] = cdrom;
     args[pos++] = trackstring;
     args[pos++] = filename;
-    if (global_prefs->do_fast_rip)
-    {
-        args[pos++] = "-Y";
-        args[pos++] = "-Z";
-    }
     args[pos++] = NULL;
     
     fd = exec_with_output(args, STDERR_FILENO, &cdparanoia_pid);
