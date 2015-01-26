@@ -1438,7 +1438,7 @@ void enable_musepack_widgets(void)
 }
 
 const char* 
-GBLprogramName = "Asunder 2.6";
+GBLprogramName = "Asunder 2.7";
 
 static const char* 
 GBLauthors[2] = {
