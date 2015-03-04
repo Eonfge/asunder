@@ -1040,7 +1040,7 @@ void mac(char* wavfilename,
                 size = 1;
             }
             
-        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 256));
+        } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 255));
         buf[pos] = '\0';
         
         double percent;
@@ -1104,7 +1104,7 @@ void musepack(char* wavfilename,
                 interrupted = TRUE;
             }
             
-        } while ((size > 0 && pos < 256 && buf[pos] != '\r' && buf[pos] != '\n') || interrupted);
+        } while ((size > 0 && pos < 255 && buf[pos] != '\r' && buf[pos] != '\n') || interrupted);
         buf[pos] = '\0';
         
         double percent;

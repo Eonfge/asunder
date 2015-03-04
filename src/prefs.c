@@ -498,7 +498,9 @@ void load_prefs(prefs * p)
         p->flac_compression = read_line_num(fd);
         
         /* used to be p->invalid_chars, but no longer used */
-        read_line(fd);
+        aCharPtr = read_line(fd);
+        if (aCharPtr != NULL)
+            free(aCharPtr);
         
         anInt = read_line_num(fd);
         if (anInt != 0)

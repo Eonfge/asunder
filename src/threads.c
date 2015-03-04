@@ -184,6 +184,9 @@ void dorip()
                                         "'Preferences' menu."));
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
+        free(albumartist_trimmed);
+        free(albumtitle_trimmed);
+        free(albumgenre_trimmed);
         free(albumdir);
         free(playlist);
         return;
@@ -215,6 +218,9 @@ void dorip()
         gtk_widget_destroy(dialog);
         free(albumdir);
         free(playlist);
+        free(albumartist_trimmed);
+        free(albumtitle_trimmed);
+        free(albumgenre_trimmed);
         return;
     }
     
@@ -239,6 +245,9 @@ void dorip()
         free(dirpath);
         free(albumdir);
         free(playlist);
+        free(albumartist_trimmed);
+        free(albumtitle_trimmed);
+        free(albumgenre_trimmed);
         return;
     }
     
@@ -955,6 +964,7 @@ gpointer encode(gpointer data)
             free(opusfilename);
             free(flacfilename);
             free(wavpackfilename);
+            free(wavpackfilename2);
             free(monkeyfilename);
             free(musepackfilename);
             free(aacfilename);
