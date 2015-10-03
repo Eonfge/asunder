@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder zh_CN translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 00:25-0500\n"
+"POT-Creation-Date: 2015-10-03 00:01-0400\n"
 "PO-Revision-Date: 2014-03-16 14:53-0700\n"
 "Last-Translator: Jeff Bai <jeffbaichina@members.fsf.org>\n"
 "Language-Team: LANGUAGE <tiansworld@fedoraproject.org>\n"
@@ -169,11 +169,11 @@ msgstr "%G - 类型"
 msgid "Album directory: "
 msgstr "专辑目录："
 
-#: ../src/interface.c:473 ../src/prefs.c:657
+#: ../src/interface.c:473 ../src/prefs.c:659
 msgid "Playlist file: "
 msgstr "播放列表文件："
 
-#: ../src/interface.c:480 ../src/prefs.c:669 ../src/prefs.c:679
+#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
 msgid "Music file: "
 msgstr "音乐文件："
 
@@ -390,7 +390,7 @@ msgstr "总进度"
 msgid "Encoding"
 msgstr "编码中"
 
-#: ../src/interface.c:1755
+#: ../src/interface.c:1764
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -400,33 +400,33 @@ msgstr ""
 "并保存为 WAV, MP3, OGG, FLAC, Wavpack, MusePack, Mounkey's Audio 及/或 AAC 等"
 "文件的程序。"
 
-#: ../src/interface.c:1795
+#: ../src/interface.c:1804
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "已成功创建 %d 个文件"
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "创建 %d 文件时出错"
 
-#: ../src/prefs.c:656 ../src/prefs.c:668
+#: ../src/prefs.c:658 ../src/prefs.c:670
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "”%s“中有无效字符"
 
-#: ../src/prefs.c:678
+#: ../src/prefs.c:680
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "“%s”不能为空"
 
-#: ../src/prefs.c:693
+#: ../src/prefs.c:695
 msgid "Invalid proxy port number"
 msgstr "无效代理端口"
 
-#: ../src/prefs.c:706
+#: ../src/prefs.c:708
 msgid "Invalid cddb server port number"
 msgstr "无效 cddb 服务器端口"
 
@@ -449,13 +449,13 @@ msgid ""
 "'Preferences' menu."
 msgstr "未选择抓取/编码方案。请从“偏好设置”内启用一个。"
 
-#: ../src/threads.c:212
+#: ../src/threads.c:215
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "未选择抓取/编码的曲目。请至少选择一个曲目。"
 
-#: ../src/threads.c:1066 ../src/threads.c:1068 ../src/threads.c:1072
+#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
 msgid "Waiting..."
 msgstr "等待中..."
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 00:25-0500\n"
+"POT-Creation-Date: 2015-10-03 00:01-0400\n"
 "PO-Revision-Date: 2008-01-06 01:33+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: i18n@mova.org <i18n@mova.org>\n"
@@ -176,11 +176,11 @@ msgstr "Ahulnaje"
 msgid "Album directory: "
 msgstr "Kataloh albomu: "
 
-#: ../src/interface.c:473 ../src/prefs.c:657
+#: ../src/interface.c:473 ../src/prefs.c:659
 msgid "Playlist file: "
 msgstr "Fajł śpisu: "
 
-#: ../src/interface.c:480 ../src/prefs.c:669 ../src/prefs.c:679
+#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
 msgid "Music file: "
 msgstr "Muzyčny fajł: "
 
@@ -415,14 +415,14 @@ msgstr "Ahulny prahres"
 msgid "Encoding"
 msgstr "Kadavańnie"
 
-#: ../src/interface.c:1755
+#: ../src/interface.c:1764
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 
-#: ../src/interface.c:1795
+#: ../src/interface.c:1804
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -430,7 +430,7 @@ msgstr[0] "%d fajł paśpiachova stvorany"
 msgstr[1] "%d fajły paśpiachova stvoranyja"
 msgstr[2] "%d fajłaŭ paśpiachova stvoranyja"
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -438,21 +438,21 @@ msgstr[0] "Pamyłka pry stvareńni %d fajłu"
 msgstr[1] "Pamyłka pry stvareńni %d fajłaŭ"
 msgstr[2] "Pamyłka pry stvareńni %d fajłaŭ"
 
-#: ../src/prefs.c:656 ../src/prefs.c:668
+#: ../src/prefs.c:658 ../src/prefs.c:670
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Niapravilnyja znaki ŭ poli \"%s\""
 
-#: ../src/prefs.c:678
+#: ../src/prefs.c:680
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "\"%s\" nia moža być pustym"
 
-#: ../src/prefs.c:693
+#: ../src/prefs.c:695
 msgid "Invalid proxy port number"
 msgstr "Niapravilny numar portu proxy"
 
-#: ../src/prefs.c:706
+#: ../src/prefs.c:708
 #, fuzzy
 msgid "Invalid cddb server port number"
 msgstr "Niapravilny numar portu proxy"
@@ -478,7 +478,7 @@ msgstr ""
 "Metad ździrańnia/kadavańnia nia vybrany. Kali łaska, uklučy adzin ź ich u "
 "menu \"Nałady\"."
 
-#: ../src/threads.c:212
+#: ../src/threads.c:215
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -486,7 +486,7 @@ msgstr ""
 "Dla ździrańnia/kadavańnia nie zaznačana pieśniaŭ. Kali łaska, zaznač chacia "
 "b adnu ź pieśniaŭ."
 
-#: ../src/threads.c:1066 ../src/threads.c:1068 ../src/threads.c:1072
+#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
 msgid "Waiting..."
 msgstr "Čakańnie..."
 

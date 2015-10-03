@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 00:25-0500\n"
+"POT-Creation-Date: 2015-10-03 00:01-0400\n"
 "PO-Revision-Date: 2013-08-02 17:44+0100\n"
 "Last-Translator: rezso <rezso@rezso.net>\n"
 "Language-Team:  <NONE>\n"
@@ -168,11 +168,11 @@ msgstr "%G - Műfaj"
 msgid "Album directory: "
 msgstr "Album könyvtár: "
 
-#: ../src/interface.c:473 ../src/prefs.c:657
+#: ../src/interface.c:473 ../src/prefs.c:659
 msgid "Playlist file: "
 msgstr "Lejátszólista fájl: "
 
-#: ../src/interface.c:480 ../src/prefs.c:669 ../src/prefs.c:679
+#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
 msgid "Music file: "
 msgstr "Zenei fájl: "
 
@@ -398,7 +398,7 @@ msgstr "Teljes folyamat"
 msgid "Encoding"
 msgstr "Kódolás"
 
-#: ../src/interface.c:1755
+#: ../src/interface.c:1764
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -407,35 +407,35 @@ msgstr ""
 "Audio CD hangsávjait WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack,\n"
 "Monkey's Audio és/vagy AAC formátumba kódoló program."
 
-#: ../src/interface.c:1795
+#: ../src/interface.c:1804
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fájl sikeresen elkészült"
 msgstr[1] "%d fájl sikeresen elkészült"
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Hiba lépett fel %d fájl készítésekor"
 msgstr[1] "Hiba lépett fel %d fájl készítésekor"
 
-#: ../src/prefs.c:656 ../src/prefs.c:668
+#: ../src/prefs.c:658 ../src/prefs.c:670
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Érvénytelen karakter a(z) '%s' mezőben"
 
-#: ../src/prefs.c:678
+#: ../src/prefs.c:680
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' nem lehet üres"
 
-#: ../src/prefs.c:693
+#: ../src/prefs.c:695
 msgid "Invalid proxy port number"
 msgstr "Érvénytelen proxy port szám"
 
-#: ../src/prefs.c:706
+#: ../src/prefs.c:708
 msgid "Invalid cddb server port number"
 msgstr "Érvénytelen cddb szerver port szám"
 
@@ -460,13 +460,13 @@ msgstr ""
 "Nincs rippelő/kódoló kiválasztva. A 'Tulajdonságok' menüben engedélyezzen "
 "legalább egyet."
 
-#: ../src/threads.c:212
+#: ../src/threads.c:215
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr ""
 "Nincs sáv kiválasztva rippeléshez/kódoláshoz. Legalább egy sávot válasszon."
 
-#: ../src/threads.c:1066 ../src/threads.c:1068 ../src/threads.c:1072
+#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
 msgid "Waiting..."
 msgstr "Várakozás..."

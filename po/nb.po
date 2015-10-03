@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ISO Master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 00:25-0500\n"
+"POT-Creation-Date: 2015-10-03 00:01-0400\n"
 "PO-Revision-Date: 2014-11-18 08:18+0100\n"
 "Last-Translator: Åka Sikrom <a4NOSPAMPLEASETHANKYOU@hush.com>\n"
 "Language-Team: Ubuntu Norwegian Translators <oversettelse@ubuntu.no>\n"
@@ -166,11 +166,11 @@ msgstr "%G - sjanger"
 msgid "Album directory: "
 msgstr "Albummappe: "
 
-#: ../src/interface.c:473 ../src/prefs.c:657
+#: ../src/interface.c:473 ../src/prefs.c:659
 msgid "Playlist file: "
 msgstr "Spillelistefil: "
 
-#: ../src/interface.c:480 ../src/prefs.c:669 ../src/prefs.c:679
+#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
 msgid "Music file: "
 msgstr "Musikkfil: "
 
@@ -397,7 +397,7 @@ msgstr "Total framdrift"
 msgid "Encoding"
 msgstr "Koding"
 
-#: ../src/interface.c:1755
+#: ../src/interface.c:1764
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -407,35 +407,35 @@ msgstr ""
 "i WAV-, MP3-, OGG-, FLAC-, Opus-, Wavpack-, Musepack-, Monkey's Audio- og/"
 "eller AAC-format."
 
-#: ../src/interface.c:1795
+#: ../src/interface.c:1804
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fil er importert og lagret"
 msgstr[1] "%d filer er importert og lagret"
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Det oppstod en feil ved importering eller koding av %d fil"
 msgstr[1] "Det oppstod en feil ved importering eller koding av %d filer"
 
-#: ../src/prefs.c:656 ../src/prefs.c:668
+#: ../src/prefs.c:658 ../src/prefs.c:670
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Ugyldig(e) tegn i feltet «%s»"
 
-#: ../src/prefs.c:678
+#: ../src/prefs.c:680
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "«%s» kan ikke stå tomt"
 
-#: ../src/prefs.c:693
+#: ../src/prefs.c:695
 msgid "Invalid proxy port number"
 msgstr "Ugyldig mellomtjener-portnummer"
 
-#: ../src/prefs.c:706
+#: ../src/prefs.c:708
 msgid "Invalid cddb server port number"
 msgstr "Ugyldig portnummer for cddb-tjener"
 
@@ -458,13 +458,13 @@ msgid ""
 "'Preferences' menu."
 msgstr "Ingen hente-/kodemetode er valgt. Velg en fra «Innstillinger»-menyen."
 
-#: ../src/threads.c:212
+#: ../src/threads.c:215
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "Ingen lydspor er valgt ut til henting/koding. Velg minst ett lydspor."
 
-#: ../src/threads.c:1066 ../src/threads.c:1068 ../src/threads.c:1072
+#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
 msgid "Waiting..."
 msgstr "Venter …"
 

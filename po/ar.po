@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 00:25-0500\n"
+"POT-Creation-Date: 2015-10-03 00:01-0400\n"
 "PO-Revision-Date: 2010-12-27 22:54+0200\n"
 "Last-Translator: Muhammad Ali Makki <makkiabufaris@aol.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -170,11 +170,11 @@ msgstr "عام"
 msgid "Album directory: "
 msgstr "مجلد الألبوم: "
 
-#: ../src/interface.c:473 ../src/prefs.c:657
+#: ../src/interface.c:473 ../src/prefs.c:659
 msgid "Playlist file: "
 msgstr "ملف قائمة التشغيل: "
 
-#: ../src/interface.c:480 ../src/prefs.c:669 ../src/prefs.c:679
+#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
 msgid "Music file: "
 msgstr "ملف الموسيقى: "
 
@@ -396,7 +396,7 @@ msgstr "التقدم الكلي"
 msgid "Encoding"
 msgstr "يُرمّز"
 
-#: ../src/interface.c:1755
+#: ../src/interface.c:1764
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -406,7 +406,7 @@ msgstr ""
 "مثل WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, و/أو ملفات "
 "AAC."
 
-#: ../src/interface.c:1795
+#: ../src/interface.c:1804
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -417,7 +417,7 @@ msgstr[3] "أنشئت %d ملفات بنجاح"
 msgstr[4] "أنشئ %d ملفا بنجاح"
 msgstr[5] "أنشئ %d ملف بنجاح"
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -428,21 +428,21 @@ msgstr[3] "حدث خطأ أثناء إنشاء %d ملفات"
 msgstr[4] "حدث خطأ أثناء إنشاء %d ملفا"
 msgstr[5] "حدث خطأ أثناء إنشاء %d ملف"
 
-#: ../src/prefs.c:656 ../src/prefs.c:668
+#: ../src/prefs.c:658 ../src/prefs.c:670
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "محارف غير صالحة في حقل '%s' "
 
-#: ../src/prefs.c:678
+#: ../src/prefs.c:680
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "‏'%s' لا يمكن أن تكون فارغة"
 
-#: ../src/prefs.c:693
+#: ../src/prefs.c:695
 msgid "Invalid proxy port number"
 msgstr "رقم منفذ الوسيط غير صالح"
 
-#: ../src/prefs.c:706
+#: ../src/prefs.c:708
 msgid "Invalid cddb server port number"
 msgstr "رقم منفذ خادوم cddb غير صالح"
 
@@ -465,13 +465,13 @@ msgid ""
 "'Preferences' menu."
 msgstr "لم تختر طريقة للنسخ/الترميز. من فضلك فعّل واحدة من قائمة 'التفضيلات'."
 
-#: ../src/threads.c:212
+#: ../src/threads.c:215
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "لم تختر أي مقاطع للنسخ/الترميز. من فضلك اختر مقطعا واحدا على الأقل."
 
-#: ../src/threads.c:1066 ../src/threads.c:1068 ../src/threads.c:1072
+#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
 msgid "Waiting..."
 msgstr "ينتظر..."
 

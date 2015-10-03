@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder-0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 00:25-0500\n"
+"POT-Creation-Date: 2015-10-03 00:01-0400\n"
 "PO-Revision-Date: 2013-05-13 09:23-0300\n"
 "Last-Translator: Neliton Pereira Jr. <nelitonpjr@gmail.com>\n"
 "Language-Team: Pt-Br <f@gmail.com>\n"
@@ -170,11 +170,11 @@ msgstr "Gênero"
 msgid "Album directory: "
 msgstr "Diretório do álbum: "
 
-#: ../src/interface.c:473 ../src/prefs.c:657
+#: ../src/interface.c:473 ../src/prefs.c:659
 msgid "Playlist file: "
 msgstr "Arquivo de lista: "
 
-#: ../src/interface.c:480 ../src/prefs.c:669 ../src/prefs.c:679
+#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
 msgid "Music file: "
 msgstr "Arquivo de música: "
 
@@ -404,7 +404,7 @@ msgstr "Progresso total"
 msgid "Encoding"
 msgstr "Codificação"
 
-#: ../src/interface.c:1755
+#: ../src/interface.c:1764
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -414,35 +414,35 @@ msgstr ""
 "como arquivos WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, "
 "e/ou AAC."
 
-#: ../src/interface.c:1795
+#: ../src/interface.c:1804
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d arquivo criado com sucesso"
 msgstr[1] "%d arquivos criados com sucesso"
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Houve um erro ao criar %d arquivo"
 msgstr[1] "Houve um erro ao criar %d arquivos"
 
-#: ../src/prefs.c:656 ../src/prefs.c:668
+#: ../src/prefs.c:658 ../src/prefs.c:670
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Caracteres inválidos no campo '%s'"
 
-#: ../src/prefs.c:678
+#: ../src/prefs.c:680
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' não pode estar vazio"
 
-#: ../src/prefs.c:693
+#: ../src/prefs.c:695
 msgid "Invalid proxy port number"
 msgstr "Número da porta do proxy inválido"
 
-#: ../src/prefs.c:706
+#: ../src/prefs.c:708
 msgid "Invalid cddb server port number"
 msgstr "Número da porta do servidor CDDB inválido"
 
@@ -467,7 +467,7 @@ msgstr ""
 "Nenhum método para extrair/codificar foi selecionado. Por favor, ative um "
 "método no menu \"Preferências\"."
 
-#: ../src/threads.c:212
+#: ../src/threads.c:215
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -475,7 +475,7 @@ msgstr ""
 "Nenhuma faixa foi selecionada para ser extraída/codificada. Por favor, "
 "selecione ao menos uma faixa."
 
-#: ../src/threads.c:1066 ../src/threads.c:1068 ../src/threads.c:1072
+#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
 msgid "Waiting..."
 msgstr "Aguardando..."
 

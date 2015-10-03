@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs.po_[XwND8b]\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 00:25-0500\n"
+"POT-Creation-Date: 2015-10-03 00:01-0400\n"
 "PO-Revision-Date: 2014-03-19 10:33+0100\n"
 "Last-Translator: Petr Šimáček <petr.simacek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -170,11 +170,11 @@ msgstr "%G - Styl"
 msgid "Album directory: "
 msgstr "Adresář alba: "
 
-#: ../src/interface.c:473 ../src/prefs.c:657
+#: ../src/interface.c:473 ../src/prefs.c:659
 msgid "Playlist file: "
 msgstr "Soubor seznamu skladeb: "
 
-#: ../src/interface.c:480 ../src/prefs.c:669 ../src/prefs.c:679
+#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
 msgid "Music file: "
 msgstr "Hudební soubor: "
 
@@ -400,7 +400,7 @@ msgstr "Celkový průběh"
 msgid "Encoding"
 msgstr "Kódování"
 
-#: ../src/interface.c:1755
+#: ../src/interface.c:1764
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -410,35 +410,35 @@ msgstr ""
 "jako WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, a/nebo "
 "AAC files."
 
-#: ../src/interface.c:1795
+#: ../src/interface.c:1804
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d soubor úspěšně vytvořen"
 msgstr[1] "%d soubory úspěšně vytvořeny"
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Chyba při vytváření %d souboru"
 msgstr[1] "Chyba při vytváření %d souborů"
 
-#: ../src/prefs.c:656 ../src/prefs.c:668
+#: ../src/prefs.c:658 ../src/prefs.c:670
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Neplatné znaky v poli '%s'"
 
-#: ../src/prefs.c:678
+#: ../src/prefs.c:680
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' nesmí být prázdné"
 
-#: ../src/prefs.c:693
+#: ../src/prefs.c:695
 msgid "Invalid proxy port number"
 msgstr "Neplatné číslo portu proxy"
 
-#: ../src/prefs.c:706
+#: ../src/prefs.c:708
 msgid "Invalid cddb server port number"
 msgstr "Neplatné číslo portu pro CDDB server"
 
@@ -463,7 +463,7 @@ msgstr ""
 "Nebyla zvolena metoda ripování/kódování. Prosím, povolte jednu v menu "
 "'Nastavení'."
 
-#: ../src/threads.c:212
+#: ../src/threads.c:215
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -471,7 +471,7 @@ msgstr ""
 "Žádná stopa nebyla vybrána pro ripování/kódování. Prosím, vyberte alespoň "
 "jednu stopu."
 
-#: ../src/threads.c:1066 ../src/threads.c:1068 ../src/threads.c:1072
+#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
 msgid "Waiting..."
 msgstr "Čekám..."
 

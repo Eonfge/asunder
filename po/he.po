@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder 2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 00:25-0500\n"
+"POT-Creation-Date: 2015-10-03 00:01-0400\n"
 "PO-Revision-Date: 2012-12-20 10:05+0200\n"
 "Last-Translator: Isratine Citizen <genghiskhan@gmx.ca>\n"
 "Language-Team: Rahut <genghiskhan@gmx.ca>\n"
@@ -171,11 +171,11 @@ msgstr "ז׳אנר"
 msgid "Album directory: "
 msgstr "מדור אלבום: "
 
-#: ../src/interface.c:473 ../src/prefs.c:657
+#: ../src/interface.c:473 ../src/prefs.c:659
 msgid "Playlist file: "
 msgstr "קובץ רשימת השמעה: "
 
-#: ../src/interface.c:480 ../src/prefs.c:669 ../src/prefs.c:679
+#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
 msgid "Music file: "
 msgstr "קובץ מוזיקה: "
 
@@ -410,7 +410,7 @@ msgstr "התקדמות כוללת"
 msgid "Encoding"
 msgstr "מקודד"
 
-#: ../src/interface.c:1755
+#: ../src/interface.c:1764
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -420,35 +420,35 @@ msgstr ""
 "כקבצי WAV, ‏MP3, ‏OGG, ‏FLAC,  ‏Opus, ‏Wavpack, ‏Musepack, ‏Monkey's Audio, ו/או "
 "AAC."
 
-#: ../src/interface.c:1795
+#: ../src/interface.c:1804
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "קובץ %d נוצר בהצלחה"
 msgstr[1] "%d קבצים נוצרו בהצלחה"
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "ארעה שגיאה בעת יצירת קובץ %d"
 msgstr[1] "ארעה שגיאה בעת יצירת %d קבצים"
 
-#: ../src/prefs.c:656 ../src/prefs.c:668
+#: ../src/prefs.c:658 ../src/prefs.c:670
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "תווים שגויים בשדה '%s'"
 
-#: ../src/prefs.c:678
+#: ../src/prefs.c:680
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "‫'%s' לא יכול להיות ריק"
 
-#: ../src/prefs.c:693
+#: ../src/prefs.c:695
 msgid "Invalid proxy port number"
 msgstr "מספר פורט פרוקסי שגוי"
 
-#: ../src/prefs.c:706
+#: ../src/prefs.c:708
 msgid "Invalid cddb server port number"
 msgstr "פורט שרת cddb שגוי"
 
@@ -471,13 +471,13 @@ msgid ""
 "'Preferences' menu."
 msgstr "לא נבחרה שיטת תלישה/קידוד. נא לאפשר אחת מן התפריט 'העדפות'."
 
-#: ../src/threads.c:212
+#: ../src/threads.c:215
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "לא נבחרו רצועות עבור תלישה/קידוד. נא לבחור לפחות רצועה אחת."
 
-#: ../src/threads.c:1066 ../src/threads.c:1068 ../src/threads.c:1072
+#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
 msgid "Waiting..."
 msgstr "ממתין..."
 
