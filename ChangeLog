@@ -1,6 +1,6 @@
 3 Oct 2015 - 2.8
 =================
-- Updates to Sweedish, Norwegian, Russian, and Danish translations.
+- Updates to Swedish, Norwegian, Russian, and Danish translations.
 - Fixed a couple of (unlikely) memory corruption bugs and some minor memory leaks.
 
 26 Jan 2015 - 2.7
