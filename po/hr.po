@@ -1,17 +1,17 @@
-# HRVATSKI (hr.po) ZA ASUNDER 1.93
-# Copyright (C) 2010.
+# Croatian translation for Asunder
+# Copyright (C) 2016
 # This file is distributed under the same license as the Asunder package.
-# Petar Kulić <cooleech@gmail.com>, 2010.
+# Petar Kulić <cooleech@gmail.com>, 2016.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.93\n"
+"Project-Id-Version: 2.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-03 00:01-0400\n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2016-01-08 10:11+0100\n"
 "Last-Translator: Petar Kulić <cooleech@gmail.com>\n"
 "Language-Team: Hrvatski <LL@li.org>\n"
-"Language: \n"
+"Language: Croatian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,12 +46,12 @@ msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
-"Putanja do 'cdparanoia' nije pronađena. Asunderu treba cdparanoia kako bi "
+"'cdparanoia' nije pronađen na vašem sustavu. Asunderu treba cdparanoia kako bi"
 "ripao CD-e."
 
 #: ../src/main.c:471
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>Skidam info o disku sa interneta...</b>"
+msgstr "<b>Skidam info o disku s interneta...</b>"
 
 #: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
 #: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:613
@@ -72,8 +72,8 @@ msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
 msgstr ""
-"Putanja do %s nije pronađena. Asunderu treba putanja da stvori %s datoteke."
-"Sve %s funkcije su isključene."
+"%s nije pronađen na sustavu. Asunderu je potreban kako bi stvorio %s datoteke. Sva"
+"%s funkcionalnost je onemogućena."
 
 #: ../src/callbacks.c:702
 msgid "Select all for ripping"
@@ -89,7 +89,7 @@ msgstr "CDDB pretraga"
 
 #: ../src/interface.c:145
 msgid "Disc:"
-msgstr "Disk:"
+msgstr "Disk"
 
 #: ../src/interface.c:151
 msgid "Album Artist:"
@@ -104,9 +104,8 @@ msgid "Single Artist"
 msgstr "Jedan izvođač"
 
 #: ../src/interface.c:171
-#, fuzzy
 msgid "Genre / Year:"
-msgstr "Vrsta:"
+msgstr "Vrsta / Godina:"
 
 #: ../src/interface.c:178
 msgid "Single Genre"
@@ -118,7 +117,7 @@ msgstr "Postavke"
 
 #: ../src/interface.c:387 ../src/interface.c:393
 msgid "Destination folder"
-msgstr "Odredišna mapa"
+msgstr "Odredišni folder"
 
 #: ../src/interface.c:397
 msgid "Create M3U playlist"
@@ -126,7 +125,7 @@ msgstr "Napravi M3U listu"
 
 #: ../src/interface.c:405
 msgid "CD-ROM device: "
-msgstr "Optički uređaj:"
+msgstr "Optički uređaj: "
 
 #: ../src/interface.c:414
 msgid ""
@@ -136,11 +135,11 @@ msgid ""
 msgstr ""
 "Uobičajeno: /dev/cdrom\n"
 "Drugi primjer: /dev/hdc\n"
-"Treći primjer: /dev/sr0"
+"Drugi primjer: /dev/sr0"
 
 #: ../src/interface.c:418
 msgid "Eject disc when finished"
-msgstr "Izbaci disk kad završiš"
+msgstr "Izbaci disk po završetku"
 
 #: ../src/interface.c:426
 msgid "General"
@@ -157,25 +156,25 @@ msgstr ""
 "%A - Izvođač\n"
 "%L - Album\n"
 "%N - Redni broj (dvoznamenkasti)\n"
-"%Y - Godina (četveroznamenkasti ili \"0\")\n"
+"%Y - Godina (četveroznamenkasta ili \"0\")\n"
 "%T - Naslov pjesme"
 
 #: ../src/interface.c:451
-#, fuzzy, c-format
+#, c-format
 msgid "%G - Genre"
-msgstr "Vrsta"
+msgstr "%G - Vrsta"
 
 #: ../src/interface.c:466
 msgid "Album directory: "
-msgstr "Mapa albuma:"
+msgstr "Direktorij albuma: "
 
 #: ../src/interface.c:473 ../src/prefs.c:659
 msgid "Playlist file: "
-msgstr "Datoteka liste:"
+msgstr "Datoteka liste: "
 
 #: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
 msgid "Music file: "
-msgstr "Glazbena datoteka:"
+msgstr "Glazbena datoteka: "
 
 #: ../src/interface.c:494
 msgid ""
@@ -184,7 +183,7 @@ msgid ""
 "Default: %A - %L\n"
 "Other example: %A/%L"
 msgstr ""
-"Ovo je putanja do odredišne mape (prema kartici Općenito).\n"
+"Ovo je putanja do odredišnog foldera (prema karitci Općenito).\n"
 "Može biti prazno.\n"
 "Uobičajeno: %A - %L\n"
 "Drugi primjer: %A/%L"
@@ -195,7 +194,7 @@ msgid ""
 "Can be blank.\n"
 "Default: %A - %L"
 msgstr ""
-"Ovo će biti pohranjeno u mapi albuma.\n"
+"Ovo će biti pohranjeno u direktoriju albuma.\n"
 "Može biti prazno.\n"
 "Uobičajeno: %A - %L"
 
@@ -206,14 +205,14 @@ msgid ""
 "Default: %A - %T\n"
 "Other example: %N - %T"
 msgstr ""
-"Ovo će biti pohranjeno u mapi albuma.\n"
+"Ovo će biti pohranjeno u direktoriju albuma.\n"
 "Ne može biti prazno.\n"
 "Uobičajeno: %A - %T\n"
 "Drugi primjer: %N - %T"
 
 #: ../src/interface.c:522
 msgid "Filename formats"
-msgstr "Format naziva datoteke"
+msgstr "Format imena datoteka"
 
 #: ../src/interface.c:527
 msgid "Filenames"
@@ -237,7 +236,7 @@ msgstr "WAV (bez kompresije)"
 
 #: ../src/interface.c:581
 msgid "Variable bit rate (VBR)"
-msgstr "Varijabilni bitrate (VBR)"
+msgstr "Varijabilna gustoća bitova (VBR)"
 
 #: ../src/interface.c:589
 msgid "Better quality for the same size."
@@ -246,15 +245,15 @@ msgstr "Bolja kvaliteta za istu veličinu."
 #: ../src/interface.c:595 ../src/interface.c:742 ../src/interface.c:828
 #: ../src/interface.c:876
 msgid "Bitrate"
-msgstr "Bitrate"
+msgstr "Gustoća bitova"
 
 #: ../src/interface.c:610
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
 msgstr ""
-"Viši bitrate daje bolju kvalitetu ali također znači veću datoteku.Većina "
-"ljudi koristi 192Kbps."
+"Veća gustoća bitova daje bolju kvalitetu ali i veću datoteku. Većina ljudi koristi "
+"192Kbps."
 
 #: ../src/interface.c:619
 msgid "MP3 (lossy compression)"
@@ -293,8 +292,8 @@ msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
-"Viši bitrate daje bolju kvalitetu ali također znači veću datoteku.Većina "
-"ljudi koristi 160Kbps."
+"Veća gustoća bitova daje bolju kvalitetu ali i veću datoteku. Većina ljudi koristi "
+"160Kbps."
 
 #: ../src/interface.c:764
 msgid "OPUS (lossy compression)"
@@ -305,8 +304,8 @@ msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
 msgstr ""
-"Ovo ne utječe na kvalitetu. Veći broj znači manju datoteku. Uobičajeno je 1 "
-"(preporučeno)."
+"Ovo ne utječe na kvalitetu. Veći broj znači manju datoteku. Uobičajeno "
+"je 1 (preporučeno)."
 
 #: ../src/interface.c:813
 msgid "Hybrid compression"
@@ -322,7 +321,7 @@ msgstr ""
 
 #: ../src/interface.c:892
 msgid "Higher bitrate is better quality but also bigger file."
-msgstr "Veći bitrate daje bolju kvalitetu ali i veću datoteku."
+msgstr "Veća gustoća bitova daje bolju kvalitetu ali i veću datoteku."
 
 #: ../src/interface.c:900
 msgid "Musepack (lossy compression)"
@@ -330,7 +329,7 @@ msgstr "Musepack (kompresija uz gubitke)"
 
 #: ../src/interface.c:948
 msgid "Monkey's Audio (lossless compression)"
-msgstr "Monkey Audio (kompresija bez gubitaka)"
+msgstr "Monkey's Audio (kompresija bez gubitaka)"
 
 #. END MONKEY
 #: ../src/interface.c:957
@@ -352,7 +351,7 @@ msgstr "Enkodiraj"
 
 #: ../src/interface.c:1046
 msgid "Get disc info from the internet automatically"
-msgstr "Automatski skini info o disku sa interneta"
+msgstr "Automatski skini info o disku s interneta"
 
 #: ../src/interface.c:1054 ../src/interface.c:1100
 msgid "Server: "
@@ -360,7 +359,7 @@ msgstr "Poslužitelj: "
 
 #: ../src/interface.c:1064
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
-msgstr "CDDB poslužitelj za info o disku (uobičajeni je freedb.freedb.org)"
+msgstr "CDDB poslužitelj za info o disku (uobičajeno je freedb.freedb.org)"
 
 #: ../src/interface.c:1070 ../src/interface.c:1113
 msgid "Port: "
@@ -368,7 +367,7 @@ msgstr "Port: "
 
 #: ../src/interface.c:1080
 msgid "The CDDB server port (default is 8880)"
-msgstr "Port CDDB poslužitelja (uobičajeni je 8880)"
+msgstr "Port CDDB poslužitelja (uobičajeno je 8880)"
 
 #: ../src/interface.c:1087
 msgid "Use an HTTP proxy to connect to the internet"
@@ -376,11 +375,11 @@ msgstr "Koristi HTTP proxy za spajanje na internet"
 
 #: ../src/interface.c:1122
 msgid "Log to /var/log/asunder.log"
-msgstr ""
+msgstr "Zapis u /var/log/asunder.log"
 
 #: ../src/interface.c:1127
 msgid "Faster ripping (no error correction)"
-msgstr ""
+msgstr "Brže ripanje (bez ispravki grešaka)"
 
 #: ../src/interface.c:1136
 msgid "Advanced"
@@ -396,7 +395,7 @@ msgstr "Ukupan napredak"
 
 #: ../src/interface.c:1250
 msgid "Encoding"
-msgstr "Enkodiranje"
+msgstr "Enkodiram"
 
 #: ../src/interface.c:1764
 msgid ""
@@ -404,8 +403,8 @@ msgid ""
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
-"Aplikacija za spremanje zapisa sa Audio CD-a \n"
-"u WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey Audio, i/ili AAC "
+"Aplikacija za spremanje zapisa s Audio CD-a \n"
+"u WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, i/ili AAC "
 "datoteke."
 
 #: ../src/interface.c:1804
@@ -442,24 +441,24 @@ msgstr "Nevažeći broj porta cddb poslužitelja"
 
 #: ../src/support.c:47
 msgid "Overwrite?"
-msgstr "Prepisati preko?"
+msgstr "Prepisati?"
 
 #: ../src/support.c:60
 #, c-format
 msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr "Datoteka '%s' već postoji. Želite li je pisati preko nje?\n"
+msgstr "Datoteka '%s' već postoji. Želite li pisati preko nje?\n"
 
 #: ../src/support.c:66
 msgid "Remember the answer for _all the files made from this CD"
-msgstr "Zapamti odgovor za _sve datoteke sa ovog diska"
+msgstr "Zapamti odgovor za _sve datoteke s ovog diska"
 
 #: ../src/threads.c:183
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
-"Nema odabrane metode za ripanje/enkodiranje. Molim odaberite jednu u meniju "
-"'Postavke'."
+"Nema odabrane metode za ripanje/enkodiranje. Molim odaberite jednu "
+"u meniju 'Postavke'."
 
 #: ../src/threads.c:215
 msgid ""
@@ -472,11 +471,3 @@ msgstr ""
 #: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
 msgid "Waiting..."
 msgstr "Čekam..."
-
-#, fuzzy
-#~ msgid ""
-#~ "%s was not found in your path. Asunder requires it to create %s files.All "
-#~ "%s functionality is disabled."
-#~ msgstr ""
-#~ "Putanja do %s nije pronađena. Asunderu treba putanja da stvori %s "
-#~ "datoteke.Sve %s funkcije su isključene."
