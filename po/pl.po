@@ -5,15 +5,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-03 00:01-0400\n"
-"PO-Revision-Date: 2007-10-05 08:31-0400\n"
-"Last-Translator: Marcin Gasiorowski <marcin_g@epf.pl>\n"
+"POT-Creation-Date: 2016-11-29 17:07+0100\n"
+"PO-Revision-Date: 2016-11-29 17:17+0100\n"
+"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural= n!=1;\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #: ../src/main.c:128 ../src/interface.c:231
 msgid "Rip"
@@ -32,9 +34,8 @@ msgid "Title"
 msgstr "Tytuł"
 
 #: ../src/main.c:150
-#, fuzzy
 msgid "Genre"
-msgstr "Ogólne"
+msgstr "Gatunek"
 
 #: ../src/main.c:154
 msgid "Time"
@@ -50,7 +51,7 @@ msgstr ""
 
 #: ../src/main.c:471
 msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>Pobieranie informacji z internetu...</b>"
+msgstr "<b>Pobieranie informacji o płycie z Internetu...</b>"
 
 #: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
 #: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:613
@@ -76,7 +77,7 @@ msgstr ""
 
 #: ../src/callbacks.c:702
 msgid "Select all for ripping"
-msgstr "Zaznacz wszystkie"
+msgstr "Zaznacz wszystkie do zgrywania"
 
 #: ../src/callbacks.c:708
 msgid "Deselect all for ripping"
@@ -91,29 +92,24 @@ msgid "Disc:"
 msgstr "Dysk:"
 
 #: ../src/interface.c:151
-#, fuzzy
 msgid "Album Artist:"
-msgstr "Wykonawca:"
+msgstr "Wykonawca albumu:"
 
 #: ../src/interface.c:158
-#, fuzzy
 msgid "Album Title:"
-msgstr "Album:"
+msgstr "Tytuł albumu:"
 
 #: ../src/interface.c:165
-#, fuzzy
 msgid "Single Artist"
-msgstr "Pojedyńczy artysta"
+msgstr "Pojedynczy artysta"
 
 #: ../src/interface.c:171
-#, fuzzy
 msgid "Genre / Year:"
-msgstr "Ogólne"
+msgstr "Gatunek / Rok:"
 
 #: ../src/interface.c:178
-#, fuzzy
 msgid "Single Genre"
-msgstr "Pojedyńczy artysta"
+msgstr "Pojedynczy gatunek"
 
 #: ../src/interface.c:370
 msgid "Preferences"
@@ -125,7 +121,7 @@ msgstr "Katalog docelowy"
 
 #: ../src/interface.c:397
 msgid "Create M3U playlist"
-msgstr "Utwórz playlistę M3U"
+msgstr "Utwórz listę odtwarzania M3U"
 
 #: ../src/interface.c:405
 msgid "CD-ROM device: "
@@ -150,7 +146,6 @@ msgid "General"
 msgstr "Ogólne"
 
 #: ../src/interface.c:446
-#, fuzzy
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -161,12 +156,13 @@ msgstr ""
 "%A - Artysta\n"
 "%L - Album\n"
 "%N - Numer ścieżki (2-znaki)\n"
+"%Y - Rok (4-znaki lub \"0\")\n"
 "%T - Tytuł utworu"
 
 #: ../src/interface.c:451
-#, fuzzy, c-format
+#, c-format
 msgid "%G - Genre"
-msgstr "Ogólne"
+msgstr "%G - Gatunek"
 
 #: ../src/interface.c:466
 msgid "Album directory: "
@@ -174,7 +170,7 @@ msgstr "Katalog albumu: "
 
 #: ../src/interface.c:473 ../src/prefs.c:659
 msgid "Playlist file: "
-msgstr "Plik playlisty: "
+msgstr "Plik listy odtwarzania: "
 
 #: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
 msgid "Music file: "
@@ -240,7 +236,7 @@ msgstr "WAV (nieskompresowany)"
 
 #: ../src/interface.c:581
 msgid "Variable bit rate (VBR)"
-msgstr "Zmienny bitrate (VBR)"
+msgstr "Zmienna przepływność (VBR)"
 
 #: ../src/interface.c:589
 msgid "Better quality for the same size."
@@ -249,7 +245,7 @@ msgstr "Lepsza jakość przy zachowaniu rozmiaru pliku."
 #: ../src/interface.c:595 ../src/interface.c:742 ../src/interface.c:828
 #: ../src/interface.c:876
 msgid "Bitrate"
-msgstr "Bitrate"
+msgstr "Przepływność"
 
 #: ../src/interface.c:610
 msgid ""
@@ -289,7 +285,7 @@ msgstr "FLAC (kompresja bezstratna)"
 
 #: ../src/interface.c:710
 msgid "More formats"
-msgstr "Więcej"
+msgstr "Więcej formatów"
 
 #: ../src/interface.c:756
 msgid ""
@@ -355,7 +351,7 @@ msgstr "Koduj"
 
 #: ../src/interface.c:1046
 msgid "Get disc info from the internet automatically"
-msgstr "Automatycznie pobierz informacje z internetu"
+msgstr "Automatycznie pobierz informacje o płycie z Internetu"
 
 #: ../src/interface.c:1054 ../src/interface.c:1100
 msgid "Server: "
@@ -379,11 +375,11 @@ msgstr "Używaj serwera proxy do łączenia z internetem"
 
 #: ../src/interface.c:1122
 msgid "Log to /var/log/asunder.log"
-msgstr ""
+msgstr "Zapis dziennika do /var/log/asunder.log"
 
 #: ../src/interface.c:1127
 msgid "Faster ripping (no error correction)"
-msgstr ""
+msgstr "Szybsze zgrywanie (bez korekcji błędów)"
 
 #: ../src/interface.c:1136
 msgid "Advanced"
@@ -407,13 +403,17 @@ msgid ""
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
+"Program do zapisywania ścieżek z dźwiękowych płyt CD \n"
+"jako pliki WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio i/"
+"lub AAC."
 
 #: ../src/interface.c:1804
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d plik został utworzony pomyślnie"
-msgstr[1] "%d plików zostało utworzonych pomyślnie"
+msgstr[1] "%d pliki zostały utworzone pomyślnie"
+msgstr[2] "%d plików zostało utworzonych pomyślnie"
 
 #: ../src/interface.c:1813
 #, c-format
@@ -421,6 +421,7 @@ msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Wystąpił błąd podczas tworzenia %d pliku"
 msgstr[1] "Wystąpiły błędy podczas tworzenia %d plików"
+msgstr[2] "Wystąpiły błędy podczas tworzenia %d plików"
 
 #: ../src/prefs.c:658 ../src/prefs.c:670
 #, c-format
