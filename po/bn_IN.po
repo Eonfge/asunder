@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder-2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-03 00:01-0400\n"
+"POT-Creation-Date: 2017-02-06 19:54-0500\n"
 "PO-Revision-Date: 2013-07-17 04:47+0530\n"
 "Last-Translator: Rajib Lochan Dhibar <rajib.lochan.dhibar@gmail.com>\n"
 "Language-Team: Rajib Lochan Dhibar <rajib.lochan.dhibar@gmail.com>\n"
@@ -401,7 +401,7 @@ msgstr "সর্বমোট অগ্রগতি"
 msgid "Encoding"
 msgstr "এনকোডিং"
 
-#: ../src/interface.c:1764
+#: ../src/interface.c:1773
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -410,14 +410,14 @@ msgstr ""
 "একটি ব্যবহারিক সফট্ওয়ার যা অডিও সিডি থেকে ট্রাকগুলিকে সেভ করে WAV,\n"
 "MP3, OGG, FLAC, ওয়্যাভপ্যাক, মিউজপ্যাক, মাঙ্কিস্ অডিও, এবং/অথবা AAC ফাইলে।"
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d ফাইল সফলভাবে তৈরি হয়েছে"
 msgstr[1] "%d ফাইলগুলি সফলভাবে তৈরি হয়েছে"
 
-#: ../src/interface.c:1813
+#: ../src/interface.c:1822
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

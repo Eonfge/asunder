@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder zh_CN translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-03 00:01-0400\n"
+"POT-Creation-Date: 2017-02-06 19:54-0500\n"
 "PO-Revision-Date: 2014-03-16 14:53-0700\n"
 "Last-Translator: Jeff Bai <jeffbaichina@members.fsf.org>\n"
 "Language-Team: LANGUAGE <tiansworld@fedoraproject.org>\n"
@@ -390,7 +390,7 @@ msgstr "总进度"
 msgid "Encoding"
 msgstr "编码中"
 
-#: ../src/interface.c:1764
+#: ../src/interface.c:1773
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -400,13 +400,13 @@ msgstr ""
 "并保存为 WAV, MP3, OGG, FLAC, Wavpack, MusePack, Mounkey's Audio 及/或 AAC 等"
 "文件的程序。"
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "已成功创建 %d 个文件"
 
-#: ../src/interface.c:1813
+#: ../src/interface.c:1822
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

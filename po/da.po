@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-03 00:01-0400\n"
+"POT-Creation-Date: 2017-02-06 19:54-0500\n"
 "PO-Revision-Date: 2015-09-29 23:00+2000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -407,7 +407,7 @@ msgstr "Samlet fremskridt"
 msgid "Encoding"
 msgstr "Konvertering"
 
-#: ../src/interface.c:1764
+#: ../src/interface.c:1773
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -417,14 +417,14 @@ msgstr ""
 "som WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkeys Audio og/eller AAC-"
 "filer."
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fil oprettet"
 msgstr[1] "%d filer oprettet"
 
-#: ../src/interface.c:1813
+#: ../src/interface.c:1822
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

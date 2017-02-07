@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-03 00:01-0400\n"
+"POT-Creation-Date: 2017-02-06 19:54-0500\n"
 "PO-Revision-Date: 2010-12-27 22:54+0200\n"
 "Last-Translator: Muhammad Ali Makki <makkiabufaris@aol.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -396,7 +396,7 @@ msgstr "التقدم الكلي"
 msgid "Encoding"
 msgstr "يُرمّز"
 
-#: ../src/interface.c:1764
+#: ../src/interface.c:1773
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -406,7 +406,7 @@ msgstr ""
 "مثل WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, و/أو ملفات "
 "AAC."
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -417,7 +417,7 @@ msgstr[3] "أنشئت %d ملفات بنجاح"
 msgstr[4] "أنشئ %d ملفا بنجاح"
 msgstr[5] "أنشئ %d ملف بنجاح"
 
-#: ../src/interface.c:1813
+#: ../src/interface.c:1822
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

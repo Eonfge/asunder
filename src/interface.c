@@ -1438,7 +1438,7 @@ void enable_musepack_widgets(void)
 }
 
 const char* 
-GBLprogramName = "Asunder 2.8";
+GBLprogramName = "Asunder 2.8.1";
 
 static const char* 
 GBLauthors[2] = {
@@ -1580,6 +1580,9 @@ GBLtranslators =
 "Siegfried-Angel Gevatter Pujals\n"
 "- ca (Catalan) translation of Asunder versions 0.8.1 - 1.9\n"
 "\n"
+"Toni Estevez\n"
+"- ca (Catalan) translation of Asunder version 2.8\n"
+"\n"
 "Schmaki\n"
 "- cs (Czeck) translation of Asunder versions 0.8 - 1.0, 1.9\n"
 "\n"
@@ -1641,7 +1644,7 @@ GBLtranslators =
 "- hu (Hungarian) translation of Asunder versions 0.8 - 1.9\n"
 "\n"      
 "Petar Kulic\n"
-"- hr (Croatian) translation of Asunder version 1.9\n"
+"- hr (Croatian) translation of Asunder versions 1.9-2.8\n"
 "\n"
 "Pader Rezso\n"
 "- hu (Hungarian) translation of Asunder versions 1.9.2 - 2.3\n"
@@ -1668,7 +1671,7 @@ GBLtranslators =
 "- nb (Norwegian Bokmal) translation of Asunder version 0.8\n"
 "\n"
 "Aka Sikrom\n"
-"- nb (Norwegian Bokmal) translation of Asunder version 2.5\n"
+"- nb (Norwegian Bokmal) translation of Asunder versions 2.5 - 2.8\n"
 "\n"
 "Wolven\n"
 "- nb (Norwegian Bokmal) translation of Asunder version 1.6\n"
@@ -1679,6 +1682,9 @@ GBLtranslators =
 "Kristof Bal\n"
 "- nl (Dutch) translation of Asunder versions 1.0.2 - 1.5\n"
 "\n"
+"Pjotr Vertaalt\n"
+"- nl (Dutch) translation of Asunder version 2.8\n"
+"\n"
 "Robert Groenning\n"
 "- nn (Norwegian Nynorsk) translation of Asunder version 0.8\n"
 "\n"
@@ -1687,6 +1693,9 @@ GBLtranslators =
 "\n"
 "Marcin Gasiorowski\n"
 "- pl (Polish) translation of Asunder versions 1.0 - 1.9\n"
+"\n"
+"Piotr Strebski\n"
+"- pl (Polish) translation of Asunder version 2.8\n"
 "\n"
 "Antonio Sousa\n"
 "- pt (Portuguese) translation of Asunder version 1.5\n"
@@ -1741,6 +1750,9 @@ GBLtranslators =
 "\n"
 "Savas Sen\n"
 "- tr (Turkish) translation of Asunder version 1.9\n"
+"\n"
+"Yilmaz Hanemer\n"
+"- tr (Turkish) translation of Asunder version 2.8\n"
 "\n"
 "Muhammad Ali Makki\n"
 "http://makki.urducoder.com/\n"

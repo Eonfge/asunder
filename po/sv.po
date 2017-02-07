@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-03 00:01-0400\n"
+"POT-Creation-Date: 2017-02-06 19:54-0500\n"
 "PO-Revision-Date: 2015-01-28 03:10+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -399,7 +399,7 @@ msgstr "Totalt förlopp"
 msgid "Encoding"
 msgstr "Kodning"
 
-#: ../src/interface.c:1764
+#: ../src/interface.c:1773
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -409,14 +409,14 @@ msgstr ""
 "som WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio och/eller "
 "AAC-filer."
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fil skapades"
 msgstr[1] "%d filer skapades"
 
-#: ../src/interface.c:1813
+#: ../src/interface.c:1822
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

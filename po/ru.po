@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder 2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-03 00:01-0400\n"
+"POT-Creation-Date: 2017-02-06 19:54-0500\n"
 "PO-Revision-Date: 2015-06-02 13:03+0300\n"
 "Last-Translator: goodvin <asivakov@gmail.com>\n"
 "Language-Team: asivakov@gmail.com\n"
@@ -404,7 +404,7 @@ msgstr "Всего выполнено"
 msgid "Encoding"
 msgstr "Кодирование"
 
-#: ../src/interface.c:1764
+#: ../src/interface.c:1773
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -413,7 +413,7 @@ msgstr ""
 "Приложение для извлечения дорожек из Audio CD и сохранения в файлах форматов "
 "WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, и/или AAC."
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -421,7 +421,7 @@ msgstr[0] "%d файл создан успешно"
 msgstr[1] "%d файла создано успешно"
 msgstr[2] "%d файлов создано успешно"
 
-#: ../src/interface.c:1813
+#: ../src/interface.c:1822
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-03 00:01-0400\n"
+"POT-Creation-Date: 2017-02-06 19:54-0500\n"
 "PO-Revision-Date: 2016-01-08 10:11+0100\n"
 "Last-Translator: Petar Kulić <cooleech@gmail.com>\n"
 "Language-Team: Hrvatski <LL@li.org>\n"
@@ -46,8 +46,8 @@ msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
-"'cdparanoia' nije pronađen na vašem sustavu. Asunderu treba cdparanoia kako bi"
-"ripao CD-e."
+"'cdparanoia' nije pronađen na vašem sustavu. Asunderu treba cdparanoia kako "
+"biripao CD-e."
 
 #: ../src/main.c:471
 msgid "<b>Getting disc info from the internet...</b>"
@@ -72,8 +72,8 @@ msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
 msgstr ""
-"%s nije pronađen na sustavu. Asunderu je potreban kako bi stvorio %s datoteke. Sva"
-"%s funkcionalnost je onemogućena."
+"%s nije pronađen na sustavu. Asunderu je potreban kako bi stvorio %s "
+"datoteke. Sva%s funkcionalnost je onemogućena."
 
 #: ../src/callbacks.c:702
 msgid "Select all for ripping"
@@ -252,8 +252,8 @@ msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
 msgstr ""
-"Veća gustoća bitova daje bolju kvalitetu ali i veću datoteku. Većina ljudi koristi "
-"192Kbps."
+"Veća gustoća bitova daje bolju kvalitetu ali i veću datoteku. Većina ljudi "
+"koristi 192Kbps."
 
 #: ../src/interface.c:619
 msgid "MP3 (lossy compression)"
@@ -292,8 +292,8 @@ msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
 msgstr ""
-"Veća gustoća bitova daje bolju kvalitetu ali i veću datoteku. Većina ljudi koristi "
-"160Kbps."
+"Veća gustoća bitova daje bolju kvalitetu ali i veću datoteku. Većina ljudi "
+"koristi 160Kbps."
 
 #: ../src/interface.c:764
 msgid "OPUS (lossy compression)"
@@ -304,8 +304,8 @@ msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
 msgstr ""
-"Ovo ne utječe na kvalitetu. Veći broj znači manju datoteku. Uobičajeno "
-"je 1 (preporučeno)."
+"Ovo ne utječe na kvalitetu. Veći broj znači manju datoteku. Uobičajeno je 1 "
+"(preporučeno)."
 
 #: ../src/interface.c:813
 msgid "Hybrid compression"
@@ -397,7 +397,7 @@ msgstr "Ukupan napredak"
 msgid "Encoding"
 msgstr "Enkodiram"
 
-#: ../src/interface.c:1764
+#: ../src/interface.c:1773
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -407,14 +407,14 @@ msgstr ""
 "u WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, i/ili AAC "
 "datoteke."
 
-#: ../src/interface.c:1804
+#: ../src/interface.c:1813
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d datoteka je uspješno zapisana"
 msgstr[1] "%d datoteke su uspješno zapisane"
 
-#: ../src/interface.c:1813
+#: ../src/interface.c:1822
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -457,8 +457,8 @@ msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr ""
-"Nema odabrane metode za ripanje/enkodiranje. Molim odaberite jednu "
-"u meniju 'Postavke'."
+"Nema odabrane metode za ripanje/enkodiranje. Molim odaberite jednu u meniju "
+"'Postavke'."
 
 #: ../src/threads.c:215
 msgid ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-26 00:25-0500\n"
+"POT-Creation-Date: 2017-02-06 19:54-0500\n"
 "PO-Revision-Date: 2016-01-15 20:46+0100\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <toni.estevez@gmail.com>\n"
@@ -15,6 +15,135 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: ../src\n"
 
+#: ../src/main.c:128 ../src/interface.c:231
+msgid "Rip"
+msgstr "Extreu"
+
+#: ../src/main.c:132
+msgid "Track"
+msgstr "Pista"
+
+#: ../src/main.c:138
+msgid "Artist"
+msgstr "Artista"
+
+#: ../src/main.c:144
+msgid "Title"
+msgstr "Títol"
+
+#: ../src/main.c:150
+msgid "Genre"
+msgstr "Gènere"
+
+#: ../src/main.c:154
+msgid "Time"
+msgstr "Duració"
+
+#: ../src/main.c:180
+msgid ""
+"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
+"CDs."
+msgstr ""
+"No s'ha trobat el component «cdparanoia». L'Asunder el necessita per "
+"extreure pistes d'àudio."
+
+#: ../src/main.c:471
+msgid "<b>Getting disc info from the internet...</b>"
+msgstr "<b>Descàrrega d'informació del disc des d'Internet...</b>"
+
+#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
+#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:613
+#: ../src/interface.c:758 ../src/interface.c:894
+#, c-format
+msgid "%dKbps"
+msgstr "%d Kbps"
+
+#: ../src/callbacks.c:410
+msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
+msgstr "No s'ha inserit cap CD. Inseriu un CD a la unitat de CD-ROM."
+
+#: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
+#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
+#: ../src/callbacks.c:580 ../src/callbacks.c:605
+#, c-format
+msgid ""
+"%s was not found in your path. Asunder requires it to create %s files. All "
+"%s functionality is disabled."
+msgstr ""
+"No s'ha trobat el component «%s». L'Asunder el necessita per crear fitxers "
+"%s. La codificació %s s'ha desactivat."
+
+#: ../src/callbacks.c:702
+msgid "Select all for ripping"
+msgstr "Selecciona totes les pistes"
+
+#: ../src/callbacks.c:708
+msgid "Deselect all for ripping"
+msgstr "Desselecciona totes les pistes"
+
+#: ../src/interface.c:95
+msgid "CDDB Lookup"
+msgstr "Cerca a la CDDB"
+
+#: ../src/interface.c:145
+msgid "Disc:"
+msgstr "Disc:"
+
+#: ../src/interface.c:151
+msgid "Album Artist:"
+msgstr "Artista de l'àlbum:"
+
+#: ../src/interface.c:158
+msgid "Album Title:"
+msgstr "Títol de l'àlbum:"
+
+#: ../src/interface.c:165
+msgid "Single Artist"
+msgstr "Artista únic"
+
+#: ../src/interface.c:171
+msgid "Genre / Year:"
+msgstr "Gènere i any:"
+
+#: ../src/interface.c:178
+msgid "Single Genre"
+msgstr "Gènere únic"
+
+#: ../src/interface.c:370
+msgid "Preferences"
+msgstr "Preferències"
+
+#: ../src/interface.c:387 ../src/interface.c:393
+msgid "Destination folder"
+msgstr "Carpeta de destinació"
+
+#: ../src/interface.c:397
+msgid "Create M3U playlist"
+msgstr "Crea una llista de reproducció M3U"
+
+#: ../src/interface.c:405
+msgid "CD-ROM device: "
+msgstr "Dispositiu de CD-ROM:"
+
+#: ../src/interface.c:414
+msgid ""
+"Default: /dev/cdrom\n"
+"Other example: /dev/hdc\n"
+"Other example: /dev/sr0"
+msgstr ""
+"Per defecte: /dev/cdrom\n"
+"Un altre exemple: /dev/hdc\n"
+"Un altre exemple: /dev/sr0"
+
+#: ../src/interface.c:418
+msgid "Eject disc when finished"
+msgstr "Expulsa el disc en acabar"
+
+#: ../src/interface.c:426
+msgid "General"
+msgstr "General"
+
+#: ../src/interface.c:446
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -28,287 +157,26 @@ msgstr ""
 "%Y - Any (4 xifres o «0»)\n"
 "%T - Títol de la cançó "
 
+#: ../src/interface.c:451
+#, c-format
 msgid "%G - Genre"
 msgstr ""
 "%G - Gènere\n"
 " "
 
-msgid "%d file created successfully"
-msgid_plural "%d files created successfully"
-msgstr[0] "S'ha creat %d fitxer correctament."
-msgstr[1] "S'han creat %d fitxers correctament."
-
-msgid "%dKbps"
-msgstr "%d Kbps"
-
-msgid ""
-"%s was not found in your path. Asunder requires it to create %s files. All "
-"%s functionality is disabled."
-msgstr ""
-"No s'ha trobat el component «%s». L'Asunder el necessita per crear fitxers "
-"%s. La codificació %s s'ha desactivat."
-
-msgid "'%s' cannot be empty"
-msgstr "«%s» no pot estar buit."
-
-msgid ""
-"'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
-"CDs."
-msgstr ""
-"No s'ha trobat el component «cdparanoia». L'Asunder el necessita per "
-"extreure pistes d'àudio."
-
-msgid "<b>Getting disc info from the internet...</b>"
-msgstr "<b>Descàrrega d'informació del disc des d'Internet...</b>"
-
-msgid "AAC (lossy compression, Nero encoder)"
-msgstr "AAC (compressió amb pèrdua, codificador Nero)"
-
-msgid "Advanced"
-msgstr "Avançat"
-
-msgid "Album Artist:"
-msgstr "Artista de l'àlbum:"
-
-msgid "Album Title:"
-msgstr "Títol de l'àlbum:"
-
+#: ../src/interface.c:466
 msgid "Album directory: "
 msgstr "Carpeta de l'àlbum: "
 
-msgid ""
-"An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
-"files."
-msgstr ""
-"Aplicació per extreure pistes d'un CD d'àudio i codificar-les \n"
-"en format WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio o AAC"
-
-msgid "Artist"
-msgstr "Artista"
-
-msgid "Better quality for the same size."
-msgstr "Genera so de millor qualitat sense augmentar la mida del fitxer."
-
-msgid "Bitrate"
-msgstr "Taxa de bits"
-
-msgid "CD-ROM device: "
-msgstr "Dispositiu de CD-ROM:"
-
-msgid "CDDB Lookup"
-msgstr "Cerca a la CDDB"
-
-msgid "Compression level"
-msgstr "Nivell de compressió"
-
-msgid "Create M3U playlist"
-msgstr "Crea una llista de reproducció M3U"
-
-msgid ""
-"Default: /dev/cdrom\n"
-"Other example: /dev/hdc\n"
-"Other example: /dev/sr0"
-msgstr ""
-"Per defecte: /dev/cdrom\n"
-"Un altre exemple: /dev/hdc\n"
-"Un altre exemple: /dev/sr0"
-
-msgid "Deselect all for ripping"
-msgstr "Desselecciona totes les pistes"
-
-msgid "Destination folder"
-msgstr "Carpeta de destinació"
-
-msgid "Disc:"
-msgstr "Disc:"
-
-msgid "Eject disc when finished"
-msgstr "Expulsa el disc en acabar"
-
-msgid "Encode"
-msgstr "Codificació"
-
-msgid "Encoding"
-msgstr "Codificació"
-
-msgid "Faster ripping (no error correction)"
-msgstr "Extracció ràpida (sense correcció d'errors)"
-
-msgid "FLAC (lossless compression)"
-msgstr "FLAC (compressió sense pèrdua)"
-
-msgid "Filename formats"
-msgstr "Format dels noms dels fitxer"
-
-msgid "Filenames"
-msgstr "Noms dels fitxers"
-
-msgid "General"
-msgstr "General"
-
-msgid "Genre"
-msgstr "Gènere"
-
-msgid "Genre / Year:"
-msgstr "Gènere i any:"
-
-msgid "Get disc info from the internet automatically"
-msgstr "Descarrega informació del disc des d'Internet"
-
-msgid "Higher bitrate is better quality but also bigger file."
-msgstr ""
-"Una taxa de bits més alta genera so de millor qualitat, però també un fitxer "
-"més gran."
-
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"160Kbps."
-msgstr ""
-"Una taxa de bits més alta genera un so de millor qualitat, però també un "
-"fitxer més gran. Un valor equilibrat és 160 Kbps."
-
-msgid ""
-"Higher bitrate is better quality but also bigger file. Most people use "
-"192Kbps."
-msgstr ""
-"Una taxa de bits més alta genera so de millor qualitat, però també un fitxer "
-"més gran. Un valor equilibrat és 192 Kbps."
-
-msgid "Higher quality means bigger file. Default is 6."
-msgstr ""
-"Una qualitat més alta genera un fitxer més gran. El valor predeterminat és 6."
-
-msgid "Higher quality means bigger file. Default is 60."
-msgstr ""
-"Una qualitat més alta genera un fitxer més gran. El valor predeterminat és "
-"60."
-
-msgid "Hybrid compression"
-msgstr "Mode híbrid"
-
-msgid "Invalid cddb server port number"
-msgstr "El port del servidor CDDB és incorrecte."
-
-msgid "Invalid characters in the '%s' field"
-msgstr "Hi ha un caràcter invàlid al camp «%s»."
-
-msgid "Invalid proxy port number"
-msgstr "El port del servidor intermediari és incorrecte."
-
-msgid "Log to /var/log/asunder.log"
-msgstr "Registra al fitxer /var/log/asunder.log"
-
-msgid "MP3 (lossy compression)"
-msgstr "MP3 (compressió amb pèrdua)"
-
-msgid "Monkey's Audio (lossless compression)"
-msgstr "Monkey's Audio (compressió sense pèrdua)"
-
-msgid "More formats"
-msgstr "Més formats"
-
-msgid "Musepack (lossy compression)"
-msgstr "Musepack (compressió amb pèrdua)"
-
-msgid "Music file: "
-msgstr "Fitxers de música:"
-
-msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
-msgstr "No s'ha inserit cap CD. Inseriu un CD a la unitat de CD-ROM."
-
-msgid ""
-"No ripping/encoding method selected. Please enable one from the "
-"'Preferences' menu."
-msgstr ""
-"No heu triat cap mètode de codificació. Seleccioneu-ne almenys un al diàleg "
-"de preferències."
-
-msgid ""
-"No tracks were selected for ripping/encoding. Please select at least one "
-"track."
-msgstr "No heu triat cap pista per extreure. Seleccioneu almenys una."
-
-msgid "OGG Vorbis (lossy compression)"
-msgstr "OGG Vorbis (compressió amb pèrdua)"
-
-msgid "OPUS (lossy compression)"
-msgstr "OPUS (compressió amb pèrdua)"
-
-msgid "Overwrite?"
-msgstr "Voleu sobreescriure el fitxer?"
-
+#: ../src/interface.c:473 ../src/prefs.c:659
 msgid "Playlist file: "
 msgstr "Fitxer de llista de reproducció:"
 
-msgid "Port: "
-msgstr "Port:"
+#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
+msgid "Music file: "
+msgstr "Fitxers de música:"
 
-msgid "Preferences"
-msgstr "Preferències"
-
-msgid "Proprietary encoders"
-msgstr "Codificadors de propietat"
-
-msgid "Quality"
-msgstr "Qualitat"
-
-msgid "Remember the answer for _all the files made from this CD"
-msgstr "Recorda la resposta per a tots els fitxers d'aquest disc"
-
-msgid "Rip"
-msgstr "Extreu"
-
-msgid "Ripping"
-msgstr "Extracció"
-
-msgid "Select all for ripping"
-msgstr "Selecciona totes les pistes"
-
-msgid "Server: "
-msgstr "Servidor: "
-
-msgid "Single Artist"
-msgstr "Artista únic"
-
-msgid "Single Genre"
-msgstr "Gènere únic"
-
-msgid "The CDDB server port (default is 8880)"
-msgstr "El port del servidor CDDB (per defecte 8880)."
-
-msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
-msgstr ""
-"El servidor CDDB per descarregar informació del disc (per defecte freedb."
-"freedb.org)"
-
-msgid "The file '%s' already exists. Do you want to overwrite it?\n"
-msgstr "El fitxer «%s» ja existeix. Voleu sobreescriure'l?\n"
-
-msgid ""
-"The format is lossy but a correction file is created for restoring the "
-"lossless original."
-msgstr ""
-"Crea un fitxer comprimit amb pèrdua i un fitxer de correcció per restaurar "
-"l'original sense pèrdua."
-
-msgid "There was an error creating %d file"
-msgid_plural "There was an error creating %d files"
-msgstr[0] "S'ha produït un error en crear %d fitxer."
-msgstr[1] "S'ha produït un error en crear %d fitxers."
-
-msgid "This does not affect the quality. Higher number means smaller file."
-msgstr ""
-"El nivell de compressió no afecta a la qualitat de so. Una comprensió més "
-"alta genera un fitxer més petit."
-
-msgid ""
-"This does not affect the quality. Higher number means smaller file. Default "
-"is 1 (recommended)."
-msgstr ""
-"El nivell de compressió no afecta a la qualitat de so. Una comprensió més "
-"alta genera un fitxer més petit. El valor predeterminat és 1."
-
+#: ../src/interface.c:494
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -320,6 +188,7 @@ msgstr ""
 "Per defecte: %A - %L\n"
 "Un altre exemple: %A/%L"
 
+#: ../src/interface.c:506
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -329,6 +198,7 @@ msgstr ""
 "Es pot deixar en blanc.\n"
 "Per defecte: %A - %L"
 
+#: ../src/interface.c:517
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -340,26 +210,270 @@ msgstr ""
 "Per defecte: %A - %T\n"
 "Un altre exemple: %N - %T"
 
-msgid "Time"
-msgstr "Duració"
+#: ../src/interface.c:522
+msgid "Filename formats"
+msgstr "Format dels noms dels fitxer"
 
-msgid "Title"
-msgstr "Títol"
+#: ../src/interface.c:527
+msgid "Filenames"
+msgstr "Noms dels fitxers"
 
-msgid "Total progress"
-msgstr "Progrés total"
-
-msgid "Track"
-msgstr "Pista"
-
-msgid "Use an HTTP proxy to connect to the internet"
-msgstr "Utilitza un servidor intermediari HTTP per connectar-se a Internet"
-
-msgid "Variable bit rate (VBR)"
-msgstr "Taxa de bits variable (VBR)"
-
+#. WAV
+#. frame3 = gtk_frame_new (NULL);
+#. gtk_frame_set_shadow_type(GTK_FRAME(frame3), GTK_SHADOW_IN);
+#. gtk_widget_show (frame3);
+#. gtk_box_pack_start (GTK_BOX (vbox), frame3, FALSE, FALSE, 0);
+#. alignment8 = gtk_alignment_new (0.5, 0.5, 1, 1);
+#. gtk_widget_show (alignment8);
+#. gtk_container_add (GTK_CONTAINER (frame3), alignment8);
+#. gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8), 2, 2, 12, 2);
+#. vbox2 = gtk_vbox_new (FALSE, 0);
+#. gtk_widget_show (vbox2);
+#. gtk_container_add (GTK_CONTAINER (alignment8), vbox2);
+#: ../src/interface.c:560
 msgid "WAV (uncompressed)"
 msgstr "WAV (sense compressió)"
 
+#: ../src/interface.c:581
+msgid "Variable bit rate (VBR)"
+msgstr "Taxa de bits variable (VBR)"
+
+#: ../src/interface.c:589
+msgid "Better quality for the same size."
+msgstr "Genera so de millor qualitat sense augmentar la mida del fitxer."
+
+#: ../src/interface.c:595 ../src/interface.c:742 ../src/interface.c:828
+#: ../src/interface.c:876
+msgid "Bitrate"
+msgstr "Taxa de bits"
+
+#: ../src/interface.c:610
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"192Kbps."
+msgstr ""
+"Una taxa de bits més alta genera so de millor qualitat, però també un fitxer "
+"més gran. Un valor equilibrat és 192 Kbps."
+
+#: ../src/interface.c:619
+msgid "MP3 (lossy compression)"
+msgstr "MP3 (compressió amb pèrdua)"
+
+#: ../src/interface.c:642 ../src/interface.c:989
+msgid "Quality"
+msgstr "Qualitat"
+
+#: ../src/interface.c:653
+msgid "Higher quality means bigger file. Default is 6."
+msgstr ""
+"Una qualitat més alta genera un fitxer més gran. El valor predeterminat és 6."
+
+#: ../src/interface.c:655
+msgid "OGG Vorbis (lossy compression)"
+msgstr "OGG Vorbis (compressió amb pèrdua)"
+
+#: ../src/interface.c:678 ../src/interface.c:794 ../src/interface.c:933
+msgid "Compression level"
+msgstr "Nivell de compressió"
+
+#: ../src/interface.c:689 ../src/interface.c:946
+msgid "This does not affect the quality. Higher number means smaller file."
+msgstr ""
+"El nivell de compressió no afecta a la qualitat de so. Una comprensió més "
+"alta genera un fitxer més petit."
+
+#: ../src/interface.c:691
+msgid "FLAC (lossless compression)"
+msgstr "FLAC (compressió sense pèrdua)"
+
+#: ../src/interface.c:710
+msgid "More formats"
+msgstr "Més formats"
+
+#: ../src/interface.c:756
+msgid ""
+"Higher bitrate is better quality but also bigger file. Most people use "
+"160Kbps."
+msgstr ""
+"Una taxa de bits més alta genera un so de millor qualitat, però també un "
+"fitxer més gran. Un valor equilibrat és 160 Kbps."
+
+#: ../src/interface.c:764
+msgid "OPUS (lossy compression)"
+msgstr "OPUS (compressió amb pèrdua)"
+
+#: ../src/interface.c:807
+msgid ""
+"This does not affect the quality. Higher number means smaller file. Default "
+"is 1 (recommended)."
+msgstr ""
+"El nivell de compressió no afecta a la qualitat de so. Una comprensió més "
+"alta genera un fitxer més petit. El valor predeterminat és 1."
+
+#: ../src/interface.c:813
+msgid "Hybrid compression"
+msgstr "Mode híbrid"
+
+#: ../src/interface.c:822
+msgid ""
+"The format is lossy but a correction file is created for restoring the "
+"lossless original."
+msgstr ""
+"Crea un fitxer comprimit amb pèrdua i un fitxer de correcció per restaurar "
+"l'original sense pèrdua."
+
+#: ../src/interface.c:892
+msgid "Higher bitrate is better quality but also bigger file."
+msgstr ""
+"Una taxa de bits més alta genera so de millor qualitat, però també un fitxer "
+"més gran."
+
+#: ../src/interface.c:900
+msgid "Musepack (lossy compression)"
+msgstr "Musepack (compressió amb pèrdua)"
+
+#: ../src/interface.c:948
+msgid "Monkey's Audio (lossless compression)"
+msgstr "Monkey's Audio (compressió sense pèrdua)"
+
+#. END MONKEY
+#: ../src/interface.c:957
+msgid "Proprietary encoders"
+msgstr "Codificadors de propietat"
+
+#: ../src/interface.c:1002
+msgid "Higher quality means bigger file. Default is 60."
+msgstr ""
+"Una qualitat més alta genera un fitxer més gran. El valor predeterminat és "
+"60."
+
+#: ../src/interface.c:1004
+msgid "AAC (lossy compression, Nero encoder)"
+msgstr "AAC (compressió amb pèrdua, codificador Nero)"
+
+#. END AAC
+#: ../src/interface.c:1013
+msgid "Encode"
+msgstr "Codificació"
+
+#: ../src/interface.c:1046
+msgid "Get disc info from the internet automatically"
+msgstr "Descarrega informació del disc des d'Internet"
+
+#: ../src/interface.c:1054 ../src/interface.c:1100
+msgid "Server: "
+msgstr "Servidor: "
+
+#: ../src/interface.c:1064
+msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
+msgstr ""
+"El servidor CDDB per descarregar informació del disc (per defecte freedb."
+"freedb.org)"
+
+#: ../src/interface.c:1070 ../src/interface.c:1113
+msgid "Port: "
+msgstr "Port:"
+
+#: ../src/interface.c:1080
+msgid "The CDDB server port (default is 8880)"
+msgstr "El port del servidor CDDB (per defecte 8880)."
+
+#: ../src/interface.c:1087
+msgid "Use an HTTP proxy to connect to the internet"
+msgstr "Utilitza un servidor intermediari HTTP per connectar-se a Internet"
+
+#: ../src/interface.c:1122
+msgid "Log to /var/log/asunder.log"
+msgstr "Registra al fitxer /var/log/asunder.log"
+
+#: ../src/interface.c:1127
+msgid "Faster ripping (no error correction)"
+msgstr "Extracció ràpida (sense correcció d'errors)"
+
+#: ../src/interface.c:1136
+msgid "Advanced"
+msgstr "Avançat"
+
+#: ../src/interface.c:1207 ../src/interface.c:1243
+msgid "Ripping"
+msgstr "Extracció"
+
+#: ../src/interface.c:1236
+msgid "Total progress"
+msgstr "Progrés total"
+
+#: ../src/interface.c:1250
+msgid "Encoding"
+msgstr "Codificació"
+
+#: ../src/interface.c:1773
+msgid ""
+"An application to save tracks from an Audio CD \n"
+"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"files."
+msgstr ""
+"Aplicació per extreure pistes d'un CD d'àudio i codificar-les \n"
+"en format WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio o AAC"
+
+#: ../src/interface.c:1813
+#, c-format
+msgid "%d file created successfully"
+msgid_plural "%d files created successfully"
+msgstr[0] "S'ha creat %d fitxer correctament."
+msgstr[1] "S'han creat %d fitxers correctament."
+
+#: ../src/interface.c:1822
+#, c-format
+msgid "There was an error creating %d file"
+msgid_plural "There was an error creating %d files"
+msgstr[0] "S'ha produït un error en crear %d fitxer."
+msgstr[1] "S'ha produït un error en crear %d fitxers."
+
+#: ../src/prefs.c:658 ../src/prefs.c:670
+#, c-format
+msgid "Invalid characters in the '%s' field"
+msgstr "Hi ha un caràcter invàlid al camp «%s»."
+
+#: ../src/prefs.c:680
+#, c-format
+msgid "'%s' cannot be empty"
+msgstr "«%s» no pot estar buit."
+
+#: ../src/prefs.c:695
+msgid "Invalid proxy port number"
+msgstr "El port del servidor intermediari és incorrecte."
+
+#: ../src/prefs.c:708
+msgid "Invalid cddb server port number"
+msgstr "El port del servidor CDDB és incorrecte."
+
+#: ../src/support.c:47
+msgid "Overwrite?"
+msgstr "Voleu sobreescriure el fitxer?"
+
+#: ../src/support.c:60
+#, c-format
+msgid "The file '%s' already exists. Do you want to overwrite it?\n"
+msgstr "El fitxer «%s» ja existeix. Voleu sobreescriure'l?\n"
+
+#: ../src/support.c:66
+msgid "Remember the answer for _all the files made from this CD"
+msgstr "Recorda la resposta per a tots els fitxers d'aquest disc"
+
+#: ../src/threads.c:183
+msgid ""
+"No ripping/encoding method selected. Please enable one from the "
+"'Preferences' menu."
+msgstr ""
+"No heu triat cap mètode de codificació. Seleccioneu-ne almenys un al diàleg "
+"de preferències."
+
+#: ../src/threads.c:215
+msgid ""
+"No tracks were selected for ripping/encoding. Please select at least one "
+"track."
+msgstr "No heu triat cap pista per extreure. Seleccioneu almenys una."
+
+#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
 msgid "Waiting..."
 msgstr "S'està esperant..."

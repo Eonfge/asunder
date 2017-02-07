@@ -1,3 +1,7 @@
+6 Feb 2016 - 2.8.1
+==================
+- Updated Catalan, Dutch, Hungarian, Norwegian Bokmal, Polish, and Turkish translations.
+
 3 Oct 2015 - 2.8
 =================
 - Updates to Swedish, Norwegian, Russian, and Danish translations.
@@ -29,7 +33,7 @@
 - Fixed some memory corruption bugs that may have caused crashes and undefined behaviour.
 
 16 May 2013 - 2.3
-================
+=================
 - Can now encode into OPUS.
 - Allow metadata to contain invalid filesystem characters (e.g. "Artist" can contain punctuation like "J. S. Bach").
 - AAC files are now tagged using neroAacTag (instead of no tags at all).
