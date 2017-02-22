@@ -705,7 +705,7 @@ void update_tracklist(cddb_disc_t * disc)
     
     gbl_current_discid = cddb_disc_get_discid(disc);
 
-    sprintf(logStr, "update_tracklist() disk '%s' '%s' '%s'\n", disc_artist, disc_title, disc_genre);
+    snprintf(logStr, 1024, "update_tracklist() disk '%s' '%s' '%s'\n", disc_artist, disc_title, disc_genre);
     debugLog(logStr);
     if (disc_artist != NULL)
     {
