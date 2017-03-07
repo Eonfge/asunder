@@ -2,7 +2,7 @@
 Asunder
 
 Copyright(C) 2005 Eric Lathrop <eric@ericlathrop.com>
-Copyright(C) 2007 Andrew Smith <http://littlesvr.ca/misc/contactandrew.php>
+Copyright(C) 2007 Andrew Smith <http://littlesvr.ca/contact.php>
 
 Any code in this file may be redistributed or modified under the terms of
 the GNU General Public Licence as published by the Free Software 

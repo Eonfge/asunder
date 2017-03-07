@@ -2,7 +2,7 @@
 Asunder
 
 Copyright(C) 2005 Eric Lathrop <eric@ericlathrop.com>
-Copyright(C) 2007 Andrew Smith <http://littlesvr.ca/misc/contactandrew.php>
+Copyright(C) 2007 Andrew Smith <http://littlesvr.ca/contact.php>
 
 Any code in this file may be redistributed or modified under the terms of
 the GNU General Public Licence as published by the Free Software 
@@ -1445,7 +1445,7 @@ GBLauthors[2] = {
 "Many thanks to all the following people:\n"
 "\n"
 "Andrew Smith\n"
-"http://littlesvr.ca/misc/contactandrew.php\n"
+"http://littlesvr.ca/contact.php\n"
 "Summer 2005 - 2009\n"
 "- maintainer\n"
 "\n"
