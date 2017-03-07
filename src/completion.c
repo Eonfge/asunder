@@ -84,6 +84,7 @@ create_completion(GtkWidget * entry, const char * name)
     list = gtk_list_store_new(1, G_TYPE_STRING);
     compl = gtk_entry_completion_new();
     gtk_entry_completion_set_model(compl, GTK_TREE_MODEL(list));
+    g_object_unref(list);
     gtk_entry_completion_set_inline_completion(compl, FALSE);
     gtk_entry_completion_set_popup_completion(compl, TRUE);
     gtk_entry_completion_set_popup_set_width(compl, TRUE);

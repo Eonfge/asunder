@@ -826,6 +826,7 @@ void refresh(char * cdrom, int force)
                     -1);
             }
             gtk_combo_box_set_model(GTK_COMBO_BOX(pick_disc), GTK_TREE_MODEL(store));
+            g_object_unref(store);
             gtk_combo_box_set_active(GTK_COMBO_BOX(pick_disc), 1);
             gtk_combo_box_set_active(GTK_COMBO_BOX(pick_disc), 0);
             
