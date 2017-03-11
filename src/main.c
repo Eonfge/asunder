@@ -804,7 +804,10 @@ void refresh(char * cdrom, int force)
         */
         
         if (!global_prefs->do_cddb_updates && !force)
+        {
+            cddb_disc_destroy(disc);
             return;
+        }
         
         gbl_disc_matches = lookup_disc(disc);
         cddb_disc_destroy(disc);
