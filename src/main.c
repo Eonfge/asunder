@@ -457,6 +457,10 @@ GList * lookup_disc(cddb_disc_t * disc)
     // force HTTP when port 80 (for MusicBrainz). This code by Tim.
     if (global_prefs->cddb_port_number == 80)
         cddb_http_enable(gbl_cddb_query_thread_conn);
+
+    // Disable caching of CDDB entries since libcddb bug fouls up multiple matches.
+    // https://sourceforge.net/p/libcddb/bugs/9/
+    cddb_cache_disable(gbl_cddb_query_thread_conn);
     
     // query cddb to find similar discs
     g_atomic_int_set(&gbl_cddb_query_thread_running, 1);
