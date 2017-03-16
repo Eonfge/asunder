@@ -57,13 +57,6 @@ format_wavpack_bitrate                 (GtkScale *scale,
     return g_strdup_printf (_("%dKbps"), int_to_wavpack_bitrate((int)arg1));
 }
 
-gboolean
-idle(gpointer data)
-{
-    refresh(global_prefs->cdrom, 0);
-    return (data != NULL);
-}
-
 void
 on_about_clicked                       (GtkToolButton   *toolbutton,
                                         gpointer         user_data)
@@ -313,7 +306,12 @@ void
 on_pick_disc_changed                   (GtkComboBox     *combobox,
                                         gpointer         user_data)
 {
-    cddb_disc_t * disc = g_list_nth_data(gbl_disc_matches, gtk_combo_box_get_active(combobox));
+    gint selected = gtk_combo_box_get_active(combobox);
+    if (gbl_disc_matches == NULL ||
+        selected == -1 ||
+        (guint)selected >= g_list_length(gbl_disc_matches))
+        return;
+    cddb_disc_t * disc = g_list_nth_data(gbl_disc_matches, selected);
     update_tracklist(disc);
 }
 
@@ -392,9 +390,7 @@ on_lookup_clicked                     (GtkToolButton   *toolbutton,
        if (!thread_helpers_in_main_thread ()) gdk_threads_leave ();
     }
     */
-    gdk_threads_leave();
-    refresh(global_prefs->cdrom, 1);
-    gdk_threads_enter();
+    refresh();
 }
 
 void

@@ -62,6 +62,11 @@ GtkWidget * album_year;
 GtkWidget * tracklist;
 GtkWidget * pick_disc;
 
+static GMutex refresh_mutex;
+static GCond refresh_cond;
+static int refresh_forced = 0;      /* modify only while protected by mutex */
+static gboolean start_refresh_thread(gpointer data);
+
 extern const char* GBLprogramName;
 
 int gbl_null_fd;
@@ -185,10 +190,8 @@ int main(int argc, char *argv[])
     
     gtk_widget_show(win_main);
     
-    // set up recurring timeout to automatically re-scan the cdrom once every second
-    g_timeout_add(500, idle, (void *)1);
-    // add an idle event to scan the cdrom drive ASAP
-    g_idle_add(idle, NULL);
+    // Start the refresh thread after gtk startup.
+    g_idle_add(start_refresh_thread, NULL);
 
     gdk_threads_enter();
     gtk_main();
@@ -268,7 +271,9 @@ bool check_disc(char * cdrom)
         if (!alreadyCleared)
         {
             alreadyCleared = true;
+            gdk_threads_enter();
             clear_widgets();
+            gdk_threads_leave();
         }
     }
 
@@ -392,80 +397,75 @@ void eject_disc(char * cdrom)
     }
 }
 
-static GThread * gbl_cddb_query_thread;
-static int gbl_cddb_query_thread_running;
-static cddb_conn_t * gbl_cddb_query_thread_conn;
-static cddb_disc_t * gbl_cddb_query_thread_disc;
-static int gbl_cddb_query_thread_num_matches;
-static GList * gbl_matches = NULL;
-
-gpointer cddb_query_thread_run(gpointer data)
+GList * cddb_query_run(cddb_conn_t * conn, cddb_disc_t * original_disc)
 {
     char logStr[1024];
     int i;
+    GList * matches = NULL;
+    // Use clone of original disc since cddb_query_next() will overwrite it.
+    cddb_disc_t * disc = cddb_disc_clone(original_disc);
     
-    gbl_cddb_query_thread_num_matches = cddb_query(gbl_cddb_query_thread_conn, gbl_cddb_query_thread_disc);
-    if(gbl_cddb_query_thread_num_matches == -1)
-        gbl_cddb_query_thread_num_matches = 0;
+    int num_matches = cddb_query(conn, disc);
+    if (num_matches == -1)
+    {
+        cddb_error_print(cddb_errno(conn));
+        num_matches = 0;
+    }
     
-    snprintf(logStr, 1024, "Found %d CDDB matches", gbl_cddb_query_thread_num_matches);
+    snprintf(logStr, 1024, "Found %d CDDB matches", num_matches);
     debugLog(logStr);
     
-    gbl_matches = NULL;
-    
     // make a list of all the matches
-    for (i = 0; i < gbl_cddb_query_thread_num_matches; i++)
+    for (i = 0; i < num_matches; i++)
     {
-        cddb_disc_t * possible_match = cddb_disc_clone(gbl_cddb_query_thread_disc);
-        if (cddb_read(gbl_cddb_query_thread_conn, possible_match) == 1)
+        cddb_disc_t * possible_match = cddb_disc_clone(disc);
+        if (cddb_read(conn, possible_match))
         {
-            gbl_matches = g_list_append(gbl_matches, possible_match);
+            matches = g_list_append(matches, possible_match);
             
             // move to next match
-            if (i < gbl_cddb_query_thread_num_matches - 1)
+            if (i < num_matches - 1)
             {
-                if (!cddb_query_next(gbl_cddb_query_thread_conn, gbl_cddb_query_thread_disc))
+                if (!cddb_query_next(conn, disc))
                     fatalError("Query index out of bounds.");
             }
         }
         else
-            printf("Failed to cddb_read()\n");
+        {
+            fprintf(stderr, "Failed to cddb_read()\n");
+            cddb_error_print(cddb_errno(conn));
+            cddb_disc_destroy(possible_match);
+        }
     }
     
-    g_atomic_int_set(&gbl_cddb_query_thread_running, 0);
-    
-    return NULL;
+    cddb_disc_destroy(disc);
+    return matches;
 }
 
 GList * lookup_disc(cddb_disc_t * disc)
 {
     // set up the connection to the cddb server
-    gbl_cddb_query_thread_conn = cddb_new();
-    if (gbl_cddb_query_thread_conn == NULL)
+    cddb_conn_t * conn = cddb_new();
+    if (conn == NULL)
         fatalError("cddb_new() failed. Out of memory?");
     
-    cddb_set_server_name(gbl_cddb_query_thread_conn, global_prefs->cddb_server_name);
-    cddb_set_server_port(gbl_cddb_query_thread_conn, global_prefs->cddb_port_number);
+    cddb_set_server_name(conn, global_prefs->cddb_server_name);
+    cddb_set_server_port(conn, global_prefs->cddb_port_number);
     
     if (global_prefs->use_proxy)
     {
-        cddb_set_http_proxy_server_name(gbl_cddb_query_thread_conn, global_prefs->server_name);
-        cddb_set_http_proxy_server_port(gbl_cddb_query_thread_conn, global_prefs->port_number);
-        cddb_http_proxy_enable(gbl_cddb_query_thread_conn);
+        cddb_set_http_proxy_server_name(conn, global_prefs->server_name);
+        cddb_set_http_proxy_server_port(conn, global_prefs->port_number);
+        cddb_http_proxy_enable(conn);
     }
     
     // force HTTP when port 80 (for MusicBrainz). This code by Tim.
     if (global_prefs->cddb_port_number == 80)
-        cddb_http_enable(gbl_cddb_query_thread_conn);
+        cddb_http_enable(conn);
 
     // Disable caching of CDDB entries since libcddb bug fouls up multiple matches.
     // https://sourceforge.net/p/libcddb/bugs/9/
-    cddb_cache_disable(gbl_cddb_query_thread_conn);
-    
-    // query cddb to find similar discs
-    g_atomic_int_set(&gbl_cddb_query_thread_running, 1);
-    gbl_cddb_query_thread_disc = disc;
-    gbl_cddb_query_thread = g_thread_create(cddb_query_thread_run, NULL, TRUE, NULL);
+    cddb_cache_disable(conn);
     
     // show cddb update window
     gdk_threads_enter();
@@ -474,22 +474,20 @@ GList * lookup_disc(cddb_disc_t * disc)
         GtkWidget* statusLbl = lookup_widget(win_main, "statusLbl");
         gtk_label_set_text(GTK_LABEL(statusLbl), _("<b>Getting disc info from the internet...</b>"));
         gtk_label_set_use_markup(GTK_LABEL(statusLbl), TRUE);
-        
-        while(g_atomic_int_get(&gbl_cddb_query_thread_running) != 0)
-        {
-            while (gtk_events_pending())
-                gtk_main_iteration();
-            usleep(100000);
-        }
-        
+    gdk_threads_leave();
+
+    // query cddb to find similar discs
+    GList * matches = cddb_query_run(conn, disc);
+
+    gdk_threads_enter();
         gtk_label_set_text(GTK_LABEL(statusLbl), "");
         
         enable_all_main_widgets();
     gdk_threads_leave();
     
-    cddb_destroy(gbl_cddb_query_thread_conn);
+    cddb_destroy(conn);
     
-    return gbl_matches;
+    return matches;
 }
 
 // reads the TOC of a cdrom into a CDDB struct
@@ -760,10 +758,18 @@ void update_tracklist(cddb_disc_t * disc)
 }
 
 
-void refresh(char * cdrom, int force)
+void refresh(void)
+{
+    /* Wake up the refresh thread. */
+    g_mutex_lock(&refresh_mutex);
+    refresh_forced = 1;
+    g_cond_signal(&refresh_cond);
+    g_mutex_unlock(&refresh_mutex);
+}
+
+void refresh_thread_body(char * cdrom, int force)
 {
     cddb_disc_t * disc;
-    //GList * curr;
     
     if(working)
     /* don't do nothing */
@@ -779,29 +785,15 @@ void refresh(char * cdrom, int force)
         {
             /* only trash the user's inputs when the disc is new */
             
+            gdk_threads_enter();
             gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), TRUE);
         
             // show the temporary info
             gtk_entry_set_text(GTK_ENTRY(album_artist), "Unknown Artist");
             gtk_entry_set_text(GTK_ENTRY(album_title), "Unknown Album");
             update_tracklist(disc);
+            gdk_threads_leave();
         }
-        
-        // clear out the previous list of matches
-        /* this causes a segfault in the following scenario:
-        - disable auto cddb lookup
-        - insert cd that has a record in cddb
-        - click 'cddb lookup'
-        - wait for lookup to finish successfully and eject the disk
-        - reinsert the disk
-        - click 'cddb lookup'
-        - it crashes in the following loop (legrand-sw 14 sep 2008)
-        for (curr = g_list_first(gbl_disc_matches); curr != NULL; curr = g_list_next(curr))
-        {
-            cddb_disc_destroy((cddb_disc_t *)curr->data);
-        }
-        g_list_free(gbl_disc_matches);
-        */
         
         if (!global_prefs->do_cddb_updates && !force)
         {
@@ -809,11 +801,27 @@ void refresh(char * cdrom, int force)
             return;
         }
         
-        gbl_disc_matches = lookup_disc(disc);
+        GList * disc_matches = lookup_disc(disc);
         cddb_disc_destroy(disc);
         
+        // Only access/modify gbl_disc_matches inside gdk_thread lock, or else
+        // another mutex is needed.
+        gdk_threads_enter();
+
+        // clear out the previous list of matches
+        if (gbl_disc_matches != NULL)
+        {
+            for (GList * curr = g_list_first(gbl_disc_matches); curr != NULL; curr = g_list_next(curr))
+                cddb_disc_destroy((cddb_disc_t *)curr->data);
+            g_list_free(gbl_disc_matches);
+        }
+        gbl_disc_matches = disc_matches;
+
         if (gbl_disc_matches == NULL)
+        {
+            gdk_threads_leave();
             return;
+        }
         
         if (g_list_length(gbl_disc_matches) > 1)
         {
@@ -842,5 +850,39 @@ void refresh(char * cdrom, int force)
         }
         
         update_tracklist((cddb_disc_t *)g_list_nth_data(gbl_disc_matches, 0));
+        gdk_threads_leave();
     }
+}
+
+static gpointer refresh_thread(gpointer data)
+{
+    gint64 end_time;
+    int force = 0;
+
+    while (1)
+    {
+        refresh_thread_body(global_prefs->cdrom, force);
+
+        /* Wait X ms before next iteration, or until awakened. */
+        g_mutex_lock(&refresh_mutex);
+
+        end_time = g_get_monotonic_time() + 500 * G_TIME_SPAN_MILLISECOND;
+
+        while (!refresh_forced)
+            if (!g_cond_wait_until(&refresh_cond, &refresh_mutex, end_time))
+                break; /* timeout has passed */
+
+        force = refresh_forced;
+        refresh_forced = 0;
+
+        g_mutex_unlock(&refresh_mutex);
+    }
+
+    return(NULL);
+}
+
+static gboolean start_refresh_thread(gpointer data)
+{
+    g_thread_create(refresh_thread, NULL, FALSE, NULL);
+    return(FALSE);
 }

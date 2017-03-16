@@ -18,10 +18,6 @@ format_wavpack_bitrate                 (GtkScale *scale,
                                         gdouble   arg1,
                                         gpointer  user_data);
 
-gboolean
-idle(gpointer data);
-
-
 void
 on_about_clicked                       (GtkToolButton   *toolbutton,
                                         gpointer         user_data);

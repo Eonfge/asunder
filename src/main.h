@@ -27,7 +27,7 @@ void eject_disc(char * cdrom);
 GList * lookup_disc(cddb_disc_t * disc);
 
 // the main logic for scanning the discs
-void refresh(char * cdrom, int force);
+void refresh(void);
 
 // updates all the necessary widgets with the data for the given cddb_disc_t
 void update_tracklist(cddb_disc_t * disc);
