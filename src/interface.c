@@ -1817,7 +1817,7 @@ void show_completed_dialog(int numOk, int numFailed)
     {
         dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
                                         GTK_DIALOG_DESTROY_WITH_PARENT,
-                                        GTK_MESSAGE_WARNING,
+                                        GTK_MESSAGE_ERROR,
                                         GTK_BUTTONS_CLOSE,
                                         ngettext("There was an error creating %d file", "There was an error creating %d files", numFailed),
                                         numFailed);
