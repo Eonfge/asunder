@@ -520,21 +520,33 @@ gpointer rip(gpointer data)
     return NULL;
 }
 
+void close_playlists(void)
+{
+    if (playlist_wav) fclose(playlist_wav);
+    playlist_wav = NULL;
+    if (playlist_mp3) fclose(playlist_mp3);
+    playlist_mp3 = NULL;
+    if (playlist_ogg) fclose(playlist_ogg);
+    playlist_ogg = NULL;
+    if (playlist_opus) fclose (playlist_opus);
+    playlist_opus = NULL;
+    if (playlist_flac) fclose(playlist_flac);
+    playlist_flac = NULL;
+    if (playlist_wavpack) fclose(playlist_wavpack);
+    playlist_wavpack = NULL;
+    if (playlist_monkey) fclose(playlist_monkey);
+    playlist_monkey = NULL;
+    if (playlist_musepack) fclose(playlist_musepack);
+    playlist_musepack = NULL;
+    if (playlist_aac) fclose(playlist_aac);
+    playlist_aac = NULL;
+}
+
 // the thread that handles encoding WAV files to all other formats
 gpointer encode(gpointer data)
 {
     char logStr[1024];
     GtkTreeIter iter;
-
-    int riptrack;
-    int tracknum;
-    char* trackartist = NULL;
-    char* tracktitle = NULL;
-    char* tracktime = NULL;
-    char* genre = NULL;
-    char* trackyear;
-    int min;
-    int sec;
     int rc;
     
     char* album_artist = NULL;
@@ -545,22 +557,7 @@ gpointer encode(gpointer data)
     char* album_artist_trimmed = NULL;
     char* album_title_trimmed = NULL;
     char* album_genre_trimmed = NULL;
-    char* trackartist_trimmed = NULL;
-    char* tracktitle_trimmed = NULL;
-    char* genre_trimmed = NULL;
     
-    char* albumdir = NULL;
-    char* musicfilename = NULL;
-    char* wavfilename = NULL;
-    char* mp3filename = NULL;
-    char* oggfilename = NULL;
-    char* opusfilename = NULL;
-    char* flacfilename = NULL;
-    char* wavpackfilename = NULL;
-    char* wavpackfilename2 = NULL;
-    char* monkeyfilename = NULL;
-    char* musepackfilename = NULL;
-    char* aacfilename = NULL;
     struct stat statStruct;
     bool doEncode;
     
@@ -570,35 +567,19 @@ gpointer encode(gpointer data)
         gboolean single_genre  = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_main, "single_genre")));	// lnr
 
         GtkWidget * album_artist_widget = lookup_widget(win_main, "album_artist");
-        const char * temp_album_artist = gtk_entry_get_text(GTK_ENTRY(album_artist_widget));
-        album_artist = malloc(sizeof(char) * (strlen(temp_album_artist)+1));
-        if (album_artist == NULL)
-            fatalError("malloc(sizeof(char) * (strlen(temp_album_artist)+1)) failed. Out of memory.");
-        strncpy(album_artist, temp_album_artist, strlen(temp_album_artist)+1);
+        album_artist = strdup(gtk_entry_get_text(GTK_ENTRY(album_artist_widget)));
         add_completion(album_artist_widget);
         save_completion(album_artist_widget);
         
-        const char * temp_year = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_year")));
-        album_year = malloc(sizeof(char) * (strlen(temp_year)+1));
-        if (album_year == NULL)
-            fatalError("malloc(sizeof(char) * (strlen(temp_year)+1)) failed. Out of memory.");
-        strncpy(album_year, temp_year, strlen(temp_year)+1);
+        album_year = strdup(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_main, "album_year"))));
         
         GtkWidget * album_title_widget = lookup_widget(win_main, "album_title");
-        const char * temp_album_title = gtk_entry_get_text(GTK_ENTRY(album_title_widget));
-        album_title = malloc(sizeof(char) * (strlen(temp_album_title)+1));
-        if (album_title == NULL)
-            fatalError("malloc(sizeof(char) * (strlen(temp_album_title)+1)) failed. Out of memory.");
-        strncpy(album_title, temp_album_title, strlen(temp_album_title)+1);
+        album_title = strdup(gtk_entry_get_text(GTK_ENTRY(album_title_widget)));
         add_completion(album_title_widget);
         save_completion(album_title_widget);
 
         GtkWidget * album_genre_widget = lookup_widget(win_main, "album_genre");
-        const char * temp_album_genre = gtk_entry_get_text(GTK_ENTRY(album_genre_widget));      // lnr
-        album_genre = malloc(sizeof(char) * (strlen(temp_album_genre)+1));
-        if (album_genre == NULL)
-            fatalError("malloc(sizeof(char) * (strlen(temp_album_genre)+1)) failed. Out of memory.");
-        strcpy( album_genre, temp_album_genre );
+        album_genre = strdup(gtk_entry_get_text(GTK_ENTRY(album_genre_widget)));      // lnr
         add_completion(album_genre_widget);
         save_completion(album_genre_widget);
         
@@ -615,6 +596,15 @@ gpointer encode(gpointer data)
     
     while(rowsleft)
     {
+        int riptrack;
+        int tracknum;
+        char* trackartist;
+        char* tracktitle;
+        char* tracktime;
+        char* genre;
+        int min;
+        int sec;
+
         debugLog("encode() waiting for 'barrier'\n");
         g_mutex_lock(barrier);
         while ((counter < 1) && (!aborted))
@@ -626,7 +616,20 @@ gpointer encode(gpointer data)
         snprintf(logStr, 1024, "encode() done waiting, counter is now %d\n", counter);
         debugLog(logStr);
         g_mutex_unlock(barrier);
-        if (aborted) g_thread_exit(NULL);
+
+        if (aborted)
+        {
+            free(album_artist);
+            free(album_title);
+            free(album_genre);
+            free(album_year);
+            free(album_artist_trimmed);
+            free(album_title_trimmed);
+            free(album_genre_trimmed);
+
+            close_playlists();
+            return NULL;
+        }
         
         gdk_threads_enter();
             gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
@@ -636,21 +639,31 @@ gpointer encode(gpointer data)
                 COL_TRACKTITLE, &tracktitle,
                 COL_TRACKTIME, &tracktime,
                 COL_GENRE, &genre,
-                COL_YEAR, &trackyear,
                 -1);
         gdk_threads_leave();
         sscanf(tracktime, "%d:%d", &min, &sec);
         
         if (single_artist)
         {
-            trackartist = album_artist;
+            free(trackartist);
+            trackartist = strdup(album_artist);
         }
 
         if ( single_genre )				// lnr
-            genre	= album_genre;
+        {
+            free(genre);
+            genre = strdup(album_genre);
+        }
         
         if (riptrack)
         {
+            char* albumdir;
+            char* musicfilename;
+            char* wavfilename;
+            char* trackartist_trimmed;
+            char* tracktitle_trimmed;
+            char* genre_trimmed;
+
             //Trimmed for use in filenames	//mrpl
             trackartist_trimmed = strdup(trackartist);
             trim_chars(trackartist_trimmed, BADCHARS);
@@ -666,22 +679,39 @@ gpointer encode(gpointer data)
             musicfilename = parse_format(global_prefs->format_music, tracknum, album_year, trackartist_trimmed, album_title_trimmed, genre_trimmed, tracktitle_trimmed);
             
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
-            mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
-            oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");
-            opusfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "opus");
-            flacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "flac");
-            wavpackfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wv");
-            wavpackfilename2 = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wvc");
-            monkeyfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ape");
-            musepackfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mpc");
-            aacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "m4a");
+
+            free(genre_trimmed);
             
             if (global_prefs->rip_mp3)
             {
+                if (aborted)
+                {
+                    free(albumdir);
+                    free(musicfilename);
+                    free(wavfilename);
+                    free(trackartist_trimmed);
+                    free(tracktitle_trimmed);
+
+                    free(trackartist);
+                    free(tracktitle);
+                    free(tracktime);
+                    free(genre);
+
+                    free(album_artist);
+                    free(album_title);
+                    free(album_genre);
+                    free(album_year);
+                    free(album_artist_trimmed);
+                    free(album_title_trimmed);
+                    free(album_genre_trimmed);
+
+                    close_playlists();
+                    return NULL;
+                }
+
+                char * mp3filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mp3");
                 snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, mp3filename);
                 debugLog(logStr);
-                
-                if (aborted) g_thread_exit(NULL);
                 
                 rc = stat(mp3filename, &statStruct);
                 if(rc == 0)
@@ -701,8 +731,6 @@ gpointer encode(gpointer data)
                          //~ global_prefs->mp3_vbr, global_prefs->mp3_bitrate, &mp3_percent);
                     lame(tracknum, trackartist, album_title, tracktitle, genre, album_year, wavfilename, mp3filename, 
                          global_prefs->mp3_vbr, global_prefs->mp3_bitrate, &mp3_percent);
-                
-                if (aborted) g_thread_exit(NULL);
 
                 if (playlist_mp3)
                 {
@@ -710,13 +738,38 @@ gpointer encode(gpointer data)
                     fprintf(playlist_mp3, "%s\n", basename(mp3filename));
                     fflush(playlist_mp3);
                 }
+                free(mp3filename);
             }
             if (global_prefs->rip_ogg)
             {
+                if (aborted)
+                {
+                    free(albumdir);
+                    free(musicfilename);
+                    free(wavfilename);
+                    free(trackartist_trimmed);
+                    free(tracktitle_trimmed);
+
+                    free(trackartist);
+                    free(tracktitle);
+                    free(tracktime);
+                    free(genre);
+
+                    free(album_artist);
+                    free(album_title);
+                    free(album_genre);
+                    free(album_year);
+                    free(album_artist_trimmed);
+                    free(album_title_trimmed);
+                    free(album_genre_trimmed);
+
+                    close_playlists();
+                    return NULL;
+                }
+
+                char * oggfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ogg");
                 snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, oggfilename);
                 debugLog(logStr);
-                
-                if (aborted) g_thread_exit(NULL);
                 
                 rc = stat(oggfilename, &statStruct);
                 if(rc == 0)
@@ -736,7 +789,6 @@ gpointer encode(gpointer data)
                     oggenc(tracknum, trackartist, album_title, tracktitle, album_year, genre, wavfilename, 
                            oggfilename, global_prefs->ogg_quality, &ogg_percent);
                 }
-                if (aborted) g_thread_exit(NULL);
 
                 if (playlist_ogg)
                 {
@@ -744,13 +796,38 @@ gpointer encode(gpointer data)
                     fprintf(playlist_ogg, "%s\n", basename(oggfilename));
                     fflush(playlist_ogg);
                 }
+                free(oggfilename);
             }
             if (global_prefs->rip_opus)
             {
+                if (aborted)
+                {
+                    free(albumdir);
+                    free(musicfilename);
+                    free(wavfilename);
+                    free(trackartist_trimmed);
+                    free(tracktitle_trimmed);
+
+                    free(trackartist);
+                    free(tracktitle);
+                    free(tracktime);
+                    free(genre);
+
+                    free(album_artist);
+                    free(album_title);
+                    free(album_genre);
+                    free(album_year);
+                    free(album_artist_trimmed);
+                    free(album_title_trimmed);
+                    free(album_genre_trimmed);
+
+                    close_playlists();
+                    return NULL;
+                }
+
+                char * opusfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "opus");
                 snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, opusfilename);
                 debugLog(logStr);
-
-                if (aborted) g_thread_exit(NULL);
 
                 rc = stat(opusfilename, &statStruct);
                 if(rc == 0)
@@ -769,21 +846,44 @@ gpointer encode(gpointer data)
                     opusenc(tracknum, trackartist, album_title, tracktitle, album_year, genre, wavfilename,
                            opusfilename, global_prefs->opus_bitrate, &opus_percent);
 
-                if (aborted) g_thread_exit(NULL);
-
                 if (playlist_opus)
                 {
                     fprintf(playlist_opus, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
                     fprintf(playlist_opus, "%s\n", basename(opusfilename));
                     fflush(playlist_opus);
                 }
+                free(opusfilename);
             }
             if (global_prefs->rip_flac)
             {
+                if (aborted)
+                {
+                    free(albumdir);
+                    free(musicfilename);
+                    free(wavfilename);
+                    free(trackartist_trimmed);
+                    free(tracktitle_trimmed);
+
+                    free(trackartist);
+                    free(tracktitle);
+                    free(tracktime);
+                    free(genre);
+
+                    free(album_artist);
+                    free(album_title);
+                    free(album_genre);
+                    free(album_year);
+                    free(album_artist_trimmed);
+                    free(album_title_trimmed);
+                    free(album_genre_trimmed);
+
+                    close_playlists();
+                    return NULL;
+                }
+
+                char * flacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "flac");
                 snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, flacfilename);
                 debugLog(logStr);
-                
-                if (aborted) g_thread_exit(NULL);
                 
                 rc = stat(flacfilename, &statStruct);
                 if(rc == 0)
@@ -804,21 +904,45 @@ gpointer encode(gpointer data)
                     flac(tracknum, trackartist, album_title, tracktitle, genre, album_year, wavfilename, 
                          flacfilename, global_prefs->flac_compression, &flac_percent);
                 
-                if (aborted) g_thread_exit(NULL);
-                
                 if (playlist_flac)
                 {
                     fprintf(playlist_flac, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
                     fprintf(playlist_flac, "%s\n", basename(flacfilename));
                     fflush(playlist_flac);
                 }
+                free(flacfilename);
             }
             if (global_prefs->rip_wavpack)
             {
+                if (aborted)
+                {
+                    free(albumdir);
+                    free(musicfilename);
+                    free(wavfilename);
+                    free(trackartist_trimmed);
+                    free(tracktitle_trimmed);
+
+                    free(trackartist);
+                    free(tracktitle);
+                    free(tracktime);
+                    free(genre);
+
+                    free(album_artist);
+                    free(album_title);
+                    free(album_genre);
+                    free(album_year);
+                    free(album_artist_trimmed);
+                    free(album_title_trimmed);
+                    free(album_genre_trimmed);
+
+                    close_playlists();
+                    return NULL;
+                }
+
+                char * wavpackfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wv");
+                char * wavpackfilename2 = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wvc");
                 snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, wavpackfilename);
                 debugLog(logStr);
-                
-                if (aborted) g_thread_exit(NULL);
                 
                 rc = stat(wavpackfilename, &statStruct);
                 int rc2 = stat(wavpackfilename2, &statStruct);
@@ -841,21 +965,45 @@ gpointer encode(gpointer data)
                             int_to_wavpack_bitrate(global_prefs->wavpack_bitrate), &wavpack_percent);
                 }
                 
-                if (aborted) g_thread_exit(NULL);
-                
                 if (playlist_wavpack)
                 {
                     fprintf(playlist_wavpack, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
                     fprintf(playlist_wavpack, "%s\n", basename(wavpackfilename));
                     fflush(playlist_wavpack);
                 }
+                free(wavpackfilename);
+                free(wavpackfilename2);
             }
             if (global_prefs->rip_monkey)
             {
+                if (aborted)
+                {
+                    free(albumdir);
+                    free(musicfilename);
+                    free(wavfilename);
+                    free(trackartist_trimmed);
+                    free(tracktitle_trimmed);
+
+                    free(trackartist);
+                    free(tracktitle);
+                    free(tracktime);
+                    free(genre);
+
+                    free(album_artist);
+                    free(album_title);
+                    free(album_genre);
+                    free(album_year);
+                    free(album_artist_trimmed);
+                    free(album_title_trimmed);
+                    free(album_genre_trimmed);
+
+                    close_playlists();
+                    return NULL;
+                }
+
+                char * monkeyfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "ape");
                 snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, monkeyfilename);
                 debugLog(logStr);
-                
-                if (aborted) g_thread_exit(NULL);
                 
                 rc = stat(monkeyfilename, &statStruct);
                 if(rc == 0)
@@ -877,21 +1025,44 @@ gpointer encode(gpointer data)
                         &monkey_percent);
                 }
                 
-                if (aborted) g_thread_exit(NULL);
-                
                 if (playlist_monkey)
                 {
                     fprintf(playlist_monkey, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
                     fprintf(playlist_monkey, "%s\n", basename(monkeyfilename));
                     fflush(playlist_monkey);
                 }
+                free(monkeyfilename);
             }
             if (global_prefs->rip_musepack)
             {
+                if (aborted)
+                {
+                    free(albumdir);
+                    free(musicfilename);
+                    free(wavfilename);
+                    free(trackartist_trimmed);
+                    free(tracktitle_trimmed);
+
+                    free(trackartist);
+                    free(tracktitle);
+                    free(tracktime);
+                    free(genre);
+
+                    free(album_artist);
+                    free(album_title);
+                    free(album_genre);
+                    free(album_year);
+                    free(album_artist_trimmed);
+                    free(album_title_trimmed);
+                    free(album_genre_trimmed);
+
+                    close_playlists();
+                    return NULL;
+                }
+
+                char * musepackfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "mpc");
                 snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, musepackfilename);
                 debugLog(logStr);
-                
-                if (aborted) g_thread_exit(NULL);
                 
                 rc = stat(musepackfilename, &statStruct);
                 if(rc == 0)
@@ -913,21 +1084,44 @@ gpointer encode(gpointer data)
                              &musepack_percent);
                 }
                 
-                if (aborted) g_thread_exit(NULL);
-                
                 if (playlist_musepack)
                 {
                     fprintf(playlist_musepack, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
                     fprintf(playlist_musepack, "%s\n", basename(musepackfilename));
                     fflush(playlist_musepack);
                 }
+                free(musepackfilename);
             }
             if (global_prefs->rip_aac)
             {
+                if (aborted)
+                {
+                    free(albumdir);
+                    free(musicfilename);
+                    free(wavfilename);
+                    free(trackartist_trimmed);
+                    free(tracktitle_trimmed);
+
+                    free(trackartist);
+                    free(tracktitle);
+                    free(tracktime);
+                    free(genre);
+
+                    free(album_artist);
+                    free(album_title);
+                    free(album_genre);
+                    free(album_year);
+                    free(album_artist_trimmed);
+                    free(album_title_trimmed);
+                    free(album_genre_trimmed);
+
+                    close_playlists();
+                    return NULL;
+                }
+
+                char * aacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "m4a");
                 snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, aacfilename);
                 debugLog(logStr);
-                
-                if (aborted) g_thread_exit(NULL);
                 
                 rc = stat(aacfilename, &statStruct);
                 if(rc == 0)
@@ -950,14 +1144,13 @@ gpointer encode(gpointer data)
                         &aac_percent);
                 }
                 
-                if (aborted) g_thread_exit(NULL);
-                
                 if (playlist_aac)
                 {
                     fprintf(playlist_aac, "#EXTINF:%d,%s - %s\n", (min*60)+sec, trackartist, tracktitle);
                     fprintf(playlist_aac, "%s\n", basename(aacfilename));
                     fflush(playlist_aac);
                 }
+                free(aacfilename);
             }
             if (!global_prefs->rip_wav)
             {
@@ -981,18 +1174,8 @@ gpointer encode(gpointer data)
             free(albumdir);
             free(musicfilename);
             free(wavfilename);
-            free(mp3filename);
-            free(oggfilename);
-            free(opusfilename);
-            free(flacfilename);
-            free(wavpackfilename);
-            free(wavpackfilename2);
-            free(monkeyfilename);
-            free(musepackfilename);
-            free(aacfilename);
             free(trackartist_trimmed);
             free(tracktitle_trimmed);
-            free(genre_trimmed);
             
             mp3_percent = 0.0;
             ogg_percent = 0.0;
@@ -1004,8 +1187,25 @@ gpointer encode(gpointer data)
             aac_percent = 0.0;
             encode_tracks_completed++;
         }
+
+        free(trackartist);
+        free(tracktitle);
+        free(tracktime);
+        free(genre);
         
-        if (aborted) g_thread_exit(NULL);
+        if (aborted)
+        {
+            free(album_artist);
+            free(album_title);
+            free(album_genre);
+            free(album_year);
+            free(album_artist_trimmed);
+            free(album_title_trimmed);
+            free(album_genre_trimmed);
+
+            close_playlists();
+            return NULL;
+        }
         
         gdk_threads_enter();
             rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
@@ -1020,24 +1220,7 @@ gpointer encode(gpointer data)
     free(album_title_trimmed);
     free(album_genre_trimmed);
     
-    if (playlist_wav) fclose(playlist_wav);
-    playlist_wav = NULL;
-    if (playlist_mp3) fclose(playlist_mp3);
-    playlist_mp3 = NULL;
-    if (playlist_ogg) fclose(playlist_ogg);
-    playlist_ogg = NULL;
-    if (playlist_opus) fclose (playlist_opus);
-    playlist_opus = NULL;
-    if (playlist_flac) fclose(playlist_flac);
-    playlist_flac = NULL;
-    if (playlist_wavpack) fclose(playlist_wavpack);
-    playlist_wavpack = NULL;
-    if (playlist_monkey) fclose(playlist_monkey);
-    playlist_monkey = NULL;
-    if (playlist_musepack) fclose(playlist_musepack);
-    playlist_musepack = NULL;
-    if (playlist_aac) fclose(playlist_aac);
-    playlist_aac = NULL;
+    close_playlists();
     
     g_mutex_free(barrier);
     barrier = NULL;
