@@ -370,17 +370,6 @@ gpointer rip(gpointer data)
 {
     char logStr[1024];
     GtkTreeIter iter;
-    
-    int riptrack;
-    int tracknum;
-    const char * trackartist;
-    const char * tracktitle;
-    char * trackartist_trimmed;
-    char * tracktitle_trimmed;
-    
-    char * albumdir = NULL;
-    char * musicfilename = NULL;
-    char * wavfilename = NULL;
 
     gdk_threads_enter();
         GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
@@ -403,24 +392,34 @@ gpointer rip(gpointer data)
     
     while(rowsleft)
     {
-        const char * trackyear = 0;
+        int riptrack;
+        int tracknum;
+        char * trackartist;
+        char * tracktitle;
+
         gdk_threads_enter();
             gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
                 COL_RIPTRACK, &riptrack,
                 COL_TRACKNUM, &tracknum,
                 COL_TRACKARTIST, &trackartist,
                 COL_TRACKTITLE, &tracktitle,
-                COL_YEAR, &trackyear,
                 -1);
         gdk_threads_leave();
         
         if (single_artist)
         {
-            trackartist = albumartist;
+            free(trackartist);
+            trackartist = strdup(albumartist);
         }
         
         if (riptrack)
         {
+            char * albumdir;
+            char * musicfilename;
+            char * wavfilename;
+            char * trackartist_trimmed;
+            char * tracktitle_trimmed;
+
             //Trimmed for use in filenames	//mrpl
             trackartist_trimmed = strdup(trackartist);
             trim_chars(trackartist_trimmed, BADCHARS);
@@ -437,7 +436,22 @@ gpointer rip(gpointer data)
             snprintf(logStr, 1024, "Ripping track %d to \"%s\"\n", tracknum, wavfilename);
             debugLog(logStr);
             
-            if (aborted) g_thread_exit(NULL);
+            if (aborted)
+            {
+                free(albumdir);
+                free(musicfilename);
+                free(wavfilename);
+                free(trackartist_trimmed);
+                free(tracktitle_trimmed);
+
+                free(trackartist);
+                free(tracktitle);
+
+                free(albumartist_trimmed);
+                free(albumtitle_trimmed);
+                free(albumgenre_trimmed);
+                return NULL;
+            }
             
             struct stat statStruct;
             int rc;
@@ -468,6 +482,9 @@ gpointer rip(gpointer data)
             rip_percent = 0.0;
             rip_tracks_completed++;
         }
+
+        free(trackartist);
+        free(tracktitle);
         
         debugLog("rip() waiting for barrier\n");
         g_mutex_lock(barrier);
@@ -478,7 +495,12 @@ gpointer rip(gpointer data)
         g_cond_signal(available);
         
         if (aborted)
-            g_thread_exit(NULL);
+        {
+            free(albumartist_trimmed);
+            free(albumtitle_trimmed);
+            free(albumgenre_trimmed);
+            return NULL;
+        }
         
         gdk_threads_enter();
             rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
