@@ -18,6 +18,8 @@ Foundation; version 2 of the licence.
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <glib.h>
+#include <glib/gstdio.h>
 
 #include "prefs.h"
 #include "main.h"
@@ -322,43 +324,86 @@ void get_prefs_from_widgets(prefs * p)
     p->proprietary_formats_expanded = gtk_expander_get_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")));
 }
 
-// get a config file path, using XDG_CONFIG_HOME is available
-static char *get_prefs_config_path(void)
+// get a config file path to load from, using XDG_CONFIG_HOME if available
+//
+// Priority:
+//    1: Use the file got from g_get_user_config_dir + "asunder" + CONFIG_FILENAME
+//    2: XDG_CONFIG_HOME + /asunder/CONFIG_FILENAME
+//    3: getenv(HOME) + dot_filename
+// 
+static gchar *get_prefs_load_config_path(void)
 {
-	char *confdir;
-	char *file = NULL;
-	int len;
+    gchar *result_filename = NULL;
+    
+    const gchar *xdg_config_home;
+    gchar *user_config_home_filename;
+    gchar *getenv_home_filename;
+    gchar *xdg_config_home_filename;
+    
+    user_config_home_filename = g_build_filename(g_get_user_config_dir(), "asunder", CONFIG_FILENAME, NULL);
+    
+    gchar *dot_filename = g_strdup_printf(".%s", CONFIG_FILENAME);
+    getenv_home_filename = g_build_filename(getenv("HOME"), dot_filename, NULL);
+    g_free(dot_filename);
+    
+    xdg_config_home = getenv("XDG_CONFIG_HOME");
+    xdg_config_home_filename = g_build_filename(xdg_config_home, "asunder", CONFIG_FILENAME, NULL);
+    
+    if (g_file_test(user_config_home_filename, G_FILE_TEST_EXISTS)) {
 
-	confdir = getenv("XDG_CONFIG_HOME");
-	if (confdir == NULL || *confdir == '\0') {
-		confdir = getenv("HOME");
-		len = strlen(confdir);
-		file = malloc(sizeof(char) * (len + strlen("/.") + strlen(CONFIG_FILENAME) + 1));
-		if (file != NULL) {
-			strncpy(file, confdir, len);
-			strncpy(&file[len], "/.", 2);
-			strcpy(&file[len + 2], CONFIG_FILENAME);
-		}
-	}
-	else {
-		len = strlen(confdir);
-		file = malloc(sizeof(char) * (len + strlen("/") + strlen(CONFIG_FILENAME) + 1));
-		if (file != NULL) {
-			strncpy(file, confdir, len);
-			strncpy(&file[len], "/", 1);
-			strcpy(&file[len + 1], CONFIG_FILENAME);
-		}
-	}
-	if (file == NULL) {
-		fatalError("malloc() failed. Out of memory.");
-	}
-	return file;
+        // Use the user_config_home_filename
+        result_filename = g_strdup(user_config_home_filename);
+        
+    } else if (xdg_config_home == NULL || *xdg_config_home == '\0') {
+        // use the getenv(HOME) one
+        if (g_file_test(getenv_home_filename, G_FILE_TEST_EXISTS)) {
+            result_filename = g_strdup(getenv_home_filename);
+        }
+    }
+    else {
+        // use the xdg one
+        result_filename = g_strdup(xdg_config_home_filename);
+    }
+    
+    g_free(xdg_config_home_filename);
+    g_free(getenv_home_filename);
+    g_free(user_config_home_filename);
+    
+    return result_filename;
+}
+
+// get a config file path for saving prefs - Should always save
+// to the get_user_config_dir location.
+static gchar *get_prefs_save_config_path(void)
+{
+    gchar *result_filename = NULL;
+    
+    // Check if path exists, otherwise, create it.
+    const gchar *config_path = g_get_user_config_dir();
+    
+    // ~/.config/asunder/
+    gchar *path = g_build_filename(config_path, "asunder", NULL);
+    
+    // and then filename CONFIG_FILENAME which is "asunder".
+    result_filename = g_build_filename(path, CONFIG_FILENAME, NULL);
+    
+    if (!g_file_test(path, G_FILE_TEST_IS_DIR)) {
+        
+        // Folder doesn't exist, create it.
+        if (g_mkdir(path, 0755) != 0) {
+            fatalError("g_mkdir() failed. Couldn't create folder.");
+        }
+    }
+    
+    g_free(path);
+    
+    return result_filename;
 }
 
 // store the given prefs struct to the config file
 void save_prefs(prefs * p)
 {
-    char * file = get_prefs_config_path();
+    gchar * file = get_prefs_save_config_path();
     debugLog("Saving configuration\n");
     
     FILE * config = fopen(file, "w");
@@ -410,13 +455,13 @@ void save_prefs(prefs * p)
     } else {
         fprintf(stderr, "Warning: could not save config file: %s\n", strerror(errno));
     }
-    free(file);
+    g_free(file);
 }
 
 // load the prefereces from the config file into the given prefs struct
 void load_prefs(prefs * p)
 {
-	char * file = get_prefs_config_path();
+    gchar * file = get_prefs_load_config_path();
     debugLog("Loading configuration\n");
     
     int fd = open(file, O_RDONLY);
@@ -602,7 +647,7 @@ void load_prefs(prefs * p)
     } else {
         fprintf(stderr, "Warning: could not load config file: %s\n", strerror(errno));
     }
-    free(file);
+    g_free(file);
 }
 
 // use this method when reading the "music_dir" field of a prefs struct

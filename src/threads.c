@@ -144,7 +144,7 @@ void dorip()
     aac_percent = 0.0;
     rip_tracks_completed = 0;
     encode_tracks_completed = 0;
-
+    
     GtkTreeIter iter;
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
@@ -370,7 +370,7 @@ gpointer rip(gpointer data)
 {
     char logStr[1024];
     GtkTreeIter iter;
-
+    
     gdk_threads_enter();
         GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
         gboolean single_artist = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_main, "single_artist")));
