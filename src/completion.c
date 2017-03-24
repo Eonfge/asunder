@@ -10,38 +10,83 @@
 #define COMPLETION_MAX 4000
 #define COMPLETION_NAME_KEY "completion_name"
 
-static char * completion_filename(const char * name, int create_dirs)
+//
+static gchar *
+get_completion_filename_on_save(const char * name)
 {
     char logStr[1024];
-    const char * cache = g_getenv("XDG_CACHE_HOME");
-    char * file;
-    if (cache == NULL) {
-        file = g_strdup_printf("%s/.asunder_%s", g_getenv("HOME"), name);
+    
+    gchar *path = g_build_filename(g_get_user_cache_dir(), "asunder", NULL);
+    
+    gchar *result_filename = g_build_filename(path, name, NULL);
+    
+    if (!g_file_test(path, G_FILE_TEST_IS_DIR)) {
+        recursive_mkdir(path, S_IRWXU|S_IRWXG|S_IRWXO);
     }
-    else {
-        file = g_strdup_printf("%s/asunder/%s", cache, name);
-        if (create_dirs) {
-            char * dir = g_strdup_printf("%s/asunder", cache);
-            recursive_mkdir(dir, S_IRWXU|S_IRWXG|S_IRWXO);
-            g_free(dir);
+    
+    g_free(path);
+        
+    snprintf(logStr, 1024, "using completion file name: %s\n", result_filename);
+    debugLog(logStr);
+    return result_filename;
+    
+}
+
+//
+static gchar *
+get_completion_filename_on_load(const char * name)
+{
+    char logStr[1024];
+    const char * xdg_cache_home = g_getenv("XDG_CACHE_HOME");
+    gchar *result_filename = NULL;
+    gchar *filename;
+    gchar *dot_filename;
+    gchar *user_cache_filename;
+    gchar *home_folder_filename;
+    gchar *xdg_cache_home_filename;
+    
+    filename = g_strdup_printf("asunder_%s", name);
+    dot_filename = g_strdup_printf(".%s", filename);
+    user_cache_filename = g_build_filename(g_get_user_cache_dir(), "asunder", filename, NULL);
+    home_folder_filename = g_build_filename(g_getenv("HOME"), dot_filename, NULL);
+    g_free(dot_filename);
+    
+    xdg_cache_home_filename = g_build_filename(xdg_cache_home, "asunder", filename, NULL);
+    
+    if (g_file_test(user_cache_filename, G_FILE_TEST_EXISTS)) {
+        result_filename = g_strdup(user_cache_filename);
+        
+    } else if (xdg_cache_home == NULL || *xdg_cache_home == '\0') {
+        
+        if (g_file_test(home_folder_filename, G_FILE_TEST_EXISTS)) {
+            result_filename = g_strdup(home_folder_filename); 
         }
     }
-    snprintf(logStr, 1024, "using completion file name: %s\n", file);
+    else {
+        result_filename = g_strdup(xdg_cache_home_filename);
+    }
+    
+    g_free(filename);
+    g_free(user_cache_filename);
+    g_free(home_folder_filename);
+    g_free(xdg_cache_home_filename);
+    
+    snprintf(logStr, 1024, "using completion file name: %s\n", result_filename);
     debugLog(logStr);
-    return file;
+    return result_filename;
 }
 
 static void
 read_completion_file(GtkListStore * list, const char * name)
 {
     char buf[1024];
-    char * file;
+    gchar * file;
     char * ptr;
     FILE * data;
     GtkTreeIter iter;
     int i;
 
-    file = completion_filename(name, false);
+    file = get_completion_filename_on_load(name);
     if (file == NULL)
       fatalError("g_strdup_printf() failed. Out of memory.");
 
@@ -146,7 +191,7 @@ save_completion(GtkWidget * entry)
     if (name == NULL)
       return;
 
-    file = completion_filename(name, 1);
+    file = get_completion_filename_on_save(name);
     if (file == NULL)
       fatalError("g_strdup_printf() failed. Out of memory.");
 
