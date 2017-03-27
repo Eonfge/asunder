@@ -339,7 +339,7 @@ void make_playlist(const char* filename, FILE** file)
                                             GTK_DIALOG_DESTROY_WITH_PARENT, 
                                             GTK_MESSAGE_ERROR, 
                                             GTK_BUTTONS_OK, 
-                                            "Unable to create WAV playlist \"%s\": %s", 
+                                            "Unable to create playlist \"%s\": %s", 
                                             filename, strerror(errno));
             gtk_dialog_run(GTK_DIALOG(dialog));
             gtk_widget_destroy(dialog);
