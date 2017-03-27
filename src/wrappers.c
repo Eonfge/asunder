@@ -484,7 +484,7 @@ void lame(int tracknum,
             if (size == -1 && errno == EINTR)
             /* signal interrupted read(), try again */
             {
-                size = 1;
+                pos--;
                 debugLog("lame() interrupted");
                 interrupted = TRUE;
             }
@@ -878,19 +878,10 @@ void flac(int tracknum,
                 interrupted = TRUE;
             }
             
-        } while ((size > 0 && pos < 255 && buf[pos] != '\r' && buf[pos] != '\n') || interrupted);
+        } while ((size > 0 && pos < 255 && buf[pos] != '\r' && buf[pos] != '\n' && buf[pos] != '\b') || interrupted);
         buf[pos] = '\0';
 
-        for (; pos>0; pos--)
-        {
-            if (buf[pos] == ':')
-            {
-                pos++;
-                break;
-            }
-        }
-
-        if (sscanf(&buf[pos], "%d%%", &sector) == 1)
+        if (sscanf(buf, "%d%% ", &sector) == 1)
         {
             *progress = (double)sector/100;
         }
