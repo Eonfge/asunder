@@ -318,7 +318,7 @@ void dorip()
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "mpc.m3u");
             
-            make_playlist(filename, &playlist_monkey);
+            make_playlist(filename, &playlist_musepack);
             
             free(filename);
         }
@@ -326,7 +326,7 @@ void dorip()
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "m4a.m3u");
             
-            make_playlist(filename, &playlist_monkey);
+            make_playlist(filename, &playlist_aac);
             
             free(filename);
         }
