@@ -75,24 +75,27 @@ void abort_threads()
 {
     aborted = true;
 
-    if (cdparanoia_pid != 0) 
-        kill(cdparanoia_pid, SIGKILL);
-    if (lame_pid != 0) 
-        kill(lame_pid, SIGKILL);
-    if (oggenc_pid != 0) 
-        kill(oggenc_pid, SIGKILL);
-    if (opusenc_pid !=0)
-        kill(opusenc_pid, SIGKILL);
-    if (flac_pid != 0) 
-        kill(flac_pid, SIGKILL);
-    if (wavpack_pid != 0) 
-        kill(wavpack_pid, SIGKILL);
-    if (monkey_pid != 0) 
-        kill(monkey_pid, SIGKILL);
-    if (musepack_pid != 0) 
-        kill(musepack_pid, SIGKILL);
-    if (aac_pid != 0) 
-        kill(aac_pid, SIGKILL);
+    gdk_threads_leave();    /* Don't hold lock while waiting. */
+
+    pid_t pid;  /* Avoid unlikely race condition. */
+    if ((pid = cdparanoia_pid) != 0)
+        kill(pid, SIGKILL);
+    if ((pid = lame_pid)       != 0)
+        kill(pid, SIGKILL);
+    if ((pid = oggenc_pid)     != 0)
+        kill(pid, SIGKILL);
+    if ((pid = opusenc_pid)    != 0)
+        kill(pid, SIGKILL);
+    if ((pid = flac_pid)       != 0)
+        kill(pid, SIGKILL);
+    if ((pid = wavpack_pid)    != 0)
+        kill(pid, SIGKILL);
+    if ((pid = monkey_pid)     != 0)
+        kill(pid, SIGKILL);
+    if ((pid = musepack_pid)   != 0)
+        kill(pid, SIGKILL);
+    if ((pid = aac_pid)        != 0)
+        kill(pid, SIGKILL);
     
     /* wait until all the worker threads are done */
     while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || 
@@ -113,6 +116,7 @@ void abort_threads()
     g_thread_join(tracker);
     debugLog("Aborting: 4 (All threads joined)\n");
     
+    gdk_threads_enter();
     gtk_window_set_title(GTK_WINDOW(win_main), "Asunder");
     
     gtk_widget_hide(win_ripping);
