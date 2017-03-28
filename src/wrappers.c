@@ -372,7 +372,7 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
         debugLog("w3\n");
         usleep(100000);
     }
-    
+    *progress = 1;
 }
 
 // uses LAME to encode a WAV file into a MP3 and tag it
@@ -505,7 +505,7 @@ void lame(int tracknum,
         debugLog("w4\n");
         usleep(100000);
     }
-    
+    *progress = 1;
 }
 
 // uses oggenc to encode a WAV file into a OGG and tag it
@@ -626,6 +626,7 @@ void oggenc(int tracknum,
         debugLog("w6\n");
         usleep(100000);
     }
+    *progress = 1;
 }
 
 // uses opusenc to encode a WAV file into a OGG and tag it
@@ -727,6 +728,7 @@ void opusenc(int tracknum,
         debugLog("w12\n");
         usleep(100000);
     }
+    *progress = 1;
 }
 
 
@@ -895,6 +897,7 @@ void flac(int tracknum,
         debugLog("w7\n");
         usleep(100000);
     }
+    *progress = 1;
 }
 
 void wavpack(int tracknum,
@@ -990,6 +993,7 @@ void wavpack(int tracknum,
         debugLog("w8\n");
         usleep(100000);
     }
+    *progress = 1;
 }
 
 void mac(char* wavfilename,
@@ -1048,6 +1052,7 @@ void mac(char* wavfilename,
         debugLog("w9\n");
         usleep(100000);
     }
+    *progress = 1;
 }
 
 void musepack(char* wavfilename,
@@ -1112,6 +1117,7 @@ void musepack(char* wavfilename,
         debugLog("w10\n");
         usleep(100000);
     }
+    *progress = 1;
 }
 
 void aac(int tracknum,
@@ -1228,4 +1234,5 @@ void aac(int tracknum,
     {
         free(dynamic_args[--dyn_pos]);
     }
+    *progress = 1;
 }
