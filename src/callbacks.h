@@ -198,6 +198,10 @@ on_tracklist_mouse_click               (GtkWidget* treeView,
                                         gpointer user_data);
 
 void
+on_rip_header_click                 (GtkTreeViewColumn *treeviewcolumn,
+                                     gpointer           user_data);
+
+void
 on_window_close	                       (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data);

@@ -131,6 +131,9 @@ int main(int argc, char *argv[])
     g_signal_connect(renderer, "toggled", (GCallback) on_rip_toggled, NULL);
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Rip"), renderer, "active", COL_RIPTRACK, NULL);
+    GtkTreeViewColumn * col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), COL_RIPTRACK);
+    gtk_tree_view_column_set_clickable(col, TRUE);
+    g_signal_connect((gpointer)col, "clicked", G_CALLBACK(on_rip_header_click), NULL);
 
     renderer = gtk_cell_renderer_text_new();
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 

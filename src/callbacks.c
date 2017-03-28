@@ -718,6 +718,27 @@ on_tracklist_mouse_click               (GtkWidget* treeView,
 }
 
 void
+on_rip_header_click                 (GtkTreeViewColumn *treeviewcolumn,
+                                     gpointer           user_data)
+{
+    // Select/Deselect all tracks.
+    // Get first checkbox and set all to opposite value.
+    GtkTreeIter iter;
+    int riptrack;
+    GtkTreeModel * model = gtk_tree_view_get_model(
+        GTK_TREE_VIEW(lookup_widget(win_main, "tracklist")));
+
+    if (!gtk_tree_model_get_iter_first(model, &iter))
+        return;
+    gtk_tree_model_get(model, &iter, COL_RIPTRACK, &riptrack, -1);
+
+    if (riptrack)
+        gtk_tree_model_foreach(model, for_each_row_deselect, NULL);
+    else
+        gtk_tree_model_foreach(model, for_each_row_select, NULL);
+}
+
+void
 on_window_close                        (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data)
