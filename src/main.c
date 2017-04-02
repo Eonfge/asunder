@@ -830,6 +830,11 @@ void update_tracklist(cddb_disc_t * disc)
 
 void refresh(void)
 {
+    // This is to deal with the fact that the signal below will take up to
+    // a second to get processed in refresh_thread() which will call check_disk()
+    // which will set the label to the same thing at the start.
+    gtk_label_set_markup(GTK_LABEL(statusLbl), _("<b>Checking disc...</b>"));
+    
     /* Wake up the refresh thread. */
     g_mutex_lock(&refresh_mutex);
     refresh_forced = 1;
