@@ -905,8 +905,9 @@ gpointer encode(gpointer data)
                 if(doEncode)
                     //~ flac(tracknum, trackartist, album_title, tracktitle, genre, trackyear, wavfilename, 
                          //~ flacfilename, global_prefs->flac_compression, &flac_percent);
-                    flac(tracknum, trackartist, album_title, tracktitle, genre, album_year, wavfilename, 
-                         flacfilename, global_prefs->flac_compression, &flac_percent);
+                    flac(tracknum, trackartist, album_artist, single_artist, album_title, tracktitle, genre, album_year, wavfilename, 
+                         flacfilename, global_prefs->flac_compression, &flac_percent); //mw
+
                 
                 if (playlist_flac)
                 {

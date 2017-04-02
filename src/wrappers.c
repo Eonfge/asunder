@@ -282,6 +282,7 @@ int exec_with_output(const char * args[], int toread, pid_t * p, const char * di
         }
     }
     debugLog(logStr);
+    printf("%s\n", logStr);
     
     // i'm the parent, get ready to wait for children
     numchildren++;
@@ -758,6 +759,7 @@ void opusenc(int tracknum,
 //
 // tracknum - the track number
 // artist - the artist's name
+// albumartist - we want to tag this if it is a compilation
 // album - the album the song came from
 // title - the name of the song
 // wavfilename - the path to the WAV file to encode
@@ -766,6 +768,8 @@ void opusenc(int tracknum,
 // progress - the percent done
 void flac(int tracknum,
           char * artist,
+          char * albumartist, //mw
+          gboolean single_artist, //mw
           char * album,
           char * title,
           char * genre,
@@ -785,12 +789,13 @@ void flac(int tracknum,
     
     char tracknum_text[16];
     char * artist_text = NULL;
+    char * albumartist_text = NULL; //mw
     char * album_text = NULL;
     char * title_text = NULL;
     char * genre_text = NULL;
     char * year_text = NULL;
     char compression_level_text[3];
-    const char * args[19];
+    const char * args[21];
     
     snprintf(tracknum_text, 16, "TRACKNUMBER=%d", tracknum);
     
@@ -801,6 +806,16 @@ void flac(int tracknum,
             fatalError("malloc(sizeof(char) * (strlen(artist)+8)) failed. Out of memory.");
         snprintf(artist_text, strlen(artist) + 8, "ARTIST=%s", artist);
     }
+    
+    //mw
+    if((albumartist != NULL) && (!single_artist))
+    {
+        albumartist_text = malloc(strlen(albumartist) + 13);
+        if (albumartist_text == NULL)
+            fatalError("malloc(sizeof(char) * (strlen(albumartist)+13)) failed. Out of memory.");
+        snprintf(albumartist_text, strlen(albumartist) + 13, "ALBUMARTIST=%s", albumartist);
+    }
+    //mw end
     
     if(album != NULL)
     {
@@ -850,6 +865,15 @@ void flac(int tracknum,
         args[pos++] = "-T";
         args[pos++] = artist_text;
     }
+
+    //mw
+    if ((albumartist != NULL) && (!single_artist) && (strlen(albumartist) > 0))
+    {
+        args[pos++] = "-T";
+        args[pos++] = albumartist_text;
+    }
+    //mw end
+
     if ((album != NULL) && (strlen(album) > 0))
     {
         args[pos++] = "-T";
@@ -879,6 +903,7 @@ void flac(int tracknum,
     
     free(artist_text);
     free(album_text);
+    free(albumartist_text);
     free(title_text);
     free(genre_text);
     free(year_text);

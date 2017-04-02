@@ -121,6 +121,7 @@ void opusenc(int tracknum,
 //
 // tracknum - the track number
 // artist - the artist's name
+// albumartist - we want to tag this if it is a compilation
 // album - the album the song came from
 // title - the name of the song
 // wavfilename - the path to the WAV file to encode
@@ -129,6 +130,8 @@ void opusenc(int tracknum,
 // progress - the percent done
 void flac(int tracknum,
           char * artist,
+          char * albumartist, //mw
+          gboolean single_artist, //mw
           char * album,
           char * title,
           char * genre,
