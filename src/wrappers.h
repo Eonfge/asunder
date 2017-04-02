@@ -39,9 +39,10 @@ void sigchld(int signum);
 // args - a valid array for execvp()
 // toread - the file descriptor to pipe back to the parent
 // p - a place to write the PID of the exec'ed process
+// dir - directory to run program in
 // 
 // returns - a file descriptor that reads whatever the program outputs on "toread"
-int exec_with_output(const char * args[], int toread, pid_t * p);
+int exec_with_output(const char * args[], int toread, pid_t * p, const char * dir);
 
 // uses cdparanoia to rip a WAV track from a cdrom
 //

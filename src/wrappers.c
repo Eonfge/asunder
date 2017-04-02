@@ -216,9 +216,10 @@ void sigchld(int signum)
 // args - a valid array for execvp()
 // toread - the file descriptor to pipe back to the parent
 // p - a place to write the PID of the exec'ed process
+// dir - directory to run program in
 // 
 // returns - a file descriptor that reads whatever the program outputs on "toread"
-int exec_with_output(const char * args[], int toread, pid_t * p)
+int exec_with_output(const char * args[], int toread, pid_t * p, const char * dir)
 {
     char logStr[1024];
     int pipefd[2];
@@ -254,6 +255,14 @@ int exec_with_output(const char * args[], int toread, pid_t * p)
         // setup output
         dup2(pipefd[1], toread);
         close(pipefd[1]);
+        
+        // Change directory if required
+        if (dir && (chdir(dir) < 0))
+        {
+            snprintf(logStr, 1024, "Failed to change directory for %s, errno=%d", args[0], errno);
+            debugLog(logStr);
+            exit(0);
+        }
         
         // call execvp
         execvp(args[0], (char **)args);
@@ -309,6 +318,14 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     char trackstring[4];
     
     snprintf(trackstring, 4, "%d", tracknum);
+
+    // Evade cdparanoia's 245 char path limit by changing to the target
+    // directory (in exec_with_output()) and using a temporary file name
+    // with no absolute path.
+    char trackname[16];
+    snprintf(trackname, sizeof(trackname), "x%02d.wav", tracknum);
+    gchar * dir = g_path_get_dirname(filename);
+    gchar * xfilename = g_build_filename(dir, trackname, NULL);
     
     pos = 0;
     args[pos++] = "cdparanoia";
@@ -318,10 +335,10 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
     args[pos++] = "-d";
     args[pos++] = cdrom;
     args[pos++] = trackstring;
-    args[pos++] = filename;
+    args[pos++] = trackname;
     args[pos++] = NULL;
     
-    fd = exec_with_output(args, STDERR_FILENO, &cdparanoia_pid);
+    fd = exec_with_output(args, STDERR_FILENO, &cdparanoia_pid, dir);
     
     // to convert the progress number stat cdparanoia spits out
     // into sector numbers divide by 1176
@@ -372,6 +389,11 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
         debugLog("w3\n");
         usleep(100000);
     }
+
+    rename(xfilename, filename);
+    g_free(xfilename);
+    g_free(dir);
+
     *progress = 1;
 }
 
@@ -468,7 +490,7 @@ void lame(int tracknum,
     args[pos++] = mp3filename;
     args[pos++] = NULL;
 
-    fd = exec_with_output(args, STDERR_FILENO, &lame_pid);
+    fd = exec_with_output(args, STDERR_FILENO, &lame_pid, NULL);
     
     do
     {
@@ -585,7 +607,7 @@ void oggenc(int tracknum,
     args[pos++] = oggfilename;
     args[pos++] = NULL;
     
-    fd = exec_with_output(args, STDERR_FILENO, &oggenc_pid);
+    fd = exec_with_output(args, STDERR_FILENO, &oggenc_pid, NULL);
     
     do
     {
@@ -705,7 +727,7 @@ void opusenc(int tracknum,
     args[pos++] = opusfilename;
     args[pos++] = NULL;
 
-    fd = exec_with_output(args, STDERR_FILENO, &oggenc_pid);
+    fd = exec_with_output(args, STDERR_FILENO, &oggenc_pid, NULL);
 
     int opussize;
     char opusbuf[256];
@@ -853,7 +875,7 @@ void flac(int tracknum,
     args[pos++] = flacfilename;
     args[pos++] = NULL;
     
-    fd = exec_with_output(args, STDERR_FILENO, &flac_pid);
+    fd = exec_with_output(args, STDERR_FILENO, &flac_pid, NULL);
     
     free(artist_text);
     free(album_text);
@@ -939,7 +961,7 @@ void wavpack(int tracknum,
     args[pos++] = wavfilename;
     args[pos++] = NULL;
     
-    fd = exec_with_output(args, STDERR_FILENO, &wavpack_pid);
+    fd = exec_with_output(args, STDERR_FILENO, &wavpack_pid, NULL);
     
     do
     {
@@ -1016,7 +1038,7 @@ void mac(char* wavfilename,
     
     args[pos++] = NULL;
     
-    fd = exec_with_output(args, STDERR_FILENO, &monkey_pid);
+    fd = exec_with_output(args, STDERR_FILENO, &monkey_pid, NULL);
     
     int size;
     char buf[256];
@@ -1077,7 +1099,7 @@ void musepack(char* wavfilename,
     args[pos++] = musepackfilename;
     args[pos++] = NULL;
     
-    fd = exec_with_output(args, STDERR_FILENO, &musepack_pid);
+    fd = exec_with_output(args, STDERR_FILENO, &musepack_pid, NULL);
     
     int size;
     char buf[256];
@@ -1151,7 +1173,7 @@ void aac(int tracknum,
     args[pos++] = aacfilename;
     args[pos++] = NULL;
     
-    fd = exec_with_output(args, STDERR_FILENO, &aac_pid);
+    fd = exec_with_output(args, STDERR_FILENO, &aac_pid, NULL);
     
     int size;
     char buf[256];
@@ -1210,7 +1232,7 @@ void aac(int tracknum,
 
     args[pos++] = NULL;
     
-    fd = exec_with_output(args, STDERR_FILENO, &aac_pid);
+    fd = exec_with_output(args, STDERR_FILENO, &aac_pid, NULL);
     
     do
     {
