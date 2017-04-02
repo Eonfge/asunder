@@ -47,7 +47,7 @@ get_completion_filename_on_load(const char * name)
     
     filename = g_strdup_printf("asunder_%s", name);
     dot_filename = g_strdup_printf(".%s", filename);
-    user_cache_filename = g_build_filename(g_get_user_cache_dir(), "asunder", filename, NULL);
+    user_cache_filename = g_build_filename(g_get_user_cache_dir(), "asunder", name, NULL);
     home_folder_filename = g_build_filename(g_getenv("HOME"), dot_filename, NULL);
     g_free(dot_filename);
     
