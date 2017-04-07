@@ -525,23 +525,32 @@ gpointer rip(gpointer data)
 
 void close_playlists(void)
 {
-    if (playlist_wav) fclose(playlist_wav);
+    if (playlist_wav) 
+        fclose(playlist_wav);
     playlist_wav = NULL;
-    if (playlist_mp3) fclose(playlist_mp3);
+    if (playlist_mp3) 
+        fclose(playlist_mp3);
     playlist_mp3 = NULL;
-    if (playlist_ogg) fclose(playlist_ogg);
+    if (playlist_ogg) 
+        fclose(playlist_ogg);
     playlist_ogg = NULL;
-    if (playlist_opus) fclose (playlist_opus);
+    if (playlist_opus) 
+        fclose (playlist_opus);
     playlist_opus = NULL;
-    if (playlist_flac) fclose(playlist_flac);
+    if (playlist_flac) 
+        fclose(playlist_flac);
     playlist_flac = NULL;
-    if (playlist_wavpack) fclose(playlist_wavpack);
+    if (playlist_wavpack) 
+        fclose(playlist_wavpack);
     playlist_wavpack = NULL;
-    if (playlist_monkey) fclose(playlist_monkey);
+    if (playlist_monkey) 
+        fclose(playlist_monkey);
     playlist_monkey = NULL;
-    if (playlist_musepack) fclose(playlist_musepack);
+    if (playlist_musepack) 
+        fclose(playlist_musepack);
     playlist_musepack = NULL;
-    if (playlist_aac) fclose(playlist_aac);
+    if (playlist_aac) 
+        fclose(playlist_aac);
     playlist_aac = NULL;
 }
 
