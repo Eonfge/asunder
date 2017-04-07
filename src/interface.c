@@ -1438,7 +1438,7 @@ void enable_musepack_widgets(void)
 }
 
 const char* 
-GBLprogramName = "Asunder 2.8.1";
+GBLprogramName = "Asunder 2.9";
 
 static const char* 
 GBLauthors[2] = {
@@ -1453,6 +1453,20 @@ GBLauthors[2] = {
 "http://ericlathrop.com/\n"
 "- original author\n"
 "- 'eject when finished' feature\n"
+"\n"
+"Gregory Margo\n"
+"- Work around cdparanoia's filename length limits\n"
+"- Fixed bug where multiple CDDB entries would only show once\n"
+"- Improved the refresh/lookup system to work much better with more complicated CDs\n"
+"- Fixed FLAC progress scanner. Both to make the percentage more reliable and to prevent a possible crash\n"
+"- Added feature to select/deselect all tracks by clicking on track number header\n"
+"- Fixed autocomplete file loading\n"
+"- Fixed several potential buffer overflow bugs\n"
+"- Fixed some minor memory leaks\n"
+"\n"
+"Andreas Ronnquist\n"
+"- Moved the config file to ~/.config/asunder without breaking old configs\n"
+"- Moved the autocomplete files to ~/.cache/asunder without breaking old caches\n"
 "\n"
 "Fraser Tweedale\n"
 "- FreeBSD port\n"
@@ -1499,6 +1513,12 @@ GBLauthors[2] = {
 "\n"
 "Nicolas Leveille\n"
 "- Fix for: don't reset the track info edited by the user by doing an unnecessary CDDB lookup.\n"
+"\n"
+"Pierre Lestringant (whz)\n"
+"- Fixed musepack and aac playlist generation\n"
+"\n"
+"Matthew (mw)\n"
+"- Add the ALBUMARTIST tag to flac files when \"Single artist\" is not checked.\n"
 "\n"
 "Packages:\n"
 "\n"

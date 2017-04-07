@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-06 19:54-0500\n"
+"POT-Creation-Date: 2017-04-07 00:33-0400\n"
 "PO-Revision-Date: 2010-12-27 22:54+0200\n"
 "Last-Translator: Muhammad Ali Makki <makkiabufaris@aol.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -21,66 +21,80 @@ msgstr ""
 "X-Poedit-Language: Arabic\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../src/main.c:128 ../src/interface.c:231
+#: ../src/main.c:135 ../src/interface.c:231
 msgid "Rip"
 msgstr "انسخ"
 
-#: ../src/main.c:132
+#: ../src/main.c:142
 msgid "Track"
 msgstr "المقطوعة"
 
-#: ../src/main.c:138
+#: ../src/main.c:148
 msgid "Artist"
 msgstr "الفنان"
 
-#: ../src/main.c:144
+#: ../src/main.c:154
 msgid "Title"
 msgstr "العنوان"
 
-#: ../src/main.c:150
+#: ../src/main.c:160
 msgid "Genre"
 msgstr "عام"
 
-#: ../src/main.c:154
+#: ../src/main.c:164
 msgid "Time"
 msgstr "الزمن"
 
-#: ../src/main.c:180
+#: ../src/main.c:190
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
 msgstr ""
 "لم يوجد 'cdparanoia' في مسارك. يحتاج أسوندر cdparanoia لنسخ الاسطوانات."
 
-#: ../src/main.c:471
+#. Debug print add time last taken by the open() call.
+#. snprintf(msgStr, 1024, "%s [open %.1lf sec]",
+#. _("<b>Checking disc...</b>"), open_diff_time / 1E6);
+#. This is to deal with the fact that the signal below will take up to
+#. a second to get processed in refresh_thread() which will call check_disk()
+#. which will set the label to the same thing at the start.
+#: ../src/main.c:233 ../src/main.c:258 ../src/main.c:839
+msgid "<b>Checking disc...</b>"
+msgstr ""
+
+#: ../src/main.c:523
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>يجلب معلومات القرص من الإنترنت...</b>"
 
-#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
-#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:613
+#: ../src/main.c:584
+msgid "<b>Reading disc...</b>"
+msgstr ""
+
+#: ../src/callbacks.c:57 ../src/callbacks.c:254 ../src/callbacks.c:282
+#: ../src/callbacks.c:291 ../src/callbacks.c:301 ../src/interface.c:613
 #: ../src/interface.c:758 ../src/interface.c:894
 #, c-format
 msgid "%dKbps"
 msgstr "%d ك.بايت\\ث"
 
-#: ../src/callbacks.c:410
+#: ../src/callbacks.c:406
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "لم تُدخل أي اسطوانات. من فضلك أدخل اسطوانة في مشغل الاسطوانات."
 
-#: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
-#: ../src/callbacks.c:580 ../src/callbacks.c:605
+#: ../src/callbacks.c:425 ../src/callbacks.c:450 ../src/callbacks.c:475
+#: ../src/callbacks.c:500 ../src/callbacks.c:526 ../src/callbacks.c:551
+#: ../src/callbacks.c:576 ../src/callbacks.c:601
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
 msgstr "‏%s لم يوجد في مسارك. أسوندر يتطلبه لإنشاء ملفات %s. كل وظائف %s عطلت."
 
-#: ../src/callbacks.c:702
+#: ../src/callbacks.c:698
 msgid "Select all for ripping"
 msgstr "اختر الكل للنسخ"
 
-#: ../src/callbacks.c:708
+#: ../src/callbacks.c:704
 msgid "Deselect all for ripping"
 msgstr "انزع الاختيار عن الكل"
 
@@ -170,11 +184,11 @@ msgstr "عام"
 msgid "Album directory: "
 msgstr "مجلد الألبوم: "
 
-#: ../src/interface.c:473 ../src/prefs.c:659
+#: ../src/interface.c:473 ../src/prefs.c:704
 msgid "Playlist file: "
 msgstr "ملف قائمة التشغيل: "
 
-#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
+#: ../src/interface.c:480 ../src/prefs.c:716 ../src/prefs.c:726
 msgid "Music file: "
 msgstr "ملف الموسيقى: "
 
@@ -396,7 +410,7 @@ msgstr "التقدم الكلي"
 msgid "Encoding"
 msgstr "يُرمّز"
 
-#: ../src/interface.c:1773
+#: ../src/interface.c:1793
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -406,7 +420,7 @@ msgstr ""
 "مثل WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, و/أو ملفات "
 "AAC."
 
-#: ../src/interface.c:1813
+#: ../src/interface.c:1833
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
@@ -417,7 +431,7 @@ msgstr[3] "أنشئت %d ملفات بنجاح"
 msgstr[4] "أنشئ %d ملفا بنجاح"
 msgstr[5] "أنشئ %d ملف بنجاح"
 
-#: ../src/interface.c:1822
+#: ../src/interface.c:1842
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -428,21 +442,21 @@ msgstr[3] "حدث خطأ أثناء إنشاء %d ملفات"
 msgstr[4] "حدث خطأ أثناء إنشاء %d ملفا"
 msgstr[5] "حدث خطأ أثناء إنشاء %d ملف"
 
-#: ../src/prefs.c:658 ../src/prefs.c:670
+#: ../src/prefs.c:703 ../src/prefs.c:715
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "محارف غير صالحة في حقل '%s' "
 
-#: ../src/prefs.c:680
+#: ../src/prefs.c:725
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "‏'%s' لا يمكن أن تكون فارغة"
 
-#: ../src/prefs.c:695
+#: ../src/prefs.c:740
 msgid "Invalid proxy port number"
 msgstr "رقم منفذ الوسيط غير صالح"
 
-#: ../src/prefs.c:708
+#: ../src/prefs.c:753
 msgid "Invalid cddb server port number"
 msgstr "رقم منفذ خادوم cddb غير صالح"
 
@@ -459,19 +473,19 @@ msgstr "الملف '%s' موجود أصلا. هل تريد أن تكتب فوق�
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "تذكر الجواب _لكل الملفات المصنعة من هذه الأسطوانة"
 
-#: ../src/threads.c:183
+#: ../src/threads.c:186
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr "لم تختر طريقة للنسخ/الترميز. من فضلك فعّل واحدة من قائمة 'التفضيلات'."
 
-#: ../src/threads.c:215
+#: ../src/threads.c:218
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "لم تختر أي مقاطع للنسخ/الترميز. من فضلك اختر مقطعا واحدا على الأقل."
 
-#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
+#: ../src/threads.c:1294 ../src/threads.c:1296 ../src/threads.c:1300
 msgid "Waiting..."
 msgstr "ينتظر..."
 

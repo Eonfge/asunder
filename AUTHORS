@@ -1,7 +1,7 @@
 Many thanks to all the following people:
- 
+
 Andrew Smith
-http://littlesvr.ca/misc/contactandrew.php
+http://littlesvr.ca/contact.php
 Summer 2005 - 2009
 - maintainer
 
@@ -9,6 +9,20 @@ Eric Lathrop
 http://ericlathrop.com/
 - original author
 - 'eject when finished' feature
+
+Gregory Margo
+- Work around cdparanoia's filename length limits
+- Fixed bug where multiple CDDB entries would only show once
+- Improved the refresh/lookup system to work much better with more complicated CDs
+- Fixed FLAC progress scanner. Both to make the percentage more reliable and to prevent a possible crash
+- Added feature to select/deselect all tracks by clicking on track number header
+- Fixed autocomplete file loading
+- Fixed several potential buffer overflow bugs
+- Fixed some minor memory leaks
+
+Andreas Ronnquist
+- Moved the config file to ~/.config/asunder without breaking old configs
+- Moved the autocomplete files to ~/.cache/asunder without breaking old caches
 
 Fraser Tweedale
 - FreeBSD port
@@ -55,6 +69,12 @@ Felix Braun
 
 Nicolas Leveille
 - Fix for: don't reset the track info edited by the user by doing an unnecessary CDDB lookup.
+
+Pierre Lestringant (whz)
+- Fixed musepack and aac playlist generation
+
+Matthew (mw)
+- Add the ALBUMARTIST tag to flac files when "Single artist" is not checked.
 
 Packages:
 

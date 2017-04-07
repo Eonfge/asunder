@@ -1,3 +1,22 @@
+7 April 2016 - 2.9
+==================
+The following fixes were contributed by Gregory Margo:
+- Work around cdparanoia's filename length limits
+- Fixed bug where multiple CDDB entries would only show once
+- Improved the refresh/lookup system to work much better with more complicated CDs
+- Fixed FLAC progress scanner. Both to make the percentage more reliable and to prevent a possible crash
+- Added feature to select/deselect all tracks by clicking on track number header
+- Fixed autocomplete file loading
+- Fixed several potential buffer overflow bugs
+- Fixed some minor memory leaks
+The following fixes were contributed by Andreas Ronnquist:
+- Moved the config file to ~/.config/asunder without breaking old configs
+- Moved the autocomplete files to ~/.cache/asunder without breaking old caches
+The following fix was contributed by Pierre Lestringant (whz):
+- Fixed musepack and aac playlist generation
+The following fix was contributed by Matthew (mw):
+- Add the ALBUMARTIST tag to flac files when "Single artist" is not checked.
+
 6 Feb 2016 - 2.8.1
 ==================
 - Updated Catalan, Dutch, Hungarian, Norwegian Bokmal, Polish, and Turkish translations.

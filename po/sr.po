@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-06 19:54-0500\n"
+"POT-Creation-Date: 2017-04-07 00:33-0400\n"
 "PO-Revision-Date: 2010-12-30 21:21+0100\n"
 "Last-Translator: Milan Pužić <milan.puzic@gmail.com>\n"
 "Language-Team: \n"
@@ -17,31 +17,31 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 "X-Poedit-Language: Serbian\n"
 
-#: ../src/main.c:128 ../src/interface.c:231
+#: ../src/main.c:135 ../src/interface.c:231
 msgid "Rip"
 msgstr "Екстрактуј CD"
 
-#: ../src/main.c:132
+#: ../src/main.c:142
 msgid "Track"
 msgstr "Нумера"
 
-#: ../src/main.c:138
+#: ../src/main.c:148
 msgid "Artist"
 msgstr "Извођач"
 
-#: ../src/main.c:144
+#: ../src/main.c:154
 msgid "Title"
 msgstr "Назив"
 
-#: ../src/main.c:150
+#: ../src/main.c:160
 msgid "Genre"
 msgstr "Жанр"
 
-#: ../src/main.c:154
+#: ../src/main.c:164
 msgid "Time"
 msgstr "Трајање"
 
-#: ../src/main.c:180
+#: ../src/main.c:190
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -49,24 +49,38 @@ msgstr ""
 "'cdparanoia' није пронађена у вашој путањи. Ово је потребно за екстрактовање "
 "CD-ова."
 
-#: ../src/main.c:471
+#. Debug print add time last taken by the open() call.
+#. snprintf(msgStr, 1024, "%s [open %.1lf sec]",
+#. _("<b>Checking disc...</b>"), open_diff_time / 1E6);
+#. This is to deal with the fact that the signal below will take up to
+#. a second to get processed in refresh_thread() which will call check_disk()
+#. which will set the label to the same thing at the start.
+#: ../src/main.c:233 ../src/main.c:258 ../src/main.c:839
+msgid "<b>Checking disc...</b>"
+msgstr ""
+
+#: ../src/main.c:523
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Преузимам информације о диску са интернета...</b>"
 
-#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
-#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:613
+#: ../src/main.c:584
+msgid "<b>Reading disc...</b>"
+msgstr ""
+
+#: ../src/callbacks.c:57 ../src/callbacks.c:254 ../src/callbacks.c:282
+#: ../src/callbacks.c:291 ../src/callbacks.c:301 ../src/interface.c:613
 #: ../src/interface.c:758 ../src/interface.c:894
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
-#: ../src/callbacks.c:410
+#: ../src/callbacks.c:406
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Није убачен CD. Молим убаците CD у ваш CD-ROM уређај."
 
-#: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
-#: ../src/callbacks.c:580 ../src/callbacks.c:605
+#: ../src/callbacks.c:425 ../src/callbacks.c:450 ../src/callbacks.c:475
+#: ../src/callbacks.c:500 ../src/callbacks.c:526 ../src/callbacks.c:551
+#: ../src/callbacks.c:576 ../src/callbacks.c:601
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
@@ -75,11 +89,11 @@ msgstr ""
 "%s није пронађен у вашој путањи. Потребан је за креирање фајлова %s. Сва %s "
 "функционалност је онемогућена."
 
-#: ../src/callbacks.c:702
+#: ../src/callbacks.c:698
 msgid "Select all for ripping"
 msgstr "Изабери све"
 
-#: ../src/callbacks.c:708
+#: ../src/callbacks.c:704
 msgid "Deselect all for ripping"
 msgstr "Испусти све"
 
@@ -169,11 +183,11 @@ msgstr "Жанр"
 msgid "Album directory: "
 msgstr "Фасцикла албума: "
 
-#: ../src/interface.c:473 ../src/prefs.c:659
+#: ../src/interface.c:473 ../src/prefs.c:704
 msgid "Playlist file: "
 msgstr "Датотека листе нумера: "
 
-#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
+#: ../src/interface.c:480 ../src/prefs.c:716 ../src/prefs.c:726
 msgid "Music file: "
 msgstr "Музичка датотека: "
 
@@ -402,7 +416,7 @@ msgstr "Укупан напредак"
 msgid "Encoding"
 msgstr "Кодирање"
 
-#: ../src/interface.c:1773
+#: ../src/interface.c:1793
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -412,35 +426,35 @@ msgstr ""
 "као WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio и/или AAC "
 "датотеке."
 
-#: ../src/interface.c:1813
+#: ../src/interface.c:1833
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Датотека %d је успешно креирана"
 msgstr[1] "Датотеке %d су успешно креиране"
 
-#: ../src/interface.c:1822
+#: ../src/interface.c:1842
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Дошло је до грешке при креирању датотеке %d"
 msgstr[1] "Дошло је до грешке при креирању датотека %d"
 
-#: ../src/prefs.c:658 ../src/prefs.c:670
+#: ../src/prefs.c:703 ../src/prefs.c:715
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Неважећи знаци у пољу '%s'"
 
-#: ../src/prefs.c:680
+#: ../src/prefs.c:725
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' не сме бити празно"
 
-#: ../src/prefs.c:695
+#: ../src/prefs.c:740
 msgid "Invalid proxy port number"
 msgstr "Неважећи број proxy порта"
 
-#: ../src/prefs.c:708
+#: ../src/prefs.c:753
 msgid "Invalid cddb server port number"
 msgstr "Неважећи број порта CDDB сервера"
 
@@ -457,7 +471,7 @@ msgstr "Датотека '%s' већ постоји. Желите ли да је
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Запамти одговор за _све датотеке креиране са овог CD-а"
 
-#: ../src/threads.c:183
+#: ../src/threads.c:186
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -465,7 +479,7 @@ msgstr ""
 "Није изабран метод за екстрактовање/кодирање. Молим изаберите један од "
 "метода из менија \"Подешавања\"."
 
-#: ../src/threads.c:215
+#: ../src/threads.c:218
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -473,7 +487,7 @@ msgstr ""
 "Није изабрана ни једна нумера за екстрактовање/кодирање. Молим изаберите "
 "барем једну нумеру."
 
-#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
+#: ../src/threads.c:1294 ../src/threads.c:1296 ../src/threads.c:1300
 msgid "Waiting..."
 msgstr "Чекам..."
 

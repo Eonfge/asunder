@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-06 19:54-0500\n"
+"POT-Creation-Date: 2017-04-07 00:33-0400\n"
 "PO-Revision-Date: 2013-12-30 00:05+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -15,31 +15,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: ../src/main.c:128 ../src/interface.c:231
+#: ../src/main.c:135 ../src/interface.c:231
 msgid "Rip"
 msgstr "Importieren"
 
-#: ../src/main.c:132
+#: ../src/main.c:142
 msgid "Track"
 msgstr "Nr."
 
-#: ../src/main.c:138
+#: ../src/main.c:148
 msgid "Artist"
 msgstr "Interpret"
 
-#: ../src/main.c:144
+#: ../src/main.c:154
 msgid "Title"
 msgstr "Titel"
 
-#: ../src/main.c:150
+#: ../src/main.c:160
 msgid "Genre"
 msgstr "Allgemein"
 
-#: ../src/main.c:154
+#: ../src/main.c:164
 msgid "Time"
 msgstr "Dauer"
 
-#: ../src/main.c:180
+#: ../src/main.c:190
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -49,18 +49,32 @@ msgstr ""
 "\n"
 "Das Importieren von CDs ist daher nicht möglich."
 
-#: ../src/main.c:471
+#. Debug print add time last taken by the open() call.
+#. snprintf(msgStr, 1024, "%s [open %.1lf sec]",
+#. _("<b>Checking disc...</b>"), open_diff_time / 1E6);
+#. This is to deal with the fact that the signal below will take up to
+#. a second to get processed in refresh_thread() which will call check_disk()
+#. which will set the label to the same thing at the start.
+#: ../src/main.c:233 ../src/main.c:258 ../src/main.c:839
+msgid "<b>Checking disc...</b>"
+msgstr ""
+
+#: ../src/main.c:523
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>CD-Info aus dem Internet abrufen...</b>"
 
-#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
-#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:613
+#: ../src/main.c:584
+msgid "<b>Reading disc...</b>"
+msgstr ""
+
+#: ../src/callbacks.c:57 ../src/callbacks.c:254 ../src/callbacks.c:282
+#: ../src/callbacks.c:291 ../src/callbacks.c:301 ../src/interface.c:613
 #: ../src/interface.c:758 ../src/interface.c:894
 #, c-format
 msgid "%dKbps"
 msgstr "%dkbps"
 
-#: ../src/callbacks.c:410
+#: ../src/callbacks.c:406
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr ""
 "Das gewählte Gerät scheint keine CD zu enthalten.\n"
@@ -68,9 +82,9 @@ msgstr ""
 "Legen Sie bitte eine CD ein und prüfen Sie gegebenenfalls die Einstellungen "
 "hinsichtlich der Gerätedatei des CD-Laufwerks."
 
-#: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
-#: ../src/callbacks.c:580 ../src/callbacks.c:605
+#: ../src/callbacks.c:425 ../src/callbacks.c:450 ../src/callbacks.c:475
+#: ../src/callbacks.c:500 ../src/callbacks.c:526 ../src/callbacks.c:551
+#: ../src/callbacks.c:576 ../src/callbacks.c:601
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
@@ -81,11 +95,11 @@ msgstr ""
 "\n"
 "Das Erstellen von %s-Dateien ist daher nicht möglich."
 
-#: ../src/callbacks.c:702
+#: ../src/callbacks.c:698
 msgid "Select all for ripping"
 msgstr "Alle auswählen"
 
-#: ../src/callbacks.c:708
+#: ../src/callbacks.c:704
 msgid "Deselect all for ripping"
 msgstr "Alle abwählen"
 
@@ -178,11 +192,11 @@ msgstr "Allgemein"
 msgid "Album directory: "
 msgstr "Ordner für Alben: "
 
-#: ../src/interface.c:473 ../src/prefs.c:659
+#: ../src/interface.c:473 ../src/prefs.c:704
 msgid "Playlist file: "
 msgstr "Abspielliste: "
 
-#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
+#: ../src/interface.c:480 ../src/prefs.c:716 ../src/prefs.c:726
 msgid "Music file: "
 msgstr "Audio-Dateien: "
 
@@ -450,7 +464,7 @@ msgstr "Gesamt"
 msgid "Encoding"
 msgstr "Komprimieren"
 
-#: ../src/interface.c:1773
+#: ../src/interface.c:1793
 #, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
@@ -461,21 +475,21 @@ msgstr ""
 "Opus,\n"
 "Wavpack, Musepack, Monkey's Audio und/oder AAC zu speichern."
 
-#: ../src/interface.c:1813
+#: ../src/interface.c:1833
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d Datei erfolgreich erstellt."
 msgstr[1] "%d Dateien erfolgreich erstellt."
 
-#: ../src/interface.c:1822
+#: ../src/interface.c:1842
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Fehler beim Erstellen von %d Datei."
 msgstr[1] "Fehler beim Erstellen von %d Dateien."
 
-#: ../src/prefs.c:658 ../src/prefs.c:670
+#: ../src/prefs.c:703 ../src/prefs.c:715
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr ""
@@ -483,7 +497,7 @@ msgstr ""
 "\n"
 "Korrigieren Sie bitte dessen Inhalt entsprechend der Legende."
 
-#: ../src/prefs.c:680
+#: ../src/prefs.c:725
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr ""
@@ -491,14 +505,14 @@ msgstr ""
 "\n"
 "Ergänzen Sie bitte dessen Inhalt entsprechend der Legende."
 
-#: ../src/prefs.c:695
+#: ../src/prefs.c:740
 msgid "Invalid proxy port number"
 msgstr ""
 "Die angegebene Port-Nr. des HTTP-Proxy-Servers scheint ungültig zu sein.\n"
 "\n"
 "Prüfen Sie bitte die entsprechenden Einstellungen."
 
-#: ../src/prefs.c:708
+#: ../src/prefs.c:753
 msgid "Invalid cddb server port number"
 msgstr ""
 "Die angegebene Port-Nr. des CDDB-Servers scheint ungültig zu sein.\n"
@@ -519,7 +533,7 @@ msgstr ""
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Antwort für _alle von dieser CD importierten Dateien merken"
 
-#: ../src/threads.c:183
+#: ../src/threads.c:186
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -529,7 +543,7 @@ msgstr ""
 "Wählen Sie bitte in den Einstellungen, ob und auf welche Weise die Audio-"
 "Daten komprimiert werden sollen."
 
-#: ../src/threads.c:215
+#: ../src/threads.c:218
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -538,7 +552,7 @@ msgstr ""
 "\n"
 "Markieren Sie bitte mindestens einen Titel."
 
-#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
+#: ../src/threads.c:1294 ../src/threads.c:1296 ../src/threads.c:1300
 msgid "Waiting..."
 msgstr "Warten..."
 

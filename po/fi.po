@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-06 19:54-0500\n"
+"POT-Creation-Date: 2017-04-07 00:33-0400\n"
 "PO-Revision-Date: 2012-04-15 12:00+0200\n"
 "Last-Translator: Eero Salokannel <eero@salokannel.net>\n"
 "Language-Team: Finnish\n"
@@ -16,31 +16,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
-#: ../src/main.c:128 ../src/interface.c:231
+#: ../src/main.c:135 ../src/interface.c:231
 msgid "Rip"
 msgstr "Rippaa"
 
-#: ../src/main.c:132
+#: ../src/main.c:142
 msgid "Track"
 msgstr "Raita"
 
-#: ../src/main.c:138
+#: ../src/main.c:148
 msgid "Artist"
 msgstr "Esittäjä"
 
-#: ../src/main.c:144
+#: ../src/main.c:154
 msgid "Title"
 msgstr "Kappale"
 
-#: ../src/main.c:150
+#: ../src/main.c:160
 msgid "Genre"
 msgstr "Tyylilaji"
 
-#: ../src/main.c:154
+#: ../src/main.c:164
 msgid "Time"
 msgstr "Aika"
 
-#: ../src/main.c:180
+#: ../src/main.c:190
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -48,24 +48,38 @@ msgstr ""
 "'cdparanoia':a ei löytynyt. Asunder tarvitsee cdparanoia:n CD levyjen "
 "rippaamiseen."
 
-#: ../src/main.c:471
+#. Debug print add time last taken by the open() call.
+#. snprintf(msgStr, 1024, "%s [open %.1lf sec]",
+#. _("<b>Checking disc...</b>"), open_diff_time / 1E6);
+#. This is to deal with the fact that the signal below will take up to
+#. a second to get processed in refresh_thread() which will call check_disk()
+#. which will set the label to the same thing at the start.
+#: ../src/main.c:233 ../src/main.c:258 ../src/main.c:839
+msgid "<b>Checking disc...</b>"
+msgstr ""
+
+#: ../src/main.c:523
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Haetaan levyn tietoja internetistä...</b>"
 
-#: ../src/callbacks.c:57 ../src/callbacks.c:261 ../src/callbacks.c:289
-#: ../src/callbacks.c:298 ../src/callbacks.c:308 ../src/interface.c:613
+#: ../src/main.c:584
+msgid "<b>Reading disc...</b>"
+msgstr ""
+
+#: ../src/callbacks.c:57 ../src/callbacks.c:254 ../src/callbacks.c:282
+#: ../src/callbacks.c:291 ../src/callbacks.c:301 ../src/interface.c:613
 #: ../src/interface.c:758 ../src/interface.c:894
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
-#: ../src/callbacks.c:410
+#: ../src/callbacks.c:406
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Ei CD-levyä asemassa. Aseta levy asemaan."
 
-#: ../src/callbacks.c:429 ../src/callbacks.c:454 ../src/callbacks.c:479
-#: ../src/callbacks.c:504 ../src/callbacks.c:530 ../src/callbacks.c:555
-#: ../src/callbacks.c:580 ../src/callbacks.c:605
+#: ../src/callbacks.c:425 ../src/callbacks.c:450 ../src/callbacks.c:475
+#: ../src/callbacks.c:500 ../src/callbacks.c:526 ../src/callbacks.c:551
+#: ../src/callbacks.c:576 ../src/callbacks.c:601
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
@@ -74,11 +88,11 @@ msgstr ""
 "%s ei löytynyt. Asunder tarvitsee sen tehdäkseen %s tiedostoja. Kaikki %s "
 "toiminnot on poistettu käytöstä."
 
-#: ../src/callbacks.c:702
+#: ../src/callbacks.c:698
 msgid "Select all for ripping"
 msgstr "Valitse kaikki"
 
-#: ../src/callbacks.c:708
+#: ../src/callbacks.c:704
 msgid "Deselect all for ripping"
 msgstr "Poista valinnat"
 
@@ -167,11 +181,11 @@ msgstr "Tyylilaji"
 msgid "Album directory: "
 msgstr "Levyn kansio:"
 
-#: ../src/interface.c:473 ../src/prefs.c:659
+#: ../src/interface.c:473 ../src/prefs.c:704
 msgid "Playlist file: "
 msgstr "Soittolista:"
 
-#: ../src/interface.c:480 ../src/prefs.c:671 ../src/prefs.c:681
+#: ../src/interface.c:480 ../src/prefs.c:716 ../src/prefs.c:726
 msgid "Music file: "
 msgstr "Kappale:"
 
@@ -400,7 +414,7 @@ msgstr "Kokonaisedistyminen"
 msgid "Encoding"
 msgstr "Koodaa"
 
-#: ../src/interface.c:1773
+#: ../src/interface.c:1793
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
@@ -410,35 +424,35 @@ msgstr ""
 "Tuetut pakkaustavat: WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's "
 "Audio ja  AAC."
 
-#: ../src/interface.c:1813
+#: ../src/interface.c:1833
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "Luotiin %d tiedosto"
 msgstr[1] "Luotiin %d tiedostoa"
 
-#: ../src/interface.c:1822
+#: ../src/interface.c:1842
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "Esiintyi virhe luotaessa tiedostoa %d"
 msgstr[1] "Esiintyi virhe luotaessa tiedostoja %d"
 
-#: ../src/prefs.c:658 ../src/prefs.c:670
+#: ../src/prefs.c:703 ../src/prefs.c:715
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Virheellisiä merkkejä kentässä '%s'"
 
-#: ../src/prefs.c:680
+#: ../src/prefs.c:725
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' ei voi olla tyhjä"
 
-#: ../src/prefs.c:695
+#: ../src/prefs.c:740
 msgid "Invalid proxy port number"
 msgstr "Virheellinen välityspalvelimen portin numero"
 
-#: ../src/prefs.c:708
+#: ../src/prefs.c:753
 msgid "Invalid cddb server port number"
 msgstr "Virheellinen cddb-palvelimen portin numero"
 
@@ -455,19 +469,19 @@ msgstr "Tiedosto '%s' on jo olemassa. Haluatko korvata sen?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Muista vastaus k_aikille tiedostoille tältä CD-levyltä"
 
-#: ../src/threads.c:183
+#: ../src/threads.c:186
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr "Pakkausmuoto valitsematta. Tee valinta Asetukset-valikosta."
 
-#: ../src/threads.c:215
+#: ../src/threads.c:218
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "Ei valittuja raitoja. Valitse vähintään yksi raita."
 
-#: ../src/threads.c:1076 ../src/threads.c:1078 ../src/threads.c:1082
+#: ../src/threads.c:1294 ../src/threads.c:1296 ../src/threads.c:1300
 msgid "Waiting..."
 msgstr "Odottaa..."
 
