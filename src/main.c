@@ -224,7 +224,7 @@ bool check_disc(char * cdrom)
     struct ioc_read_subchannel cdsc;
     struct cd_sub_channel_info data;
 #endif
-    printf("1\n");
+    
     if (nowBusy)
     {
         // The big problem is if the disc has been changed.
@@ -233,7 +233,7 @@ bool check_disc(char * cdrom)
         gtk_label_set_markup(GTK_LABEL(statusLbl), _("<b>Checking disc...</b>"));
         gdk_threads_leave();
     }
-    printf("2\n");
+    
     // open the device
     fd = open(cdrom, O_RDONLY | O_NONBLOCK);
     open_diff_time = g_get_monotonic_time() - start_time;
@@ -251,9 +251,11 @@ bool check_disc(char * cdrom)
         nowBusy = diff_time > BUSY_THRESHOLD;
         return false;
     }
-    printf("3\n");
-    snprintf(msgStr, 1024, "%s [open %.1lf sec]",
-        _("<b>Checking disc...</b>"), open_diff_time / 1E6);
+    
+    // Debug print add time last taken by the open() call.
+    //snprintf(msgStr, 1024, "%s [open %.1lf sec]",
+        //_("<b>Checking disc...</b>"), open_diff_time / 1E6);
+    snprintf(msgStr, 1024, "%s", _("<b>Checking disc...</b>"));
     if (nowBusy || diff_time > BUSY_THRESHOLD)
     {
         gdk_threads_enter();
@@ -299,15 +301,16 @@ bool check_disc(char * cdrom)
     }
 
     close(fd);
-    printf("4\n");
+    
     diff_time = g_get_monotonic_time() - start_time;
     if (nowBusy || diff_time > BUSY_THRESHOLD)
     {
-        int len = strlen(msgStr);
-        snprintf(&msgStr[len], 1024-len, " [status %.1lf sec]", (diff_time - open_diff_time) / 1E6);
-        gdk_threads_enter();
-        gtk_label_set_markup(GTK_LABEL(statusLbl), msgStr);
-        gdk_threads_leave();
+        // Debug print last time taken to do the ioctl()
+        //int len = strlen(msgStr);
+        //snprintf(&msgStr[len], 1024-len, " [status %.1lf sec]", (diff_time - open_diff_time) / 1E6);
+        //gdk_threads_enter();
+        //gtk_label_set_markup(GTK_LABEL(statusLbl), msgStr);
+        //gdk_threads_leave();
     }
     else
     {
@@ -316,14 +319,14 @@ bool check_disc(char * cdrom)
         gdk_threads_leave();
     }
     nowBusy = newBusy || diff_time > BUSY_THRESHOLD;
-    printf("5\n");
+    
     if (working || refresh_forced)
     {
         gdk_threads_enter();
         gtk_label_set_text(GTK_LABEL(statusLbl), "");
         gdk_threads_leave();
     }
-    printf("6\n");
+    
     return ret;
 }
 
