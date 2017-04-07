@@ -116,7 +116,6 @@ void abort_threads()
     g_thread_join(tracker);
     debugLog("Aborting: 4 (All threads joined)\n");
     
-    gdk_threads_enter();
     gtk_window_set_title(GTK_WINDOW(win_main), "Asunder");
     
     gtk_widget_hide(win_ripping);
