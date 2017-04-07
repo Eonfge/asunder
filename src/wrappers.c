@@ -282,7 +282,6 @@ int exec_with_output(const char * args[], int toread, pid_t * p, const char * di
         }
     }
     debugLog(logStr);
-    printf("%s\n", logStr);
     
     // i'm the parent, get ready to wait for children
     numchildren++;
