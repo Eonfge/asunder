@@ -15,10 +15,14 @@ Gregory Margo
 - Fixed bug where multiple CDDB entries would only show once
 - Improved the refresh/lookup system to work much better with more complicated CDs
 - Fixed FLAC progress scanner. Both to make the percentage more reliable and to prevent a possible crash
-- Added feature to select/deselect all tracks by clicking on track number header
+- Added feature to select/deselect all tracks by clicking on rip checkbox header
 - Fixed autocomplete file loading
 - Fixed several potential buffer overflow bugs
 - Fixed some minor memory leaks
+- Fixed race condition during abort
+- Improved completion percentage feedback
+- Added feature to make the artist and title columns resizable
+(A few patches were mistakenly attributed to "Gregory Montego" and "Gergory Margo")
 
 Andreas Ronnquist
 - Moved the config file to ~/.config/asunder without breaking old configs

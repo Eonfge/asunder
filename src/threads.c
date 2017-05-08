@@ -134,6 +134,10 @@ void dorip()
     aborted = false;
     allDone = false;
     counter = 0;
+    if (barrier) 
+        g_mutex_free(barrier);
+    if (available) 
+        g_cond_free(available);
     barrier = g_mutex_new();
     available = g_cond_new();
     rip_percent = 0.0;
