@@ -146,12 +146,16 @@ int main(int argc, char *argv[])
     g_signal_connect(renderer, "edited", (GCallback) on_artist_edited, NULL);
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Artist"), renderer, "text", COL_TRACKARTIST, NULL);
+    col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), COL_TRACKARTIST);
+    gtk_tree_view_column_set_resizable(col, TRUE);
 
     renderer = gtk_cell_renderer_text_new();
     g_object_set(renderer, "editable", TRUE, NULL);
     g_signal_connect(renderer, "edited", (GCallback) on_title_edited, NULL);
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Title"), renderer, "text", COL_TRACKTITLE, NULL);
+    col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), COL_TRACKTITLE);
+    gtk_tree_view_column_set_resizable(col, TRUE);
 
     renderer = gtk_cell_renderer_text_new();
     g_object_set(renderer, "editable", TRUE, NULL);
