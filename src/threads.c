@@ -518,12 +518,6 @@ gpointer rip(gpointer data)
     free(albumtitle_trimmed);
     free(albumgenre_trimmed);
     
-    // no more tracks to rip, safe to eject
-    if (global_prefs->eject_on_done)
-    {
-        eject_disc(global_prefs->cdrom);
-    }
-    
     return NULL;
 }
 
@@ -1260,6 +1254,12 @@ gpointer encode(gpointer data)
         gtk_widget_hide(win_ripping);
         gdk_flush();
         
+    // no more tracks to encode, safe to eject
+    if (global_prefs->eject_on_done)
+    {
+        eject_disc(global_prefs->cdrom);
+    }
+
         show_completed_dialog(numCdparanoiaOk + numLameOk + numOggOk + numOpusOk + numFlacOk + numWavpackOk + numMonkeyOk + numMusepackOk + numAacOk,
                               numCdparanoiaFailed + numLameFailed + numOggFailed + numOpusFailed + numFlacFailed + numWavpackFailed + numMonkeyFailed + numMusepackFailed + numAacFailed);
     gdk_threads_leave();
