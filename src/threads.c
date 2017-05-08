@@ -1315,18 +1315,11 @@ gpointer track(gpointer data)
     double ptotal;
     char stotal[5];
     char windowTitle[15]; /* "Asunder - 100%" */
+    int looper = 0;
     
     while (!allDone)
     {
         if (aborted) g_thread_exit(NULL);
-        
-        snprintf(logStr, 1024, "completed tracks %d, rip %.2lf%%; encoded tracks %d, "
-                 "mp3 %.2lf%% ogg %.2lf%% opus %.2lf%% flac %.2lf%% wavpack %.2lf%% "
-                 "monkey %.2lf%% musepack %.2lf%% aac %.2lf%%\n", 
-                 rip_tracks_completed, rip_percent*100, encode_tracks_completed, 
-                 mp3_percent*100, ogg_percent*100, opus_percent*100, flac_percent*100, wavpack_percent*100,
-                 monkey_percent*100,musepack_percent*100,aac_percent*100);
-        debugLog(logStr);
         
         prip = (rip_tracks_completed+rip_percent) / tracks_to_rip;
         snprintf(srip, 13, "%d%% (%d/%d)", (int)(prip*100),
@@ -1370,6 +1363,18 @@ gpointer track(gpointer data)
             
             gtk_window_set_title(GTK_WINDOW(win_main), windowTitle);
         gdk_threads_leave();
+
+        if ((looper % 20) == 0) {
+            snprintf(logStr, 1024, "completed tracks %d, rip %.2lf%%; encoded tracks %d, "
+                     "mp3 %.2lf%% ogg %.2lf%% opus %.2lf%% flac %.2lf%% wavpack %.2lf%% "
+                     "monkey %.2lf%% musepack %.2lf%% aac %.2lf%%; prip %.2lf%% pencode %.2lf%%\n",
+                     rip_tracks_completed, rip_percent*100, encode_tracks_completed,
+                     mp3_percent*100, ogg_percent*100, opus_percent*100, flac_percent*100, wavpack_percent*100,
+                     monkey_percent*100,musepack_percent*100,aac_percent*100,
+                     prip*100, pencode*100);
+            debugLog(logStr);
+        }
+        looper++;
         
         usleep(100000);
     }
