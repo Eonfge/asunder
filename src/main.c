@@ -474,6 +474,14 @@ GList * cddb_query_run(cddb_conn_t * conn, cddb_disc_t * original_disc)
         cddb_disc_t * possible_match = cddb_disc_clone(disc);
         if (cddb_read(conn, possible_match))
         {
+            snprintf(logStr, 1024, "Match %d: '%08x' '%s' '%s' '%s'\n",
+                i + 1,
+                cddb_disc_get_discid(possible_match),
+                cddb_disc_get_artist(possible_match),
+                cddb_disc_get_title(possible_match),
+                cddb_disc_get_genre(possible_match));
+            debugLog(logStr);
+
             matches = g_list_append(matches, possible_match);
             
             // move to next match
@@ -754,7 +762,11 @@ cddb_disc_t * read_disc(char * cdrom)
     /* These two lines from Nicolas Léveillé
     * "let us have a discid for each read disc" */
     if (disc)
+    {
         cddb_disc_calc_discid(disc);
+        snprintf(logStr, 1024, "read_disc: discid=%08x\n", cddb_disc_get_discid(disc));
+        debugLog(logStr);
+    }
 
     gdk_threads_enter();
     gtk_label_set_text(GTK_LABEL(statusLbl), "");
@@ -784,7 +796,8 @@ void update_tracklist(cddb_disc_t * disc)
     
     gbl_current_discid = cddb_disc_get_discid(disc);
 
-    snprintf(logStr, 1024, "update_tracklist() disk '%s' '%s' '%s'\n", disc_artist, disc_title, disc_genre);
+    snprintf(logStr, 1024, "update_tracklist() disk '%08x' '%s' '%s' '%s'\n",
+        gbl_current_discid, disc_artist, disc_title, disc_genre);
     debugLog(logStr);
     if (disc_artist != NULL)
     {
