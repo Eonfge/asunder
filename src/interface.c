@@ -1804,7 +1804,7 @@ N_("An application to save tracks from an Audio CD \n"
 static const char* 
 GBLcopyright = 
 "Copyright 2005 Eric Lathrop\n"
-"Copyright 2007 - 2012 Andrew Smith";
+"Copyright 2007 - 2017 Andrew Smith";
 
 static const char* 
 GBLwebsite = "http://littlesvr.ca/asunder/";
