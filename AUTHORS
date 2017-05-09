@@ -80,6 +80,9 @@ Pierre Lestringant (whz)
 Matthew (mw)
 - Add the ALBUMARTIST tag to flac files when "Single artist" is not checked.
 
+Antony Gelberg
+- Fixed when the CD is ejected to avoid problems before a full rip/encode cycle is completed.
+
 Packages:
 
 Toni Graffy

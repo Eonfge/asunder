@@ -1,4 +1,4 @@
-7 April 2016 - 2.9
+8 May 2016 - 2.9
 ==================
 The following fixes were contributed by Gregory Margo:
 - Work around cdparanoia's filename length limits
@@ -19,6 +19,8 @@ The following fix was contributed by Pierre Lestringant (whz):
 - Fixed musepack and aac playlist generation
 The following fix was contributed by Matthew (mw):
 - Add the ALBUMARTIST tag to flac files when "Single artist" is not checked.
+The following fix was contributed by Antony Gelberg:
+- Fixed when the CD is ejected to avoid problems before a full rip/encode cycle is completed.
 
 6 Feb 2016 - 2.8.1
 ==================
