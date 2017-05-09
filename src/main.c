@@ -943,14 +943,13 @@ void refresh_thread_body(char * cdrom, int force)
             }
             gtk_combo_box_set_model(GTK_COMBO_BOX(pick_disc), GTK_TREE_MODEL(store));
             g_object_unref(store);
-            gtk_combo_box_set_active(GTK_COMBO_BOX(pick_disc), 1);
             gtk_combo_box_set_active(GTK_COMBO_BOX(pick_disc), 0);
             
             gtk_widget_show(lookup_widget(win_main, "disc"));
             gtk_widget_show(lookup_widget(win_main, "pick_disc"));
         }
-        
-        update_tracklist((cddb_disc_t *)g_list_nth_data(gbl_disc_matches, 0));
+        else
+            update_tracklist((cddb_disc_t *)g_list_nth_data(gbl_disc_matches, 0));
         gdk_threads_leave();
     }
 }
