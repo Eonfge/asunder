@@ -75,8 +75,6 @@ void abort_threads()
 {
     aborted = true;
 
-    gdk_threads_leave();    /* Don't hold lock while waiting. */
-
     pid_t pid;  /* Avoid unlikely race condition. */
     if ((pid = cdparanoia_pid) != 0)
         kill(pid, SIGKILL);
