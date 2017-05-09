@@ -1832,15 +1832,17 @@ show_aboutbox (void)
 void show_completed_dialog(int numOk, int numFailed)
 {
     GtkWidget* dialog;
-    
-    dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
-                                    GTK_DIALOG_DESTROY_WITH_PARENT,
-                                    GTK_MESSAGE_INFO,
-                                    GTK_BUTTONS_CLOSE,
-                                    ngettext("%d file created successfully", "%d files created successfully", numOk),
-                                    numOk);
-    
-    if (numFailed > 0)
+
+    if (numFailed == 0)
+    {
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        GTK_DIALOG_DESTROY_WITH_PARENT,
+                                        GTK_MESSAGE_INFO,
+                                        GTK_BUTTONS_CLOSE,
+                                        ngettext("%d file created successfully", "%d files created successfully", numOk),
+                                        numOk);
+    }
+    else
     {
         dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
                                         GTK_DIALOG_DESTROY_WITH_PARENT,
