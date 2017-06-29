@@ -354,15 +354,13 @@ static gchar *get_prefs_load_config_path(void)
         // Use the user_config_home_filename
         result_filename = g_strdup(user_config_home_filename);
         
-    } else if (xdg_config_home == NULL || *xdg_config_home == '\0') {
-        // use the getenv(HOME) one
-        if (g_file_test(getenv_home_filename, G_FILE_TEST_EXISTS)) {
-            result_filename = g_strdup(getenv_home_filename);
-        }
-    }
-    else {
+    } else if (xdg_config_home != NULL && *xdg_config_home != '\0') {
         // use the xdg one
         result_filename = g_strdup(xdg_config_home_filename);
+    }
+    else {
+        // use the getenv(HOME) one
+        result_filename = g_strdup(getenv_home_filename);
     }
     
     g_free(xdg_config_home_filename);

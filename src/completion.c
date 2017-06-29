@@ -56,14 +56,11 @@ get_completion_filename_on_load(const char * name)
     if (g_file_test(user_cache_filename, G_FILE_TEST_EXISTS)) {
         result_filename = g_strdup(user_cache_filename);
         
-    } else if (xdg_cache_home == NULL || *xdg_cache_home == '\0') {
-        
-        if (g_file_test(home_folder_filename, G_FILE_TEST_EXISTS)) {
-            result_filename = g_strdup(home_folder_filename); 
-        }
+    } else if (xdg_cache_home != NULL && *xdg_cache_home != '\0') {
+        result_filename = g_strdup(xdg_cache_home_filename);
     }
     else {
-        result_filename = g_strdup(xdg_cache_home_filename);
+        result_filename = g_strdup(home_folder_filename); 
     }
     
     g_free(filename);
