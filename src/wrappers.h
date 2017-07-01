@@ -143,6 +143,8 @@ void flac(int tracknum,
 
 void wavpack(int tracknum,
              char * wavfilename,
+             char * wavpackfilename_wv,
+             char * wavpackfilename_wvc,
              int compression,
              bool hybrid,
              int bitrate,

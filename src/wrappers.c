@@ -221,7 +221,7 @@ void sigchld(int signum)
 // returns - a file descriptor that reads whatever the program outputs on "toread"
 int exec_with_output(const char * args[], int toread, pid_t * p, const char * dir)
 {
-    char logStr[1024];
+    char logStr[2048];
     int pipefd[2];
     
     blockSigChld();
@@ -259,7 +259,7 @@ int exec_with_output(const char * args[], int toread, pid_t * p, const char * di
         // Change directory if required
         if (dir && (chdir(dir) < 0))
         {
-            snprintf(logStr, 1024, "Failed to change directory for %s, errno=%d", args[0], errno);
+            snprintf(logStr, 2048, "Failed to change directory for %s, errno=%d", args[0], errno);
             debugLog(logStr);
             exit(0);
         }
@@ -272,10 +272,10 @@ int exec_with_output(const char * args[], int toread, pid_t * p, const char * di
     }
     
     int count;
-    snprintf(logStr, 1024, "%d started: %s ", *p, args[0]);
+    snprintf(logStr, 2048, "%d started: %s ", *p, args[0]);
     for (count = 1; args[count] != NULL; count++)
     {
-        if (strlen(logStr) + 1 + strlen(args[count]) < 1024)
+        if (strlen(logStr) + 1 + strlen(args[count]) < 2048)
         {
             strcat(logStr, " ");
             strcat(logStr, args[count]);
@@ -390,7 +390,12 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress)
         usleep(100000);
     }
 
-    rename(xfilename, filename);
+    int rc = rename(xfilename, filename);
+    if (rc == -1)
+    {
+        snprintf(logStr, 1024, "cdparanoia(): rename() to '%s' failed with errno=%d\n", filename, errno);
+        debugLog(logStr);
+    }
     g_free(xfilename);
     g_free(dir);
 
@@ -948,16 +953,36 @@ void flac(int tracknum,
 
 void wavpack(int tracknum,
              char* wavfilename,
+             char* wavpackfilename_wv,  // .wv file
+             char* wavpackfilename_wvc, // .wvc file, assumed to be in same dir as .wv file [if hybrid]
              int compression,
              bool hybrid,
              int bitrate,
              double* progress)
 {
-    const char* args[10];
+    char logStr[1024];
+    const char* args[12];
     int fd;
     int pos;
     int size;
     char buf[256];
+
+    // The wavpack executable creates temporary files longer than the given filename.
+    //
+    // Temp files are named "base.tmp.wv" and "base.tmp.wvc" [if hybrid].
+    //
+    // Since the output filename could be as long as is allowable, the
+    // temporary filename could be longer and hence non-allowable, so use the
+    // target directory and temporary names for the encoded files, then rename
+    // them afterwards.
+
+    char trackname_wv[16];
+    char trackname_wvc[16];
+    snprintf(trackname_wv, sizeof(trackname_wv), "wv%02d.wv", tracknum);
+    snprintf(trackname_wvc, sizeof(trackname_wvc), "wv%02d.wvc", tracknum);
+    gchar * dir = g_path_get_dirname(wavpackfilename_wv);
+    gchar * xwavpackfilename_wv = g_build_filename(dir, trackname_wv, NULL);
+    gchar * xwavpackfilename_wvc = g_build_filename(dir, trackname_wvc, NULL);
     
     pos = 0;
     args[pos++] = "wavpack";
@@ -983,9 +1008,11 @@ void wavpack(int tracknum,
     args[pos++] = "-x3";
     
     args[pos++] = wavfilename;
+    args[pos++] = "-o";
+    args[pos++] = trackname_wv;
     args[pos++] = NULL;
     
-    fd = exec_with_output(args, STDERR_FILENO, &wavpack_pid, NULL);
+    fd = exec_with_output(args, STDERR_FILENO, &wavpack_pid, dir);
     
     do
     {
@@ -1039,6 +1066,26 @@ void wavpack(int tracknum,
         debugLog("w8\n");
         usleep(100000);
     }
+
+    int rc = rename(xwavpackfilename_wv, wavpackfilename_wv);
+    if (rc == -1)
+    {
+        snprintf(logStr, 1024, "wavpack(): rename() to '%s' failed with errno=%d\n", wavpackfilename_wv, errno);
+        debugLog(logStr);
+    }
+    if (hybrid)
+    {
+        rc = rename(xwavpackfilename_wvc, wavpackfilename_wvc);
+        if (rc == -1)
+        {
+            snprintf(logStr, 1024, "wavpack(): rename() to '%s' failed with errno=%d\n", wavpackfilename_wvc, errno);
+            debugLog(logStr);
+        }
+    }
+
+    g_free(xwavpackfilename_wv);
+    g_free(xwavpackfilename_wvc);
+    g_free(dir);
     *progress = 1;
 }
 

@@ -948,8 +948,14 @@ gpointer encode(gpointer data)
                     return NULL;
                 }
 
-                char * wavpackfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wv");
+                // Create the longer filename first, then derive the shorter filename.
+                // If the .wvc filename was shortened by make_filename(), then
+                // the .wv filename will have the same base as the .wvc filename.
+                // If hybrid is false, we could squeeze one more character into the .wv
+                // filename, but why bother?
                 char * wavpackfilename2 = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wvc");
+                char * wavpackfilename = strdup(wavpackfilename2);
+                wavpackfilename[strlen(wavpackfilename) - 1] = '\0';    // Change .wvc to .wv
                 snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, wavpackfilename);
                 debugLog(logStr);
                 
@@ -969,7 +975,7 @@ gpointer encode(gpointer data)
                 
                 if(doEncode)
                 {
-                    wavpack(tracknum, wavfilename, 
+                    wavpack(tracknum, wavfilename, wavpackfilename, wavpackfilename2,
                             global_prefs->wavpack_compression, global_prefs->wavpack_hybrid, 
                             int_to_wavpack_bitrate(global_prefs->wavpack_bitrate), &wavpack_percent);
                 }

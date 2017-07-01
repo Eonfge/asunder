@@ -15,6 +15,7 @@ Foundation; version 2 of the licence.
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <fcntl.h>
 #include <unistd.h>
 #include <limits.h>
 #include <ctype.h>
@@ -22,6 +23,7 @@ Foundation; version 2 of the licence.
 #include <gtk/gtk.h>
 #include <stdarg.h>
 #include <syslog.h>
+#include <glib/gprintf.h>
 
 #include "util.h"
 #include "main.h"
@@ -244,6 +246,85 @@ int int_to_musepack_bitrate(int i)
     return 90;
 }
 
+// Shorten the filename portion of a pathname to fit within file system parameters.
+// All const char * parameters are non-null strings.
+void
+shorten_filename (char ** ret, const char * path, const char * dir, const char * file, const char * extension)
+{
+    char logStr[2048];
+    const char * reason;
+    struct stat statStruct;
+    int rc;
+
+    char * filebuffer = g_strdup (file);
+    char * pathbuffer = g_strdup_printf ("%s/%s/%s.%s", path, dir, filebuffer, extension);
+
+    int shortened = 0;
+    int len;
+    for (len = strlen (filebuffer); len > 0; (filebuffer[--len] = '\0'), shortened++)
+    {
+        g_sprintf (pathbuffer, "%s/%s/%s.%s", path, dir, filebuffer, extension);
+
+        //snprintf (logStr, 2048, "shorten_filename[%d]: pathbuffer='%s'\n", shortened, pathbuffer);
+        //debugLog (logStr);
+
+        // If this file exists, then filename is ok.
+        rc = stat (pathbuffer, &statStruct);
+        if (rc == 0)
+        {
+            reason = "existing";
+            break;
+        }
+        else if (rc == -1)
+        {
+            //snprintf (logStr, 2048, "shorten_filename[%d]: stat errno=%d pathbuffer='%s'\n", shortened, errno, pathbuffer);
+            //debugLog (logStr);
+
+            if (errno == ENAMETOOLONG)
+                continue;   // No reason to attempt creat()
+        }
+        
+        // If the file did not exist but we are able to create it, then filename is ok.
+        int fd = creat (pathbuffer, 0666);
+        if (fd != -1)
+        {
+            reason = "creating";
+            close (fd);
+            unlink (pathbuffer);
+            break;
+        }
+
+        snprintf (logStr, 2048, "shorten_filename[%d]: creat errno %d pathbuffer '%s'\n", shortened, errno, pathbuffer);
+        debugLog (logStr);
+
+        // If unable due to size of filename, then decrease size of filename by one character.
+        // (see loop increment)
+    }
+
+    if (shortened == 0)
+    {
+        // Filename is fine as is; do nothing.
+    }
+    else if (len > 0)
+    {
+        // We have successfully shortened a filename.
+        snprintf (logStr, 2048, "shorten_filename[%d]: ok due to %s filebuffer '%s'\n", shortened, reason, filebuffer);
+        debugLog (logStr);
+        g_free (*ret);
+        *ret = pathbuffer;
+        pathbuffer = NULL;
+    }
+    else
+    {
+        // We were not able to shorten a filename to create a file.  What to do?
+        snprintf (logStr, 2048, "shorten_filename[%d]: Unable to shorten file '%s'\n", shortened, file);
+        debugLog (logStr);
+    }
+
+    g_free (filebuffer);
+    g_free (pathbuffer);
+}
+
 // construct a filename from various parts
 //
 // path - the path the file is placed in (don't include a trailing '/')
@@ -307,6 +388,9 @@ char * make_filename(const char * path, const char * dir, const char * file, con
         pos += strlen(extension);
     }
     ret[pos] = '\0';
+
+    if (path && dir && file && extension)
+        shorten_filename (&ret, path, dir, file, extension);
 
     return ret;
 }
