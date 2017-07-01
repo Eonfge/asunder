@@ -11,6 +11,7 @@ http://ericlathrop.com/
 - 'eject when finished' feature
 
 Gregory Margo
+- Shorten requested filenames that are longer than the filesystem can handle
 - Work around cdparanoia's filename length limits
 - Fixed bug where multiple CDDB entries would only show once
 - Improved the refresh/lookup system to work much better with more complicated CDs

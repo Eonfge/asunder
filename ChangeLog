@@ -1,3 +1,9 @@
+30 June 2017 - 2.9.1
+====================
+- Fixed a bug that caused a startup crash in some environments (reported in Arch Linux).
+The following fix was contributed by Gregory Margo:
+- Shorten requested filenames that are longer than the filesystem can handle.
+
 8 May 2017 - 2.9
 ==================
 The following fixes were contributed by Gregory Margo:

@@ -1438,7 +1438,7 @@ void enable_musepack_widgets(void)
 }
 
 const char* 
-GBLprogramName = "Asunder 2.9";
+GBLprogramName = "Asunder 2.9.1";
 
 static const char* 
 GBLauthors[2] = {
@@ -1455,6 +1455,7 @@ GBLauthors[2] = {
 "- 'eject when finished' feature\n"
 "\n"
 "Gregory Margo\n"
+"- Shorten requested filenames that are longer than the filesystem can handle\n"
 "- Work around cdparanoia's filename length limits\n"
 "- Fixed bug where multiple CDDB entries would only show once\n"
 "- Improved the refresh/lookup system to work much better with more complicated CDs\n"
