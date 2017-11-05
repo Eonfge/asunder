@@ -572,7 +572,6 @@ gpointer encode(gpointer data)
     gdk_threads_enter();
         GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
         gboolean single_artist = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_main, "single_artist")));
-        gboolean single_genre  = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_main, "single_genre")));	// lnr
 
         GtkWidget * album_artist_widget = lookup_widget(win_main, "album_artist");
         album_artist = strdup(gtk_entry_get_text(GTK_ENTRY(album_artist_widget)));
@@ -609,7 +608,6 @@ gpointer encode(gpointer data)
         char* trackartist;
         char* tracktitle;
         char* tracktime;
-        char* genre;
         int min;
         int sec;
 
@@ -646,7 +644,6 @@ gpointer encode(gpointer data)
                 COL_TRACKARTIST, &trackartist,
                 COL_TRACKTITLE, &tracktitle,
                 COL_TRACKTIME, &tracktime,
-                COL_GENRE, &genre,
                 -1);
         gdk_threads_leave();
         sscanf(tracktime, "%d:%d", &min, &sec);
@@ -657,12 +654,6 @@ gpointer encode(gpointer data)
             trackartist = strdup(album_artist);
         }
 
-        if ( single_genre )				// lnr
-        {
-            free(genre);
-            genre = strdup(album_genre);
-        }
-        
         if (riptrack)
         {
             char* albumdir;
@@ -670,26 +661,21 @@ gpointer encode(gpointer data)
             char* wavfilename;
             char* trackartist_trimmed;
             char* tracktitle_trimmed;
-            char* genre_trimmed;
 
             //Trimmed for use in filenames	//mrpl
             trackartist_trimmed = strdup(trackartist);
             trim_chars(trackartist_trimmed, BADCHARS);
             tracktitle_trimmed = strdup(tracktitle);
             trim_chars(tracktitle_trimmed, BADCHARS);
-            genre_trimmed = strdup(genre);
-            trim_chars(genre_trimmed, BADCHARS);
             
             //~albumdir = parse_format(global_prefs->format_albumdir, 0, album_year, album_artist, album_title, genre, NULL);
             //~musicfilename = parse_format(global_prefs->format_music, tracknum, trackyear, trackartist, album_title, tracktitle);
             //~musicfilename = parse_format(global_prefs->format_music, tracknum, album_year, trackartist, album_title, genre, tracktitle);
-            albumdir = parse_format(global_prefs->format_albumdir, 0, album_year, album_artist_trimmed, album_title_trimmed, genre_trimmed, NULL);
-            musicfilename = parse_format(global_prefs->format_music, tracknum, album_year, trackartist_trimmed, album_title_trimmed, genre_trimmed, tracktitle_trimmed);
+            albumdir = parse_format(global_prefs->format_albumdir, 0, album_year, album_artist_trimmed, album_title_trimmed, album_genre_trimmed, NULL);
+            musicfilename = parse_format(global_prefs->format_music, tracknum, album_year, trackartist_trimmed, album_title_trimmed, album_genre_trimmed, tracktitle_trimmed);
             
             wavfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "wav");
 
-            free(genre_trimmed);
-            
             if (global_prefs->rip_mp3)
             {
                 if (aborted)
@@ -703,7 +689,6 @@ gpointer encode(gpointer data)
                     free(trackartist);
                     free(tracktitle);
                     free(tracktime);
-                    free(genre);
 
                     free(album_artist);
                     free(album_title);
@@ -737,7 +722,7 @@ gpointer encode(gpointer data)
                 if(doEncode)
                     //~ lame(tracknum, trackartist, album_title, tracktitle, genre, trackyear, wavfilename, mp3filename, 
                          //~ global_prefs->mp3_vbr, global_prefs->mp3_bitrate, &mp3_percent);
-                    lame(tracknum, trackartist, album_title, tracktitle, genre, album_year, wavfilename, mp3filename, 
+                    lame(tracknum, trackartist, album_title, tracktitle, album_genre, album_year, wavfilename, mp3filename,
                          global_prefs->mp3_vbr, global_prefs->mp3_bitrate, &mp3_percent);
 
                 if (playlist_mp3)
@@ -761,7 +746,6 @@ gpointer encode(gpointer data)
                     free(trackartist);
                     free(tracktitle);
                     free(tracktime);
-                    free(genre);
 
                     free(album_artist);
                     free(album_title);
@@ -794,7 +778,7 @@ gpointer encode(gpointer data)
                 
                 if(doEncode)
                 {
-                    oggenc(tracknum, trackartist, album_title, tracktitle, album_year, genre, wavfilename, 
+                    oggenc(tracknum, trackartist, album_title, tracktitle, album_year, album_genre, wavfilename,
                            oggfilename, global_prefs->ogg_quality, &ogg_percent);
                 }
 
@@ -819,7 +803,6 @@ gpointer encode(gpointer data)
                     free(trackartist);
                     free(tracktitle);
                     free(tracktime);
-                    free(genre);
 
                     free(album_artist);
                     free(album_title);
@@ -851,7 +834,7 @@ gpointer encode(gpointer data)
                     doEncode = true;
 
                 if(doEncode)
-                    opusenc(tracknum, trackartist, album_title, tracktitle, album_year, genre, wavfilename,
+                    opusenc(tracknum, trackartist, album_title, tracktitle, album_year, album_genre, wavfilename,
                            opusfilename, global_prefs->opus_bitrate, &opus_percent);
 
                 if (playlist_opus)
@@ -875,7 +858,6 @@ gpointer encode(gpointer data)
                     free(trackartist);
                     free(tracktitle);
                     free(tracktime);
-                    free(genre);
 
                     free(album_artist);
                     free(album_title);
@@ -909,7 +891,7 @@ gpointer encode(gpointer data)
                 if(doEncode)
                     //~ flac(tracknum, trackartist, album_title, tracktitle, genre, trackyear, wavfilename, 
                          //~ flacfilename, global_prefs->flac_compression, &flac_percent);
-                    flac(tracknum, trackartist, album_artist, single_artist, album_title, tracktitle, genre, album_year, wavfilename, 
+                    flac(tracknum, trackartist, album_artist, single_artist, album_title, tracktitle, album_genre, album_year, wavfilename,
                          flacfilename, global_prefs->flac_compression, &flac_percent); //mw
 
                 
@@ -934,7 +916,6 @@ gpointer encode(gpointer data)
                     free(trackartist);
                     free(tracktitle);
                     free(tracktime);
-                    free(genre);
 
                     free(album_artist);
                     free(album_title);
@@ -1002,7 +983,6 @@ gpointer encode(gpointer data)
                     free(trackartist);
                     free(tracktitle);
                     free(tracktime);
-                    free(genre);
 
                     free(album_artist);
                     free(album_title);
@@ -1061,7 +1041,6 @@ gpointer encode(gpointer data)
                     free(trackartist);
                     free(tracktitle);
                     free(tracktime);
-                    free(genre);
 
                     free(album_artist);
                     free(album_title);
@@ -1120,7 +1099,6 @@ gpointer encode(gpointer data)
                     free(trackartist);
                     free(tracktitle);
                     free(tracktime);
-                    free(genre);
 
                     free(album_artist);
                     free(album_title);
@@ -1153,7 +1131,7 @@ gpointer encode(gpointer data)
                 
                 if(doEncode)
                 {
-                    aac(tracknum, trackartist, album_title, tracktitle, genre, album_year,
+                    aac(tracknum, trackartist, album_title, tracktitle, album_genre, album_year,
                         wavfilename, aacfilename,
                         global_prefs->aac_quality, 
                         &aac_percent);
@@ -1206,7 +1184,6 @@ gpointer encode(gpointer data)
         free(trackartist);
         free(tracktitle);
         free(tracktime);
-        free(genre);
         
         if (aborted)
         {

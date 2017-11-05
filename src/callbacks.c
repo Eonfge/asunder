@@ -192,28 +192,6 @@ on_artist_edited                    (GtkCellRendererText *cell,
         gtk_list_store_set(store, &iter, COL_TRACKARTIST, new_text, -1);
 }
 
-// lnr
-void
-on_genre_edited                    (GtkCellRendererText *cell,
-                                     gchar               *path_string,
-                                     gchar               *new_text,
-                                     gpointer             user_data)
-{
-    GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
-                    GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
-    GtkTreeIter iter;
-    
-    //trim_chars(new_text, BADCHARS);	//Commented out by mrpl
-    trim_whitespace(new_text);
-    
-    gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
-    
-    if(new_text[0] == '\0')
-        gtk_list_store_set(store, &iter, COL_GENRE, "Unknown", -1);
-    else
-        gtk_list_store_set(store, &iter, COL_GENRE, new_text, -1);
-}
-
 void
 on_cancel_clicked                      (GtkButton       *button,
                                         gpointer         user_data)
@@ -647,15 +625,6 @@ on_single_artist_toggled               (GtkToggleButton *togglebutton,
 {
 //    GtkTreeViewColumn * col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), 2);
     GtkTreeViewColumn * col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), COL_TRACKARTIST ); //lnr
-    gtk_tree_view_column_set_visible(col, !gtk_toggle_button_get_active(togglebutton));
-}
-
-// lnr
-void
-on_single_genre_toggled               (GtkToggleButton *togglebutton,
-                                        gpointer         user_data)
-{
-    GtkTreeViewColumn * col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), COL_GENRE );
     gtk_tree_view_column_set_visible(col, !gtk_toggle_button_get_active(togglebutton));
 }
 

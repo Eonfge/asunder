@@ -67,7 +67,6 @@ create_main (void)
     GtkWidget* statusLbl;
     GtkWidget *album_genre;			// lnr
     GtkWidget *genre_label;			// lnr
-    GtkWidget *single_genre;		// lnr
     
     main_win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title (GTK_WINDOW (main_win), "Asunder");
@@ -175,12 +174,6 @@ create_main (void)
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (0), 3, 0);
 
-    single_genre = gtk_check_button_new_with_mnemonic(_("Single Genre"));	// lnr
-    //~ gtk_widget_show( single_genre );
-    //~ gtk_table_attach( GTK_TABLE( table2 ), single_genre, 2, 3, 3, 4,
-                      //~ (GtkAttachOptions) ( GTK_FILL ),
-                      //~ (GtkAttachOptions) (0), 3, 0);
-                      
     GtkWidget* album_year = gtk_entry_new();
     gtk_widget_show(album_year);
     gtk_table_attach( GTK_TABLE( table2 ), album_year, 2, 3, 3, 4,
@@ -267,9 +260,6 @@ create_main (void)
     g_signal_connect ((gpointer) album_genre, "focus_out_event",					// lnr
                                         G_CALLBACK (on_album_genre_focus_out_event),
                                         NULL);
-    g_signal_connect ((gpointer) single_genre, "toggled",
-                                        G_CALLBACK (on_single_genre_toggled),
-                                        NULL);
     g_signal_connect ((gpointer) album_year, "focus_out_event",
                                         G_CALLBACK (on_year_focus_out_event),
                                         NULL);
@@ -322,7 +312,6 @@ create_main (void)
     GLADE_HOOKUP_OBJECT (main_win, statusLbl, "statusLbl");
     GLADE_HOOKUP_OBJECT (main_win, album_genre, "album_genre");			// lnr
     GLADE_HOOKUP_OBJECT (main_win, genre_label, "genre_label" );		// lnr
-    GLADE_HOOKUP_OBJECT (main_win, single_genre, "single_genre" );		// lnr
     GLADE_HOOKUP_OBJECT (main_win, album_year, "album_year");
     
     return main_win;
@@ -1298,7 +1287,6 @@ void disable_all_main_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), FALSE);
     gtk_widget_set_sensitive(lookup_widget(win_main, "album_genre"), FALSE);	// lnr
     gtk_widget_set_sensitive(lookup_widget(win_main, "genre_label"), FALSE);	// lnr
-    gtk_widget_set_sensitive(lookup_widget(win_main, "single_genre"), FALSE);	// lnr
     gtk_widget_set_sensitive(lookup_widget(win_main, "album_year"), FALSE);
 }
 
@@ -1317,7 +1305,6 @@ void enable_all_main_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_main, "rip_button"), TRUE);
     gtk_widget_set_sensitive(lookup_widget(win_main, "album_genre"), TRUE);		// lnr
     gtk_widget_set_sensitive(lookup_widget(win_main, "genre_label"), TRUE);		// lnr
-    gtk_widget_set_sensitive(lookup_widget(win_main, "single_genre"), TRUE);	// lnr
     gtk_widget_set_sensitive(lookup_widget(win_main, "album_year"), TRUE);
 }
 

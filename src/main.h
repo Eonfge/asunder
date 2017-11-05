@@ -11,9 +11,7 @@ enum
     COL_TRACKNUM,
     COL_TRACKARTIST,
     COL_TRACKTITLE,
-    COL_GENRE,
     COL_TRACKTIME,
-    COL_YEAR,
     NUM_COLS
 };
 

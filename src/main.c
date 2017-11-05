@@ -158,12 +158,6 @@ int main(int argc, char *argv[])
     gtk_tree_view_column_set_resizable(col, TRUE);
 
     renderer = gtk_cell_renderer_text_new();
-    g_object_set(renderer, "editable", TRUE, NULL);
-    g_signal_connect(renderer, "edited", (GCallback) on_genre_edited, NULL);
-    gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
-                    _("Genre"), renderer, "text", COL_GENRE, NULL);
-
-    renderer = gtk_cell_renderer_text_new();
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
                     _("Time"), renderer, "text", COL_TRACKTIME, NULL);
     
@@ -372,9 +366,7 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
                                G_TYPE_UINT, /* track number */
                                G_TYPE_STRING, /* track artist */
                                G_TYPE_STRING, /* track title */
-                               G_TYPE_STRING, /* track time */
-                               G_TYPE_STRING, /* genre */
-                               G_TYPE_STRING /* year */
+                               G_TYPE_STRING  /* track time */
                                );
     
     for (track = cddb_disc_get_track_first(disc); track != NULL; track = cddb_disc_get_track_next(disc))
@@ -390,10 +382,6 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
         //trim_chars(track_title, BADCHARS);		// lnr	//Commented out by mrpl
         trim_whitespace(track_title);
         
-        char year_str[5];
-        snprintf(year_str, 5, "%d", cddb_disc_get_year(disc));
-        year_str[4] = '\0';
-        
         gtk_list_store_append(store, &iter);
         gtk_list_store_set(store, &iter,
             COL_RIPTRACK, track_format[cddb_track_get_number(track)],
@@ -401,8 +389,6 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
             COL_TRACKARTIST, track_artist,
             COL_TRACKTITLE, track_title,
             COL_TRACKTIME, time,
-            COL_GENRE, cddb_disc_get_genre(disc),
-            COL_YEAR, year_str,
             -1);
     }
     
@@ -838,9 +824,6 @@ void update_tracklist(cddb_disc_t * disc)
     char disc_year_char[5];
     snprintf(disc_year_char, 5, "%d", disc_year);
     gtk_entry_set_text( GTK_ENTRY( album_year ), disc_year_char );
-    
-    gtk_toggle_button_set_active(			    	// lnr
-        GTK_TOGGLE_BUTTON( lookup_widget( win_main, "single_genre" )), true );
     
     model = create_model_from_disc(disc);
     gtk_tree_view_set_model(GTK_TREE_VIEW(tracklist), model);
