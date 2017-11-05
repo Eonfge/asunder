@@ -50,7 +50,10 @@ int exec_with_output(const char * args[], int toread, pid_t * p, const char * di
 // tracknum - the track to rip
 // filename - the name of the output WAV file
 // progress - the percent done
-void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress);
+void cdparanoia(const char * cdrom,
+                int tracknum,
+                const char * filename,
+                double * progress);
 
 // uses LAME to encode a WAV file into a MP# and tag it
 //
@@ -64,13 +67,13 @@ void cdparanoia(char * cdrom, int tracknum, char * filename, double * progress);
 // bitrate - the bitrate to encode at (or maximum bitrate if using VBR)
 // progress - the percent done
 void lame(int tracknum,
-          char * artist,
-          char * album,
-          char * title,
-          char * genre,
-          char * year,
-          char * wavfilename,
-          char * mp3filename,
+          const char * artist,
+          const char * album,
+          const char * title,
+          const char * genre,
+          const char * year,
+          const char * wavfilename,
+          const char * mp3filename,
           int vbr,
           int bitrate,
           double * progress);
@@ -86,13 +89,13 @@ void lame(int tracknum,
 // quality_level - how hard to compress the file (0-10)
 // progress - the percent done
 void oggenc(int tracknum,
-            char * artist,
-            char * album,
-            char * title,
-            char * year,
-            char * genre,
-            char * wavfilename,
-            char * oggfilename,
+            const char * artist,
+            const char * album,
+            const char * title,
+            const char * year,
+            const char * genre,
+            const char * wavfilename,
+            const char * oggfilename,
             int quality_level,
             double * progress);
 
@@ -107,13 +110,13 @@ void oggenc(int tracknum,
 // bitrate - the bitrate to encode at
 // progress - the percent done
 void opusenc(int tracknum,
-            char * artist,
-            char * album,
-            char * title,
-            char * year,
-            char * genre,
-            char * wavfilename,
-            char * opusfilename,
+            const char * artist,
+            const char * album,
+            const char * title,
+            const char * year,
+            const char * genre,
+            const char * wavfilename,
+            const char * opusfilename,
             int bitrate,
             double * progress);
 
@@ -129,44 +132,44 @@ void opusenc(int tracknum,
 // compression_level - how hard to compress the file (0-8) see flac man page
 // progress - the percent done
 void flac(int tracknum,
-          char * artist,
-          char * albumartist, //mw
+          const char * artist,
+          const char * albumartist, //mw
           gboolean single_artist, //mw
-          char * album,
-          char * title,
-          char * genre,
-          char * year,
-          char * wavfilename,
-          char * flacfilename,
+          const char * album,
+          const char * title,
+          const char * genre,
+          const char * year,
+          const char * wavfilename,
+          const char * flacfilename,
           int compression_level,
           double * progress);
 
 void wavpack(int tracknum,
-             char * wavfilename,
-             char * wavpackfilename_wv,
-             char * wavpackfilename_wvc,
+             const char * wavfilename,
+             const char * wavpackfilename_wv,
+             const char * wavpackfilename_wvc,
              int compression,
              bool hybrid,
              int bitrate,
              double * progress);
 
-void mac(char* wavfilename,
-         char* monkeyfilename,
+void mac(const char* wavfilename,
+         const char* monkeyfilename,
          int compression,
          double* progress);
 
-void musepack(char* wavfilename,
-              char* musepackfilename,
+void musepack(const char* wavfilename,
+              const char* musepackfilename,
               int quality,
               double* progress);
 
 void aac(int tracknum,
-         char * artist,
-         char * album,
-         char * title,
-         char * genre,
-         char * year,
-         char* wavfilename,
-         char* aacfilename,
+         const char * artist,
+         const char * album,
+         const char * title,
+         const char * genre,
+         const char * year,
+         const char* wavfilename,
+         const char* aacfilename,
          int quality,
          double* progress);
