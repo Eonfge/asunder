@@ -646,6 +646,25 @@ void load_prefs(prefs * p)
         fprintf(stderr, "Warning: could not load config file: %s\n", strerror(errno));
     }
     g_free(file);
+    
+    
+    // Check if we have a file (and not a folder) called ~/.config/asunder
+    // This causes the save config later to fail, since it tries to make
+    // a folder with exactly that name - We can safely remove it now, since
+    // we have already loaded any config it contains, if any.
+    gchar *test_filename = g_build_filename(g_get_user_config_dir(),
+                                            CONFIG_FILENAME, NULL);
+    
+    // if it is a file (and not a directory, remove it)
+    if (!g_file_test(test_filename, G_FILE_TEST_IS_DIR)) {
+    
+        // Remove the file - we save the config later, to the correct location
+        if (g_remove(test_filename) == -1) {
+            fprintf(stderr, "Couldn't remove config file in wrong location...\n");
+        }
+    }
+    
+    g_free(test_filename);
 }
 
 // use this method when reading the "music_dir" field of a prefs struct
