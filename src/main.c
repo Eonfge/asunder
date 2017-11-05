@@ -772,9 +772,9 @@ cddb_disc_t * read_disc(char * cdrom)
 void update_tracklist(cddb_disc_t * disc)
 {
     GtkTreeModel * model;
-    char * disc_artist = (char*)cddb_disc_get_artist(disc);
-    char * disc_title = (char*)cddb_disc_get_title(disc);
-    char * disc_genre = (char*)cddb_disc_get_genre(disc);			// lnr
+    char * disc_artist = g_strdup (cddb_disc_get_artist (disc));
+    char * disc_title = g_strdup (cddb_disc_get_title (disc));
+    char * disc_genre = g_strdup (cddb_disc_get_genre (disc));			// lnr
     unsigned disc_year = cddb_disc_get_year(disc);
     cddb_track_t * track;
     bool singleartist;
@@ -828,6 +828,10 @@ void update_tracklist(cddb_disc_t * disc)
     model = create_model_from_disc(disc);
     gtk_tree_view_set_model(GTK_TREE_VIEW(tracklist), model);
     g_object_unref(model);
+
+    g_free (disc_artist);
+    g_free (disc_title);
+    g_free (disc_genre);
 }
 
 
