@@ -33,3 +33,4 @@ Tests to run before a release
 - cd po && make update-po
 - make dist-bzip2
 - uninstall, extract, compile, install and run
+- add version in bugzilla
