@@ -18,6 +18,7 @@ Foundation; version 2 of the licence.
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #include "callbacks.h"
 #include "interface.h"
@@ -326,6 +327,181 @@ on_prefs_show                          (GtkWidget       *widget,
 {
     set_widgets_from_prefs(global_prefs);
 }
+
+
+void
+on_edit_capitalize_clicked (void)
+{
+    // "Capitalize Artists & Titles"
+
+    GtkTreeIter iter;
+    GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
+    if (store == NULL)
+        return;
+
+    gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
+    while (rowsleft)
+    {
+        int riptrack;
+        char * trackartist = NULL;
+        char * tracktitle = NULL;
+
+        gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
+            COL_RIPTRACK, &riptrack,
+            COL_TRACKARTIST, &trackartist,
+            COL_TRACKTITLE, &tracktitle,
+            -1);
+
+        if (riptrack)       // Only modify selected tracks
+        {
+            int start_of_word = 1;
+            for (char *cp = trackartist; *cp; ++cp)
+            {
+                if (isspace(*cp))
+                {
+                    start_of_word = 1;
+                }
+                else
+                if (start_of_word)
+                {
+                    if (islower(*cp))
+                        *cp = toupper(*cp);
+                    start_of_word = 0;
+                }
+            }
+
+            start_of_word = 1;
+            for (char *cp = tracktitle; *cp; ++cp)
+            {
+                if (isspace(*cp))
+                {
+                    start_of_word = 1;
+                }
+                else
+                if (start_of_word)
+                {
+                    if (islower(*cp))
+                        *cp = toupper(*cp);
+                    start_of_word = 0;
+                }
+            }
+
+            // Write modified values back into widgets
+            gtk_list_store_set(store, &iter,
+                COL_TRACKARTIST, trackartist,
+                COL_TRACKTITLE, tracktitle,
+                -1);
+        }
+
+        if (trackartist)
+            free (trackartist);
+        if (tracktitle)
+            free (tracktitle);
+
+        rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
+    }
+}
+
+void
+on_edit_split_clicked (void)
+{
+    // "Split 'Artist/Title' in Title field"
+
+    GtkTreeIter iter;
+    GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
+    if (store == NULL)
+        return;
+
+    gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
+    while (rowsleft)
+    {
+        int riptrack;
+        char * trackartist = NULL;
+        char * tracktitle = NULL;
+
+        gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
+            COL_RIPTRACK, &riptrack,
+            COL_TRACKTITLE, &tracktitle,
+            -1);
+
+        if (riptrack)       // Only modify selected tracks
+        {
+            char *slash = strchr(tracktitle, '/');
+            if (slash != NULL)
+            {
+                // If slash is present, split Artist/Title
+                trackartist = strdup(tracktitle);
+                slash = strchr(trackartist, '/');
+                char *cp = slash + 1;
+                while (*cp && isspace(*cp))     // Remove space after slash
+                    ++cp;
+                strcpy(tracktitle, cp);
+                *slash = '\0';
+                cp = slash - 1;
+                while (cp >= trackartist && *cp && isspace(*cp))     // Remove space before slash
+                {
+                    *cp = '\0';
+                    cp--;
+				}
+				
+                // Write modified values back into widgets
+                gtk_list_store_set(store, &iter,
+                    COL_TRACKARTIST, trackartist,
+                    COL_TRACKTITLE, tracktitle,
+                    -1);
+            }
+        }
+		
+        if (trackartist)
+            free (trackartist);
+        if (tracktitle)
+            free (tracktitle);
+		
+        rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
+    }
+}
+
+void
+on_edit_swap_clicked (void)
+{
+    // "Swap Artist <=> Title"
+
+    GtkTreeIter iter;
+    GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
+    if (store == NULL)
+        return;
+
+    gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
+    while (rowsleft)
+    {
+        int riptrack;
+        char * trackartist = NULL;
+        char * tracktitle = NULL;
+
+        gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
+            COL_RIPTRACK, &riptrack,
+            COL_TRACKARTIST, &trackartist,
+            COL_TRACKTITLE, &tracktitle,
+            -1);
+
+        if (riptrack)       // Only modify selected tracks
+        {
+            // Write swapped values back into widgets
+            gtk_list_store_set(store, &iter,
+                COL_TRACKARTIST, tracktitle,
+                COL_TRACKTITLE, trackartist,
+                -1);
+        }
+
+        if (trackartist)
+            free (trackartist);
+        if (tracktitle)
+            free (tracktitle);
+
+        rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
+    }
+}
+
 
 void 
 on_press_f2                       (void)
@@ -673,6 +849,24 @@ on_tracklist_mouse_click               (GtkWidget* treeView,
         menuItem = gtk_menu_item_new_with_label(_("Deselect all for ripping"));
         g_signal_connect(menuItem, "activate", 
                          G_CALLBACK(on_deselect_all_click), NULL);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuItem);
+        gtk_widget_show_all(menu);
+
+        menuItem = gtk_menu_item_new_with_label(_("Capitalize Artists & Titles"));
+        g_signal_connect(menuItem, "activate",
+                         G_CALLBACK(on_edit_capitalize_clicked), NULL);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuItem);
+        gtk_widget_show_all(menu);
+
+        menuItem = gtk_menu_item_new_with_label(_("Split 'Artist/Title' in Title field"));
+        g_signal_connect(menuItem, "activate",
+                         G_CALLBACK(on_edit_split_clicked), NULL);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuItem);
+        gtk_widget_show_all(menu);
+
+        menuItem = gtk_menu_item_new_with_label(_("Swap Artist <=> Title"));
+        g_signal_connect(menuItem, "activate",
+                         G_CALLBACK(on_edit_swap_clicked), NULL);
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuItem);
         gtk_widget_show_all(menu);
         
