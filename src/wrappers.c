@@ -954,17 +954,34 @@ void flac(int tracknum,
     *progress = 1;
 }
 
+// uses wavpack to encode a WAV file into a .wv/.wvc and tag it
+//
+// tracknum - the track number
+// artist - the artist's name
+// album - the album the song came from
+// title - the name of the song
+// wavfilename - the path to the WAV file to encode
+// wavpackfilename - the path to the output .wv/.wvc file
+// compression - compression quantity variable
+// hybrid - flag to indicate creating the lossless hybrid .wvc file.
+// bitrate - the bitrate to encode at
+// progress - the percent done
 void wavpack(int tracknum,
-             const char* wavfilename,
-             const char* wavpackfilename_wv,  // .wv file
-             const char* wavpackfilename_wvc, // .wvc file, assumed to be in same dir as .wv file [if hybrid]
+             const char * artist,
+             const char * album,
+             const char * title,
+             const char * year,
+             const char * genre,
+             const char * wavfilename,
+             const char * wavpackfilename_wv,  // .wv file
+             const char * wavpackfilename_wvc, // .wvc file, assumed to be in same dir as .wv file [if hybrid]
              int compression,
              bool hybrid,
              int bitrate,
              double* progress)
 {
     char logStr[1024];
-    const char* args[12];
+    const char* args[22];
     int fd;
     int pos;
     int size;
@@ -990,9 +1007,9 @@ void wavpack(int tracknum,
     pos = 0;
     args[pos++] = "wavpack";
     
+    char bitrateTxt[7];
     if(hybrid)
     {
-        char bitrateTxt[7];
         snprintf(bitrateTxt, 7, "-b%d", bitrate);
         args[pos++] = bitrateTxt;
         
@@ -1009,7 +1026,62 @@ void wavpack(int tracknum,
     // default is no parameter (normal compression)
     
     args[pos++] = "-x3";
-    
+
+    // Tags
+
+    int tracknum_len = sizeof("TRACK=")  + 2;  // sizeof includes terminating '\0'
+    int artist_len   = sizeof("ARTIST=") + (artist ? strlen(artist) : 0);
+    int album_len    = sizeof("ALBUM=")  + (album  ? strlen(album)  : 0);
+    int title_len    = sizeof("TITLE=")  + (title  ? strlen(title)  : 0);
+    int year_len     = sizeof("YEAR=")   + (year   ? strlen(year)   : 0);
+    int genre_len    = sizeof("GENRE=")  + (genre  ? strlen(genre)  : 0);
+
+    char *tracknum_buf = malloc(tracknum_len);
+    char *artist_buf   = malloc(artist_len);
+    char *album_buf    = malloc(album_len);
+    char *title_buf    = malloc(title_len);
+    char *year_buf     = malloc(year_len);
+    char *genre_buf    = malloc(genre_len);
+    if (!tracknum_buf || !artist_buf || !album_buf || !title_buf || !year_buf || !genre_buf)
+        fatalError("wavpack: malloc failed. Out of memory.");
+
+    if (tracknum > 0 && tracknum < 100)
+    {
+        snprintf(tracknum_buf, tracknum_len, "TRACK=%d", tracknum);
+        args[pos++] = "-w";
+        args[pos++] = tracknum_buf;
+    }
+    if (artist && *artist)
+    {
+        snprintf(artist_buf, artist_len, "ARTIST=%s", artist);
+        args[pos++] = "-w";
+        args[pos++] = artist_buf;
+    }
+    if (album && *album)
+    {
+        snprintf(album_buf, album_len, "ALBUM=%s", album);
+        args[pos++] = "-w";
+        args[pos++] = album_buf;
+    }
+    if (title && *title)
+    {
+        snprintf(title_buf, title_len, "TITLE=%s", title);
+        args[pos++] = "-w";
+        args[pos++] = title_buf;
+    }
+    if (year && *year)
+    {
+        snprintf(year_buf, year_len, "YEAR=%s", year);
+        args[pos++] = "-w";
+        args[pos++] = year_buf;
+    }
+    if (genre && *genre)
+    {
+        snprintf(genre_buf, genre_len, "GENRE=%s", genre);
+        args[pos++] = "-w";
+        args[pos++] = genre_buf;
+    }
+
     args[pos++] = wavfilename;
     args[pos++] = "-o";
     args[pos++] = trackname_wv;
@@ -1089,6 +1161,12 @@ void wavpack(int tracknum,
     g_free(xwavpackfilename_wv);
     g_free(xwavpackfilename_wvc);
     g_free(dir);
+    free(tracknum_buf);
+    free(artist_buf);
+    free(album_buf);
+    free(title_buf);
+    free(year_buf);
+    free(genre_buf);
     *progress = 1;
 }
 
@@ -1151,12 +1229,28 @@ void mac(const char* wavfilename,
     *progress = 1;
 }
 
-void musepack(const char* wavfilename,
-              const char* musepackfilename,
+// uses mpcenc to encode a WAV file into a .mpc and tag it
+//
+// tracknum - the track number
+// artist - the artist's name
+// album - the album the song came from
+// title - the name of the song
+// wavfilename - the path to the WAV file to encode
+// musepackfilename - the path to the output .mpc file
+// quality - encode value
+// progress - the percent done
+void musepack(int tracknum,
+              const char * artist,
+              const char * album,
+              const char * title,
+              const char * year,
+              const char * genre,
+              const char * wavfilename,
+              const char * musepackfilename,
               int quality,
               double* progress)
 {
-    const char* args[7];
+    const char* args[19];
     int fd;
     int pos;
     
@@ -1168,6 +1262,40 @@ void musepack(const char* wavfilename,
     char qualityParam[6];
     snprintf(qualityParam, 6, "%d.00", quality);
     args[pos++] = qualityParam;
+
+    // Tags
+    char track[4];
+    if (tracknum > 0 && tracknum < 100)
+    {
+        snprintf(track, 4, "%d", tracknum);
+        args[pos++] = "--track";
+        args[pos++] = track;
+    }
+    if (artist && *artist)
+    {
+        args[pos++] = "--artist";
+        args[pos++] = artist;
+    }
+    if (album && *album)
+    {
+        args[pos++] = "--album";
+        args[pos++] = album;
+    }
+    if (title && *title)
+    {
+        args[pos++] = "--title";
+        args[pos++] = title;
+    }
+    if (year && *year)
+    {
+        args[pos++] = "--year";
+        args[pos++] = year;
+    }
+    if (genre && *genre)
+    {
+        args[pos++] = "--genre";
+        args[pos++] = genre;
+    }
     
     args[pos++] = wavfilename;
     args[pos++] = musepackfilename;

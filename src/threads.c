@@ -956,7 +956,8 @@ gpointer encode(gpointer data)
                 
                 if(doEncode)
                 {
-                    wavpack(tracknum, wavfilename, wavpackfilename, wavpackfilename2,
+                    wavpack(tracknum, trackartist, album_title, tracktitle, album_year, album_genre,
+                            wavfilename, wavpackfilename, wavpackfilename2,
                             global_prefs->wavpack_compression, global_prefs->wavpack_hybrid, 
                             int_to_wavpack_bitrate(global_prefs->wavpack_bitrate), &wavpack_percent);
                 }
@@ -1073,7 +1074,8 @@ gpointer encode(gpointer data)
                 
                 if(doEncode)
                 {
-                    musepack(wavfilename, musepackfilename,
+                    musepack(tracknum, trackartist, album_title, tracktitle, album_year, album_genre,
+                             wavfilename, musepackfilename,
                              int_to_musepack_int(global_prefs->musepack_bitrate), 
                              &musepack_percent);
                 }

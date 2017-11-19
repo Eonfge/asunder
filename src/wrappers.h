@@ -144,7 +144,24 @@ void flac(int tracknum,
           int compression_level,
           double * progress);
 
+// uses wavpack to encode a WAV file into a .wv/.wvc and tag it
+//
+// tracknum - the track number
+// artist - the artist's name
+// album - the album the song came from
+// title - the name of the song
+// wavfilename - the path to the WAV file to encode
+// wavpackfilename - the path to the output .wv/.wvc file
+// compression - compression quantity variable
+// hybrid - flag to indicate creating the lossless hybrid .wvc file.
+// bitrate - the bitrate to encode at
+// progress - the percent done
 void wavpack(int tracknum,
+             const char * artist,
+             const char * album,
+             const char * title,
+             const char * year,
+             const char * genre,
              const char * wavfilename,
              const char * wavpackfilename_wv,
              const char * wavpackfilename_wvc,
@@ -158,8 +175,24 @@ void mac(const char* wavfilename,
          int compression,
          double* progress);
 
-void musepack(const char* wavfilename,
-              const char* musepackfilename,
+// uses mpcenc to encode a WAV file into a .mpc and tag it
+//
+// tracknum - the track number
+// artist - the artist's name
+// album - the album the song came from
+// title - the name of the song
+// wavfilename - the path to the WAV file to encode
+// musepackfilename - the path to the output .mpc file
+// quality - encode value
+// progress - the percent done
+void musepack(int tracknum,
+              const char * artist,
+              const char * album,
+              const char * title,
+              const char * year,
+              const char * genre,
+              const char * wavfilename,
+              const char * musepackfilename,
               int quality,
               double* progress);
 
