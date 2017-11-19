@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-07 00:33-0400\n"
+"POT-Creation-Date: 2017-11-19 16:39-0500\n"
 "PO-Revision-Date: 2012-02-19 14:59+0900\n"
 "Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../src/main.c:135 ../src/interface.c:231
+#: ../src/main.c:135 ../src/interface.c:224
 msgid "Rip"
 msgstr "吸い出す"
 
@@ -29,19 +29,15 @@ msgstr "トラック"
 msgid "Artist"
 msgstr "アーティスト"
 
-#: ../src/main.c:154
+#: ../src/main.c:156
 msgid "Title"
 msgstr "タイトル"
 
-#: ../src/main.c:160
-msgid "Genre"
-msgstr "ジャンル"
-
-#: ../src/main.c:164
+#: ../src/main.c:162
 msgid "Time"
 msgstr "時間"
 
-#: ../src/main.c:190
+#: ../src/main.c:188
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -55,32 +51,32 @@ msgstr ""
 #. This is to deal with the fact that the signal below will take up to
 #. a second to get processed in refresh_thread() which will call check_disk()
 #. which will set the label to the same thing at the start.
-#: ../src/main.c:233 ../src/main.c:258 ../src/main.c:839
+#: ../src/main.c:231 ../src/main.c:256 ../src/main.c:843
 msgid "<b>Checking disc...</b>"
 msgstr ""
 
-#: ../src/main.c:523
+#: ../src/main.c:521
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>ディスクの情報をインターネットから取得...</b>"
 
-#: ../src/main.c:584
+#: ../src/main.c:582
 msgid "<b>Reading disc...</b>"
 msgstr ""
 
-#: ../src/callbacks.c:57 ../src/callbacks.c:254 ../src/callbacks.c:282
-#: ../src/callbacks.c:291 ../src/callbacks.c:301 ../src/interface.c:613
-#: ../src/interface.c:758 ../src/interface.c:894
+#: ../src/callbacks.c:58 ../src/callbacks.c:233 ../src/callbacks.c:261
+#: ../src/callbacks.c:270 ../src/callbacks.c:280 ../src/interface.c:602
+#: ../src/interface.c:747 ../src/interface.c:883
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
-#: ../src/callbacks.c:406
+#: ../src/callbacks.c:560
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "CD が挿入されていません。CD を CD-ROM ドライブに入れてください。"
 
-#: ../src/callbacks.c:425 ../src/callbacks.c:450 ../src/callbacks.c:475
-#: ../src/callbacks.c:500 ../src/callbacks.c:526 ../src/callbacks.c:551
-#: ../src/callbacks.c:576 ../src/callbacks.c:601
+#: ../src/callbacks.c:579 ../src/callbacks.c:604 ../src/callbacks.c:629
+#: ../src/callbacks.c:654 ../src/callbacks.c:680 ../src/callbacks.c:705
+#: ../src/callbacks.c:730 ../src/callbacks.c:755
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
@@ -88,59 +84,67 @@ msgid ""
 msgstr ""
 "%s が見つかりません。%s を作成するのに必要です。%s の機能を全て無効にします。"
 
-#: ../src/callbacks.c:698
+#: ../src/callbacks.c:843
 msgid "Select all for ripping"
 msgstr "全てを選択する"
 
-#: ../src/callbacks.c:704
+#: ../src/callbacks.c:849
 msgid "Deselect all for ripping"
 msgstr "全ての選択を解除"
 
-#: ../src/interface.c:95
+#: ../src/callbacks.c:855
+msgid "Capitalize Artists & Titles"
+msgstr ""
+
+#: ../src/callbacks.c:861
+msgid "Split 'Artist/Title' in Title field"
+msgstr ""
+
+#: ../src/callbacks.c:867
+msgid "Swap Artist <=> Title"
+msgstr ""
+
+#: ../src/interface.c:94
 msgid "CDDB Lookup"
 msgstr "CDDB 検索"
 
-#: ../src/interface.c:145
+#: ../src/interface.c:144
 msgid "Disc:"
 msgstr "ディスク:"
 
-#: ../src/interface.c:151
+#: ../src/interface.c:150
 msgid "Album Artist:"
 msgstr "アルバムアーティスト:"
 
-#: ../src/interface.c:158
+#: ../src/interface.c:157
 msgid "Album Title:"
 msgstr "アルバムタイトル:"
 
-#: ../src/interface.c:165
+#: ../src/interface.c:164
 msgid "Single Artist"
 msgstr "同一のアーティスト"
 
-#: ../src/interface.c:171
+#: ../src/interface.c:170
 msgid "Genre / Year:"
 msgstr "ジャンル / 年:"
 
-#: ../src/interface.c:178
-msgid "Single Genre"
-msgstr "同一のジャンル"
-
-#: ../src/interface.c:370
+#: ../src/interface.c:359
 msgid "Preferences"
 msgstr "設定"
 
-#: ../src/interface.c:387 ../src/interface.c:393
+#: ../src/interface.c:376 ../src/interface.c:382
 msgid "Destination folder"
 msgstr "保存先フォルダ"
 
-#: ../src/interface.c:397
+#: ../src/interface.c:386
 msgid "Create M3U playlist"
 msgstr "M3U プレイリストを作る"
 
-#: ../src/interface.c:405
+#: ../src/interface.c:394
 msgid "CD-ROM device: "
 msgstr "CD-ROM デバイス: "
 
-#: ../src/interface.c:414
+#: ../src/interface.c:403
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
@@ -150,15 +154,15 @@ msgstr ""
 "例1: /dev/hdc\n"
 "例2: /dev/sr0"
 
-#: ../src/interface.c:418
+#: ../src/interface.c:407
 msgid "Eject disc when finished"
 msgstr "完了したらディスクをイジェクト"
 
-#: ../src/interface.c:426
+#: ../src/interface.c:415
 msgid "General"
 msgstr "全般"
 
-#: ../src/interface.c:446
+#: ../src/interface.c:435
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -172,24 +176,24 @@ msgstr ""
 "%Y - 年 (4桁または \"0\")\n"
 "%T - 歌のタイトル"
 
-#: ../src/interface.c:451
+#: ../src/interface.c:440
 #, c-format
 msgid "%G - Genre"
 msgstr "%G - ジャンル"
 
-#: ../src/interface.c:466
+#: ../src/interface.c:455
 msgid "Album directory: "
 msgstr "アルバムのディレクトリ: "
 
-#: ../src/interface.c:473 ../src/prefs.c:704
+#: ../src/interface.c:462 ../src/prefs.c:721
 msgid "Playlist file: "
 msgstr "プレイリストファイル: "
 
-#: ../src/interface.c:480 ../src/prefs.c:716 ../src/prefs.c:726
+#: ../src/interface.c:469 ../src/prefs.c:733 ../src/prefs.c:743
 msgid "Music file: "
 msgstr "音楽ファイル: "
 
-#: ../src/interface.c:494
+#: ../src/interface.c:483
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -201,7 +205,7 @@ msgstr ""
 "デフォルト: %A - %L\n"
 "他の例: %A/%L"
 
-#: ../src/interface.c:506
+#: ../src/interface.c:495
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -211,7 +215,7 @@ msgstr ""
 "空白にもできます。\n"
 "デフォルト: %A - %L"
 
-#: ../src/interface.c:517
+#: ../src/interface.c:506
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -223,11 +227,11 @@ msgstr ""
 "デフォルト: %A - %L\n"
 "他の例: %N - %T"
 
-#: ../src/interface.c:522
+#: ../src/interface.c:511
 msgid "Filename formats"
 msgstr "ファイル名の形式"
 
-#: ../src/interface.c:527
+#: ../src/interface.c:516
 msgid "Filenames"
 msgstr "ファイル名"
 
@@ -243,24 +247,24 @@ msgstr "ファイル名"
 #. vbox2 = gtk_vbox_new (FALSE, 0);
 #. gtk_widget_show (vbox2);
 #. gtk_container_add (GTK_CONTAINER (alignment8), vbox2);
-#: ../src/interface.c:560
+#: ../src/interface.c:549
 msgid "WAV (uncompressed)"
 msgstr "WAV (圧縮なし)"
 
-#: ../src/interface.c:581
+#: ../src/interface.c:570
 msgid "Variable bit rate (VBR)"
 msgstr "可変ビットレート (VBR)"
 
-#: ../src/interface.c:589
+#: ../src/interface.c:578
 msgid "Better quality for the same size."
 msgstr "同じサイズでもより良い品質になります。"
 
-#: ../src/interface.c:595 ../src/interface.c:742 ../src/interface.c:828
-#: ../src/interface.c:876
+#: ../src/interface.c:584 ../src/interface.c:731 ../src/interface.c:817
+#: ../src/interface.c:865
 msgid "Bitrate"
 msgstr "ビットレート"
 
-#: ../src/interface.c:610
+#: ../src/interface.c:599
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
@@ -268,39 +272,39 @@ msgstr ""
 "ビットレートを高くすると音質は良くなるがサイズが大きくなる。多くのユーザは "
 "192Kbps にしています。"
 
-#: ../src/interface.c:619
+#: ../src/interface.c:608
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (ロスあり圧縮)"
 
-#: ../src/interface.c:642 ../src/interface.c:989
+#: ../src/interface.c:631 ../src/interface.c:978
 msgid "Quality"
 msgstr "クオリティ"
 
-#: ../src/interface.c:653
+#: ../src/interface.c:642
 msgid "Higher quality means bigger file. Default is 6."
 msgstr "クオリティを上げるとサイズが大きくなります。デフォルトは 6。"
 
-#: ../src/interface.c:655
+#: ../src/interface.c:644
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (ロスあり圧縮)"
 
-#: ../src/interface.c:678 ../src/interface.c:794 ../src/interface.c:933
+#: ../src/interface.c:667 ../src/interface.c:783 ../src/interface.c:922
 msgid "Compression level"
 msgstr "圧縮レベル"
 
-#: ../src/interface.c:689 ../src/interface.c:946
+#: ../src/interface.c:678 ../src/interface.c:935
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "これは品質に影響しません。高い数字にすると小さいファイルになります。"
 
-#: ../src/interface.c:691
+#: ../src/interface.c:680
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (ロスなし圧縮)"
 
-#: ../src/interface.c:710
+#: ../src/interface.c:699
 msgid "More formats"
 msgstr "他の形式"
 
-#: ../src/interface.c:756
+#: ../src/interface.c:745
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
@@ -308,11 +312,11 @@ msgstr ""
 "ビットレートを高くすると音質は良くなるがサイズが大きくなる。多くのユーザは "
 "160Kbps にしています。"
 
-#: ../src/interface.c:764
+#: ../src/interface.c:753
 msgid "OPUS (lossy compression)"
 msgstr "OPUS (ロスあり圧縮)"
 
-#: ../src/interface.c:807
+#: ../src/interface.c:796
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
@@ -320,11 +324,11 @@ msgstr ""
 "これは品質に影響しません。高い数字にすると小さいファイルになります。デフォル"
 "トは 1 (推奨)。"
 
-#: ../src/interface.c:813
+#: ../src/interface.c:802
 msgid "Hybrid compression"
 msgstr "ハイブリッド圧縮"
 
-#: ../src/interface.c:822
+#: ../src/interface.c:811
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
@@ -332,89 +336,90 @@ msgstr ""
 "この形式ではロスあり圧縮を行いますが、元のロスレスファイルを生成するための復"
 "旧用ファイルを作成します。"
 
-#: ../src/interface.c:892
+#: ../src/interface.c:881
 msgid "Higher bitrate is better quality but also bigger file."
 msgstr "ビットレートを高くすると音質は良くなるがサイズが大きくなる。"
 
-#: ../src/interface.c:900
+#: ../src/interface.c:889
 msgid "Musepack (lossy compression)"
 msgstr "Musepack (ロスあり圧縮)"
 
-#: ../src/interface.c:948
+#: ../src/interface.c:937
 msgid "Monkey's Audio (lossless compression)"
 msgstr "Monkey's Audio (ロスなし圧縮)"
 
 #. END MONKEY
-#: ../src/interface.c:957
+#: ../src/interface.c:946
 msgid "Proprietary encoders"
 msgstr "プロプライエタリ・エンコーダー"
 
-#: ../src/interface.c:1002
+#: ../src/interface.c:991
 msgid "Higher quality means bigger file. Default is 60."
 msgstr "クオリティを上げるとサイズが大きくなります。デフォルトは 60。"
 
-#: ../src/interface.c:1004
+#: ../src/interface.c:993
 msgid "AAC (lossy compression, Nero encoder)"
 msgstr "AAC (ロスあり圧縮, Nero エンコーダー)"
 
 #. END AAC
-#: ../src/interface.c:1013
+#: ../src/interface.c:1002
 msgid "Encode"
 msgstr "エンコード"
 
-#: ../src/interface.c:1046
+#: ../src/interface.c:1035
 msgid "Get disc info from the internet automatically"
 msgstr "ディスクの情報をインターネットから自動的に取得"
 
-#: ../src/interface.c:1054 ../src/interface.c:1100
+#: ../src/interface.c:1043 ../src/interface.c:1089
 msgid "Server: "
 msgstr "サーバ: "
 
-#: ../src/interface.c:1064
+#: ../src/interface.c:1053
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr ""
 "CD の情報を取得するためのCDDB サーバー (デフォルトは　freedb.freedb.org)"
 
-#: ../src/interface.c:1070 ../src/interface.c:1113
+#: ../src/interface.c:1059 ../src/interface.c:1102
 msgid "Port: "
 msgstr "ポート: "
 
-#: ../src/interface.c:1080
+#: ../src/interface.c:1069
 msgid "The CDDB server port (default is 8880)"
 msgstr "CDDB　サーバーのポート番号 (デフォルトは 8880)"
 
-#: ../src/interface.c:1087
+#: ../src/interface.c:1076
 msgid "Use an HTTP proxy to connect to the internet"
 msgstr "インターネット接続に HTTP プロクシを使う"
 
-#: ../src/interface.c:1122
+#: ../src/interface.c:1111
 msgid "Log to /var/log/asunder.log"
 msgstr ""
 
-#: ../src/interface.c:1127
+#: ../src/interface.c:1116
 msgid "Faster ripping (no error correction)"
 msgstr ""
 
-#: ../src/interface.c:1136
+#: ../src/interface.c:1125
 msgid "Advanced"
 msgstr "詳細"
 
-#: ../src/interface.c:1207 ../src/interface.c:1243
+#: ../src/interface.c:1196 ../src/interface.c:1232
 msgid "Ripping"
 msgstr "吸い出し"
 
-#: ../src/interface.c:1236
+#: ../src/interface.c:1225
 msgid "Total progress"
 msgstr "全体の進行"
 
-#: ../src/interface.c:1250
+#: ../src/interface.c:1239
 msgid "Encoding"
 msgstr "エンコーディング"
 
-#: ../src/interface.c:1793
+#: ../src/interface.c:1791
+#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"as WAV, MP3, OGG, FLAC, Wavpack, Opus, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "音楽 CD を WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio,\n"
@@ -432,21 +437,21 @@ msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
 msgstr[0] "%d 個のファイルを作成中にエラー"
 
-#: ../src/prefs.c:703 ../src/prefs.c:715
+#: ../src/prefs.c:720 ../src/prefs.c:732
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "'%s' の欄に不正な文字があります"
 
-#: ../src/prefs.c:725
+#: ../src/prefs.c:742
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "'%s' は空にできません"
 
-#: ../src/prefs.c:740
+#: ../src/prefs.c:757
 msgid "Invalid proxy port number"
 msgstr "不正なプロキシポート番号"
 
-#: ../src/prefs.c:753
+#: ../src/prefs.c:770
 msgid "Invalid cddb server port number"
 msgstr "不正な cddb サーバーポート番号"
 
@@ -463,7 +468,7 @@ msgstr "ファイル '%s' は既にあります。上書きしますか？\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "この CD から作った全てのファイル用に答えを覚えておく(_a)"
 
-#: ../src/threads.c:186
+#: ../src/threads.c:188
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -471,7 +476,7 @@ msgstr ""
 "吸い出す/エンコーディングする方法を選んでいません。設定メニューで選んでくださ"
 "い。"
 
-#: ../src/threads.c:218
+#: ../src/threads.c:220
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -479,9 +484,15 @@ msgstr ""
 "吸い出す/エンコーディングするトラックを選んでいません。最低１つは選んでくださ"
 "い。"
 
-#: ../src/threads.c:1294 ../src/threads.c:1296 ../src/threads.c:1300
+#: ../src/threads.c:1281 ../src/threads.c:1283 ../src/threads.c:1287
 msgid "Waiting..."
 msgstr "待機中..."
+
+#~ msgid "Genre"
+#~ msgstr "ジャンル"
+
+#~ msgid "Single Genre"
+#~ msgstr "同一のジャンル"
 
 #, fuzzy
 #~ msgid ""

@@ -1425,7 +1425,7 @@ void enable_musepack_widgets(void)
 }
 
 const char* 
-GBLprogramName = "Asunder 2.9.1";
+GBLprogramName = "Asunder 2.9.2";
 
 static const char* 
 GBLauthors[2] = {
@@ -1454,6 +1454,9 @@ GBLauthors[2] = {
 "- Fixed race condition during abort\n"
 "- Improved completion percentage feedback\n"
 "- Added feature to make the artist and title columns resizable\n"
+"- Remove 'single genre' code that's been unused since 2010.\n"
+"- Added features to automatically fix some common mistakes in CDDB entries.\n"
+"- Fixed the wavpack and mpc encoders to include APEv2 metadata.\n"
 "(A few patches were mistakenly attributed to \"Gregory Montego\" and \"Gergory Margo\")\n"
 "\n"
 "Andreas Ronnquist\n"
@@ -1761,7 +1764,7 @@ GBLtranslators =
 "- sv (Swedish) translation of Asunder versions 0.8 - 1.9\n"
 "\n"
 "Andreas Ronnquist\n"
-"- sv (Swedish) translation of Asunder versions 2.2-2.7\n"
+"- sv (Swedish) translation of Asunder versions 2.2-2.9\n"
 "\n"
 "Savas Sen\n"
 "- tr (Turkish) translation of Asunder version 1.9\n"
@@ -1786,13 +1789,13 @@ GBLtranslators =
 static const char* 
 GBLcomments = 
 N_("An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or "
+"as WAV, MP3, OGG, FLAC, Wavpack, Opus, Musepack, Monkey's Audio, and/or "
 "AAC files.");
 
 static const char* 
 GBLcopyright = 
 "Copyright 2005 Eric Lathrop\n"
-"Copyright 2007 - 2017 Andrew Smith";
+"Copyright 2007 - 2018 Andrew Smith";
 
 static const char* 
 GBLwebsite = "http://littlesvr.ca/asunder/";

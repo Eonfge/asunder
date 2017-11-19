@@ -1,5 +1,15 @@
-30 June 2017 - 2.9.1
-====================
+19 Nov 2017 - 2.9.2
+===================
+- Updates Swedish translation.
+The following fixes were contributed by Gregory Margo:
+- Fixed the wavpack and mpc encoders to include APEv2 metadata.
+- Remove 'single genre' code that's been unused since 2010.
+- Added features to automatically fix some common mistakes in CDDB entries.
+The following fix was contributed by Andreas Ronnquist:
+- Fixed a bug where the config file couldn't be created because its parent directory could not be created because it existed already and was a regular file.
+
+30 Jun 2017 - 2.9.1
+===================
 - Fixed a bug that caused a startup crash in some environments (reported in Arch Linux).
 The following fix was contributed by Gregory Margo:
 - Shorten requested filenames that are longer than the filesystem can handle.

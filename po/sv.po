@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-17 01:18+0100\n"
+"POT-Creation-Date: 2017-11-19 16:39-0500\n"
 "PO-Revision-Date: 2017-11-17 01:21+0100\n"
 "Last-Translator: Andreas Rönnquist <andreas@ronnquist.net>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -65,20 +65,20 @@ msgstr "<b>Hämtar skivinformation från Internet...</b>"
 msgid "<b>Reading disc...</b>"
 msgstr "<b>Läser skiva...</b>"
 
-#: ../src/callbacks.c:57 ../src/callbacks.c:232 ../src/callbacks.c:260
-#: ../src/callbacks.c:269 ../src/callbacks.c:279 ../src/interface.c:602
+#: ../src/callbacks.c:58 ../src/callbacks.c:233 ../src/callbacks.c:261
+#: ../src/callbacks.c:270 ../src/callbacks.c:280 ../src/interface.c:602
 #: ../src/interface.c:747 ../src/interface.c:883
 #, c-format
 msgid "%dKbps"
 msgstr "%dKbps"
 
-#: ../src/callbacks.c:384
+#: ../src/callbacks.c:560
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Ingen skiva är inmatad. Mata in en skiva i cd-rom-enheten."
 
-#: ../src/callbacks.c:403 ../src/callbacks.c:428 ../src/callbacks.c:453
-#: ../src/callbacks.c:478 ../src/callbacks.c:504 ../src/callbacks.c:529
-#: ../src/callbacks.c:554 ../src/callbacks.c:579
+#: ../src/callbacks.c:579 ../src/callbacks.c:604 ../src/callbacks.c:629
+#: ../src/callbacks.c:654 ../src/callbacks.c:680 ../src/callbacks.c:705
+#: ../src/callbacks.c:730 ../src/callbacks.c:755
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
@@ -87,13 +87,25 @@ msgstr ""
 "%s hittades inte i dina sökvägar. Asunder kräver det för att skapa %s-filer. "
 "All %s-funktionalitet har inaktiverats."
 
-#: ../src/callbacks.c:667
+#: ../src/callbacks.c:843
 msgid "Select all for ripping"
 msgstr "Markera alla för extrahering"
 
-#: ../src/callbacks.c:673
+#: ../src/callbacks.c:849
 msgid "Deselect all for ripping"
 msgstr "Avmarkera alla för extrahering"
+
+#: ../src/callbacks.c:855
+msgid "Capitalize Artists & Titles"
+msgstr ""
+
+#: ../src/callbacks.c:861
+msgid "Split 'Artist/Title' in Title field"
+msgstr ""
+
+#: ../src/callbacks.c:867
+msgid "Swap Artist <=> Title"
+msgstr ""
 
 #: ../src/interface.c:94
 msgid "CDDB Lookup"
@@ -406,24 +418,25 @@ msgstr "Totalt förlopp"
 msgid "Encoding"
 msgstr "Kodning"
 
-#: ../src/interface.c:1788
+#: ../src/interface.c:1791
+#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"as WAV, MP3, OGG, FLAC, Wavpack, Opus, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "Ett program för att spara spår från en ljud-CD \n"
 "som WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio och/eller "
 "AAC-filer."
 
-#: ../src/interface.c:1830
+#: ../src/interface.c:1833
 #, c-format
 msgid "%d file created successfully"
 msgid_plural "%d files created successfully"
 msgstr[0] "%d fil skapades"
 msgstr[1] "%d filer skapades"
 
-#: ../src/interface.c:1839
+#: ../src/interface.c:1842
 #, c-format
 msgid "There was an error creating %d file"
 msgid_plural "There was an error creating %d files"
@@ -475,7 +488,7 @@ msgid ""
 "track."
 msgstr "Inga spår har markerats för extrahering/kodning. Välj minst ett spår."
 
-#: ../src/threads.c:1279 ../src/threads.c:1281 ../src/threads.c:1285
+#: ../src/threads.c:1281 ../src/threads.c:1283 ../src/threads.c:1287
 msgid "Waiting..."
 msgstr "Väntar..."
 

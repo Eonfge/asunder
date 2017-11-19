@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-07 00:33-0400\n"
+"POT-Creation-Date: 2017-11-19 16:39-0500\n"
 "PO-Revision-Date: 2008-01-06 01:33+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: i18n@mova.org <i18n@mova.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../src/main.c:135 ../src/interface.c:231
+#: ../src/main.c:135 ../src/interface.c:224
 msgid "Rip"
 msgstr "Ździary"
 
@@ -31,20 +31,15 @@ msgstr "Numar pieśni"
 msgid "Artist"
 msgstr "Vykanaŭca"
 
-#: ../src/main.c:154
+#: ../src/main.c:156
 msgid "Title"
 msgstr "Nazva"
 
-#: ../src/main.c:160
-#, fuzzy
-msgid "Genre"
-msgstr "Ahulnaje"
-
-#: ../src/main.c:164
+#: ../src/main.c:162
 msgid "Time"
 msgstr "Čas"
 
-#: ../src/main.c:190
+#: ../src/main.c:188
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -58,32 +53,32 @@ msgstr ""
 #. This is to deal with the fact that the signal below will take up to
 #. a second to get processed in refresh_thread() which will call check_disk()
 #. which will set the label to the same thing at the start.
-#: ../src/main.c:233 ../src/main.c:258 ../src/main.c:839
+#: ../src/main.c:231 ../src/main.c:256 ../src/main.c:843
 msgid "<b>Checking disc...</b>"
 msgstr ""
 
-#: ../src/main.c:523
+#: ../src/main.c:521
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>Atrymańnie źviestak ab dysku ź sieciva...</b>"
 
-#: ../src/main.c:584
+#: ../src/main.c:582
 msgid "<b>Reading disc...</b>"
 msgstr ""
 
-#: ../src/callbacks.c:57 ../src/callbacks.c:254 ../src/callbacks.c:282
-#: ../src/callbacks.c:291 ../src/callbacks.c:301 ../src/interface.c:613
-#: ../src/interface.c:758 ../src/interface.c:894
+#: ../src/callbacks.c:58 ../src/callbacks.c:233 ../src/callbacks.c:261
+#: ../src/callbacks.c:270 ../src/callbacks.c:280 ../src/interface.c:602
+#: ../src/interface.c:747 ../src/interface.c:883
 #, fuzzy, c-format
 msgid "%dKbps"
 msgstr "32Kbps"
 
-#: ../src/callbacks.c:406
+#: ../src/callbacks.c:560
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "Dysk nia ŭstaŭleny. Kali łaska, ustaŭ dysk u pryładu CD-ROM."
 
-#: ../src/callbacks.c:425 ../src/callbacks.c:450 ../src/callbacks.c:475
-#: ../src/callbacks.c:500 ../src/callbacks.c:526 ../src/callbacks.c:551
-#: ../src/callbacks.c:576 ../src/callbacks.c:601
+#: ../src/callbacks.c:579 ../src/callbacks.c:604 ../src/callbacks.c:629
+#: ../src/callbacks.c:654 ../src/callbacks.c:680 ../src/callbacks.c:705
+#: ../src/callbacks.c:730 ../src/callbacks.c:755
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
@@ -92,64 +87,71 @@ msgstr ""
 "%s nia znojdzienaja ŭ ściežcy. Asunder vymahaje jaje, kab stvarać fajły %s. "
 "Usie funkcyi %s vyklučanyja."
 
-#: ../src/callbacks.c:698
+#: ../src/callbacks.c:843
 msgid "Select all for ripping"
 msgstr "Zaznač usio, kab ździerci"
 
-#: ../src/callbacks.c:704
+#: ../src/callbacks.c:849
 msgid "Deselect all for ripping"
 msgstr "Anuluj zaznačeńnie ździranaha"
 
-#: ../src/interface.c:95
+#: ../src/callbacks.c:855
+msgid "Capitalize Artists & Titles"
+msgstr ""
+
+#: ../src/callbacks.c:861
+msgid "Split 'Artist/Title' in Title field"
+msgstr ""
+
+#: ../src/callbacks.c:867
+msgid "Swap Artist <=> Title"
+msgstr ""
+
+#: ../src/interface.c:94
 msgid "CDDB Lookup"
 msgstr "Pošuk CDDB"
 
-#: ../src/interface.c:145
+#: ../src/interface.c:144
 msgid "Disc:"
 msgstr "Dysk:"
 
-#: ../src/interface.c:151
+#: ../src/interface.c:150
 #, fuzzy
 msgid "Album Artist:"
 msgstr "Vykanaŭca albomu:"
 
-#: ../src/interface.c:158
+#: ../src/interface.c:157
 #, fuzzy
 msgid "Album Title:"
 msgstr "Nazva albomu:"
 
-#: ../src/interface.c:165
+#: ../src/interface.c:164
 #, fuzzy
 msgid "Single Artist"
 msgstr "Adzin vykanaŭca"
 
-#: ../src/interface.c:171
+#: ../src/interface.c:170
 #, fuzzy
 msgid "Genre / Year:"
 msgstr "Ahulnaje"
 
-#: ../src/interface.c:178
-#, fuzzy
-msgid "Single Genre"
-msgstr "Adzin vykanaŭca"
-
-#: ../src/interface.c:370
+#: ../src/interface.c:359
 msgid "Preferences"
 msgstr "Nałady"
 
-#: ../src/interface.c:387 ../src/interface.c:393
+#: ../src/interface.c:376 ../src/interface.c:382
 msgid "Destination folder"
 msgstr "Metavy kataloh"
 
-#: ../src/interface.c:397
+#: ../src/interface.c:386
 msgid "Create M3U playlist"
 msgstr "Stvary śpis M3U"
 
-#: ../src/interface.c:405
+#: ../src/interface.c:394
 msgid "CD-ROM device: "
 msgstr "Pryłada CD-ROM: "
 
-#: ../src/interface.c:414
+#: ../src/interface.c:403
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
@@ -159,15 +161,15 @@ msgstr ""
 "Inšy prykład: /dev/hdc\n"
 "Inšy prykład: /dev/sr0"
 
-#: ../src/interface.c:418
+#: ../src/interface.c:407
 msgid "Eject disc when finished"
 msgstr "Vysuń dysk pa zakančeńni"
 
-#: ../src/interface.c:426
+#: ../src/interface.c:415
 msgid "General"
 msgstr "Ahulnaje"
 
-#: ../src/interface.c:446
+#: ../src/interface.c:435
 #, fuzzy
 msgid ""
 "%A - Artist\n"
@@ -181,24 +183,24 @@ msgstr ""
 "%N - Numar pieśni (2-ličbavy)\n"
 "%T - Nazva pieśni"
 
-#: ../src/interface.c:451
+#: ../src/interface.c:440
 #, fuzzy, c-format
 msgid "%G - Genre"
 msgstr "Ahulnaje"
 
-#: ../src/interface.c:466
+#: ../src/interface.c:455
 msgid "Album directory: "
 msgstr "Kataloh albomu: "
 
-#: ../src/interface.c:473 ../src/prefs.c:704
+#: ../src/interface.c:462 ../src/prefs.c:721
 msgid "Playlist file: "
 msgstr "Fajł śpisu: "
 
-#: ../src/interface.c:480 ../src/prefs.c:716 ../src/prefs.c:726
+#: ../src/interface.c:469 ../src/prefs.c:733 ../src/prefs.c:743
 msgid "Music file: "
 msgstr "Muzyčny fajł: "
 
-#: ../src/interface.c:494
+#: ../src/interface.c:483
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -210,7 +212,7 @@ msgstr ""
 "Zmoŭčany: %A - %L\n"
 "Inšy prykład: %A/%L"
 
-#: ../src/interface.c:506
+#: ../src/interface.c:495
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -220,7 +222,7 @@ msgstr ""
 "Moža być pustym.\n"
 "Zmoŭčany: %A - %L"
 
-#: ../src/interface.c:517
+#: ../src/interface.c:506
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -232,11 +234,11 @@ msgstr ""
 "Zmoŭčany: %A - %T\n"
 "Inšy prykład: %N - %T"
 
-#: ../src/interface.c:522
+#: ../src/interface.c:511
 msgid "Filename formats"
 msgstr "Farmaty nazvaŭ fajłaŭ"
 
-#: ../src/interface.c:527
+#: ../src/interface.c:516
 msgid "Filenames"
 msgstr "Nazvy fajłaŭ"
 
@@ -252,24 +254,24 @@ msgstr "Nazvy fajłaŭ"
 #. vbox2 = gtk_vbox_new (FALSE, 0);
 #. gtk_widget_show (vbox2);
 #. gtk_container_add (GTK_CONTAINER (alignment8), vbox2);
-#: ../src/interface.c:560
+#: ../src/interface.c:549
 msgid "WAV (uncompressed)"
 msgstr "WAV (skampresavany)"
 
-#: ../src/interface.c:581
+#: ../src/interface.c:570
 msgid "Variable bit rate (VBR)"
 msgstr "Źmiennaja častata bitaŭ (VBR)"
 
-#: ../src/interface.c:589
+#: ../src/interface.c:578
 msgid "Better quality for the same size."
 msgstr "Lepšaja jakaść dla takoha samaha pamieru."
 
-#: ../src/interface.c:595 ../src/interface.c:742 ../src/interface.c:828
-#: ../src/interface.c:876
+#: ../src/interface.c:584 ../src/interface.c:731 ../src/interface.c:817
+#: ../src/interface.c:865
 msgid "Bitrate"
 msgstr "Častata bitaŭ"
 
-#: ../src/interface.c:610
+#: ../src/interface.c:599
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
@@ -277,39 +279,39 @@ msgstr ""
 "Vyšejšaja častata bitaŭ aznačaje lepšuju jakaść, ale i bolšy pamier. Bolšaść "
 "ludziej vykarystoŭvaje 192Kbps."
 
-#: ../src/interface.c:619
+#: ../src/interface.c:608
 msgid "MP3 (lossy compression)"
 msgstr "MP3 (stratnaja kampresija)"
 
-#: ../src/interface.c:642 ../src/interface.c:989
+#: ../src/interface.c:631 ../src/interface.c:978
 msgid "Quality"
 msgstr "Jakaść"
 
-#: ../src/interface.c:653
+#: ../src/interface.c:642
 msgid "Higher quality means bigger file. Default is 6."
 msgstr "Vyšejšaja jakaść aznačaje bolšyja fajły. Zmoŭčanaja vartaść 6."
 
-#: ../src/interface.c:655
+#: ../src/interface.c:644
 msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (stratnaja kampresija)"
 
-#: ../src/interface.c:678 ../src/interface.c:794 ../src/interface.c:933
+#: ../src/interface.c:667 ../src/interface.c:783 ../src/interface.c:922
 msgid "Compression level"
 msgstr "Uzrovień kampresii"
 
-#: ../src/interface.c:689 ../src/interface.c:946
+#: ../src/interface.c:678 ../src/interface.c:935
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "Heta nie ŭpłyvaje na jakaść. Bolšaja vartaść aznačaje mienšy fajł."
 
-#: ../src/interface.c:691
+#: ../src/interface.c:680
 msgid "FLAC (lossless compression)"
 msgstr "FLAC (biasstratnaja kampresija)"
 
-#: ../src/interface.c:710
+#: ../src/interface.c:699
 msgid "More formats"
 msgstr "Bolej farmataŭ"
 
-#: ../src/interface.c:756
+#: ../src/interface.c:745
 #, fuzzy
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
@@ -318,12 +320,12 @@ msgstr ""
 "Vyšejšaja častata bitaŭ aznačaje lepšuju jakaść, ale i bolšy pamier. Bolšaść "
 "ludziej vykarystoŭvaje 192Kbps."
 
-#: ../src/interface.c:764
+#: ../src/interface.c:753
 #, fuzzy
 msgid "OPUS (lossy compression)"
 msgstr "MP3 (stratnaja kampresija)"
 
-#: ../src/interface.c:807
+#: ../src/interface.c:796
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
@@ -331,11 +333,11 @@ msgstr ""
 "Heta nie ŭpłyvaje na jakaść. Bolšaja vartaść aznačaje mienšy fajł. "
 "Zmoŭčanaja vartaść 1 (rekamendavanaja)."
 
-#: ../src/interface.c:813
+#: ../src/interface.c:802
 msgid "Hybrid compression"
 msgstr "Hibrydnaja kampresija"
 
-#: ../src/interface.c:822
+#: ../src/interface.c:811
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
@@ -343,96 +345,96 @@ msgstr ""
 "Farmat niastratny, ale dla ŭznaŭleńnia byłoj jakaści stvarajecca asobny fajł "
 "vypraŭleńniaŭ."
 
-#: ../src/interface.c:892
+#: ../src/interface.c:881
 #, fuzzy
 msgid "Higher bitrate is better quality but also bigger file."
 msgstr ""
 "Vyšejšaja častata bitaŭ aznačaje lepšuju jakaść, ale i bolšy pamier. Bolšaść "
 "ludziej vykarystoŭvaje 192Kbps."
 
-#: ../src/interface.c:900
+#: ../src/interface.c:889
 #, fuzzy
 msgid "Musepack (lossy compression)"
 msgstr "MP3 (stratnaja kampresija)"
 
-#: ../src/interface.c:948
+#: ../src/interface.c:937
 #, fuzzy
 msgid "Monkey's Audio (lossless compression)"
 msgstr "FLAC (biasstratnaja kampresija)"
 
 #. END MONKEY
-#: ../src/interface.c:957
+#: ../src/interface.c:946
 msgid "Proprietary encoders"
 msgstr ""
 
-#: ../src/interface.c:1002
+#: ../src/interface.c:991
 #, fuzzy
 msgid "Higher quality means bigger file. Default is 60."
 msgstr "Vyšejšaja jakaść aznačaje bolšyja fajły. Zmoŭčanaja vartaść 6."
 
-#: ../src/interface.c:1004
+#: ../src/interface.c:993
 #, fuzzy
 msgid "AAC (lossy compression, Nero encoder)"
 msgstr "MP3 (stratnaja kampresija)"
 
 #. END AAC
-#: ../src/interface.c:1013
+#: ../src/interface.c:1002
 msgid "Encode"
 msgstr "Zakaduj"
 
-#: ../src/interface.c:1046
+#: ../src/interface.c:1035
 msgid "Get disc info from the internet automatically"
 msgstr "Atrymlivaj źviestki ab dysku ź sievica aŭtamatyčna"
 
-#: ../src/interface.c:1054 ../src/interface.c:1100
+#: ../src/interface.c:1043 ../src/interface.c:1089
 msgid "Server: "
 msgstr "Server: "
 
-#: ../src/interface.c:1064
+#: ../src/interface.c:1053
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr ""
 
-#: ../src/interface.c:1070 ../src/interface.c:1113
+#: ../src/interface.c:1059 ../src/interface.c:1102
 msgid "Port: "
 msgstr "Port: "
 
-#: ../src/interface.c:1080
+#: ../src/interface.c:1069
 msgid "The CDDB server port (default is 8880)"
 msgstr ""
 
-#: ../src/interface.c:1087
+#: ../src/interface.c:1076
 #, fuzzy
 msgid "Use an HTTP proxy to connect to the internet"
 msgstr "Užyj proxy HTTP, kab spałučycca ź siecivam"
 
-#: ../src/interface.c:1122
+#: ../src/interface.c:1111
 msgid "Log to /var/log/asunder.log"
 msgstr ""
 
-#: ../src/interface.c:1127
+#: ../src/interface.c:1116
 msgid "Faster ripping (no error correction)"
 msgstr ""
 
-#: ../src/interface.c:1136
+#: ../src/interface.c:1125
 msgid "Advanced"
 msgstr "Prasunutyja"
 
-#: ../src/interface.c:1207 ../src/interface.c:1243
+#: ../src/interface.c:1196 ../src/interface.c:1232
 msgid "Ripping"
 msgstr "Ździrańnie"
 
-#: ../src/interface.c:1236
+#: ../src/interface.c:1225
 msgid "Total progress"
 msgstr "Ahulny prahres"
 
-#: ../src/interface.c:1250
+#: ../src/interface.c:1239
 msgid "Encoding"
 msgstr "Kadavańnie"
 
-#: ../src/interface.c:1793
+#: ../src/interface.c:1791
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"as WAV, MP3, OGG, FLAC, Wavpack, Opus, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 
@@ -452,21 +454,21 @@ msgstr[0] "Pamyłka pry stvareńni %d fajłu"
 msgstr[1] "Pamyłka pry stvareńni %d fajłaŭ"
 msgstr[2] "Pamyłka pry stvareńni %d fajłaŭ"
 
-#: ../src/prefs.c:703 ../src/prefs.c:715
+#: ../src/prefs.c:720 ../src/prefs.c:732
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "Niapravilnyja znaki ŭ poli \"%s\""
 
-#: ../src/prefs.c:725
+#: ../src/prefs.c:742
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "\"%s\" nia moža być pustym"
 
-#: ../src/prefs.c:740
+#: ../src/prefs.c:757
 msgid "Invalid proxy port number"
 msgstr "Niapravilny numar portu proxy"
 
-#: ../src/prefs.c:753
+#: ../src/prefs.c:770
 #, fuzzy
 msgid "Invalid cddb server port number"
 msgstr "Niapravilny numar portu proxy"
@@ -484,7 +486,7 @@ msgstr "Fajł \"%s\" užo isnuje. Chočaš nadpisać?\n"
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "Zapomni adkaz dla _ŭsich fajłaŭ, zroblenych z hetaha dysku"
 
-#: ../src/threads.c:186
+#: ../src/threads.c:188
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
@@ -492,7 +494,7 @@ msgstr ""
 "Metad ździrańnia/kadavańnia nia vybrany. Kali łaska, uklučy adzin ź ich u "
 "menu \"Nałady\"."
 
-#: ../src/threads.c:218
+#: ../src/threads.c:220
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
@@ -500,9 +502,17 @@ msgstr ""
 "Dla ździrańnia/kadavańnia nie zaznačana pieśniaŭ. Kali łaska, zaznač chacia "
 "b adnu ź pieśniaŭ."
 
-#: ../src/threads.c:1294 ../src/threads.c:1296 ../src/threads.c:1300
+#: ../src/threads.c:1281 ../src/threads.c:1283 ../src/threads.c:1287
 msgid "Waiting..."
 msgstr "Čakańnie..."
+
+#, fuzzy
+#~ msgid "Genre"
+#~ msgstr "Ahulnaje"
+
+#, fuzzy
+#~ msgid "Single Genre"
+#~ msgstr "Adzin vykanaŭca"
 
 #, fuzzy
 #~ msgid ""

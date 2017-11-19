@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Asunder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-07 00:33-0400\n"
+"POT-Creation-Date: 2017-11-19 16:39-0500\n"
 "PO-Revision-Date: 2010-12-27 22:54+0200\n"
 "Last-Translator: Muhammad Ali Makki <makkiabufaris@aol.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-Language: Arabic\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../src/main.c:135 ../src/interface.c:231
+#: ../src/main.c:135 ../src/interface.c:224
 msgid "Rip"
 msgstr "انسخ"
 
@@ -33,19 +33,15 @@ msgstr "المقطوعة"
 msgid "Artist"
 msgstr "الفنان"
 
-#: ../src/main.c:154
+#: ../src/main.c:156
 msgid "Title"
 msgstr "العنوان"
 
-#: ../src/main.c:160
-msgid "Genre"
-msgstr "عام"
-
-#: ../src/main.c:164
+#: ../src/main.c:162
 msgid "Time"
 msgstr "الزمن"
 
-#: ../src/main.c:190
+#: ../src/main.c:188
 msgid ""
 "'cdparanoia' was not found in your path. Asunder requires cdparanoia to rip "
 "CDs."
@@ -58,92 +54,100 @@ msgstr ""
 #. This is to deal with the fact that the signal below will take up to
 #. a second to get processed in refresh_thread() which will call check_disk()
 #. which will set the label to the same thing at the start.
-#: ../src/main.c:233 ../src/main.c:258 ../src/main.c:839
+#: ../src/main.c:231 ../src/main.c:256 ../src/main.c:843
 msgid "<b>Checking disc...</b>"
 msgstr ""
 
-#: ../src/main.c:523
+#: ../src/main.c:521
 msgid "<b>Getting disc info from the internet...</b>"
 msgstr "<b>يجلب معلومات القرص من الإنترنت...</b>"
 
-#: ../src/main.c:584
+#: ../src/main.c:582
 msgid "<b>Reading disc...</b>"
 msgstr ""
 
-#: ../src/callbacks.c:57 ../src/callbacks.c:254 ../src/callbacks.c:282
-#: ../src/callbacks.c:291 ../src/callbacks.c:301 ../src/interface.c:613
-#: ../src/interface.c:758 ../src/interface.c:894
+#: ../src/callbacks.c:58 ../src/callbacks.c:233 ../src/callbacks.c:261
+#: ../src/callbacks.c:270 ../src/callbacks.c:280 ../src/interface.c:602
+#: ../src/interface.c:747 ../src/interface.c:883
 #, c-format
 msgid "%dKbps"
 msgstr "%d ك.بايت\\ث"
 
-#: ../src/callbacks.c:406
+#: ../src/callbacks.c:560
 msgid "No CD is inserted. Please insert a CD into the CD-ROM drive."
 msgstr "لم تُدخل أي اسطوانات. من فضلك أدخل اسطوانة في مشغل الاسطوانات."
 
-#: ../src/callbacks.c:425 ../src/callbacks.c:450 ../src/callbacks.c:475
-#: ../src/callbacks.c:500 ../src/callbacks.c:526 ../src/callbacks.c:551
-#: ../src/callbacks.c:576 ../src/callbacks.c:601
+#: ../src/callbacks.c:579 ../src/callbacks.c:604 ../src/callbacks.c:629
+#: ../src/callbacks.c:654 ../src/callbacks.c:680 ../src/callbacks.c:705
+#: ../src/callbacks.c:730 ../src/callbacks.c:755
 #, c-format
 msgid ""
 "%s was not found in your path. Asunder requires it to create %s files. All "
 "%s functionality is disabled."
 msgstr "‏%s لم يوجد في مسارك. أسوندر يتطلبه لإنشاء ملفات %s. كل وظائف %s عطلت."
 
-#: ../src/callbacks.c:698
+#: ../src/callbacks.c:843
 msgid "Select all for ripping"
 msgstr "اختر الكل للنسخ"
 
-#: ../src/callbacks.c:704
+#: ../src/callbacks.c:849
 msgid "Deselect all for ripping"
 msgstr "انزع الاختيار عن الكل"
 
-#: ../src/interface.c:95
+#: ../src/callbacks.c:855
+msgid "Capitalize Artists & Titles"
+msgstr ""
+
+#: ../src/callbacks.c:861
+msgid "Split 'Artist/Title' in Title field"
+msgstr ""
+
+#: ../src/callbacks.c:867
+msgid "Swap Artist <=> Title"
+msgstr ""
+
+#: ../src/interface.c:94
 msgid "CDDB Lookup"
 msgstr "ابحث في CDDB"
 
-#: ../src/interface.c:145
+#: ../src/interface.c:144
 msgid "Disc:"
 msgstr "قرص:"
 
-#: ../src/interface.c:151
+#: ../src/interface.c:150
 msgid "Album Artist:"
 msgstr "فنان الألبوم:"
 
-#: ../src/interface.c:158
+#: ../src/interface.c:157
 msgid "Album Title:"
 msgstr "عنوان الألبوم:"
 
-#: ../src/interface.c:165
+#: ../src/interface.c:164
 msgid "Single Artist"
 msgstr "فنان منفرد"
 
-#: ../src/interface.c:171
+#: ../src/interface.c:170
 #, fuzzy
 msgid "Genre / Year:"
 msgstr "عام:"
 
-#: ../src/interface.c:178
-msgid "Single Genre"
-msgstr "عام منفرد"
-
-#: ../src/interface.c:370
+#: ../src/interface.c:359
 msgid "Preferences"
 msgstr "التفضيلات"
 
-#: ../src/interface.c:387 ../src/interface.c:393
+#: ../src/interface.c:376 ../src/interface.c:382
 msgid "Destination folder"
 msgstr "مجلد النسخ"
 
-#: ../src/interface.c:397
+#: ../src/interface.c:386
 msgid "Create M3U playlist"
 msgstr "أنشىء قائمة تشغيل M3U"
 
-#: ../src/interface.c:405
+#: ../src/interface.c:394
 msgid "CD-ROM device: "
 msgstr "جهاز الاسطوانات:"
 
-#: ../src/interface.c:414
+#: ../src/interface.c:403
 msgid ""
 "Default: /dev/cdrom\n"
 "Other example: /dev/hdc\n"
@@ -153,15 +157,15 @@ msgstr ""
 "مثال آخر: /dev/hdc\n"
 "مثال آخر: /dev/sr0"
 
-#: ../src/interface.c:418
+#: ../src/interface.c:407
 msgid "Eject disc when finished"
 msgstr "أخرج القرص عند الانتهاء"
 
-#: ../src/interface.c:426
+#: ../src/interface.c:415
 msgid "General"
 msgstr "عام"
 
-#: ../src/interface.c:446
+#: ../src/interface.c:435
 msgid ""
 "%A - Artist\n"
 "%L - Album\n"
@@ -175,24 +179,24 @@ msgstr ""
 "%Y - السنة (4-أرقام أو \"0\")\n"
 "‏%T - عنوان الأغنية"
 
-#: ../src/interface.c:451
+#: ../src/interface.c:440
 #, fuzzy, c-format
 msgid "%G - Genre"
 msgstr "عام"
 
-#: ../src/interface.c:466
+#: ../src/interface.c:455
 msgid "Album directory: "
 msgstr "مجلد الألبوم: "
 
-#: ../src/interface.c:473 ../src/prefs.c:704
+#: ../src/interface.c:462 ../src/prefs.c:721
 msgid "Playlist file: "
 msgstr "ملف قائمة التشغيل: "
 
-#: ../src/interface.c:480 ../src/prefs.c:716 ../src/prefs.c:726
+#: ../src/interface.c:469 ../src/prefs.c:733 ../src/prefs.c:743
 msgid "Music file: "
 msgstr "ملف الموسيقى: "
 
-#: ../src/interface.c:494
+#: ../src/interface.c:483
 msgid ""
 "This is relative to the destination folder (from the General tab).\n"
 "Can be blank.\n"
@@ -204,7 +208,7 @@ msgstr ""
 "الافتراضي %A - %L\n"
 "مثال آخر %A/%L"
 
-#: ../src/interface.c:506
+#: ../src/interface.c:495
 msgid ""
 "This will be stored in the album directory.\n"
 "Can be blank.\n"
@@ -214,7 +218,7 @@ msgstr ""
 "يمكن أن يكون فارغا.\n"
 "الافتراضي: %A - %L"
 
-#: ../src/interface.c:517
+#: ../src/interface.c:506
 msgid ""
 "This will be stored in the album directory.\n"
 "Cannot be blank.\n"
@@ -226,11 +230,11 @@ msgstr ""
 "الافتراضي: %A - %T\n"
 "مثال آخر: %N - %T"
 
-#: ../src/interface.c:522
+#: ../src/interface.c:511
 msgid "Filename formats"
 msgstr "صيغ أسماء الملفات"
 
-#: ../src/interface.c:527
+#: ../src/interface.c:516
 msgid "Filenames"
 msgstr "أسماء الملفات"
 
@@ -246,24 +250,24 @@ msgstr "أسماء الملفات"
 #. vbox2 = gtk_vbox_new (FALSE, 0);
 #. gtk_widget_show (vbox2);
 #. gtk_container_add (GTK_CONTAINER (alignment8), vbox2);
-#: ../src/interface.c:560
+#: ../src/interface.c:549
 msgid "WAV (uncompressed)"
 msgstr "‏WAV (بدون ضغط)"
 
-#: ../src/interface.c:581
+#: ../src/interface.c:570
 msgid "Variable bit rate (VBR)"
 msgstr "معدل بتات متغير (VBR)"
 
-#: ../src/interface.c:589
+#: ../src/interface.c:578
 msgid "Better quality for the same size."
 msgstr "جودة أعلى بنفس الحجم."
 
-#: ../src/interface.c:595 ../src/interface.c:742 ../src/interface.c:828
-#: ../src/interface.c:876
+#: ../src/interface.c:584 ../src/interface.c:731 ../src/interface.c:817
+#: ../src/interface.c:865
 msgid "Bitrate"
 msgstr "معدل البتات"
 
-#: ../src/interface.c:610
+#: ../src/interface.c:599
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "192Kbps."
@@ -271,39 +275,39 @@ msgstr ""
 "معدل البتات الأعلى يعني جودة أفضل ولكن يعني أيضا ملفا أكبر. معظم الناس "
 "تستخدم 192 ك.بايت\\ث"
 
-#: ../src/interface.c:619
+#: ../src/interface.c:608
 msgid "MP3 (lossy compression)"
 msgstr "‏MP3 (ضغط فقود)"
 
-#: ../src/interface.c:642 ../src/interface.c:989
+#: ../src/interface.c:631 ../src/interface.c:978
 msgid "Quality"
 msgstr "الجودة"
 
-#: ../src/interface.c:653
+#: ../src/interface.c:642
 msgid "Higher quality means bigger file. Default is 6."
 msgstr "الجودة الأعلى تعني ملف أكبر. الافتراضي 6."
 
-#: ../src/interface.c:655
+#: ../src/interface.c:644
 msgid "OGG Vorbis (lossy compression)"
 msgstr "‏OGG  Vorbis (ضغط فقود)"
 
-#: ../src/interface.c:678 ../src/interface.c:794 ../src/interface.c:933
+#: ../src/interface.c:667 ../src/interface.c:783 ../src/interface.c:922
 msgid "Compression level"
 msgstr "مستوى الضغط"
 
-#: ../src/interface.c:689 ../src/interface.c:946
+#: ../src/interface.c:678 ../src/interface.c:935
 msgid "This does not affect the quality. Higher number means smaller file."
 msgstr "لا يؤثر هذا على الجودة. الرقم الأعلى يعني ملفا أصغر."
 
-#: ../src/interface.c:691
+#: ../src/interface.c:680
 msgid "FLAC (lossless compression)"
 msgstr "‏FLAC (ضغط غير فقود)"
 
-#: ../src/interface.c:710
+#: ../src/interface.c:699
 msgid "More formats"
 msgstr "مزيد من الصيغ"
 
-#: ../src/interface.c:756
+#: ../src/interface.c:745
 msgid ""
 "Higher bitrate is better quality but also bigger file. Most people use "
 "160Kbps."
@@ -311,109 +315,110 @@ msgstr ""
 "معدل البتات الأعلى يعني جودة أفضل ولكن يعني أيضا ملفا أكبر. معظم الناس "
 "تستخدم 160 ك.بايت\\ث"
 
-#: ../src/interface.c:764
+#: ../src/interface.c:753
 msgid "OPUS (lossy compression)"
 msgstr "‏OPUS (ضغط فقود)"
 
-#: ../src/interface.c:807
+#: ../src/interface.c:796
 msgid ""
 "This does not affect the quality. Higher number means smaller file. Default "
 "is 1 (recommended)."
 msgstr ""
 "لا يؤثر هذا على الجودة. الرقم الأعلى يعني ملفا أصغر. الافتراضي 1 (مُزكّى)."
 
-#: ../src/interface.c:813
+#: ../src/interface.c:802
 msgid "Hybrid compression"
 msgstr "ضغط مهجن"
 
-#: ../src/interface.c:822
+#: ../src/interface.c:811
 msgid ""
 "The format is lossy but a correction file is created for restoring the "
 "lossless original."
 msgstr "الصيغة فقودة ولكن أُنشئ ملف تصحيح لاسترجاع الأصل غير الفقود."
 
-#: ../src/interface.c:892
+#: ../src/interface.c:881
 msgid "Higher bitrate is better quality but also bigger file."
 msgstr "معدل البتات الأعلى يعني جودة أفضل ولكن يعني أيضا ملفا أكبر."
 
-#: ../src/interface.c:900
+#: ../src/interface.c:889
 msgid "Musepack (lossy compression)"
 msgstr "‏ Musepack (ضغط فقود)"
 
-#: ../src/interface.c:948
+#: ../src/interface.c:937
 msgid "Monkey's Audio (lossless compression)"
 msgstr "‏Monkey's Audio (ضغط غير فقود)"
 
 #. END MONKEY
-#: ../src/interface.c:957
+#: ../src/interface.c:946
 msgid "Proprietary encoders"
 msgstr "مُرمّزات احتكارية"
 
-#: ../src/interface.c:1002
+#: ../src/interface.c:991
 msgid "Higher quality means bigger file. Default is 60."
 msgstr "الجودة الأعلى تعني ملفا أكبر. الافتراضي 60."
 
-#: ../src/interface.c:1004
+#: ../src/interface.c:993
 msgid "AAC (lossy compression, Nero encoder)"
 msgstr "‏AAC (ضغط فقود، مُرمّز نيرو)"
 
 #. END AAC
-#: ../src/interface.c:1013
+#: ../src/interface.c:1002
 msgid "Encode"
 msgstr "رمّز"
 
-#: ../src/interface.c:1046
+#: ../src/interface.c:1035
 msgid "Get disc info from the internet automatically"
 msgstr "اجلب معلومات القرص من الإنترنت تلقائيا"
 
-#: ../src/interface.c:1054 ../src/interface.c:1100
+#: ../src/interface.c:1043 ../src/interface.c:1089
 msgid "Server: "
 msgstr "الخادوم: "
 
-#: ../src/interface.c:1064
+#: ../src/interface.c:1053
 msgid "The CDDB server to get disc info from (default is freedb.freedb.org)"
 msgstr "خادوم CDDB المستخدم في جلب معلومات القرص (الافتراضي freedb.freedb.org)"
 
-#: ../src/interface.c:1070 ../src/interface.c:1113
+#: ../src/interface.c:1059 ../src/interface.c:1102
 msgid "Port: "
 msgstr "المنفذ: "
 
-#: ../src/interface.c:1080
+#: ../src/interface.c:1069
 msgid "The CDDB server port (default is 8880)"
 msgstr "منفذ خادوم CDDB (الافتراضي 8880)"
 
-#: ../src/interface.c:1087
+#: ../src/interface.c:1076
 msgid "Use an HTTP proxy to connect to the internet"
 msgstr "استخدم وسيط HTTP للاتصال بالإنترنت"
 
-#: ../src/interface.c:1122
+#: ../src/interface.c:1111
 msgid "Log to /var/log/asunder.log"
 msgstr ""
 
-#: ../src/interface.c:1127
+#: ../src/interface.c:1116
 msgid "Faster ripping (no error correction)"
 msgstr ""
 
-#: ../src/interface.c:1136
+#: ../src/interface.c:1125
 msgid "Advanced"
 msgstr "متقدم"
 
-#: ../src/interface.c:1207 ../src/interface.c:1243
+#: ../src/interface.c:1196 ../src/interface.c:1232
 msgid "Ripping"
 msgstr "ينسخ"
 
-#: ../src/interface.c:1236
+#: ../src/interface.c:1225
 msgid "Total progress"
 msgstr "التقدم الكلي"
 
-#: ../src/interface.c:1250
+#: ../src/interface.c:1239
 msgid "Encoding"
 msgstr "يُرمّز"
 
-#: ../src/interface.c:1793
+#: ../src/interface.c:1791
+#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
-"as WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio, and/or AAC "
+"as WAV, MP3, OGG, FLAC, Wavpack, Opus, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "برنامج لحفظ المقطوعات من الأقراص الصوتية \n"
@@ -442,21 +447,21 @@ msgstr[3] "حدث خطأ أثناء إنشاء %d ملفات"
 msgstr[4] "حدث خطأ أثناء إنشاء %d ملفا"
 msgstr[5] "حدث خطأ أثناء إنشاء %d ملف"
 
-#: ../src/prefs.c:703 ../src/prefs.c:715
+#: ../src/prefs.c:720 ../src/prefs.c:732
 #, c-format
 msgid "Invalid characters in the '%s' field"
 msgstr "محارف غير صالحة في حقل '%s' "
 
-#: ../src/prefs.c:725
+#: ../src/prefs.c:742
 #, c-format
 msgid "'%s' cannot be empty"
 msgstr "‏'%s' لا يمكن أن تكون فارغة"
 
-#: ../src/prefs.c:740
+#: ../src/prefs.c:757
 msgid "Invalid proxy port number"
 msgstr "رقم منفذ الوسيط غير صالح"
 
-#: ../src/prefs.c:753
+#: ../src/prefs.c:770
 msgid "Invalid cddb server port number"
 msgstr "رقم منفذ خادوم cddb غير صالح"
 
@@ -473,21 +478,27 @@ msgstr "الملف '%s' موجود أصلا. هل تريد أن تكتب فوق�
 msgid "Remember the answer for _all the files made from this CD"
 msgstr "تذكر الجواب _لكل الملفات المصنعة من هذه الأسطوانة"
 
-#: ../src/threads.c:186
+#: ../src/threads.c:188
 msgid ""
 "No ripping/encoding method selected. Please enable one from the "
 "'Preferences' menu."
 msgstr "لم تختر طريقة للنسخ/الترميز. من فضلك فعّل واحدة من قائمة 'التفضيلات'."
 
-#: ../src/threads.c:218
+#: ../src/threads.c:220
 msgid ""
 "No tracks were selected for ripping/encoding. Please select at least one "
 "track."
 msgstr "لم تختر أي مقاطع للنسخ/الترميز. من فضلك اختر مقطعا واحدا على الأقل."
 
-#: ../src/threads.c:1294 ../src/threads.c:1296 ../src/threads.c:1300
+#: ../src/threads.c:1281 ../src/threads.c:1283 ../src/threads.c:1287
 msgid "Waiting..."
 msgstr "ينتظر..."
+
+#~ msgid "Genre"
+#~ msgstr "عام"
+
+#~ msgid "Single Genre"
+#~ msgstr "عام منفرد"
 
 #, fuzzy
 #~ msgid ""
