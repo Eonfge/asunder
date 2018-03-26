@@ -74,6 +74,28 @@ on_aboutbox_response                   (GtkDialog       *dialog,
     gtk_widget_destroy(GTK_WIDGET(dialog));
 }
 
+void
+update_track_offsets (void)
+{
+    GtkTreeIter iter;
+    GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
+    if (store == NULL)
+        return;
+    gboolean rowsleft = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
+    int tracknum;
+
+    while (rowsleft)
+    {
+        gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
+            COL_TRACKNUM, &tracknum,
+            -1);
+        gtk_list_store_set(store, &iter,
+            COL_TRACKNUM_VIS, tracknum + global_prefs->first_track_num_offset,
+            -1);
+        rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
+    }
+}
+
 gboolean
 on_album_artist_focus_out_event        (GtkWidget       *widget,
                                         GdkEventFocus   *event,
@@ -170,6 +192,43 @@ on_album_genre_focus_out_event         (GtkWidget       *widget,
     free(text);
     
     return FALSE;
+}
+
+// First track number arbitrarily limited to 1001
+gboolean
+on_tracknum_first_focus_out_event      (GtkWidget       *widget,
+                                        GdkEventFocus   *event,
+                                        gpointer         user_data)
+{
+    const gchar * ctext = gtk_entry_get_text(GTK_ENTRY(widget));
+    int first = atoi(ctext);
+
+    if (first >= 1 && first <= 1001)
+    {
+        global_prefs->first_track_num_offset = first - 1;
+    }
+    update_track_offsets();
+
+    char txt[16];
+    snprintf(txt, 16, "%d", global_prefs->first_track_num_offset + 1);
+    gtk_entry_set_text(GTK_ENTRY (widget), txt);
+
+    return FALSE;
+}
+
+void
+on_tracknum_width_changed_event        (GtkComboBox     *combobox,
+                                        gpointer         user_data)
+{
+    gint selected = gtk_combo_box_get_active(combobox);
+    int width = selected + 1;
+
+    if (width >= 1 && width <= 4)
+    {
+        global_prefs->track_num_width = width;
+    }
+
+    gtk_combo_box_set_active(GTK_COMBO_BOX(combobox), global_prefs->track_num_width - 1);
 }
 
 void
@@ -316,6 +375,7 @@ on_prefs_response                      (GtkDialog       *dialog,
         
         get_prefs_from_widgets(global_prefs);
         save_prefs(global_prefs);
+        toggle_allow_tracknum();
     }
     
     gtk_widget_destroy(GTK_WIDGET(dialog));    
@@ -442,8 +502,8 @@ on_edit_split_clicked (void)
                 {
                     *cp = '\0';
                     cp--;
-				}
-				
+                }
+                
                 // Write modified values back into widgets
                 gtk_list_store_set(store, &iter,
                     COL_TRACKARTIST, trackartist,
@@ -451,12 +511,12 @@ on_edit_split_clicked (void)
                     -1);
             }
         }
-		
+        
         if (trackartist)
             free (trackartist);
         if (tracktitle)
             free (tracktitle);
-		
+        
         rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
     }
 }
@@ -501,7 +561,6 @@ on_edit_swap_clicked (void)
         rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
     }
 }
-
 
 void 
 on_press_f2                       (void)

@@ -26,6 +26,8 @@ void
 on_aboutbox_response                   (GtkDialog       *dialog,
                                         gint             response_id,
                                         gpointer         user_data);
+void
+update_track_offsets                   (void);
 
 gboolean
 on_album_artist_focus_out_event        (GtkWidget       *widget,
@@ -46,6 +48,15 @@ on_album_title_focus_out_event         (GtkWidget       *widget,
 gboolean
 on_album_genre_focus_out_event         (GtkWidget       *widget,
                                         GdkEventFocus   *event,
+                                        gpointer         user_data);
+
+gboolean
+on_tracknum_first_focus_out_event      (GtkWidget       *widget,
+                                        GdkEventFocus   *event,
+                                        gpointer         user_data);
+
+void
+on_tracknum_width_changed_event        (GtkComboBox     *combobox,
                                         gpointer         user_data);
 
 void

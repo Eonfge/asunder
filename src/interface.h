@@ -23,3 +23,4 @@ void disable_musepack_widgets(void);
 void enable_musepack_widgets(void);
 void show_aboutbox (void);
 void show_completed_dialog(int numOk, int numFailed);
+void toggle_allow_tracknum(void);

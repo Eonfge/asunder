@@ -17,6 +17,7 @@ Foundation; version 2 of the licence.
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 
@@ -111,7 +112,7 @@ create_main (void)
     gtk_container_add (GTK_CONTAINER (toolbar1), about);
     gtk_tool_item_set_is_important (GTK_TOOL_ITEM (about), TRUE);
     
-    table2 = gtk_table_new (3, 3, FALSE);
+    table2 = gtk_table_new (5, 3, FALSE);
     gtk_widget_show (table2);
     gtk_box_pack_start (GTK_BOX (vbox1), table2, FALSE, TRUE, 3);
 
@@ -167,6 +168,52 @@ create_main (void)
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (0), 3, 0);
 
+    GtkWidget* tn_hbox = gtk_hbox_new(FALSE, 5);
+    gtk_widget_hide(tn_hbox);
+    gtk_table_attach (GTK_TABLE (table2), tn_hbox, 0, 3, 4, 5,
+                      (GtkAttachOptions) (GTK_FILL),
+                      (GtkAttachOptions) (0), 3, 0);
+
+    GtkWidget *tn_labelo = gtk_label_new (_("First track number:"));
+    gtk_misc_set_alignment (GTK_MISC (tn_labelo), 0, 0.5);
+    gtk_widget_show (tn_labelo);
+    gtk_box_pack_start(GTK_BOX (tn_hbox), tn_labelo, FALSE, TRUE, 0);
+
+    GtkWidget* tn_first = gtk_entry_new();
+    gtk_widget_show(tn_first);
+    gtk_box_pack_start(GTK_BOX (tn_hbox), tn_first, FALSE, TRUE, 0);
+    gtk_entry_set_width_chars(GTK_ENTRY (tn_first), 4);
+    char txt[16];
+    snprintf(txt, 16, "%d", global_prefs->first_track_num_offset + 1);
+    gtk_entry_set_text(GTK_ENTRY (tn_first), txt);
+
+    GtkWidget* tn_labelw = gtk_label_new (_("Track number width in filename:"));
+    gtk_misc_set_alignment (GTK_MISC (tn_labelw), 0, 0.5);
+    gtk_widget_show (tn_labelw);
+    gtk_box_pack_start(GTK_BOX (tn_hbox), tn_labelw, FALSE, TRUE, 0);
+
+    GtkWidget* tn_width = gtk_combo_box_new();
+    gtk_widget_show(tn_width);
+    gtk_box_pack_start(GTK_BOX (tn_hbox), tn_width, FALSE, TRUE, 0);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(tn_width), global_prefs->track_num_width - 1);
+	
+    GtkCellRenderer *renderer = gtk_cell_renderer_text_new();
+    gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(tn_width), renderer, TRUE);
+    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(tn_width), renderer,
+                                                    "text", 0,
+                                                    NULL);
+    GtkListStore * store = gtk_list_store_new(1, G_TYPE_STRING);
+    GtkTreeIter iter;
+    for (int i = 1; i <= 4; ++i) {
+        char buff[2];
+        snprintf(buff, 2, "%d", i);
+        gtk_list_store_append(store, &iter);
+        gtk_list_store_set(store, &iter, 0, buff, -1);
+    }
+    gtk_combo_box_set_model(GTK_COMBO_BOX(tn_width), GTK_TREE_MODEL(store));
+    g_object_unref(store);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(tn_width), 1);       // Set "2" as default value
+	
     genre_label	= gtk_label_new (_("Genre / Year:"));								// lnr
     gtk_misc_set_alignment (GTK_MISC ( genre_label ), 0, 0);
     gtk_widget_show (genre_label);
@@ -263,6 +310,12 @@ create_main (void)
     g_signal_connect ((gpointer) album_year, "focus_out_event",
                                         G_CALLBACK (on_year_focus_out_event),
                                         NULL);
+    g_signal_connect ((gpointer) tn_first, "focus_out_event",
+                                        G_CALLBACK (on_tracknum_first_focus_out_event),
+                                        NULL);
+    g_signal_connect ((gpointer) tn_width, "changed",
+                                        G_CALLBACK (on_tracknum_width_changed_event),
+                                        NULL);
     
     /* KEYBOARD accelerators */
     GtkAccelGroup* accelGroup;
@@ -313,6 +366,9 @@ create_main (void)
     GLADE_HOOKUP_OBJECT (main_win, album_genre, "album_genre");			// lnr
     GLADE_HOOKUP_OBJECT (main_win, genre_label, "genre_label" );		// lnr
     GLADE_HOOKUP_OBJECT (main_win, album_year, "album_year");
+    GLADE_HOOKUP_OBJECT (main_win, tn_hbox, "tn_hbox");
+    GLADE_HOOKUP_OBJECT (main_win, tn_first, "tn_first");
+    GLADE_HOOKUP_OBJECT (main_win, tn_width, "tn_width");
     
     return main_win;
 }
@@ -418,14 +474,14 @@ create_prefs (void)
     /* END GENERAL tab */
     
     /* FILENAMES tab */
-    vbox = gtk_vbox_new (FALSE, 5);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
-    gtk_widget_show (vbox);
-    gtk_container_add (GTK_CONTAINER (notebook1), vbox);
+    vbox2 = gtk_vbox_new (FALSE, 5);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox2), 5);
+    gtk_widget_show (vbox2);
+    gtk_container_add (GTK_CONTAINER (notebook1), vbox2);
 
     frame2 = gtk_frame_new (NULL);
     gtk_widget_show (frame2);
-    gtk_box_pack_start (GTK_BOX (vbox), frame2, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox2), frame2, FALSE, FALSE, 0);
     
     vbox = gtk_vbox_new (FALSE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
@@ -512,6 +568,11 @@ create_prefs (void)
     gtk_widget_show (label);
     gtk_frame_set_label_widget (GTK_FRAME (frame2), label);
     gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
+
+    GtkWidget * allow_tracknum = gtk_check_button_new_with_label (_("Allow changing first track number"));
+    gtk_widget_show (allow_tracknum);
+    gtk_box_pack_start (GTK_BOX (vbox2), allow_tracknum, FALSE, FALSE, 5);
+    GLADE_HOOKUP_OBJECT (prefs, allow_tracknum, "allow_tracknum");
 
     label = gtk_label_new (_("Filenames"));
     gtk_widget_show (label);
@@ -1422,6 +1483,32 @@ void enable_musepack_widgets(void)
 {
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "musepack_bitrate_lbl"), TRUE);
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "musepack_bitrate_slider"), TRUE);
+}
+
+void
+toggle_allow_tracknum(void)
+{
+    // "Toggle Track Offset/Width control"
+    GtkWidget* tn_hbox = lookup_widget(win_main, "tn_hbox");
+    GtkWidget* tn_first = lookup_widget(win_main, "tn_first");
+    GtkWidget* tn_width = lookup_widget(win_main, "tn_width");
+    gboolean active = global_prefs->allow_first_track_num_change;
+
+    if (!active)
+    {
+        global_prefs->first_track_num_offset = 0;
+        global_prefs->track_num_width = 2;
+        gtk_widget_hide(tn_hbox);
+    }
+    else
+    {
+        char txt[16];
+        snprintf(txt, 16, "%d", global_prefs->first_track_num_offset + 1);
+        gtk_entry_set_text(GTK_ENTRY (tn_first), txt);
+        gtk_combo_box_set_active(GTK_COMBO_BOX(tn_width), global_prefs->track_num_width - 1);
+        gtk_widget_show(tn_hbox);
+    }
+    update_track_offsets();
 }
 
 const char* 

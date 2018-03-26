@@ -163,6 +163,10 @@ prefs * get_default_prefs()
     p->proprietary_formats_expanded = 0;
     p->do_fast_rip = 1;
     
+    p->allow_first_track_num_change = 0;
+    p->first_track_num_offset = 0;
+    p->track_num_width = 2;
+    
     return p;
 }
 
@@ -213,6 +217,8 @@ void set_widgets_from_prefs(prefs * p)
         gtk_expander_set_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "more_formats_expander")), TRUE);
     if(global_prefs->proprietary_formats_expanded)
         gtk_expander_set_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")), TRUE);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "allow_tracknum")), p->allow_first_track_num_change);
+    toggle_allow_tracknum(); // This will set up the rest of the related widgets
     
     /* disable widgets if needed */
     if ( !(p->rip_mp3) )
@@ -233,6 +239,7 @@ void set_widgets_from_prefs(prefs * p)
         disable_musepack_widgets();
     if (!(p->rip_opus))
         disable_opus_widgets();
+    
 }
 
 // populates a prefs struct from the current state of the widgets
@@ -322,6 +329,10 @@ void get_prefs_from_widgets(prefs * p)
     
     p->more_formats_expanded = gtk_expander_get_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "more_formats_expander")));
     p->proprietary_formats_expanded = gtk_expander_get_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")));
+    
+    p->allow_first_track_num_change = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "allow_tracknum")));
+    p->first_track_num_offset = atoi(gtk_entry_get_text(GTK_ENTRY (lookup_widget(win_main, "tn_first")))) - 1;
+    p->track_num_width = gtk_combo_box_get_active(GTK_COMBO_BOX(lookup_widget(win_main, "tn_width"))) + 1;
 }
 
 // get a config file path to load from, using XDG_CONFIG_HOME if available
@@ -448,6 +459,10 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->rip_opus);
         fprintf(config, "%d\n", p->opus_bitrate);
         fprintf(config, "%d\n", p->do_fast_rip);
+        fprintf(config, "%d\n", p->allow_first_track_num_change);
+        fprintf(config, "%d\n", p->first_track_num_offset);
+        fprintf(config, "%d\n", p->track_num_width);
+        printf("offset %d, width %d\n", p->first_track_num_offset, p->track_num_width);
         
         fclose(config);
     } else {
@@ -640,6 +655,16 @@ void load_prefs(prefs * p)
         
         // this one can be 0
         p->do_fast_rip = read_line_num(fd);
+        
+        // this one can be 0
+        p->allow_first_track_num_change = read_line_num(fd);
+        
+        // this one can be 0
+        p->first_track_num_offset = read_line_num(fd);
+        
+        p->track_num_width = read_line_num(fd);
+        if (p->track_num_width < 1 || p->track_num_width > 4)
+            p->track_num_width = 2;
         
         close(fd);
     } else {

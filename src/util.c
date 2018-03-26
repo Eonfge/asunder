@@ -452,6 +452,7 @@ char * parse_format(const char* format, int tracknum, const char* year, const ch
     int len = 0;
     char * ret = NULL;
     int pos = 0;
+    int tnsize = 0;
     
     for (i=0; i<strlen(format); i++)
     {
@@ -466,7 +467,11 @@ char * parse_format(const char* format, int tracknum, const char* year, const ch
                     if (album) len += strlen(album);
                     break;
                 case 'N':
-                    if ((tracknum > 0) && (tracknum < 100)) len += 2;
+                    if (tracknum > 0)
+                    {
+                        tnsize = snprintf(NULL, 0, "%0*d", global_prefs->track_num_width, tracknum);
+                        len += tnsize;
+                    }
                     break;
                 case 'Y':
                     if (year) len += strlen(year);
@@ -513,11 +518,9 @@ char * parse_format(const char* format, int tracknum, const char* year, const ch
                     }
                     break;
                 case 'N':
-                    if ((tracknum > 0) && (tracknum < 100))
+                    if (tracknum > 0)
                     {
-                        ret[pos] = '0'+((int)tracknum/10);
-                        ret[pos+1] = '0'+(tracknum%10);
-                        pos += 2;
+                        pos += snprintf(&ret[pos], tnsize + 1, "%0*d", global_prefs->track_num_width, tracknum);
                     }
                     break;
                 case 'Y':

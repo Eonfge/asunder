@@ -43,6 +43,9 @@ typedef struct _prefs
     int rip_opus;
     int opus_bitrate;
     int do_fast_rip;
+    int allow_first_track_num_change;
+    int first_track_num_offset;
+    int track_num_width;
     
 } prefs;
 

@@ -139,7 +139,12 @@ int main(int argc, char *argv[])
 
     renderer = gtk_cell_renderer_text_new();
     gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1, 
-                    _("Track"), renderer, "text", COL_TRACKNUM, NULL);
+                    "Track-physical", renderer, "text", COL_TRACKNUM, NULL);
+    renderer = gtk_cell_renderer_text_new();
+    gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(tracklist), -1,
+                    _("Track"), renderer, "text", COL_TRACKNUM_VIS, NULL);
+    col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), COL_TRACKNUM);
+    gtk_tree_view_column_set_visible(col, FALSE);
 
     renderer = gtk_cell_renderer_text_new();
     g_object_set(renderer, "editable", TRUE, NULL);
@@ -191,6 +196,8 @@ int main(int argc, char *argv[])
         exit(-1);
     }
     
+	toggle_allow_tracknum();
+	
     gtk_widget_show(win_main);
     
     // Start the refresh thread after gtk startup.
@@ -364,6 +371,7 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
     store = gtk_list_store_new(NUM_COLS, 
                                G_TYPE_BOOLEAN, /* rip? checkbox */
                                G_TYPE_UINT, /* track number */
+                               G_TYPE_UINT, /* track number, visual */
                                G_TYPE_STRING, /* track artist */
                                G_TYPE_STRING, /* track title */
                                G_TYPE_STRING  /* track time */
@@ -386,6 +394,7 @@ GtkTreeModel * create_model_from_disc(cddb_disc_t * disc)
         gtk_list_store_set(store, &iter,
             COL_RIPTRACK, track_format[cddb_track_get_number(track)],
             COL_TRACKNUM, cddb_track_get_number(track),
+            COL_TRACKNUM_VIS, cddb_track_get_number(track) + global_prefs->first_track_num_offset,
             COL_TRACKARTIST, track_artist,
             COL_TRACKTITLE, track_title,
             COL_TRACKTIME, time,

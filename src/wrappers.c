@@ -437,14 +437,12 @@ void lame(int tracknum,
     int sector;
     int end;
     
-    char tracknum_text[4];
+    char * tracknum_text = NULL;
     char bitrate_text[4];
     const char * args[19];
 
 //    fprintf( stderr, " lame()   Genre: %s Artist: %s Title: %s\n", genre, artist, title );	// lnr
 
-    snprintf(tracknum_text, 4, "%d", tracknum);
-    
     pos = 0;
     args[pos++] = "lame";
     if (vbr)
@@ -457,7 +455,7 @@ void lame(int tracknum,
     }
     args[pos++] = bitrate_text;
     args[pos++] = "--id3v2-only";
-    if ((tracknum > 0) && (tracknum < 100))
+    if (tracknum > 0 && asprintf(&tracknum_text, "%d", tracknum) > 0)
     {
         args[pos++] = "--tn";
         args[pos++] = tracknum_text;
@@ -499,6 +497,7 @@ void lame(int tracknum,
     args[pos++] = NULL;
 
     fd = exec_with_output(args, STDERR_FILENO, &lame_pid, NULL);
+    free(tracknum_text);
     
     do
     {
@@ -568,11 +567,10 @@ void oggenc(int tracknum,
     int sector;
     int end;
 
-    char tracknum_text[4];
+    char * tracknum_text = NULL;
     char quality_level_text[3];
     const char * args[19];
 
-    snprintf(tracknum_text, 4, "%d", tracknum);
     snprintf(quality_level_text, 3, "%d", quality_level);
     
     pos = 0;
@@ -580,7 +578,7 @@ void oggenc(int tracknum,
     args[pos++] = "-q";
     args[pos++] = quality_level_text;
     
-    if ((tracknum > 0) && (tracknum < 100))
+    if (tracknum > 0 && asprintf(&tracknum_text, "%d", tracknum) > 0)
     {
         args[pos++] = "-N";
         args[pos++] = tracknum_text;
@@ -616,6 +614,7 @@ void oggenc(int tracknum,
     args[pos++] = NULL;
     
     fd = exec_with_output(args, STDERR_FILENO, &oggenc_pid, NULL);
+    free(tracknum_text);
     
     do
     {
@@ -684,7 +683,7 @@ void opusenc(int tracknum,
 
     int pos;
     char bitrate_text[4];
-    char tracknum_text[16];
+    char * tracknum_text = NULL;
     char album_text[128];
     char year_text[32];
     char genre_text[64];
@@ -697,9 +696,8 @@ void opusenc(int tracknum,
     args[pos++] = "--bitrate";
     args[pos++] = bitrate_text;
 
-    if ((tracknum > 0) && (tracknum < 100))
+    if (tracknum > 0 && asprintf(&tracknum_text, "TRACKNUMBER=%d", tracknum) > 0)
     {
-        snprintf(tracknum_text,16,"TRACKNUMBER=%d",tracknum);
         args[pos++] = "--comment";
         args[pos++] = tracknum_text;
     }
@@ -736,6 +734,7 @@ void opusenc(int tracknum,
     args[pos++] = NULL;
 
     fd = exec_with_output(args, STDERR_FILENO, &oggenc_pid, NULL);
+    free(tracknum_text);
 
     int opussize;
     char opusbuf[256];
@@ -794,7 +793,7 @@ void flac(int tracknum,
     
     int sector;
     
-    char tracknum_text[16];
+    char * tracknum_text = NULL;
     char * artist_text = NULL;
     char * albumartist_text = NULL; //mw
     char * album_text = NULL;
@@ -803,8 +802,6 @@ void flac(int tracknum,
     char * year_text = NULL;
     char compression_level_text[3];
     const char * args[21];
-    
-    snprintf(tracknum_text, 16, "TRACKNUMBER=%d", tracknum);
     
     if(artist != NULL)
     {
@@ -862,7 +859,7 @@ void flac(int tracknum,
     args[pos++] = "flac";
     args[pos++] = "-f";
     args[pos++] = compression_level_text;
-    if ((tracknum > 0) && (tracknum < 100))
+    if (tracknum > 0 && asprintf(&tracknum_text, "TRACKNUMBER=%d", tracknum) > 0)
     {
         args[pos++] = "-T";
         args[pos++] = tracknum_text;
@@ -908,6 +905,7 @@ void flac(int tracknum,
     
     fd = exec_with_output(args, STDERR_FILENO, &flac_pid, NULL);
     
+    free(tracknum_text);
     free(artist_text);
     free(album_text);
     free(albumartist_text);
@@ -996,10 +994,10 @@ void wavpack(int tracknum,
     // target directory and temporary names for the encoded files, then rename
     // them afterwards.
 
-    char trackname_wv[16];
-    char trackname_wvc[16];
-    snprintf(trackname_wv, sizeof(trackname_wv), "wv%02d.wv", tracknum);
-    snprintf(trackname_wvc, sizeof(trackname_wvc), "wv%02d.wvc", tracknum);
+    char * trackname_wv = NULL;
+    char * trackname_wvc = NULL;
+    size = asprintf(&trackname_wv, "wv%02d.wv", tracknum);
+    size = asprintf(&trackname_wvc, "wv%02d.wvc", tracknum);
     gchar * dir = g_path_get_dirname(wavpackfilename_wv);
     gchar * xwavpackfilename_wv = g_build_filename(dir, trackname_wv, NULL);
     gchar * xwavpackfilename_wvc = g_build_filename(dir, trackname_wvc, NULL);
@@ -1029,7 +1027,7 @@ void wavpack(int tracknum,
 
     // Tags
 
-    int tracknum_len = sizeof("TRACK=")  + 2;  // sizeof includes terminating '\0'
+    int tracknum_len = snprintf(NULL, 0, "TRACK=%d", tracknum) + 1;   // sizeof includes terminating '\0', snprintf does not.
     int artist_len   = sizeof("ARTIST=") + (artist ? strlen(artist) : 0);
     int album_len    = sizeof("ALBUM=")  + (album  ? strlen(album)  : 0);
     int title_len    = sizeof("TITLE=")  + (title  ? strlen(title)  : 0);
@@ -1045,7 +1043,7 @@ void wavpack(int tracknum,
     if (!tracknum_buf || !artist_buf || !album_buf || !title_buf || !year_buf || !genre_buf)
         fatalError("wavpack: malloc failed. Out of memory.");
 
-    if (tracknum > 0 && tracknum < 100)
+    if (tracknum > 0)
     {
         snprintf(tracknum_buf, tracknum_len, "TRACK=%d", tracknum);
         args[pos++] = "-w";
@@ -1167,6 +1165,8 @@ void wavpack(int tracknum,
     free(title_buf);
     free(year_buf);
     free(genre_buf);
+    free(trackname_wv);
+    free(trackname_wvc);
     *progress = 1;
 }
 
@@ -1264,10 +1264,9 @@ void musepack(int tracknum,
     args[pos++] = qualityParam;
 
     // Tags
-    char track[4];
-    if (tracknum > 0 && tracknum < 100)
+    char * track = NULL;
+    if (tracknum > 0 && asprintf(&track, "%d", tracknum) > 0)
     {
-        snprintf(track, 4, "%d", tracknum);
         args[pos++] = "--track";
         args[pos++] = track;
     }
@@ -1302,6 +1301,7 @@ void musepack(int tracknum,
     args[pos++] = NULL;
     
     fd = exec_with_output(args, STDERR_FILENO, &musepack_pid, NULL);
+    free(track);
     
     int size;
     char buf[256];
