@@ -37,7 +37,7 @@ pid_t flac_pid;
 pid_t wavpack_pid;
 pid_t monkey_pid;
 pid_t musepack_pid;
-pid_t aac_pid;
+pid_t fdkaac_pid;
 
 int numCdparanoiaFailed;
 int numLameFailed;
@@ -87,18 +87,8 @@ void unblockSigChld(void)
     waitBeforeSigchld = false;
 }
 
-extern pid_t cdparanoia_pid;
-extern pid_t lame_pid;
-extern pid_t oggenc_pid;
-extern pid_t opusenc_pid;
-extern pid_t flac_pid;
-extern pid_t wavpack_pid;
-extern pid_t monkey_pid;
-extern pid_t musepack_pid;
-extern pid_t aac_pid;
-
 // Signal handler to find out when our child has exited.
-// Do not pot any printf or syslog into here, it causes a deadlock.
+// Do not put any printf or syslog into here, it causes a deadlock.
 //
 void sigchld(int signum)
 {
@@ -154,9 +144,9 @@ void sigchld(int signum)
             musepack_pid = 0;
             numMusepackFailed++;
         }
-        else if (pid == aac_pid)
+        else if (pid == fdkaac_pid)
         {
-            aac_pid = 0;
+            fdkaac_pid = 0;
             numAacFailed++;
         }
     }
@@ -203,9 +193,9 @@ void sigchld(int signum)
             musepack_pid = 0;
             numMusepackOk++;
         }
-        else if (pid == aac_pid)
+        else if (pid == fdkaac_pid)
         {
-            aac_pid = 0;
+            fdkaac_pid = 0;
             numAacOk++;
         }
     }
@@ -1344,7 +1334,7 @@ void musepack(int tracknum,
     *progress = 1;
 }
 
-void aac(int tracknum,
+void fdkaac(int tracknum,
          const char * artist,
          const char * album,
          const char * title,
@@ -1352,111 +1342,118 @@ void aac(int tracknum,
          const char * year,
          const char* wavfilename,
          const char* aacfilename,
-         int quality,
+         int bitrate,
          double* progress)
 {
-    const char* args[9];
-    char* dynamic_args[6];
+    const char* args[21];
+    char bitrate_text[4];
     int fd;
     int pos;
-    int dyn_pos;
-    
+
     pos = 0;
-    args[pos++] = "neroAacEnc";
-    
-    args[pos++] = "-q";
-    char qualityParam[5];
-    snprintf(qualityParam, 5, "0.%d", quality);
-    args[pos++] = qualityParam;
-    
-    args[pos++] = "-if";
-    args[pos++] = wavfilename;
-    args[pos++] = "-of";
+    args[pos++] = "fdkaac";
+
+    /* fdkaac has a VBR option but it's unsupported */
+    args[pos++] = "-m";
+    args[pos++] = "0";
+    args[pos++] = "-b";
+    snprintf(bitrate_text, 4, "%d", int_to_bitrate(bitrate, 0));
+    args[pos++] = bitrate_text;
+
+
+    char track[4];
+    if (tracknum > 0 && tracknum < 100)
+    {
+        snprintf(track, 4, "%d", tracknum);
+        args[pos++] = "--track";
+        args[pos++] = track;
+    }
+
+    if ((title != NULL) && (strlen(title) > 0))
+    {
+        args[pos++] = "--title";
+        args[pos++] = title;
+    }
+
+    if ((artist != NULL) && (strlen(artist) > 0))
+    {
+        args[pos++] = "--artist";
+        args[pos++] = artist;
+    }
+
+    if ((album != NULL) && (strlen(album) > 0))
+    {
+        args[pos++] = "--album";
+        args[pos++] = album;
+    }
+
+    if ((genre != NULL) && (strlen(genre) > 0))
+    {
+        args[pos++] = "--genre";
+        args[pos++] = genre;
+    }
+
+    if ((year != NULL) && (strlen(year) > 0))
+    {
+        args[pos++] = "--date";
+        args[pos++] = year;
+    }
+
+    args[pos++] = "-o";
     args[pos++] = aacfilename;
+
+    args[pos++] = wavfilename;
+
     args[pos++] = NULL;
-    
-    fd = exec_with_output(args, STDERR_FILENO, &aac_pid, NULL);
-    
+
+    fd = exec_with_output(args, STDERR_FILENO, &fdkaac_pid, NULL);
+
     int size;
     char buf[256];
+
     do
     {
-        /* The Nero encoder doesn't give me an estimate for completion
-        * or any way to estimate it myself, just the number of seconds
-        * done. So just sit in here until the program exits */
-        size = read(fd, &buf[0], 256);
-        
-        if (size == -1 && errno == EINTR)
-        /* signal interrupted read(), try again */
-            size = 1;
+        pos = -1;
+        bool interrupted;
+        do
+        {
+            interrupted = FALSE;
+
+            pos++;
+            size = read(fd, &buf[pos], 1);
+
+            if (size == -1 && errno == EINTR)
+            /* signal interrupted read(), try again */
+            {
+                pos--;
+                debugLog("fdkaac() interrupted");
+                interrupted = TRUE;
+            }
+
+        } while ((size > 0 && pos < 255 && buf[pos] != '\r' && buf[pos] != '\n') || interrupted);
+
+        buf[pos] = '\0';
+
+        /* We get lines like this:
+            [28%] 00:14.037/00:49.771 (22x), ETA 00:01.599
+        */
+        if ((pos >= 4) && (buf[0] == '[')) {
+            int percent = 0;
+            if (sscanf(buf, "[%d%%]", &percent) == 1)
+            {
+                *progress = (double) percent / 100.0;
+            }
+        }
     } while (size > 0);
-    
+
     close(fd);
+
     /* don't go on until the signal for the previous call is handled */
-    while (aac_pid != 0)
-    {
-        debugLog("w11\n");
-        usleep(100000);
-    }
-
-    /* Now add tags to the encoded track */
-
-    pos = 0;
-    args[pos++] = "neroAacTag";
-
-    args[pos++] = aacfilename;
-
-    dyn_pos = 0;
-    if (asprintf(&dynamic_args[dyn_pos], "-meta:artist=%s", artist) > 0)
-    {
-        args[pos++] = dynamic_args[dyn_pos++];
-    }
-    if (asprintf(&dynamic_args[dyn_pos], "-meta:title=%s", title) > 0)
-    {
-        args[pos++] = dynamic_args[dyn_pos++];
-    }
-    if (asprintf(&dynamic_args[dyn_pos], "-meta:album=%s", album) > 0)
-    {
-        args[pos++] = dynamic_args[dyn_pos++];
-    }
-    if (asprintf(&dynamic_args[dyn_pos], "-meta:year=%s", year) > 0)
-    {
-        args[pos++] = dynamic_args[dyn_pos++];
-    }
-    if (asprintf(&dynamic_args[dyn_pos], "-meta:genre=%s", genre) > 0)
-    {
-        args[pos++] = dynamic_args[dyn_pos++];
-    }
-    if (asprintf(&dynamic_args[dyn_pos], "-meta:track=%d", tracknum) > 0)
-    {
-        args[pos++] = dynamic_args[dyn_pos++];
-    }
-
-    args[pos++] = NULL;
-    
-    fd = exec_with_output(args, STDERR_FILENO, &aac_pid, NULL);
-    
-    do
-    {
-        /* The Nero tag writer doesn't take very long to run. Just slurp the output. */
-        size = read(fd, &buf[0], 256);
-        
-        if (size == -1 && errno == EINTR)
-        /* signal interrupted read(), try again */
-            size = 1;
-    } while (size > 0);
-    
-    close(fd);
-    /* don't go on until the signal for the previous call is handled */
-    while (aac_pid != 0)
+    while (fdkaac_pid != 0)
     {
         debugLog("w12\n");
         usleep(100000);
     }
 
-    while(dyn_pos)
-    {
-        free(dynamic_args[--dyn_pos]);
-    }
     *progress = 1;
 }

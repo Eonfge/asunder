@@ -34,18 +34,20 @@ typedef struct _prefs
     int cddb_port_number;
     int rip_monkey;
     int monkey_compression;
-    int rip_aac;
-    int aac_quality;
+    int rip_aac; /* no longer used */
+    int aac_quality; /* no longer used */
     int rip_musepack;
     int musepack_bitrate;
     int more_formats_expanded;
-    int proprietary_formats_expanded;
+    int proprietary_formats_expanded; /* currently unused */
     int rip_opus;
     int opus_bitrate;
     int do_fast_rip;
     int allow_first_track_num_change;
     int first_track_num_offset;
     int track_num_width;
+    int rip_fdkaac;
+    int fdkaac_bitrate;
     
 } prefs;
 

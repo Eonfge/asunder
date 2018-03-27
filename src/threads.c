@@ -92,13 +92,13 @@ void abort_threads()
         kill(pid, SIGKILL);
     if ((pid = musepack_pid)   != 0)
         kill(pid, SIGKILL);
-    if ((pid = aac_pid)        != 0)
+    if ((pid = fdkaac_pid)     != 0)
         kill(pid, SIGKILL);
     
     /* wait until all the worker threads are done */
     while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || 
            opusenc_pid != 0 || flac_pid != 0 || wavpack_pid != 0 || monkey_pid != 0 ||
-           musepack_pid != 0 || aac_pid != 0)
+           musepack_pid != 0 || fdkaac_pid != 0)
     {
         debugLog("w1");
         usleep(100000);
@@ -178,7 +178,7 @@ void dorip()
     // make sure there's at least one format to rip to
     if (!global_prefs->rip_wav && !global_prefs->rip_mp3 && !global_prefs->rip_ogg && !global_prefs->rip_opus &&
         !global_prefs->rip_flac && !global_prefs->rip_wavpack && !global_prefs->rip_monkey &&
-        !global_prefs->rip_musepack && !global_prefs->rip_aac)
+        !global_prefs->rip_musepack && !global_prefs->rip_fdkaac)
     {
         GtkWidget * dialog;
         dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
@@ -327,7 +327,7 @@ void dorip()
             
             free(filename);
         }
-        if (global_prefs->rip_aac)
+        if (global_prefs->rip_fdkaac)
         {
             char * filename = make_filename(prefs_get_music_dir(global_prefs), albumdir, playlist, "m4a.m3u");
             
@@ -1092,7 +1092,7 @@ gpointer encode(gpointer data)
                 }
                 free(musepackfilename);
             }
-            if (global_prefs->rip_aac)
+            if (global_prefs->rip_fdkaac)
             {
                 if (aborted)
                 {
@@ -1117,7 +1117,7 @@ gpointer encode(gpointer data)
                     close_playlists();
                     return NULL;
                 }
-
+				
                 char * aacfilename = make_filename(prefs_get_music_dir(global_prefs), albumdir, musicfilename, "m4a");
                 snprintf(logStr, 1024, "Encoding track %d to \"%s\"\n", tracknum, aacfilename);
                 debugLog(logStr);
@@ -1137,10 +1137,10 @@ gpointer encode(gpointer data)
                 
                 if(doEncode)
                 {
-                    aac(tracknum_vis, trackartist, album_title, tracktitle, album_genre, album_year,
-                        wavfilename, aacfilename,
-                        global_prefs->aac_quality, 
-                        &aac_percent);
+                    fdkaac(tracknum, trackartist, album_title, tracktitle, album_genre, album_year,
+                           wavfilename, aacfilename,
+                           global_prefs->fdkaac_bitrate,
+                           &aac_percent);
                 }
                 
                 if (playlist_aac)
@@ -1228,7 +1228,7 @@ gpointer encode(gpointer data)
     /* wait until all the worker threads are done */
     while (cdparanoia_pid != 0 || lame_pid != 0 || oggenc_pid != 0 || 
            opusenc_pid != 0 || flac_pid != 0 || wavpack_pid != 0 || monkey_pid != 0 ||
-           musepack_pid != 0 || aac_pid != 0)
+           musepack_pid != 0 || fdkaac_pid != 0)
     {
         debugLog("w2");
         usleep(100000);
@@ -1273,7 +1273,7 @@ gpointer track(gpointer data)
         parts++;
     if(global_prefs->rip_musepack) 
         parts++;
-    if(global_prefs->rip_aac) 
+    if(global_prefs->rip_fdkaac)
         parts++;
     
     gdk_threads_enter();

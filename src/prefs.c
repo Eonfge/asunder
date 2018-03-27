@@ -167,6 +167,9 @@ prefs * get_default_prefs()
     p->first_track_num_offset = 0;
     p->track_num_width = 2;
     
+    p->rip_fdkaac = 0;
+    p->fdkaac_bitrate = 10;
+    
     return p;
 }
 
@@ -197,8 +200,8 @@ void set_widgets_from_prefs(prefs * p)
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_bitrate_slider")), p->wavpack_bitrate);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_monkey")), p->rip_monkey);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "monkey_compression_slider")), p->monkey_compression);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_aac")), p->rip_aac);
-    gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "aac_quality_slider")), p->aac_quality);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_fdkaac")), p->rip_fdkaac);
+    gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "fdkaac_bitrate")), p->fdkaac_bitrate);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_musepack")), p->rip_musepack);
     gtk_range_set_value(GTK_RANGE(lookup_widget(win_prefs, "musepack_bitrate_slider")), p->musepack_bitrate);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_opus")), p->rip_opus);
@@ -215,8 +218,8 @@ void set_widgets_from_prefs(prefs * p)
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "cddb_port_number")), tempStr);
     if(global_prefs->more_formats_expanded)
         gtk_expander_set_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "more_formats_expander")), TRUE);
-    if(global_prefs->proprietary_formats_expanded)
-        gtk_expander_set_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")), TRUE);
+    //~ if(global_prefs->proprietary_formats_expanded)
+        //~ gtk_expander_set_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")), TRUE);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "allow_tracknum")), p->allow_first_track_num_change);
     toggle_allow_tracknum(); // This will set up the rest of the related widgets
     
@@ -233,13 +236,12 @@ void set_widgets_from_prefs(prefs * p)
         enable_wavpack_widgets(); /* need this to potentially disable hybrid widgets */
     if( !(p->rip_monkey) )
         disable_monkey_widgets();
-    if( !(p->rip_aac) )
-        disable_aac_widgets();
+    if( !(p->rip_fdkaac) )
+        disable_fdkaac_widgets();
     if( !(p->rip_musepack) )
         disable_musepack_widgets();
     if (!(p->rip_opus))
         disable_opus_widgets();
-    
 }
 
 // populates a prefs struct from the current state of the widgets
@@ -296,8 +298,8 @@ void get_prefs_from_widgets(prefs * p)
     p->wavpack_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "wavpack_bitrate_slider")));
     p->rip_monkey = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_monkey")));
     p->monkey_compression = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "monkey_compression_slider")));
-    p->rip_aac = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_aac")));
-    p->aac_quality = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "aac_quality_slider")));
+    p->rip_fdkaac = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_fdkaac")));
+    p->fdkaac_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "fdkaac_bitrate")));
     p->rip_musepack = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_musepack")));
     p->musepack_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "musepack_bitrate_slider")));
     p->rip_opus = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_opus")));
@@ -328,7 +330,7 @@ void get_prefs_from_widgets(prefs * p)
     p->do_log = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_log")));
     
     p->more_formats_expanded = gtk_expander_get_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "more_formats_expander")));
-    p->proprietary_formats_expanded = gtk_expander_get_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")));
+    //~ p->proprietary_formats_expanded = gtk_expander_get_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")));
     
     p->allow_first_track_num_change = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "allow_tracknum")));
     p->first_track_num_offset = atoi(gtk_entry_get_text(GTK_ENTRY (lookup_widget(win_main, "tn_first")))) - 1;
@@ -450,8 +452,8 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->cddb_port_number);
         fprintf(config, "%d\n", p->rip_monkey);
         fprintf(config, "%d\n", p->monkey_compression);
-        fprintf(config, "%d\n", p->rip_aac);
-        fprintf(config, "%d\n", p->aac_quality);
+        fprintf(config, "%s\n", "unused"); /* used to be p->rip_aac */
+        fprintf(config, "%s\n", "unused"); /* used to be p->aac_quality */
         fprintf(config, "%d\n", p->rip_musepack);
         fprintf(config, "%d\n", p->musepack_bitrate);
         fprintf(config, "%d\n", p->more_formats_expanded);
@@ -462,7 +464,8 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->allow_first_track_num_change);
         fprintf(config, "%d\n", p->first_track_num_offset);
         fprintf(config, "%d\n", p->track_num_width);
-        printf("offset %d, width %d\n", p->first_track_num_offset, p->track_num_width);
+        fprintf(config, "%d\n", p->rip_fdkaac);
+        fprintf(config, "%d\n", p->fdkaac_bitrate);
         
         fclose(config);
     } else {
@@ -628,11 +631,15 @@ void load_prefs(prefs * p)
         // this one can be 0
         p->monkey_compression = read_line_num(fd);
         
-        // this one can be 0
-        p->rip_aac = read_line_num(fd);
+        /* used to be p->rip_aac, but no longer used */
+        aCharPtr = read_line(fd);
+        if (aCharPtr != NULL)
+            free(aCharPtr);
         
-        // this one can be 0
-        p->aac_quality = read_line_num(fd);
+        /* used to be p->aac_quality, but no longer used */
+        aCharPtr = read_line(fd);
+        if (aCharPtr != NULL)
+            free(aCharPtr);
         
         // this one can be 0
         p->rip_musepack = read_line_num(fd);
@@ -655,7 +662,7 @@ void load_prefs(prefs * p)
         
         // this one can be 0
         p->do_fast_rip = read_line_num(fd);
-        
+
         // this one can be 0
         p->allow_first_track_num_change = read_line_num(fd);
         
@@ -665,6 +672,12 @@ void load_prefs(prefs * p)
         p->track_num_width = read_line_num(fd);
         if (p->track_num_width < 1 || p->track_num_width > 4)
             p->track_num_width = 2;
+        
+        // this one can be 0
+        p->rip_fdkaac = read_line_num(fd);
+        
+        // this one can be 0
+        p->fdkaac_bitrate = read_line_num(fd);
         
         close(fd);
     } else {
@@ -797,7 +810,7 @@ bool prefs_are_valid(void)
         gtk_widget_destroy(warningDialog);
         somethingWrong = true;
     }
-    
+	
     if(somethingWrong)
         return false;
     else

@@ -9,7 +9,7 @@ extern pid_t flac_pid;
 extern pid_t wavpack_pid;
 extern pid_t monkey_pid;
 extern pid_t musepack_pid;
-extern pid_t aac_pid;
+extern pid_t fdkaac_pid;
 
 extern int numCdparanoiaFailed;
 extern int numLameFailed;
@@ -205,4 +205,15 @@ void aac(int tracknum,
          const char* wavfilename,
          const char* aacfilename,
          int quality,
+         double* progress);
+
+void fdkaac(int tracknum,
+         const char * artist,
+         const char * album,
+         const char * title,
+         const char * genre,
+         const char * year,
+         const char* wavfilename,
+         const char* aacfilename,
+         int bitrate,
          double* progress);

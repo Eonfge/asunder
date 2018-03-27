@@ -322,6 +322,15 @@ on_mp3bitrate_value_changed            (GtkRange        *range,
 }
 
 void
+on_fdkaac_bitrate_value_changed            (GtkRange        *range,
+                                        gpointer         user_data)
+{
+    char bitrate[8];    
+    snprintf(bitrate, 8, _("%dKbps"), int_to_bitrate((int)gtk_range_get_value(range), 0));
+    gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "fdkaac_bitrate_lbl_2")), bitrate);
+}
+
+void
 on_opusrate_value_changed           (GtkRange   *range,
                                      gpointer   user_data)
 {
@@ -652,6 +661,32 @@ on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
 }
 
 void
+on_rip_fdkaac_toggled                     (GtkToggleButton *togglebutton,
+                                        gpointer         user_data)
+{
+    if (gtk_toggle_button_get_active(togglebutton) && !program_exists("fdkaac"))
+    {
+        GtkWidget * dialog;
+        
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                        _("%s was not found in your path. Asunder requires it to create %s files. "
+                                        "All %s functionality is disabled."),
+                                        "'fdkaac'", "AAC", "AAC");
+        gtk_dialog_run(GTK_DIALOG(dialog));
+        gtk_widget_destroy(dialog);
+
+        global_prefs->rip_fdkaac = 0;
+        gtk_toggle_button_set_active(togglebutton, global_prefs->rip_fdkaac);
+    }
+    
+    if (!gtk_toggle_button_get_active(togglebutton))
+        disable_fdkaac_widgets();
+    else
+        enable_fdkaac_widgets();
+}
+
+void
 on_rip_flac_toggled                    (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
@@ -775,31 +810,6 @@ on_rip_monkey_toggled                  (GtkToggleButton *togglebutton,
         disable_monkey_widgets();
     else
         enable_monkey_widgets();
-}
-
-void
-on_rip_aac_toggled                  (GtkToggleButton *togglebutton,
-                                     gpointer         user_data)
-{
-    if (gtk_toggle_button_get_active(togglebutton) && !program_exists("neroAacEnc"))
-    {
-        GtkWidget * dialog;
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
-                                        _("%s was not found in your path. Asunder requires it to create %s files. "
-                                        "All %s functionality is disabled."),
-                                        "'neroAacEnc'", "MP4", "AAC");
-        gtk_dialog_run(GTK_DIALOG(dialog));
-        gtk_widget_destroy(dialog);
-
-        global_prefs->rip_aac = 0;
-        gtk_toggle_button_set_active(togglebutton, global_prefs->rip_aac);
-    }
-    
-    if (!gtk_toggle_button_get_active(togglebutton))
-        disable_aac_widgets();
-    else
-        enable_aac_widgets();
 }
 
 void

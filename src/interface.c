@@ -9,7 +9,6 @@ the GNU General Public Licence as published by the Free Software
 Foundation; version 2 of the licence.
 
 */
-
 #ifdef HAVE_CONFIG_H
 #    include <config.h>
 #endif
@@ -396,6 +395,11 @@ create_prefs (void)
     GtkWidget *mp3_vbr;
     GtkWidget *hbox9;
     GtkWidget *rip_mp3;
+    GtkWidget *vbox2X;
+    GtkWidget *frame3X;
+    GtkWidget *alignment8X;
+    GtkWidget *hbox9X;
+    GtkWidget *rip_fdkaac;
     GtkWidget *frame4;
     GtkWidget *alignment9;
     GtkWidget *hbox10;
@@ -581,6 +585,7 @@ create_prefs (void)
     
     /* ENCODE tab */
     GtkWidget *mp3bitrate;
+    GtkWidget *fdkaac_bitrate;
     GtkWidget *oggLbl;
     GtkWidget *oggquality;
     GtkWidget *rip_ogg;
@@ -673,7 +678,7 @@ create_prefs (void)
                                         G_CALLBACK (on_rip_mp3_toggled),
                                         NULL);
     /* END MP3 */
-    
+	
     /* OGG */
     frame4 = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type(GTK_FRAME(frame4), GTK_SHADOW_IN);
@@ -710,6 +715,57 @@ create_prefs (void)
                                         NULL);
     /* END OGG */
 
+    /* FDK-AAC  */
+    frame3X = gtk_frame_new (NULL);
+    gtk_frame_set_shadow_type(GTK_FRAME(frame3X), GTK_SHADOW_IN);
+    gtk_widget_show (frame3X);
+    gtk_box_pack_start (GTK_BOX (vbox), frame3X, FALSE, FALSE, 0);
+
+    alignment8X = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_show (alignment8X);
+    gtk_container_add (GTK_CONTAINER (frame3X), alignment8X);
+    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8X), 2, 2, 12, 2);
+    
+    vbox2X = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (vbox2X);
+    gtk_container_add (GTK_CONTAINER (alignment8X), vbox2X);
+
+    hbox9X = gtk_hbox_new (FALSE, 0);
+    gtk_widget_show (hbox9X);
+    gtk_box_pack_start (GTK_BOX (vbox2X), hbox9X, TRUE, TRUE, 0);    
+
+    label = gtk_label_new (_("Bitrate"));
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox9X), label, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, label, "fdkaac_bitrate_lbl");
+    
+    fdkaac_bitrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 14, 1, 1, 1)));
+    gtk_widget_show (fdkaac_bitrate);
+    gtk_box_pack_start (GTK_BOX (hbox9X), fdkaac_bitrate, TRUE, TRUE, 5);
+    gtk_scale_set_draw_value (GTK_SCALE (fdkaac_bitrate), FALSE);
+    gtk_scale_set_digits (GTK_SCALE (fdkaac_bitrate), 0);
+    g_signal_connect ((gpointer) fdkaac_bitrate, "value_changed",
+                                        G_CALLBACK (on_fdkaac_bitrate_value_changed),
+                                        NULL);
+    
+    tooltips = gtk_tooltips_new ();
+    gtk_tooltips_set_tip (tooltips, fdkaac_bitrate, _("Higher bitrate is better quality but also bigger file. Most people use 192Kbps."), NULL);
+    
+    char kbps_textX[10];
+    snprintf(kbps_textX, 10, _("%dKbps"), 32);
+    label = gtk_label_new (kbps_textX);
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox9X), label, FALSE, FALSE, 0);
+    GLADE_HOOKUP_OBJECT (prefs, label, "fdkaac_bitrate_lbl_2");
+    
+    rip_fdkaac = gtk_check_button_new_with_mnemonic (_("AAC (lossy compression)"));
+    gtk_widget_show (rip_fdkaac);
+    gtk_frame_set_label_widget (GTK_FRAME (frame3X), rip_fdkaac);
+    g_signal_connect ((gpointer) rip_fdkaac, "toggled",
+                                        G_CALLBACK (on_rip_fdkaac_toggled),
+                                        NULL);
+    /* END FDK-AAC */
+    
     /* FLAC */
     frame5 = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type(GTK_FRAME(frame5), GTK_SHADOW_IN);
@@ -1004,61 +1060,14 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, rip_monkey, "rip_monkey");
     /* END MONKEY */
     
-    expander = gtk_expander_new(_("Proprietary encoders"));
-    gtk_widget_show (expander);
-    gtk_box_pack_start (GTK_BOX (vbox), expander, FALSE, FALSE, 0);
-    GLADE_HOOKUP_OBJECT (prefs, expander, "proprietary_formats_expander");
+    //~ expander = gtk_expander_new(_("Proprietary encoders"));
+    //~ gtk_widget_show (expander);
+    //~ gtk_box_pack_start (GTK_BOX (vbox), expander, FALSE, FALSE, 0);
+    //~ GLADE_HOOKUP_OBJECT (prefs, expander, "proprietary_formats_expander");
     
-    hiddenbox = gtk_vbox_new (FALSE, 0);
-    gtk_widget_show (hiddenbox);
-    gtk_container_add (GTK_CONTAINER (expander), hiddenbox);
-    
-    /* AAC */
-    GtkWidget* rip_aac;
-    GtkWidget* aacQuality;
-    GtkWidget* aacVbox;
-    
-    frame8 = gtk_frame_new (NULL);
-    gtk_frame_set_shadow_type(GTK_FRAME(frame8), GTK_SHADOW_IN);
-    gtk_widget_show (frame8);
-    gtk_box_pack_start (GTK_BOX (hiddenbox), frame8, FALSE, FALSE, 0);
-    
-    alignment11 = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment11);
-    gtk_container_add (GTK_CONTAINER (frame8), alignment11);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
-    
-    aacVbox = gtk_vbox_new (FALSE, 0);
-    gtk_widget_show (aacVbox);
-    gtk_container_add (GTK_CONTAINER (alignment11), aacVbox);
-    
-    hbox13 = gtk_hbox_new (FALSE, 0);
-    gtk_widget_show (hbox13);
-    gtk_box_pack_start (GTK_BOX (aacVbox), hbox13, FALSE, FALSE, 0);
-    
-    label = gtk_label_new (_("Quality"));
-    gtk_widget_show (label);
-    gtk_box_pack_start (GTK_BOX (hbox13), label, FALSE, FALSE, 0);
-    GLADE_HOOKUP_OBJECT (prefs, label, "aac_quality_lbl");
-    
-    aacQuality = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 1, 100, 1, 1, 1)));
-    gtk_widget_show (aacQuality);
-    gtk_box_pack_start (GTK_BOX (hbox13), aacQuality, TRUE, TRUE, 5);
-    gtk_scale_set_value_pos (GTK_SCALE (aacQuality), GTK_POS_RIGHT);
-    gtk_scale_set_digits (GTK_SCALE (aacQuality), 0);
-    GLADE_HOOKUP_OBJECT (prefs, aacQuality, "aac_quality_slider");
-    
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, aacQuality, _("Higher quality means bigger file. Default is 60."), NULL);
-    
-    rip_aac = gtk_check_button_new_with_mnemonic (_("AAC (lossy compression, Nero encoder)"));
-    gtk_widget_show (rip_aac);
-    gtk_frame_set_label_widget (GTK_FRAME (frame8), rip_aac);
-    g_signal_connect ((gpointer) rip_aac, "toggled",
-                                        G_CALLBACK (on_rip_aac_toggled),
-                                        NULL);
-    GLADE_HOOKUP_OBJECT (prefs, rip_aac, "rip_aac");
-    /* END AAC */
+    //~ hiddenbox = gtk_vbox_new (FALSE, 0);
+    //~ gtk_widget_show (hiddenbox);
+    //~ gtk_container_add (GTK_CONTAINER (expander), hiddenbox);
     
     label = gtk_label_new (_("Encode"));
     gtk_widget_show (label);
@@ -1226,6 +1235,8 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, oggLbl, "ogg_lbl");
     GLADE_HOOKUP_OBJECT (prefs, oggquality, "oggquality");
     GLADE_HOOKUP_OBJECT (prefs, rip_ogg, "rip_ogg");
+    GLADE_HOOKUP_OBJECT (prefs, rip_fdkaac, "rip_fdkaac");
+    GLADE_HOOKUP_OBJECT (prefs, fdkaac_bitrate, "fdkaac_bitrate");
     GLADE_HOOKUP_OBJECT (prefs, flacLbl, "flac_lbl");
     GLADE_HOOKUP_OBJECT (prefs, flaccompression, "flaccompression");
     GLADE_HOOKUP_OBJECT (prefs, rip_flac, "rip_flac");
@@ -1385,6 +1396,20 @@ void enable_mp3_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "bitrate_lbl_2"), TRUE);
 }
 
+void disable_fdkaac_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "fdkaac_bitrate_lbl"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "fdkaac_bitrate"), FALSE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "fdkaac_bitrate_lbl_2"), FALSE);
+}
+
+void enable_fdkaac_widgets(void)
+{
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "fdkaac_bitrate_lbl"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "fdkaac_bitrate"), TRUE);
+    gtk_widget_set_sensitive(lookup_widget(win_prefs, "fdkaac_bitrate_lbl_2"), TRUE);
+}
+
 void disable_ogg_widgets(void)
 {
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "ogg_lbl"), FALSE);
@@ -1461,18 +1486,6 @@ void enable_monkey_widgets(void)
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "monkey_compression_slider"), TRUE);
 }
 
-void disable_aac_widgets(void)
-{
-    gtk_widget_set_sensitive(lookup_widget(win_prefs, "aac_quality_lbl"), FALSE);
-    gtk_widget_set_sensitive(lookup_widget(win_prefs, "aac_quality_slider"), FALSE);
-}
-
-void enable_aac_widgets(void)
-{
-    gtk_widget_set_sensitive(lookup_widget(win_prefs, "aac_quality_lbl"), TRUE);
-    gtk_widget_set_sensitive(lookup_widget(win_prefs, "aac_quality_slider"), TRUE);
-}
-
 void disable_musepack_widgets(void)
 {
     gtk_widget_set_sensitive(lookup_widget(win_prefs, "musepack_bitrate_lbl"), FALSE);
@@ -1544,6 +1557,7 @@ GBLauthors[2] = {
 "- Remove 'single genre' code that's been unused since 2010.\n"
 "- Added features to automatically fix some common mistakes in CDDB entries.\n"
 "- Fixed the wavpack and mpc encoders to include APEv2 metadata.\n"
+"- Allow changing the first track number and the width of the track number in the filename.\n"
 "(A few patches were mistakenly attributed to \"Gregory Montego\" and \"Gergory Margo\")\n"
 "\n"
 "Andreas Ronnquist\n"
@@ -1579,6 +1593,7 @@ GBLauthors[2] = {
 "- Support for autocompletion in artist/album/genre fields.\n"
 "\n"
 "Jonathan 'theJPster' Pallant\n"
+"- Move from neroAacEnc to fdkaac.\n"
 "- Tag AAC files using neroAacTag.\n"
 "\n"
 "Micah Lindstrom\n"
