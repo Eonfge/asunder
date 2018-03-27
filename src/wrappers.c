@@ -29,15 +29,15 @@ Foundation; version 2 of the licence.
 #include "prefs.h"
 #include "util.h"
 
-pid_t cdparanoia_pid;
-pid_t lame_pid;
-pid_t oggenc_pid;
-pid_t opusenc_pid;
-pid_t flac_pid;
-pid_t wavpack_pid;
-pid_t monkey_pid;
-pid_t musepack_pid;
-pid_t fdkaac_pid;
+pid_t cdparanoia_pid = 0;
+pid_t lame_pid = 0;
+pid_t oggenc_pid = 0;
+pid_t opusenc_pid = 0;
+pid_t flac_pid = 0;
+pid_t wavpack_pid = 0;
+pid_t monkey_pid = 0;
+pid_t musepack_pid = 0;
+pid_t fdkaac_pid = 0;
 
 int numCdparanoiaFailed;
 int numLameFailed;
