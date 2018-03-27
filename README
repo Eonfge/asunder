@@ -25,6 +25,7 @@ Requirements
   http://lame.sourceforge.net/
 * Vorbis-Tools (optional for Ogg Vorbis support)
   http://www.vorbis.com/
+* Fraunhofer FDK AAC (optional for Aacsupport)
 * FLAC (optional for FLAC support)
   http://flac.sourceforge.net/
 * Opus (optional for Opus support)
@@ -33,8 +34,6 @@ Requirements
   http://www.wavpack.com/
 * mpcenc (optional for Musepack support)
   http://www.musepack.net/
-* neroAacEnc (optional for AAC support)
-  http://www.nero.com/
 * mac (optional for Monkey's Audio support)
   http://www.monkeysaudio.com/
 
@@ -42,9 +41,9 @@ To compile from source you may need the -dev or -devel versions of GTK and libcd
 
 Compiling
 =========
-First install all the dependencies. LAME, Vorbis-Tools, FLAC, and Wavpack don't have to be installed to compile. They are only needed at runtime if you choose to encode in those formats.
+First install all the dependencies. LAME, Vorbis-Tools, FLAC, FDK-AAC and Wavpack don't have to be installed to compile. They are only needed at runtime if you choose to encode in those formats.
 
-mpcenc, neroAacEnc, and mac are also not required and may be difficult to install on your distribution. If you really want them, you probably already have them.
+mpcenc and mac are also not required and may be difficult to install on your distribution. If you really want them, you probably already have them.
 
 Then run:
 
@@ -71,7 +70,7 @@ If on any of the steps above you get errors, or even warnings, please do send me
 
 Contact
 =======
-I would love to hear from you, to know how you made use of Asunder, or with bug reports, or feature requests. Please use the form at http://littlesvr.ca/misc/contactandrew.php to send me email. Thanks in advance!
+I would love to hear from you, to know how you made use of Asunder, or with bug reports, or feature requests. Please use the form at http://littlesvr.ca/contact.php to send me email. Thanks in advance!
 
 Bug Reports
 ===========
