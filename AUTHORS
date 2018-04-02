@@ -23,6 +23,10 @@ Gregory Margo
 - Fixed race condition during abort
 - Improved completion percentage feedback
 - Added feature to make the artist and title columns resizable
+- Remove 'single genre' code that's been unused since 2010.
+- Added features to automatically fix some common mistakes in CDDB entries.
+- Fixed the wavpack and mpc encoders to include APEv2 metadata.
+- Allow changing the first track number and the width of the track number in the filename.
 (A few patches were mistakenly attributed to "Gregory Montego" and "Gergory Margo")
 
 Andreas Ronnquist
@@ -58,6 +62,7 @@ Hiroyuki Ito
 - Support for autocompletion in artist/album/genre fields.
 
 Jonathan 'theJPster' Pallant
+- Move from neroAacEnc to fdkaac.
 - Tag AAC files using neroAacTag.
 
 Micah Lindstrom

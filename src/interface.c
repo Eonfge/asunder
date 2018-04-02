@@ -1524,7 +1524,7 @@ toggle_allow_tracknum(void)
 }
 
 const char* 
-GBLprogramName = "Asunder 2.9.2";
+GBLprogramName = "Asunder 2.9.3";
 
 static const char* 
 GBLauthors[2] = {
