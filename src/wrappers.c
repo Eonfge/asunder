@@ -1361,10 +1361,9 @@ void fdkaac(int tracknum,
     args[pos++] = bitrate_text;
 
 
-    char track[4];
-    if (tracknum > 0 && tracknum < 100)
+    char * track = NULL;
+    if (tracknum > 0 && asprintf(&track, "%d", tracknum) > 0)
     {
-        snprintf(track, 4, "%d", tracknum);
         args[pos++] = "--track";
         args[pos++] = track;
     }
@@ -1407,6 +1406,7 @@ void fdkaac(int tracknum,
     args[pos++] = NULL;
 
     fd = exec_with_output(args, STDERR_FILENO, &fdkaac_pid, NULL);
+    free(track);
 
     int size;
     char buf[256];
