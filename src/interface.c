@@ -194,7 +194,6 @@ create_main (void)
     GtkWidget* tn_width = gtk_combo_box_new();
     gtk_widget_show(tn_width);
     gtk_box_pack_start(GTK_BOX (tn_hbox), tn_width, FALSE, TRUE, 0);
-    gtk_combo_box_set_active(GTK_COMBO_BOX(tn_width), global_prefs->track_num_width - 1);
 	
     GtkCellRenderer *renderer = gtk_cell_renderer_text_new();
     gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(tn_width), renderer, TRUE);
@@ -211,7 +210,7 @@ create_main (void)
     }
     gtk_combo_box_set_model(GTK_COMBO_BOX(tn_width), GTK_TREE_MODEL(store));
     g_object_unref(store);
-    gtk_combo_box_set_active(GTK_COMBO_BOX(tn_width), 1);       // Set "2" as default value
+    gtk_combo_box_set_active(GTK_COMBO_BOX(tn_width), global_prefs->track_num_width - 1);
 	
     genre_label	= gtk_label_new (_("Genre / Year:"));								// lnr
     gtk_misc_set_alignment (GTK_MISC ( genre_label ), 0, 0);
