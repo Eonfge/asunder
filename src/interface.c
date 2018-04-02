@@ -1532,7 +1532,7 @@ GBLauthors[2] = {
 "\n"
 "Andrew Smith\n"
 "http://littlesvr.ca/contact.php\n"
-"Summer 2005 - 2009\n"
+"2005 - 2018\n"
 "- maintainer\n"
 "\n"
 "Eric Lathrop\n"
