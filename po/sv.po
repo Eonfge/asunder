@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Asunder package.
 # Copyright (C) 2007, 2009 Free Software Foundation, Inc.
 # Daniel Nylander <po@danielnylander.se>, 2007, 2009.
-# Andreas Rönnquist <gusnan@gusnan.se> 2012-2014.
+# Andreas Rönnquist <andreas@ronnquist.net> 2012-2018
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: asunder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-01 22:50-0400\n"
-"PO-Revision-Date: 2017-11-17 01:21+0100\n"
+"PO-Revision-Date: 2018-04-07 14:29+0200\n"
 "Last-Translator: Andreas Rönnquist <andreas@ronnquist.net>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -98,15 +98,15 @@ msgstr "Avmarkera alla för extrahering"
 
 #: ../src/callbacks.c:924
 msgid "Capitalize Artists & Titles"
-msgstr ""
+msgstr "Använd stor bokstav i Artist & Titel"
 
 #: ../src/callbacks.c:930
 msgid "Split 'Artist/Title' in Title field"
-msgstr ""
+msgstr "Dela 'Artist/Titel' i titelfältet"
 
 #: ../src/callbacks.c:936
 msgid "Swap Artist <=> Title"
-msgstr ""
+msgstr "Växla Artist <=> Titel"
 
 #: ../src/interface.c:94
 msgid "CDDB Lookup"
@@ -130,11 +130,11 @@ msgstr "En Artist"
 
 #: ../src/interface.c:176
 msgid "First track number:"
-msgstr ""
+msgstr "Första spårnummer:"
 
 #: ../src/interface.c:189
 msgid "Track number width in filename:"
-msgstr ""
+msgstr "Bredd på spårnummer i filnamn:"
 
 #: ../src/interface.c:215
 msgid "Genre / Year:"
@@ -245,7 +245,7 @@ msgstr "Filnamnsformat"
 
 #: ../src/interface.c:575
 msgid "Allow changing first track number"
-msgstr ""
+msgstr "Tillåt att ändra första spårnummer"
 
 #: ../src/interface.c:580
 msgid "Filenames"
@@ -305,9 +305,8 @@ msgid "OGG Vorbis (lossy compression)"
 msgstr "OGG Vorbis (förstörande komprimering)"
 
 #: ../src/interface.c:760
-#, fuzzy
 msgid "AAC (lossy compression)"
-msgstr "MP3 (förstörande komprimering)"
+msgstr "AAC (förstörande komprimering)"
 
 #: ../src/interface.c:783 ../src/interface.c:899 ../src/interface.c:1038
 msgid "Compression level"
@@ -431,14 +430,13 @@ msgid "Encoding"
 msgstr "Kodning"
 
 #: ../src/interface.c:1892
-#, fuzzy
 msgid ""
 "An application to save tracks from an Audio CD \n"
 "as WAV, MP3, OGG, FLAC, Wavpack, Opus, Musepack, Monkey's Audio, and/or AAC "
 "files."
 msgstr ""
 "Ett program för att spara spår från en ljud-CD \n"
-"som WAV, MP3, OGG, FLAC, Opus, Wavpack, Musepack, Monkey's Audio och/eller "
+"som WAV, MP3, OGG, FLAC, Wavpack, Opus, Musepack, Monkey's Audio och/eller "
 "AAC-filer."
 
 #: ../src/interface.c:1934
