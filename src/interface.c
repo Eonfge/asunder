@@ -115,67 +115,53 @@ create_main (void)
     gtk_container_add (GTK_CONTAINER (toolbar1), about);
     gtk_tool_item_set_is_important (GTK_TOOL_ITEM (about), TRUE);
 
-    table2 = gtk_table_new (5, 3, FALSE);
+    table2 = gtk_grid_new();
+    gtk_grid_set_column_homogeneous(GTK_GRID(table2), false);
     gtk_widget_show (table2);
     gtk_box_pack_start (GTK_BOX (vbox1), table2, FALSE, TRUE, 3);
 
     album_artist = gtk_entry_new ();
     create_completion(album_artist, "album_artist");
     gtk_widget_show (album_artist);
-    gtk_table_attach (GTK_TABLE (table2), album_artist, 1, 2, 1, 2,
-                      (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                      (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table2), album_artist, 1, 1, 1, 1);
+    gtk_widget_set_hexpand(album_artist, true);
 
     album_title = gtk_entry_new ();
     gtk_widget_show (album_title);
     create_completion(album_title, "album_title");
-    gtk_table_attach (GTK_TABLE (table2), album_title, 1, 2, 2, 3,
-                      (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                      (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table2), album_title, 1, 2, 1, 1);
+    gtk_widget_set_hexpand(album_title, true);
 
     pick_disc = gtk_combo_box_new ();
-    gtk_table_attach (GTK_TABLE (table2), pick_disc, 1, 2, 0, 1,
-                      (GtkAttachOptions) (GTK_FILL),
-                      (GtkAttachOptions) (GTK_FILL), 0, 0);
+    gtk_grid_attach (GTK_GRID (table2), pick_disc, 1, 0, 1, 1);
 
     album_genre = gtk_entry_new();                      // lnr
     create_completion(album_genre, "album_genre");
     gtk_widget_show( album_genre );
-    gtk_table_attach( GTK_TABLE( table2 ), album_genre, 1, 2, 3, 4,
-                      (GtkAttachOptions) ( GTK_EXPAND | GTK_FILL ),
-                      (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach( GTK_GRID( table2 ), album_genre, 1, 3, 1, 1);
+    gtk_widget_set_hexpand(album_genre, true);
 
     disc = gtk_label_new (_("Disc:"));
-    gtk_table_attach (GTK_TABLE (table2), disc, 0, 1, 0, 1,
-                      (GtkAttachOptions) (GTK_FILL),
-                      (GtkAttachOptions) (0), 3, 0);
+    gtk_grid_attach (GTK_GRID (table2), disc, 0, 0, 1, 1);
     gtk_misc_set_alignment (GTK_MISC (disc), 0, 0.49);
 
     artist_label = gtk_label_new (_("Album Artist:"));
     gtk_misc_set_alignment (GTK_MISC (artist_label), 0, 0);
     gtk_widget_show (artist_label);
-    gtk_table_attach (GTK_TABLE (table2), artist_label, 0, 1, 1, 2,
-                      (GtkAttachOptions) (GTK_FILL),
-                      (GtkAttachOptions) (0), 3, 0);
+    gtk_grid_attach (GTK_GRID (table2), artist_label, 0, 1, 1, 1);
 
     title_label = gtk_label_new (_("Album Title:"));
     gtk_misc_set_alignment (GTK_MISC (title_label), 0, 0);
     gtk_widget_show (title_label);
-    gtk_table_attach (GTK_TABLE (table2), title_label, 0, 1, 2, 3,
-                      (GtkAttachOptions) (GTK_FILL),
-                      (GtkAttachOptions) (0), 3, 0);
+    gtk_grid_attach (GTK_GRID (table2), title_label, 0, 2, 2, 2);
 
     single_artist = gtk_check_button_new_with_mnemonic (_("Single Artist"));
     gtk_widget_show (single_artist);
-    gtk_table_attach (GTK_TABLE (table2), single_artist, 2, 3, 1, 2,
-                      (GtkAttachOptions) (GTK_FILL),
-                      (GtkAttachOptions) (0), 3, 0);
+    gtk_grid_attach (GTK_GRID (table2), single_artist, 2, 1, 1, 1);
 
     GtkWidget* tn_hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
     gtk_widget_hide(tn_hbox);
-    gtk_table_attach (GTK_TABLE (table2), tn_hbox, 0, 3, 4, 5,
-                      (GtkAttachOptions) (GTK_FILL),
-                      (GtkAttachOptions) (0), 3, 0);
+    gtk_grid_attach (GTK_GRID (table2), tn_hbox, 0, 4, 3, 1);
 
     GtkWidget *tn_labelo = gtk_label_new (_("First track number:"));
     gtk_misc_set_alignment (GTK_MISC (tn_labelo), 0, 0.5);
@@ -219,15 +205,11 @@ create_main (void)
     genre_label	= gtk_label_new (_("Genre / Year:"));								// lnr
     gtk_misc_set_alignment (GTK_MISC ( genre_label ), 0, 0);
     gtk_widget_show (genre_label);
-    gtk_table_attach (GTK_TABLE (table2), genre_label, 0, 1, 3, 4,
-                      (GtkAttachOptions) (GTK_FILL),
-                      (GtkAttachOptions) (0), 3, 0);
+    gtk_grid_attach (GTK_GRID (table2), genre_label, 0, 3, 1, 1);
 
     GtkWidget* album_year = gtk_entry_new();
     gtk_widget_show(album_year);
-    gtk_table_attach( GTK_TABLE( table2 ), album_year, 2, 3, 3, 4,
-                      (GtkAttachOptions) ( GTK_FILL ),
-                      (GtkAttachOptions) (0), 3, 0);
+    gtk_grid_attach( GTK_GRID( table2 ), album_year, 2, 3, 1, 1);
 
     scrolledwindow1 = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_show (scrolledwindow1);
@@ -511,36 +493,30 @@ create_prefs (void)
     //~ gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
     //~ gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
 
-    table1 = gtk_table_new (3, 2, FALSE);
+    table1 = gtk_grid_new();
+    gtk_grid_set_column_homogeneous(GTK_GRID(table1), false);
     gtk_widget_show (table1);
     gtk_box_pack_start (GTK_BOX (vbox), table1, TRUE, TRUE, 0);
 
     label = gtk_label_new (_("Album directory: "));
     gtk_widget_show (label);
-    gtk_table_attach (GTK_TABLE (table1), label, 0, 1, 0, 1,
-                                        (GtkAttachOptions) (GTK_FILL),
-                                        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), label, 0, 0, 1, 1);
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
 
     label = gtk_label_new (_("Playlist file: "));
     gtk_widget_show (label);
-    gtk_table_attach (GTK_TABLE (table1), label, 0, 1, 1, 2,
-                                        (GtkAttachOptions) (GTK_FILL),
-                                        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), label, 0, 1, 1, 1);
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
 
     label = gtk_label_new (_("Music file: "));
     gtk_widget_show (label);
-    gtk_table_attach (GTK_TABLE (table1), label, 0, 1, 2, 3,
-                                        (GtkAttachOptions) (GTK_FILL),
-                                        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), label, 0, 2, 1, 1);
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
 
     format_albumdir = gtk_entry_new ();
     gtk_widget_show (format_albumdir);
-    gtk_table_attach (GTK_TABLE (table1), format_albumdir, 1, 2, 0, 1,
-                                        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                                        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), format_albumdir, 1, 0, 1, 1);
+    gtk_widget_set_hexpand(format_albumdir, true);
 
     gtk_widget_set_tooltip_text(format_albumdir, _(
         "This is relative to the destination folder (from the General tab).\n"
@@ -551,9 +527,7 @@ create_prefs (void)
 
     format_playlist = gtk_entry_new ();
     gtk_widget_show (format_playlist);
-    gtk_table_attach (GTK_TABLE (table1), format_playlist, 1, 2, 1, 2,
-                                        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                                        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), format_playlist, 1, 1, 1, 1);
 
     gtk_widget_set_tooltip_text (format_playlist, _(
         "This will be stored in the album directory.\n"
@@ -563,9 +537,7 @@ create_prefs (void)
 
     format_music = gtk_entry_new ();
     gtk_widget_show (format_music);
-    gtk_table_attach (GTK_TABLE (table1), format_music, 1, 2, 2, 3,
-                                        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                                        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table1), format_music, 1, 2, 1, 1);
 
     gtk_widget_set_tooltip_text (format_music, _(
         "This will be stored in the album directory.\n"
@@ -1270,47 +1242,39 @@ create_ripping (void)
     dialog_vbox2 = gtk_dialog_get_content_area(GTK_DIALOG (ripping));
     gtk_widget_show (dialog_vbox2);
 
-    table3 = gtk_table_new (3, 2, FALSE);
+    table3 = gtk_grid_new();
+    gtk_grid_set_column_homogeneous(GTK_GRID(table3), false);
     gtk_widget_show (table3);
     gtk_box_pack_start (GTK_BOX (dialog_vbox2), table3, TRUE, TRUE, 0);
 
     progress_total = gtk_progress_bar_new ();
     gtk_widget_show (progress_total);
-    gtk_table_attach (GTK_TABLE (table3), progress_total, 1, 2, 0, 1,
-                                        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                                        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table3), progress_total, 1, 0, 1, 1);
+    gtk_widget_set_hexpand(progress_total, true);
 
     progress_rip = gtk_progress_bar_new ();
     gtk_widget_show (progress_rip);
-    gtk_table_attach (GTK_TABLE (table3), progress_rip, 1, 2, 1, 2,
-                                        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                                        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table3), progress_rip, 1, 1, 1, 1);
+    gtk_widget_set_hexpand(progress_rip, true);
 
     progress_encode = gtk_progress_bar_new ();
     gtk_widget_show (progress_encode);
-    gtk_table_attach (GTK_TABLE (table3), progress_encode, 1, 2, 2, 3,
-                                        (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
-                                        (GtkAttachOptions) (0), 0, 0);
+    gtk_grid_attach (GTK_GRID (table3), progress_encode, 1, 2, 1, 1);
+    gtk_widget_set_hexpand(progress_encode, true);
 
     label25 = gtk_label_new (_("Total progress"));
     gtk_widget_show (label25);
-    gtk_table_attach (GTK_TABLE (table3), label25, 0, 1, 0, 1,
-                                        (GtkAttachOptions) (GTK_FILL),
-                                        (GtkAttachOptions) (0), 5, 0);
+    gtk_grid_attach (GTK_GRID (table3), label25, 0, 0, 1, 1);
     gtk_misc_set_alignment (GTK_MISC (label25), 0, 0.5);
 
     label26 = gtk_label_new (_("Ripping"));
     gtk_widget_show (label26);
-    gtk_table_attach (GTK_TABLE (table3), label26, 0, 1, 1, 2,
-                                        (GtkAttachOptions) (GTK_FILL),
-                                        (GtkAttachOptions) (0), 5, 0);
+    gtk_grid_attach (GTK_GRID (table3), label26, 0, 1, 1, 1);
     gtk_misc_set_alignment (GTK_MISC (label26), 0, 0.5);
 
     label27 = gtk_label_new (_("Encoding"));
     gtk_widget_show (label27);
-    gtk_table_attach (GTK_TABLE (table3), label27, 0, 1, 2, 3,
-                                        (GtkAttachOptions) (GTK_FILL),
-                                        (GtkAttachOptions) (0), 5, 0);
+    gtk_grid_attach (GTK_GRID (table3), label27, 0, 2, 1, 1);
     gtk_misc_set_alignment (GTK_MISC (label27), 0, 0.5);
 
     dialog_action_area2 = gtk_dialog_get_action_area(GTK_DIALOG (ripping));
