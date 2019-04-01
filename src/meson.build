@@ -16,7 +16,7 @@ asunder = executable('asunder',
   'wrappers.c',
 
   dependencies: [
-    gtk2,
+    gtk3,
     gthread,
     libcddb,
   ],

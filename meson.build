@@ -14,7 +14,7 @@ config = configuration_data()
 ###############################################################################
 # Dependencies
 
-gtk2    = dependency('gtk+-2.0',    version: '>=2.4.0')
+gtk3    = dependency('gtk+-3.0',    version: '>=2.4.0')
 gthread = dependency('gthread-2.0', version: '>=2.4.0')
 libcddb = dependency('libcddb',     version: '>=0.9.5')
 
@@ -31,6 +31,12 @@ add_project_arguments(
   '-Wno-deprecated-declarations',
   '-Wno-unused-parameter',
   '-DHAVE_CONFIG_H',
+  language: 'c',
+)
+
+# Port to gtk3
+add_project_arguments(
+  # '-DGTK_DISABLE_DEPRECATED',
   language: 'c',
 )
 

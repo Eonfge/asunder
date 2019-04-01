@@ -31,8 +31,12 @@ Foundation; version 2 of the licence.
 #include "completion.h"
 
 #define GLADE_HOOKUP_OBJECT(component,widget,name) \
-    g_object_set_data_full (G_OBJECT (component), name, \
-        gtk_widget_ref (widget), (GDestroyNotify) gtk_widget_unref)
+    g_object_set_data_full( \
+        G_OBJECT (component), \
+        name, \
+        g_object_ref (widget), \
+        (GDestroyNotify) g_object_unref \
+    )
 
 #define GLADE_HOOKUP_OBJECT_NO_REF(component,widget,name) \
     g_object_set_data (G_OBJECT (component), name, widget)
@@ -410,7 +414,6 @@ create_prefs (void)
     GtkWidget *cancelbutton1;
     GtkWidget *okbutton1;
     GtkWidget *eject_on_done;
-    GtkTooltips *tooltips;
     GtkWidget* hboxFill;
 
     prefs = gtk_dialog_new ();
@@ -419,7 +422,7 @@ create_prefs (void)
     gtk_window_set_modal (GTK_WINDOW (prefs), TRUE);
     gtk_window_set_type_hint (GTK_WINDOW (prefs), GDK_WINDOW_TYPE_HINT_DIALOG);
 
-    vbox = GTK_DIALOG (prefs)->vbox;
+    vbox = gtk_dialog_get_content_area(GTK_DIALOG (prefs));
     gtk_widget_show (vbox);
 
     notebook1 = gtk_notebook_new ();
@@ -458,10 +461,11 @@ create_prefs (void)
     gtk_widget_show (cdrom);
     gtk_box_pack_start (GTK_BOX (hbox12), cdrom, TRUE, TRUE, 0);
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, cdrom, _("Default: /dev/cdrom\n"
-                                              "Other example: /dev/hdc\n"
-                                              "Other example: /dev/sr0"), NULL);
+    gtk_widget_set_tooltip_text(cdrom, _(
+        "Default: /dev/cdrom\n"
+        "Other example: /dev/hdc\n"
+        "Other example: /dev/sr0"
+    ));
 
     eject_on_done = gtk_check_button_new_with_mnemonic (_("Eject disc when finished"));
     gtk_widget_show (eject_on_done);
@@ -538,11 +542,12 @@ create_prefs (void)
                                         (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, format_albumdir, _("This is relative to the destination folder (from the General tab).\n"
-                                                        "Can be blank.\n"
-                                                        "Default: %A - %L\n"
-                                                        "Other example: %A/%L"), NULL);
+    gtk_widget_set_tooltip_text(format_albumdir, _(
+        "This is relative to the destination folder (from the General tab).\n"
+        "Can be blank.\n"
+        "Default: %A - %L\n"
+        "Other example: %A/%L"
+    ));
 
     format_playlist = gtk_entry_new ();
     gtk_widget_show (format_playlist);
@@ -550,10 +555,11 @@ create_prefs (void)
                                         (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, format_playlist, _("This will be stored in the album directory.\n"
-                                                        "Can be blank.\n"
-                                                        "Default: %A - %L"), NULL);
+    gtk_widget_set_tooltip_text (format_playlist, _(
+        "This will be stored in the album directory.\n"
+        "Can be blank.\n"
+        "Default: %A - %L"
+    ));
 
     format_music = gtk_entry_new ();
     gtk_widget_show (format_music);
@@ -561,11 +567,12 @@ create_prefs (void)
                                         (GtkAttachOptions) (GTK_EXPAND | GTK_FILL),
                                         (GtkAttachOptions) (0), 0, 0);
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, format_music, _("This will be stored in the album directory.\n"
-                                                     "Cannot be blank.\n"
-                                                     "Default: %A - %T\n"
-                                                     "Other example: %N - %T"), NULL);
+    gtk_widget_set_tooltip_text (format_music, _(
+        "This will be stored in the album directory.\n"
+         "Cannot be blank.\n"
+         "Default: %A - %T\n"
+         "Other example: %N - %T"
+     ));
 
     label = gtk_label_new (_("Filename formats"));
     gtk_widget_show (label);
@@ -639,8 +646,7 @@ create_prefs (void)
                                         G_CALLBACK (on_vbr_toggled),
                                         NULL);
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, mp3_vbr, _("Better quality for the same size."), NULL);
+    gtk_widget_set_tooltip_text (mp3_vbr, _("Better quality for the same size."));
 
     hbox9 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox9);
@@ -660,8 +666,7 @@ create_prefs (void)
                                         G_CALLBACK (on_mp3bitrate_value_changed),
                                         NULL);
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, mp3bitrate, _("Higher bitrate is better quality but also bigger file. Most people use 192Kbps."), NULL);
+    gtk_widget_set_tooltip_text (mp3bitrate, _("Higher bitrate is better quality but also bigger file. Most people use 192Kbps."));
 
     char kbps_text[10];
     snprintf(kbps_text, 10, _("%dKbps"), 32);
@@ -703,8 +708,7 @@ create_prefs (void)
     gtk_scale_set_value_pos (GTK_SCALE (oggquality), GTK_POS_RIGHT);
     gtk_scale_set_digits (GTK_SCALE (oggquality), 0);
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, oggquality, _("Higher quality means bigger file. Default is 6."), NULL);
+    gtk_widget_set_tooltip_text (oggquality, _("Higher quality means bigger file. Default is 6."));
 
     rip_ogg = gtk_check_button_new_with_mnemonic (_("OGG Vorbis (lossy compression)"));
     gtk_widget_show (rip_ogg);
@@ -747,8 +751,7 @@ create_prefs (void)
                                         G_CALLBACK (on_fdkaac_bitrate_value_changed),
                                         NULL);
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, fdkaac_bitrate, _("Higher bitrate is better quality but also bigger file. Most people use 192Kbps."), NULL);
+    gtk_widget_set_tooltip_text (fdkaac_bitrate, _("Higher bitrate is better quality but also bigger file. Most people use 192Kbps."));
 
     char kbps_textX[10];
     snprintf(kbps_textX, 10, _("%dKbps"), 32);
@@ -790,8 +793,7 @@ create_prefs (void)
     gtk_scale_set_value_pos (GTK_SCALE (flaccompression), GTK_POS_RIGHT);
     gtk_scale_set_digits (GTK_SCALE (flaccompression), 0);
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, flaccompression, _("This does not affect the quality. Higher number means smaller file."), NULL);
+    gtk_widget_set_tooltip_text (flaccompression, _("This does not affect the quality. Higher number means smaller file."));
 
     rip_flac = gtk_check_button_new_with_mnemonic (_("FLAC (lossless compression)"));
     gtk_widget_show (rip_flac);
@@ -857,8 +859,7 @@ create_prefs (void)
     g_signal_connect ((gpointer) opusrate, "value_changed",
                                         G_CALLBACK (on_opusrate_value_changed),
                                         NULL);
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, opusrate, _("Higher bitrate is better quality but also bigger file. Most people use 160Kbps."), NULL);
+    gtk_widget_set_tooltip_text (opusrate, _("Higher bitrate is better quality but also bigger file. Most people use 160Kbps."));
     GLADE_HOOKUP_OBJECT (prefs, opusrate, "opusrate");
     snprintf(opus_kbps, 10, _("%dKbps"), 32);
     label = gtk_label_new (kbps_text);
@@ -908,8 +909,9 @@ create_prefs (void)
     gtk_scale_set_value_pos (GTK_SCALE (wavpackcompression), GTK_POS_RIGHT);
     GLADE_HOOKUP_OBJECT (prefs, wavpackcompression, "wavpack_compression");
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, wavpackcompression, _("This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."), NULL);
+    gtk_widget_set_tooltip_text (wavpackcompression, _(
+        "This does not affect the quality. Higher number means smaller file. Default is 1 (recommended)."
+    ));
 
     frame7 = gtk_frame_new (NULL);
     gtk_widget_show (frame7);
@@ -923,8 +925,9 @@ create_prefs (void)
                                         G_CALLBACK (on_hybrid_toggled),
                                         NULL);
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, hybridwavpack, _("The format is lossy but a correction file is created for restoring the lossless original."), NULL);
+    gtk_widget_set_tooltip_text (hybridwavpack, _(
+        "The format is lossy but a correction file is created for restoring the lossless original."
+    ));
 
     hbox9 = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox9);
@@ -993,8 +996,7 @@ create_prefs (void)
                                         NULL);
     GLADE_HOOKUP_OBJECT (prefs, musepackBitrate, "musepack_bitrate_slider");
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, musepackBitrate, _("Higher bitrate is better quality but also bigger file."), NULL);
+    gtk_widget_set_tooltip_text (musepackBitrate, _("Higher bitrate is better quality but also bigger file."));
 
     snprintf(kbps_text, 10, _("%dKbps"), 90);
     label = gtk_label_new (kbps_text);
@@ -1047,8 +1049,7 @@ create_prefs (void)
     gtk_scale_set_digits (GTK_SCALE (monkeyCompression), 0);
     GLADE_HOOKUP_OBJECT (prefs, monkeyCompression, "monkey_compression_slider");
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, monkeyCompression, _("This does not affect the quality. Higher number means smaller file."), NULL);
+    gtk_widget_set_tooltip_text (monkeyCompression, _("This does not affect the quality. Higher number means smaller file."));
 
     rip_monkey = gtk_check_button_new_with_mnemonic (_("Monkey's Audio (lossless compression)"));
     gtk_widget_show (rip_monkey);
@@ -1118,8 +1119,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox), cddbServerName, TRUE, TRUE, 5);
     GLADE_HOOKUP_OBJECT (prefs, cddbServerName, "cddb_server_name");
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, cddbServerName, _("The CDDB server to get disc info from (default is freedb.freedb.org)"), NULL);
+    gtk_widget_set_tooltip_text (cddbServerName, _("The CDDB server to get disc info from (default is freedb.freedb.org)"));
 
     hbox = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (hbox);
@@ -1134,8 +1134,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox), cddbPortNum, TRUE, TRUE, 5);
     GLADE_HOOKUP_OBJECT (prefs, cddbPortNum, "cddb_port_number");
 
-    tooltips = gtk_tooltips_new ();
-    gtk_tooltips_set_tip (tooltips, cddbPortNum, _("The CDDB server port (default is 8880)"), NULL);
+    gtk_widget_set_tooltip_text (cddbPortNum, _("The CDDB server port (default is 8880)"));
 
     frame = gtk_frame_new (NULL);
     gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_IN);
@@ -1196,19 +1195,19 @@ create_prefs (void)
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 3), label);
     /* END ADVANCED tab */
 
-    dialog_action_area1 = GTK_DIALOG (prefs)->action_area;
+    dialog_action_area1 = gtk_dialog_get_action_area(GTK_DIALOG (prefs));
     gtk_widget_show (dialog_action_area1);
     gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area1), GTK_BUTTONBOX_END);
 
     cancelbutton1 = gtk_button_new_from_stock ("gtk-cancel");
     gtk_widget_show (cancelbutton1);
     gtk_dialog_add_action_widget (GTK_DIALOG (prefs), cancelbutton1, GTK_RESPONSE_CANCEL);
-    GTK_WIDGET_SET_FLAGS (cancelbutton1, GTK_CAN_DEFAULT);
+    gtk_widget_set_can_default(cancelbutton1, true);
 
     okbutton1 = gtk_button_new_from_stock ("gtk-ok");
     gtk_widget_show (okbutton1);
     gtk_dialog_add_action_widget (GTK_DIALOG (prefs), okbutton1, GTK_RESPONSE_OK);
-    GTK_WIDGET_SET_FLAGS (okbutton1, GTK_CAN_DEFAULT);
+    gtk_widget_set_can_default(okbutton1, true);
 
     g_signal_connect ((gpointer) prefs, "response",
                                         G_CALLBACK (on_prefs_response),
@@ -1268,7 +1267,7 @@ create_ripping (void)
     gtk_window_set_modal (GTK_WINDOW (ripping), TRUE);
     gtk_window_set_type_hint (GTK_WINDOW (ripping), GDK_WINDOW_TYPE_HINT_DIALOG);
 
-    dialog_vbox2 = GTK_DIALOG (ripping)->vbox;
+    dialog_vbox2 = gtk_dialog_get_content_area(GTK_DIALOG (ripping));
     gtk_widget_show (dialog_vbox2);
 
     table3 = gtk_table_new (3, 2, FALSE);
@@ -1314,14 +1313,14 @@ create_ripping (void)
                                         (GtkAttachOptions) (0), 5, 0);
     gtk_misc_set_alignment (GTK_MISC (label27), 0, 0.5);
 
-    dialog_action_area2 = GTK_DIALOG (ripping)->action_area;
+    dialog_action_area2 = gtk_dialog_get_action_area(GTK_DIALOG (ripping));
     gtk_widget_show (dialog_action_area2);
     gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area2), GTK_BUTTONBOX_END);
 
     cancel = gtk_button_new_from_stock ("gtk-cancel");
     gtk_widget_show (cancel);
     gtk_dialog_add_action_widget (GTK_DIALOG (ripping), cancel, GTK_RESPONSE_CANCEL);
-    GTK_WIDGET_SET_FLAGS (cancel, GTK_CAN_DEFAULT);
+    gtk_widget_set_can_default(cancel, true);
 
     g_signal_connect ((gpointer) cancel, "clicked",
                                         G_CALLBACK (on_cancel_clicked),

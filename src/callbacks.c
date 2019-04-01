@@ -580,7 +580,7 @@ on_press_f2                       (void)
 
     treeView = lookup_widget(win_main, "tracklist");
 
-    if (!GTK_WIDGET_HAS_FOCUS(treeView))
+    if (!gtk_widget_has_focus(treeView))
         return;
 
     gtk_tree_view_get_cursor(GTK_TREE_VIEW(treeView), &treePath, &focusColumn);
@@ -902,7 +902,7 @@ on_tracklist_mouse_click               (GtkWidget* treeView,
                                         gpointer user_data)
 {
     if( event->type == GDK_BUTTON_PRESS && event->button == 3 &&
-        GTK_WIDGET_SENSITIVE(lookup_widget(win_main, "rip_button")) )
+        gtk_widget_is_sensitive(lookup_widget(win_main, "rip_button")) )
     {
         GtkWidget* menu;
         GtkWidget* menuItem;
