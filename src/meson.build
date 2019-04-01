@@ -1,4 +1,9 @@
 
+configure_file(
+  output: 'config.h',
+  configuration: config,
+)
+
 asunder = executable('asunder',
   'main.c',
   'callbacks.c',
@@ -15,4 +20,5 @@ asunder = executable('asunder',
     gthread,
     libcddb,
   ],
+  install: true,
 )
