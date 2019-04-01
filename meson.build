@@ -36,7 +36,8 @@ add_project_arguments(
 
 # Port to gtk3
 add_project_arguments(
-  # '-DGTK_DISABLE_DEPRECATED',
+  '-DGDK_DISABLE_DEPRECATED',
+  '-DGTK_DISABLE_DEPRECATED',
   language: 'c',
 )
 

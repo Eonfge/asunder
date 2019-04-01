@@ -62,7 +62,6 @@ create_main (void)
     GtkWidget *scrolledwindow1;
     GtkWidget *tracklist;
     GtkWidget *rip_button;
-    GtkWidget *alignment3;
     GtkWidget *hbox4;
     GtkWidget *image1;
     GtkWidget *label8;
@@ -240,13 +239,12 @@ create_main (void)
     gtk_widget_show(rip_button);
     gtk_box_pack_start(GTK_BOX (hbox5), rip_button, FALSE, FALSE, 5);
 
-    alignment3 = gtk_alignment_new (0.5, 0.5, 0, 0);
-    gtk_widget_show (alignment3);
-    gtk_container_add (GTK_CONTAINER (rip_button), alignment3);
+    gtk_widget_set_halign(rip_button, GTK_ALIGN_CENTER);
+    gtk_widget_set_valign(rip_button, GTK_ALIGN_CENTER);
 
     hbox4 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
     gtk_widget_show (hbox4);
-    gtk_container_add (GTK_CONTAINER (alignment3), hbox4);
+    gtk_container_add (GTK_CONTAINER (rip_button), hbox4);
 
     image1 = gtk_image_new_from_stock ("gtk-cdrom", GTK_ICON_SIZE_BUTTON);
     gtk_widget_show (image1);
@@ -342,7 +340,6 @@ create_main (void)
     GLADE_HOOKUP_OBJECT (main_win, scrolledwindow1, "scrolledwindow1");
     GLADE_HOOKUP_OBJECT (main_win, tracklist, "tracklist");
     GLADE_HOOKUP_OBJECT (main_win, rip_button, "rip_button");
-    GLADE_HOOKUP_OBJECT (main_win, alignment3, "alignment3");
     GLADE_HOOKUP_OBJECT (main_win, hbox4, "hbox4");
     GLADE_HOOKUP_OBJECT (main_win, image1, "image1");
     GLADE_HOOKUP_OBJECT (main_win, label8, "label8");
@@ -376,20 +373,16 @@ create_prefs (void)
     GtkWidget *format_playlist;
     GtkWidget *rip_wav;
     GtkWidget *frame3;
-    GtkWidget *alignment8;
     GtkWidget *mp3_vbr;
     GtkWidget *hbox9;
     GtkWidget *rip_mp3;
     GtkWidget *vbox2X;
     GtkWidget *frame3X;
-    GtkWidget *alignment8X;
     GtkWidget *hbox9X;
     GtkWidget *rip_fdkaac;
     GtkWidget *frame4;
-    GtkWidget *alignment9;
     GtkWidget *hbox10;
     GtkWidget *frame5;
-    GtkWidget *alignment10;
     GtkWidget *hbox11;
     GtkWidget *rip_flac;
     GtkWidget *dialog_action_area1;
@@ -602,14 +595,11 @@ create_prefs (void)
     gtk_widget_show (frame3);
     gtk_box_pack_start (GTK_BOX (vbox), frame3, FALSE, FALSE, 0);
 
-    alignment8 = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment8);
-    gtk_container_add (GTK_CONTAINER (frame3), alignment8);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8), 2, 2, 12, 2);
+    gtk_widget_set_halign(frame3, GTK_ALIGN_FILL);
 
     vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (vbox2);
-    gtk_container_add (GTK_CONTAINER (alignment8), vbox2);
+    gtk_container_add (GTK_CONTAINER (frame3), vbox2);
 
     mp3_vbr = gtk_check_button_new_with_mnemonic (_("Variable bit rate (VBR)"));
     gtk_widget_show (mp3_vbr);
@@ -629,7 +619,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox9), label, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, label, "bitrate_lbl");
 
-    mp3bitrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 14, 1, 1, 1)));
+    mp3bitrate = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 14, 1, 1, 1)));
     gtk_widget_show (mp3bitrate);
     gtk_box_pack_start (GTK_BOX (hbox9), mp3bitrate, TRUE, TRUE, 5);
     gtk_scale_set_draw_value (GTK_SCALE (mp3bitrate), FALSE);
@@ -661,20 +651,17 @@ create_prefs (void)
     gtk_widget_show (frame4);
     gtk_box_pack_start (GTK_BOX (vbox), frame4, FALSE, FALSE, 0);
 
-    alignment9 = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment9);
-    gtk_container_add (GTK_CONTAINER (frame4), alignment9);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment9), 2, 2, 12, 2);
+    gtk_widget_set_halign(frame4, GTK_ALIGN_FILL);
 
     hbox10 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox10);
-    gtk_container_add (GTK_CONTAINER (alignment9), hbox10);
+    gtk_container_add (GTK_CONTAINER (frame4), hbox10);
 
     oggLbl = gtk_label_new (_("Quality"));
     gtk_widget_show (oggLbl);
     gtk_box_pack_start (GTK_BOX (hbox10), oggLbl, FALSE, FALSE, 0);
 
-    oggquality = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (6, 0, 11, 1, 1, 1)));
+    oggquality = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, GTK_ADJUSTMENT (gtk_adjustment_new (6, 0, 11, 1, 1, 1)));
     gtk_widget_show (oggquality);
     gtk_box_pack_start (GTK_BOX (hbox10), oggquality, TRUE, TRUE, 5);
     gtk_scale_set_value_pos (GTK_SCALE (oggquality), GTK_POS_RIGHT);
@@ -696,14 +683,11 @@ create_prefs (void)
     gtk_widget_show (frame3X);
     gtk_box_pack_start (GTK_BOX (vbox), frame3X, FALSE, FALSE, 0);
 
-    alignment8X = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment8X);
-    gtk_container_add (GTK_CONTAINER (frame3X), alignment8X);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8X), 2, 2, 12, 2);
+    gtk_widget_set_halign(frame3X, GTK_ALIGN_FILL);
 
     vbox2X = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (vbox2X);
-    gtk_container_add (GTK_CONTAINER (alignment8X), vbox2X);
+    gtk_container_add (GTK_CONTAINER (frame3X), vbox2X);
 
     hbox9X = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox9X);
@@ -714,7 +698,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox9X), label, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, label, "fdkaac_bitrate_lbl");
 
-    fdkaac_bitrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 14, 1, 1, 1)));
+    fdkaac_bitrate = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 14, 1, 1, 1)));
     gtk_widget_show (fdkaac_bitrate);
     gtk_box_pack_start (GTK_BOX (hbox9X), fdkaac_bitrate, TRUE, TRUE, 5);
     gtk_scale_set_draw_value (GTK_SCALE (fdkaac_bitrate), FALSE);
@@ -746,20 +730,17 @@ create_prefs (void)
     gtk_widget_show (frame5);
     gtk_box_pack_start (GTK_BOX (vbox), frame5, FALSE, FALSE, 0);
 
-    alignment10 = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment10);
-    gtk_container_add (GTK_CONTAINER (frame5), alignment10);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment10), 2, 2, 12, 2);
+    gtk_widget_set_halign(frame5, GTK_ALIGN_FILL);
 
     hbox11 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox11);
-    gtk_container_add (GTK_CONTAINER (alignment10), hbox11);
+    gtk_container_add (GTK_CONTAINER (frame5), hbox11);
 
     flacLbl = gtk_label_new (_("Compression level"));
     gtk_widget_show (flacLbl);
     gtk_box_pack_start (GTK_BOX (hbox11), flacLbl, FALSE, FALSE, 0);
 
-    flaccompression = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 9, 1, 1, 1)));
+    flaccompression = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 9, 1, 1, 1)));
     gtk_widget_show (flaccompression);
     gtk_box_pack_start (GTK_BOX (hbox11), flaccompression, TRUE, TRUE, 5);
     gtk_scale_set_value_pos (GTK_SCALE (flaccompression), GTK_POS_RIGHT);
@@ -778,7 +759,6 @@ create_prefs (void)
     GtkWidget* expander;
     GtkWidget* frame6;
     GtkWidget* frame7;
-    GtkWidget* alignment11;
     GtkWidget* hbox13;
     GtkWidget* rip_wavpack;
     GtkWidget* wavpackcompression;
@@ -801,7 +781,6 @@ create_prefs (void)
     GtkWidget *rip_opus;
     GtkWidget *opus_frame;
     GtkWidget *opushbox;
-    GtkWidget *opusalignment;
     char opus_kbps[10];
 
     opus_frame = gtk_frame_new(NULL);
@@ -809,21 +788,18 @@ create_prefs (void)
     gtk_widget_show (opus_frame);
     gtk_box_pack_start (GTK_BOX(hiddenbox), opus_frame, FALSE, FALSE, 0);
 
-    opusalignment = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show(opusalignment);
-    gtk_container_add (GTK_CONTAINER(opus_frame),opusalignment);
-    gtk_alignment_set_padding (GTK_ALIGNMENT(opusalignment), 2, 2, 12, 2);
+    gtk_widget_set_halign(opus_frame, GTK_ALIGN_FILL);
 
     opushbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,0);
     gtk_widget_show (opushbox);
-    gtk_container_add (GTK_CONTAINER(opusalignment), opushbox);
+    gtk_container_add (GTK_CONTAINER(opus_frame), opushbox);
 
     opusLbl = gtk_label_new (_("Bitrate"));
     gtk_widget_show(opusLbl);
     gtk_box_pack_start (GTK_BOX(opushbox), opusLbl, FALSE, FALSE,0);
     GLADE_HOOKUP_OBJECT (prefs, opusLbl, "opus_lbl");
 
-    opusrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 13, 1, 1, 1)));
+    opusrate = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 13, 1, 1, 1)));
     gtk_widget_show(opusrate);
     gtk_box_pack_start(GTK_BOX(opushbox), opusrate, TRUE, TRUE, 5);
     gtk_scale_set_draw_value (GTK_SCALE (opusrate), FALSE);
@@ -856,14 +832,11 @@ create_prefs (void)
     gtk_widget_show (frame6);
     gtk_box_pack_start (GTK_BOX (hiddenbox), frame6, FALSE, FALSE, 0);
 
-    alignment11 = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment11);
-    gtk_container_add (GTK_CONTAINER (frame6), alignment11);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
+    gtk_widget_set_halign(frame6, GTK_ALIGN_FILL);
 
     flacVbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (flacVbox);
-    gtk_container_add (GTK_CONTAINER (alignment11), flacVbox);
+    gtk_container_add (GTK_CONTAINER (frame6), flacVbox);
 
     hbox13 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox13);
@@ -874,7 +847,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox13), label, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, label, "wavpack_compression_lbl");
 
-    wavpackcompression = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (1, 0, 4, 1, 1, 1)));
+    wavpackcompression = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, GTK_ADJUSTMENT (gtk_adjustment_new (1, 0, 4, 1, 1, 1)));
     gtk_widget_show (wavpackcompression);
     gtk_box_pack_start (GTK_BOX (hbox13), wavpackcompression, TRUE, TRUE, 5);
     gtk_scale_set_digits (GTK_SCALE (wavpackcompression), 0);
@@ -910,7 +883,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox9), label, FALSE, FALSE, 2);
     GLADE_HOOKUP_OBJECT (prefs, label, "wavpack_bitrate_lbl");
 
-    wavpackbitrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 6, 1, 1, 1)));
+    wavpackbitrate = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 6, 1, 1, 1)));
     gtk_widget_show (wavpackbitrate);
     gtk_box_pack_start (GTK_BOX (hbox9), wavpackbitrate, TRUE, TRUE, 5);
     gtk_scale_set_digits (GTK_SCALE (wavpackbitrate), 0);
@@ -940,14 +913,11 @@ create_prefs (void)
     gtk_widget_show (frame9);
     gtk_box_pack_start (GTK_BOX (hiddenbox), frame9, FALSE, FALSE, 0);
 
-    alignment11 = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment11);
-    gtk_container_add (GTK_CONTAINER (frame9), alignment11);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
+    gtk_widget_set_halign(frame9, GTK_ALIGN_FILL);
 
     musepackVbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (musepackVbox);
-    gtk_container_add (GTK_CONTAINER (alignment11), musepackVbox);
+    gtk_container_add (GTK_CONTAINER (frame9), musepackVbox);
 
     hbox13 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox13);
@@ -958,7 +928,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox13), label, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, label, "musepack_bitrate_lbl");
 
-    musepackBitrate = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 5, 1, 1, 1)));
+    musepackBitrate = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 5, 1, 1, 1)));
     gtk_widget_show (musepackBitrate);
     gtk_box_pack_start (GTK_BOX (hbox13), musepackBitrate, TRUE, TRUE, 5);
     gtk_scale_set_draw_value (GTK_SCALE (musepackBitrate), FALSE);
@@ -996,14 +966,11 @@ create_prefs (void)
     gtk_widget_show (frame8);
     gtk_box_pack_start (GTK_BOX (hiddenbox), frame8, FALSE, FALSE, 0);
 
-    alignment11 = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_show (alignment11);
-    gtk_container_add (GTK_CONTAINER (frame8), alignment11);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
+    gtk_widget_set_halign(frame8, GTK_ALIGN_FILL);
 
     monkeyVbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (monkeyVbox);
-    gtk_container_add (GTK_CONTAINER (alignment11), monkeyVbox);
+    gtk_container_add (GTK_CONTAINER (frame8), monkeyVbox);
 
     hbox13 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox13);
@@ -1014,7 +981,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox13), label, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, label, "monkey_compression_lbl");
 
-    monkeyCompression = gtk_hscale_new (GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 5, 1, 1, 1)));
+    monkeyCompression = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, GTK_ADJUSTMENT (gtk_adjustment_new (0, 0, 5, 1, 1, 1)));
     gtk_widget_show (monkeyCompression);
     gtk_box_pack_start (GTK_BOX (hbox13), monkeyCompression, TRUE, TRUE, 5);
     gtk_scale_set_value_pos (GTK_SCALE (monkeyCompression), GTK_POS_RIGHT);
