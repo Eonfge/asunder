@@ -47,9 +47,9 @@ bool confirmOverwrite(const char* pathAndName)
     dialog = gtk_dialog_new_with_buttons(_("Overwrite?"),
                                          GTK_WINDOW(win_main),
                                          GTK_DIALOG_DESTROY_WITH_PARENT,
-                                         GTK_STOCK_YES,
+                                         "_Ok",
                                          GTK_RESPONSE_ACCEPT,
-                                         GTK_STOCK_NO,
+                                         "_No",
                                          GTK_RESPONSE_REJECT,
                                          NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_REJECT);

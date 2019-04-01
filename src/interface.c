@@ -83,7 +83,7 @@ create_main (void)
         g_object_unref (main_icon_pixbuf);
     }
 
-    vbox1 = gtk_vbox_new (FALSE, 0);
+    vbox1 = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (vbox1);
     gtk_container_add (GTK_CONTAINER (main_win), vbox1);
 
@@ -93,7 +93,7 @@ create_main (void)
     gtk_toolbar_set_style (GTK_TOOLBAR (toolbar1), GTK_TOOLBAR_BOTH_HORIZ);
 
     GtkWidget* icon;
-    icon = gtk_image_new_from_stock(GTK_STOCK_REFRESH, gtk_toolbar_get_icon_size(GTK_TOOLBAR(toolbar1)));
+    icon = gtk_image_new_from_stock("view-refresh", gtk_toolbar_get_icon_size(GTK_TOOLBAR(toolbar1)));
     gtk_widget_show (icon);
     lookup = (GtkWidget*)gtk_tool_button_new(icon, _("CDDB Lookup"));
     gtk_widget_show (lookup);
@@ -138,7 +138,7 @@ create_main (void)
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (GTK_FILL), 0, 0);
 
-    album_genre = gtk_entry_new();						// lnr
+    album_genre = gtk_entry_new();                      // lnr
     create_completion(album_genre, "album_genre");
     gtk_widget_show( album_genre );
     gtk_table_attach( GTK_TABLE( table2 ), album_genre, 1, 2, 3, 4,
@@ -171,7 +171,7 @@ create_main (void)
                       (GtkAttachOptions) (GTK_FILL),
                       (GtkAttachOptions) (0), 3, 0);
 
-    GtkWidget* tn_hbox = gtk_hbox_new(FALSE, 5);
+    GtkWidget* tn_hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
     gtk_widget_hide(tn_hbox);
     gtk_table_attach (GTK_TABLE (table2), tn_hbox, 0, 3, 4, 5,
                       (GtkAttachOptions) (GTK_FILL),
@@ -240,7 +240,7 @@ create_main (void)
     gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (tracklist), TRUE);
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (tracklist), FALSE);
 
-    hbox5 = gtk_hbox_new(FALSE, 5);
+    hbox5 = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
     gtk_box_pack_start(GTK_BOX (vbox1), hbox5, FALSE, TRUE, 5);
     gtk_widget_show(hbox5);
 
@@ -250,7 +250,7 @@ create_main (void)
     gtk_box_pack_start(GTK_BOX (hbox5), statusLbl, TRUE, TRUE, 0);
     gtk_widget_show(statusLbl);
 
-    fillerBox = gtk_hbox_new(FALSE, 0);
+    fillerBox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_box_pack_start(GTK_BOX (hbox5), fillerBox, TRUE, TRUE, 0);
     gtk_widget_show(hbox5);
 
@@ -262,7 +262,7 @@ create_main (void)
     gtk_widget_show (alignment3);
     gtk_container_add (GTK_CONTAINER (rip_button), alignment3);
 
-    hbox4 = gtk_hbox_new (FALSE, 2);
+    hbox4 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
     gtk_widget_show (hbox4);
     gtk_container_add (GTK_CONTAINER (alignment3), hbox4);
 
@@ -430,7 +430,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (vbox), notebook1, TRUE, TRUE, 0);
 
     /* GENERAL tab */
-    vbox = gtk_vbox_new (FALSE, 5);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
     gtk_widget_show (vbox);
     gtk_container_add (GTK_CONTAINER (notebook1), vbox);
@@ -449,7 +449,7 @@ create_prefs (void)
     gtk_widget_show (make_playlist);
     gtk_box_pack_start (GTK_BOX (vbox), make_playlist, FALSE, FALSE, 0);
 
-    hbox12 = gtk_hbox_new (FALSE, 0);
+    hbox12 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox12);
     gtk_box_pack_start (GTK_BOX (vbox), hbox12, FALSE, FALSE, 0);
 
@@ -471,7 +471,7 @@ create_prefs (void)
     gtk_widget_show (eject_on_done);
     gtk_box_pack_start (GTK_BOX (vbox), eject_on_done, FALSE, FALSE, 5);
 
-    hboxFill = gtk_hbox_new (FALSE, 0);
+    hboxFill = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hboxFill);
     gtk_box_pack_start (GTK_BOX (vbox), hboxFill, TRUE, TRUE, 0);
 
@@ -481,7 +481,7 @@ create_prefs (void)
     /* END GENERAL tab */
 
     /* FILENAMES tab */
-    vbox2 = gtk_vbox_new (FALSE, 5);
+    vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox2), 5);
     gtk_widget_show (vbox2);
     gtk_container_add (GTK_CONTAINER (notebook1), vbox2);
@@ -490,7 +490,7 @@ create_prefs (void)
     gtk_widget_show (frame2);
     gtk_box_pack_start (GTK_BOX (vbox2), frame2, FALSE, FALSE, 0);
 
-    vbox = gtk_vbox_new (FALSE, 0);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
     gtk_widget_show (vbox);
     gtk_container_add (GTK_CONTAINER (frame2), vbox);
@@ -598,7 +598,7 @@ create_prefs (void)
     GtkWidget *flacLbl;
     GtkWidget *flaccompression;
 
-    vbox = gtk_vbox_new (FALSE, 5);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
     gtk_widget_show (vbox);
     gtk_container_add (GTK_CONTAINER (notebook1), vbox);
@@ -614,7 +614,7 @@ create_prefs (void)
     //gtk_container_add (GTK_CONTAINER (frame3), alignment8);
     //gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8), 2, 2, 12, 2);
 
-    //vbox2 = gtk_vbox_new (FALSE, 0);
+    //vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     //gtk_widget_show (vbox2);
     //gtk_container_add (GTK_CONTAINER (alignment8), vbox2);
 
@@ -635,7 +635,7 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER (frame3), alignment8);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8), 2, 2, 12, 2);
 
-    vbox2 = gtk_vbox_new (FALSE, 0);
+    vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (vbox2);
     gtk_container_add (GTK_CONTAINER (alignment8), vbox2);
 
@@ -648,7 +648,7 @@ create_prefs (void)
 
     gtk_widget_set_tooltip_text (mp3_vbr, _("Better quality for the same size."));
 
-    hbox9 = gtk_hbox_new (FALSE, 0);
+    hbox9 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox9);
     gtk_box_pack_start (GTK_BOX (vbox2), hbox9, TRUE, TRUE, 0);
 
@@ -694,7 +694,7 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER (frame4), alignment9);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment9), 2, 2, 12, 2);
 
-    hbox10 = gtk_hbox_new (FALSE, 0);
+    hbox10 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox10);
     gtk_container_add (GTK_CONTAINER (alignment9), hbox10);
 
@@ -729,11 +729,11 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER (frame3X), alignment8X);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment8X), 2, 2, 12, 2);
 
-    vbox2X = gtk_vbox_new (FALSE, 0);
+    vbox2X = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (vbox2X);
     gtk_container_add (GTK_CONTAINER (alignment8X), vbox2X);
 
-    hbox9X = gtk_hbox_new (FALSE, 0);
+    hbox9X = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox9X);
     gtk_box_pack_start (GTK_BOX (vbox2X), hbox9X, TRUE, TRUE, 0);
 
@@ -779,7 +779,7 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER (frame5), alignment10);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment10), 2, 2, 12, 2);
 
-    hbox11 = gtk_hbox_new (FALSE, 0);
+    hbox11 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox11);
     gtk_container_add (GTK_CONTAINER (alignment10), hbox11);
 
@@ -819,7 +819,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (vbox), expander, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, expander, "more_formats_expander");
 
-    hiddenbox = gtk_vbox_new (FALSE, 0);
+    hiddenbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (hiddenbox);
     gtk_container_add (GTK_CONTAINER (expander), hiddenbox);
 
@@ -842,7 +842,7 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER(opus_frame),opusalignment);
     gtk_alignment_set_padding (GTK_ALIGNMENT(opusalignment), 2, 2, 12, 2);
 
-    opushbox = gtk_hbox_new(FALSE,0);
+    opushbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,0);
     gtk_widget_show (opushbox);
     gtk_container_add (GTK_CONTAINER(opusalignment), opushbox);
 
@@ -889,11 +889,11 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER (frame6), alignment11);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
 
-    flacVbox = gtk_vbox_new (FALSE, 0);
+    flacVbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (flacVbox);
     gtk_container_add (GTK_CONTAINER (alignment11), flacVbox);
 
-    hbox13 = gtk_hbox_new (FALSE, 0);
+    hbox13 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox13);
     gtk_box_pack_start (GTK_BOX (flacVbox), hbox13, FALSE, FALSE, 0);
 
@@ -929,7 +929,7 @@ create_prefs (void)
         "The format is lossy but a correction file is created for restoring the lossless original."
     ));
 
-    hbox9 = gtk_hbox_new (FALSE, 0);
+    hbox9 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox9);
     gtk_container_add (GTK_CONTAINER (frame7), hbox9);
 
@@ -973,11 +973,11 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER (frame9), alignment11);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
 
-    musepackVbox = gtk_vbox_new (FALSE, 0);
+    musepackVbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (musepackVbox);
     gtk_container_add (GTK_CONTAINER (alignment11), musepackVbox);
 
-    hbox13 = gtk_hbox_new (FALSE, 0);
+    hbox13 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox13);
     gtk_box_pack_start (GTK_BOX (musepackVbox), hbox13, FALSE, FALSE, 0);
 
@@ -1029,11 +1029,11 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER (frame8), alignment11);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment11), 2, 2, 12, 2);
 
-    monkeyVbox = gtk_vbox_new (FALSE, 0);
+    monkeyVbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (monkeyVbox);
     gtk_container_add (GTK_CONTAINER (alignment11), monkeyVbox);
 
-    hbox13 = gtk_hbox_new (FALSE, 0);
+    hbox13 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox13);
     gtk_box_pack_start (GTK_BOX (monkeyVbox), hbox13, FALSE, FALSE, 0);
 
@@ -1065,7 +1065,7 @@ create_prefs (void)
     //~ gtk_box_pack_start (GTK_BOX (vbox), expander, FALSE, FALSE, 0);
     //~ GLADE_HOOKUP_OBJECT (prefs, expander, "proprietary_formats_expander");
 
-    //~ hiddenbox = gtk_vbox_new (FALSE, 0);
+    //~ hiddenbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     //~ gtk_widget_show (hiddenbox);
     //~ gtk_container_add (GTK_CONTAINER (expander), hiddenbox);
 
@@ -1087,7 +1087,7 @@ create_prefs (void)
     GtkWidget* do_log;
     GtkWidget* do_fast_rip;
 
-    vbox = gtk_vbox_new (FALSE, 5);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 5);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
     gtk_widget_show (vbox);
     gtk_container_add (GTK_CONTAINER (notebook1), vbox);
@@ -1098,7 +1098,7 @@ create_prefs (void)
     gtk_widget_show (frame);
     gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
 
-    frameVbox = gtk_vbox_new (FALSE, 0);
+    frameVbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (frameVbox);
     gtk_container_add (GTK_CONTAINER (frame), frameVbox);
 
@@ -1106,7 +1106,7 @@ create_prefs (void)
     gtk_widget_show (do_cddb_updates);
     gtk_box_pack_start (GTK_BOX (frameVbox), do_cddb_updates, FALSE, FALSE, 0);
 
-    hbox = gtk_hbox_new (FALSE, 0);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox);
     gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 1);
 
@@ -1121,7 +1121,7 @@ create_prefs (void)
 
     gtk_widget_set_tooltip_text (cddbServerName, _("The CDDB server to get disc info from (default is freedb.freedb.org)"));
 
-    hbox = gtk_hbox_new (FALSE, 0);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox);
     gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 1);
 
@@ -1146,11 +1146,11 @@ create_prefs (void)
     gtk_frame_set_label_widget (GTK_FRAME (frame), useProxy);
     GLADE_HOOKUP_OBJECT (prefs, useProxy, "use_proxy");
 
-    frameVbox = gtk_vbox_new (FALSE, 0);
+    frameVbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (frameVbox);
     gtk_container_add (GTK_CONTAINER (frame), frameVbox);
 
-    hbox = gtk_hbox_new (FALSE, 0);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox);
     gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 1);
 
@@ -1163,7 +1163,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (hbox), serverName, TRUE, TRUE, 5);
     GLADE_HOOKUP_OBJECT (prefs, serverName, "server_name");
 
-    hbox = gtk_hbox_new (FALSE, 0);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hbox);
     gtk_box_pack_start (GTK_BOX (frameVbox), hbox, FALSE, FALSE, 1);
 
@@ -1186,7 +1186,7 @@ create_prefs (void)
     gtk_box_pack_start (GTK_BOX (vbox), do_fast_rip, FALSE, FALSE, 0);
     GLADE_HOOKUP_OBJECT (prefs, do_fast_rip, "do_fast_rip");
 
-    hboxFill = gtk_hbox_new (FALSE, 0);
+    hboxFill = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (hboxFill);
     gtk_box_pack_start (GTK_BOX (vbox), hboxFill, TRUE, TRUE, 0);
 
