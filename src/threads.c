@@ -117,7 +117,6 @@ void abort_threads()
     gtk_window_set_title(GTK_WINDOW(win_main), "Asunder");
 
     gtk_widget_hide(win_ripping);
-    gdk_flush();
     working = false;
 
     show_completed_dialog(numCdparanoiaOk + numLameOk + numOggOk + numOpusOk + numFlacOk + numWavpackOk + numMonkeyOk + numMusepackOk + numAacOk,
@@ -1241,7 +1240,6 @@ gpointer encode(gpointer data)
 
     gdk_threads_enter();
         gtk_widget_hide(win_ripping);
-        gdk_flush();
 
     // no more tracks to encode, safe to eject
     if (global_prefs->eject_on_done)

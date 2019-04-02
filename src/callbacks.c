@@ -1014,8 +1014,7 @@ on_tracklist_mouse_click               (GtkWidget* treeView,
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuItem);
         gtk_widget_show_all(menu);
 
-        gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL,
-                       event->button, gdk_event_get_time((GdkEvent*)event));
+        gtk_menu_popup_at_pointer(GTK_MENU(menu), (GdkEvent*)event);
 
         /* no need for signal to propagate */
         return TRUE;

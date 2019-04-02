@@ -62,9 +62,6 @@ create_main (void)
     GtkWidget *scrolledwindow1;
     GtkWidget *tracklist;
     GtkWidget *rip_button;
-    GtkWidget *hbox4;
-    GtkWidget *image1;
-    GtkWidget *label8;
     GtkWidget* hbox5;
     GtkWidget* fillerBox;
     GtkWidget* statusLbl;
@@ -91,15 +88,14 @@ create_main (void)
     gtk_box_pack_start (GTK_BOX (vbox1), toolbar1, FALSE, FALSE, 0);
     gtk_toolbar_set_style (GTK_TOOLBAR (toolbar1), GTK_TOOLBAR_BOTH_HORIZ);
 
-    GtkWidget* icon;
-    icon = gtk_image_new_from_stock("view-refresh", gtk_toolbar_get_icon_size(GTK_TOOLBAR(toolbar1)));
-    gtk_widget_show (icon);
-    lookup = (GtkWidget*)gtk_tool_button_new(icon, _("CDDB Lookup"));
+    lookup = (GtkWidget*)gtk_tool_button_new(NULL, _("CDDB Lookup"));
+    gtk_tool_button_set_icon_name(GTK_TOOL_BUTTON(lookup), "view-refresh");
     gtk_widget_show (lookup);
     gtk_container_add (GTK_CONTAINER (toolbar1), lookup);
     gtk_tool_item_set_is_important (GTK_TOOL_ITEM (lookup), TRUE);
 
-    preferences = (GtkWidget*) gtk_tool_button_new_from_stock ("gtk-preferences");
+    preferences = (GtkWidget*) gtk_tool_button_new(NULL, _("_Preferences"));
+    gtk_tool_button_set_icon_name(GTK_TOOL_BUTTON(preferences), "gtk-preferences");
     gtk_widget_show (preferences);
     gtk_container_add (GTK_CONTAINER (toolbar1), preferences);
     gtk_tool_item_set_is_important (GTK_TOOL_ITEM (preferences), TRUE);
@@ -109,7 +105,9 @@ create_main (void)
     gtk_container_add (GTK_CONTAINER (toolbar1), separatortoolitem1);
 
     GtkWidget *about;
-    about = (GtkWidget*) gtk_tool_button_new_from_stock ("gtk-about");
+    about = (GtkWidget*) gtk_tool_button_new(NULL, _("_About"));
+    gtk_tool_button_set_icon_name(GTK_TOOL_BUTTON(about), "gtk-about");
+
     gtk_widget_show (about);
     gtk_container_add (GTK_CONTAINER (toolbar1), about);
     gtk_tool_item_set_is_important (GTK_TOOL_ITEM (about), TRUE);
@@ -142,17 +140,17 @@ create_main (void)
 
     disc = gtk_label_new (_("Disc:"));
     gtk_grid_attach (GTK_GRID (table2), disc, 0, 0, 1, 1);
-    gtk_misc_set_alignment (GTK_MISC (disc), 0, 0.49);
+    gtk_widget_set_halign(disc, GTK_ALIGN_END);
 
     artist_label = gtk_label_new (_("Album Artist:"));
-    gtk_misc_set_alignment (GTK_MISC (artist_label), 0, 0);
+    gtk_widget_set_halign(artist_label, GTK_ALIGN_END);
     gtk_widget_show (artist_label);
     gtk_grid_attach (GTK_GRID (table2), artist_label, 0, 1, 1, 1);
 
     title_label = gtk_label_new (_("Album Title:"));
-    gtk_misc_set_alignment (GTK_MISC (title_label), 0, 0);
+    gtk_widget_set_halign(title_label, GTK_ALIGN_END);
     gtk_widget_show (title_label);
-    gtk_grid_attach (GTK_GRID (table2), title_label, 0, 2, 2, 2);
+    gtk_grid_attach (GTK_GRID (table2), title_label, 0, 2, 1, 1);
 
     single_artist = gtk_check_button_new_with_mnemonic (_("Single Artist"));
     gtk_widget_show (single_artist);
@@ -163,7 +161,7 @@ create_main (void)
     gtk_grid_attach (GTK_GRID (table2), tn_hbox, 0, 4, 3, 1);
 
     GtkWidget *tn_labelo = gtk_label_new (_("First track number:"));
-    gtk_misc_set_alignment (GTK_MISC (tn_labelo), 0, 0.5);
+    gtk_widget_set_halign(tn_labelo, GTK_ALIGN_END);
     gtk_widget_show (tn_labelo);
     gtk_box_pack_start(GTK_BOX (tn_hbox), tn_labelo, FALSE, TRUE, 0);
 
@@ -176,7 +174,7 @@ create_main (void)
     gtk_entry_set_text(GTK_ENTRY (tn_first), txt);
 
     GtkWidget* tn_labelw = gtk_label_new (_("Track number width in filename:"));
-    gtk_misc_set_alignment (GTK_MISC (tn_labelw), 0, 0.5);
+    gtk_widget_set_halign(tn_labelw, GTK_ALIGN_END);
     gtk_widget_show (tn_labelw);
     gtk_box_pack_start(GTK_BOX (tn_hbox), tn_labelw, FALSE, TRUE, 0);
 
@@ -201,8 +199,8 @@ create_main (void)
     g_object_unref(store);
     gtk_combo_box_set_active(GTK_COMBO_BOX(tn_width), global_prefs->track_num_width - 1);
 
-    genre_label	= gtk_label_new (_("Genre / Year:"));								// lnr
-    gtk_misc_set_alignment (GTK_MISC ( genre_label ), 0, 0);
+    genre_label	= gtk_label_new (_("Genre / Year:"));
+    gtk_widget_set_halign(genre_label, GTK_ALIGN_END);
     gtk_widget_show (genre_label);
     gtk_grid_attach (GTK_GRID (table2), genre_label, 0, 3, 1, 1);
 
@@ -218,7 +216,6 @@ create_main (void)
     tracklist = gtk_tree_view_new ();
     gtk_widget_show (tracklist);
     gtk_container_add (GTK_CONTAINER (scrolledwindow1), tracklist);
-    gtk_tree_view_set_rules_hint (GTK_TREE_VIEW (tracklist), TRUE);
     gtk_tree_view_set_enable_search (GTK_TREE_VIEW (tracklist), FALSE);
 
     hbox5 = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
@@ -227,7 +224,7 @@ create_main (void)
 
     statusLbl = gtk_label_new("");
     gtk_label_set_use_markup(GTK_LABEL(statusLbl), TRUE);
-    gtk_misc_set_alignment(GTK_MISC(statusLbl), 0, 0.5);
+    gtk_widget_set_halign(statusLbl, GTK_ALIGN_START);
     gtk_box_pack_start(GTK_BOX (hbox5), statusLbl, TRUE, TRUE, 0);
     gtk_widget_show(statusLbl);
 
@@ -235,24 +232,12 @@ create_main (void)
     gtk_box_pack_start(GTK_BOX (hbox5), fillerBox, TRUE, TRUE, 0);
     gtk_widget_show(hbox5);
 
-    rip_button = gtk_button_new ();
-    gtk_widget_show(rip_button);
-    gtk_box_pack_start(GTK_BOX (hbox5), rip_button, FALSE, FALSE, 5);
-
+    rip_button = gtk_button_new_with_label (_("Rip"));
+    gtk_button_set_image(GTK_BUTTON(rip_button), gtk_image_new_from_icon_name ("gtk-cdrom", GTK_ICON_SIZE_BUTTON));
     gtk_widget_set_halign(rip_button, GTK_ALIGN_CENTER);
     gtk_widget_set_valign(rip_button, GTK_ALIGN_CENTER);
-
-    hbox4 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
-    gtk_widget_show (hbox4);
-    gtk_container_add (GTK_CONTAINER (rip_button), hbox4);
-
-    image1 = gtk_image_new_from_stock ("gtk-cdrom", GTK_ICON_SIZE_BUTTON);
-    gtk_widget_show (image1);
-    gtk_box_pack_start (GTK_BOX (hbox4), image1, FALSE, FALSE, 0);
-
-    label8 = gtk_label_new_with_mnemonic (_("Rip"));
-    gtk_widget_show (label8);
-    gtk_box_pack_start (GTK_BOX (hbox4), label8, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX (hbox5), rip_button, FALSE, FALSE, 5);
+    gtk_widget_show(rip_button);
 
     g_signal_connect ((gpointer) main_win, "delete_event",
                                         G_CALLBACK (on_window_close),
@@ -340,9 +325,6 @@ create_main (void)
     GLADE_HOOKUP_OBJECT (main_win, scrolledwindow1, "scrolledwindow1");
     GLADE_HOOKUP_OBJECT (main_win, tracklist, "tracklist");
     GLADE_HOOKUP_OBJECT (main_win, rip_button, "rip_button");
-    GLADE_HOOKUP_OBJECT (main_win, hbox4, "hbox4");
-    GLADE_HOOKUP_OBJECT (main_win, image1, "image1");
-    GLADE_HOOKUP_OBJECT (main_win, label8, "label8");
     GLADE_HOOKUP_OBJECT (main_win, statusLbl, "statusLbl");
     GLADE_HOOKUP_OBJECT (main_win, album_genre, "album_genre");			// lnr
     GLADE_HOOKUP_OBJECT (main_win, genre_label, "genre_label" );		// lnr
@@ -385,9 +367,6 @@ create_prefs (void)
     GtkWidget *frame5;
     GtkWidget *hbox11;
     GtkWidget *rip_flac;
-    GtkWidget *dialog_action_area1;
-    GtkWidget *cancelbutton1;
-    GtkWidget *okbutton1;
     GtkWidget *eject_on_done;
     GtkWidget* hboxFill;
 
@@ -411,7 +390,7 @@ create_prefs (void)
     gtk_container_add (GTK_CONTAINER (notebook1), vbox);
 
     label = gtk_label_new (_("Destination folder"));
-    gtk_misc_set_alignment(GTK_MISC(label), 0, 0);
+    gtk_widget_set_halign(label, GTK_ALIGN_START);
     gtk_widget_show (label);
     gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
     gtk_label_set_use_markup (GTK_LABEL (label), TRUE);
@@ -473,12 +452,12 @@ create_prefs (void)
     label = gtk_label_new (_("%A - Artist\n%L - Album\n%N - Track number (2-digit)\n%Y - Year (4-digit or \"0\")\n%T - Song title"));
     gtk_widget_show (label);
     gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
-    gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
+    gtk_widget_set_halign(label, GTK_ALIGN_START);
 
     label = gtk_label_new (_("%G - Genre"));
     gtk_widget_show (label);
     gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
-    gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
+    gtk_widget_set_halign(label, GTK_ALIGN_START);
 
     // problem is that the same albumdir is used (threads.c) for all formats
     //~ label = gtk_label_new (_("%F - Format (e.g. FLAC)"));
@@ -494,17 +473,17 @@ create_prefs (void)
     label = gtk_label_new (_("Album directory: "));
     gtk_widget_show (label);
     gtk_grid_attach (GTK_GRID (table1), label, 0, 0, 1, 1);
-    gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
+    gtk_widget_set_halign(label, GTK_ALIGN_START);
 
     label = gtk_label_new (_("Playlist file: "));
     gtk_widget_show (label);
     gtk_grid_attach (GTK_GRID (table1), label, 0, 1, 1, 1);
-    gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
+    gtk_widget_set_halign(label, GTK_ALIGN_START);
 
     label = gtk_label_new (_("Music file: "));
     gtk_widget_show (label);
     gtk_grid_attach (GTK_GRID (table1), label, 0, 2, 1, 1);
-    gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
+    gtk_widget_set_halign(label, GTK_ALIGN_START);
 
     format_albumdir = gtk_entry_new ();
     gtk_widget_show (format_albumdir);
@@ -1134,19 +1113,8 @@ create_prefs (void)
     gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook1), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook1), 3), label);
     /* END ADVANCED tab */
 
-    dialog_action_area1 = gtk_dialog_get_action_area(GTK_DIALOG (prefs));
-    gtk_widget_show (dialog_action_area1);
-    gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area1), GTK_BUTTONBOX_END);
-
-    cancelbutton1 = gtk_button_new_from_stock ("gtk-cancel");
-    gtk_widget_show (cancelbutton1);
-    gtk_dialog_add_action_widget (GTK_DIALOG (prefs), cancelbutton1, GTK_RESPONSE_CANCEL);
-    gtk_widget_set_can_default(cancelbutton1, true);
-
-    okbutton1 = gtk_button_new_from_stock ("gtk-ok");
-    gtk_widget_show (okbutton1);
-    gtk_dialog_add_action_widget (GTK_DIALOG (prefs), okbutton1, GTK_RESPONSE_OK);
-    gtk_widget_set_can_default(okbutton1, true);
+    gtk_dialog_add_button (GTK_DIALOG (prefs), "gtk-cancel", GTK_RESPONSE_CANCEL);
+    gtk_dialog_add_button (GTK_DIALOG (prefs), "gtk-ok",     GTK_RESPONSE_OK);
 
     g_signal_connect ((gpointer) prefs, "response",
                                         G_CALLBACK (on_prefs_response),
@@ -1178,10 +1146,6 @@ create_prefs (void)
     GLADE_HOOKUP_OBJECT (prefs, flaccompression, "flaccompression");
     GLADE_HOOKUP_OBJECT (prefs, rip_flac, "rip_flac");
     GLADE_HOOKUP_OBJECT (prefs, do_cddb_updates, "do_cddb_updates");
-    GLADE_HOOKUP_OBJECT_NO_REF (prefs, dialog_action_area1, "dialog_action_area1");
-    GLADE_HOOKUP_OBJECT (prefs, cancelbutton1, "cancelbutton1");
-    GLADE_HOOKUP_OBJECT (prefs, okbutton1, "okbutton1");
-
     return prefs;
 }
 
@@ -1197,8 +1161,6 @@ create_ripping (void)
     GtkWidget *label25;
     GtkWidget *label26;
     GtkWidget *label27;
-    GtkWidget *dialog_action_area2;
-    GtkWidget *cancel;
 
     ripping = gtk_dialog_new ();
     gtk_window_set_transient_for (GTK_WINDOW(ripping), GTK_WINDOW(win_main));
@@ -1218,42 +1180,41 @@ create_ripping (void)
     gtk_widget_show (progress_total);
     gtk_grid_attach (GTK_GRID (table3), progress_total, 1, 0, 1, 1);
     gtk_widget_set_hexpand(progress_total, true);
+    gtk_widget_set_valign(progress_total, GTK_ALIGN_CENTER);
 
     progress_rip = gtk_progress_bar_new ();
     gtk_widget_show (progress_rip);
     gtk_grid_attach (GTK_GRID (table3), progress_rip, 1, 1, 1, 1);
     gtk_widget_set_hexpand(progress_rip, true);
+    gtk_widget_set_valign(progress_rip, GTK_ALIGN_CENTER);
 
     progress_encode = gtk_progress_bar_new ();
     gtk_widget_show (progress_encode);
     gtk_grid_attach (GTK_GRID (table3), progress_encode, 1, 2, 1, 1);
     gtk_widget_set_hexpand(progress_encode, true);
+    gtk_widget_set_valign(progress_encode, GTK_ALIGN_CENTER);
 
     label25 = gtk_label_new (_("Total progress"));
     gtk_widget_show (label25);
     gtk_grid_attach (GTK_GRID (table3), label25, 0, 0, 1, 1);
-    gtk_misc_set_alignment (GTK_MISC (label25), 0, 0.5);
+    gtk_widget_set_halign(label25, GTK_ALIGN_START);
+    gtk_widget_set_valign(label25, GTK_ALIGN_CENTER);
 
     label26 = gtk_label_new (_("Ripping"));
     gtk_widget_show (label26);
     gtk_grid_attach (GTK_GRID (table3), label26, 0, 1, 1, 1);
-    gtk_misc_set_alignment (GTK_MISC (label26), 0, 0.5);
+    gtk_widget_set_halign(label26, GTK_ALIGN_START);
+    gtk_widget_set_valign(label26, GTK_ALIGN_CENTER);
+
 
     label27 = gtk_label_new (_("Encoding"));
     gtk_widget_show (label27);
     gtk_grid_attach (GTK_GRID (table3), label27, 0, 2, 1, 1);
-    gtk_misc_set_alignment (GTK_MISC (label27), 0, 0.5);
+    gtk_widget_set_halign(label27, GTK_ALIGN_START);
+    gtk_widget_set_valign(label27, GTK_ALIGN_CENTER);
 
-    dialog_action_area2 = gtk_dialog_get_action_area(GTK_DIALOG (ripping));
-    gtk_widget_show (dialog_action_area2);
-    gtk_button_box_set_layout (GTK_BUTTON_BOX (dialog_action_area2), GTK_BUTTONBOX_END);
-
-    cancel = gtk_button_new_from_stock ("gtk-cancel");
-    gtk_widget_show (cancel);
-    gtk_dialog_add_action_widget (GTK_DIALOG (ripping), cancel, GTK_RESPONSE_CANCEL);
-    gtk_widget_set_can_default(cancel, true);
-
-    g_signal_connect ((gpointer) cancel, "clicked",
+    gtk_dialog_add_button (GTK_DIALOG (ripping), "gtk-cancel", GTK_RESPONSE_CANCEL);
+    g_signal_connect ((gpointer) ripping, "response",
                                         G_CALLBACK (on_cancel_clicked),
                                         NULL);
 
@@ -1267,8 +1228,6 @@ create_ripping (void)
     GLADE_HOOKUP_OBJECT (ripping, label25, "label25");
     GLADE_HOOKUP_OBJECT (ripping, label26, "label26");
     GLADE_HOOKUP_OBJECT (ripping, label27, "label27");
-    GLADE_HOOKUP_OBJECT_NO_REF (ripping, dialog_action_area2, "dialog_action_area2");
-    GLADE_HOOKUP_OBJECT (ripping, cancel, "cancel");
 
     return ripping;
 }

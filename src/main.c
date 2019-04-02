@@ -101,7 +101,6 @@ int main(int argc, char *argv[])
     gbl_null_fd = open("/dev/null", O_RDWR);
 
     //gtk_set_locale();
-    g_thread_init(NULL);
     gdk_threads_init();
     gtk_init(&argc, &argv);
 
