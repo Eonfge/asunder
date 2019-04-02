@@ -34,8 +34,9 @@ for_each_row_deselect                  (GtkTreeModel *model,
                                         GtkTreeIter *iter,
                                         gpointer data)
 {
-    gtk_list_store_set(GTK_LIST_STORE(model), iter, COL_RIPTRACK, 0, -1);
+    (void) path; (void) data;
 
+    gtk_list_store_set(GTK_LIST_STORE(model), iter, COL_RIPTRACK, 0, -1);
     return FALSE;
 }
 
@@ -45,8 +46,9 @@ for_each_row_select                    (GtkTreeModel *model,
                                         GtkTreeIter *iter,
                                         gpointer data)
 {
-    gtk_list_store_set(GTK_LIST_STORE(model), iter, COL_RIPTRACK, 1, -1);
+    (void) path; (void) data;
 
+    gtk_list_store_set(GTK_LIST_STORE(model), iter, COL_RIPTRACK, 1, -1);
     return FALSE;
 }
 
@@ -55,6 +57,7 @@ format_wavpack_bitrate                 (GtkScale *scale,
                                         gdouble   arg1,
                                         gpointer  user_data)
 {
+    (void) scale; (void) user_data;
     return g_strdup_printf (_("%dKbps"), int_to_wavpack_bitrate((int)arg1));
 }
 
@@ -62,6 +65,7 @@ void
 on_about_clicked                       (GtkToolButton   *toolbutton,
                                         gpointer         user_data)
 {
+    (void) toolbutton; (void) user_data;
     show_aboutbox();
 }
 
@@ -70,6 +74,8 @@ on_aboutbox_response                   (GtkDialog       *dialog,
                                         gint             response_id,
                                         gpointer         user_data)
 {
+    (void) response_id; (void) user_data;
+
     gtk_widget_hide(GTK_WIDGET(dialog));
     gtk_widget_destroy(GTK_WIDGET(dialog));
 }
@@ -101,6 +107,8 @@ on_album_artist_focus_out_event        (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data)
 {
+    (void) event; (void) user_data;
+
     const gchar * ctext = gtk_entry_get_text(GTK_ENTRY(widget));
     gchar * text = malloc(sizeof(gchar) * (strlen(ctext) + 1));
     if (text == NULL)
@@ -124,6 +132,8 @@ on_year_focus_out_event        (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data)
 {
+    (void) event; (void) user_data;
+
     const gchar * ctext = gtk_entry_get_text(GTK_ENTRY(widget));
     gchar * text = malloc(5);
     if (text == NULL)
@@ -148,6 +158,8 @@ on_album_title_focus_out_event         (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data)
 {
+    (void) event; (void) user_data;
+
     const gchar * ctext = gtk_entry_get_text(GTK_ENTRY(widget));
     gchar * text = malloc(sizeof(gchar) * (strlen(ctext) + 1));
     if (text == NULL)
@@ -172,6 +184,8 @@ on_album_genre_focus_out_event         (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data)
 {
+    (void) event; (void) user_data;
+
     const gchar * ctext = gtk_entry_get_text(GTK_ENTRY(widget));
 
     gchar * text = malloc(sizeof(gchar) * (strlen(ctext) + 1));
@@ -200,6 +214,8 @@ on_tracknum_first_focus_out_event      (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data)
 {
+    (void) event; (void) user_data;
+
     const gchar * ctext = gtk_entry_get_text(GTK_ENTRY(widget));
     int first = atoi(ctext);
 
@@ -220,6 +236,8 @@ void
 on_tracknum_width_changed_event        (GtkComboBox     *combobox,
                                         gpointer         user_data)
 {
+    (void) user_data;
+
     gint selected = gtk_combo_box_get_active(combobox);
     int width = selected + 1;
 
@@ -237,6 +255,8 @@ on_artist_edited                    (GtkCellRendererText *cell,
                                      gchar               *new_text,
                                      gpointer             user_data)
 {
+    (void) cell; (void) user_data;
+
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
@@ -256,6 +276,8 @@ void
 on_cancel_clicked                      (GtkButton       *button,
                                         gpointer         user_data)
 {
+    (void) button; (void) user_data;
+
     abort_threads();
 }
 
@@ -264,6 +286,7 @@ on_cddb_update_closed         (GtkWidget *widget,
                                GdkEvent  *event,
                                GtkWidget**      update_window)
 {
+    (void) event; (void) widget;
     *update_window = NULL;
 
     return FALSE;
@@ -273,6 +296,8 @@ void
 on_deselect_all_click                  (GtkMenuItem *menuitem,
                                         gpointer data)
 {
+    (void) menuitem; (void) data;
+
     GtkTreeModel* model = gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist")));
 
     gtk_tree_model_foreach(model, for_each_row_deselect, NULL);
@@ -282,6 +307,8 @@ void
 on_vbr_toggled                         (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
+    (void) user_data;
+
     char bitrate[8];
     GtkRange* range;
     bool vbr;
@@ -297,6 +324,8 @@ void
 on_hybrid_toggled                      (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
+    (void) togglebutton; (void) user_data;
+
     if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "wavpack_hybrid"))))
     {
         gtk_widget_set_sensitive(lookup_widget(win_prefs, "wavpack_bitrate_lbl"), TRUE);
@@ -313,6 +342,8 @@ void
 on_mp3bitrate_value_changed            (GtkRange        *range,
                                         gpointer         user_data)
 {
+    (void) user_data;
+
     char bitrate[8];
     bool vbr;
 
@@ -325,6 +356,8 @@ void
 on_fdkaac_bitrate_value_changed            (GtkRange        *range,
                                         gpointer         user_data)
 {
+    (void) user_data;
+
     char bitrate[8];
     snprintf(bitrate, 8, _("%dKbps"), int_to_bitrate((int)gtk_range_get_value(range), 0));
     gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "fdkaac_bitrate_lbl_2")), bitrate);
@@ -334,6 +367,8 @@ void
 on_opusrate_value_changed           (GtkRange   *range,
                                      gpointer   user_data)
 {
+    (void) user_data;
+
     char bitrate[8];
     snprintf(bitrate, 8, _("%dKbps"), int_to_bitrate((int)gtk_range_get_value(range), FALSE));
     gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "bitrate_lbl_4")), bitrate);
@@ -343,6 +378,8 @@ void
 on_musepackbitrate_value_changed            (GtkRange        *range,
                                              gpointer         user_data)
 {
+    (void) user_data;
+
     char bitrate[8];
 
     snprintf(bitrate, 8, _("%dKbps"), int_to_musepack_bitrate((int)gtk_range_get_value(range)));
@@ -353,6 +390,8 @@ void
 on_pick_disc_changed                   (GtkComboBox     *combobox,
                                         gpointer         user_data)
 {
+    (void) user_data;
+
     gint selected = gtk_combo_box_get_active(combobox);
     if (gbl_disc_matches == NULL ||
         selected == -1 ||
@@ -366,6 +405,8 @@ void
 on_preferences_clicked                 (GtkToolButton   *toolbutton,
                                         gpointer         user_data)
 {
+    (void) toolbutton; (void) user_data;
+
     win_prefs = create_prefs();
     gtk_widget_show(win_prefs);
 }
@@ -375,6 +416,8 @@ on_prefs_response                      (GtkDialog       *dialog,
                                         gint             response_id,
                                         gpointer         user_data)
 {
+    (void) user_data;
+
     //gtk_widget_hide(GTK_WIDGET(dialog));
 
     if (response_id == GTK_RESPONSE_OK)
@@ -394,6 +437,8 @@ void
 on_prefs_show                          (GtkWidget       *widget,
                                         gpointer         user_data)
 {
+    (void) widget; (void) user_data;
+
     set_widgets_from_prefs(global_prefs);
 }
 
@@ -595,6 +640,8 @@ void
 on_lookup_clicked                     (GtkToolButton   *toolbutton,
                                        gpointer         user_data)
 {
+    (void) toolbutton; (void) user_data;
+
     /* i need to lock myself in refresh()->lookup_disc() */
     /* another possible solution for this problem:
     static GThread *main_thread = NULL;
@@ -619,6 +666,8 @@ void
 on_rip_button_clicked                  (GtkButton       *button,
                                         gpointer         user_data)
 {
+    (void) button; (void) user_data;
+
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     if (store == NULL)
     {
@@ -638,6 +687,8 @@ void
 on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
+    (void) togglebutton; (void) user_data;
+
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("lame"))
     {
         GtkWidget * dialog;
@@ -664,6 +715,8 @@ void
 on_rip_fdkaac_toggled                     (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
+    (void) user_data;
+
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("fdkaac"))
     {
         GtkWidget * dialog;
@@ -690,6 +743,8 @@ void
 on_rip_flac_toggled                    (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
+    (void) user_data;
+
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("flac"))
     {
         GtkWidget * dialog;
@@ -715,6 +770,8 @@ void
 on_rip_ogg_toggled                     (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
+    (void) user_data;
+
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("oggenc"))
     {
         GtkWidget * dialog;
@@ -740,6 +797,8 @@ void
 on_rip_opus_toggled                     (GtkToggleButton *togglebutton,
                                         gpointer user_data)
 {
+    (void) user_data;
+
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("opusenc"))
     {
         GtkWidget *dialog;
@@ -766,6 +825,8 @@ void
 on_rip_wavpack_toggled                 (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
+    (void) user_data;
+
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("wavpack"))
     {
         GtkWidget * dialog;
@@ -791,6 +852,8 @@ void
 on_rip_monkey_toggled                  (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
+    (void) user_data;
+
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("mac"))
     {
         GtkWidget * dialog;
@@ -816,6 +879,8 @@ void
 on_rip_musepack_toggled                  (GtkToggleButton *togglebutton,
                                           gpointer         user_data)
 {
+    (void) user_data;
+
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("mpcenc"))
     {
         GtkWidget * dialog;
@@ -842,6 +907,8 @@ on_rip_toggled                       (GtkCellRendererToggle *cell,
                                       gchar                 *path_string,
                                       gpointer               user_data)
 {
+    (void) cell; (void) user_data;
+
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
     int toggled;
@@ -859,6 +926,8 @@ void
 on_select_all_click                    (GtkMenuItem *menuitem,
                                         gpointer data)
 {
+    (void) menuitem; (void) data;
+
     GtkTreeModel* model = gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist")));
 
     gtk_tree_model_foreach(model, for_each_row_select, NULL);
@@ -868,6 +937,8 @@ void
 on_single_artist_toggled               (GtkToggleButton *togglebutton,
                                         gpointer         user_data)
 {
+    (void) togglebutton; (void) user_data;
+
 //    GtkTreeViewColumn * col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), 2);
     GtkTreeViewColumn * col = gtk_tree_view_get_column(GTK_TREE_VIEW(tracklist), COL_TRACKARTIST ); //lnr
     gtk_tree_view_column_set_visible(col, !gtk_toggle_button_get_active(togglebutton));
@@ -879,6 +950,8 @@ on_title_edited                    (GtkCellRendererText *cell,
                                     gchar               *new_text,
                                     gpointer             user_data)
 {
+    (void) cell; (void) user_data;
+
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
@@ -901,6 +974,8 @@ on_tracklist_mouse_click               (GtkWidget* treeView,
                                         GdkEventButton* event,
                                         gpointer user_data)
 {
+    (void) treeView; (void) user_data;
+
     if( event->type == GDK_BUTTON_PRESS && event->button == 3 &&
         gtk_widget_is_sensitive(lookup_widget(win_main, "rip_button")) )
     {
@@ -953,6 +1028,8 @@ void
 on_rip_header_click                 (GtkTreeViewColumn *treeviewcolumn,
                                      gpointer           user_data)
 {
+    (void) treeviewcolumn; (void) user_data;
+
     // Select/Deselect all tracks.
     // Get first checkbox and set all to opposite value.
     GtkTreeIter iter;
@@ -975,6 +1052,7 @@ on_window_close                        (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data)
 {
+    (void) widget; (void) event; (void) user_data;
     gtk_window_get_size(GTK_WINDOW(win_main),
             &global_prefs->main_window_width,
             &global_prefs->main_window_height);
