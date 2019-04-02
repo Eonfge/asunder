@@ -373,6 +373,7 @@ void dorip()
 // the thread that handles ripping tracks to WAV files
 gpointer rip(gpointer data)
 {
+    (void) data;
     char logStr[1024];
     GtkTreeIter iter;
 
@@ -555,6 +556,7 @@ void close_playlists(void)
 // the thread that handles encoding WAV files to all other formats
 gpointer encode(gpointer data)
 {
+    (void) data;
     char logStr[1024];
     GtkTreeIter iter;
     int rc;
@@ -1257,6 +1259,7 @@ gpointer encode(gpointer data)
 // the thread that calculates the progress of the other threads and updates the progress bars
 gpointer track(gpointer data)
 {
+    (void) data;
     char logStr[1024];
     int parts = 1;
     if(global_prefs->rip_mp3)

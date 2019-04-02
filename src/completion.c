@@ -143,6 +143,8 @@ create_completion(GtkWidget * entry, const char * name)
 static gboolean
 save_history_cb(GtkTreeModel * model, GtkTreePath * path, GtkTreeIter * iter, gpointer data)
 {
+    (void) path;
+
     FILE * fp;
     char * str;
 

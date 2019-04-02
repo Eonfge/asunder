@@ -29,7 +29,6 @@ config.set('ENABLE_NLS', true)
 
 add_project_arguments(
   '-Wno-deprecated-declarations',
-  '-Wno-unused-parameter',
   '-DHAVE_CONFIG_H',
   language: 'c',
 )

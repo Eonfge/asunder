@@ -952,6 +952,8 @@ void refresh_thread_body(char * cdrom, int force)
 
 static gpointer refresh_thread(gpointer data)
 {
+    (void) data;
+
     gint64 end_time;
     int force = 0;
 
@@ -981,6 +983,7 @@ static gpointer refresh_thread(gpointer data)
 
 static gboolean start_refresh_thread(gpointer data)
 {
+    (void) data;
     g_thread_create(refresh_thread, NULL, FALSE, NULL);
     return(FALSE);
 }

@@ -142,30 +142,6 @@ find_pixmap_file                       (const gchar     *filename)
 }
 
 /* This is an internally used function to create pixmaps. */
-GtkWidget*
-create_pixmap                          (GtkWidget       *widget,
-                                        const gchar     *filename)
-{
-  gchar *pathname = NULL;
-  GtkWidget *pixmap;
-
-  if (!filename || !filename[0])
-      return gtk_image_new ();
-
-  pathname = find_pixmap_file (filename);
-
-  if (!pathname)
-    {
-      g_warning ("Couldn't find pixmap file: %s", filename);
-      return gtk_image_new ();
-    }
-
-  pixmap = gtk_image_new_from_file (pathname);
-  g_free (pathname);
-  return pixmap;
-}
-
-/* This is an internally used function to create pixmaps. */
 GdkPixbuf*
 create_pixbuf                          (const gchar     *filename)
 {

@@ -92,6 +92,8 @@ void unblockSigChld(void)
 //
 void sigchld(int signum)
 {
+    (void) signum;
+
     int status;
     pid_t pid;
 
