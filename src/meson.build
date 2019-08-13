@@ -17,7 +17,6 @@ asunder = executable('asunder',
 
   dependencies: [
     gtk3,
-    gthread,
     libcddb,
   ],
   install: true,
