@@ -40,7 +40,7 @@ void sigchld(int signum);
 // toread - the file descriptor to pipe back to the parent
 // p - a place to write the PID of the exec'ed process
 // dir - directory to run program in
-// 
+//
 // returns - a file descriptor that reads whatever the program outputs on "toread"
 int exec_with_output(const char * args[], int toread, pid_t * p, const char * dir);
 

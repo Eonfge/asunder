@@ -48,7 +48,7 @@ typedef struct _prefs
     int track_num_width;
     int rip_fdkaac;
     int fdkaac_bitrate;
-    
+
 } prefs;
 
 #define DEFAULT_PROXY_PORT 8080

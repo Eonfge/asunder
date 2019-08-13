@@ -5,7 +5,7 @@ Copyright(C) 2005 Eric Lathrop <eric@ericlathrop.com>
 Copyright(C) 2007 Andrew Smith <http://littlesvr.ca/contact.php>
 
 Any code in this file may be redistributed or modified under the terms of
-the GNU General Public Licence as published by the Free Software 
+the GNU General Public Licence as published by the Free Software
 Foundation; version 2 of the licence.
 
 */
@@ -35,7 +35,7 @@ for_each_row_deselect                  (GtkTreeModel *model,
                                         gpointer data)
 {
     gtk_list_store_set(GTK_LIST_STORE(model), iter, COL_RIPTRACK, 0, -1);
-    
+
     return FALSE;
 }
 
@@ -46,7 +46,7 @@ for_each_row_select                    (GtkTreeModel *model,
                                         gpointer data)
 {
     gtk_list_store_set(GTK_LIST_STORE(model), iter, COL_RIPTRACK, 1, -1);
-    
+
     return FALSE;
 }
 
@@ -106,15 +106,15 @@ on_album_artist_focus_out_event        (GtkWidget       *widget,
     if (text == NULL)
         fatalError("malloc(sizeof(gchar) * (strlen(ctext) + 1)) failed. Out of memory.");
     strncpy(text, ctext, strlen(ctext)+1);
-    
+
     //trim_chars(text, BADCHARS);		// lnr	//Commented out by mrpl
     trim_whitespace(text);
-    
+
     if(text[0] == '\0')
         gtk_entry_set_text(GTK_ENTRY(widget), "unknown");
     else
         gtk_entry_set_text(GTK_ENTRY(widget), text);
-    
+
     free(text);
     return FALSE;
 }
@@ -130,15 +130,15 @@ on_year_focus_out_event        (GtkWidget       *widget,
         fatalError("malloc(5) failed. Out of memory.");
     strncpy(text, ctext, 5);
     text[4] = '\0';
-    
+
     if((text[0] != '1' && text[0] != '2') || text[1] < '0' || text[1] > '9' ||
         text[2] < '0' || text[2] > '9' || text[3] < '0' || text[3] > '9')
     {
         sprintf(text, "1900");
     }
-    
+
     gtk_entry_set_text(GTK_ENTRY(widget), text);
-    
+
     free(text);
     return FALSE;
 }
@@ -153,15 +153,15 @@ on_album_title_focus_out_event         (GtkWidget       *widget,
     if (text == NULL)
         fatalError("malloc(sizeof(gchar) * (strlen(ctext) + 1)) failed. Out of memory.");
     strncpy(text, ctext, strlen(ctext)+1);
-    
+
     //trim_chars(text, BADCHARS);		// lnr	//Commented out by mrpl
     trim_whitespace(text);
-    
+
     if(text[0] == '\0')
         gtk_entry_set_text(GTK_ENTRY(widget), "unknown");
     else
         gtk_entry_set_text(GTK_ENTRY(widget), text);
-    
+
     free(text);
     return FALSE;
 }
@@ -180,17 +180,17 @@ on_album_genre_focus_out_event         (GtkWidget       *widget,
         fatalError("malloc(sizeof(gchar) * (strlen(ctext) + 1)) failed. Out of memory.");
 
     strncpy(text, ctext, strlen(ctext)+1);
-    
+
     //trim_chars(text, BADCHARS);		// lnr	//Commented out by mrpl
     trim_whitespace(text);
-    
+
     if(text[0] == '\0')
         gtk_entry_set_text(GTK_ENTRY(widget), "Unknown");
     else
         gtk_entry_set_text(GTK_ENTRY(widget), text);
-    
+
     free(text);
-    
+
     return FALSE;
 }
 
@@ -240,12 +240,12 @@ on_artist_edited                    (GtkCellRendererText *cell,
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
-    
+
     //trim_chars(new_text, BADCHARS);		// lnr	//Commented out by mrpl
     trim_whitespace(new_text);
-    
+
     gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
-    
+
     if(new_text[0] == '\0')
         gtk_list_store_set(store, &iter, COL_TRACKARTIST, "unknown", -1);
     else
@@ -265,16 +265,16 @@ on_cddb_update_closed         (GtkWidget *widget,
                                GtkWidget**      update_window)
 {
     *update_window = NULL;
-    
+
     return FALSE;
 }
 
 void
-on_deselect_all_click                  (GtkMenuItem *menuitem, 
+on_deselect_all_click                  (GtkMenuItem *menuitem,
                                         gpointer data)
 {
     GtkTreeModel* model = gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist")));
-    
+
     gtk_tree_model_foreach(model, for_each_row_deselect, NULL);
 }
 
@@ -285,7 +285,7 @@ on_vbr_toggled                         (GtkToggleButton *togglebutton,
     char bitrate[8];
     GtkRange* range;
     bool vbr;
-    
+
     /* update the displayed vbr, as it's different for vbr and non-vbr */
     vbr = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(togglebutton));
     range = GTK_RANGE(lookup_widget(win_prefs, "mp3bitrate"));
@@ -315,7 +315,7 @@ on_mp3bitrate_value_changed            (GtkRange        *range,
 {
     char bitrate[8];
     bool vbr;
-    
+
     vbr = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "mp3_vbr")));
     snprintf(bitrate, 8, _("%dKbps"), int_to_bitrate((int)gtk_range_get_value(range), vbr));
     gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "bitrate_lbl_2")), bitrate);
@@ -325,7 +325,7 @@ void
 on_fdkaac_bitrate_value_changed            (GtkRange        *range,
                                         gpointer         user_data)
 {
-    char bitrate[8];    
+    char bitrate[8];
     snprintf(bitrate, 8, _("%dKbps"), int_to_bitrate((int)gtk_range_get_value(range), 0));
     gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "fdkaac_bitrate_lbl_2")), bitrate);
 }
@@ -344,7 +344,7 @@ on_musepackbitrate_value_changed            (GtkRange        *range,
                                              gpointer         user_data)
 {
     char bitrate[8];
-    
+
     snprintf(bitrate, 8, _("%dKbps"), int_to_musepack_bitrate((int)gtk_range_get_value(range)));
     gtk_label_set_text(GTK_LABEL(lookup_widget(win_prefs, "bitrate_lbl_3")), bitrate);
 }
@@ -376,18 +376,18 @@ on_prefs_response                      (GtkDialog       *dialog,
                                         gpointer         user_data)
 {
     //gtk_widget_hide(GTK_WIDGET(dialog));
-    
+
     if (response_id == GTK_RESPONSE_OK)
     {
         if (!prefs_are_valid())
             return;
-        
+
         get_prefs_from_widgets(global_prefs);
         save_prefs(global_prefs);
         toggle_allow_tracknum();
     }
-    
-    gtk_widget_destroy(GTK_WIDGET(dialog));    
+
+    gtk_widget_destroy(GTK_WIDGET(dialog));
 }
 
 void
@@ -512,7 +512,7 @@ on_edit_split_clicked (void)
                     *cp = '\0';
                     cp--;
                 }
-                
+
                 // Write modified values back into widgets
                 gtk_list_store_set(store, &iter,
                     COL_TRACKARTIST, trackartist,
@@ -520,12 +520,12 @@ on_edit_split_clicked (void)
                     -1);
             }
         }
-        
+
         if (trackartist)
             free (trackartist);
         if (tracktitle)
             free (tracktitle);
-        
+
         rowsleft = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
     }
 }
@@ -571,23 +571,23 @@ on_edit_swap_clicked (void)
     }
 }
 
-void 
+void
 on_press_f2                       (void)
 {
     GtkWidget* treeView;
     GtkTreePath* treePath;
     GtkTreeViewColumn* focusColumn;
-    
+
     treeView = lookup_widget(win_main, "tracklist");
-    
+
     if (!GTK_WIDGET_HAS_FOCUS(treeView))
         return;
-    
+
     gtk_tree_view_get_cursor(GTK_TREE_VIEW(treeView), &treePath, &focusColumn);
-    
+
     if (treePath == NULL || focusColumn == NULL)
         return;
-    
+
     gtk_tree_view_set_cursor(GTK_TREE_VIEW(treeView), treePath, focusColumn, TRUE);
 }
 
@@ -598,7 +598,7 @@ on_lookup_clicked                     (GtkToolButton   *toolbutton,
     /* i need to lock myself in refresh()->lookup_disc() */
     /* another possible solution for this problem:
     static GThread *main_thread = NULL;
-    
+
     void thread_helpers_init (void) {
        main_thread = g_thread_self ();
     }
@@ -623,14 +623,14 @@ on_rip_button_clicked                  (GtkButton       *button,
     if (store == NULL)
     {
         GtkWidget * dialog;
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                         _("No CD is inserted. Please insert a CD into the CD-ROM drive."));
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
         return;
     }
-    
+
     dorip();
 }
 
@@ -641,9 +641,9 @@ on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("lame"))
     {
         GtkWidget * dialog;
-        
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                         _("%s was not found in your path. Asunder requires it to create %s files. "
                                         "All %s functionality is disabled."),
                                         "'lame'", "MP3", "MP3");
@@ -653,7 +653,7 @@ on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
         global_prefs->rip_mp3 = 0;
         gtk_toggle_button_set_active(togglebutton, global_prefs->rip_mp3);
     }
-    
+
     if (!gtk_toggle_button_get_active(togglebutton))
         disable_mp3_widgets();
     else
@@ -667,9 +667,9 @@ on_rip_fdkaac_toggled                     (GtkToggleButton *togglebutton,
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("fdkaac"))
     {
         GtkWidget * dialog;
-        
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                         _("%s was not found in your path. Asunder requires it to create %s files. "
                                         "All %s functionality is disabled."),
                                         "'fdkaac'", "AAC", "AAC");
@@ -679,7 +679,7 @@ on_rip_fdkaac_toggled                     (GtkToggleButton *togglebutton,
         global_prefs->rip_fdkaac = 0;
         gtk_toggle_button_set_active(togglebutton, global_prefs->rip_fdkaac);
     }
-    
+
     if (!gtk_toggle_button_get_active(togglebutton))
         disable_fdkaac_widgets();
     else
@@ -693,8 +693,8 @@ on_rip_flac_toggled                    (GtkToggleButton *togglebutton,
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("flac"))
     {
         GtkWidget * dialog;
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                         _("%s was not found in your path. Asunder requires it to create %s files. "
                                         "All %s functionality is disabled."),
                                         "'flac'", "FLAC", "FLAC");
@@ -704,7 +704,7 @@ on_rip_flac_toggled                    (GtkToggleButton *togglebutton,
         global_prefs->rip_flac = 0;
         gtk_toggle_button_set_active(togglebutton, global_prefs->rip_flac);
     }
-    
+
     if (!gtk_toggle_button_get_active(togglebutton))
         disable_flac_widgets();
     else
@@ -718,8 +718,8 @@ on_rip_ogg_toggled                     (GtkToggleButton *togglebutton,
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("oggenc"))
     {
         GtkWidget * dialog;
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                         _("%s was not found in your path. Asunder requires it to create %s files. "
                                         "All %s functionality is disabled."),
                                         "'oggenc'", "OGG", "OGG");
@@ -729,7 +729,7 @@ on_rip_ogg_toggled                     (GtkToggleButton *togglebutton,
         global_prefs->rip_ogg = 0;
         gtk_toggle_button_set_active(togglebutton, global_prefs->rip_ogg);
     }
-    
+
     if (!gtk_toggle_button_get_active(togglebutton))
         disable_ogg_widgets();
     else
@@ -769,8 +769,8 @@ on_rip_wavpack_toggled                 (GtkToggleButton *togglebutton,
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("wavpack"))
     {
         GtkWidget * dialog;
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                         _("%s was not found in your path. Asunder requires it to create %s files. "
                                         "All %s functionality is disabled."),
                                         "'wavpack'", "WV", "wavpack");
@@ -780,7 +780,7 @@ on_rip_wavpack_toggled                 (GtkToggleButton *togglebutton,
         global_prefs->rip_wavpack = 0;
         gtk_toggle_button_set_active(togglebutton, global_prefs->rip_wavpack);
     }
-    
+
     if (!gtk_toggle_button_get_active(togglebutton))
         disable_wavpack_widgets();
     else
@@ -794,8 +794,8 @@ on_rip_monkey_toggled                  (GtkToggleButton *togglebutton,
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("mac"))
     {
         GtkWidget * dialog;
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                         _("%s was not found in your path. Asunder requires it to create %s files. "
                                         "All %s functionality is disabled."),
                                         "'mac'", "APE", "Monkey's Audio");
@@ -805,7 +805,7 @@ on_rip_monkey_toggled                  (GtkToggleButton *togglebutton,
         global_prefs->rip_monkey = 0;
         gtk_toggle_button_set_active(togglebutton, global_prefs->rip_monkey);
     }
-    
+
     if (!gtk_toggle_button_get_active(togglebutton))
         disable_monkey_widgets();
     else
@@ -819,8 +819,8 @@ on_rip_musepack_toggled                  (GtkToggleButton *togglebutton,
     if (gtk_toggle_button_get_active(togglebutton) && !program_exists("mpcenc"))
     {
         GtkWidget * dialog;
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                         _("%s was not found in your path. Asunder requires it to create %s files. "
                                         "All %s functionality is disabled."),
                                         "'mpcenc'", "MPC", "Musepack");
@@ -830,7 +830,7 @@ on_rip_musepack_toggled                  (GtkToggleButton *togglebutton,
         global_prefs->rip_musepack = 0;
         gtk_toggle_button_set_active(togglebutton, global_prefs->rip_musepack);
     }
-    
+
     if (!gtk_toggle_button_get_active(togglebutton))
         disable_musepack_widgets();
     else
@@ -856,11 +856,11 @@ on_rip_toggled                       (GtkCellRendererToggle *cell,
 }
 
 void
-on_select_all_click                    (GtkMenuItem *menuitem, 
+on_select_all_click                    (GtkMenuItem *menuitem,
                                         gpointer data)
 {
     GtkTreeModel* model = gtk_tree_view_get_model(GTK_TREE_VIEW(lookup_widget(win_main, "tracklist")));
-    
+
     gtk_tree_model_foreach(model, for_each_row_select, NULL);
 }
 
@@ -882,23 +882,23 @@ on_title_edited                    (GtkCellRendererText *cell,
     GtkListStore * store = GTK_LIST_STORE(gtk_tree_view_get_model(
                     GTK_TREE_VIEW(lookup_widget(win_main, "tracklist"))));
     GtkTreeIter iter;
-    
+
     //trim_chars(new_text, BADCHARS);		// lnr	//Commented out by mrpl
     trim_whitespace(new_text);
-    
+
     gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store), &iter, path_string);
-    
+
     if(new_text[0] == '\0')
         gtk_list_store_set(store, &iter, COL_TRACKTITLE, "unknown", -1);
     else
         gtk_list_store_set(store, &iter, COL_TRACKTITLE, new_text, -1);
-    
-    
+
+
 }
 
 gboolean
-on_tracklist_mouse_click               (GtkWidget* treeView, 
-                                        GdkEventButton* event, 
+on_tracklist_mouse_click               (GtkWidget* treeView,
+                                        GdkEventButton* event,
                                         gpointer user_data)
 {
     if( event->type == GDK_BUTTON_PRESS && event->button == 3 &&
@@ -906,17 +906,17 @@ on_tracklist_mouse_click               (GtkWidget* treeView,
     {
         GtkWidget* menu;
         GtkWidget* menuItem;
-        
+
         menu = gtk_menu_new();
-        
+
         menuItem = gtk_menu_item_new_with_label(_("Select all for ripping"));
-        g_signal_connect(menuItem, "activate", 
+        g_signal_connect(menuItem, "activate",
                          G_CALLBACK(on_select_all_click), NULL);
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuItem);
         gtk_widget_show_all(menu);
-        
+
         menuItem = gtk_menu_item_new_with_label(_("Deselect all for ripping"));
-        g_signal_connect(menuItem, "activate", 
+        g_signal_connect(menuItem, "activate",
                          G_CALLBACK(on_deselect_all_click), NULL);
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuItem);
         gtk_widget_show_all(menu);
@@ -938,14 +938,14 @@ on_tracklist_mouse_click               (GtkWidget* treeView,
                          G_CALLBACK(on_edit_swap_clicked), NULL);
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuItem);
         gtk_widget_show_all(menu);
-        
+
         gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL,
                        event->button, gdk_event_get_time((GdkEvent*)event));
-        
+
         /* no need for signal to propagate */
         return TRUE;
     }
-    
+
     return FALSE;
 }
 
@@ -975,11 +975,11 @@ on_window_close                        (GtkWidget       *widget,
                                         GdkEventFocus   *event,
                                         gpointer         user_data)
 {
-    gtk_window_get_size(GTK_WINDOW(win_main), 
-            &global_prefs->main_window_width, 
+    gtk_window_get_size(GTK_WINDOW(win_main),
+            &global_prefs->main_window_width,
             &global_prefs->main_window_height);
-    
+
     save_prefs(global_prefs);
 
     gtk_main_quit();
-}    
+}

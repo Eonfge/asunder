@@ -83,7 +83,7 @@ on_cddb_update_closed         (GtkWidget *widget,
                                GtkWidget**      update_window);
 
 void
-on_deselect_all_click                  (GtkMenuItem *menuitem, 
+on_deselect_all_click                  (GtkMenuItem *menuitem,
                                         gpointer data);
 
 void
@@ -138,7 +138,7 @@ void
 on_prefs_show                          (GtkWidget       *widget,
                                         gpointer         user_data);
 
-void 
+void
 on_press_f2                       (void);
 
 void
@@ -171,7 +171,7 @@ on_rip_mp3_toggled                     (GtkToggleButton *togglebutton,
 void
 on_rip_fdkaac_toggled                     (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
-                                        
+
 void
 on_rip_wavpack_toggled                 (GtkToggleButton *togglebutton,
                                         gpointer         user_data);
@@ -187,7 +187,7 @@ on_rip_toggled                       (GtkCellRendererToggle *cell,
                                       gpointer               user_data);
 
 void
-on_select_all_click                    (GtkMenuItem *menuitem, 
+on_select_all_click                    (GtkMenuItem *menuitem,
                                         gpointer data);
 
 void
@@ -197,8 +197,8 @@ on_title_edited                     (GtkCellRendererText *cell,
                                      gpointer             user_data);
 
 gboolean
-on_tracklist_mouse_click               (GtkWidget* treeView, 
-                                        GdkEventButton* event, 
+on_tracklist_mouse_click               (GtkWidget* treeView,
+                                        GdkEventButton* event,
                                         gpointer user_data);
 
 void

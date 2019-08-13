@@ -15,21 +15,21 @@ static gchar *
 get_completion_filename_on_save(const char * name)
 {
     char logStr[1024];
-    
+
     gchar *path = g_build_filename(g_get_user_cache_dir(), "asunder", NULL);
-    
+
     gchar *result_filename = g_build_filename(path, name, NULL);
-    
+
     if (!g_file_test(path, G_FILE_TEST_IS_DIR)) {
         recursive_mkdir(path, S_IRWXU|S_IRWXG|S_IRWXO);
     }
-    
+
     g_free(path);
-        
+
     snprintf(logStr, 1024, "using completion file name: %s\n", result_filename);
     debugLog(logStr);
     return result_filename;
-    
+
 }
 
 //
@@ -44,30 +44,30 @@ get_completion_filename_on_load(const char * name)
     gchar *user_cache_filename;
     gchar *home_folder_filename;
     gchar *xdg_cache_home_filename;
-    
+
     filename = g_strdup_printf("asunder_%s", name);
     dot_filename = g_strdup_printf(".%s", filename);
     user_cache_filename = g_build_filename(g_get_user_cache_dir(), "asunder", name, NULL);
     home_folder_filename = g_build_filename(g_getenv("HOME"), dot_filename, NULL);
     g_free(dot_filename);
-    
+
     xdg_cache_home_filename = g_build_filename(xdg_cache_home, "asunder", filename, NULL);
-    
+
     if (g_file_test(user_cache_filename, G_FILE_TEST_EXISTS)) {
         result_filename = g_strdup(user_cache_filename);
-        
+
     } else if (xdg_cache_home != NULL && *xdg_cache_home != '\0') {
         result_filename = g_strdup(xdg_cache_home_filename);
     }
     else {
-        result_filename = g_strdup(home_folder_filename); 
+        result_filename = g_strdup(home_folder_filename);
     }
-    
+
     g_free(filename);
     g_free(user_cache_filename);
     g_free(home_folder_filename);
     g_free(xdg_cache_home_filename);
-    
+
     snprintf(logStr, 1024, "using completion file name: %s\n", result_filename);
     debugLog(logStr);
     return result_filename;

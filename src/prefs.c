@@ -5,7 +5,7 @@ Copyright(C) 2005 Eric Lathrop <eric@ericlathrop.com>
 Copyright(C) 2007 Andrew Smith <http://littlesvr.ca/contact.php>
 
 Any code in this file may be redistributed or modified under the terms of
-the GNU General Public Licence as published by the Free Software 
+the GNU General Public Licence as published by the Free Software
 Foundation; version 2 of the licence.
 
 */
@@ -39,37 +39,37 @@ prefs * new_prefs()
     if (p == NULL)
         fatalError("malloc(sizeof(prefs)) failed. Out of memory.");
     memset(p, 0, sizeof(prefs));
-    
+
     return p;
 }
 
 void clear_prefs(prefs * p)
 {
-    if (p->cdrom != NULL) 
+    if (p->cdrom != NULL)
         free(p->cdrom);
     p->cdrom = NULL;
 
-    if (p->music_dir != NULL) 
+    if (p->music_dir != NULL)
         free(p->music_dir);
     p->music_dir = NULL;
 
-    if (p->format_music != NULL) 
+    if (p->format_music != NULL)
         free(p->format_music);
     p->format_music = NULL;
 
-    if (p->format_playlist != NULL) 
+    if (p->format_playlist != NULL)
         free(p->format_playlist);
     p->format_playlist = NULL;
 
-    if (p->format_albumdir != NULL) 
+    if (p->format_albumdir != NULL)
         free(p->format_albumdir);
     p->format_albumdir = NULL;
-    
-    if (p->server_name != NULL) 
+
+    if (p->server_name != NULL)
         free(p->server_name);
     p->server_name = NULL;
-    
-    if (p->cddb_server_name != NULL) 
+
+    if (p->cddb_server_name != NULL)
         free(p->cddb_server_name);
     p->cddb_server_name = NULL;
 }
@@ -79,7 +79,7 @@ void clear_prefs(prefs * p)
 void delete_prefs(prefs * p)
 {
     clear_prefs(p);
-    
+
     free(p);
 }
 
@@ -88,30 +88,30 @@ void delete_prefs(prefs * p)
 prefs * get_default_prefs()
 {
     prefs * p = new_prefs();
-    
+
     p->cdrom = malloc(sizeof(char) * 11);
     if (p->cdrom == NULL)
         fatalError("malloc(sizeof(char) * 11) failed. Out of memory.");
     strncpy(p->cdrom, "/dev/cdrom", 11);
-    
+
     p->music_dir = strdup(getenv("HOME"));
     p->make_playlist = 1;
-    
+
     p->format_music = malloc(sizeof(char) * 13);
     if (p->format_music == NULL)
         fatalError("malloc(sizeof(char) * 8) failed. Out of memory.");
     strncpy(p->format_music, "%N - %A - %T", 13);
-    
+
     p->format_playlist = malloc(sizeof(char) * 8);
     if (p->format_playlist == NULL)
         fatalError("malloc(sizeof(char) * 8) failed. Out of memory.");
     strncpy(p->format_playlist, "%A - %L", 8);
-    
+
     p->format_albumdir = malloc(sizeof(char) * 8);
     if (p->format_albumdir == NULL)
         fatalError("malloc(sizeof(char) * 8) failed. Out of memory.");
     strncpy(p->format_albumdir, "%A - %L", 8);
-    
+
     p->rip_wav = 0;
     p->do_fast_rip = 0;
     p->rip_mp3 = 0;
@@ -133,43 +133,43 @@ prefs * get_default_prefs()
     p->musepack_bitrate = 2;
     p->rip_opus = 0;
     p->opus_bitrate = 9;
-    
+
     p->main_window_width = 600;
     p->main_window_height = 450;
-    
+
     p->eject_on_done = 0;
-    
+
     p->do_cddb_updates = 1;
-    
+
     p->use_proxy = 0;
-    
+
     p->do_log = 0;
-    
+
     p->server_name = malloc(sizeof(char) * (strlen("10.0.0.1") + 1));
     if (p->server_name == NULL)
         fatalError("malloc(sizeof(char) * (strlen(\"10.0.0.1\") + 1)) failed. Out of memory.");
     strcpy(p->server_name, "10.0.0.1");
-    
+
     p->port_number = DEFAULT_PROXY_PORT;
-    
+
     p->cddb_server_name = malloc(sizeof(char) * (strlen(DEFAULT_CDDB_SERVER) + 1));
     if (p->cddb_server_name == NULL)
         fatalError("malloc(sizeof(char) * (strlen(DEFAULT_CDDB_SERVER) + 1)) failed. Out of memory.");
     strcpy(p->cddb_server_name, DEFAULT_CDDB_SERVER);
-    
+
     p->cddb_port_number = DEFAULT_CDDB_SERVER_PORT;
-    
+
     p->more_formats_expanded = 0;
     p->proprietary_formats_expanded = 0;
     p->do_fast_rip = 1;
-    
+
     p->allow_first_track_num_change = 0;
     p->first_track_num_offset = 0;
     p->track_num_width = 2;
-    
+
     p->rip_fdkaac = 0;
     p->fdkaac_bitrate = 10;
-    
+
     return p;
 }
 
@@ -178,7 +178,7 @@ prefs * get_default_prefs()
 void set_widgets_from_prefs(prefs * p)
 {
     char tempStr[10];
-    
+
     gtk_entry_set_text(GTK_ENTRY(lookup_widget(win_prefs, "cdrom")), p->cdrom);
     gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(lookup_widget(win_prefs, "music_dir")), prefs_get_music_dir(p));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_playlist")), p->make_playlist);
@@ -222,7 +222,7 @@ void set_widgets_from_prefs(prefs * p)
         //~ gtk_expander_set_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")), TRUE);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "allow_tracknum")), p->allow_first_track_num_change);
     toggle_allow_tracknum(); // This will set up the rest of the related widgets
-    
+
     /* disable widgets if needed */
     if ( !(p->rip_mp3) )
         disable_mp3_widgets();
@@ -251,33 +251,33 @@ void get_prefs_from_widgets(prefs * p)
     const gchar * tocopyc = NULL;
 
     clear_prefs(p);
-    
+
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "cdrom")));
     p->cdrom = malloc(sizeof(char) * (strlen(tocopyc) + 1));
     if (p->cdrom == NULL)
         fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->cdrom, tocopyc, strlen(tocopyc)+1);
-    
+
     tocopy = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(lookup_widget(win_prefs, "music_dir")));
     if ((p->music_dir = malloc(sizeof(char) * (strlen(tocopy) + 1))) == NULL)
         fatalError("malloc(sizeof(char) * (strlen(tocopy) + 1)) failed. Out of memory.");
     strncpy(p->music_dir, tocopy, strlen(tocopy)+1);
     g_free(tocopy);
-    
+
     p->make_playlist = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "make_playlist")));
-    
+
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_music")));
     p->format_music = malloc(sizeof(char) * (strlen(tocopyc) + 1));
     if (p->format_music == NULL)
         fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->format_music, tocopyc, strlen(tocopyc)+1);
-    
+
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_playlist")));
     p->format_playlist = malloc(sizeof(char) * (strlen(tocopyc) + 1));
     if (p->format_playlist == NULL)
         fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->format_playlist, tocopyc, strlen(tocopyc)+1);
-    
+
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_albumdir")));
     if ((p->format_albumdir = malloc(sizeof(char) * (strlen(tocopyc) + 1))) == NULL)
         fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
@@ -304,34 +304,34 @@ void get_prefs_from_widgets(prefs * p)
     p->musepack_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "musepack_bitrate_slider")));
     p->rip_opus = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "rip_opus")));
     p->opus_bitrate = (int)gtk_range_get_value(GTK_RANGE(lookup_widget(win_prefs, "opusrate")));
-    
+
     p->eject_on_done = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "eject_on_done")));
-    
+
     p->do_cddb_updates = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_cddb_updates")));
-    
+
     p->use_proxy = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "use_proxy")));
-    
+
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "server_name")));
     p->server_name = malloc(sizeof(char) * (strlen(tocopyc) + 1));
     if (p->server_name == NULL)
         fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->server_name, tocopyc, strlen(tocopyc) + 1);
-    
+
     p->port_number = atoi(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "port_number"))));
-    
+
     tocopyc = gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "cddb_server_name")));
     p->cddb_server_name = malloc(sizeof(char) * (strlen(tocopyc) + 1));
     if (p->cddb_server_name == NULL)
         fatalError("malloc(sizeof(char) * (strlen(tocopyc) + 1)) failed. Out of memory.");
     strncpy(p->cddb_server_name, tocopyc, strlen(tocopyc) + 1);
-    
+
     p->cddb_port_number = atoi(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "cddb_port_number"))));
-    
+
     p->do_log = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "do_log")));
-    
+
     p->more_formats_expanded = gtk_expander_get_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "more_formats_expander")));
     //~ p->proprietary_formats_expanded = gtk_expander_get_expanded (GTK_EXPANDER(lookup_widget(win_prefs, "proprietary_formats_expander")));
-    
+
     p->allow_first_track_num_change = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(lookup_widget(win_prefs, "allow_tracknum")));
     p->first_track_num_offset = atoi(gtk_entry_get_text(GTK_ENTRY (lookup_widget(win_main, "tn_first")))) - 1;
     p->track_num_width = gtk_combo_box_get_active(GTK_COMBO_BOX(lookup_widget(win_main, "tn_width"))) + 1;
@@ -343,30 +343,30 @@ void get_prefs_from_widgets(prefs * p)
 //    1: Use the file got from g_get_user_config_dir + "asunder" + CONFIG_FILENAME
 //    2: XDG_CONFIG_HOME + /asunder/CONFIG_FILENAME
 //    3: getenv(HOME) + dot_filename
-// 
+//
 static gchar *get_prefs_load_config_path(void)
 {
     gchar *result_filename = NULL;
-    
+
     const gchar *xdg_config_home;
     gchar *user_config_home_filename;
     gchar *getenv_home_filename;
     gchar *xdg_config_home_filename;
-    
+
     user_config_home_filename = g_build_filename(g_get_user_config_dir(), "asunder", CONFIG_FILENAME, NULL);
-    
+
     gchar *dot_filename = g_strdup_printf(".%s", CONFIG_FILENAME);
     getenv_home_filename = g_build_filename(getenv("HOME"), dot_filename, NULL);
     g_free(dot_filename);
-    
+
     xdg_config_home = getenv("XDG_CONFIG_HOME");
     xdg_config_home_filename = g_build_filename(xdg_config_home, "asunder", CONFIG_FILENAME, NULL);
-    
+
     if (g_file_test(user_config_home_filename, G_FILE_TEST_EXISTS)) {
 
         // Use the user_config_home_filename
         result_filename = g_strdup(user_config_home_filename);
-        
+
     } else if (xdg_config_home != NULL && *xdg_config_home != '\0') {
         // use the xdg one
         result_filename = g_strdup(xdg_config_home_filename);
@@ -375,11 +375,11 @@ static gchar *get_prefs_load_config_path(void)
         // use the getenv(HOME) one
         result_filename = g_strdup(getenv_home_filename);
     }
-    
+
     g_free(xdg_config_home_filename);
     g_free(getenv_home_filename);
     g_free(user_config_home_filename);
-    
+
     return result_filename;
 }
 
@@ -388,26 +388,26 @@ static gchar *get_prefs_load_config_path(void)
 static gchar *get_prefs_save_config_path(void)
 {
     gchar *result_filename = NULL;
-    
+
     // Check if path exists, otherwise, create it.
     const gchar *config_path = g_get_user_config_dir();
-    
+
     // ~/.config/asunder/
     gchar *path = g_build_filename(config_path, "asunder", NULL);
-    
+
     // and then filename CONFIG_FILENAME which is "asunder".
     result_filename = g_build_filename(path, CONFIG_FILENAME, NULL);
-    
+
     if (!g_file_test(path, G_FILE_TEST_IS_DIR)) {
-        
+
         // Folder doesn't exist, create it.
         if (g_mkdir(path, 0755) != 0) {
             fatalError("g_mkdir() failed. Couldn't create folder.");
         }
     }
-    
+
     g_free(path);
-    
+
     return result_filename;
 }
 
@@ -416,7 +416,7 @@ void save_prefs(prefs * p)
 {
     gchar * file = get_prefs_save_config_path();
     debugLog("Saving configuration\n");
-    
+
     FILE * config = fopen(file, "w");
     if (config != NULL)
     {
@@ -466,7 +466,7 @@ void save_prefs(prefs * p)
         fprintf(config, "%d\n", p->track_num_width);
         fprintf(config, "%d\n", p->rip_fdkaac);
         fprintf(config, "%d\n", p->fdkaac_bitrate);
-        
+
         fclose(config);
     } else {
         fprintf(stderr, "Warning: could not save config file: %s\n", strerror(errno));
@@ -479,13 +479,13 @@ void load_prefs(prefs * p)
 {
     gchar * file = get_prefs_load_config_path();
     debugLog("Loading configuration\n");
-    
+
     int fd = open(file, O_RDONLY);
     if (fd > -1)
     {
         int anInt;
         char* aCharPtr;
-        
+
         aCharPtr = read_line(fd);
         if (aCharPtr != NULL)
         {
@@ -493,7 +493,7 @@ void load_prefs(prefs * p)
                 free(p->cdrom);
             p->cdrom = aCharPtr;
         }
-        
+
         aCharPtr = read_line(fd);
         if (aCharPtr != NULL)
         {
@@ -501,14 +501,14 @@ void load_prefs(prefs * p)
                 free(p->music_dir);
             p->music_dir = aCharPtr;
         }
-        
+
         // this one can be 0
         p->make_playlist = read_line_num(fd);
-        
+
         // used to be p->make_albumdir, but no longer used
         p->make_albumdir = 1;
         read_line_num(fd);
-        
+
         aCharPtr = read_line(fd);
         if (aCharPtr != NULL)
         {
@@ -516,7 +516,7 @@ void load_prefs(prefs * p)
                 free(p->format_music);
             p->format_music = aCharPtr;
         }
-        
+
         aCharPtr = read_line(fd);
         if (aCharPtr != NULL)
         {
@@ -524,7 +524,7 @@ void load_prefs(prefs * p)
                 free(p->format_playlist);
             p->format_playlist = aCharPtr;
         }
-        
+
         aCharPtr = read_line(fd);
         if (aCharPtr != NULL)
         {
@@ -532,54 +532,54 @@ void load_prefs(prefs * p)
                 free(p->format_albumdir);
             p->format_albumdir = aCharPtr;
         }
-        
+
         // this one can be 0
         p->rip_wav = read_line_num(fd);
-        
+
         // this one can be 0
         p->rip_mp3 = read_line_num(fd);
-        
+
         // this one can be 0
         p->rip_ogg = read_line_num(fd);
 
         // this one can be 0
         p->rip_flac = read_line_num(fd);
-        
+
         // this one can be 0
         p->mp3_vbr = read_line_num(fd);
-        
+
         anInt = read_line_num(fd);
         if (anInt != 0)
             p->mp3_bitrate = anInt;
-        
+
         // this one can be 0
         p->ogg_quality = read_line_num(fd);
-        
+
         // this one can be 0
         p->flac_compression = read_line_num(fd);
-        
+
         /* used to be p->invalid_chars, but no longer used */
         aCharPtr = read_line(fd);
         if (aCharPtr != NULL)
             free(aCharPtr);
-        
+
         anInt = read_line_num(fd);
         if (anInt != 0)
             p->main_window_width = anInt;
-        
+
         anInt = read_line_num(fd);
         if (anInt != 0)
             p->main_window_height = anInt;
-        
+
         // this one can be 0
         p->eject_on_done = read_line_num(fd);
-        
+
         // this one can be 0
         p->do_cddb_updates = read_line_num(fd);
-        
+
         // this one can be 0
         p->use_proxy = read_line_num(fd);
-        
+
         aCharPtr = read_line(fd);
         if (aCharPtr != NULL)
         {
@@ -587,29 +587,29 @@ void load_prefs(prefs * p)
                 free(p->server_name);
             p->server_name = aCharPtr;
         }
-        
+
         p->port_number = read_line_num(fd);
         if (p->port_number == 0 || !is_valid_port_number(p->port_number))
         {
             printf("bad port number read from config file, using %d instead\n", DEFAULT_PROXY_PORT);
             p->port_number = DEFAULT_PROXY_PORT;
         }
-        
+
         // this one can be 0
         p->rip_wavpack = read_line_num(fd);
-        
+
         // this one can be 0
         p->wavpack_compression = read_line_num(fd);
-        
+
         // this one can be 0
         p->wavpack_hybrid = read_line_num(fd);
-        
+
         // this one can be 0
         p->wavpack_bitrate = read_line_num(fd);
-        
+
         // this one can be 0
         p->do_log = read_line_num(fd);
-        
+
         aCharPtr = read_line(fd);
         if (aCharPtr != NULL)
         {
@@ -617,91 +617,91 @@ void load_prefs(prefs * p)
                 free(p->cddb_server_name);
             p->cddb_server_name = aCharPtr;
         }
-        
+
         p->cddb_port_number = read_line_num(fd);
         if (p->cddb_port_number == 0 || !is_valid_port_number(p->cddb_port_number))
         {
             printf("bad port number read from config file, using 888 instead\n");
             p->cddb_port_number = DEFAULT_CDDB_SERVER_PORT;
         }
-        
+
         // this one can be 0
         p->rip_monkey = read_line_num(fd);
-        
+
         // this one can be 0
         p->monkey_compression = read_line_num(fd);
-        
+
         /* used to be p->rip_aac, but no longer used */
         aCharPtr = read_line(fd);
         if (aCharPtr != NULL)
             free(aCharPtr);
-        
+
         /* used to be p->aac_quality, but no longer used */
         aCharPtr = read_line(fd);
         if (aCharPtr != NULL)
             free(aCharPtr);
-        
+
         // this one can be 0
         p->rip_musepack = read_line_num(fd);
-        
+
         // this one can be 0
         p->musepack_bitrate = read_line_num(fd);
-        
+
         // this one can be 0
         p->more_formats_expanded = read_line_num(fd);
-        
+
         // this one can be 0
         p->proprietary_formats_expanded = read_line_num(fd);
-        
+
         // this one can be 0
         p->rip_opus = read_line_num(fd);
-        
+
         anInt = read_line_num(fd);
         if (anInt != 0)
             p->opus_bitrate = anInt;
-        
+
         // this one can be 0
         p->do_fast_rip = read_line_num(fd);
 
         // this one can be 0
         p->allow_first_track_num_change = read_line_num(fd);
-        
+
         // this one can be 0
         p->first_track_num_offset = read_line_num(fd);
-        
+
         p->track_num_width = read_line_num(fd);
         if (p->track_num_width < 1 || p->track_num_width > 4)
             p->track_num_width = 2;
-        
+
         // this one can be 0
         p->rip_fdkaac = read_line_num(fd);
-        
+
         // this one can be 0
         p->fdkaac_bitrate = read_line_num(fd);
-        
+
         close(fd);
     } else {
         fprintf(stderr, "Warning: could not load config file: %s\n", strerror(errno));
     }
     g_free(file);
-    
-    
+
+
     // Check if we have a file (and not a folder) called ~/.config/asunder
     // This causes the save config later to fail, since it tries to make
     // a folder with exactly that name - We can safely remove it now, since
     // we have already loaded any config it contains, if any.
     gchar *test_filename = g_build_filename(g_get_user_config_dir(),
                                             CONFIG_FILENAME, NULL);
-    
+
     // if it is a file (and not a directory, remove it)
     if (!g_file_test(test_filename, G_FILE_TEST_IS_DIR)) {
-    
+
         // Remove the file - we save the config later, to the correct location
         if (g_remove(test_filename) == -1) {
             fprintf(stderr, "Couldn't remove config file in wrong location...\n");
         }
     }
-    
+
     g_free(test_filename);
 }
 
@@ -712,26 +712,26 @@ char * prefs_get_music_dir(prefs * p)
     struct stat s;
     char * home;
     GtkWidget * dialog;
-    
+
     if (stat(p->music_dir, &s) != 0)
     {
         home = getenv("HOME");
-        
-        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+
+        dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                         "The music directory '%s' does not exist.\n\n"
-                                        "The music directory will be reset to '%s'.", 
+                                        "The music directory will be reset to '%s'.",
                                         p->music_dir, home);
         gtk_dialog_run(GTK_DIALOG(dialog));
         gtk_widget_destroy(dialog);
-        
+
         free(p->music_dir);
         p->music_dir = malloc(sizeof(char) * (strlen(home)+1));
         if (p->music_dir == NULL)
             fatalError("malloc(sizeof(char) * (strlen(home)+1)) failed. Out of memory.");
-        
+
         strncpy(p->music_dir, home, strlen(home)+1);
-        
+
         save_prefs(p);
     }
     return p->music_dir;
@@ -749,24 +749,24 @@ bool prefs_are_valid(void)
 {
     GtkWidget * warningDialog;
     bool somethingWrong = false;
-    
+
     // playlistfile
     if(string_has_slashes(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_playlist")))))
     {
         warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
-                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                                _("Invalid characters in the '%s' field"),
                                                _("Playlist file: "));
         gtk_dialog_run(GTK_DIALOG(warningDialog));
         gtk_widget_destroy(warningDialog);
         somethingWrong = true;
     }
-    
+
     // musicfile
     if(string_has_slashes(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_music")))))
     {
         warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
-                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                                _("Invalid characters in the '%s' field"),
                                                _("Music file: "));
         gtk_dialog_run(GTK_DIALOG(warningDialog));
@@ -776,14 +776,14 @@ bool prefs_are_valid(void)
     if(strlen(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "format_music")))) == 0)
     {
         warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
-                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                                _("'%s' cannot be empty"),
                                                _("Music file: "));
         gtk_dialog_run(GTK_DIALOG(warningDialog));
         gtk_widget_destroy(warningDialog);
         somethingWrong = true;
     }
-    
+
     // proxy port
     int rc;
     int port_number;
@@ -791,26 +791,26 @@ bool prefs_are_valid(void)
     if (rc != 1 || !is_valid_port_number(port_number))
     {
         warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
-                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                                _("Invalid proxy port number"));
         gtk_dialog_run(GTK_DIALOG(warningDialog));
         gtk_widget_destroy(warningDialog);
         somethingWrong = true;
     }
-    
+
     // cddb server port
     int cddb_port_number;
     rc = sscanf(gtk_entry_get_text(GTK_ENTRY(lookup_widget(win_prefs, "cddb_port_number"))), "%d", &cddb_port_number);
     if (rc != 1 || !is_valid_port_number(cddb_port_number))
     {
         warningDialog = gtk_message_dialog_new(GTK_WINDOW(win_main), GTK_DIALOG_DESTROY_WITH_PARENT,
-                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, 
+                                               GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                                _("Invalid cddb server port number"));
         gtk_dialog_run(GTK_DIALOG(warningDialog));
         gtk_widget_destroy(warningDialog);
         somethingWrong = true;
     }
-	
+
     if(somethingWrong)
         return false;
     else
@@ -820,12 +820,12 @@ bool prefs_are_valid(void)
 bool string_has_slashes(const char* string)
 {
     int count;
-    
+
     for(count = strlen(string) - 1; count >= 0; count--)
     {
         if(string[count] == '/')
             return true;
     }
-    
+
     return false;
 }

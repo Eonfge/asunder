@@ -5,7 +5,7 @@ Copyright(C) 2005 Eric Lathrop <eric@ericlathrop.com>
 Copyright(C) 2007 Andrew Smith <http://littlesvr.ca/contact.php>
 
 Any code in this file may be redistributed or modified under the terms of
-the GNU General Public Licence as published by the Free Software 
+the GNU General Public Licence as published by the Free Software
 Foundation; version 2 of the licence.
 
 */
@@ -38,12 +38,12 @@ bool confirmOverwrite(const char* pathAndName)
     char* lastSlash;
     int rc;
     char msgStr[1024];
-    
+
     if(overwriteAll)
         return true;
     if(overwriteNone)
         return false;
-    
+
     dialog = gtk_dialog_new_with_buttons(_("Overwrite?"),
                                          GTK_WINDOW(win_main),
                                          GTK_DIALOG_DESTROY_WITH_PARENT,
@@ -53,22 +53,22 @@ bool confirmOverwrite(const char* pathAndName)
                                          GTK_RESPONSE_REJECT,
                                          NULL);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_REJECT);
-    
+
     lastSlash = strrchr(pathAndName, '/');
     lastSlash++;
-    
+
     snprintf(msgStr, 1024, _("The file '%s' already exists. Do you want to overwrite it?\n"), lastSlash);
-    
+
     label = gtk_label_new(msgStr);
     gtk_widget_show(label);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), label, TRUE, TRUE, 0);
-    
+
     checkbox = gtk_check_button_new_with_mnemonic(_("Remember the answer for _all the files made from this CD"));
     gtk_widget_show(checkbox);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), checkbox, TRUE, TRUE, 0);
-    
+
     rc = gtk_dialog_run(GTK_DIALOG(dialog));
-    
+
     if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(checkbox)))
     {
         if(rc == GTK_RESPONSE_ACCEPT)
@@ -76,9 +76,9 @@ bool confirmOverwrite(const char* pathAndName)
         else
             overwriteNone = true;
     }
-    
+
     gtk_widget_destroy(dialog);
-    
+
     if(rc == GTK_RESPONSE_ACCEPT)
         return true;
     else
@@ -210,4 +210,3 @@ glade_set_atk_action_description       (AtkAction       *action,
         atk_action_set_description (action, i, description);
     }
 }
-

@@ -62,4 +62,3 @@ GdkPixbuf*  create_pixbuf              (const gchar     *filename);
 void        glade_set_atk_action_description (AtkAction       *action,
                                               const gchar     *action_name,
                                               const gchar     *description);
-

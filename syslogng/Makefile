@@ -1,4 +1,4 @@
-# Distributions that don't use syslog-ng should do something 
+# Distributions that don't use syslog-ng should do something
 # different here, but note that the log file path in asunder.conf
 # is also mentioned in the Preferences UI.
 #

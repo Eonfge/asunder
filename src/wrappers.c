@@ -5,7 +5,7 @@ Copyright(C) 2005 Eric Lathrop <eric@ericlathrop.com>
 Copyright(C) 2007 Andrew Smith <http://littlesvr.ca/contact.php>
 
 Any code in this file may be redistributed or modified under the terms of
-the GNU General Public Licence as published by the Free Software 
+the GNU General Public Licence as published by the Free Software
 Foundation; version 2 of the licence.
 
 */
@@ -65,12 +65,12 @@ static bool waitBeforeSigchld;
 void blockSigChld(void)
 {
     sigset_t block_chld;
-    
+
     sigemptyset(&block_chld);
     sigaddset(&block_chld, SIGCHLD);
-    
+
     sigprocmask(SIG_BLOCK, &block_chld, NULL);
-    
+
     /*!! for some reason the blocking above doesn't work, so do this for now */
     waitBeforeSigchld = true;
 }
@@ -78,12 +78,12 @@ void blockSigChld(void)
 void unblockSigChld(void)
 {
     sigset_t block_chld;
-    
+
     sigemptyset(&block_chld);
     sigaddset(&block_chld, SIGCHLD);
-    
+
     sigprocmask(SIG_UNBLOCK, &block_chld, NULL);
-    
+
     waitBeforeSigchld = false;
 }
 
@@ -94,13 +94,13 @@ void sigchld(int signum)
 {
     int status;
     pid_t pid;
-    
+
     pid = wait(&status);
-    
+
     /* this is because i can't seem to be able to block sigchld: */
     while(waitBeforeSigchld)
         usleep(100);
-    
+
     if (status != 0)
     {
         if (pid == cdparanoia_pid)
@@ -207,32 +207,32 @@ void sigchld(int signum)
 // toread - the file descriptor to pipe back to the parent
 // p - a place to write the PID of the exec'ed process
 // dir - directory to run program in
-// 
+//
 // returns - a file descriptor that reads whatever the program outputs on "toread"
 int exec_with_output(const char * args[], int toread, pid_t * p, const char * dir)
 {
     char logStr[2048];
     int pipefd[2];
-    
+
     blockSigChld();
-    
+
     if (pipe(pipefd) != 0)
         fatalError("exec_with_output(): failed to create a pipe");
-    
+
     if ((*p = fork()) == 0)
     {
         // im the child
         // i get to execute the command
-        
+
         // close the side of the pipe we don't need
         close(pipefd[0]);
-        
+
         /* this causes a segfault on fedora, and I don't really see why it's needed anyway */
         //~ // close all standard streams to keep output clean
         //~ close(STDOUT_FILENO);
         //~ close(STDIN_FILENO);
         //~ close(STDERR_FILENO);
-        
+
         /* instead redirect to /dev/null */
         if (gbl_null_fd != -1)
         {
@@ -241,11 +241,11 @@ int exec_with_output(const char * args[], int toread, pid_t * p, const char * di
             dup2(STDERR_FILENO, gbl_null_fd);
             close(STDERR_FILENO);
         }
-        
+
         // setup output
         dup2(pipefd[1], toread);
         close(pipefd[1]);
-        
+
         // Change directory if required
         if (dir && (chdir(dir) < 0))
         {
@@ -253,14 +253,14 @@ int exec_with_output(const char * args[], int toread, pid_t * p, const char * di
             debugLog(logStr);
             exit(0);
         }
-        
+
         // call execvp
         execvp(args[0], (char **)args);
-        
+
         // should never get here
         fatalError("exec_with_output(): execvp() failed");
     }
-    
+
     int count;
     snprintf(logStr, 2048, "%d started: %s ", *p, args[0]);
     for (count = 1; args[count] != NULL; count++)
@@ -272,15 +272,15 @@ int exec_with_output(const char * args[], int toread, pid_t * p, const char * di
         }
     }
     debugLog(logStr);
-    
+
     // i'm the parent, get ready to wait for children
     numchildren++;
-    
+
     // close the side of the pipe we don't need
     close(pipefd[1]);
-    
+
     unblockSigChld();
-    
+
     return pipefd[0];
 }
 
@@ -301,15 +301,15 @@ void cdparanoia(const char * cdrom,
     int fd;
     char buf[256];
     int size;
-    
+
     int start;
     int end;
     int code;
     char type[200];
     int sector;
-    
+
     char trackstring[4];
-    
+
     snprintf(trackstring, 4, "%d", tracknum);
 
     // Evade cdparanoia's 245 char path limit by changing to the target
@@ -319,7 +319,7 @@ void cdparanoia(const char * cdrom,
     snprintf(trackname, sizeof(trackname), "x%02d.wav", tracknum);
     gchar * dir = g_path_get_dirname(filename);
     gchar * xfilename = g_build_filename(dir, trackname, NULL);
-    
+
     pos = 0;
     args[pos++] = "cdparanoia";
     if (global_prefs->do_fast_rip)
@@ -330,9 +330,9 @@ void cdparanoia(const char * cdrom,
     args[pos++] = trackstring;
     args[pos++] = trackname;
     args[pos++] = NULL;
-    
+
     fd = exec_with_output(args, STDERR_FILENO, &cdparanoia_pid, dir);
-    
+
     // to convert the progress number stat cdparanoia spits out
     // into sector numbers divide by 1176
     // note: only use the "[wrote]" numbers
@@ -343,10 +343,10 @@ void cdparanoia(const char * cdrom,
         do
         {
             interrupted = FALSE;
-            
+
             pos++;
             size = read(fd, &buf[pos], 1);
-            
+
             if (size == -1 && errno == EINTR)
             /* signal interrupted read(), try again */
             {
@@ -371,10 +371,10 @@ void cdparanoia(const char * cdrom,
             }
         }
     } while (size > 0);
-    
+
     snprintf(logStr, 1024, "Ripping %s finished\n", trackstring);
     debugLog(logStr);
-    
+
     close(fd);
     /* don't go on until the signal for the previous call is handled */
     while (cdparanoia_pid != 0)
@@ -419,14 +419,14 @@ void lame(int tracknum,
           double * progress)
 {
     int fd;
-    
+
     char buf[256];
     int size;
     int pos;
-    
+
     int sector;
     int end;
-    
+
     char * tracknum_text = NULL;
     char bitrate_text[4];
     const char * args[19];
@@ -467,7 +467,7 @@ void lame(int tracknum,
     }
 
     // lame refuses to accept some genres that come from cddb, and users get upset
-    // No longer an issue - users can now edit the genre field -lnr 
+    // No longer an issue - users can now edit the genre field -lnr
 
     // if (false && (genre != NULL) && (strlen(genre) > 0))
     if (( genre != NULL )								// lnr
@@ -488,7 +488,7 @@ void lame(int tracknum,
 
     fd = exec_with_output(args, STDERR_FILENO, &lame_pid, NULL);
     free(tracknum_text);
-    
+
     do
     {
         pos = -1;
@@ -496,10 +496,10 @@ void lame(int tracknum,
         do
         {
             interrupted = FALSE;
-            
+
             pos++;
             size = read(fd, &buf[pos], 1);
-            
+
             if (size == -1 && errno == EINTR)
             /* signal interrupted read(), try again */
             {
@@ -507,16 +507,16 @@ void lame(int tracknum,
                 debugLog("lame() interrupted");
                 interrupted = TRUE;
             }
-            
+
         } while ((size > 0 && pos < 255 && buf[pos] != '\r' && buf[pos] != '\n') || interrupted);
         buf[pos] = '\0';
-        
+
         if (sscanf(buf, "%d/%d", &sector, &end) == 2)
         {
             *progress = (double)sector/end;
         }
     } while (size > 0);
-    
+
     close(fd);
     /* don't go on until the signal for the previous call is handled */
     while (lame_pid != 0)
@@ -553,7 +553,7 @@ void oggenc(int tracknum,
     char buf[256];
     int size;
     int pos;
-    
+
     int sector;
     int end;
 
@@ -562,12 +562,12 @@ void oggenc(int tracknum,
     const char * args[19];
 
     snprintf(quality_level_text, 3, "%d", quality_level);
-    
+
     pos = 0;
     args[pos++] = "oggenc";
     args[pos++] = "-q";
     args[pos++] = quality_level_text;
-    
+
     if (tracknum > 0 && asprintf(&tracknum_text, "%d", tracknum) > 0)
     {
         args[pos++] = "-N";
@@ -587,7 +587,7 @@ void oggenc(int tracknum,
     {
         args[pos++] = "-t";
         args[pos++] = title;
-    } 
+    }
     if ((year != NULL) && (strlen(year) > 0))
     {
         args[pos++] = "-d";
@@ -602,10 +602,10 @@ void oggenc(int tracknum,
     args[pos++] = "-o";
     args[pos++] = oggfilename;
     args[pos++] = NULL;
-    
+
     fd = exec_with_output(args, STDERR_FILENO, &oggenc_pid, NULL);
     free(tracknum_text);
-    
+
     do
     {
         pos = -1;
@@ -613,10 +613,10 @@ void oggenc(int tracknum,
         do
         {
             interrupted = FALSE;
-            
+
             pos++;
             size = read(fd, &buf[pos], 1);
-            
+
             if (size == -1 && errno == EINTR)
             /* signal interrupted read(), try again */
             {
@@ -624,7 +624,7 @@ void oggenc(int tracknum,
                 debugLog("oggenc() interrupted");
                 interrupted = TRUE;
             }
-            
+
         } while ((size > 0 && pos < 255 && buf[pos] != '\r' && buf[pos] != '\n') || interrupted);
         buf[pos] = '\0';
 
@@ -637,7 +637,7 @@ void oggenc(int tracknum,
             *progress = (double)(sector + (end*0.1))/100;
         }
     } while (size > 0);
-    
+
     close(fd);
     /* don't go on until the signal for the previous call is handled */
     while (oggenc_pid != 0)
@@ -780,9 +780,9 @@ void flac(int tracknum,
     char buf[256];
     int size;
     int pos;
-    
+
     int sector;
-    
+
     char * tracknum_text = NULL;
     char * artist_text = NULL;
     char * albumartist_text = NULL; //mw
@@ -792,7 +792,7 @@ void flac(int tracknum,
     char * year_text = NULL;
     char compression_level_text[3];
     const char * args[21];
-    
+
     if(artist != NULL)
     {
         artist_text = malloc(strlen(artist) + 8);
@@ -800,7 +800,7 @@ void flac(int tracknum,
             fatalError("malloc(sizeof(char) * (strlen(artist)+8)) failed. Out of memory.");
         snprintf(artist_text, strlen(artist) + 8, "ARTIST=%s", artist);
     }
-    
+
     //mw
     if((albumartist != NULL) && (!single_artist))
     {
@@ -810,7 +810,7 @@ void flac(int tracknum,
         snprintf(albumartist_text, strlen(albumartist) + 13, "ALBUMARTIST=%s", albumartist);
     }
     //mw end
-    
+
     if(album != NULL)
     {
         album_text = malloc(strlen(album) + 7);
@@ -818,7 +818,7 @@ void flac(int tracknum,
             fatalError("malloc(sizeof(char) * (strlen(album)+7)) failed. Out of memory.");
         snprintf(album_text, strlen(album) + 7, "ALBUM=%s", album);
     }
-    
+
     if(title != NULL)
     {
         title_text = malloc(strlen(title) + 7);
@@ -826,7 +826,7 @@ void flac(int tracknum,
             fatalError("malloc(sizeof(char) * (strlen(title)+7) failed. Out of memory.");
         snprintf(title_text, strlen(title) + 7, "TITLE=%s", title);
     }
-    
+
     if(genre != NULL)
     {
         genre_text = malloc(strlen(genre) + 7);
@@ -834,7 +834,7 @@ void flac(int tracknum,
             fatalError("malloc(sizeof(char) * (strlen(genre)+7) failed. Out of memory.");
         snprintf(genre_text, strlen(genre) + 7, "GENRE=%s", genre);
     }
-    
+
     if(year != NULL)
     {
         year_text = malloc(strlen(year) + 6);
@@ -842,9 +842,9 @@ void flac(int tracknum,
             fatalError("malloc(sizeof(char) * (strlen(year)+6) failed. Out of memory.");
         snprintf(year_text, strlen(year) + 6, "DATE=%s", year);
     }
-    
+
     snprintf(compression_level_text, 3, "-%d", compression_level);
-    
+
     pos = 0;
     args[pos++] = "flac";
     args[pos++] = "-f";
@@ -892,9 +892,9 @@ void flac(int tracknum,
     args[pos++] = "-o";
     args[pos++] = flacfilename;
     args[pos++] = NULL;
-    
+
     fd = exec_with_output(args, STDERR_FILENO, &flac_pid, NULL);
-    
+
     free(tracknum_text);
     free(artist_text);
     free(album_text);
@@ -902,7 +902,7 @@ void flac(int tracknum,
     free(title_text);
     free(genre_text);
     free(year_text);
-    
+
     do
     {
         pos = -1;
@@ -910,10 +910,10 @@ void flac(int tracknum,
         do
         {
             interrupted = FALSE;
-            
+
             pos++;
             size = read(fd, &buf[pos], 1);
-            
+
             if (size == -1 && errno == EINTR)
             /* signal interrupted read(), try again */
             {
@@ -921,7 +921,7 @@ void flac(int tracknum,
                 debugLog("flac() interrupted");
                 interrupted = TRUE;
             }
-            
+
         } while ((size > 0 && pos < 255 && buf[pos] != '\r' && buf[pos] != '\n' && buf[pos] != '\b') || interrupted);
         buf[pos] = '\0';
 
@@ -930,9 +930,9 @@ void flac(int tracknum,
             *progress = (double)sector/100;
         }
     } while (size > 0);
-    
+
     close(fd);
-    
+
     /* don't go on until the signal for the previous call is handled */
     while (flac_pid != 0)
     {
@@ -991,19 +991,19 @@ void wavpack(int tracknum,
     gchar * dir = g_path_get_dirname(wavpackfilename_wv);
     gchar * xwavpackfilename_wv = g_build_filename(dir, trackname_wv, NULL);
     gchar * xwavpackfilename_wvc = g_build_filename(dir, trackname_wvc, NULL);
-    
+
     pos = 0;
     args[pos++] = "wavpack";
-    
+
     char bitrateTxt[7];
     if(hybrid)
     {
         snprintf(bitrateTxt, 7, "-b%d", bitrate);
         args[pos++] = bitrateTxt;
-        
+
         args[pos++] = "-c";
     }
-    
+
     args[pos++] = "-y";
     if(compression == 0)
         args[pos++] = "-f";
@@ -1012,7 +1012,7 @@ void wavpack(int tracknum,
     else if(compression == 3)
         args[pos++] = "-hh";
     // default is no parameter (normal compression)
-    
+
     args[pos++] = "-x3";
 
     // Tags
@@ -1074,9 +1074,9 @@ void wavpack(int tracknum,
     args[pos++] = "-o";
     args[pos++] = trackname_wv;
     args[pos++] = NULL;
-    
+
     fd = exec_with_output(args, STDERR_FILENO, &wavpack_pid, dir);
-    
+
     do
     {
         pos = -1;
@@ -1084,10 +1084,10 @@ void wavpack(int tracknum,
         do
         {
             interrupted = FALSE;
-            
+
             pos++;
             size = read(fd, &buf[pos], 1);
-            
+
             if (size == -1 && errno == EINTR)
             /* signal interrupted read(), try again */
             {
@@ -1096,9 +1096,9 @@ void wavpack(int tracknum,
                 interrupted = TRUE;
             }
         } while ((size > 0 && pos < 255 && buf[pos] != '\b') || interrupted);
-        
+
         buf[pos] = '\0';
-        
+
         for (; pos>0; pos--)
         {
             if (buf[pos] == ',')
@@ -1107,7 +1107,7 @@ void wavpack(int tracknum,
                 break;
             }
         }
-        
+
         int percent;
         /* That extra first condition is because wavpack ends encoding with a
         * line like this:
@@ -1116,12 +1116,12 @@ void wavpack(int tracknum,
         if (buf[strlen(buf) - 1] != ')' && sscanf(&buf[pos], "%d%%", &percent) == 1)
         {
             *progress = (double)percent/100;
-            //!! This was commented out, possibly because the last line is in some 
+            //!! This was commented out, possibly because the last line is in some
             // different format than the normal progress
             //~ fprintf(stderr, "line '%s' percent %.2lf\n", &buf[pos], *progress);
         }
     } while (size > 0);
-    
+
     close(fd);
     /* don't go on until the signal for the previous call is handled */
     while (wavpack_pid != 0)
@@ -1168,20 +1168,20 @@ void mac(const char* wavfilename,
     const char* args[5];
     int fd;
     int pos;
-    
+
     pos = 0;
     args[pos++] = "mac";
     args[pos++] = wavfilename;
     args[pos++] = monkeyfilename;
-    
+
     char compressParam[10];
     snprintf(compressParam, 10, "-c%d", compression);
     args[pos++] = compressParam;
-    
+
     args[pos++] = NULL;
-    
+
     fd = exec_with_output(args, STDERR_FILENO, &monkey_pid, NULL);
-    
+
     int size;
     char buf[256];
     do
@@ -1191,24 +1191,24 @@ void mac(const char* wavfilename,
         {
             pos++;
             size = read(fd, &buf[pos], 1);
-            
+
             if (size == -1 && errno == EINTR)
             /* signal interrupted read(), try again */
             {
                 pos--;
                 size = 1;
             }
-            
+
         } while ((buf[pos] != '\r') && (buf[pos] != '\n') && (size > 0) && (pos < 255));
         buf[pos] = '\0';
-        
+
         double percent;
         if (sscanf(buf, "Progress: %lf", &percent) == 1)
         {
             *progress = percent / 100;
         }
     } while (size > 0);
-    
+
     close(fd);
     /* don't go on until the signal for the previous call is handled */
     while (monkey_pid != 0)
@@ -1243,11 +1243,11 @@ void musepack(int tracknum,
     const char* args[19];
     int fd;
     int pos;
-    
+
     pos = 0;
     args[pos++] = "mpcenc";
     args[pos++] = "--overwrite";
-    
+
     args[pos++] = "--quality";
     char qualityParam[6];
     snprintf(qualityParam, 6, "%d.00", quality);
@@ -1285,14 +1285,14 @@ void musepack(int tracknum,
         args[pos++] = "--genre";
         args[pos++] = genre;
     }
-    
+
     args[pos++] = wavfilename;
     args[pos++] = musepackfilename;
     args[pos++] = NULL;
-    
+
     fd = exec_with_output(args, STDERR_FILENO, &musepack_pid, NULL);
     free(track);
-    
+
     int size;
     char buf[256];
     do
@@ -1302,10 +1302,10 @@ void musepack(int tracknum,
         do
         {
             interrupted = FALSE;
-            
+
             pos++;
             size = read(fd, &buf[pos], 1);
-            
+
             if (size == -1 && errno == EINTR)
             /* signal interrupted read(), try again */
             {
@@ -1313,17 +1313,17 @@ void musepack(int tracknum,
                 debugLog("musepack() interrupted");
                 interrupted = TRUE;
             }
-            
+
         } while ((size > 0 && pos < 255 && buf[pos] != '\r' && buf[pos] != '\n') || interrupted);
         buf[pos] = '\0';
-        
+
         double percent;
         if (sscanf(buf, " %lf", &percent) == 1)
         {
             *progress = percent / 100;
         }
     } while (size > 0);
-    
+
     close(fd);
     /* don't go on until the signal for the previous call is handled */
     while (musepack_pid != 0)

@@ -5,7 +5,7 @@ Copyright(C) 2005 Eric Lathrop <eric@ericlathrop.com>
 Copyright(C) 2007 Andrew Smith <http://littlesvr.ca/contact.php>
 
 Any code in this file may be redistributed or modified under the terms of
-the GNU General Public Licence as published by the Free Software 
+the GNU General Public Licence as published by the Free Software
 Foundation; version 2 of the licence.
 
 */
@@ -57,7 +57,7 @@ int int_to_monkey_int(int i)
     case 4:
         return 5000;
     }
-    
+
     fprintf(stderr, "int_to_monkey_int() called with bad parameter\n");
     return 3000;
 }
@@ -93,7 +93,7 @@ int int_to_vbr_int(int i)
     case 14:
         return 0;
     }
-    
+
     fprintf(stderr, "int_to_vbr_int() called with bad parameter\n");
     return 4;
 }
@@ -113,7 +113,7 @@ int int_to_musepack_int(int i)
     case 4:
         return 7;
     }
-    
+
     fprintf(stderr, "int_to_musepack_int() called with bad parameter\n");
     return 5;
 }
@@ -197,7 +197,7 @@ int int_to_bitrate(int i, bool vbr)
         else
             return 320;
     }
-    
+
     fprintf(stderr, "int_to_bitrate() called with bad parameter (%d)\n", i);
     return 32;
 }
@@ -221,7 +221,7 @@ int int_to_wavpack_bitrate(int i)
     case 6: // some format_wavpack_bitrate() weirdness
         return 512;
     }
-    
+
     fprintf(stderr, "int_to_wavpack_bitrate() called with bad parameter (%d)\n", i);
     return 192;
 }
@@ -241,7 +241,7 @@ int int_to_musepack_bitrate(int i)
     case 4:
         return 240;
     }
-    
+
     fprintf(stderr, "int_to_wavpack_bitrate() called with bad parameter (%d)\n", i);
     return 90;
 }
@@ -283,7 +283,7 @@ shorten_filename (char ** ret, const char * path, const char * dir, const char *
             if (errno == ENAMETOOLONG)
                 continue;   // No reason to attempt creat()
         }
-        
+
         // If the file did not exist but we are able to create it, then filename is ok.
         int fd = creat (pathbuffer, 0666);
         if (fd != -1)
@@ -339,7 +339,7 @@ char * make_filename(const char * path, const char * dir, const char * file, con
     int len = 1;
     char * ret = NULL;
     int pos = 0;
-    
+
     if (path)
     {
         len += strlen(path) + 1;
@@ -356,11 +356,11 @@ char * make_filename(const char * path, const char * dir, const char * file, con
     {
         len += strlen(extension) + 1;
     }
-    
+
     ret = malloc(sizeof(char) * len);
     if (ret == NULL)
         fatalError("malloc(sizeof(char) * len) failed. Out of memory.");
-    
+
     if (path)
     {
         strncpy(&ret[pos], path, strlen(path));
@@ -400,7 +400,7 @@ void make_playlist(const char* filename, FILE** file)
     bool makePlaylist;
     int rc;
     struct stat statStruct;
-    
+
     rc = stat(filename, &statStruct);
     if(rc == 0)
     {
@@ -411,19 +411,19 @@ void make_playlist(const char* filename, FILE** file)
     }
     else
         makePlaylist = true;
-    
+
     if(makePlaylist)
     {
         *file = fopen(filename, "w");
-        
+
         if (*file == NULL)
         {
             GtkWidget * dialog;
-            dialog = gtk_message_dialog_new(GTK_WINDOW(win_main), 
-                                            GTK_DIALOG_DESTROY_WITH_PARENT, 
-                                            GTK_MESSAGE_ERROR, 
-                                            GTK_BUTTONS_OK, 
-                                            "Unable to create playlist \"%s\": %s", 
+            dialog = gtk_message_dialog_new(GTK_WINDOW(win_main),
+                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+                                            GTK_MESSAGE_ERROR,
+                                            GTK_BUTTONS_OK,
+                                            "Unable to create playlist \"%s\": %s",
                                             filename, strerror(errno));
             gtk_dialog_run(GTK_DIALOG(dialog));
             gtk_widget_destroy(dialog);
@@ -445,7 +445,7 @@ void make_playlist(const char* filename, FILE** file)
 // title - gets substituted for %T in format
 //
 // NOTE: caller must free the returned string!
-char * parse_format(const char* format, int tracknum, const char* year, const char* artist, 
+char * parse_format(const char* format, int tracknum, const char* year, const char* artist,
                     const char* album, const char* genre, const char* title)
 {
     unsigned i = 0;
@@ -453,7 +453,7 @@ char * parse_format(const char* format, int tracknum, const char* year, const ch
     char * ret = NULL;
     int pos = 0;
     int tnsize = 0;
-    
+
     for (i=0; i<strlen(format); i++)
     {
         if ((format[i] == '%') && (i+1 < strlen(format)))
@@ -486,17 +486,17 @@ char * parse_format(const char* format, int tracknum, const char* year, const ch
                     len += 1;
                     break;
             }
-            
+
             i++; // skip the character after the %
         } else {
             len++;
         }
     }
-    
+
     ret = malloc(sizeof(char) * (len+1));
     if (ret == NULL)
         fatalError("malloc(sizeof(char) * (len+1)) failed. Out of memory.");
-    
+
     for (i=0; i<strlen(format); i++)
     {
         if ((format[i] == '%') && (i+1 < strlen(format)))
@@ -548,7 +548,7 @@ char * parse_format(const char* format, int tracknum, const char* year, const ch
                     ret[pos] = '%';
                     pos += 1;
             }
-            
+
             i++; // skip the character after the %
         } else {
             ret[pos] = format[i];
@@ -556,7 +556,7 @@ char * parse_format(const char* format, int tracknum, const char* year, const ch
         }
     }
     ret[pos] = '\0';
-    
+
     return ret;
 }
 
@@ -572,13 +572,13 @@ int program_exists(const char * name)
     struct stat s;
     int ret = 0;
     char * filename;
-    
+
     path = getenv("PATH");
     strings = malloc(sizeof(char) * (strlen(path)+1));
     if (strings == NULL)
         fatalError("malloc(sizeof(char) * (strlen(path)+1)) failed. Out of memory.");
     strncpy(strings, path, strlen(path)+1);
-    
+
     for (i=0; i<strlen(path); i++)
     {
         if (strings[i] == ':')
@@ -600,7 +600,7 @@ int program_exists(const char * name)
             numpaths++;
         }
     }
-    
+
     for (i=0; i<numpaths; i++)
     {
         filename = make_filename(paths[i], NULL, name, NULL);
@@ -612,10 +612,10 @@ int program_exists(const char * name)
         }
         free(filename);
     }
-    
+
     free(strings);
     free(paths);
-    
+
     return ret;
 }
 
@@ -628,7 +628,7 @@ char * read_line(int fd)
     char cur;
     char * ret;
     int rc;
-    
+
     do
     {
         rc = read(fd, &cur, 1);
@@ -641,14 +641,14 @@ char * read_line(int fd)
         }
         pos++;
     } while (cur != '\n');
-    
+
     if (pos == 0)
         return NULL;
-    
+
     ret = malloc(sizeof(char) * pos);
     if (ret == NULL)
         fatalError("malloc(sizeof(char) * pos) failed. Out of memory.");
-    
+
     lseek(fd, -pos, SEEK_CUR);
     rc = read(fd, ret, pos);
     if (rc != pos)
@@ -657,7 +657,7 @@ char * read_line(int fd)
         return NULL;
     }
     ret[pos-1] = '\0';
-    
+
     return ret;
 }
 
@@ -665,17 +665,17 @@ char * read_line(int fd)
 int read_line_num(int fd)
 {
     long ret = 0;
-    
+
     char * line = read_line(fd);
     if (line == NULL)
         return 0;
-    
+
     ret = strtol(line, NULL, 10);
     if (ret == LONG_MIN || ret == LONG_MAX)
         ret = 0;
-    
+
     free(line);
-    
+
     return ret;
 }
 
@@ -687,23 +687,23 @@ int recursive_mkdir(char* pathAndName, mode_t mode)
     int pathAndNameLen = strlen(pathAndName);
     int rc;
     char charReplaced;
-    
+
     for(count = 0; count < pathAndNameLen; count++)
     {
         if(pathAndName[count] == '/')
         {
             charReplaced = pathAndName[count + 1];
             pathAndName[count + 1] = '\0';
-            
+
             rc = mkdir(pathAndName, mode);
-            
+
             pathAndName[count + 1] = charReplaced;
-            
+
             if(rc != 0 && !(errno == EEXIST || errno == EISDIR))
                 return rc;
         }
     }
-    
+
     // in case the path doesn't have a trailing slash:
     return mkdir(pathAndName, mode);
 }
@@ -715,13 +715,13 @@ int recursive_parent_mkdir(char* pathAndName, mode_t mode)
     int count;
     bool haveComponent = false;
     int rc = 1; // guaranteed fail unless mkdir is called
-    
+
     // find the last component and cut it off
     for(count = strlen(pathAndName) - 1; count >= 0; count--)
     {
         if(pathAndName[count] != '/')
             haveComponent = true;
-        
+
         if(pathAndName[count] == '/' && haveComponent)
         {
             pathAndName[count] = 0;
@@ -729,7 +729,7 @@ int recursive_parent_mkdir(char* pathAndName, mode_t mode)
             pathAndName[count] = '/';
         }
     }
-    
+
     return rc;
 }
 
@@ -766,7 +766,7 @@ void trim_whitespace(char * str)
     int i;
     int pos = 0;
     int len = strlen(str);
-    
+
     // trim leading space
     for (i=0; i<len+1; i++)
     {
@@ -776,7 +776,7 @@ void trim_whitespace(char * str)
             pos++;
         }
     }
-    
+
     // trim trailing space
     len = strlen(str);
     for (i=len-1; i>=0; i--)
